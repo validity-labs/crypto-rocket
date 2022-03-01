@@ -1,0 +1,44 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["type", "builtin", "external", "internal", "parent", "sibling", "index", "object"],
+        "pathGroups": [
+          {
+            "pattern": "{react,react-dom}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "{next,next/**,next-**,next-**/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "react-**",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "{@mui/**.@emotion/**}",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
+}
