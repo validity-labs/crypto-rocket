@@ -23,12 +23,8 @@
       // "@/interfaces/*": [
       //   "interfaces/*"
       // ],
-      // "@/libs/*": [
-      //   "libs/*"
-      // ],
-      // "@/public/*": [
-      //   "../public/*"
-      // ],
+      "@/libs/*": ["libs/*"],
+      "@/public/*": ["../public/*"],
       // "@/mocks/*": [
       //   "../__mocks__/*"
       // ],

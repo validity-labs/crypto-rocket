@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+// import '../styles/globals.css';
 
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
@@ -7,12 +7,12 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
 
 import createEmotionCache from '@/app/createEmotionCache';
+// import { useAppDispatch } from '@/app/hooks';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import store from '@/app/store';
-import theme from '@/app/theme';
+import Layout from '@/components/layout/Layout/Layout';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -22,17 +22,25 @@ interface MyAppProps extends AppProps {
 }
 
 function MyApp(props: MyAppProps) {
+  // const { account, chainId } = useEthers();
+  // const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   // Local account array updated
+  //   dispatch(setActiveAccount(account));
+  // }, [account, dispatch]);
+
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
     <Provider store={store}>
       <CacheProvider value={emotionCache}>
         <Head>
+          <title>Awino</title>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Component {...pageProps} />
+        <ThemeProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </CacheProvider>
     </Provider>
