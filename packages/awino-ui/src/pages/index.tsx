@@ -9,6 +9,7 @@ import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
 import AssetSection from '@/components/pages/landing/AssetSection/AssetSection';
 import BenefitSection from '@/components/pages/landing/BenefitSection/BenefitSection';
+import FAQSection from '@/components/pages/landing/FAQSection/FAQSection';
 import GuideSection from '@/components/pages/landing/GuideSection/GuideSection';
 import InfoSection from '@/components/pages/landing/InfoSection/InfoSection';
 import StatsSection from '@/components/pages/landing/StatsSection/StatsSection';
@@ -36,15 +37,16 @@ const IndexPage: NextPage = () => {
       <BenefitSection />
       <GuideSection />
       <AssetSection />
+      <FAQSection />
     </>
   );
 };
 
-export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale, params }) => {
+export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale }) => {
   const ns = 'landing';
   await store.dispatch(setPageI18nNamespace(ns));
 
-  console.log(locale, params, 'State on server', store.getState());
+  // console.log(locale, params, 'State on server', store.getState());
 
   return {
     props: {

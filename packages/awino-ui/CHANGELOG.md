@@ -8,6 +8,7 @@
 - Add benefit component to landing page
 - Add guide component to landing page
 - Add asset component to landing page
+- Add faq component to landing page
 
 ## 03.03.2022
 

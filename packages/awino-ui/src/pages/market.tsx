@@ -24,11 +24,9 @@ const IndexPage: NextPage = () => {
   );
 };
 
-export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale, params }) => {
+export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale }) => {
   const ns = 'market';
   await store.dispatch(setPageI18nNamespace(ns));
-
-  console.log(locale, params, 'State on server', store.getState());
 
   return {
     props: {

@@ -54,6 +54,10 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
     alignItems: 'center',
     padding: theme.spacing(2, 6),
     color: theme.palette.text.primary,
+    '.right': {
+      display: 'flex',
+      flexDirection: 'row',
+    },
   },
 }));
 
@@ -179,7 +183,7 @@ export default function Drawer() {
       <Divider />
       <div className="footer">
         <ConnectButton size="small" />
-        <div>
+        <div className="right">
           <ThemeSwitch />
           <IconButton color="inherit" aria-label={t('header.close-menu')} onClick={handleDrawerClose}>
             <CloseIcon fontSize="large" />

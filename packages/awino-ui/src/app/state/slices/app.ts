@@ -69,7 +69,7 @@ export const appSlice = createSlice({
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
-      console.log('HYDRATE', action.payload);
+      // console.log('HYDRATE', action.payload);
       return {
         ...state,
         ...action.payload.app,

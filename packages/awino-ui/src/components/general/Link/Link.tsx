@@ -69,7 +69,6 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(props,
   const className = clsx(classNameProps, {
     [activeClassName]: router.pathname === pathname && activeClassName,
   });
-  console.log(className, router.pathname, pathname);
   const isExternal = typeof href === 'string' && (href.indexOf('http') === 0 || href.indexOf('mailto:') === 0);
 
   if (isExternal) {

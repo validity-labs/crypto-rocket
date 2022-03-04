@@ -14,7 +14,7 @@ export default function ConnectButton(props) {
   }));
 
   const handleConnectToggle = useCallback(() => {
-    console.log('connecting/disconnecting');
+    // console.log('connecting/disconnecting');
   }, []);
   return (
     <Button color="primary" onClick={handleConnectToggle} {...props}>

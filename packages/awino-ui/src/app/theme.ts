@@ -863,8 +863,8 @@ const themeCreator = (mode: PaletteMode) => {
       },
       styleOverrides: {
         root: {
-          // borderBottom: `1px solid ${theme.palette.divider}`,
-          margin: theme.spacing(0, 0, 4),
+          background: 'none',
+          margin: theme.spacing(0, 0, 8),
           '&:before': {
             content: 'none',
           },
@@ -877,10 +877,9 @@ const themeCreator = (mode: PaletteMode) => {
     MuiAccordionSummary: {
       styleOverrides: {
         root: {
-          alignItems: 'flex-start',
-          backgroundColor: theme.palette.background.gray,
-          padding: theme.spacing(3),
-          borderRadius: shapeBorderRadiusBase * 9,
+          padding: theme.spacing(5.5, 13, 4.5, 14),
+          borderRadius: shapeBorderRadiusBase * 4,
+          backgroundColor: theme.palette.background.transparent,
         },
         content: {
           alignItems: 'center',
@@ -896,9 +895,9 @@ const themeCreator = (mode: PaletteMode) => {
     MuiAccordionDetails: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(0, 5, 12, 17),
+          padding: theme.spacing(11, 12, 22.5),
           [theme.breakpoints.up('md')]: {
-            padding: theme.spacing(0, 15, 22, 23),
+            padding: theme.spacing(11, 12, 22.5),
           },
         },
       },
