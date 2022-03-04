@@ -1,7 +1,5 @@
 import { useCallback, useState } from 'react';
 
-import Head from 'next/head';
-
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
@@ -75,15 +73,10 @@ export default function StatsSection({ items }: Props) {
 
   return (
     <>
-      <Head>
-        {/* eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display */}
-        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno&display=block" rel="stylesheet" />
-      </Head>
       <Root>
         <ul className="badges">
           {badgeList.map((filename, index) => (
             <li key={index}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`images/icons/${filename}`} alt="" title={t(`stats-section.badges.${index}`)} />
             </li>
           ))}

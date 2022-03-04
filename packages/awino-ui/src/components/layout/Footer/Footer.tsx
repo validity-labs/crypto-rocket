@@ -89,7 +89,6 @@ export default function Footer(): ReactElement {
         <div className="top">
           <Typography variant="menu" color="inherit" className="rate">
             {t('common.awi')}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/awi.svg" alt="" />
             {formatDollar(awiRate)}
           </Typography>

@@ -18,6 +18,7 @@ const Root = styled(Section)(({ theme }) => ({
     borderRadius: +theme.shape.borderRadius * 5,
     backgroundColor: theme.palette.background.transparent,
     h3: {
+      fontFamily: 'Poiret One, cursive',
       marginBottom: theme.spacing(7),
     },
   },
