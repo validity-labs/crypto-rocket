@@ -7,6 +7,7 @@ import Head from 'next/head';
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
+import AssetSection from '@/components/pages/landing/AssetSection/AssetSection';
 import BenefitSection from '@/components/pages/landing/BenefitSection/BenefitSection';
 import GuideSection from '@/components/pages/landing/GuideSection/GuideSection';
 import InfoSection from '@/components/pages/landing/InfoSection/InfoSection';
@@ -34,6 +35,7 @@ const IndexPage: NextPage = () => {
       <InfoSection />
       <BenefitSection />
       <GuideSection />
+      <AssetSection />
     </>
   );
 };

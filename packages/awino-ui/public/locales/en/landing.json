@@ -74,5 +74,19 @@
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       }
     ]
+  },
+  "asset-section": {
+    "title": "Why you should use our platform",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "items": [
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum"
+    ]
   }
 }
