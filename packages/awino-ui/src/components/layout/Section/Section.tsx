@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { Box, BoxProps, /* Container,  */ ContainerProps } from '@mui/material';
+import { Box, BoxProps, Container, ContainerProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // import getProp from 'lodash/get';
 
@@ -16,60 +16,66 @@ import { styled } from '@mui/material/styles';
 //   primaryDark: 'primary.dark',
 // };
 
-const Root = styled(Box, {
+const Root = styled(
+  Box /* {
   shouldForwardProp: (prop) => prop !== 'background',
-})<RootProps>((/*{  background,  theme }*/) => ({
-  // backgroundColor: getProp(theme.palette, backgroundMap[background], backgroundMap[background]),
-  // '& .MuiDecoration-before, & .MuiDecoration-both': {
-  //   position: 'relative',
-  //   '&:before': {
-  //     content: '""',
-  //     position: 'absolute',
-  //     display: 'inline-block',
-  //     backgroundSize: 'contain',
-  //     backgroundRepeat: 'no-repeat',
-  //     pointerEvents: 'none',
-  //   },
-  // },
-  // '& .MuiDecoration-after, & .MuiDecoration-both': {
-  //   position: 'relative',
-  //   '&:after': {
-  //     content: '""',
-  //     position: 'absolute',
-  //     display: 'inline-block',
-  //     backgroundSize: 'contain',
-  //     backgroundRepeat: 'no-repeat',
-  //     pointerEvents: 'none',
-  //   },
-  // },
-}));
+} */
+)(
+  /* <RootProps> */ ({ /*  background,  */ theme }) => ({
+    padding: theme.spacing(15, 0),
+    // backgroundColor: getProp(theme.palette, backgroundMap[background], backgroundMap[background]),
+    // '& .MuiDecoration-before, & .MuiDecoration-both': {
+    //   position: 'relative',
+    //   '&:before': {
+    //     content: '""',
+    //     position: 'absolute',
+    //     display: 'inline-block',
+    //     backgroundSize: 'contain',
+    //     backgroundRepeat: 'no-repeat',
+    //     pointerEvents: 'none',
+    //   },
+    // },
+    // '& .MuiDecoration-after, & .MuiDecoration-both': {
+    //   position: 'relative',
+    //   '&:after': {
+    //     content: '""',
+    //     position: 'absolute',
+    //     display: 'inline-block',
+    //     backgroundSize: 'contain',
+    //     backgroundRepeat: 'no-repeat',
+    //     pointerEvents: 'none',
+    //   },
+    // },
+  })
+);
 
 // interface RootProps {
 //   background: SectionBackgroundType;
 // }
-// export interface SectionProps extends Partial<BoxProps> {
-//   containerProps?: ContainerProps;
-// }
+export interface SectionProps extends Partial<BoxProps> {
+  containerProps?: ContainerProps;
+}
 
-interface Props /* extends SectionProps */ {
+interface Props extends SectionProps {
   // background?: SectionBackgroundType;
+  before?: React.ReactNode;
   children: React.ReactNode;
-  sx?: SxProps;
 }
 
 export default function Section({
   children,
   // background = 'neutral',
-  // containerProps,
-  sx,
+  before = null,
+  containerProps,
   ...restOfProps
 }: Props): ReactElement {
   return (
     // @ts-ignore: proper type configuration required so Box is used as section so sx props can be passed
-    <Root /* background={background} */ component="section" {...restOfProps} sx>
-      {/* <Container className="vl-container" {...containerProps}> */}
-      {children}
-      {/* </Container> */}
+    <Root /* background={background} */ component="section" {...restOfProps}>
+      {before}
+      <Container className="vl-container" {...containerProps}>
+        {children}
+      </Container>
     </Root>
   );
 }

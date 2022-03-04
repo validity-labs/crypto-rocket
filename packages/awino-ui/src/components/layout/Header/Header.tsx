@@ -18,20 +18,7 @@ import SettingsMenu from '../SettingsMenu/SettingsMenu';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  marginBottom: theme.spacing(30),
-  '& .logo': {
-    lineHeight: 0,
-    width: '100%',
-    maxWidth: 163,
-    img: {
-      width: '100%',
-    },
-  },
-  [theme.breakpoints.up('sm')]: {
-    '& .logo': {
-      maxWidth: 240,
-    },
-  },
+  marginBottom: theme.spacing(15),
 }));
 
 const RightSide = styled('div')(({ theme }) => ({

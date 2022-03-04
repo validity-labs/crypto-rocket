@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode } from 'react';
 
 import { useTranslation } from 'next-i18next';
 
-import { Container, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -22,9 +22,7 @@ export default function Layout(props: Props): ReactElement {
       </Typography>
       <Header />
       {/* tabIndex={-1} creates outline on safari, temporarily removed */}
-      <main id="main" /* tabIndex={-1} */>
-        <Container>{children}</Container>
-      </main>
+      <main id="main" /* tabIndex={-1} */>{children}</main>
       <Footer />
     </>
   );

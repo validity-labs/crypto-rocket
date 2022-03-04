@@ -3,11 +3,10 @@ import React from 'react';
 import { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { Divider } from '@mui/material';
-
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
+import InfoSection from '@/components/pages/landing/InfoSection/InfoSection';
 import StatsSection from '@/components/pages/landing/StatsSection/StatsSection';
 
 const stats = [
@@ -22,6 +21,7 @@ const IndexPage: NextPage = () => {
     <>
       <Seo />
       <StatsSection items={stats} />
+      <InfoSection />
     </>
   );
 };

@@ -5,7 +5,7 @@ import Head from 'next/head';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
-import { Container, Divider, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import trimEnd from 'lodash/trimEnd';
 
@@ -13,7 +13,6 @@ import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 const Root = styled(Section)(({ theme }) => ({
-  paddingBottom: theme.spacing(17),
   textAlign: 'center',
   h1: {
     marginBottom: theme.spacing(7.5),
@@ -47,10 +46,6 @@ const Root = styled(Section)(({ theme }) => ({
     margin: '0 auto',
     borderRadius: +theme.shape.borderRadius * 5,
     backgroundColor: theme.palette.background.transparent,
-  },
-  '.divider': {
-    width: '90%',
-    margin: '0 auto',
   },
   [theme.breakpoints.up('md')]: {
     h1: {
@@ -101,7 +96,7 @@ export default function StatsSection({ items }: Props) {
           onChange={handleVisibilityChange}
         >
           <Container maxWidth="lg">
-            <Grid container spacing={8} mb={36}>
+            <Grid container spacing={8}>
               {items.map(({ value, subvalue }, index) => {
                 const formatter = (value: number) => {
                   return t(`stats-section.items.${index}.value`, { v: trimEnd(`${value}`, '0') });
@@ -147,7 +142,6 @@ export default function StatsSection({ items }: Props) {
                 );
               })}
             </Grid>
-            <Divider className="divider" />
           </Container>
         </VisibilitySensor>
       </Root>

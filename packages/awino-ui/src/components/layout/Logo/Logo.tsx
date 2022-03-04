@@ -13,9 +13,13 @@ import logoDarkImage from '@/public/images/logo.svg';
 
 const Root = styled(Box)({
   display: 'block',
+  marginRight: 20,
   overflow: 'visible',
-  '& img': {
+  '.MuiBadge-root': {
     width: '100%',
+  },
+  '& img': {
+    width: '100% !important',
     maxWidth: '205px !important',
   },
 });
