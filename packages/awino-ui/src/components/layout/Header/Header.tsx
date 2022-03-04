@@ -18,6 +18,7 @@ import SettingsMenu from '../SettingsMenu/SettingsMenu';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  marginBottom: theme.spacing(30),
   '& .logo': {
     lineHeight: 0,
     width: '100%',

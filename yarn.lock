@@ -3839,6 +3839,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countup.js@^2.0.8:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.1.0.tgz#86c1c9075a2eed138262b0ea1344ebe71b41e579"
+  integrity sha512-VanMzLEjkt3Hp/ty5BXikM8s4wE3OH4m1AnFro7THR86nYGRvGfGCoV+zrRJcqTbZi7X1egkLSIeUKDz7+4XLA==
+
 create-hash@^1.1.0, create-hash@^1.1.2, create-hash@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/create-hash/-/create-hash-1.2.0.tgz#889078af11a63756bcfb59bd221996be3a9ef196"
@@ -6857,6 +6862,11 @@ lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.7.0:
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 log-update@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/log-update/-/log-update-4.0.0.tgz#589ecd352471f2a1c0c570287543a64dfd20e0a1"
@@ -7252,6 +7262,11 @@ next-i18next@^10.4.0:
     i18next "^21.5.3"
     i18next-fs-backend "^1.0.7"
     react-i18next "^11.8.13"
+
+next-redux-wrapper@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-7.0.5.tgz#109cd3fe02183b18fbd094924cfcbd21262039dc"
+  integrity sha512-UFXdAWG5i+GFT8+Hoqpx3GArkPh34fVWF9YoA2VSHlBzsrPtnRd7NWM6FNSYUennpommTpWJ09mu+r/1UxyIkg==
 
 next-seo@^5.1.0:
   version "5.1.0"
@@ -8358,6 +8373,13 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
+react-countup@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-6.1.1.tgz#2dd5a82dd1059afd4e269a33de5cd1fa5a7910d7"
+  integrity sha512-9mYlnk/yCFg3g2/65pCTex6mr9h0eYdDMIL4T5nfLj/RzoiqY03wlPxZglzbJ6OzXvU37OmYApwQ4WMZNFr8Aw==
+  dependencies:
+    countup.js "^2.0.8"
+
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
@@ -8417,6 +8439,13 @@ react-transition-group@^4.4.2:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-visibility-sensor@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-visibility-sensor/-/react-visibility-sensor-5.1.1.tgz#5238380960d3a0b2be0b7faddff38541e337f5a9"
+  integrity sha512-cTUHqIK+zDYpeK19rzW6zF9YfT4486TIgizZW53wEZ+/GPBbK7cNS0EHyJVyHYacwFEvvHLEKfgJndbemWhB/w==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^17.0.2:
   version "17.0.2"

@@ -135,7 +135,7 @@ const themeCreator = (mode: PaletteMode) => {
       },
       h6: {
         fontFamily: 'Comfortaa, sans-serif',
-        fontSize: '1.125rem', // 18px
+        fontSize: '1.125rem', // 1px
         lineHeight: '1.5rem', // 24px
         fontWeight: 500,
       },
@@ -154,7 +154,7 @@ const themeCreator = (mode: PaletteMode) => {
         lineHeight: 1.66,
       },
       'body-md': {
-        fontSize: '1rem', // 16px
+        fontSize: '1.0625rem', // 17px
         lineHeight: 1.66,
       },
       body: {

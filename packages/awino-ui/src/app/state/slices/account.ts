@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AccountState {
   connected: boolean;
-  activeAccount?: string;
+  activeAccount: string | null;
 }
 
 const initialState: AccountState = {
-  activeAccount: undefined,
+  activeAccount: null,
   connected: false,
 };
 
@@ -15,7 +15,7 @@ export const accountSlice = createSlice({
   initialState,
   reducers: {
     setActiveAccount: (state, action: PayloadAction<string | undefined | null>) => {
-      state.activeAccount = action.payload === null ? undefined : action.payload;
+      state.activeAccount = action.payload === null ? null : action.payload;
     },
   },
 });

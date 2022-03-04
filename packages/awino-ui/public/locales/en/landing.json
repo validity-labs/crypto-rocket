@@ -1,0 +1,36 @@
+{
+  "page": {
+    "title": "Awino",
+    "description": "MISSING DESCRIPTION"
+  },
+  "stats-section": {
+    "title": "Defi. Next generation",
+    "badges": [
+      "Lorem ipsum 1",
+      "Lorem ipsum 2",
+      "Lorem ipsum 3",
+      "Lorem ipsum 4"
+    ],
+    "items": [
+      {
+        "title": "AWINO locked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO staked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO price",
+        "value": "$ {{v}}"
+      },
+      {
+        "title": "Circulating supply",
+        "value": "{{v}} M",
+        "subvalue": "{{v}}% locked"
+      }
+    ]
+  }
+}

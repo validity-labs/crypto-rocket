@@ -17,6 +17,7 @@ export interface NextAppConfig extends NextConfig {
 }
 
 export type Language = 'en' | 'de';
+export type I18nPageNamespace = 'landing' | 'market';
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 

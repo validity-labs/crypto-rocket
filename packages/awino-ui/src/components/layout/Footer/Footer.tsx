@@ -74,6 +74,9 @@ const Root = styled('footer')(({ theme }) => ({
   '.copyright, .list, .social': {
     margin: theme.spacing(0, 0, 5),
   },
+  '.divider': {
+    borderColor: '#3b414e',
+  },
 }));
 
 export default function Footer(): ReactElement {
@@ -91,7 +94,7 @@ export default function Footer(): ReactElement {
             {formatDollar(awiRate)}
           </Typography>
         </div>
-        <Divider />
+        <Divider className="divider" />
         <div className="bottom">
           <Typography variant="menu" color="inherit" className="copyright">
             {copyright}

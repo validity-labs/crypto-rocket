@@ -1,50 +1,24 @@
-import * as React from 'react';
-
 import { useTranslation } from 'next-i18next';
-
 import { NextSeo, NextSeoProps } from 'next-seo';
 
-import { useApp } from '@/context/AppContext';
+import { useAppSelector } from '@/app/hooks';
 
-export type I18nPageNamespace =
-  | 'root'
-  | 'about'
-  | 'causes'
-  | 'cause'
-  | 'error'
-  | 'register'
-  | 'verify'
-  | 'verified'
-  | 'login'
-  | 'reset'
-  | 'reseted'
-  | 'onboarding'
-  | 'careers'
-  | 'blog'
-  | 'blog-article'
-  | 'trainings'
-  | 'services-platform-development'
-  | 'services-nft-events'
-  | 'services-smart-contract-development'
-  | 'services-forensic-services'
-  | 'products-kyc-and-aml'
-  | 'products-liquidation'
-  | 'products-forensics'
-  | 'non-custodian-wallet' // also product
-  | 'ventures';
+// import { useApp } from '@/context/AppContext';
 
 interface Props extends NextSeoProps {
-  ns?: I18nPageNamespace;
+  // ns?: I18nPageNamespace;
   title?: string;
   description?: string;
 }
 
-export default function Seo({ ns, title, description, ...restOfProps }: Props) {
+export default function Seo({ title, description, ...restOfProps }: Props) {
   const {
     t,
     i18n: { language },
   } = useTranslation();
-  const { defaultOGImage } = useApp();
+  // const { defaultOGImage } = useApp();
+
+  const ns = useAppSelector((state) => state.app.ns);
 
   let newTitle = title;
   let newDescription = description;
@@ -58,16 +32,16 @@ export default function Seo({ ns, title, description, ...restOfProps }: Props) {
   const metaDescription = newDescription || t('app.description', { ns: 'common' });
   const { openGraph, ...restOfNextSeoProps } = restOfProps;
 
-  const openGraphImages = defaultOGImage
-    ? [
-        {
-          url: defaultOGImage,
-          width: 1200,
-          height: 630,
-          alt: siteTitle,
-        },
-      ]
-    : [];
+  // const openGraphImages = defaultOGImage
+  //   ? [
+  //       {
+  //         url: defaultOGImage,
+  //         width: 1200,
+  //         height: 630,
+  //         alt: siteTitle,
+  //       },
+  //     ]
+  //   : [];
 
   return (
     <NextSeo
@@ -78,7 +52,7 @@ export default function Seo({ ns, title, description, ...restOfProps }: Props) {
         description: metaDescription,
         site_name: siteTitle,
         locale: language,
-        images: openGraphImages,
+        // images: openGraphImages,
         ...openGraph,
       }}
       {...restOfNextSeoProps}

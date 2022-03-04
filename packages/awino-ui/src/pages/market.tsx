@@ -3,8 +3,6 @@ import React from 'react';
 import { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { Divider } from '@mui/material';
-
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
@@ -27,7 +25,7 @@ const IndexPage: NextPage = () => {
 };
 
 export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale, params }) => {
-  const ns = 'landing';
+  const ns = 'market';
   await store.dispatch(setPageI18nNamespace(ns));
 
   console.log(locale, params, 'State on server', store.getState());

@@ -1,25 +1,25 @@
 import React, { ReactElement } from 'react';
 
-import { Box, BoxProps, Container, ContainerProps } from '@mui/material';
+import { Box, BoxProps, /* Container,  */ ContainerProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import getProp from 'lodash/get';
+// import getProp from 'lodash/get';
 
-export type SectionBackgroundType = 'neutral' | 'light' | 'lighter' | 'dark' | 'darker' | 'primaryDark' | 'gray';
+// export type SectionBackgroundType = 'neutral' | 'light' | 'lighter' | 'dark' | 'darker' | 'primaryDark' | 'gray';
 
-const backgroundMap: Record<SectionBackgroundType, string> = {
-  lighter: 'background.lighter',
-  light: 'background.light',
-  gray: 'background.gray',
-  neutral: 'common.white',
-  dark: 'background.dark',
-  darker: 'background.darker',
-  primaryDark: 'primary.dark',
-};
+// const backgroundMap: Record<SectionBackgroundType, string> = {
+//   lighter: 'background.lighter',
+//   light: 'background.light',
+//   gray: 'background.gray',
+//   neutral: 'common.white',
+//   dark: 'background.dark',
+//   darker: 'background.darker',
+//   primaryDark: 'primary.dark',
+// };
 
 const Root = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'background',
-})<RootProps>(({ background, theme }) => ({
-  backgroundColor: getProp(theme.palette, backgroundMap[background], backgroundMap[background]),
+})<RootProps>((/*{  background,  theme }*/) => ({
+  // backgroundColor: getProp(theme.palette, backgroundMap[background], backgroundMap[background]),
   // '& .MuiDecoration-before, & .MuiDecoration-both': {
   //   position: 'relative',
   //   '&:before': {
@@ -44,30 +44,32 @@ const Root = styled(Box, {
   // },
 }));
 
-interface RootProps {
-  background: SectionBackgroundType;
-}
-export interface SectionProps extends Partial<BoxProps> {
-  containerProps?: ContainerProps;
-}
+// interface RootProps {
+//   background: SectionBackgroundType;
+// }
+// export interface SectionProps extends Partial<BoxProps> {
+//   containerProps?: ContainerProps;
+// }
 
-interface Props extends SectionProps {
-  background?: SectionBackgroundType;
+interface Props /* extends SectionProps */ {
+  // background?: SectionBackgroundType;
   children: React.ReactNode;
+  sx?: SxProps;
 }
 
 export default function Section({
   children,
-  background = 'neutral',
-  containerProps,
+  // background = 'neutral',
+  // containerProps,
+  sx,
   ...restOfProps
 }: Props): ReactElement {
   return (
     // @ts-ignore: proper type configuration required so Box is used as section so sx props can be passed
-    <Root background={background} component="section" {...restOfProps}>
-      <Container className="vl-container" {...containerProps}>
-        {children}
-      </Container>
+    <Root /* background={background} */ component="section" {...restOfProps} sx>
+      {/* <Container className="vl-container" {...containerProps}> */}
+      {children}
+      {/* </Container> */}
     </Root>
   );
 }
