@@ -22,7 +22,8 @@ const Root = styled(
 } */
 )(
   /* <RootProps> */ ({ /*  background,  */ theme }) => ({
-    padding: theme.spacing(15, 0),
+    paddingTop: theme.spacing(15),
+    paddingBottom: theme.spacing(15),
     // backgroundColor: getProp(theme.palette, backgroundMap[background], backgroundMap[background]),
     // '& .MuiDecoration-before, & .MuiDecoration-both': {
     //   position: 'relative',

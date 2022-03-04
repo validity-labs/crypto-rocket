@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
+import BenefitSection from '@/components/pages/landing/BenefitSection/BenefitSection';
 import InfoSection from '@/components/pages/landing/InfoSection/InfoSection';
 import StatsSection from '@/components/pages/landing/StatsSection/StatsSection';
 
@@ -22,6 +23,7 @@ const IndexPage: NextPage = () => {
       <Seo />
       <StatsSection items={stats} />
       <InfoSection />
+      <BenefitSection />
     </>
   );
 };

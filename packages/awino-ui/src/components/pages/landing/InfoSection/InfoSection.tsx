@@ -43,24 +43,22 @@ const Root = styled(Section)(({ theme }) => ({
   },
 }));
 
-export default function StatsSection() {
+export default function InfoSection() {
   const t = usePageTranslation();
   return (
-    <>
-      <Root>
-        <div className="image">
-          <Image src="/images/pages/landing/info.png" width={686} height={582} alt="" />
+    <Root>
+      <div className="image">
+        <Image src="/images/pages/landing/info.png" width={686} height={582} alt="" />
+      </div>
+      <Container maxWidth="lg">
+        <Divider className="divider" />
+        <div className="card">
+          <Typography variant="h3" component="h2" mb={9.5} fontWeight={400}>
+            {t('info-section.title')}
+          </Typography>
+          <Typography>{t('info-section.description')}</Typography>
         </div>
-        <Container maxWidth="lg">
-          <Divider className="divider" />
-          <div className="card">
-            <Typography variant="h3" component="h2" mb={9.5} fontWeight={400}>
-              {t('info-section.title')}
-            </Typography>
-            <Typography variant="body-sm">{t('info-section.description')}</Typography>
-          </div>
-        </Container>
-      </Root>
-    </>
+      </Container>
+    </Root>
   );
 }

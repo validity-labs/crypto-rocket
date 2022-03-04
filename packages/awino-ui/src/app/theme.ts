@@ -158,8 +158,7 @@ const themeCreator = (mode: PaletteMode) => {
         lineHeight: 1.66,
       },
       body: {
-        fontSize: '1rem', // 16px
-        // fontSize: '0.9375rem', // 15px
+        fontSize: '0.9375rem', // 15px
         lineHeight: 1.66,
       },
       'body-sm': {

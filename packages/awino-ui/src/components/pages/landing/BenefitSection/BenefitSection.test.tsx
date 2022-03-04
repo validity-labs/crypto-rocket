@@ -4,7 +4,7 @@ import React from 'react';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import InfoSection from './InfoSection';
+import BenefitSection from './BenefitSection';
 
 const stats = [
   { value: 89.7, subvalue: 24.72 },
@@ -24,9 +24,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<InfoSection />', () => {
+describe('<BenefitSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<InfoSection items={stats} />);
+    const { asFragment } = render(<BenefitSection items={stats} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
