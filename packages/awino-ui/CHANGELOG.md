@@ -1,3 +1,9 @@
+## 05.03.2022
+
+- Update jest configuration for snapshot testing
+- Update jest render method to be wrapped with store and theme
+- Add snapshot tests for landing page sections
+
 ## 04.03.2022
 
 - Add footer component

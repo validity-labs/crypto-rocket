@@ -9,6 +9,9 @@
     "start": "next start",
     "type-check": "tsc",
     "test": "jest",
+    "test:unit": "TZ=UTC jest",
+    "test:unit:update-snap": "TZ=UTC jest --updateSnapshot",
+    "test:unit:watch": "TZ=UTC jest --watch",
     "lint:check": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --check 'src/**/*.{ts(x)?,json,css}'",
@@ -44,6 +47,7 @@
     "react-visibility-sensor": "^5.1.1"
   },
   "devDependencies": {
+    "@emotion/jest": "^11.8.0",
     "@testing-library/jest-dom": "^5.0.0",
     "@testing-library/react": "^12.1.0",
     "@testing-library/user-event": "^13.0.0",

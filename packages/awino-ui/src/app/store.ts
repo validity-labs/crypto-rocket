@@ -7,7 +7,7 @@ import counterReducer from '../features/counter/counterSlice';
 import accountReducer from './state/slices/account';
 import appReducer from './state/slices/app';
 
-const makeStore = () =>
+export const makeStore = () =>
   configureStore({
     reducer: { app: appReducer, counter: counterReducer, account: accountReducer },
     // devTools: true,

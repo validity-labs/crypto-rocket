@@ -1,17 +1,9 @@
 import React from 'react';
 
-// import { aboutStats as aboutStatsRecord } from '@/fixtures/about';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
 import GuideSection from './GuideSection';
-
-const stats = [
-  { value: 89.7, subvalue: 24.72 },
-  { value: 89.7, subvalue: 24.72 },
-  { value: 0.27 },
-  { value: 273.4, subvalue: 52 },
-];
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -26,7 +18,7 @@ afterEach(cleanup);
 
 describe('<GuideSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<GuideSection items={stats} />);
+    const { asFragment } = render(<GuideSection />, {}, 'landing');
     expect(asFragment()).toMatchSnapshot();
   });
 });

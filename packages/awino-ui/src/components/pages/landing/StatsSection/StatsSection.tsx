@@ -9,6 +9,7 @@ import trimEnd from 'lodash/trimEnd';
 
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { StatsData } from '@/types/pages/landing';
 
 const Root = styled(Section)(({ theme }) => ({
   textAlign: 'center',
@@ -56,7 +57,7 @@ const Root = styled(Section)(({ theme }) => ({
 const badgeList = ['analytics.jpg', 'ethereum-blue.svg', 'swap.svg', 'ethereum-yellow.svg'];
 
 interface Props {
-  items: any;
+  items: StatsData;
 }
 export default function StatsSection({ items }: Props) {
   const t = usePageTranslation();

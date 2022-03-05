@@ -1,9 +1,8 @@
 import React from 'react';
 
+import Link from './Link';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
-
-import FAQSection from './FAQSection';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -16,9 +15,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<FAQSection />', () => {
+describe('<Link />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<FAQSection />, {}, 'landing');
+    const { asFragment } = render(<Link href="/" />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -13,8 +13,9 @@ import FAQSection from '@/components/pages/landing/FAQSection/FAQSection';
 import GuideSection from '@/components/pages/landing/GuideSection/GuideSection';
 import InfoSection from '@/components/pages/landing/InfoSection/InfoSection';
 import StatsSection from '@/components/pages/landing/StatsSection/StatsSection';
+import { StatsData } from '@/types/pages/landing';
 
-const stats = [
+const stats: StatsData = [
   { value: 89.7, subvalue: 24.72 },
   { value: 89.7, subvalue: 24.72 },
   { value: 0.27 },

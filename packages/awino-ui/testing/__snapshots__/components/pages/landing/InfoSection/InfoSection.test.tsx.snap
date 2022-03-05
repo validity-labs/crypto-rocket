@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="image"
+      >
+        {"src":"/images/pages/landing/info.png","width":686,"height":582,"alt":""}
+      </div>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg css-2"
+      >
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth divider css-3"
+        />
+        <div
+          class="card"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h3 css-4"
+          >
+            info-section.title
+          </h2>
+          <p
+            class="MuiTypography-root MuiTypography-body css-5"
+          >
+            info-section.description
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

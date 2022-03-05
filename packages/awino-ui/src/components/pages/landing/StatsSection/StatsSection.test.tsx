@@ -1,17 +1,10 @@
 import React from 'react';
 
-// import { aboutStats as aboutStatsRecord } from '@/fixtures/about';
+import { statsSectionData } from '@/fixtures/landing';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
 import StatsSection from './StatsSection';
-
-const stats = [
-  { value: 89.7, subvalue: 24.72 },
-  { value: 89.7, subvalue: 24.72 },
-  { value: 0.27 },
-  { value: 273.4, subvalue: 52 },
-];
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -26,7 +19,7 @@ afterEach(cleanup);
 
 describe('<StatsSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<StatsSection items={stats} />);
+    const { asFragment } = render(<StatsSection items={statsSectionData} />, {}, 'landing');
     expect(asFragment()).toMatchSnapshot();
   });
 });
