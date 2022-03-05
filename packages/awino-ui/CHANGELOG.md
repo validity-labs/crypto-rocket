@@ -3,6 +3,9 @@
 - Update jest configuration for snapshot testing
 - Update jest render method to be wrapped with store and theme
 - Add snapshot tests for landing page sections
+- Add market page
+- Add shared stats-items component for use in stats-section components
+- Add stats component to market page
 
 ## 04.03.2022
 
