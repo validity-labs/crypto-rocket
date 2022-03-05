@@ -6,6 +6,7 @@
 - Add market page
 - Add shared stats-items component for use in stats-section components
 - Add stats component to market page
+- Add asset component to market page (wip)
 
 ## 04.03.2022
 

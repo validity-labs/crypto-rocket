@@ -31,7 +31,7 @@
       }
     ]
   },
-  "data-section": {
+  "asset-section": {
     "market": {
       "total-size": "Total market size",
       "total-size-hint": "MISSING TEXT"

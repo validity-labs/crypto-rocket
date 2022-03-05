@@ -1,5 +1,6 @@
 import Section from '@/components/layout/Section/Section';
 import { StatsData } from '@/types/pages/landing';
+
 import StatsItems from '../../shared/StatsItems/StatsItems';
 
 interface Props {

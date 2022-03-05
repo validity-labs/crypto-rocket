@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
+import AssetSection from '@/components/pages/market/AssetSection/AssetSection';
 import StatsSection from '@/components/pages/market/StatsSection/StatsSection';
 
 const stats = [
@@ -22,7 +23,7 @@ const MarketPage: NextPage = () => {
     <>
       <Seo />
       <StatsSection items={stats} />
-      {/* <AssetSection items={assets} /> */}
+      <AssetSection items={assets} total={{ market: 1232383, platform: 43394392.99 }} />
     </>
   );
 };

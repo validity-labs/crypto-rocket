@@ -21,6 +21,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Comfortaa:wght@400;600&display=block"
             rel="stylesheet"
           />
+          <script
+            src="https://polyfill.io/v3/polyfill.min.js?features=Intl.NumberFormat,Intl.NumberFormat.~locale.en,Intl.NumberFormat.~locale.de"
+            defer
+          ></script>
           {/* <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Comfortaa:wght@500&display=swap"
             rel="stylesheet"

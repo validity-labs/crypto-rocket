@@ -135,7 +135,7 @@ const themeCreator = (mode: PaletteMode) => {
       },
       h6: {
         fontFamily: 'Comfortaa, sans-serif',
-        fontSize: '1.125rem', // 1px
+        fontSize: '1.125rem', // 18px
         lineHeight: '1.5rem', // 24px
         fontWeight: 500,
       },
@@ -143,7 +143,7 @@ const themeCreator = (mode: PaletteMode) => {
         fontFamily: 'Comfortaa, sans-serif',
         fontSize: '1rem', // 16px
         lineHeight: '1.375rem', // 22px
-        fontWeight: 500,
+        // fontWeight: 500,
       },
       'body-xl': {
         fontSize: '1.25rem', // 20px
@@ -219,17 +219,19 @@ const themeCreator = (mode: PaletteMode) => {
           color: inherit;
         }
         ::-webkit-scrollbar {
-          width: 8px;
-          height: 8px;
+          width: 13px;
+          height: 13px;
         }
         ::-webkit-scrollbar-track {
           box-shadow: 'none';
+          border-radius: 11px;
+          background-color: #54636C;
           -webkit-box-shadow: 'none';
         }
         ::-webkit-scrollbar-thumb {
           // border: 1px solid white;
-          border-radius: 6px;
-          background-color: #9e9e9e;
+          border-radius: 11px;
+          background-color: #00FFEB;
         }
         .aria {
           border: 0;
@@ -989,6 +991,7 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
+
     // MuiSvgIcon: {
     //   defaultProps: {
     //     color: 'primary',

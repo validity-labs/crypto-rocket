@@ -1,9 +1,20 @@
 {
   "extends": ["next/core-web-vitals"],
+  "plugins": ["cypress", "jest"],
   "env": {
-    "jest/globals": true
+    "jest/globals": true,
+    "cypress/globals": true
   },
   "rules": {
+    // "comma-dangle": ["error", "always-multiline"],
+    "@next/next/no-img-element": "off",
+    /* NOT APPLIED */
+    "react/jsx-first-prop-new-line": [2, "multiline"],
+    "react/jsx-max-props-per-line": [2, { "maximum": 1, "when": "multiline" }],
+    // "react/jsx-indent-props": [2, 2],
+    // "react/jsx-closing-bracket-location": [2, "tag-aligned"],
+    // "react/jsx-first-prop-new-line": "multiline",
+    // "react/jsx-max-props-per-line": [1, { "maximum": { "single": 1, "multi": 1 } }],
     "import/order": [
       "error",
       {
@@ -25,7 +36,7 @@
             "position": "before"
           },
           {
-            "pattern": "{@mui/**.@emotion/**}",
+            "pattern": "{@mui/**,@emotion/**}",
             "group": "external",
             "position": "after"
           },
@@ -42,7 +53,6 @@
           "caseInsensitive": true
         }
       }
-    ],
-    "@next/next/no-img-element": "off"
+    ]
   }
 }

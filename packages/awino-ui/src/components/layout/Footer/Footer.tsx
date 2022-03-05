@@ -9,7 +9,7 @@ import { useAppSelector } from '@/app/hooks';
 import { footerLinks, socialLinks } from '@/app/menu';
 import Link from '@/components/general/Link/Link';
 import ScrollUp from '@/components/layout/ScrollUp/ScrollUp';
-import { formatDollar } from '@/lib/formatters';
+import { formatAmount } from '@/lib/formatters';
 
 const Root = styled('footer')(({ theme }) => ({
   margin: theme.spacing(10, 0, 0),
@@ -90,7 +90,7 @@ export default function Footer(): ReactElement {
           <Typography variant="menu" color="inherit" className="rate">
             {t('common.awi')}
             <img src="/images/awi.svg" alt="" />
-            {formatDollar(awiRate)}
+            {formatAmount(awiRate)}
           </Typography>
         </div>
         <Divider className="divider" />
