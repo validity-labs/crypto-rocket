@@ -3,7 +3,7 @@ import React from 'react';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import Label from './Label';
+import TablePaginationActions from './TablePaginationActions';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -16,9 +16,11 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<Label />', () => {
+describe('<TablePaginationActions />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<Label tooltip="Hint">Text</Label>);
+    const { asFragment } = render(
+      <TablePaginationActions page={1} rowsPerPage={5} count={21} onPageChange={() => {}} />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

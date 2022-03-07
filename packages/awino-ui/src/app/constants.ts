@@ -13,8 +13,8 @@ export const SUPPORTED_LANGUAGES: Language[] = ['en', 'de'];
 export const isBrowser = typeof window !== 'undefined';
 // export const ITEMS_PER_PAGE = 2;
 
-// export const TABLE_ROWS_PER_PAGE = 2;
-// export const TABLE_ROWS_PER_PAGE_OPTIONS = [2, 10, 25, 50];
+export const TABLE_ROWS_PER_PAGE_OPTIONS = [10, 20, 50, 100];
+export const TABLE_ROWS_PER_PAGE = TABLE_ROWS_PER_PAGE_OPTIONS[0];
 
 // export const DEFAULT_DATE_FORMAT = 'yyyy-MM-dd';
 

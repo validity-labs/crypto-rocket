@@ -904,39 +904,58 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
-    MuiPaginationItem: {
+    // MuiPaginationItem: {
+    //   styleOverrides: {
+    //     root: {},
+    //     text: {
+    //       borderRadius: 0,
+    //       fontSize: '25px', // 14px
+    //       color: theme.palette.common.black,
+    //       margin: theme.spacing(0, 5),
+    //       '&.Mui-selected, &.Mui-selected:hover': {
+    //         position: 'relative',
+    //         backgroundColor: 'transparent',
+    //         '&:after': {
+    //           content: '""',
+    //           position: 'absolute',
+    //           bottom: 0,
+    //           width: '100%',
+    //           height: '4px',
+    //           borderRadius: '4px',
+    //           // backgroundColor: theme.palette.background.orange,
+    //         },
+    //       },
+    //       '&:hover': {
+    //         // color: theme.palette.background.orange,
+    //         backgroundColor: 'transparent',
+    //       },
+    //     },
+    //   },
+    // },
+    MuiTablePagination: {
       styleOverrides: {
-        root: {},
-        text: {
-          borderRadius: 0,
-          fontSize: '0.875rem', // 14px
-          color: theme.palette.common.black,
-          margin: theme.spacing(0, 5),
-          '&.Mui-selected, &.Mui-selected:hover': {
-            position: 'relative',
-            backgroundColor: 'transparent',
-            '&:after': {
-              content: '""',
-              position: 'absolute',
-              bottom: 0,
-              width: '100%',
-              height: '4px',
-              borderRadius: '4px',
-              // backgroundColor: theme.palette.background.orange,
-            },
-          },
+        menuItem: {
+          padding: theme.spacing(2.5, 4),
+          ...theme.typography.menu,
+          textAlign: 'center',
+          color: theme.palette.text.menu,
+          transition: 'color 200ms ease-in-out',
           '&:hover': {
-            // color: theme.palette.background.orange,
+            color: theme.palette.text.primary,
+            transition: 'color 200ms ease-in-out',
+          },
+          '&.Mui-selected': {
             backgroundColor: 'transparent',
+            color: theme.palette.text.active,
           },
         },
       },
     },
-    MuiTableCell: {
-      styleOverrides: {
-        root: { padding: theme.spacing(9, 4, 7.5) },
-      },
-    },
+    // MuiTableCell: {
+    //   styleOverrides: {
+    //     root: { padding: theme.spacing(9, 4, 7.5) },
+    //   },
+    // },
     MuiMenu: {
       defaultProps: {
         variant: 'menu',
@@ -988,6 +1007,9 @@ const themeCreator = (mode: PaletteMode) => {
         },
         divider: {
           borderBottom: `2px solid ${theme.palette.mode === 'dark' ? '#217471' : theme.palette.divider}`,
+          '&:last-of-type': {
+            borderBottom: 0,
+          },
         },
       },
     },

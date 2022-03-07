@@ -3,7 +3,7 @@ import React from 'react';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import Label from './Label';
+import APRBadge from './APRBadge';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -16,9 +16,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<Label />', () => {
+describe('<APRBadge />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<Label tooltip="Hint">Text</Label>);
+    const { asFragment } = render(<APRBadge value={0.99} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TablePaginationActions /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-0"
+  >
+    <button
+      aria-label="common.table.previous-page"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1"
+      tabindex="0"
+      title="common.table.previous-page"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2"
+        data-testid="KeyboardArrowLeftIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-3"
+      />
+    </button>
+    <button
+      aria-label="common.table.next-page"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1"
+      tabindex="0"
+      title="common.table.next-page"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2"
+        data-testid="KeyboardArrowRightIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-3"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;

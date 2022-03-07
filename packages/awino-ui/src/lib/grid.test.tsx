@@ -3,7 +3,7 @@ import React from 'react';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import Label from './Label';
+import { renderCellWithAPR } from './grid';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -16,9 +16,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<Label />', () => {
+describe('<renderCellWithAPR />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<Label tooltip="Hint">Text</Label>);
+    const { asFragment } = render(<>{renderCellWithAPR({ value: 5.99 })}</>, {}, 'landing');
     expect(asFragment()).toMatchSnapshot();
   });
 });

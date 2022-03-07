@@ -1,38 +1,86 @@
-## 05.03.2022
+# Changelog
 
-- Update jest configuration for snapshot testing
-- Update jest render method to be wrapped with store and theme
-- Add snapshot tests for landing page sections
-- Add market page
-- Add shared stats-items component for use in stats-section components
-- Add stats component to market page
-- Add asset component to market page (wip)
+All notable changes to this project will be documented in this file.
 
-## 04.03.2022
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- Add footer component
-- Add redux support of initial state in SSR
-- Add usePateTranslation using redux ns(namespace) value
-- Add stats component to landing page
-- Add info component to landing page
-- Add benefit component to landing page
-- Add guide component to landing page
-- Add asset component to landing page
-- Add faq component to landing page
+Types of changes
 
-## 03.03.2022
+- `Added` for new features.
+- `Changed` for changes in existing functionality.
+- `Deprecated` for soon-to-be removed features.
+- `Removed` for now removed features.
+- `Fixed` for any bug fixes.
+- `Security` in case of vulnerabilities.
+
+Date format: `YYYY-MM-DD`
+
+## [Unreleased]
+
+## [0.0.0] - 2022-03-05
+
+### Added
+
+- Added asset component to market page
+- Added snapshot tests for market page sections
+- Added custom pagination componetns for DataGrid
+
+### Changed
+
+- Changed jest configuration for snapshot testing
+- Changed jest render method to be wrapped with store and theme
+
+## [0.0.0] - 2022-03-05
+
+### Added
+
+- Added snapshot tests for landing page sections
+- Added market page
+- Added shared stats-items component for use in stats-section components
+- Added stats component to market page
+- Added asset component to market page (wip)
+
+### Changed
+
+- Changed jest configuration for snapshot testing
+- Changed jest render method to be wrapped with store and theme
+
+## [0.0.0] - 2022-03-04
+
+### Added
+
+- Added footer component
+- Added redux support of initial state in SSR
+- Added usePateTranslation using redux ns(namespace) value
+- Added stats component to landing page
+- Added info component to landing page
+- Added benefit component to landing page
+- Added guide component to landing page
+- Added asset component to landing page
+- Added faq component to landing page
+
+## [0.0.0] - 2022-03-03
+
+### Changed
 
 - Update header responsiveness with layout for drawer
 
-## 02.03.2022
+## [0.0.0] - 2022-03-02
 
-- Add header component with multiple theme support (wip)
+### Added
 
-## 01.03.2022
+- Added header component with multiple theme support (wip)
 
-- Update setup with redux, eslint, prettier, lerna, material ui
+## [0.0.0] - 2022-03-01
+
+### Changed
+
+- Changed setup with redux, eslint, prettier, lerna, material ui
 - Research and add initial connect to wallet logic
 
-## 28.02.2022
+## [0.0.0] - 2022-02-28
 
-- Initial setup with redux, eslint, prettier, lerna, material ui (wip)
+### Added
+
+- Added initial setup with redux, eslint, prettier, lerna, material ui (wip)

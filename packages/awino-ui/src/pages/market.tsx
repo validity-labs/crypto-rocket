@@ -17,13 +17,14 @@ const stats = [
   { value: 47.4, subvalue: 24.72 },
 ];
 
-const assets = [];
+const assets = { market: 12345678, platform: 1234567.89 };
+
 const MarketPage: NextPage = () => {
   return (
     <>
       <Seo />
       <StatsSection items={stats} />
-      <AssetSection items={assets} total={{ market: 1232383, platform: 43394392.99 }} />
+      <AssetSection total={assets} />
     </>
   );
 };

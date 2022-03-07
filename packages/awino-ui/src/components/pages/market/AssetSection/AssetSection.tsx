@@ -1,60 +1,24 @@
-import { useMemo } from 'react';
-
-import { TFunction } from 'next-i18next';
+import { useMemo, useState, useEffect } from 'react';
 
 import { alpha, Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { DataGrid as MuiDataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
+import { DataGrid as MuiDataGrid, GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
+import { TABLE_ROWS_PER_PAGE, TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
+import loadData from '@/app/data';
+import GridPagination from '@/components/general/GridPagination/GridPagination';
 import Label from '@/components/general/Label/Label';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAmount } from '@/lib/formatters';
-import { StatsData } from '@/types/pages/landing';
+import { RowsState } from '@/types/app';
+import { TotalAssetSize } from '@/types/pages/market';
 
-import StatsItems from '../../shared/StatsItems/StatsItems';
-
-const getColumns = (t: TFunction): GridColDef[] => {
-  return [
-    { field: 'asset', sortable: true },
-    { field: 'marketSize', i18nKey: 'market-size', sortable: true },
-    { field: 'totalBorrowed', i18nKey: 'total-borrowed', sortable: true },
-    { field: 'depositAPY', i18nKey: 'deposit-apy', sortable: true, align: 'right', headerAlign: 'center' },
-    {
-      field: 'borrowAPY',
-      i18nKey: 'borrow-apy',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: true,
-
-      // width: 160,
-      renderCell: (params: GridRenderCellParams) => <Typography>{params.value}</Typography>,
-    },
-  ].map(({ i18nKey, ...restOfFields }) => ({
-    ...restOfFields,
-    flex: 1,
-    headerName: t(`asset-section.fields.${i18nKey || restOfFields.field}`),
-  }));
-};
-
-const rows = new Array(20)
-  .fill({
-    asset: 'dai',
-    marketSize: null,
-    totalBorrow: 3.38,
-    depositAPY: 1.5,
-    borrowAPY: 6.83,
-  })
-  .map((m, index) => ({ id: index, ...m }));
-
-const Root = styled(Section)(({ theme }) => ({}));
+import getColumns from './columns';
 
 const Panel = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  // alignItems: 'flex-start',
-  // maxWidth: '420px',
-  // padding: theme.spacing(13, 7),
-  // margin: '0 auto',
   borderRadius: +theme.shape.borderRadius * 5,
   backgroundColor: theme.palette.background.transparent,
   '.header': {
@@ -68,6 +32,10 @@ const Panel = styled(Box)(({ theme }) => ({
   },
   '.content': {
     padding: theme.spacing(4, 12.5, 10),
+    '.table-container': {
+      height: 888 /* 66 * 10 + 12 * 10 - 12 */,
+      width: '100%',
+    },
   },
   '.label-value-pair': {
     display: 'flex',
@@ -112,8 +80,12 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => ({
   '.MuiDataGrid-columnHeaders': {
     borderBottom: 0,
   },
+  '.MuiDataGrid-columnSeparator': {
+    display: 'none',
+  },
   '.MuiDataGrid-iconButtonContainer': {
     marginLeft: theme.spacing(3),
+    visibility: 'visible',
   },
   '.MuiDataGrid-sortIcon': {
     opacity: '1 !important',
@@ -130,7 +102,33 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => ({
   },
   '.MuiDataGrid-cell': {
     border: 0,
-    padding: theme.spacing(4.5, 5, 4),
+    // padding: theme.spacing(4.5, 5, 4),
+    padding: theme.spacing(0, 5, 0),
+  },
+  '.MuiDataGrid-cellContent': {
+    ...theme.typography.body,
+    fontWeight: 500,
+    color: theme.palette.text.primary,
+    '&.MuiDataGrid-cell--asset': {
+      display: 'flex',
+      alignItems: 'center',
+      textTransform: 'uppercase',
+      img: {
+        width: 36,
+        height: 36,
+        marginRight: theme.spacing(6),
+        borderRadius: '100%',
+      },
+    },
+    '&.MuiDataGrid-cellContent--withApr': {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    '.MuiDataGrid-cellText': {
+      ...theme.typography.body,
+      fontWeight: 500,
+      color: theme.palette.text.primary,
+    },
   },
   '.MuiDataGrid-footerContainer': {
     border: 0,
@@ -138,19 +136,63 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => ({
 }));
 
 interface Props {
-  items: StatsData;
-  total: {
-    market: number;
-    platform: number;
-  };
+  total: TotalAssetSize;
 }
-export default function AssetSection({ total, items }: Props) {
+
+export default function AssetSection({ total }: Props) {
   const t = usePageTranslation();
   const columns = useMemo(() => {
     return getColumns(t);
   }, [t]);
+  const [sortModel, setSortModel] = useState<GridSortModel>([
+    /* { field: 'asset', sort: 'asc' } */
+  ]);
+  const [rows, setRows] = useState<GridRowsProp>([]);
+  const [rowCount, setRowCount] = useState<number | undefined>(undefined);
+  // Some api client return undefine while loading
+  // Following lines are here to prevent `rowCountState` from being undefined during the loading
+  const [rowCountState, setRowCountState] = useState(rowCount || 0);
+  useEffect(() => {
+    setRowCountState((prevRowCountState) => (rowCount !== undefined ? rowCount : prevRowCountState));
+  }, [rowCount, setRowCountState]);
+
+  const [rowsState, setRowsState] = useState<RowsState>({
+    page: 0,
+    pageSize: TABLE_ROWS_PER_PAGE,
+  });
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleSortModelChange = (newModel: GridSortModel) => {
+    setSortModel(newModel);
+  };
+
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setRowCount(undefined);
+    (async () => {
+      const { total, records } = await loadData('market', {
+        page: rowsState.page,
+        pageSize: rowsState.pageSize,
+        sort: sortModel,
+      });
+
+      if (!active) {
+        return;
+      }
+      setRows(records);
+      setRowCount(total);
+      setLoading(false);
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [sortModel, rowsState /* data */]);
+
   return (
-    <Root>
+    <Section>
       <Panel>
         <div className="header">
           <div className="label-value-pair">
@@ -171,83 +213,43 @@ export default function AssetSection({ total, items }: Props) {
           </div>
         </div>
         <div className="content">
-          <div style={{ height: 400, width: '100%' }}>
+          <div className="table-container">
             <DataGrid
-              rows={rows}
+              loading={loading}
               columns={columns}
-              pageSize={8}
-              rowsPerPageOptions={[8]}
-              disableColumnMenu /* checkboxSelection */
+              disableColumnMenu
+              disableColumnFilter
+              disableSelectionOnClick
+              disableColumnSelector
+              rowHeight={66}
+              rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
+              // rows
+              rows={rows}
+              rowCount={rowCountState}
+              // sorting
               sortingMode="server"
+              sortModel={sortModel}
+              onSortModelChange={handleSortModelChange}
+              // pagination
+              paginationMode="server"
+              {...rowsState}
+              onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
+              onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
+              components={{
+                Pagination: GridPagination,
+              }}
+              localeText={{
+                columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
+                footerTotalVisibleRows: (visibleCount, totalCount) =>
+                  t('common.table.rows-out-of', {
+                    visibleCount: visibleCount.toLocaleString(),
+                    totalCount: totalCount.toLocaleString() + '1',
+                  }),
+              }}
             />
           </div>
         </div>
       </Panel>
-    </Root>
+    </Section>
   );
 }
-
-// import * as React from 'react';
-// import { DataGridPro } from '@mui/x-data-grid-pro';
-// import { useDemoData, getRealGridData, getCommodityColumns } from '@mui/x-data-grid-generator';
-// import LinearProgress from '@mui/material/LinearProgress';
-
-// const MAX_ROW_LENGTH = 500;
-
-// function sleep(duration: number) {
-//   return new Promise<void>((resolve) => {
-//     setTimeout(() => {
-//       resolve();
-//     }, duration);
-//   });
-// }
-
-// export default function InfiniteLoadingGrid() {
-//   const [loading, setLoading] = React.useState(false);
-//   const [loadedRows, setLoadedRows] = React.useState<any>([]);
-//   const mounted = React.useRef(true);
-//   const { data } = useDemoData({
-//     dataSet: 'Commodity',
-//     rowLength: 20,
-//     maxColumns: 6,
-//   });
-
-//   const loadServerRows = async (newRowLength) => {
-//     setLoading(true);
-//     const newData = await getRealGridData(newRowLength, getCommodityColumns());
-//     // Simulate network throttle
-//     await sleep(Math.random() * 500 + 100);
-
-//     if (mounted.current) {
-//       setLoading(false);
-//       setLoadedRows(loadedRows.concat(newData.rows));
-//     }
-//   };
-
-//   const handleOnRowsScrollEnd = (params) => {
-//     if (loadedRows.length <= MAX_ROW_LENGTH) {
-//       loadServerRows(params.viewportPageSize);
-//     }
-//   };
-
-//   React.useEffect(() => {
-//     return () => {
-//       mounted.current = false;
-//     };
-//   }, []);
-
-//   return (
-//     <div style={{ height: 400, width: '100%' }}>
-//       <DataGridPro
-//         {...data}
-//         rows={data.rows.concat(loadedRows)}
-//         loading={loading}
-//         hideFooterPagination
-//         onRowsScrollEnd={handleOnRowsScrollEnd}
-//         components={{
-//           LoadingOverlay: LinearProgress,
-//         }}
-//       />
-//     </div>
-//   );
-// }

@@ -1,5 +1,7 @@
 import { i18n } from 'next-i18next';
 
+import { GridValueFormatterParams } from '@mui/x-data-grid';
+
 // import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORMAT } from './constants';
 // import dateIO from '@/dateIO';
 
@@ -81,3 +83,29 @@ export const formatNumber = (n: number, fractionDigits: number | undefined = 0):
 export const formatAmount = (amount: number, currency: string | undefined = '$'): string => {
   return `${currency} ${formatNumber(amount, 2)}`;
 };
+
+/*
+ * DataGrid cell formatters
+ */
+
+/**
+ * Format grid value as a percent string
+ *  * @param {Pick<GridValueFormatterParams, 'value'>} params
+ * @example
+ * // returns 5.99 %
+ * formatGridPercent({ value: 5.99 });
+ * // returns 0 %
+ * formatGridPercent({ value: undefined });
+ * @returns - a formatted string
+ */
+export const formatGridPercent = (params: Pick<GridValueFormatterParams, 'value'>) => `${params.value || 0} %`;
+
+/**
+ * Format grid value to have dash as default string if value missing
+ *  * @param {Pick<GridValueFormatterParams, 'value'>} params
+ * @example
+ * // returns —
+ * formatGridPercent({ value: undefined });
+ * @returns - the same string if defined otherwise dash symbol '—'
+ */
+export const formatGridEmptyString = (params: Pick<GridValueFormatterParams, 'value'>) => params.value || '—';

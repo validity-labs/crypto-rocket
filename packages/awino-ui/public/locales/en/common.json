@@ -24,14 +24,18 @@
     "navigate-to": "Navigate to \"{{title}}\"",
     "navigate-to-product": "Navigate to \"{{title}}\" product",
     "table": {
+      "sort": "Sort",
       "rows-per-page": "Rows per page",
       "first-page": "First Page",
       "previous-page": "Previous Page",
       "next-page": "Next Page",
-      "last-page": "Last Page"
+      "last-page": "Last Page",
+      "rows-out-of": "{{from}}-{{to}} of {{count}}"
     },
     "video-not-supported": "Sorry, your browser doesn't support embedded videos.",
-    "awi": "AWI"
+    "awi": "AWI",
+    "apr": "APR",
+    "apr-hint": "MISSING HINT"
   },
   "format": {
     "date": "dd-MM-yyyy",
