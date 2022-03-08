@@ -23,7 +23,7 @@ const nextValue = (() => {
   };
 })();
 
-type RecordKeys = 'market';
+type RecordKeys = 'market' | 'earn-deposit';
 const recordsMap: Record<RecordKeys, GridRowsProp> = {
   market: new Array(20)
     .fill({
@@ -38,12 +38,24 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
       borrowAPY: nextValue(),
       ...m,
     })) as GridRowsProp,
+  'earn-deposit': new Array(20)
+    .fill({
+      // asset
+      walletBalance: null,
+    })
+    .map((m, index) => ({
+      id: index,
+      asset: assets[index % 5],
+      apy: nextValue(),
+      ...m,
+    })) as GridRowsProp,
 };
 
 interface LoadDataOptions {
   page: number;
   pageSize: number;
   sort: GridSortModel;
+  term?: string;
 }
 interface LoadDataResponse {
   total: number;
@@ -52,15 +64,19 @@ interface LoadDataResponse {
 
 export default function loadData(
   model: RecordKeys,
-  { page, pageSize, sort }: LoadDataOptions
+  { page, pageSize, sort, term = '' }: LoadDataOptions
 ): Promise<LoadDataResponse> {
   return new Promise(
     (res) =>
       setTimeout(() => {
+        const filteredData =
+          term.length > 0
+            ? recordsMap[model].filter(({ asset }) => asset.toLowerCase().startsWith(term.toLowerCase()))
+            : recordsMap[model];
         return res({
-          total: recordsMap[model].length,
+          total: filteredData.length,
           records: orderBy(
-            recordsMap[model],
+            filteredData,
             sort.map(({ field }) => field),
             sort.map(({ sort }) => sort)
           ).slice(page * pageSize, (page + 1) * pageSize),

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { DataGrid } from '@mui/x-data-grid';
-
 import { loadDataSync } from '@/app/data';
 import getColumns from '@/components/pages/market/AssetSection/columns';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import GridPagination from './GridPagination';
+import GridPagination from '../GridPagination/GridPagination';
+
+import DataGrid from './DataGrid';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -20,7 +20,7 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<GridPagination />', () => {
+describe('<DataGrid />', () => {
   it('has valid snapshot', () => {
     const data = loadDataSync('market', { page: 1, pageSize: 10, sort: [], term: null });
     const { asFragment } = render(

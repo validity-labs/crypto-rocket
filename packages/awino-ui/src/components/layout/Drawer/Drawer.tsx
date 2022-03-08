@@ -57,6 +57,7 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
     '.right': {
       display: 'flex',
       flexDirection: 'row',
+      alignItems: 'center',
     },
   },
 }));

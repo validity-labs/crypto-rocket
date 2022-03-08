@@ -1,6 +1,6 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useCallback } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
@@ -9,11 +9,11 @@ import loadData from '@/app/data';
 import DataGrid from '@/components/general/DataGrid/DataGrid';
 import GridPagination from '@/components/general/GridPagination/GridPagination';
 import Label from '@/components/general/Label/Label';
+import Search from '@/components/general/Search/Search';
+import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount } from '@/lib/formatters';
 import { RowsState } from '@/types/app';
-import { TotalAssetSize } from '@/types/pages/market';
 
 import getColumns from './columns';
 
@@ -25,32 +25,23 @@ const Panel = styled(Box)(({ theme }) => ({
   '.header': {
     display: 'flex',
     flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     gap: theme.spacing(10),
     padding: theme.spacing(5.5, 6.5, 5),
     margin: theme.spacing(0, 0, 15, 0),
     borderRadius: +theme.shape.borderRadius * 5,
     backgroundColor: theme.palette.background.transparent,
+    '.aside': {
+      display: 'flex',
+      alignItems: 'center',
+    },
   },
   '.content': {
     padding: theme.spacing(4, 12.5, 10),
     '.table-container': {
       height: 888 /* 66 * 10 + 12 * 10 - 12 */,
       width: '100%',
-    },
-  },
-  '.label-value-pair': {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    maxWidth: '100%',
-    '.label': {
-      margin: theme.spacing(0, 0, 4.5),
-      overflow: 'auto',
-    },
-    '.value': {
-      flex: 1,
-      whiteSpace: 'nowrap',
-      overflow: 'auto',
     },
   },
   [theme.breakpoints.up('md')]: {
@@ -60,22 +51,17 @@ const Panel = styled(Box)(({ theme }) => ({
       gap: theme.spacing(18),
       padding: theme.spacing(5.5, 12.5, 5),
     },
-    '.label-value-pair': {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      '.label': {
-        margin: theme.spacing(0, 6.5, 0, 0),
-      },
-    },
   },
 }));
 
-interface Props {
-  total: TotalAssetSize;
-}
+// interface Props {
+//   total: TotalAssetSize;
+// }
 
-export default function AssetSection({ total }: Props) {
+export default function AssetSection(/* { total }: Props */) {
   const t = usePageTranslation();
+  const [toggle, setToggle] = useState(false);
+  const [term, setTerm] = useState<string | null>(null);
   const columns = useMemo(() => {
     return getColumns(t);
   }, [t]);
@@ -107,12 +93,12 @@ export default function AssetSection({ total }: Props) {
     setLoading(true);
     setRowCount(undefined);
     (async () => {
-      const { total, records } = await loadData('market', {
+      const { total, records } = await loadData('earn-deposit', {
         page: rowsState.page,
         pageSize: rowsState.pageSize,
         sort: sortModel,
+        term,
       });
-
       if (!active) {
         return;
       }
@@ -124,27 +110,27 @@ export default function AssetSection({ total }: Props) {
     return () => {
       active = false;
     };
-  }, [sortModel, rowsState /* data */]);
+  }, [sortModel, rowsState, term /* data */]);
 
+  const handleSearch = useCallback(
+    (newTerm: string) => {
+      if (term !== newTerm) {
+        setTerm(newTerm);
+        setRowsState((prevRowsState) => ({ ...prevRowsState, page: 1 }));
+      }
+    },
+    [term]
+  );
   return (
     <Section>
       <Panel>
         <div className="header">
-          <div className="label-value-pair">
-            <Label id="marketTotalSize" className="label" tooltip={t(`asset-section.market.total-size-hint`)}>
-              {t(`asset-section.market.total-size`)}
-            </Label>
-            <Typography variant="h5" component="p" className="value" aria-describedby="marketTotalSize">
-              {formatAmount(total.market)}
-            </Typography>
-          </div>
-          <div className="label-value-pair">
-            <Label id="platformTotalFee" className="label" tooltip={t(`asset-section.platform.total-fee-hint`)}>
-              {t(`asset-section.platform.total-fee`)}
-            </Label>
-            <Typography variant="h5" component="p" className="value" aria-describedby="platformTotalFee">
-              {formatAmount(total.platform)}
-            </Typography>
+          <Label id="marketTotalSize" className="label" tooltip={t(`asset-section.title-hint`)}>
+            {t(`asset-section.title`)}
+          </Label>
+          <div className="aside">
+            <Switch checked={toggle} setChecked={setToggle} sx={{ mr: 4.5 }} title={t(`asset-section.toggle-hint`)} />
+            <Search onSearch={handleSearch} />
           </div>
         </div>
         <div className="content">
