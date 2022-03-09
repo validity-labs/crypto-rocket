@@ -135,7 +135,7 @@ export default function AssetSection({ total }: Props) {
               {t(`asset-section.market.total-size`)}
             </Label>
             <Typography variant="h5" component="p" className="value" aria-describedby="marketTotalSize">
-              {formatAmount(total.market)}
+              {formatAmount(total.market, { prefix: '$' })}
             </Typography>
           </div>
           <div className="label-value-pair">
@@ -143,7 +143,7 @@ export default function AssetSection({ total }: Props) {
               {t(`asset-section.platform.total-fee`)}
             </Label>
             <Typography variant="h5" component="p" className="value" aria-describedby="platformTotalFee">
-              {formatAmount(total.platform)}
+              {formatAmount(total.platform, { prefix: '$' })}
             </Typography>
           </div>
         </div>

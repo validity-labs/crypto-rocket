@@ -9,8 +9,9 @@
     "de": "German"
   },
   "account": {
-    "connect": "Connect Wallet",
-    "disconnect": "Disconnect Wallet"
+    "connect": "Connect wallet",
+    "connect-prompt": "Please connect your wallet",
+    "disconnect": "Disconnect wallet"
   },
   "common": {
     "theme-to-light": "Switch to light theme",
@@ -36,7 +37,8 @@
     "video-not-supported": "Sorry, your browser doesn't support embedded videos.",
     "awi": "AWI",
     "apr": "APR",
-    "apr-hint": "MISSING HINT"
+    "apr-hint": "MISSING HINT",
+    "back": "Go back"
   },
   "format": {
     "date": "dd-MM-yyyy",

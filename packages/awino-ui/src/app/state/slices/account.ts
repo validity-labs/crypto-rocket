@@ -17,9 +17,18 @@ export const accountSlice = createSlice({
     setActiveAccount: (state, action: PayloadAction<string | undefined | null>) => {
       state.activeAccount = action.payload === null ? null : action.payload;
     },
+    connect: (state, action?: PayloadAction<string>) => {
+      /* TODO WIP Check if account is valid */
+      state.activeAccount = action.payload || 'ACTIVE_ACCOUNT';
+      state.connected = true;
+    },
+    disconnect: (state) => {
+      state.activeAccount = null;
+      state.connected = false;
+    },
   },
 });
 
-export const { setActiveAccount } = accountSlice.actions;
+export const { setActiveAccount, connect, disconnect } = accountSlice.actions;
 
 export default accountSlice.reducer;

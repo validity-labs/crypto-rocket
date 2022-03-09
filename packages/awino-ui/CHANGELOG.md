@@ -18,6 +18,15 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-09
+
+### Added
+
+- Added earn deposit details page
+- Added asset component to earn deposit details page
+- Added connection panel component
+- Added label-value component
+
 ## [0.0.0] - 2022-03-08
 
 ### Added

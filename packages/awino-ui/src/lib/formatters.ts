@@ -74,15 +74,47 @@ export const formatNumber = (n: number, fractionDigits: number | undefined = 0):
     return `${n}`;
   }
 };
+
+interface FormatAmountOptions {
+  prefix?: string;
+  postfix?: string;
+}
 /**
  * Format amount and currency
  *  * @param {number} amount
- *  * @param {string} [currency]
+ *  * @param {FormatAmountOptions} [options]
  * @returns - a formatted string
  */
-export const formatAmount = (amount: number, currency: string | undefined = '$'): string => {
-  return `${currency} ${formatNumber(amount, 2)}`;
+export const formatAmount = (amount: number, { prefix, postfix }: FormatAmountOptions = {}): string => {
+  const outputPrefix = prefix ? `${prefix} ` : '';
+  const outputPostfix = postfix ? ` ${postfix}` : '';
+  return `${outputPrefix}${formatNumber(amount, 2)}${outputPostfix}`;
 };
+
+export const formatUSD = (amount: number) => formatAmount(amount, { prefix: '$', postfix: 'USD' });
+export const formatAWI = (amount: number) => formatAmount(amount, { postfix: 'AWI' });
+
+/**
+ * Format value to have dash as default string if value missing
+ *  * @param {any} value
+ * @example
+ * // returns —
+ * formatEmptyString({ value: undefined });
+ * @returns - the same string if defined otherwise dash symbol '—'
+ */
+export const formatEmptyString = (value: any): string => (value ? `${value}` : '—');
+
+/**
+ * Format value as a percent string
+ *  * @param {number} value
+ * @example
+ * // returns 5.99 %
+ * formatPercent({ value: 5.99 });
+ * // returns 0 %
+ * formatPercent({ value: undefined });
+ * @returns - a formatted string
+ */
+export const formatPercent = (value?: number) => `${value || 0} %`;
 
 /*
  * DataGrid cell formatters
@@ -98,14 +130,16 @@ export const formatAmount = (amount: number, currency: string | undefined = '$')
  * formatGridPercent({ value: undefined });
  * @returns - a formatted string
  */
-export const formatGridPercent = (params: Pick<GridValueFormatterParams, 'value'>) => `${params.value || 0} %`;
+export const formatGridPercent = (params: Pick<GridValueFormatterParams, 'value'>) =>
+  formatPercent(params.value as number);
 
 /**
  * Format grid value to have dash as default string if value missing
  *  * @param {Pick<GridValueFormatterParams, 'value'>} params
  * @example
  * // returns —
- * formatGridPercent({ value: undefined });
+ * formatGridEmptyString({ value: undefined });
  * @returns - the same string if defined otherwise dash symbol '—'
  */
-export const formatGridEmptyString = (params: Pick<GridValueFormatterParams, 'value'>) => params.value || '—';
+export const formatGridEmptyString = (params: Pick<GridValueFormatterParams, 'value'>) =>
+  formatEmptyString(params.value);

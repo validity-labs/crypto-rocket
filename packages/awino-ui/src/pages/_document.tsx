@@ -21,14 +21,11 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Comfortaa:wght@400;600&display=block"
             rel="stylesheet"
           />
+          <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet" />
           <script
             src="https://polyfill.io/v3/polyfill.min.js?features=Intl.NumberFormat,Intl.NumberFormat.~locale.en,Intl.NumberFormat.~locale.de"
             defer
           ></script>
-          {/* <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Comfortaa:wght@500&display=swap"
-            rel="stylesheet"
-          /> */}
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>

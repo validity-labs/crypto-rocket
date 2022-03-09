@@ -26,24 +26,10 @@ const themeCreator = (mode: PaletteMode) => {
         ? {
             // palette values for light mode
             primary: {
-              main: '#0e76df',
-              dark: '#065cb2',
-              contrastText: '#ffffff',
+              main: '#00FFEB',
             },
             secondary: {
-              light: '#F23C9E',
-              main: '#df0e83',
-              contrastText: '#ffffff',
-            },
-            warning: {
-              main: '#F8B90D',
-              contrastText: '#ffffff',
-            },
-            error: {
-              main: '#CE0057', // red.A400,
-            },
-            success: {
-              main: '#33C7B1',
+              main: '#00e63e',
             },
             text: {
               primary: '#000000', // '#0e193c',
@@ -63,25 +49,10 @@ const themeCreator = (mode: PaletteMode) => {
           }
         : {
             primary: {
-              main: '#0e76df',
-              dark: '#065cb2',
-              contrastText: '#ffffff',
+              main: '#00FFEB',
             },
             secondary: {
-              light: '#F23C9E',
-              main: '#df0e83',
-              contrastText: '#ffffff',
-            },
-
-            warning: {
-              main: '#F8B90D',
-              contrastText: '#ffffff',
-            },
-            error: {
-              main: '#CE0057', // red.A400,
-            },
-            success: {
-              main: '#33C7B1',
+              main: '#00e63e',
             },
             text: {
               primary: '#ffffff', // '#0e193c',
@@ -607,7 +578,39 @@ const themeCreator = (mode: PaletteMode) => {
         //     },
         //   },
         // },
-
+        {
+          props: { variant: 'outlined' },
+          style: {
+            color: theme.palette.text.primary,
+            //   padding: theme.spacing(0, 0, 0, 9),
+            //   borderRadius: shapeBorderRadiusBase * 8,
+            //   overflow: 'hidden',
+            //   color: theme.palette.text.contrast,
+            '&:hover': {
+              //     border: '1px solid currentColor',
+              color: theme.palette.text.primary,
+              //     '& .MuiButton-endIcon': {
+              //       transition: 'background-color .1s, transform .3s',
+              //       transform: 'rotate(10deg)',
+              //     },
+            },
+            //   '& .MuiButton-endIcon': {
+            //     display: 'flex',
+            //     justifyContent: 'center',
+            //     alignItems: 'center',
+            //     width: 54,
+            //     height: 54,
+            //     border: '1px solid currentColor',
+            //     borderRadius: '100%',
+            //     margin: theme.spacing(0, '-1px', 0, 4),
+            //     backgroundColor: '#ffad36',
+            //     transition: 'background-color .1s, transform .3s',
+            //     svg: {
+            //       fontSize: '32px',
+            //     },
+            //   },
+          },
+        },
         {
           props: { variant: 'outlined', color: 'info' },
           style: {
@@ -664,7 +667,11 @@ const themeCreator = (mode: PaletteMode) => {
         },
         outlined: {
           borderColor: 'currentcolor',
+          borderWidth: 2,
           borderRadius: shapeBorderRadiusBase * 2,
+          '&:hover': {
+            borderWidth: 2,
+          },
         },
         text: {
           padding: 0,

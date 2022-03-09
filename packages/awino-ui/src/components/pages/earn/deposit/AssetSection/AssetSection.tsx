@@ -1,11 +1,15 @@
 import { useMemo, useState, useEffect, useCallback } from 'react';
 
+import { useRouter } from 'next/router';
+
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { GridRowsProp, GridSortModel } from '@mui/x-data-grid';
+import { GridEventListener, GridEvents, GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
 import { TABLE_ROWS_PER_PAGE, TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
 import loadData from '@/app/data';
+// import { useAppSelector } from '@/app/hooks';
+// import ConnectPanel from '@/components/general/ConnectPanel/ConnectPanel';
 import DataGrid from '@/components/general/DataGrid/DataGrid';
 import GridPagination from '@/components/general/GridPagination/GridPagination';
 import Label from '@/components/general/Label/Label';
@@ -60,8 +64,12 @@ const Panel = styled(Box)(({ theme }) => ({
 
 export default function AssetSection(/* { total }: Props */) {
   const t = usePageTranslation();
+  const router = useRouter();
+  // const { connected } = useAppSelector((state) => ({
+  //   connected: state.account.connected,
+  // }));
   const [toggle, setToggle] = useState(false);
-  const [term, setTerm] = useState<string | null>(null);
+  const [term, setTerm] = useState<string>('');
   const columns = useMemo(() => {
     return getColumns(t);
   }, [t]);
@@ -121,6 +129,13 @@ export default function AssetSection(/* { total }: Props */) {
     },
     [term]
   );
+
+  const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback(
+    (props) => {
+      router.push(`/earn/deposit/${props.row.asset}`);
+    },
+    [router]
+  );
   return (
     <Section>
       <Panel>
@@ -134,6 +149,7 @@ export default function AssetSection(/* { total }: Props */) {
           </div>
         </div>
         <div className="content">
+          {/* {connected ? ( */}
           <div className="table-container">
             <DataGrid
               loading={loading}
@@ -147,6 +163,7 @@ export default function AssetSection(/* { total }: Props */) {
               // rows
               rows={rows}
               rowCount={rowCountState}
+              onRowClick={handleRowClick}
               // sorting
               sortingMode="server"
               sortModel={sortModel}
@@ -169,6 +186,9 @@ export default function AssetSection(/* { total }: Props */) {
               }}
             />
           </div>
+          {/* ) : (
+            <ConnectPanel />
+          )} */}
         </div>
       </Panel>
     </Section>

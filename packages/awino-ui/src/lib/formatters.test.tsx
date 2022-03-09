@@ -3,6 +3,8 @@ import {
   formatNumber,
   formatGridEmptyString,
   formatGridPercent,
+  formatEmptyString,
+  formatPercent,
 } from './formatters';
 
 // const stringDate = '2000-01-01T00:00:00Z';
@@ -81,8 +83,24 @@ describe('formatNumber', () => {
 
 describe('formatAmount', () => {
   it('should return formatted amount and currency', () => {
-    expect(formatAmount(1000.99, 'CHF')).toBe('CHF 1,000.99');
-    expect(formatAmount(10, 'USD')).toBe('USD 10.00');
+    expect(formatAmount(1000.99, { prefix: 'CHF' })).toBe('CHF 1,000.99');
+    expect(formatAmount(10, { postfix: 'USD' })).toBe('10.00 USD');
+    expect(formatAmount(10, { prefix: '$', postfix: 'USD' })).toBe('$ 10.00 USD');
+  });
+});
+
+describe('formatPercent', () => {
+  it('should return formatted percent', () => {
+    expect(formatPercent(5)).toBe('5 %');
+    expect(formatPercent(5.99)).toBe('5.99 %');
+    expect(formatPercent(undefined)).toBe('0 %');
+  });
+});
+
+describe('formatEmptyString', () => {
+  it('should return same string or default when value is missing', () => {
+    expect(formatEmptyString('lorem')).toBe('lorem');
+    expect(formatEmptyString(undefined)).toBe('—');
   });
 });
 

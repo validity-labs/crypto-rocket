@@ -71,12 +71,12 @@ declare module '@mui/material/Typography' {
   }
 }
 
-// declare module '@mui/material/Button' {
-//   interface ButtonPropsVariantOverrides {
-//     containedIcon: true;
-//     inverted: true;
-//   }
-// }
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    // containedIcon: true;
+    inverted: true;
+  }
+}
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {

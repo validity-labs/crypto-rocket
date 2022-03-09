@@ -37,6 +37,9 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => ({
     border: 0,
     // padding: theme.spacing(4.5, 5, 4),
     padding: theme.spacing(0, 5, 0),
+    '&:focus-within': {
+      outline: 'none',
+    },
   },
   '.MuiDataGrid-cellContent': {
     ...theme.typography.body,

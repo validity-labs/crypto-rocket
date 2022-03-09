@@ -23,7 +23,7 @@ const nextValue = (() => {
   };
 })();
 
-type RecordKeys = 'market' | 'earn-deposit';
+type RecordKeys = 'market' | 'earn-deposit' | 'earn-deposit-details';
 const recordsMap: Record<RecordKeys, GridRowsProp> = {
   market: new Array(20)
     .fill({
@@ -39,6 +39,17 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
       ...m,
     })) as GridRowsProp,
   'earn-deposit': new Array(20)
+    .fill({
+      // asset
+      walletBalance: null,
+    })
+    .map((m, index) => ({
+      id: index,
+      asset: assets[index % 5],
+      apy: nextValue(),
+      ...m,
+    })) as GridRowsProp,
+  'earn-deposit-details': new Array(20)
     .fill({
       // asset
       walletBalance: null,

@@ -4,11 +4,11 @@ import { styled } from '@mui/material/styles';
 
 import InfoIcon from '@/components/icons/InfoIcon';
 
-interface Props extends Partial<TypographyProps> {
+export interface LabelProps extends Partial<TypographyProps> {
   tooltip?: string;
 }
 
-const Label = styled(({ children, tooltip, ...restOfProps }: Props) => {
+const Label = styled(({ children, tooltip, ...restOfProps }: LabelProps) => {
   return (
     <Typography {...restOfProps}>
       {children}
@@ -38,4 +38,4 @@ const Label = styled(({ children, tooltip, ...restOfProps }: Props) => {
   },
 }));
 
-export default Label as OverridableComponent<TypographyTypeMap<Props, 'span'>>;
+export default Label as OverridableComponent<TypographyTypeMap<LabelProps, 'span'>>;
