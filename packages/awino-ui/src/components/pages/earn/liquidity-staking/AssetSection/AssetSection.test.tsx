@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { assetSectionData } from '@/fixtures/market';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
@@ -19,7 +18,7 @@ afterEach(cleanup);
 
 describe('<AssetSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<AssetSection total={assetSectionData} />, {}, 'market');
+    const { asFragment } = render(<AssetSection />, {}, 'earn-liquidity-staking');
     expect(asFragment()).toMatchSnapshot();
   });
 });

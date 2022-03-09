@@ -26,6 +26,12 @@ Date format: `YYYY-MM-DD`
 - Added asset component to earn deposit details page
 - Added connection panel component
 - Added label-value component
+- Added earn liquidity staking page
+- Added asset component to earn liquidity staking page
+
+### Changed
+
+- Changed lint-staged configuration by moving to the root package.json
 
 ## [0.0.0] - 2022-03-08
 

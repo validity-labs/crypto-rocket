@@ -19,11 +19,16 @@
   "scripts": {
     "prepare": "husky install",
     "start": "lerna exec --scope=@awino/ui -- yarn dev",
-    "lint": "lerna run lint:fix",
+    "lint": "lerna run lint:fix --",
     "format": "lerna run format:fix",
     "commit": "yarn commit"
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint"
+    ]
+  }
 }

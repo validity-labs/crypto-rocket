@@ -995,7 +995,7 @@ const themeCreator = (mode: PaletteMode) => {
             ...theme.typography.menu,
             color: theme.palette.text.menu,
             transition: 'color 200ms ease-in-out',
-            '&:hover': {
+            '&:hover, &.active': {
               color: theme.palette.text.primary,
               transition: 'color 200ms ease-in-out',
             },
