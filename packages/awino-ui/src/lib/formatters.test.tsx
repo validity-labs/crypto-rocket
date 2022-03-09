@@ -5,6 +5,7 @@ import {
   formatGridPercent,
   formatEmptyString,
   formatPercent,
+  formatGridUSD,
 } from './formatters';
 
 // const stringDate = '2000-01-01T00:00:00Z';
@@ -116,5 +117,11 @@ describe('formatGridEmptyString', () => {
   it('should return same string or default when value is missing', () => {
     expect(formatGridEmptyString({ value: 'lorem' })).toBe('lorem');
     expect(formatGridEmptyString({ value: undefined })).toBe('—');
+  });
+});
+
+describe('formatGridUSD', () => {
+  it('should return formatted amount and currency', () => {
+    expect(formatGridUSD({ value: 1000.99 })).toBe('$ 1,000.99 USD');
   });
 });

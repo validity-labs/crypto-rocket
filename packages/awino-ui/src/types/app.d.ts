@@ -22,7 +22,9 @@ export type I18nPageNamespace =
   | 'market'
   | 'earn-deposit'
   | 'earn-deposit-details'
-  | 'earn-liquidity-staking';
+  | 'earn-liquidity-staking'
+  | 'borrow'
+  | 'borrow-details';
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 

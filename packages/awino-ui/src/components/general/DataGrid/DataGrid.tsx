@@ -8,9 +8,19 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => ({
   },
   '.MuiDataGrid-columnHeaderTitle': {
     ...theme.typography.body,
+    fontWeight: 500,
     color: theme.palette.text.secondary,
+    whiteSpace: 'pre-line',
+    span: {
+      ...theme.typography['body-xs'],
+    },
   },
+  '.MuiDataGrid-columnHeaderTitleContainer': {
+    // alignItems: 'flex-start',
+  },
+  '.MuiDataGrid-columnHeaderTitleContainerContent': {},
   '.MuiDataGrid-columnHeaders': {
+    // alignItems: 'flex-start',
     borderBottom: 0,
   },
   '.MuiDataGrid-columnSeparator': {

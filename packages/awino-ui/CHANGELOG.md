@@ -28,6 +28,8 @@ Date format: `YYYY-MM-DD`
 - Added label-value component
 - Added earn liquidity staking page
 - Added asset component to earn liquidity staking page
+- Added borrow and borrow details page
+- Added asset component to borrow and borrow details page
 
 ### Changed
 

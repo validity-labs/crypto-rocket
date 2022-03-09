@@ -143,3 +143,5 @@ export const formatGridPercent = (params: Pick<GridValueFormatterParams, 'value'
  */
 export const formatGridEmptyString = (params: Pick<GridValueFormatterParams, 'value'>) =>
   formatEmptyString(params.value);
+
+export const formatGridUSD = (params: Pick<GridValueFormatterParams, 'value'>) => formatUSD(params.value as number);
