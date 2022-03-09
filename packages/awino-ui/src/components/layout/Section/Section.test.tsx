@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Section from './Section';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
+
+import Section from './Section';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -20,7 +21,7 @@ describe('<Section />', () => {
     const { asFragment } = render(
       <Section>
         <></>
-      </Section>,
+      </Section>
     );
     expect(asFragment()).toMatchSnapshot();
   });

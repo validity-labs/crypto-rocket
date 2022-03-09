@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Link from './Link';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
+
+import Link from './Link';
 
 beforeAll(() => {
   nextUseRouterMock({

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Logo from './Logo';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
+
+import Logo from './Logo';
 
 beforeAll(() => {
   nextUseRouterMock({

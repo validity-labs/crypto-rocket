@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 
 import { Web3Provider } from '@ethersproject/providers';
@@ -70,8 +71,8 @@ function getErrorMessage(error: Error) {
     return "You're connected to an unsupported network.";
   } else if (
     error instanceof UserRejectedRequestErrorInjected ||
-    error instanceof UserRejectedRequestErrorWalletConnect ||
-    error instanceof UserRejectedRequestErrorFrame
+    error instanceof UserRejectedRequestErrorWalletConnect
+    //  ||error instanceof UserRejectedRequestErrorFrame
   ) {
     return 'Please authorize this website to access your Ethereum account.';
   } else {

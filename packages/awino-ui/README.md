@@ -10,13 +10,6 @@
 - https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
 - https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits
 
-## Commit convention
-
-We are using conventional commit messages to keep everything clean.
-Please follow the commit message pattern as described here:
-
-https://www.conventionalcommits.org/en/v1.0.0/
-
 ## Husky pre commit validation
 
 Resolve path issue (`.husky/commit-msg: line 4: npx: command not found`) in SourceTree as described here: https://github.com/typicode/husky/issues/904

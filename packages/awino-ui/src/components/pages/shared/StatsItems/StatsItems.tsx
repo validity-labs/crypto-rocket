@@ -3,9 +3,10 @@ import { useCallback, useState } from 'react';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
+import trimEnd from 'lodash/trimEnd';
+
 import { Container, ContainerProps, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import trimEnd from 'lodash/trimEnd';
 
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { StatsData } from '@/types/pages/landing';

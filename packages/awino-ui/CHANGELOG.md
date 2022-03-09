@@ -18,7 +18,7 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
-## [0.0.0] - 2022-03-07
+## [0.0.0] - 2022-03-08
 
 ### Added
 
@@ -27,7 +27,12 @@ Date format: `YYYY-MM-DD`
 - Added switch component
 - Added search component
 
-## [0.0.0] - 2022-03-06
+### Changed
+
+- Changed husky configuration to use commitlint
+- Changed lint-staged configuration
+
+## [0.0.0] - 2022-03-07
 
 ### Added
 

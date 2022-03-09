@@ -66,5 +66,10 @@
     "jest-css-modules-transform": "^4.2.0",
     "prettier": "^2.5.1",
     "ts-jest": "^27.0.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn eslint --fix"
+    ]
   }
 }

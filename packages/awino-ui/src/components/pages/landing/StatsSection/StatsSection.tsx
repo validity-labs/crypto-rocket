@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { StatsData } from '@/types/pages/landing';
+
 import StatsItems from '../../shared/StatsItems/StatsItems';
 
 const Root = styled(Section)(({ theme }) => ({
