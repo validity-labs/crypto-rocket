@@ -5,14 +5,9 @@ import { NextConfig } from 'next';
 import { PaletteMode, SvgIconProps } from '@mui/material';
 
 export interface NextAppConfig extends NextConfig {
-  serverRuntimeConfig?: {
-    cmsEndpoint: string;
-  };
+  serverRuntimeConfig?: {};
   publicRuntimeConfig: {
     baseDomain: string;
-    cmsEndpoint: string;
-    googleRecaptchaSiteKey: string;
-    subscribeEndpoint: string;
   };
 }
 

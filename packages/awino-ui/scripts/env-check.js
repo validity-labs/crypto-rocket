@@ -1,8 +1,9 @@
-const yup = require('yup');
+/* global Set */
 const isURL = require('validator/lib/isURL');
+const yup = require('yup');
 
 // only for test purposes install dotenv for this
-// require('dotenv').config({ path: '../../../config/suite/ui/.env.development' })
+// require('dotenv').config({ path: '../../../config/awino-ui/.env.development' })
 
 const envValidator = {
   prepare() {
@@ -45,12 +46,6 @@ const envValidator = {
     const prefixWhitelist = ['NEXT_PUBLIC', 'NEXT_PRIVATE'];
 
     const keyValidatorMap = {
-      NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY: yup.string().required(),
-      NEXT_PUBLIC_MAILCHIMP_ENDPOINT: yup.string().customUrl().required(),
-      NEXT_PUBLIC_MAILCHIMP_UID: yup.string().required(),
-      NEXT_PUBLIC_MAILCHIMP_ID: yup.string().required(),
-      NEXT_PUBLIC_CMS_ENDPOINT: yup.string().customUrl().required(),
-      NEXT_PRIVATE_CMS_ENDPOINT: yup.string().customUrl().required(),
       NEXT_PUBLIC_BASE_DOMAIN: yup.string().customUrl().required(),
     };
 
@@ -68,7 +63,7 @@ const envValidator = {
           .concat(Object.keys(keyValidatorMap)),
       ),
     ).map((key) => {
-      const isKnown = keyValidatorMap.hasOwnProperty(key);
+      const isKnown = Object.prototype.hasOwnProperty.call(keyValidatorMap, key);
       try {
         (isKnown ? keyValidatorMap[key] : defaultValidator).validateSync(process.env[key]);
       } catch (errs) {

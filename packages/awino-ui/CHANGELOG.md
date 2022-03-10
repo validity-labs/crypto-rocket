@@ -18,6 +18,13 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-10
+
+### Added
+
+- Added development docker configuration
+- Added environment variables
+
 ## [0.0.0] - 2022-03-09
 
 ### Added

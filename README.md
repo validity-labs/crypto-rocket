@@ -11,11 +11,37 @@ You have option to commit as usual, in this case `husky` `commit-msg` will trigg
 
 ## Initial configuration (run once)
 
+### Prerequisites
+
+- For smooth development experience it is suggested to use [nvm](https://github.com/nvm-sh/nvm), which allows to choose proper node version which is defined in `.nvmrc`
+- Install [yarn](https://classic.yarnpkg.com/lang/en/) package manager (classic version 1)
+
 ```bash
-  # initialize husky
-  yarn prepare
+  # choose proper node version, nvm should be already installed
+  nvm use
+  # tested with `yarn` 1 version aka classic
+  yarn
 ```
 
 ```bash
-  yarn
+  # initialize husky https://typicode.github.io/husky/#/
+  yarn prepare
+```
+
+## Local development
+
+_Enviroment variables can be injected using .env.local file inside `packages/awino-ui` folder. For initial template use `config/awino-ui/.env.development`_
+
+```bash
+  # start development server locally
+  yarn start
+```
+
+## Local development with docker
+
+_Enviroment variables are in `config/awino-ui/.env.development`_
+
+```bash
+  # start development server locally in docker container
+  docker-compose up
 ```
