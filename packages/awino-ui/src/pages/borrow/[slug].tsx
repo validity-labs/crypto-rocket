@@ -11,8 +11,8 @@ import AssetSection from '@/components/pages/borrow-details/AssetSection/AssetSe
 interface Props {
   slug: string;
 }
-const BorrowDetailsPage: NextPage<Props> = ({ slug }) => {
-  console.log(slug);
+const BorrowDetailsPage: NextPage<Props> = (/* { slug } */) => {
+  // console.log(slug);
   return (
     <>
       {/* <Seo

@@ -38,7 +38,9 @@
     "awi": "AWI",
     "apr": "APR",
     "apr-hint": "MISSING HINT",
-    "back": "Go back"
+    "back": "Go back",
+    "filter-by-name": "Filter by name",
+    "select-token": "Choose token"
   },
   "format": {
     "date": "dd-MM-yyyy",

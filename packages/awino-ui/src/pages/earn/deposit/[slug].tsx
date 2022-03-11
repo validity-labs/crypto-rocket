@@ -11,8 +11,8 @@ import AssetSection from '@/components/pages/earn/deposit-details/AssetSection/A
 interface Props {
   slug: string;
 }
-const EarnDepositDetailsPage: NextPage<Props> = ({ slug }) => {
-  console.log(slug);
+const EarnDepositDetailsPage: NextPage<Props> = (/* { slug } */) => {
+  // console.log(slug);
   return (
     <>
       {/* <Seo

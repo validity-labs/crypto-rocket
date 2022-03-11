@@ -54,6 +54,9 @@ const themeCreator = (mode: PaletteMode) => {
             secondary: {
               main: '#00e63e',
             },
+            success: {
+              main: '#00D583',
+            },
             text: {
               primary: '#ffffff', // '#0e193c',
               secondary: '#727682',
@@ -68,6 +71,7 @@ const themeCreator = (mode: PaletteMode) => {
               light: '#093143',
               lighter: '#f7f9ff',
               gray: '#fafafa',
+              disabled: '#51595f',
               transparent: 'rgba(255,255,255,0.03)',
             },
           }),
@@ -455,6 +459,10 @@ const themeCreator = (mode: PaletteMode) => {
               background: ['rgb(0,255,235)', 'linear-gradient(115deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 90%)'],
               '@media (hover: none)': {},
             },
+            '&.Mui-disabled': {
+              background: theme.palette.background.disabled,
+              color: theme.palette.text.secondary,
+            },
           },
         },
         // {
@@ -699,6 +707,29 @@ const themeCreator = (mode: PaletteMode) => {
           padding: sp(4.5, 9, 5),
           fontSize: '1.25rem', // 20
           fontWeight: 600,
+        },
+      },
+    },
+    MuiToggleButtonGroup: {
+      styleOverrides: {
+        root: {
+          borderRadius: +theme.shape.borderRadius * 2,
+          backgroundColor: theme.palette.background.transparent,
+          '.MuiToggleButton-root': {
+            padding: theme.spacing(3, 6),
+            border: 0,
+            ...theme.typography.body,
+            fontSize: '1rem' /* 16px */,
+            fontWeight: 400,
+            textTransform: 'none',
+            '&.Mui-selected': {
+              color: theme.palette.text.active,
+              backgroundColor: theme.palette.background.transparent,
+            },
+          },
+          '.MuiToggleButtonGroup-grouped:not(:last-of-type), .MuiToggleButtonGroup-grouped:not(:first-of-type)': {
+            borderRadius: +theme.shape.borderRadius * 2,
+          },
         },
       },
     },

@@ -19,7 +19,8 @@ export type I18nPageNamespace =
   | 'earn-deposit-details'
   | 'earn-liquidity-staking'
   | 'borrow'
-  | 'borrow-details';
+  | 'borrow-details'
+  | 'swap';
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 
@@ -43,3 +44,5 @@ export interface RowsState {
   page: number;
   pageSize: number;
 }
+
+export type ID = string;

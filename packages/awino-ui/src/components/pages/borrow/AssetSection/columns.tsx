@@ -1,7 +1,7 @@
 import { TFunction, Trans } from 'next-i18next';
 
 import { Typography } from '@mui/material';
-import { GridColDef, GridColumnHeaderParams, GridRenderCellParams } from '@mui/x-data-grid';
+import { GridColDef, /* GridColumnHeaderParams, */ GridRenderCellParams } from '@mui/x-data-grid';
 
 import { formatGridPercent, formatGridUSD } from '@/lib/formatters';
 
@@ -22,8 +22,7 @@ const getColumns = (t: TFunction): GridColDef[] => {
       i18nKey: 'available-to-borrow',
       sortable: true,
       valueFormatter: formatGridUSD,
-      renderHeader: (params: GridColumnHeaderParams) => {
-        console.log(params);
+      renderHeader: (/* params: GridColumnHeaderParams */) => {
         return (
           <div className="MuiDataGrid-columnHeaderTitle">
             <Trans

@@ -88,7 +88,7 @@ interface LoadDataOptions {
 }
 interface LoadDataResponse {
   total: number;
-  records: GridRowsProp[];
+  records: GridRowsProp;
 }
 
 export default function loadData(

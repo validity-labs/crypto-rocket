@@ -18,12 +18,20 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-11
+
+### Changed
+
+- Changed swap section on swap page with mocked data
+
 ## [0.0.0] - 2022-03-10
 
 ### Added
 
 - Added development docker configuration
 - Added environment variables
+- Added swap page
+- Added swap section to swap page (wip)
 
 ## [0.0.0] - 2022-03-09
 
