@@ -20,6 +20,10 @@ Date format: `YYYY-MM-DD`
 
 ## [0.0.0] - 2022-03-11
 
+### Added
+
+- Added podl page and purchase section (wip)
+
 ### Changed
 
 - Changed swap section on swap page with mocked data

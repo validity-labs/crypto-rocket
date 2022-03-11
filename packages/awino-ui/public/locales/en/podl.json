@@ -1,0 +1,38 @@
+{
+  "page": {
+    "title": "Podl",
+    "description": "MISSING DESCRIPTION"
+  },
+  "purchase-section": {
+    "title": "Protocol owned DEX liquidity module",
+    "description": "Sell GEISTFTM LP tokens directly to the protocol for a 10% premium.\n\n 50% of the FTM treasury rewards (earned from borrowing fees) are redirected to purchasenthese LP tokens which are locked forever, ensuring healthy ongoing liquidity for the protocol.",
+    "buyable-ftm": "Buyable FTM",
+    "ftm": "FTM",
+    "geistftm": "GEISTFTM",
+    "info": {
+      "title": "Buy FTM with GEISTFTM LP tokens",
+      "title-hint": "MISSING TEXT",
+      "description": "Description",
+      "token-price": "Token price",
+      "current-price": "Current LP token price",
+      "offered-price": "The price GEIST finance is offering per LP token"
+    },
+    "purchase": {
+      "title": "Buy FTM with GEISTFTM LP tokens",
+      "title-hint": "MISSING TEXT",
+      "info": "The minimum buy amount is 1 FTM. This is currently {{price}} GEISTFTM.",
+      "ftm-label": "How much FTM do you want to buy?",
+      "approve": "Approve",
+      "create-proposal": "Create Proposal"
+    },
+    "treasury": {
+      "title": "treasury",
+      "info": "Treasury information",
+      "view-contract": "View smart contract",
+      "total-share": "Total share in Treasury",
+      "in-treasure": "In Treasure",
+      "breakdown": "Breakdown",
+      "total-ftm-sold": "Total FTM sold"
+    }
+  }
+}
