@@ -33,15 +33,15 @@ export const mainMenuLinks: MenuItemType[] = [
   {
     type: 'internal',
     key: 'podl',
-    url: '/podl',
+    url: '#',
   },
   {
     type: 'group',
     key: 'more',
     items: [
-      { type: 'internal', key: 'analytics', url: '/analytics' },
-      { type: 'internal', key: 'docs', url: '/docs' },
-      { type: 'internal', key: 'launchpad', url: '/launchpad' },
+      { type: 'internal', key: 'analytics', url: '#' },
+      { type: 'internal', key: 'docs', url: '#' },
+      { type: 'internal', key: 'launchpad', url: '#' },
     ],
   },
 ];
@@ -50,12 +50,12 @@ export const settingMenuLinks: MenuItemLink[] = [
   {
     type: 'internal',
     key: 'profile',
-    url: '/profile',
+    url: '#',
   },
   {
     type: 'internal',
     key: 'activity',
-    url: '/activity',
+    url: '#',
   },
 ];
 
@@ -68,12 +68,12 @@ export const moreMenuLinks: MenuItemLink[] = [
   {
     type: 'internal',
     key: 'contracts',
-    url: '/contracts',
+    url: '#',
   },
   {
     type: 'internal',
     key: 'portfolio',
-    url: '/portfolio',
+    url: '#',
   },
 ];
 
