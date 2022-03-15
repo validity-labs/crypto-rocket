@@ -2,8 +2,8 @@
 
 exports[`<Label /> has valid snapshot 1`] = `
 <DocumentFragment>
-  <p
-    class="MuiTypography-root MuiTypography-body css-0"
+  <h6
+    class="MuiTypography-root MuiTypography-h7 css-0"
   >
     Text
     <span
@@ -29,6 +29,6 @@ exports[`<Label /> has valid snapshot 1`] = `
         />
       </svg>
     </span>
-  </p>
+  </h6>
 </DocumentFragment>
 `;

@@ -13,7 +13,8 @@ import TreasureIcon from '@/components/icons/TreasureIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAmount, formatPercent } from '@/lib/formatters';
 
-import Panel from './Panel';
+import Panel from '../../../general/Panel/Panel';
+
 import { PodlPurchaseData } from './PurchaseSection';
 
 const Root = styled(Panel)(({ theme }) => ({

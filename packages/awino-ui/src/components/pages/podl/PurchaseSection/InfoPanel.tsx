@@ -14,7 +14,8 @@ import Trend from '@/components/general/Trend/Trend';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatUSD } from '@/lib/formatters';
 
-import Panel from './Panel';
+import Panel from '../../../general/Panel/Panel';
+
 import { PodlPurchaseData } from './PurchaseSection';
 
 interface Props {

@@ -10,7 +10,7 @@ export interface LabelProps extends Partial<TypographyProps> {
 
 const Label = styled(({ children, tooltip, ...restOfProps }: LabelProps) => {
   return (
-    <Typography {...restOfProps}>
+    <Typography variant="h7" {...restOfProps}>
       {children}
       {tooltip && (
         <Tooltip title={tooltip} placement="right">
@@ -24,7 +24,7 @@ const Label = styled(({ children, tooltip, ...restOfProps }: LabelProps) => {
 })(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  ...theme.typography.h7,
+  // ...theme.typography.h7,
   color: theme.palette.text.primary,
   '.help': {
     // display: 'inline-block',

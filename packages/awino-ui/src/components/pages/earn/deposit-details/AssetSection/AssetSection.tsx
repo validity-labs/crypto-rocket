@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
@@ -12,6 +12,7 @@ import DataGrid from '@/components/general/DataGrid/DataGrid';
 import GridPagination from '@/components/general/GridPagination/GridPagination';
 import Label from '@/components/general/Label/Label';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
+import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAWI, formatEmptyString, formatPercent, formatUSD } from '@/lib/formatters';
@@ -19,21 +20,8 @@ import { RowsState } from '@/types/app';
 
 import getColumns from './columns';
 
-const Panel = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  borderRadius: +theme.shape.borderRadius * 5,
-  backgroundColor: theme.palette.background.transparent,
+const Root = styled(Section)(({ theme }) => ({
   '.header': {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: theme.spacing(10),
-    padding: theme.spacing(5.5, 6.5, 5),
-    margin: theme.spacing(0, 0, 15, 0),
-    borderRadius: +theme.shape.borderRadius * 5,
-    backgroundColor: theme.palette.background.transparent,
     '.title': {
       marginBottom: theme.spacing(7.5),
     },
@@ -56,21 +44,8 @@ const Panel = styled(Box)(({ theme }) => ({
       },
     },
   },
-  '.content': {
-    padding: theme.spacing(4, 12.5, 10),
-    '.table-container': {
-      height: 888 /* 66 * 10 + 12 * 10 - 12 */,
-      width: '100%',
-    },
-  },
-  [theme.breakpoints.up('md')]: {
-    '.header': {
-      display: 'flex',
-      alignItems: 'center',
-      gap: theme.spacing(18),
-      padding: theme.spacing(5.5, 12.5, 5),
-    },
-  },
+
+  [theme.breakpoints.up('md')]: {},
 }));
 
 // interface Props {
@@ -148,7 +123,7 @@ export default function AssetSection(/* { total }: Props */) {
   }, [sortModel, rowsState, connected /* data */]);
 
   return (
-    <Section>
+    <Root>
       <Panel>
         <div className="header">
           <Grid container rowSpacing={4}>
@@ -294,6 +269,6 @@ export default function AssetSection(/* { total }: Props */) {
           )}
         </div>
       </Panel>
-    </Section>
+    </Root>
   );
 }

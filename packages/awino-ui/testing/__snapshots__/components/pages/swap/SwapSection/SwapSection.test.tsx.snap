@@ -96,11 +96,11 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
           <div
             class="header"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body css-15"
+            <h6
+              class="MuiTypography-root MuiTypography-h7 css-15"
             >
               swap:swap-section.swap.prompt
-            </p>
+            </h6>
             <div
               aria-label="swap:swap-section.swap.trading-type-hint"
               class="MuiToggleButtonGroup-root css-16"
@@ -413,11 +413,11 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
           <div
             class="header"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body css-15"
+            <h6
+              class="MuiTypography-root MuiTypography-h7 css-15"
             >
               swap:swap-section.zap.prompt
-            </p>
+            </h6>
             <div
               aria-label="swap:swap-section.swap.trading-type-hint"
               class="MuiToggleButtonGroup-root css-16"

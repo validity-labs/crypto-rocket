@@ -20,8 +20,8 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-4"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body title css-5"
+              <h6
+                class="MuiTypography-root MuiTypography-h7 title css-5"
               >
                 borrow-details:asset-section.title
                 <span
@@ -47,16 +47,16 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     />
                   </svg>
                 </span>
-              </p>
+              </h6>
               <div
                 class="label-value MuiBox-root css-7"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body label css-5"
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
                   id="youBorrowed"
                 >
                   borrow-details:asset-section.you-borrowed
-                </p>
+                </h6>
                 <p
                   aria-describedby="youBorrowed"
                   class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -67,12 +67,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               <div
                 class="label-value MuiBox-root css-7"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body label css-5"
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
                   id="totalCollateral"
                 >
                   borrow-details:asset-section.total-collateral
-                </p>
+                </h6>
                 <p
                   aria-describedby="totalCollateral"
                   class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -83,12 +83,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               <div
                 class="label-value MuiBox-root css-7"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body label css-5"
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
                   id="loanToValue"
                 >
                   borrow-details:asset-section.loan-to-value
-                </p>
+                </h6>
                 <p
                   aria-describedby="loanToValue"
                   class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -109,12 +109,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="utilizationRate"
                     >
                       borrow-details:asset-section.utilization-rate
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="utilizationRate"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -129,12 +129,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="availableLiquidity"
                     >
                       borrow-details:asset-section.available-liquidity
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="availableLiquidity"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -149,12 +149,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="assetPrice"
                     >
                       borrow-details:asset-section.asset-price
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="assetPrice"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -169,12 +169,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="variableBorrowAPY"
                     >
                       borrow-details:asset-section.variable-borrow-apy
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="variableBorrowAPY"
                       class="MuiTypography-root MuiTypography-h5 value css-9"

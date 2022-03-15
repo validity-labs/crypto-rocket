@@ -1,0 +1,54 @@
+{
+  "page": {
+    "title": "Analytics",
+    "description": "MISSING DESCRIPTION"
+  },
+  "stats-section": {
+    "items": [
+      {
+        "title": "AWINO locked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO staked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO price",
+        "value": "$ {{v}}"
+      },
+      {
+        "title": "Circulating supply",
+        "value": "{{v}} M",
+        "subvalue": "{{v}}% locked"
+      },
+      {
+        "title": "Market cap",
+        "value": "$ {{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      }
+    ]
+  },
+  "platform-section": {
+    "daily-fees": {
+      "title": "Daily platform fees",
+      "title-hint": "MISSING TEXT"
+    },
+    "fields": {
+      "date": "Date",
+      "total-fees": "Total fees"
+    },
+    "stats": {
+      "title": "Platform stats",
+      "title-hint": "MISSING TEXT",
+      "total-deposits": "Total deposits",
+      "total-borrows": "Total borrows",
+      "health-ratio": "Global health ratio",
+      "health-ratio-hint": "MISSING TEXT",
+      "total-fees": "Total platform fees",
+      "total-fees-hint": "MISSING TEXT"
+    }
+  }
+}

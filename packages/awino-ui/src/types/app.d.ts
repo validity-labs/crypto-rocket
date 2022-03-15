@@ -21,7 +21,8 @@ export type I18nPageNamespace =
   | 'borrow'
   | 'borrow-details'
   | 'swap'
-  | 'podl';
+  | 'podl'
+  | 'analytics';
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 

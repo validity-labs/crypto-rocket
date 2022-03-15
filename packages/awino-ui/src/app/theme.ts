@@ -197,11 +197,12 @@ const themeCreator = (mode: PaletteMode) => {
         ::-webkit-scrollbar {
           width: 13px;
           height: 13px;
+          background-color: #54636C;
         }
         ::-webkit-scrollbar-track {
           box-shadow: 'none';
           border-radius: 11px;
-          background-color: #54636C;
+          // background-color: #54636C;
           -webkit-box-shadow: 'none';
         }
         ::-webkit-scrollbar-thumb {

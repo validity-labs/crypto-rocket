@@ -6,7 +6,8 @@ import AssetAmount from '@/components/general/AssetAmount/AssetAmount';
 import Label from '@/components/general/Label/Label';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
-import Panel from './Panel';
+import Panel from '../../../general/Panel/Panel';
+
 import { PodlPurchaseData } from './PurchaseSection';
 
 const Root = styled(Panel)(({ theme }) => ({

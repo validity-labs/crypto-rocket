@@ -48,7 +48,7 @@
   "format": {
     "date": "dd-MM-yyyy",
     "date-pretty": "MMMM d, yyyy",
-    "date-time": "yyyy-MM-dd HH:mm"
+    "date-time": "EEEE | LLLL d, yyyy O HH:mm"
   },
   "header": {
     "search": "Your search phrase",

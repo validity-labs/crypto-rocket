@@ -22,6 +22,9 @@ const Root = styled(Container)(({ theme }) => ({
     margin: '0 auto',
     borderRadius: +theme.shape.borderRadius * 5,
     backgroundColor: theme.palette.background.transparent,
+    h2: {
+      textAlign: 'center',
+    },
   },
 }));
 

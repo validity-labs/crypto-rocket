@@ -5,8 +5,8 @@ exports[`<LabelValue /> has valid snapshot 1`] = `
   <div
     class="MuiBox-root css-0"
   >
-    <p
-      class="MuiTypography-root MuiTypography-body label css-1"
+    <h6
+      class="MuiTypography-root MuiTypography-h7 label css-1"
       id="labelValue"
     >
       Text
@@ -33,7 +33,7 @@ exports[`<LabelValue /> has valid snapshot 1`] = `
           />
         </svg>
       </span>
-    </p>
+    </h6>
     <p
       aria-describedby="labelValue"
       class="MuiTypography-root MuiTypography-h5 value css-3"

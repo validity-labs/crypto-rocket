@@ -1,75 +1,20 @@
 import { useMemo, useState, useEffect } from 'react';
 
-import { Box, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import { GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
 import { TABLE_ROWS_PER_PAGE, TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
 import loadData from '@/app/data';
 import DataGrid from '@/components/general/DataGrid/DataGrid';
 import GridPagination from '@/components/general/GridPagination/GridPagination';
-import Label from '@/components/general/Label/Label';
+import LabelValue from '@/components/general/LabelValue/LabelValue';
+import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount } from '@/lib/formatters';
+import { formatUSD } from '@/lib/formatters';
 import { RowsState } from '@/types/app';
 import { TotalAssetSize } from '@/types/pages/market';
 
 import getColumns from './columns';
-
-const Panel = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  borderRadius: +theme.shape.borderRadius * 5,
-  backgroundColor: theme.palette.background.transparent,
-  '.header': {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: theme.spacing(10),
-    padding: theme.spacing(5.5, 6.5, 5),
-    margin: theme.spacing(0, 0, 15, 0),
-    borderRadius: +theme.shape.borderRadius * 5,
-    backgroundColor: theme.palette.background.transparent,
-  },
-  '.content': {
-    padding: theme.spacing(4, 12.5, 10),
-    '.table-container': {
-      height: 888 /* 66 * 10 + 12 * 10 - 12 */,
-      width: '100%',
-    },
-  },
-  '.label-value-pair': {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    maxWidth: '100%',
-    '.label': {
-      margin: theme.spacing(0, 0, 4.5),
-      overflow: 'auto',
-    },
-    '.value': {
-      flex: 1,
-      whiteSpace: 'nowrap',
-      overflow: 'auto',
-    },
-  },
-  [theme.breakpoints.up('md')]: {
-    '.header': {
-      display: 'flex',
-      alignItems: 'center',
-      gap: theme.spacing(18),
-      padding: theme.spacing(5.5, 12.5, 5),
-    },
-    '.label-value-pair': {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      '.label': {
-        margin: theme.spacing(0, 6.5, 0, 0),
-      },
-    },
-  },
-}));
-
 interface Props {
   total: TotalAssetSize;
 }
@@ -128,24 +73,24 @@ export default function AssetSection({ total }: Props) {
 
   return (
     <Section>
-      <Panel>
+      <Panel sx={{ '.header': { justifyContent: 'flex-start' } }}>
         <div className="header">
-          <div className="label-value-pair">
-            <Label id="marketTotalSize" className="label" tooltip={t(`asset-section.market.total-size-hint`)}>
-              {t(`asset-section.market.total-size`)}
-            </Label>
-            <Typography variant="h5" component="p" className="value" aria-describedby="marketTotalSize">
-              {formatAmount(total.market, { prefix: '$' })}
-            </Typography>
-          </div>
-          <div className="label-value-pair">
-            <Label id="platformTotalFee" className="label" tooltip={t(`asset-section.platform.total-fee-hint`)}>
-              {t(`asset-section.platform.total-fee`)}
-            </Label>
-            <Typography variant="h5" component="p" className="value" aria-describedby="platformTotalFee">
-              {formatAmount(total.platform, { prefix: '$' })}
-            </Typography>
-          </div>
+          <LabelValue
+            id="marketTotalSize"
+            value={formatUSD(total.market)}
+            labelProps={{
+              children: t('asset-section.market.total-size'),
+              tooltip: t('asset-section.market.total-size-hint'),
+            }}
+          />
+          <LabelValue
+            id="platformTotalFee"
+            value={formatUSD(total.platform)}
+            labelProps={{
+              children: t('asset-section.platform.total-fee'),
+              tooltip: t('asset-section.platform.total-fee-hint'),
+            }}
+          />
         </div>
         <div className="content">
           <div className="table-container">

@@ -33,13 +33,13 @@ export const mainMenuLinks: MenuItemType[] = [
   {
     type: 'internal',
     key: 'podl',
-    url: '#',
+    url: '/podl',
   },
   {
     type: 'group',
     key: 'more',
     items: [
-      { type: 'internal', key: 'analytics', url: '#' },
+      { type: 'internal', key: 'analytics', url: '/analytics' },
       { type: 'internal', key: 'docs', url: '#' },
       { type: 'internal', key: 'launchpad', url: '#' },
     ],

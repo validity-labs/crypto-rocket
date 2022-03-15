@@ -10,9 +10,9 @@ import SwappingImage from '@/components/general/SwappingImage/SwappingImage';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAmount } from '@/lib/formatters';
 
+import Panel from '../../../general/Panel/Panel';
 import NumberInput from '../../swap/SwapSection/NumberInput';
 
-import Panel from './Panel';
 import { PodlPurchaseData } from './PurchaseSection';
 
 const Root = styled(Panel)(({ theme }) => ({

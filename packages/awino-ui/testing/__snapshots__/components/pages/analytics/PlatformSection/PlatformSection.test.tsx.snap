@@ -1,0 +1,556 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PlatformSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-3"
+        >
+          <div
+            class="MuiBox-root css-4"
+          >
+            <div
+              class="header"
+            >
+              <h2
+                class="MuiTypography-root MuiTypography-h7 css-5"
+                id="dailyPlatformFees"
+              >
+                analytics:platform-section.daily-fees.title
+                <span
+                  aria-label="analytics:platform-section.daily-fees.title-hint"
+                  class="help"
+                  data-mui-internal-clone-element="true"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                      id="Pfad_2253"
+                    />
+                    <path
+                      d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                    />
+                    <path
+                      d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                    />
+                  </svg>
+                </span>
+              </h2>
+            </div>
+            <div
+              class="content"
+            >
+              <div
+                class="table-container"
+              >
+                <div
+                  aria-colcount="2"
+                  aria-multiselectable="false"
+                  aria-rowcount="0"
+                  class="MuiDataGrid-root css-7"
+                  role="grid"
+                >
+                  <div>
+                    <div />
+                  </div>
+                  <div
+                    class="MuiDataGrid-main css-8"
+                  >
+                    <div
+                      style="height: -56px; width: 0px; position: absolute; top: 56px;"
+                    >
+                      <div
+                        class="MuiDataGrid-overlay css-9"
+                      >
+                        <span
+                          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-10"
+                          role="progressbar"
+                          style="width: 40px; height: 40px;"
+                        >
+                          <svg
+                            class="MuiCircularProgress-svg css-11"
+                            viewBox="22 22 44 44"
+                          >
+                            <circle
+                              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-12"
+                              cx="44"
+                              cy="44"
+                              fill="none"
+                              r="20.2"
+                              stroke-width="3.6"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiDataGrid-columnHeaders css-13"
+                      style="min-height: 56px; max-height: 56px; line-height: 56px;"
+                    >
+                      <div
+                        aria-rowindex="1"
+                        class="MuiDataGrid-columnHeadersInner css-14"
+                        role="row"
+                        style="transform: translate3d(0px, 0px, 0px);"
+                      >
+                        <div
+                          aria-colindex="1"
+                          class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
+                          data-field="date"
+                          role="columnheader"
+                          style="width: 0px; min-width: 0; max-width: 0;"
+                          tabindex="0"
+                        >
+                          <div
+                            class="MuiDataGrid-columnHeaderDraggableContainer"
+                            draggable="false"
+                          >
+                            <div
+                              class="MuiDataGrid-columnHeaderTitleContainer"
+                            >
+                              <div
+                                class="MuiDataGrid-columnHeaderTitleContainerContent"
+                              >
+                                <div
+                                  aria-label=""
+                                  class="MuiDataGrid-columnHeaderTitle css-15"
+                                  data-mui-internal-clone-element="true"
+                                >
+                                  analytics:platform-section.fields.date
+                                </div>
+                              </div>
+                              <div
+                                class="MuiDataGrid-iconButtonContainer css-16"
+                              >
+                                <button
+                                  aria-label="analytics:common.table.sort"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-17"
+                                  tabindex="-1"
+                                  title="analytics:common.table.sort"
+                                  type="button"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-18"
+                                    data-testid="ArrowUpwardIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-19"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight"
+                            style="min-height: 56px; opacity: 1;"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-6"
+                              data-testid="SeparatorIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M11 19V5h2v14z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          aria-colindex="2"
+                          class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
+                          data-field="totalFees"
+                          role="columnheader"
+                          style="width: 0px; min-width: 0; max-width: 0;"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="MuiDataGrid-columnHeaderDraggableContainer"
+                            draggable="false"
+                          >
+                            <div
+                              class="MuiDataGrid-columnHeaderTitleContainer"
+                            >
+                              <div
+                                class="MuiDataGrid-columnHeaderTitleContainerContent"
+                              >
+                                <div
+                                  aria-label=""
+                                  class="MuiDataGrid-columnHeaderTitle css-15"
+                                  data-mui-internal-clone-element="true"
+                                >
+                                  analytics:platform-section.fields.total-fees
+                                </div>
+                              </div>
+                              <div
+                                class="MuiDataGrid-iconButtonContainer css-16"
+                              >
+                                <button
+                                  aria-label="analytics:common.table.sort"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-17"
+                                  tabindex="-1"
+                                  title="analytics:common.table.sort"
+                                  type="button"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-18"
+                                    data-testid="ArrowUpwardIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                                    />
+                                  </svg>
+                                  <span
+                                    class="MuiTouchRipple-root css-19"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight"
+                            style="min-height: 56px; opacity: 1;"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-6"
+                              data-testid="SeparatorIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M11 19V5h2v14z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style="overflow: visible; height: 0px; width: 0px;"
+                    >
+                      <div
+                        class="MuiDataGrid-virtualScroller css-27"
+                        style="width: 0px; height: auto; margin-top: 56px; overflow-x: hidden;"
+                      >
+                        <div
+                          class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-28"
+                          style="width: auto; height: 1px; min-height: auto;"
+                        >
+                          <div
+                            class="MuiDataGrid-virtualScrollerRenderZone css-29"
+                            style="transform: translate3d(0px, undefinedpx, 0px);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="Mui-resizeTriggers"
+                    >
+                      <div
+                        class="expand-trigger"
+                      >
+                        <div
+                          style="width: 1px; height: 1px;"
+                        />
+                      </div>
+                      <div
+                        class="contract-trigger"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="MuiDataGrid-footerContainer css-30"
+                    >
+                      <div />
+                      <div
+                        class="MuiTablePagination-root css-31"
+                      >
+                        <div
+                          class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-32"
+                        >
+                          <div
+                            class="MuiTablePagination-spacer css-33"
+                          />
+                          <p
+                            class="MuiTablePagination-selectLabel css-34"
+                            id="mui-6"
+                          >
+                            common.table.rows-per-page
+                          </p>
+                          <div
+                            class="MuiInputBase-root MuiInputBase-colorPrimary css-35"
+                            variant="standard"
+                          >
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-labelledby="mui-6 mui-5"
+                              class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-36"
+                              id="mui-5"
+                              role="button"
+                              tabindex="0"
+                            >
+                              10
+                            </div>
+                            <input
+                              aria-hidden="true"
+                              class="MuiSelect-nativeInput css-37"
+                              tabindex="-1"
+                              value="10"
+                            />
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-38"
+                              data-testid="ArrowDropDownIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M7 10l5 5 5-5z"
+                              />
+                            </svg>
+                          </div>
+                          <p
+                            class="MuiTablePagination-displayedRows css-39"
+                          >
+                            common.table.rows-out-of
+                          </p>
+                          <div
+                            class="MuiBox-root css-40"
+                          >
+                            <button
+                              aria-label="common.table.previous-page"
+                              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-41"
+                              disabled=""
+                              tabindex="-1"
+                              title="common.table.previous-page"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                                data-testid="KeyboardArrowLeftIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              aria-label="common.table.next-page"
+                              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-41"
+                              disabled=""
+                              tabindex="-1"
+                              title="common.table.next-page"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                                data-testid="KeyboardArrowRightIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-45"
+        >
+          <div
+            class="MuiBox-root css-4"
+          >
+            <div
+              class="header"
+            >
+              <h6
+                class="MuiTypography-root MuiTypography-h7 label css-5"
+                id="platformStats"
+              >
+                analytics:platform-section.stats.title
+                <span
+                  aria-label="analytics:platform-section.stats.title-hint"
+                  class="help"
+                  data-mui-internal-clone-element="true"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                      id="Pfad_2253"
+                    />
+                    <path
+                      d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                    />
+                    <path
+                      d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                    />
+                  </svg>
+                </span>
+              </h6>
+            </div>
+            <div
+              class="content"
+            >
+              <div
+                class="label-value-column MuiBox-root css-49"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  id="totalDeposits"
+                >
+                  analytics:platform-section.stats.total-deposits
+                </h3>
+                <p
+                  aria-describedby="totalDeposits"
+                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                >
+                  1,232,432 USD
+                </p>
+              </div>
+              <div
+                class="label-value-column MuiBox-root css-49"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  id="totalBorrow"
+                >
+                  analytics:platform-section.stats.total-borrows
+                </h3>
+                <p
+                  aria-describedby="totalBorrow"
+                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                >
+                  438,403.33 USD
+                </p>
+              </div>
+              <div
+                class="label-value-column MuiBox-root css-49"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  id="globalHealthRatio"
+                >
+                  analytics:platform-section.stats.health-ratio
+                  <span
+                    aria-label="analytics:platform-section.stats.health-ratio-hint"
+                    class="help"
+                    data-mui-internal-clone-element="true"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                        id="Pfad_2253"
+                      />
+                      <path
+                        d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                      />
+                      <path
+                        d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                      />
+                    </svg>
+                  </span>
+                </h3>
+                <p
+                  aria-describedby="globalHealthRatio"
+                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                >
+                  1.38
+                </p>
+              </div>
+              <div
+                class="label-value-column MuiBox-root css-49"
+              >
+                <h3
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  id="totalPlatformFee"
+                >
+                  analytics:platform-section.stats.total-fees
+                  <span
+                    aria-label="analytics:platform-section.stats.total-fees-hint"
+                    class="help"
+                    data-mui-internal-clone-element="true"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                        id="Pfad_2253"
+                      />
+                      <path
+                        d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                      />
+                      <path
+                        d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                      />
+                    </svg>
+                  </span>
+                </h3>
+                <p
+                  aria-describedby="totalPlatformFee"
+                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                >
+                  3,432,332 USD
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

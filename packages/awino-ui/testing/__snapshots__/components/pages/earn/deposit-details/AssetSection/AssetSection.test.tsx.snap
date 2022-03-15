@@ -20,8 +20,8 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-4"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body title css-5"
+              <h6
+                class="MuiTypography-root MuiTypography-h7 title css-5"
               >
                 earn-deposit-details:asset-section.title
                 <span
@@ -47,16 +47,16 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     />
                   </svg>
                 </span>
-              </p>
+              </h6>
               <div
                 class="label-value MuiBox-root css-7"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body label css-5"
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
                   id="yourBalance"
                 >
                   earn-deposit-details:asset-section.your-balance
-                </p>
+                </h6>
                 <p
                   aria-describedby="yourBalance"
                   class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -67,12 +67,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               <div
                 class="label-value MuiBox-root css-7"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-body label css-5"
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 label css-5"
                   id="walletBalance"
                 >
                   earn-deposit-details:asset-section.wallet-balance
-                </p>
+                </h6>
                 <p
                   aria-describedby="walletBalance"
                   class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -93,12 +93,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="utilizationRate"
                     >
                       earn-deposit-details:asset-section.utilization-rate
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="utilizationRate"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -113,12 +113,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="availableLiquidity"
                     >
                       earn-deposit-details:asset-section.available-liquidity
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="availableLiquidity"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -133,12 +133,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="depositAPY"
                     >
                       earn-deposit-details:asset-section.deposit-apy
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="depositAPY"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -153,12 +153,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="asCollateral"
                     >
                       earn-deposit-details:asset-section.as-collateral.title
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="asCollateral"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -177,12 +177,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="assetPrice"
                     >
                       earn-deposit-details:asset-section.asset-price
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="assetPrice"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -197,8 +197,8 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="maximumLTV"
                     >
                       earn-deposit-details:asset-section.maximum-ltv.title
@@ -225,7 +225,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                           />
                         </svg>
                       </span>
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="maximumLTV"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -240,8 +240,8 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="threshold"
                     >
                       earn-deposit-details:asset-section.threshold.title
@@ -268,7 +268,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                           />
                         </svg>
                       </span>
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="threshold"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
@@ -283,8 +283,8 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   <div
                     class="label-value-column MuiBox-root css-7"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body label css-5"
+                    <h6
+                      class="MuiTypography-root MuiTypography-h7 label css-5"
                       id="penalty"
                     >
                       earn-deposit-details:asset-section.penalty.title
@@ -311,7 +311,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                           />
                         </svg>
                       </span>
-                    </p>
+                    </h6>
                     <p
                       aria-describedby="penalty"
                       class="MuiTypography-root MuiTypography-h5 value css-9"

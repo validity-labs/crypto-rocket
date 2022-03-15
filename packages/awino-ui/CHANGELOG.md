@@ -23,6 +23,7 @@ Date format: `YYYY-MM-DD`
 ### Added
 
 - Added data-fns through date-io, for date formatting
+- Added analytics page with all sub components
 
 ## [0.0.0] - 2022-03-14
 

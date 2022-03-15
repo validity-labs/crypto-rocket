@@ -12,6 +12,12 @@ const semiRandomValues = [
   23.51, 44.93, 14.44, 56.27, 4.19, 76.39, 90.07, 71.68, 3.07, 69.45, 44.63, 14.01, 47.07, 53.54, 60.96, 11.89, 22.89,
   84.46, 43.22, 49.88, 6.72, 73.96, 88.96, 98.85, 74.07, 34.6, 23.04, 95.42, 96.67, 6.4, 98.06,
 ];
+const semiRandomDates = [
+  new Date(Date.UTC(1970, 0)),
+  new Date(Date.UTC(1999, 0, 1, 13, 59, 59)),
+  new Date(Date.UTC(2020, 11, 1, 0, 59, 59)),
+  new Date(Date.UTC(2050, 0, 1, 0, 0, 0)),
+];
 
 const nextValue = (() => {
   let nextValueIndex = 0;
@@ -23,7 +29,7 @@ const nextValue = (() => {
   };
 })();
 
-type RecordKeys = 'market' | 'earn-deposit' | 'earn-deposit-details' | 'borrow' | 'borrow-details';
+type RecordKeys = 'market' | 'earn-deposit' | 'earn-deposit-details' | 'borrow' | 'borrow-details' | 'analytics';
 const recordsMap: Record<RecordKeys, GridRowsProp> = {
   market: new Array(20)
     .fill({
@@ -78,6 +84,12 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
       apy: nextValue(),
       ...m,
     })) as GridRowsProp,
+  analytics: new Array(20).fill({}).map((m, index) => ({
+    id: index,
+    date: semiRandomDates[index % 4],
+    totalFees: nextValue(),
+    ...m,
+  })) as GridRowsProp,
 };
 
 interface LoadDataOptions {

@@ -9,8 +9,9 @@
     "de": "German"
   },
   "account": {
-    "connect": "Connect Wallet",
-    "disconnect": "Disconnect Wallet"
+    "connect": "Connect wallet",
+    "connect-prompt": "Please connect your wallet",
+    "disconnect": "Disconnect wallet"
   },
   "common": {
     "theme-to-light": "Switch to light theme",
@@ -21,22 +22,33 @@
     "no-translation": "Content has no translation.",
     "copy": "Copy to Clipboard",
     "copied": "Copied!",
+    "search": "Search ...",
     "navigate-to": "Navigate to \"{{title}}\"",
     "navigate-to-product": "Navigate to \"{{title}}\" product",
     "table": {
+      "sort": "Sort",
       "rows-per-page": "Rows per page",
       "first-page": "First Page",
       "previous-page": "Previous Page",
       "next-page": "Next Page",
-      "last-page": "Last Page"
+      "last-page": "Last Page",
+      "rows-out-of": "{{from}}-{{to}} of {{count}}"
     },
     "video-not-supported": "Sorry, your browser doesn't support embedded videos.",
-    "awi": "AWI"
+    "awi": "AWI",
+    "ftm": "FTM",
+    "geistftm": "GEISTFTM",
+    "apr": "APR",
+    "apr-hint": "MISSING HINT",
+    "back": "Go back",
+    "filter-by-name": "Filter by name",
+    "select-token": "Choose token",
+    "convertion-from-to": "Convert from {{from}} to {{to}}"
   },
   "format": {
     "date": "dd-MM-yyyy",
     "date-pretty": "MMMM d, yyyy",
-    "date-time": "yyyy-MM-dd HH:mm"
+    "date-time": "EEEE | LLLL d, yyyy O HH:mm"
   },
   "header": {
     "search": "Your search phrase",
