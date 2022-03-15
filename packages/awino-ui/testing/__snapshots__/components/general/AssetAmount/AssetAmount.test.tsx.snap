@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AssetAmount /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="icon"
+    >
+      <img
+        alt=""
+        class="source"
+        src="/images/icons/ftm.svg"
+      />
+    </div>
+    <div
+      class="values"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body value css-1"
+      >
+        1,234,567.89 FTM
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-body alt css-1"
+      >
+        9,876,543.21 USD
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

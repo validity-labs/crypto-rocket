@@ -50,7 +50,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               aria-describedby="marketTotalSize"
               class="MuiTypography-root MuiTypography-h5 value css-5"
             >
-              $ 12,345,678.00
+              $ 12,345,678
             </p>
           </div>
           <div

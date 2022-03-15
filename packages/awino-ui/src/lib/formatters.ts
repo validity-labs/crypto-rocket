@@ -1,5 +1,7 @@
 import { i18n } from 'next-i18next';
 
+import BigNumber from 'bignumber.js';
+
 import { GridValueFormatterParams } from '@mui/x-data-grid';
 
 // import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORMAT } from './constants';
@@ -85,14 +87,21 @@ interface FormatAmountOptions {
  *  * @param {FormatAmountOptions} [options]
  * @returns - a formatted string
  */
-export const formatAmount = (amount: number, { prefix, postfix }: FormatAmountOptions = {}): string => {
+export const formatAmount = (amount: BigNumber | number, { prefix, postfix }: FormatAmountOptions = {}): string => {
+  let n = amount;
+  if (typeof n === 'number') {
+    n = new BigNumber(amount);
+  }
   const outputPrefix = prefix ? `${prefix} ` : '';
   const outputPostfix = postfix ? ` ${postfix}` : '';
-  return `${outputPrefix}${formatNumber(amount, 2)}${outputPostfix}`;
+  return `${outputPrefix}${
+    n.toFormat(/* { groupSize: 3, decimalSeparator: '.', groupSeparator: ',' } */)
+  }${outputPostfix}`;
 };
 
-export const formatUSD = (amount: number) => formatAmount(amount, { prefix: '$', postfix: 'USD' });
-export const formatAWI = (amount: number) => formatAmount(amount, { postfix: 'AWI' });
+export const formatUSD = (amount: BigNumber | number) => formatAmount(amount, { /* prefix: '$', */ postfix: 'USD' });
+export const formatAWI = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'AWI' });
+export const formatFTM = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'FTM' });
 
 /**
  * Format value to have dash as default string if value missing
@@ -144,4 +153,5 @@ export const formatGridPercent = (params: Pick<GridValueFormatterParams, 'value'
 export const formatGridEmptyString = (params: Pick<GridValueFormatterParams, 'value'>) =>
   formatEmptyString(params.value);
 
-export const formatGridUSD = (params: Pick<GridValueFormatterParams, 'value'>) => formatUSD(params.value as number);
+export const formatGridUSD = (params: Pick<GridValueFormatterParams, 'value'>) =>
+  formatUSD(new BigNumber(params.value as number));

@@ -162,7 +162,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="yourDailyRevenue"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
                     >
-                      $ 0.00
+                      $ 0
                     </p>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="yourWeeklyRevenue"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
                     >
-                      $ 0.00
+                      $ 0
                     </p>
                   </div>
                 </div>

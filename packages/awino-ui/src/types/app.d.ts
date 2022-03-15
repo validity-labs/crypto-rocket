@@ -20,7 +20,8 @@ export type I18nPageNamespace =
   | 'earn-liquidity-staking'
   | 'borrow'
   | 'borrow-details'
-  | 'swap';
+  | 'swap'
+  | 'podl';
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 
@@ -46,3 +47,5 @@ export interface RowsState {
 }
 
 export type ID = string;
+
+export type AssetKey = 'awi' | 'ftm' | 'geistftm' | 'usd';

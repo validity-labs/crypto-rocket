@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SwappingImage /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-0"
+    title="common.convertion-from-to"
+  >
+    <img
+      alt=""
+      class="source"
+      src="/images/icons/ftm.svg"
+    />
+    <img
+      alt=""
+      class="target"
+      src="/images/icons/awi.svg"
+    />
+  </div>
+</DocumentFragment>
+`;
