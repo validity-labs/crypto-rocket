@@ -4,8 +4,10 @@ import BigNumber from 'bignumber.js';
 
 import { GridValueFormatterParams } from '@mui/x-data-grid';
 
+import { DEFAULT_DATE_TIME_FORMAT } from '@/app/constants';
+import dateIO from '@/app/dateIO';
+
 // import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORMAT } from './constants';
-// import dateIO from '@/dateIO';
 
 // /**
 //  * Format date to specific string format
@@ -41,22 +43,22 @@ import { GridValueFormatterParams } from '@mui/x-data-grid';
 //   }
 // };
 
-// /**
-//  * Format date and time to specific string format
-//  * @param date - Date object or ISO string representation of date
-//  * @returns
-//  */
-// export const formatDateTime = (date: string | Date): string => {
-//   try {
-//     const formatTo = i18n?.t('format.date-time', DEFAULT_DATE_TIME_FORMAT) || DEFAULT_DATE_TIME_FORMAT;
-//     if (typeof date === 'string') {
-//       return dateIO.formatByString(dateIO.parseISO(date), formatTo);
-//     }
-//     return dateIO.formatByString(date, formatTo);
-//   } catch (e) {
-//     return '-';
-//   }
-// };
+/**
+ * Format date and time to specific string format
+ * @param date - Date object or ISO string representation of date
+ * @returns
+ */
+export const formatDateTime = (date: string | Date): string => {
+  try {
+    const formatTo = i18n?.t('format.date-time', DEFAULT_DATE_TIME_FORMAT) || DEFAULT_DATE_TIME_FORMAT;
+    if (typeof date === 'string') {
+      return dateIO.formatByString(dateIO.parseISO(date), formatTo);
+    }
+    return dateIO.formatByString(date, formatTo);
+  } catch (e) {
+    return '-';
+  }
+};
 
 /**
  * Format number using Intl API (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl). On error return intact number
@@ -155,3 +157,6 @@ export const formatGridEmptyString = (params: Pick<GridValueFormatterParams, 'va
 
 export const formatGridUSD = (params: Pick<GridValueFormatterParams, 'value'>) =>
   formatUSD(new BigNumber(params.value as number));
+
+export const formatGridDateTime = (params: Pick<GridValueFormatterParams, 'value'>) =>
+  formatDateTime(params.value as Date);

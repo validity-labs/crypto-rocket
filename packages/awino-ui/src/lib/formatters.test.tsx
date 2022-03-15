@@ -1,5 +1,6 @@
 import {
-  formatAmount /* , formatDate, formatDatePretty, formatDateTime */,
+  formatAmount /* , formatDate, formatDatePretty */,
+  formatDateTime,
   formatNumber,
   formatGridEmptyString,
   formatGridPercent,
@@ -8,26 +9,26 @@ import {
   formatGridUSD,
 } from './formatters';
 
-// const stringDate = '2000-01-01T00:00:00Z';
-// const stringDateInvalid = '2000-99-01T00:00:00Z';
-// const objectDate = new Date(2001, 1, 1, 1, 1, 1);
-// const objectDateInvalid = new Date('Invalid Date');
+const stringDate = '2000-01-01T00:00:00Z';
+const stringDateInvalid = '2000-99-01T00:00:00Z';
+const objectDate = new Date(2001, 1, 1, 1, 1, 1);
+const objectDateInvalid = new Date('Invalid Date');
 
-// jest.mock('next-i18next', () => ({
-//   i18n: {
-//     language: 'en',
-//     t: (key: string) => {
-//       if (key === 'format.date') {
-//         return 'yyyy-MM-dd';
-//       } else if (key === 'format.date-pretty') {
-//         return 'MMMM d, yyyy';
-//       } else if (key === 'format.date-time') {
-//         return 'yyyy-MM-dd HH:mm';
-//       }
-//       throw new Error('Only predefined keys allowed.');
-//     },
-//   },
-// }));
+jest.mock('next-i18next', () => ({
+  i18n: {
+    language: 'en',
+    t: (key: string) => {
+      if (key === 'format.date') {
+        return 'yyyy-MM-dd';
+      } else if (key === 'format.date-pretty') {
+        return 'MMMM d, yyyy';
+      } else if (key === 'format.date-time') {
+        return 'yyyy-MM-dd HH:mm';
+      }
+      throw new Error('Only predefined keys allowed.');
+    },
+  },
+}));
 
 // describe('formatDate', () => {
 //   it('should return formatted date', () => {
@@ -53,17 +54,17 @@ import {
 //   });
 // });
 
-// describe('formatDateTime', () => {
-//   it('should return formatted date and time', () => {
-//     expect(formatDateTime(stringDate)).toBe('2000-01-01 00:00');
-//     expect(formatDateTime(objectDate)).toBe('2001-02-01 01:01');
-//   });
+describe('formatDateTime', () => {
+  it('should return formatted date and time', () => {
+    expect(formatDateTime(stringDate)).toBe('2000-01-01 00:00');
+    expect(formatDateTime(objectDate)).toBe('2001-02-01 01:01');
+  });
 
-//   it('should return placeholder on invalid string', () => {
-//     expect(formatDateTime(stringDateInvalid)).toBe('-');
-//     expect(formatDateTime(objectDateInvalid)).toBe('-');
-//   });
-// });
+  it('should return placeholder on invalid string', () => {
+    expect(formatDateTime(stringDateInvalid)).toBe('-');
+    expect(formatDateTime(objectDateInvalid)).toBe('-');
+  });
+});
 
 describe('formatNumber', () => {
   it('should return formatted number', () => {

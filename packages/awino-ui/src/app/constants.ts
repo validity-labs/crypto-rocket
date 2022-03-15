@@ -19,7 +19,7 @@ export const TABLE_ROWS_PER_PAGE = TABLE_ROWS_PER_PAGE_OPTIONS[0];
 
 // export const DEFAULT_DATE_PRETTY_FORMAT = 'MMMM d, yyyy';
 
-// export const DEFAULT_DATE_TIME_FORMAT = 'yyyy-MM-dd HH:mm';
+export const DEFAULT_DATE_TIME_FORMAT = 'yyyy-MM-dd HH:mm';
 
 export const BASE_DOMAIN = baseDomain;
 

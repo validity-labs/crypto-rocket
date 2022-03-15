@@ -2,6 +2,7 @@ import type { MouseEvent } from 'react';
 import { useState } from 'react';
 
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import { ButtonBase, Menu, MenuItem, MenuProps } from '@mui/material';
@@ -49,7 +50,7 @@ export default function LanguageMenu({ onClose }: Props) {
   const { t, i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  // const router = useRouter();
+  const router = useRouter();
 
   const open = Boolean(anchorEl);
   const handleClick = (event: MouseEvent<HTMLElement>) => {
@@ -59,11 +60,12 @@ export default function LanguageMenu({ onClose }: Props) {
     setAnchorEl(null);
   };
   const changeLanguage = (language: Language /* router: NextRouter, lang: string */) => {
+    console.log(language);
     i18n.changeLanguage(language);
     handleClose();
     onClose();
-    // const url = router.asPath;
-    // router.push(url, url, { locale: language });
+    const url = router.asPath;
+    router.push(url, url, { locale: language });
   };
 
   if (SUPPORTED_LANGUAGES.length <= 1) {

@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-15
+
+### Added
+
+- Added data-fns through date-io, for date formatting
+
 ## [0.0.0] - 2022-03-14
 
 ### Added
