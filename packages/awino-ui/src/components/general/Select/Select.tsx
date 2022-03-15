@@ -32,8 +32,7 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: theme.spacing(1, 12, 1, 10),
-    ...theme.typography.body,
-    fontSize: '1rem' /* 16px */,
+    ...theme.typography['body-md'],
     color: theme.palette.text.primary,
     img: {
       width: 50,
@@ -68,9 +67,7 @@ const MenuItem = styled(({ item, selected, ...restOfProps }: MenuItemProps) => {
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: theme.spacing(1.5, 12, 1.5, 10),
-    ...theme.typography.body,
-    fontSize: '1rem' /* 16px */,
-
+    ...theme.typography['body-md'],
     img: {
       width: 50,
       height: 50,

@@ -29,7 +29,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-6"
+                  class="MuiTypography-root MuiTypography-body-lg css-6"
                 >
                   landing:stats-section.items.0.title
                 </span>
@@ -56,7 +56,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-6"
+                  class="MuiTypography-root MuiTypography-body-lg css-6"
                 >
                   landing:stats-section.items.1.title
                 </span>
@@ -83,7 +83,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-6"
+                  class="MuiTypography-root MuiTypography-body-lg css-6"
                 >
                   landing:stats-section.items.2.title
                 </span>
@@ -105,7 +105,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-6"
+                  class="MuiTypography-root MuiTypography-body-lg css-6"
                 >
                   landing:stats-section.items.3.title
                 </span>

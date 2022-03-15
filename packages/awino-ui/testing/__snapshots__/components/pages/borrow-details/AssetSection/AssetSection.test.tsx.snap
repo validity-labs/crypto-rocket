@@ -159,7 +159,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="assetPrice"
                       class="MuiTypography-root MuiTypography-h5 value css-9"
                     >
-                      $ 1.47 USD
+                      1.47 USD
                     </p>
                   </div>
                 </div>

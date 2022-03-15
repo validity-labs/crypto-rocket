@@ -36,11 +36,14 @@
     },
     "video-not-supported": "Sorry, your browser doesn't support embedded videos.",
     "awi": "AWI",
+    "ftm": "FTM",
+    "geistftm": "GEISTFTM",
     "apr": "APR",
     "apr-hint": "MISSING HINT",
     "back": "Go back",
     "filter-by-name": "Filter by name",
-    "select-token": "Choose token"
+    "select-token": "Choose token",
+    "convertion-from-to": "Convert from {{from}} to {{to}}"
   },
   "format": {
     "date": "dd-MM-yyyy",

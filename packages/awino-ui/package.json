@@ -33,6 +33,7 @@
     "@web3-react/network-connector": "^6.2.9",
     "@web3-react/walletconnect-connector": "^6.2.13",
     "@web3-react/walletlink-connector": "^6.2.13",
+    "bignumber.js": "^9.0.2",
     "clsx": "^1.1.1",
     "latest": "^0.2.0",
     "lodash": "^4.17.21",

@@ -72,7 +72,7 @@ export default function StatsItems({ items, ...containerProps }: Props) {
                       )}
                     </Typography>
                     <Typography
-                      variant="body-md"
+                      variant="body-lg"
                       fontWeight={500}
                       component="span"
                       color="text.primary"

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import BigNumber from 'bignumber.js';
+
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
@@ -18,12 +20,12 @@ afterEach(cleanup);
 
 describe('<Trend />', () => {
   it('has valid snapshot', () => {
-    const formatter = (str: number) => `${str}`;
-    const { asFragment, rerender } = render(<Trend value={0.03} formatter={formatter} />);
+    const formatter = (str: BigNumber) => str.toString();
+    const { asFragment, rerender } = render(<Trend value={new BigNumber(0.03)} formatter={formatter} />);
     expect(asFragment()).toMatchSnapshot();
-    rerender(<Trend value={-0.03} formatter={formatter} />);
+    rerender(<Trend value={new BigNumber(-0.03)} formatter={formatter} />);
     expect(asFragment()).toMatchSnapshot();
-    rerender(<Trend value={0} formatter={formatter} />);
+    rerender(<Trend value={new BigNumber(0)} formatter={formatter} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

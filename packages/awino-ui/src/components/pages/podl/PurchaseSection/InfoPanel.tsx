@@ -15,20 +15,20 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatUSD } from '@/lib/formatters';
 
 import Panel from './Panel';
-import { PodlPriceInfo } from './PurchaseSection';
+import { PodlPurchaseData } from './PurchaseSection';
 
 interface Props {
-  data: PodlPriceInfo;
+  data: PodlPurchaseData;
 }
 export default function InfoPanel({ data }: Props) {
   const t = usePageTranslation();
-  const { currentPrice, offeredPrice } = data;
+  const { source: from, target: to, oldRate: currentPrice, rate: offeredPrice } = data;
 
   return (
     <Panel>
       <div className="header">
-        <Label id="infoTitle" className="label" tooltip={t(`purchase-section.info.title-hint`)}>
-          {t(`purchase-section.info.title`)}
+        <Label id="infoTitle" className="label" component="h2" tooltip={t(`purchase-section.info.title-hint`)}>
+          {t(`purchase-section.info.title`, { from: from.toUpperCase(), to: to.toUpperCase() })}
         </Label>
       </div>
       <div className="content">
@@ -36,8 +36,8 @@ export default function InfoPanel({ data }: Props) {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell width="50%">{t('purchase-section.info.description')}</TableCell>
-                <TableCell width="50%">{t('purchase-section.info.token-price')}</TableCell>
+                <TableCell width="70%">{t('purchase-section.info.description')}</TableCell>
+                <TableCell width="30%">{t('purchase-section.info.token-price')}</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -47,12 +47,12 @@ export default function InfoPanel({ data }: Props) {
               </TableRow>
 
               <TableRow>
-                <TableCell>{t('purchase-section.info.offered-price')}</TableCell>
+                <TableCell>{t('purchase-section.info.offered-price', { to: to.toUpperCase() })}</TableCell>
                 <TableCell sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                  <Typography component="span" mr={5}>
+                  <Typography component="span" color="text.primary" fontWeight={500} mr={5}>
                     {formatUSD(offeredPrice)}
                   </Typography>
-                  <Trend component="span" value={offeredPrice - currentPrice} formatter={formatUSD} />
+                  <Trend component="span" value={offeredPrice.minus(currentPrice)} formatter={formatUSD} />
                 </TableCell>
               </TableRow>
             </TableBody>

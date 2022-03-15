@@ -1,5 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
 
+import BigNumber from 'bignumber.js';
+
 import { Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GridRowsProp, GridSortModel } from '@mui/x-data-grid';
@@ -82,8 +84,8 @@ const info = {
   totalCollateral: null,
   loanToValue: null,
   yourShare: 0,
-  yourDailyRevenue: 0,
-  yourWeeklyRevenue: 0,
+  yourDailyRevenue: new BigNumber(0),
+  yourWeeklyRevenue: new BigNumber(0),
 };
 
 export default function AssetSection(/* { total }: Props */) {

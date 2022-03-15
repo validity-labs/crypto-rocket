@@ -22,8 +22,7 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
     minHeight: 'auto',
     padding: theme.spacing(5, 12),
     borderRadius: +theme.shape.borderRadius * 2,
-    ...theme.typography.body,
-    fontSize: '1rem' /* 16px */,
+    ...theme.typography['body-md'],
     color: theme.palette.text.primary,
     textTransform: 'none',
     '&.Mui-selected': {

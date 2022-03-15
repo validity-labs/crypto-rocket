@@ -47,3 +47,5 @@ export interface RowsState {
 }
 
 export type ID = string;
+
+export type AssetKey = 'awi' | 'ftm' | 'geistftm' | 'usd';

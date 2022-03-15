@@ -1,14 +1,16 @@
 import { useMemo } from 'react';
 
+import BigNumber from 'bignumber.js';
+
 import { TrendingDownRounded, TrendingFlatRounded, TrendingUpRounded } from '@mui/icons-material';
 import { Typography, TypographyProps, TypographyTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { styled } from '@mui/material/styles';
 
 export interface TrendProps extends Partial<TypographyProps> {
-  value: number;
+  value: BigNumber;
   // eslint-disable-next-line no-unused-vars
-  formatter: (value: number) => string;
+  formatter: (value: BigNumber) => string;
 }
 
 const directionIconMap = {
@@ -19,8 +21,8 @@ const directionIconMap = {
 
 const Trend = styled(({ value, formatter, ...restOfProps }: TrendProps) => {
   const [absValue, { color: directionColor, icon: DirectionIcon, symbol: directionSymbol }] = useMemo(() => {
-    let dir = value > 0 ? 'up' : value < 0 ? 'down' : 'flat';
-    return [Math.abs(value), directionIconMap[dir]];
+    let dir = value.gt(0) ? 'up' : value.lt(0) ? 'down' : 'flat';
+    return [value.abs(), directionIconMap[dir]];
   }, [value]);
 
   return (

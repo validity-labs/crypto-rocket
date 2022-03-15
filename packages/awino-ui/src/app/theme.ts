@@ -121,15 +121,16 @@ const themeCreator = (mode: PaletteMode) => {
         // fontWeight: 500,
       },
       'body-xl': {
-        fontSize: '1.25rem', // 20px
+        fontSize: '1.125rem', // 18px
+        // fontSize: '1.25rem', // 20px
         lineHeight: 1.66,
       },
       'body-lg': {
-        fontSize: '1.125rem', // 18px
+        fontSize: '1.0625rem', // 17px
         lineHeight: 1.66,
       },
       'body-md': {
-        fontSize: '1.0625rem', // 17px
+        fontSize: '1rem', // 16px
         lineHeight: 1.66,
       },
       body: {
@@ -589,34 +590,18 @@ const themeCreator = (mode: PaletteMode) => {
         {
           props: { variant: 'outlined' },
           style: {
+            borderColor: 'currentcolor',
+            borderWidth: 2,
+            borderRadius: +theme.shape.borderRadius * 2,
             color: theme.palette.text.primary,
-            //   padding: theme.spacing(0, 0, 0, 9),
-            //   borderRadius: shapeBorderRadiusBase * 8,
-            //   overflow: 'hidden',
-            //   color: theme.palette.text.contrast,
             '&:hover': {
-              //     border: '1px solid currentColor',
+              borderWidth: 2,
               color: theme.palette.text.primary,
-              //     '& .MuiButton-endIcon': {
-              //       transition: 'background-color .1s, transform .3s',
-              //       transform: 'rotate(10deg)',
-              //     },
             },
-            //   '& .MuiButton-endIcon': {
-            //     display: 'flex',
-            //     justifyContent: 'center',
-            //     alignItems: 'center',
-            //     width: 54,
-            //     height: 54,
-            //     border: '1px solid currentColor',
-            //     borderRadius: '100%',
-            //     margin: theme.spacing(0, '-1px', 0, 4),
-            //     backgroundColor: '#ffad36',
-            //     transition: 'background-color .1s, transform .3s',
-            //     svg: {
-            //       fontSize: '32px',
-            //     },
-            //   },
+            '&.Mui-disabled': {
+              borderWidth: 2,
+              color: theme.palette.text.secondary,
+            },
           },
         },
         {
@@ -673,14 +658,7 @@ const themeCreator = (mode: PaletteMode) => {
             color: theme.palette.text.contrast,
           },
         },
-        outlined: {
-          borderColor: 'currentcolor',
-          borderWidth: 2,
-          borderRadius: shapeBorderRadiusBase * 2,
-          '&:hover': {
-            borderWidth: 2,
-          },
-        },
+
         text: {
           padding: 0,
           minWidth: 0,
@@ -842,6 +820,14 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          ...theme.typography.body,
+          fontWeight: 500,
+        },
+      },
+    },
     MuiFormHelperText: {
       styleOverrides: {
         root: {
@@ -989,11 +975,37 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
-    // MuiTableCell: {
-    //   styleOverrides: {
-    //     root: { padding: theme.spacing(9, 4, 7.5) },
-    //   },
-    // },
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          background: 'none',
+          boxShadow: 'none',
+          // padding: theme.spacing(9, 4, 7.5) },
+        },
+      },
+    },
+    MuiTableBody: {
+      styleOverrides: {
+        root: {
+          '.MuiTableRow-root:last-of-type': {
+            borderTop: `1px solid ${theme.palette.divider} !important`,
+          },
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          border: 0,
+          ...theme.typography.body,
+          fontWeight: 500,
+          // color: theme.palette.text.primary,
+        },
+        head: {
+          color: theme.palette.text.secondary,
+        },
+      },
+    },
     MuiMenu: {
       defaultProps: {
         variant: 'menu',

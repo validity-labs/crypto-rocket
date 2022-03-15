@@ -18,6 +18,14 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-14
+
+### Added
+
+- Added podl page and purchase section
+- Added BigNumber package to work with nubmers
+- Added SwappingImage, AssetAmount components
+
 ## [0.0.0] - 2022-03-11
 
 ### Added
