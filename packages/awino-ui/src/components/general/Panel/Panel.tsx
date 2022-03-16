@@ -1,7 +1,11 @@
-import { Box } from '@mui/material';
+import clsx from 'clsx';
+
+import { Box, BoxProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const Panel = styled(Box)(({ theme }) => ({
+const Panel = styled(({ className, ...restOfProps }: BoxProps) => (
+  <Box className={clsx(className, 'AwiPanel-root')} {...restOfProps} />
+))(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   borderRadius: +theme.shape.borderRadius * 5,

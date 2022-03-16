@@ -68,7 +68,7 @@ export const moreMenuLinks: MenuItemLink[] = [
   {
     type: 'internal',
     key: 'contracts',
-    url: '#',
+    url: '/contracts',
   },
   {
     type: 'internal',

@@ -1,9 +1,18 @@
+import React from 'react';
+
 import { HYDRATE } from 'next-redux-wrapper';
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { AlertProps } from '@mui/material';
+
 import { isBrowser } from '@/app/constants';
 import { I18nPageNamespace, ThemeMode } from '@/types/app';
+
+interface SnackbarState {
+  message: React.ReactNode;
+  alertProps?: Pick<AlertProps, 'severity'>;
+}
 
 interface AppState {
   connected: boolean;
@@ -13,6 +22,7 @@ interface AppState {
   isLight: boolean;
   awi: number;
   ns: I18nPageNamespace | null;
+  snackbar?: SnackbarState | null;
 }
 
 type MaybeTheme = ThemeMode | null | undefined;
@@ -66,6 +76,9 @@ export const appSlice = createSlice({
     setPageI18nNamespace: (state, action: PayloadAction<I18nPageNamespace>) => {
       state.ns = action.payload;
     },
+    showMessage: (state, action: PayloadAction<SnackbarState | null>) => {
+      state.snackbar = action.payload;
+    },
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
@@ -79,6 +92,6 @@ export const appSlice = createSlice({
 });
 
 // if payload exist set to passed value, otherwise toggle between values
-export const { toggleTheme, toggleDrawer, setPageI18nNamespace } = appSlice.actions;
+export const { toggleTheme, toggleDrawer, setPageI18nNamespace, showMessage } = appSlice.actions;
 
 export default appSlice.reducer;

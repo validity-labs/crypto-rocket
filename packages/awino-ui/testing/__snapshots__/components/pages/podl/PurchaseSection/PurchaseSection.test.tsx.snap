@@ -31,7 +31,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
             >
               <div
-                class="MuiBox-root css-8"
+                class="AwiPanel-root MuiBox-root css-8"
               >
                 <div
                   class="header"
@@ -158,7 +158,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
             >
               <div
-                class="MuiBox-root css-28"
+                class="AwiPanel-root MuiBox-root css-28"
               >
                 <div
                   class="header"
@@ -315,7 +315,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
             >
               <div
-                class="MuiBox-root css-48"
+                class="AwiPanel-root MuiBox-root css-48"
               >
                 <div
                   class="content"
@@ -359,7 +359,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
             >
               <div
-                class="MuiBox-root css-54"
+                class="AwiPanel-root MuiBox-root css-54"
               >
                 <div
                   class="content"

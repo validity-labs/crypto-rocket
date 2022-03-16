@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Panel /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="AwiPanel-root MuiBox-root css-0"
+  >
+    Lorem ipsum
+  </div>
+</DocumentFragment>
+`;

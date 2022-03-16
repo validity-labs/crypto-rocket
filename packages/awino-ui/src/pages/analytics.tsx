@@ -23,7 +23,7 @@ const platformStats = {
   globalHealthRatio: 1.38,
   totalPlatformFee: 3432332,
 };
-const MarketPage: NextPage = () => {
+const AnalyticsPage: NextPage = () => {
   return (
     <>
       <Seo />
@@ -44,4 +44,4 @@ export const getServerSideProps = storeWrapper.getServerSideProps((store) => asy
   };
 });
 
-export default MarketPage;
+export default AnalyticsPage;

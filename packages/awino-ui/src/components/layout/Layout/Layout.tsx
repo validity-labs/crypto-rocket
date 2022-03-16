@@ -6,6 +6,7 @@ import { Typography } from '@mui/material';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import Snackbar from '../Snackbar/Snackbar';
 
 interface Props {
   children: ReactNode;
@@ -24,6 +25,7 @@ export default function Layout(props: Props): ReactElement {
       {/* tabIndex={-1} creates outline on safari, temporarily removed */}
       <main id="main" /* tabIndex={-1} */>{children}</main>
       <Footer />
+      <Snackbar />
     </>
   );
 }

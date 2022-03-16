@@ -15,7 +15,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-3"
         >
           <div
-            class="MuiBox-root css-4"
+            class="AwiPanel-root MuiBox-root css-4"
           >
             <div
               class="header"
@@ -398,7 +398,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-45"
         >
           <div
-            class="MuiBox-root css-4"
+            class="AwiPanel-root MuiBox-root css-4"
           >
             <div
               class="header"

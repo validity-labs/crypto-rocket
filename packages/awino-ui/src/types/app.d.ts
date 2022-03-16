@@ -22,7 +22,8 @@ export type I18nPageNamespace =
   | 'borrow-details'
   | 'swap'
   | 'podl'
-  | 'analytics';
+  | 'analytics'
+  | 'contracts';
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 
@@ -49,4 +50,22 @@ export interface RowsState {
 
 export type ID = string;
 
-export type AssetKey = 'awi' | 'ftm' | 'geistftm' | 'usd';
+export type Address = string;
+export type TokenAsset = 'awi' | 'infinity' | 'wealth';
+export type StableCoinAsset = 'dai' | 'usdc' | 'usdt';
+export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd';
+
+export interface ContractInfo {
+  key: AssetKey;
+  address: string;
+}
+export interface ContractsGrouped {
+  tokens: {
+    key: TokenAsset;
+    address: Address;
+  }[];
+  stableCoins: {
+    key: StableCoinAsset;
+    address: Address;
+  }[];
+}

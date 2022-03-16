@@ -34,7 +34,7 @@ const Root = styled(Section)(({ theme }) => ({
       fontWeight: 600,
     },
   },
-  '.MuiDataGrid-row': {
+  '.MuiDataGrid-root .MuiDataGrid-row': {
     borderRadius: 0,
     backgroundColor: 'transparent',
     borderBottom: `1px solid ${theme.palette.divider}`,

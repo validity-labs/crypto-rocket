@@ -1,0 +1,38 @@
+{
+  "page": {
+    "title": "Contracts",
+    "description": "MISSING DESCRIPTION"
+  },
+  "contract-section": {
+    "title": "Contract information",
+    "group-tokens": "Tokens",
+    "group-stable-coins": "USD stable coins",
+    "add-to-wallet": "Add to wallet",
+    "assets": {
+      "awi": {
+        "title": "AWINO",
+        "description": "AWI is the base token behind amino"
+      },
+      "infinity": {
+        "title": "INFINITE",
+        "description": "Aliquip ullamco sunt nisi dolor adipisicing esse dolore."
+      },
+      "wealth": {
+        "title": "WEALTH",
+        "description": "Aliquip ullamco sunt nisi dolor adipisicing esse dolore."
+      },
+      "dai": {
+        "title": "DAI",
+        "description": "Aliquip ullamco sunt nisi dolor adipisicing esse dolore."
+      },
+      "usdc": {
+        "title": "USDC",
+        "description": "Aliquip ullamco sunt nisi dolor adipisicing esse dolore."
+      },
+      "usdt": {
+        "title": "USDT",
+        "description": "Aliquip ullamco sunt nisi dolor adipisicing esse dolore."
+      }
+    }
+  }
+}

@@ -665,11 +665,15 @@ const themeCreator = (mode: PaletteMode) => {
           minWidth: 0,
         },
         startIcon: {
-          marginRight: sp(6.5),
+          '&.MuiButton-iconSizeSmall': {
+            marginRight: sp(5),
+          },
+          '&.MuiButton-iconSizeMedium': {
+            marginRight: sp(6.5),
+          },
         },
         iconSizeMedium: {
           '& svg': {
-            //, & svg:nth-of-type(1)
             fontSize: '2rem', // 32px
           },
         },

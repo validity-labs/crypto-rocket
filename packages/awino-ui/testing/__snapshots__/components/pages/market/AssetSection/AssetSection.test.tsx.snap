@@ -9,7 +9,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
     >
       <div
-        class="MuiBox-root css-2"
+        class="AwiPanel-root MuiBox-root css-2"
       >
         <div
           class="header"

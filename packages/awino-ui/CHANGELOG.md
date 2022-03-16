@@ -18,12 +18,21 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-16
+
+### Added
+
+- Added contracts page with all sub components
+- Added messaging system through snackbar component
+- Added address component with copy to clipboard functionality
+
 ## [0.0.0] - 2022-03-15
 
 ### Added
 
 - Added data-fns through date-io, for date formatting
 - Added analytics page with all sub components
+- Added contracts page with all sub components (wip)
 
 ## [0.0.0] - 2022-03-14
 
