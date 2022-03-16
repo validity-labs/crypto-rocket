@@ -1,0 +1,114 @@
+{
+  "page": {
+    "title": "Awino",
+    "description": "MISSING DESCRIPTION"
+  },
+  "stats-section": {
+    "title": "Defi. Next generation",
+    "badges": [
+      "Lorem ipsum 1",
+      "Lorem ipsum 2",
+      "Lorem ipsum 3",
+      "Lorem ipsum 4"
+    ],
+    "items": [
+      {
+        "title": "AWINO locked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO staked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO price",
+        "value": "$ {{v}}"
+      },
+      {
+        "title": "Circulating supply",
+        "value": "{{v}} M",
+        "subvalue": "{{v}}% locked"
+      }
+    ]
+  },
+  "info-section": {
+    "title": "We make DeFi easy as\n possible for everyone",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\n Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."
+  },
+  "benefit-section": {
+    "title": "Why you should use our platform",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "items": [
+      {
+        "title": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+      },
+      {
+        "title": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+      },
+      {
+        "title": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+      }
+    ]
+  },
+  "guide-section": {
+    "title": "Simple UI - Easy to understand",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "items": [
+      {
+        "title": "Connect your Wallet",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "metamask": "MetaMask",
+        "wallet-connect": "WalletConnect"
+      },
+      {
+        "title": "Visit your Dashboard",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      },
+      {
+        "title": "Start your DeFi Journey",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      }
+    ]
+  },
+  "asset-section": {
+    "title": "Why you should use our platform",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "items": [
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum",
+      "Lorem ipsum"
+    ]
+  },
+  "faq-section": {
+    "title": "FAQs",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "items": [
+      {
+        "title": "Lorem ipsum 1",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      },
+      {
+        "title": "Lorem ipsum 2",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      },
+      {
+        "title": "Lorem ipsum 3",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      },
+      {
+        "title": "Lorem ipsum 4",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      }
+    ]
+  }
+}

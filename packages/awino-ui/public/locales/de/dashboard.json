@@ -1,0 +1,10 @@
+{
+  "page": {
+    "title": "Dashboard",
+    "description": "MISSING DESCRIPTION"
+  },
+  "info-section": {
+    "title": "Details of your deposited and borrowed assets",
+    "title-hint": "MISSING TEXT"
+  }
+}

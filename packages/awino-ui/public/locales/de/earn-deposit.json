@@ -1,0 +1,16 @@
+{
+  "page": {
+    "title": "Earn deposit",
+    "description": "MISSING DESCRIPTION"
+  },
+  "asset-section": {
+    "title": "Available to deposit",
+    "title-hint": "MISSING TEXT",
+    "toggle-hint": "MISSING TEXT",
+    "fields": {
+      "asset": "Asset",
+      "wallet-balance": "Your wallet balance",
+      "apy": "APY"
+    }
+  }
+}

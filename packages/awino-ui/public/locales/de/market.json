@@ -1,0 +1,51 @@
+{
+  "page": {
+    "title": "Market",
+    "description": "MISSING DESCRIPTION"
+  },
+  "stats-section": {
+    "items": [
+      {
+        "title": "AWINO locked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO staked",
+        "value": "{{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      },
+      {
+        "title": "AWINO price",
+        "value": "$ {{v}}"
+      },
+      {
+        "title": "Circulating supply",
+        "value": "{{v}} M",
+        "subvalue": "{{v}}% locked"
+      },
+      {
+        "title": "Market cap",
+        "value": "$ {{v}} M",
+        "subvalue": "$ {{v}} M USD"
+      }
+    ]
+  },
+  "asset-section": {
+    "market": {
+      "total-size": "Total market size",
+      "total-size-hint": "MISSING TEXT"
+    },
+    "platform": {
+      "total-fee": "Total platform fees",
+      "total-fee-hint": "MISSING TEXT"
+    },
+    "fields": {
+      "asset": "Asset",
+      "market-size": "Market size",
+      "total-borrowed": "Total borrowed",
+      "deposit-apy": "Deposit APY",
+      "borrow-apy": "Borrow APY"
+    }
+  }
+}

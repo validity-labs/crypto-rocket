@@ -26,6 +26,7 @@ Date format: `YYYY-MM-DD`
 - Added messaging system through snackbar component
 - Added address component with copy to clipboard functionality
 - Added error page with sub components
+- Added dashboard page with disconnected info components
 
 ### Changed
 

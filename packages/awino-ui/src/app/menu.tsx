@@ -50,7 +50,7 @@ export const settingMenuLinks: MenuItemLink[] = [
   {
     type: 'internal',
     key: 'profile',
-    url: '#',
+    url: '/dashboard',
   },
   {
     type: 'internal',

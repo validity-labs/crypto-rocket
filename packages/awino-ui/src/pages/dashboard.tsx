@@ -6,15 +6,13 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
-// import AssetSection from '@/components/pages/market/AssetSection/AssetSection';
-// import StatsSection from '@/components/pages/market/StatsSection/StatsSection';
+import InfoSection from '@/components/pages/dashboard/InfoSection/InfoSection';
 
 const DashboardPage: NextPage = () => {
   return (
     <>
       <Seo />
-      {/* <StatsSection items={stats} /> */}
-      {/* <AssetSection total={assets} /> */}
+      <InfoSection />
     </>
   );
 };
