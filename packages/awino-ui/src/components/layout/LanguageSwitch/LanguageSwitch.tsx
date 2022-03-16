@@ -60,7 +60,6 @@ export default function LanguageMenu({ onClose }: Props) {
     setAnchorEl(null);
   };
   const changeLanguage = (language: Language /* router: NextRouter, lang: string */) => {
-    console.log(language);
     i18n.changeLanguage(language);
     handleClose();
     onClose();

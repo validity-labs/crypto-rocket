@@ -1,4 +1,4 @@
-// prettier-ignore
+// @ts-ignore
 import type { AddEthereumChainParameter } from '@web3-react/types';
 
 const ETH: AddEthereumChainParameter['nativeCurrency'] = {

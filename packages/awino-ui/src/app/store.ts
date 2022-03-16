@@ -2,14 +2,12 @@ import { createWrapper } from 'next-redux-wrapper';
 
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-import counterReducer from '../features/counter/counterSlice';
-
 import accountReducer from './state/slices/account';
 import appReducer from './state/slices/app';
 
 export const makeStore = () =>
   configureStore({
-    reducer: { app: appReducer, counter: counterReducer, account: accountReducer },
+    reducer: { app: appReducer, account: accountReducer },
     // devTools: true,
   });
 

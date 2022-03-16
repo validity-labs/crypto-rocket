@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"],
+  "extends": ["plugin:cypress/recommended", "next/core-web-vitals", "prettier"],
   "plugins": ["cypress", "jest", "prettier"],
   "env": {
     "jest/globals": true,

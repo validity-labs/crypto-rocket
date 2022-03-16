@@ -12,6 +12,11 @@
     "test:unit": "TZ=UTC jest",
     "test:unit:update-snap": "TZ=UTC jest --updateSnapshot",
     "test:unit:watch": "TZ=UTC jest --watch",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:next": "tsc --project testing/cypress/next/tsconfig.server.json && NODE_ENV=test node testing/cypress/.cypress/server.js",
+    "test:e2e": "NODE_ENV=test npm run build && start-server-and-test cypress:next 3000 cypress:open",
+    "test:e2e:headless": "NODE_ENV=test npm run build && start-server-and-test cypress:next 3000 cypress:run",
     "lint:check": "next lint",
     "lint:fix": "eslint --fix",
     "format": "prettier --check 'src/**/*.{ts(x)?,json,css}'",
@@ -51,6 +56,7 @@
     "react-scroll-up": "^1.3.7",
     "react-use": "^17.3.2",
     "react-visibility-sensor": "^5.1.1",
+    "sharp": "^0.30.3",
     "validator": "^13.7.0",
     "yup": "^0.32.11"
   },
@@ -64,14 +70,17 @@
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
     "@types/react-redux": "^7.1.18",
+    "cypress": "^9.5.2",
     "eslint-config-next": "^12.1.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jest": "^26.1.1",
     "eslint-plugin-prettier": "^4.0.0",
+    "express": "^4.17.3",
     "jest": "^27.2.0",
     "jest-css-modules-transform": "^4.2.0",
     "prettier": "^2.5.1",
+    "start-server-and-test": "^1.14.0",
     "ts-jest": "^27.0.5"
   }
 }

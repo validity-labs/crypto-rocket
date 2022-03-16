@@ -39,9 +39,8 @@ function MyApp(props: MyAppProps) {
   const { t } = useTranslation();
   // rerender tree so on language change date-io locale is applied properly
   const [, setDateLocale] = useState<Language | undefined>();
-  console.log('app rerender', locale);
+
   useEffect(() => {
-    console.log(locale);
     // on language change, change date-io locale with dynamic load
     changeDateIOLocale(locale as Language).then(() => {
       setDateLocale(locale as Language);

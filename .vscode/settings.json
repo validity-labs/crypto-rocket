@@ -5,5 +5,10 @@
   "[typescript]": {
     // override if setted per-language
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/*.snap": true,
+    "**/.cypress": true
   }
 }

@@ -29,13 +29,7 @@ const config: InitialOptionsTsJest = {
   transform: {
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
   },
-  // testPathIgnorePatterns: [
-  //   '<rootDir>/node_modules/',
-  //   '<rootDir>/.next/',
-  //   '<rootDir>/cypress/',
-  //   '<rootDir>/__mocks__/',
-  //   '<rootDir>/__fixtures__/',
-  // ],
+  testPathIgnorePatterns: ['<rootDir>/testing/'],
 };
 
 export default config;

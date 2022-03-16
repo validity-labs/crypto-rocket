@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# cypress
+# compiled files for custom nextjs server
+.cypress
+/cypress/videos
+/cypress/screenshots

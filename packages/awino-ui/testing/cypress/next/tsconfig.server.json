@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "../../.cypress",
+    "outDir": "../.cypress",
     "target": "es2017",
     "isolatedModules": false,
     "noEmit": false
   },
-  "include": ["../../cypress/next/**/*.ts"]
+  "include": ["../../../testing/cypress/next/server.ts"]
 }

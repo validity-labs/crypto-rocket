@@ -1,20 +1,21 @@
-import { I18nPageNamespace } from '@/types/app';
 import { createSerializer } from '@emotion/jest';
+
+import { I18nPageNamespace } from '@/types/app';
 
 import '@testing-library/jest-dom';
 
-interface TFunctionOptions {
-  ns?: string;
-}
+// interface TFunctionOptions {
+//   ns?: string;
+// }
 interface TransProps {
   i18nKey: string;
   values: Record<string, string>;
 }
 
-const t = (k: string, options: TFunctionOptions) => {
-  console.log(k, options);
-  return `${options?.ns ? `${options.ns}:` : ''}${k}`;
-};
+// const t = (k: string, options: TFunctionOptions) => {
+//   console.log(k, options);
+//   return `${options?.ns ? `${options.ns}:` : ''}${k}`;
+// };
 const getT = (ns?: I18nPageNamespace) => (k: string) => {
   return `${ns ? `${ns}:` : ''}${k}`;
 };

@@ -25,6 +25,11 @@ Date format: `YYYY-MM-DD`
 - Added contracts page with all sub components
 - Added messaging system through snackbar component
 - Added address component with copy to clipboard functionality
+- Added error page with sub components
+
+### Changed
+
+- Changed cypress configuration and initial tests
 
 ## [0.0.0] - 2022-03-15
 
