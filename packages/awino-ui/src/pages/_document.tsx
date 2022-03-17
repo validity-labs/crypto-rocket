@@ -13,7 +13,14 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           {/* <meta name="theme-color" content={theme.palette.primary.main} /> */}
-          <link rel="shortcut icon" href="/static/favicon.ico" />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10172b" />
+          <meta name="theme-color" content="#10172b" />
+
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           {/* eslint-disable-next-line @next/next/google-font-display  */}
