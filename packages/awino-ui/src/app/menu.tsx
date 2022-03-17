@@ -73,7 +73,7 @@ export const moreMenuLinks: MenuItemLink[] = [
   {
     type: 'internal',
     key: 'portfolio',
-    url: '#',
+    url: '/portfolio',
   },
 ];
 

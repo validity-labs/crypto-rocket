@@ -44,7 +44,7 @@ interface Props {
   copy?: boolean;
 }
 
-const Address = ({ address, copy = true }: Props) => {
+const Address = ({ address = '', copy = true }: Props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [, copyToClipboard] = useCopyToClipboard();

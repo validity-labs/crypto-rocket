@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-17
+
+### Added
+
+- Added portfolio page with balance component including Doughnut chart
+
 ## [0.0.0] - 2022-03-16
 
 ### Added
@@ -27,6 +33,7 @@ Date format: `YYYY-MM-DD`
 - Added address component with copy to clipboard functionality
 - Added error page with sub components
 - Added dashboard page with disconnected info components
+- Added portfolio page with balance component including Doughnut chart (wip)
 
 ### Changed
 

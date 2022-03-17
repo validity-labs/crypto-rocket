@@ -25,7 +25,8 @@ export type I18nPageNamespace =
   | 'podl'
   | 'analytics'
   | 'contracts'
-  | 'dashboard';
+  | 'dashboard'
+  | 'portfolio';
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 
@@ -69,5 +70,20 @@ export interface ContractsGrouped {
   stableCoins: {
     key: StableCoinAsset;
     address: Address;
+  }[];
+}
+
+export interface BalanceInfo {
+  key: AssetKey;
+  value: number;
+}
+export interface BalanceGrouped {
+  tokens: {
+    key: TokenAsset;
+    value: number;
+  }[];
+  stableCoins: {
+    key: StableCoinAsset;
+    value: number;
   }[];
 }
