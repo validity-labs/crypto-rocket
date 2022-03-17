@@ -12,10 +12,12 @@ import createEmotionCache from '@/app/createEmotionCache';
 // import { useAppDispatch } from '@/app/hooks';
 import { changeDateIOLocale } from '@/app/dateIO';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import Web3Provider from '@/app/providers/Web3Provider';
 import storeWrapper from '@/app/store';
 import Layout from '@/components/layout/Layout/Layout';
 import { I18nPageNamespace, Language } from '@/types/app';
 
+// import { UserRejectedRequestError as UserRejec
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -53,12 +55,14 @@ function MyApp(props: MyAppProps) {
         <title>Awino</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider>
-        <Layout>
-          {/* @ts-ignore */}
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Web3Provider>
+        <ThemeProvider>
+          <Layout>
+            {/* @ts-ignore */}
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </Web3Provider>
     </CacheProvider>
   );
 }

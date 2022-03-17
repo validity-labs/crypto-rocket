@@ -16,6 +16,7 @@ export const accountSlice = createSlice({
   reducers: {
     setActiveAccount: (state, action: PayloadAction<string | undefined | null>) => {
       state.activeAccount = action.payload === null ? null : action.payload;
+      state.connected = !!action.payload;
     },
     connect: (state, action?: PayloadAction<string>) => {
       /* TODO WIP Check if account is valid */

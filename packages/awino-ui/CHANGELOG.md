@@ -23,6 +23,8 @@ Date format: `YYYY-MM-DD`
 ### Added
 
 - Added portfolio page with balance component including Doughnut chart
+- Added web3 provider and connecting it to redux
+- Added connect wallet modal
 
 ## [0.0.0] - 2022-03-16
 

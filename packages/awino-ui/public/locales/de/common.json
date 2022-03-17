@@ -10,8 +10,14 @@
   },
   "account": {
     "connect": "Connect wallet",
+    "connect-your-wallet": "Connect your wallet",
     "connect-prompt": "Please connect your wallet",
     "disconnect": "Disconnect wallet"
+  },
+  "connectors": {
+    "metamask": "MetaMask",
+    "coinbase": "Coinbase",
+    "wallet-connect": "Wallet connect"
   },
   "common": {
     "theme-to-light": "Switch to light theme",
@@ -43,7 +49,8 @@
     "back": "Go back",
     "filter-by-name": "Filter by name",
     "select-token": "Choose token",
-    "convertion-from-to": "Convert from {{from}} to {{to}}"
+    "convertion-from-to": "Convert from {{from}} to {{to}}",
+    "close-modal": "Close Modal"
   },
   "format": {
     "date": "dd-MM-yyyy",

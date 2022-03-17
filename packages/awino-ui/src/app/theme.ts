@@ -161,7 +161,7 @@ const themeCreator = (mode: PaletteMode) => {
     MuiCssBaseline: {
       styleOverrides: `
         html, body {
-          // height: 100%;
+          min-height: 100%;
         }
         body {
           background: #ffffff;
@@ -172,7 +172,7 @@ const themeCreator = (mode: PaletteMode) => {
           font-family: Comfortaa, sans-serif;
         }
         #__next {
-          // height: 100%;
+          min-height: 100%;
         }
         main {
           display: flex;
