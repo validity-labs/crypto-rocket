@@ -1,3 +1,7 @@
+## Yarn, NPM
+
+Yarn was replaced with npm due to deployment issues.
+
 ## Commit convention
 
 We are using [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) messages to keep everything clean. [Commitlint](https://commitlint.js.org/#/) is used to verify commit message.

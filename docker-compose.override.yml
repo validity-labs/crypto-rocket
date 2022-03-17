@@ -8,4 +8,5 @@ services:
     env_file:
       - ./config/awino-ui/.env.development
     volumes:
-      - .:/src
+      - ./packages/awino-ui:/src
+      - /src/node_modules

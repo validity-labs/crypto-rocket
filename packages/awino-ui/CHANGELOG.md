@@ -26,6 +26,10 @@ Date format: `YYYY-MM-DD`
 - Added web3 provider and connecting it to redux
 - Added connect wallet modal
 
+### Changed
+
+- Changed package manager from yarn to npm
+
 ## [0.0.0] - 2022-03-16
 
 ### Added

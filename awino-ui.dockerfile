@@ -19,20 +19,25 @@ RUN apk add --update --no-cache \
 
 FROM builder-base as development
 
+ARG APPLICATION_PATH=packages/awino-ui
+ENV APPLICATION_PATH=$APPLICATION_PATH
+ENV CHOKIDAR_USEPOLLING=true
+
 WORKDIR /src
 
-CMD yarn && yarn dev --cwd ./packages/awino-ui -- --port $PORT
+CMD npm install && npm run dev -- --port $PORT
 
 # -- BASE STAGE --------------------------------
 
 FROM builder-base AS base
 
+ARG APPLICATION_PATH=packages/awino-ui
 
 WORKDIR /src
 
-COPY ./$APPLICATION_PATH/package.json /src/
+COPY ./$APPLICATION_PATH/package*.json /src/
 
-RUN yarn
+RUN npm install
 
 # -- PRODUCTION BUILD STAGE ------------------------
 FROM base AS production-build
