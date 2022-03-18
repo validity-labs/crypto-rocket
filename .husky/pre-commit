@@ -1,4 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+# https://github.com/typicode/husky/issues/971#issuecomment-846431179
+# Bash sets the BASH environment variable, so if it is not set, then we
+# are running in a different shell, so manually run ourselves in BASH.
+if [ -z "${BASH:-}" ]; then
+  exec bash "$0" "$@"
+fi
+
 . "$(dirname "$0")/_/husky.sh"
 
 npx lint-staged #--concurrent false

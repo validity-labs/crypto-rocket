@@ -11,6 +11,7 @@
     "test": "jest",
     "test:unit": "TZ=UTC jest",
     "test:unit:update-snap": "TZ=UTC jest --updateSnapshot",
+    "test:pre-commit": "TZ=UTC jest --bail --findRelatedTests",
     "test:unit:watch": "TZ=UTC jest --watch",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",

@@ -49,3 +49,19 @@ _Enviroment variables are in `config/awino-ui/.env.development`_
   # start development server locally in docker container
   docker-compose up
 ```
+
+## Notes
+
+- Bypass husky hooks ([docs](https://typicode.github.io/husky/#/?id=bypass-hooks))
+
+  You can bypass pre-commit and commit-msg hooks using Git -n/--no-verify option:
+
+  ```bash
+    git commit -m "yolo!" --no-verify
+  ```
+
+  For Git commands that don't have a --no-verify option, you can use HUSKY environment variable:
+
+  ```bash
+    HUSKY=0 git push # yolo!
+  ```
