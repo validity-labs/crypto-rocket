@@ -25,13 +25,6 @@ const stats: StatsData = [
 const IndexPage: NextPage = () => {
   return (
     <>
-      <Head>
-        {/*  eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poiret+One&family=MuseoModerno&display=block"
-          rel="stylesheet"
-        />
-      </Head>
       <Seo />
       <StatsSection items={stats} />
       <InfoSection />
