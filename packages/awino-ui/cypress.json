@@ -6,5 +6,7 @@
   "screenshotsFolder": "testing/cypress/screenshots",
   "videosFolder": "testing/cypress/videos",
   "downloadsFolder": "testing/cypress/downloads",
-  "supportFile": "testing/cypress/support/index.js"
+  "supportFile": "testing/cypress/support/index.js",
+  "video": false,
+  "trashAssetsBeforeRuns": false
 }

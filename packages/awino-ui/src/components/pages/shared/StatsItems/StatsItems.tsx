@@ -32,7 +32,7 @@ interface Props extends ContainerProps {
   items: StatsData;
 }
 
-export default function StatsItems({ items, ...containerProps }: Props) {
+export default function StatsItems({ items, className, ...containerProps }: Props) {
   const t = usePageTranslation();
   const [glanced, setGlanced] = useState(false);
 
@@ -55,7 +55,7 @@ export default function StatsItems({ items, ...containerProps }: Props) {
             };
             return (
               <Grid key={index} item xs={12} sm={6} lg={gridItemLG}>
-                <div className="card">
+                <div className="card" data-test-id="AwiStatsItems-card">
                   <h2>
                     <Typography
                       variant="h3"

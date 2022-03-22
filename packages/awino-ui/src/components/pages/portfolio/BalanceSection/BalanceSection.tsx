@@ -132,7 +132,7 @@ export default function BalanceSection({ items }: Props) {
                 ))}
               </Grid>
             </Grid>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={5} data-test-id="AwiDoughnut-wrapper">
               <Doughnut
                 data={chartData}
                 options={{

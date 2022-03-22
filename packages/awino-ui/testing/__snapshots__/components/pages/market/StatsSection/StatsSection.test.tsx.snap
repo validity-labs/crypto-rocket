@@ -19,6 +19,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
           >
             <div
               class="card"
+              data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span
@@ -46,6 +47,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
           >
             <div
               class="card"
+              data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span
@@ -73,6 +75,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
           >
             <div
               class="card"
+              data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span
@@ -95,6 +98,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
           >
             <div
               class="card"
+              data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span

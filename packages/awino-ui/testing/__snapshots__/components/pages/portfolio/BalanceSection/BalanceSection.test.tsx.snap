@@ -172,6 +172,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
             </div>
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-29"
+              data-test-id="AwiDoughnut-wrapper"
             >
               <canvas
                 height="150"

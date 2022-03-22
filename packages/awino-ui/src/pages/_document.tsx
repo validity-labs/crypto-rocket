@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           {/* eslint-disable-next-line @next/next/google-font-display  */}
           <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Comfortaa:wght@400;600&display=block"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Comfortaa:wght@400;600;700&display=block"
             rel="stylesheet"
           />
           <link
