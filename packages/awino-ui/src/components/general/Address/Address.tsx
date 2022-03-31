@@ -25,6 +25,7 @@ const Root = styled('div')(({ theme }) => ({
   '.AwiAddress-address': {
     display: 'flex',
     wordBreak: 'break-all',
+    lineHeight: 1,
   },
   '.AwiAddress-prefix': {
     display: ['block', '-webkit-box'],
@@ -33,6 +34,7 @@ const Root = styled('div')(({ theme }) => ({
     WebkitBoxOrient: 'vertical',
     textOverflow: 'ellipsis',
     overflow: 'hidden',
+    color: 'inherit',
   },
   '.AwiAddress-postfix': {
     whiteSpace: 'nowrap',

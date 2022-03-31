@@ -70,8 +70,7 @@ const StyledMenu = styled((props: MenuProps) => (
     ...theme.typography['body-xs'],
     fontWeight: 600,
     color: theme.palette.text.menu,
-    svg: {
-      fontSize: '18px',
+    img: {
       marginRight: theme.spacing(3),
     },
   },
@@ -121,10 +120,10 @@ export default function SettingsMenu() {
           </MenuItem>
         ))}
         <li role="presentation" className="MuiMenuItem-spacer" />
-        {socialLinks.map(({ key, url, icon: Icon }) => (
+        {socialLinks.map(({ key, url }) => (
           <MenuItem key={key} onClick={handleClose} divider={false} dense>
             <Typography component={Link} href={url} className="MuiMenuItem-content icon-title">
-              <Icon />
+              <img src={`/images/icons/${key}.svg`} alt="" width="22" height="22" />
               {t(`menu.social.${key}.title`)}
             </Typography>
           </MenuItem>

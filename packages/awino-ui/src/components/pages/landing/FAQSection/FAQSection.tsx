@@ -11,6 +11,7 @@ const Root = styled(Section)(({ theme }) => ({
   '.MuiAccordionSummary-root': {
     svg: {
       fontSize: '52px',
+      color: theme.palette.text.active,
     },
   },
   [theme.breakpoints.up('md')]: {},

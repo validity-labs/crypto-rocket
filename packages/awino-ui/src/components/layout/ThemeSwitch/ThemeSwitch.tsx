@@ -2,11 +2,12 @@ import React, { useCallback } from 'react';
 
 import { useTranslation } from 'next-i18next';
 
-import { DarkMode, LightMode } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { toggleTheme } from '@/app/state/slices/app';
+import DarkMode from '@/components/icons/MoonIcon';
+import LightMode from '@/components/icons/SunIcon';
 
 const ThemeSwitch = () => {
   const { t } = useTranslation('common');
@@ -21,9 +22,9 @@ const ThemeSwitch = () => {
   return (
     <IconButton size="small" onClick={handleClick} sx={{ ml: 7.5, mr: 4 }}>
       {isDark ? (
-        <LightMode titleAccess={t('common.theme-to-light')} />
+        <LightMode fontSize="medium" titleAccess={t('common.theme-to-light')} />
       ) : (
-        <DarkMode titleAccess={t('common.theme-to-dark')} />
+        <DarkMode fontSize="medium" titleAccess={t('common.theme-to-dark')} />
       )}
     </IconButton>
   );

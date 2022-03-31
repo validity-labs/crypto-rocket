@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import { useTranslation } from 'next-i18next';
 
-import SettingsIcon from '@mui/icons-material/Settings';
 import { IconButton, Menu, MenuItem, MenuProps, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { settingMenuLinks } from '@/app/menu';
 import Link from '@/components/general/Link/Link';
+import GearIcon from '@/components/icons/GearIcon';
 
 import LanguageSwitch from '../LanguageSwitch/LanguageSwitch';
 
@@ -61,7 +61,7 @@ export default function SettingsMenu() {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <SettingsIcon />
+        <GearIcon fontSize="medium" />
       </ToggleButton>
       <StyledMenu
         id="settingsMenu"

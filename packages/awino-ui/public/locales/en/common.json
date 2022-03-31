@@ -100,13 +100,17 @@
     },
     "more": {
       "toggle-label": "Additional Links",
-      "market": {
+      "swap": {
         "title": "Buy $AWI",
         "description": "Trade and add liquidity to $AWI pools"
       },
       "contracts": {
         "title": "Contracts",
         "description": "View contract related information"
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Wiew your staked AWI tokens"
       },
       "portfolio": {
         "title": "Portfolio",

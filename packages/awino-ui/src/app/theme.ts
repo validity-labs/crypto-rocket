@@ -36,7 +36,7 @@ const themeCreator = (mode: PaletteMode) => {
               secondary: '#767373',
 
               contrast: '#ffffff',
-              active: '#007e74',
+              active: '#00FFEB',
             },
             background: {
               dark: '#0e193c',

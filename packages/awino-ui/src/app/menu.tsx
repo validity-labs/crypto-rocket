@@ -1,9 +1,3 @@
-// import InstagramIcon from '@mui/icons-material/Instagram';
-
-import BlogIcon from '@/components/icons/BlogIcon';
-import DocumentIcon from '@/components/icons/DocumentIcon';
-import TwitterIcon from '@/components/icons/TwitterIcon';
-import YouTubeIcon from '@/components/icons/YouTubeIcon';
 import { MenuItemLink, MenuItemType } from '@/types/app';
 
 export const mainMenuLinks: MenuItemType[] = [
@@ -62,8 +56,8 @@ export const settingMenuLinks: MenuItemLink[] = [
 export const moreMenuLinks: MenuItemLink[] = [
   {
     type: 'internal',
-    key: 'market',
-    url: '/market',
+    key: 'swap',
+    url: '/swap',
   },
   {
     type: 'internal',
@@ -72,35 +66,36 @@ export const moreMenuLinks: MenuItemLink[] = [
   },
   {
     type: 'internal',
+    key: 'dashboard',
+    url: '/dashboard',
+  },
+  {
+    type: 'internal',
     key: 'portfolio',
     url: '/portfolio',
   },
 ];
 
-export const socialLinks: Required<MenuItemLink>[] = [
+export const socialLinks: MenuItemLink[] = [
   {
     type: 'external',
     key: 'docs',
     url: 'https://todo',
-    icon: () => <DocumentIcon style={{ fill: '#7436ff' }} />,
   },
   {
     type: 'external',
     key: 'blog',
     url: 'https://todo',
-    icon: () => <BlogIcon style={{ fill: '#FFC400' }} />,
   },
   {
     type: 'external',
     key: 'youtube',
     url: 'https://todo',
-    icon: () => <YouTubeIcon style={{ fill: '#FD68FD' }} />,
   },
   {
     type: 'external',
     key: 'twitter',
     url: 'https://todo',
-    icon: () => <TwitterIcon style={{ fill: '#08CEB7' }} />,
   },
 ];
 

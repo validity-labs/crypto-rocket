@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-1om0hkc"
+   focusable="false"
+   viewBox="0 0 24 24"
+   aria-hidden="true"
+   data-testid="AccountBoxIcon"
+   version="1.1"
+   id="svg4"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8">
+    <linearGradient
+       id="linear-gradient"
+       x1="7.5172691"
+       y1="4.2097636"
+       x2="7.5172691"
+       y2="15.034631"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1972432,0,0,0.97221476,3,1.0438238)">
+      <stop
+         offset="0"
+         stop-color="#00ffeb"
+         id="stop1535" />
+      <stop
+         offset="1"
+         stop-color="#00e63e"
+         id="stop1537" />
+    </linearGradient>
+  </defs>
+  <path
+     id="Icon_awesome-twitter"
+     data-name="Icon awesome-twitter"
+     d="m 19.146487,8.3338017 c 0.01187,0.1596739 0.01187,0.3236634 0.01187,0.4801007 A 10.421961,10.421961 0 0 1 8.664109,19.308148 10.423039,10.423039 0 0 1 3,17.652071 7.6309034,7.6309034 0 0 0 3.8911531,17.697384 7.387077,7.387077 0 0 0 8.469911,16.122222 3.6951568,3.6951568 0 0 1 5.0175017,13.564202 4.6510426,4.6510426 0 0 0 5.7144568,13.621383 3.9012225,3.9012225 0 0 0 6.6854469,13.496233 3.6886835,3.6886835 0 0 1 3.7304003,9.8755181 V 9.8302052 A 3.7145766,3.7145766 0 0 0 5.3972667,10.298438 3.6940779,3.6940779 0 0 1 4.2558139,5.3647296 10.484535,10.484535 0 0 0 11.860824,9.2249547 4.1633898,4.1633898 0 0 1 11.770198,8.3801933 3.6919202,3.6919202 0 0 1 18.15284,5.8556191 7.2619272,7.2619272 0 0 0 20.494006,4.9644659 3.6778948,3.6778948 0 0 1 18.875689,6.9970719 7.3935503,7.3935503 0 0 0 21,6.4263455 7.9286737,7.9286737 0 0 1 19.149724,8.3338016 Z"
+     fill="url(#linear-gradient)"
+     style="fill:url(#linear-gradient);stroke-width:1.07888" />
+</svg>
