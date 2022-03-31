@@ -20,6 +20,8 @@ import { Button, Modal, Typography, CircularProgress, Container, Divider, IconBu
 import { styled } from '@mui/material/styles';
 
 // import { Spinner } from '../components/Spinner';
+import { useAppDispatch } from '@/app/hooks';
+import { toggleConnector } from '@/app/state/slices/app';
 import {
   injected,
   network,
@@ -186,14 +188,15 @@ const Root = styled(Modal)(({ theme }) => ({
   },
 }));
 
-interface Props {
-  open: boolean;
-  setOpen: SetState<boolean>;
-}
+// interface Props {
+//   open: boolean;
+//   // setOpen: SetState<boolean>;
+// }
 
-export default function WalletConnect({ open, setOpen }: Props) {
+export default function WalletConnect(/* { open }: Props */) {
   const { t } = useTranslation();
-  const handleClose = () => setOpen(false);
+  const dispatch = useAppDispatch();
+  const handleClose = () => dispatch(toggleConnector(false));
 
   const context = useWeb3React<Web3Provider>();
   const { connector, /* library, chainId, account, */ activate, deactivate, active, error } = context;
@@ -206,14 +209,14 @@ export default function WalletConnect({ open, setOpen }: Props) {
   }, [activatingConnector, connector]);
 
   // handle logic to eagerly connect to the injected ethereum provider, if it exists and has granted access already
-  const triedEager = useEagerConnect();
+  // const triedEager = useEagerConnect();
 
   // handle logic to connect in reaction to certain events on the injected ethereum provider, if it exists
-  useInactiveListener(!triedEager || !!activatingConnector);
+  // useInactiveListener(!triedEager || !!activatingConnector);
 
   return (
     <Root
-      open={open}
+      open={true}
       onClose={handleClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
@@ -241,7 +244,7 @@ export default function WalletConnect({ open, setOpen }: Props) {
                 const currentConnector = connectorsByName[name];
                 const activating = currentConnector === activatingConnector;
                 const connected = currentConnector === connector;
-                const disabled = !triedEager || !!activatingConnector || connected || !!error;
+                const disabled = /* !triedEager || */ !!activatingConnector || connected || !!error;
 
                 return (
                   <Button
@@ -277,6 +280,7 @@ export default function WalletConnect({ open, setOpen }: Props) {
                 <Button
                   variant="text"
                   onClick={() => {
+                    handleClose();
                     deactivate();
                   }}
                   startIcon={<LogoutRoundedIcon />}

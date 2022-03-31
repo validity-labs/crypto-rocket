@@ -31,3 +31,5 @@ export const BASE_DOMAIN = baseDomain;
 
 // TODO WIP Read from env variable
 export const CHAIN_ID = +'4';
+
+export const PROTECTED_ROUTES = ['/dashboard', '/portfolio'];

@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-03-31
+
+### Added
+
+- Added ability to protect page so only connected user can see
+
 ## [0.0.0] - 2022-03-17
 
 ### Added

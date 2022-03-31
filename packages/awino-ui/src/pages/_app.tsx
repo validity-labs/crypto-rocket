@@ -1,18 +1,22 @@
 // import '../styles/globals.css';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { CacheProvider, EmotionCache } from '@emotion/react';
 
+import { PROTECTED_ROUTES } from '@/app/constants';
 import createEmotionCache from '@/app/createEmotionCache';
 // import { useAppDispatch } from '@/app/hooks';
 import { changeDateIOLocale } from '@/app/dateIO';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import Web3Provider from '@/app/providers/Web3Provider';
+import { toggleConnector } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Layout from '@/components/layout/Layout/Layout';
 import { I18nPageNamespace, Language } from '@/types/app';
@@ -39,8 +43,51 @@ function MyApp(props: MyAppProps) {
   // const { account, chainId } = useEthers();
   // eslint-disable-next-line no-unused-vars
   const { t } = useTranslation();
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [isAppInitialized, isAccountConnected] = useAppSelector((state) => [
+    !state.app.initializing,
+    state.account.connected,
+  ]);
+
   // rerender tree so on language change date-io locale is applied properly
   const [, setDateLocale] = useState<Language | undefined>();
+
+  const isPageProtected = useMemo(() => pageProps.protected || false, [pageProps]);
+
+  /*
+    when application initialization is complete trigger showing connect modal if user is
+    a guest and page is protected
+  */
+  useEffect(() => {
+    if (isAppInitialized) {
+      const canProceed = isAccountConnected || !isPageProtected;
+      if (!canProceed) {
+        dispatch(toggleConnector(true));
+      }
+    }
+  }, [isAppInitialized, isAccountConnected, dispatch, isPageProtected]);
+
+  /*
+    intercept page navigation (internal link click) to trigger showing connect
+    modal if user is a guest and page is protected
+  */
+  useEffect(() => {
+    const handleRouteComplete = (url: string) => {
+      if (!isAccountConnected && PROTECTED_ROUTES.filter((protectedRoute) => url.startsWith(protectedRoute)).length) {
+        dispatch(toggleConnector(true));
+
+        // router.events.emit('routeChangeError');
+        // throw 'routeChange aborted.';
+      }
+    };
+
+    router.events.on('routeChangeComplete', handleRouteComplete);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteComplete);
+    };
+  }, [isAccountConnected, router, dispatch]);
 
   useEffect(() => {
     // on language change, change date-io locale with dynamic load
@@ -57,7 +104,7 @@ function MyApp(props: MyAppProps) {
       </Head>
       <Web3Provider>
         <ThemeProvider>
-          <Layout>
+          <Layout initialized={isAppInitialized} authorized={isAccountConnected || !isPageProtected}>
             {/* @ts-ignore */}
             <Component {...pageProps} />
           </Layout>

@@ -49,3 +49,28 @@ _to be updated_
 - [Redux Toolkit](https://redux-toolkit.js.org) - is a standardized way to write Redux logic (create actions and reducers, setup the store with some default middlewares like redux devtools extension).
 - [MaterialUI](https://mui.com/getting-started/installation/)
 - [NextI18next](https://github.com/isaachinman/next-i18next)
+
+## Protecting pages
+
+To make the page protected/hidden for guests and make it only accessible for users who already connected their wallet you need to set the `protected: true` flag in return object of `getServerSideProps` for each page you want to be protected.
+
+```tsx
+export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale }) => {
+  ...
+  return {
+      props: {
+        protected: true,
+        ...
+      },
+    };
+  });
+```
+
+### Showing connect modal on page navigation
+
+When navigation (not reloading) to a page that is protected, if connect modal should appear automatically add the page route to `PROTECTED_ROUTES` array.
+
+```tsx
+// src/app/constants.ts
+export const PROTECTED_ROUTES = ['/new-route', '/dashboard', '/portfolio'];
+```

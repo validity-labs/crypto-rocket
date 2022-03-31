@@ -15,14 +15,21 @@ interface SnackbarState {
 }
 
 interface AppState {
-  connected: boolean;
   drawer: boolean;
+  /* trigger wallet connect modal */
+  connector: boolean;
   themeMode: ThemeMode;
   isDark: boolean;
   isLight: boolean;
   awi: number;
   ns: I18nPageNamespace | null;
   snackbar?: SnackbarState | null;
+
+  /*
+    on application load wait for:
+      - account connection check
+  */
+  initializing: boolean;
 }
 
 type MaybeTheme = ThemeMode | null | undefined;
@@ -52,10 +59,11 @@ const initialState: AppState = {
       isLight: themeMode === 'light',
     };
   })(),
-  connected: false,
+  connector: false,
   drawer: false,
   awi: 1.2932, // TODO WIP When source of this value will be known update fetching logic
   ns: null,
+  initializing: true,
 };
 
 export const appSlice = createSlice({
@@ -79,19 +87,33 @@ export const appSlice = createSlice({
     showMessage: (state, action: PayloadAction<SnackbarState | null>) => {
       state.snackbar = action.payload;
     },
+    toggleConnector: (state, action: PayloadAction<boolean | undefined>) => {
+      // if payload exist set to passed value, otherwise toggle between values
+      state.connector = action.payload ? action.payload : !state.connector;
+    },
+    completeAppInitialization: (state) => {
+      state.initializing = false;
+    },
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
-      // console.log('HYDRATE', action.payload);
       return {
         ...state,
-        ...action.payload.app,
+        ...action.payload.app, // server payload
+        initializing: state.initializing, // only client value is tracked
       };
     },
   },
 });
 
 // if payload exist set to passed value, otherwise toggle between values
-export const { toggleTheme, toggleDrawer, setPageI18nNamespace, showMessage } = appSlice.actions;
+export const {
+  toggleTheme,
+  toggleDrawer,
+  toggleConnector,
+  setPageI18nNamespace,
+  showMessage,
+  completeAppInitialization,
+} = appSlice.actions;
 
 export default appSlice.reducer;

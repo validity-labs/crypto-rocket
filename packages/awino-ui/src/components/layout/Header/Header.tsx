@@ -61,32 +61,12 @@ export default function Header() {
                     <ThemeSwitch />
                     <SettingsMenu />
                     <MoreMenu />
-                    {/* {activeAccount && (
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                          pl: 3,
-                          borderLeft: `1px solid ${isDark ? 'rgba(24, 37, 44, 0.08)' : 'rgba(255, 255, 255, 0.24)'}`,
-                          color: isDark ? 'text.secondary' : 'text.contrastPale',
-                        }}
-                      >
-
-                        <ShortAddress address={activeAccount} avatar={true} />
-                      </Box>
-                    )} */}
                     <ConnectButton />
                   </Box>
                 </Hidden>
 
                 <Hidden lgUp implementation="css">
-                  <IconButton
-                    size="medium"
-                    aria-label={t('header.toggle-menu')}
-                    onClick={handleDrawerToggle}
-                    // sx={{ color: isDark ? 'secondary.main' : 'common.white' }}
-                  >
+                  <IconButton size="medium" aria-label={t('header.toggle-menu')} onClick={handleDrawerToggle}>
                     <MenuIcon fontSize="large" />
                   </IconButton>
                 </Hidden>
@@ -95,13 +75,7 @@ export default function Header() {
           </Container>
         </Toolbar>
       </StyledAppBar>
-      <Drawer
-      // toggleConnection={toggleConnection}
-      // connectionAddress={activeAccount}
-      />
-      {/* {showConnectModal && activeAccount === undefined && (
-        <WalletConnectModal onDismiss={hideModalHandler} />
-      )} */}
+      <Drawer />
     </>
   );
 }

@@ -108,9 +108,9 @@ export default function Footer(): ReactElement {
             ))}
           </ul>
           <div className="social">
-            {socialLinks.map(({ key, url, icon: Icon }) => (
+            {socialLinks.map(({ key, url }) => (
               <IconButton key={key} className="icon" component={Link} href={url} title={t(`menu.social.${key}.title`)}>
-                <Icon />
+                <img src={`/images/icons/${key}.svg`} alt="" width="22" height="22" />
               </IconButton>
             ))}
             <ScrollUp className="up" />

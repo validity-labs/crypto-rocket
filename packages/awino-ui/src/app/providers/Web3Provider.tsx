@@ -5,7 +5,8 @@ import { Web3Provider as EthersProjectWeb3Provider } from '@ethersproject/provid
 import { useWeb3React, Web3ReactProvider } from '@web3-react/core';
 
 import { useAppDispatch } from '../hooks';
-import { setActiveAccount } from '../state/slices/account';
+import { setAccount } from '../state/slices/account';
+import { completeAppInitialization } from '../state/slices/app';
 import { useEagerConnect, useInactiveListener } from '../web3/hooks';
 
 const ActivateAccount = () => {
@@ -21,11 +22,17 @@ const ActivateAccount = () => {
   }, [activatingConnector, connector]);
 
   useEffect(() => {
-    dispatch(setActiveAccount(account));
+    dispatch(setAccount(account));
   }, [account, dispatch]);
 
   // handle logic to eagerly connect to the injected ethereum provider, if it exists and has granted access already
   const triedEager = useEagerConnect();
+
+  useEffect(() => {
+    if (triedEager) {
+      dispatch(completeAppInitialization());
+    }
+  }, [triedEager, dispatch]);
 
   // handle logic to connect in reaction to certain events on the injected ethereum provider, if it exists
   useInactiveListener(!triedEager || !!activatingConnector);
