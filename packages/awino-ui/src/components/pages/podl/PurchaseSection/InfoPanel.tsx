@@ -26,40 +26,39 @@ export default function InfoPanel({ data }: Props) {
   const { source: from, target: to, oldRate: currentPrice, rate: offeredPrice } = data;
 
   return (
-    <Panel>
-      <div className="header">
+    <Panel
+      header={
         <Label id="infoTitle" className="label" component="h2" tooltip={t(`purchase-section.info.title-hint`)}>
           {t(`purchase-section.info.title`, { from: from.toUpperCase(), to: to.toUpperCase() })}
         </Label>
-      </div>
-      <div className="content">
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell width="70%">{t('purchase-section.info.description')}</TableCell>
-                <TableCell width="30%">{t('purchase-section.info.token-price')}</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell>{t('purchase-section.info.current-price')}</TableCell>
-                <TableCell>{formatUSD(currentPrice)}</TableCell>
-              </TableRow>
+      }
+    >
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell width="70%">{t('purchase-section.info.description')}</TableCell>
+              <TableCell width="30%">{t('purchase-section.info.token-price')}</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>{t('purchase-section.info.current-price')}</TableCell>
+              <TableCell>{formatUSD(currentPrice)}</TableCell>
+            </TableRow>
 
-              <TableRow>
-                <TableCell>{t('purchase-section.info.offered-price', { to: to.toUpperCase() })}</TableCell>
-                <TableCell sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                  <Typography component="span" color="text.primary" fontWeight={500} mr={5}>
-                    {formatUSD(offeredPrice)}
-                  </Typography>
-                  <Trend component="span" value={offeredPrice.minus(currentPrice)} formatter={formatUSD} />
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
+            <TableRow>
+              <TableCell>{t('purchase-section.info.offered-price', { to: to.toUpperCase() })}</TableCell>
+              <TableCell sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                <Typography component="span" color="text.primary" fontWeight={500} mr={5}>
+                  {formatUSD(offeredPrice)}
+                </Typography>
+                <Trend component="span" value={offeredPrice.minus(currentPrice)} formatter={formatUSD} />
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Panel>
   );
 }

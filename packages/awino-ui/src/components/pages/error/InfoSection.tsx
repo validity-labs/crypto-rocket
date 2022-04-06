@@ -11,7 +11,7 @@ import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 const Root = styled(Section)(({ theme }) => ({
-  '.AwiPanel-root .content': {
+  '.AwiPanel-content': {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -37,19 +37,14 @@ const InfoSection = ({ statusCode }: Props) => {
   return (
     <>
       <Root>
-        <Panel>
-          <div className="header">
-            <Label component="h1">{t('info-section.title')}</Label>
-          </div>
-          <div className="content">
-            <AwinoIcon className="AwiInfoSection-icon" />
-            <Typography variant="h2" color="text.secondary" className="AwiInfoSection-prompt">
-              {t('info-section.error-code', { code: statusCode || '-' })}
-            </Typography>
-            <Button component={Link} href="/" variant="outlined">
-              {t('info-section.back')}
-            </Button>
-          </div>
+        <Panel header={<Label component="h1">{t('info-section.title')}</Label>}>
+          <AwinoIcon className="AwiInfoSection-icon" />
+          <Typography variant="h2" color="text.secondary" className="AwiInfoSection-prompt">
+            {t('info-section.error-code', { code: statusCode || '-' })}
+          </Typography>
+          <Button component={Link} href="/" variant="outlined">
+            {t('info-section.back')}
+          </Button>
         </Panel>
       </Root>
     </>

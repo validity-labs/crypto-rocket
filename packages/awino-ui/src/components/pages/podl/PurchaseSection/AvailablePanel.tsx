@@ -11,10 +11,10 @@ import Panel from '../../../general/Panel/Panel';
 import { PodlPurchaseData } from './PurchaseSection';
 
 const Root = styled(Panel)(({ theme }) => ({
-  '.content': {
+  '.AwiAvailablePanel-content': {
     padding: theme.spacing(8, 16, 6),
   },
-  '.asset': {
+  '.AwiAvailablePanel-asset': {
     marginTop: theme.spacing(4),
   },
 }));
@@ -29,9 +29,15 @@ export default function AvailablePanel({ data }: Props) {
 
   return (
     <Root>
-      <div className="content">
+      <div className="AwiAvailablePanel-content">
         <Label component="h2">{t(`purchase-section.buyable`, { from: sourceLabel })}</Label>
-        <AssetAmount asset={source} value={maxSource} altAsset={'usd'} altValue={maxSourceInUSD} className="asset" />
+        <AssetAmount
+          asset={source}
+          value={maxSource}
+          altAsset={'usd'}
+          altValue={maxSourceInUSD}
+          className="AwiAvailablePanel-asset"
+        />
       </div>
     </Root>
   );

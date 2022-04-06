@@ -53,9 +53,7 @@ const Root = styled(Button, {
     marginLeft: theme.spacing(3),
     fontSize: '24px',
     color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.active,
-    // color: theme.palette.text.primary,
   },
-  svg: {},
   '.AwiAddress-root': {
     maxWidth: 80,
   },

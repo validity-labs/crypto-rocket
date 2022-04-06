@@ -16,6 +16,7 @@ export const TABLE_ROWS_PER_PAGE_OPTIONS = [10, 20, 50, 100];
 export const TABLE_ROWS_PER_PAGE = TABLE_ROWS_PER_PAGE_OPTIONS[0];
 
 // export const DEFAULT_DATE_FORMAT = 'yyyy-MM-dd';
+export const SHORT_DATE_FORMAT = 'MMM d, yy';
 
 // export const DEFAULT_DATE_PRETTY_FORMAT = 'MMMM d, yyyy';
 

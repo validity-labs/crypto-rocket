@@ -8,6 +8,7 @@ const sizes = [
 const pages = [
   { name: 'landing', path: '/' },
   { name: 'market', path: '/market' },
+  { name: 'market-details--dai', path: '/market/dai' },
   { name: 'swap', path: '/swap' },
   { name: 'podl', path: '/podl' },
   { name: 'dashboard', path: '/dashboard' },
@@ -21,7 +22,7 @@ const pages = [
   { name: 'borrow--dai', path: '/borrow/dai' },
 ];
 
-const scrubbedElements = ['[data-test-id="AwiStatsItems-card"]', '[data-test-id="AwiDoughnut-wrapper"]'];
+const scrubbedElements = ['[data-test-id="AwiStatsItems-card"]', '[data-test-id="AwiChart-wrapper"]'];
 
 describe('Visual regression tests', () => {
   sizes.forEach((size) => {

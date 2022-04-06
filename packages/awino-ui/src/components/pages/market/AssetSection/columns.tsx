@@ -3,7 +3,7 @@ import { TFunction } from 'next-i18next';
 import { Typography } from '@mui/material';
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
-import { formatGridEmptyString, formatGridPercent } from '@/lib/formatters';
+import { formatGridUSD } from '@/lib/formatters';
 import { renderCellWithAPR } from '@/lib/grid';
 
 const getColumns = (t: TFunction): GridColDef[] => {
@@ -19,16 +19,16 @@ const getColumns = (t: TFunction): GridColDef[] => {
       ),
     },
     {
-      field: 'marketSize',
-      i18nKey: 'market-size',
+      field: 'totalSupply',
+      i18nKey: 'total-supply',
       sortable: true,
-      valueFormatter: formatGridEmptyString,
+      valueFormatter: formatGridUSD,
     },
     {
       field: 'totalBorrowed',
       i18nKey: 'total-borrowed',
       sortable: true,
-      valueFormatter: formatGridPercent,
+      valueFormatter: formatGridUSD,
     },
     {
       field: 'depositAPY',

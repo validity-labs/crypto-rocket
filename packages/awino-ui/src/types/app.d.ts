@@ -2,6 +2,8 @@ import type React from 'react';
 
 import { NextConfig } from 'next';
 
+import BigNumber from 'bignumber.js';
+
 import { PaletteMode, SvgIconProps } from '@mui/material';
 
 export interface NextAppConfig extends NextConfig {
@@ -16,6 +18,7 @@ export type I18nPageNamespace =
   | 'error'
   | 'landing'
   | 'market'
+  | 'market-details'
   | 'earn-deposit'
   | 'earn-deposit-details'
   | 'earn-liquidity-staking'
@@ -27,6 +30,12 @@ export type I18nPageNamespace =
   | 'contracts'
   | 'dashboard'
   | 'portfolio';
+
+export interface Breadcrumb {
+  key: string;
+  url: string;
+}
+export type Breadcrumbs = Breadcrumb[];
 
 export type SetState<A> = React.Dispatch<React.SetStateAction<A>>;
 
@@ -87,3 +96,30 @@ export interface BalanceGrouped {
     value: number;
   }[];
 }
+
+export type MarketType = 'supply' | 'borrow';
+
+export interface MarketInfo {
+  price: BigNumber;
+  marketLiquidity: BigNumber;
+  nOfSuppliers: BigNumber;
+  nOfBorrowers: BigNumber;
+  borrowCap: BigNumber;
+  interestPaidDay: BigNumber;
+  reserves: BigNumber;
+  reserveFactor: BigNumber;
+  collateralFactor: BigNumber;
+  cMinted: BigNumber;
+  exchangeRate: BigNumber;
+  utilization: BigNumber;
+}
+
+export type MarketTypeInfo = Record<
+  MarketType,
+  {
+    netRate: number;
+    apy: number;
+    distributionApy: number;
+    total: number;
+  }
+>;

@@ -12,7 +12,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
         class="AwiPanel-root MuiBox-root css-2"
       >
         <div
-          class="header"
+          class="AwiPanel-header header"
         >
           <div
             class="MuiGrid-root MuiGrid-container css-3"
@@ -21,7 +21,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-4"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h7 title css-5"
+                class="MuiTypography-root MuiTypography-h7 AwiLabel-root title css-5"
               >
                 earn-liquidity-staking:asset-section.title
                 <span
@@ -52,14 +52,14 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 class="label-value MuiBox-root css-7"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="youStaked"
                 >
                   earn-liquidity-staking:asset-section.you-staked
                 </h6>
                 <p
                   aria-describedby="youStaked"
-                  class="MuiTypography-root MuiTypography-h5 value css-9"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                 >
                   —
                 </p>
@@ -68,14 +68,14 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 class="label-value MuiBox-root css-7"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="totalCollateral"
                 >
                   earn-liquidity-staking:asset-section.total-collateral
                 </h6>
                 <p
                   aria-describedby="totalCollateral"
-                  class="MuiTypography-root MuiTypography-h5 value css-9"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                 >
                   —
                 </p>
@@ -84,14 +84,14 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 class="label-value MuiBox-root css-7"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="loanToValue"
                 >
                   earn-liquidity-staking:asset-section.loan-to-value
                 </h6>
                 <p
                   aria-describedby="loanToValue"
-                  class="MuiTypography-root MuiTypography-h5 value css-9"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                 >
                   —
                 </p>
@@ -110,14 +110,14 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     class="label-value-column MuiBox-root css-7"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h7 label css-5"
+                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                       id="yourShare"
                     >
                       earn-liquidity-staking:asset-section.your-share
                     </h6>
                     <p
                       aria-describedby="yourShare"
-                      class="MuiTypography-root MuiTypography-h5 value css-9"
+                      class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
                       0 %
                     </p>
@@ -130,7 +130,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     class="label-value-column MuiBox-root css-7"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h7 label css-5"
+                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                       id="yourDailyRevenue"
                     >
                       earn-liquidity-staking:asset-section.your-daily-revenue.title
@@ -160,7 +160,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     </h6>
                     <p
                       aria-describedby="yourDailyRevenue"
-                      class="MuiTypography-root MuiTypography-h5 value css-9"
+                      class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
                       $ 0
                     </p>
@@ -173,7 +173,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     class="label-value-column MuiBox-root css-7"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h7 label css-5"
+                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                       id="yourWeeklyRevenue"
                     >
                       earn-liquidity-staking:asset-section.your-weekly-revenue.title
@@ -203,7 +203,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     </h6>
                     <p
                       aria-describedby="yourWeeklyRevenue"
-                      class="MuiTypography-root MuiTypography-h5 value css-9"
+                      class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
                       $ 0
                     </p>
@@ -214,7 +214,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
           </div>
         </div>
         <div
-          class="content"
+          class="AwiPanel-content content"
         >
           <div
             class="MuiBox-root css-32"
@@ -249,7 +249,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 />
               </a>
               <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-37"
+                class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root css-37"
                 tabindex="0"
                 type="button"
               >

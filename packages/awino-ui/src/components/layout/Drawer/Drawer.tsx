@@ -40,25 +40,25 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
       marginRight: theme.spacing(3),
     },
   },
-  '.content': {
+  '.AwiDrawer-content': {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
     padding: theme.spacing(8, 4, 0),
     overflow: 'auto',
   },
-  '.footer': {
+  '.AwiDrawer-footer': {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: theme.spacing(2, 6),
     color: theme.palette.text.primary,
-    '.right': {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
+  },
+  '.AwiDrawer-footerRight': {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 }));
 
@@ -149,7 +149,7 @@ export default function Drawer() {
 
   return (
     <StyledSwipeableDrawer anchor="left" open={open} onClose={handleDrawerClose} onOpen={handleDrawerOpen}>
-      <div className="content">
+      <div className="AwiDrawer-content">
         <Logo />
         <LinkList items={mainMenuLinks} menu="main" closeDrawer={handleDrawerClose} />
         <IconDivider icon={SettingsIcon} />
@@ -182,9 +182,9 @@ export default function Drawer() {
         <LinkList items={socialLinks as MenuItemType[]} menu="social" closeDrawer={handleDrawerClose} icon />
       </div>
       <Divider />
-      <div className="footer">
+      <div className="AwiDrawer-footer">
         <ConnectButton size="small" />
-        <div className="right">
+        <div className="AwiDrawer-footerRight">
           <ThemeSwitch />
           <IconButton color="inherit" aria-label={t('header.close-menu')} onClick={handleDrawerClose}>
             <CloseIcon fontSize="large" />

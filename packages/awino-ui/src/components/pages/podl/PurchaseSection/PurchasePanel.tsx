@@ -116,59 +116,58 @@ export default function PurchasePanel({ data }: Props) {
   }, [sourceValue, maxSource, rate]);
 
   return (
-    <Root>
-      <div className="header">
+    <Root
+      header={
         <Label id="purchaseTitle" className="label" component="h2" tooltip={t(`purchase-section.purchase.title-hint`)}>
           {t(`purchase-section.purchase.title`, { from: sourceLabel, to: targetLabel })}
         </Label>
+      }
+    >
+      <Typography className="minimum">
+        {t(`purchase-section.purchase.info`, { from: sourceLabel, to: targetLabel, price: rate })}
+      </Typography>
+      <div className="convertor">
+        <FormControl variant="standard" fullWidth error={error} /* disabled={loading || executing || !sourceAsset} */>
+          <FormLabel htmlFor="sourceValue">
+            {t('purchase-section.purchase.source-label', { from: sourceLabel })}
+          </FormLabel>
+          <NumberInput
+            id="sourceValue"
+            name="sourceValue"
+            inputProps={
+              {
+                // isAllowed: (value) => validateSourceValue(value.floatValue),
+              }
+            }
+            value={sourceValue}
+            onChange={handleSourceChange}
+            endAdornment={
+              <div className="adornment">
+                <img src={`/images/icons/${source}.svg`} alt="" />
+                <span>{t(`common.${source}`, { ns: 'common' })}</span>
+              </div>
+            }
+          />
+          <FormHelperText className="helper-text" variant="standard" />
+        </FormControl>
+        <Typography className="equal">=</Typography>
+        <div className="output">
+          <Typography variant="body-md" color="text.primary">
+            {formatAmount(targetValue)}
+          </Typography>
+          <SwappingImage source={source} target={target} />
+          <Typography variant="body-md" color="text.primary">
+            {t(`common.${target}`, { ns: 'common' })}
+          </Typography>
+        </div>
       </div>
-      <div className="content">
-        <Typography className="minimum">
-          {t(`purchase-section.purchase.info`, { from: sourceLabel, to: targetLabel, price: rate })}
-        </Typography>
-        <div className="convertor">
-          <FormControl variant="standard" fullWidth error={error} /* disabled={loading || executing || !sourceAsset} */>
-            <FormLabel htmlFor="sourceValue">
-              {t('purchase-section.purchase.source-label', { from: sourceLabel })}
-            </FormLabel>
-            <NumberInput
-              id="sourceValue"
-              name="sourceValue"
-              inputProps={
-                {
-                  // isAllowed: (value) => validateSourceValue(value.floatValue),
-                }
-              }
-              value={sourceValue}
-              onChange={handleSourceChange}
-              endAdornment={
-                <div className="adornment">
-                  <img src={`/images/icons/${source}.svg`} alt="" />
-                  <span>{t(`common.${source}`, { ns: 'common' })}</span>
-                </div>
-              }
-            />
-            <FormHelperText className="helper-text" variant="standard" />
-          </FormControl>
-          <Typography className="equal">=</Typography>
-          <div className="output">
-            <Typography variant="body-md" color="text.primary">
-              {formatAmount(targetValue)}
-            </Typography>
-            <SwappingImage source={source} target={target} />
-            <Typography variant="body-md" color="text.primary">
-              {t(`common.${target}`, { ns: 'common' })}
-            </Typography>
-          </div>
-        </div>
-        <div className="actions">
-          <Button variant="outlined" onClick={handleApprove} disabled={error || !can.approve}>
-            {t(`purchase-section.purchase.approve`)}
-          </Button>
-          <Button onClick={handleContractCreate} disabled={error || !can.createContract}>
-            {t(`purchase-section.purchase.create-proposal`)}
-          </Button>
-        </div>
+      <div className="actions">
+        <Button variant="outlined" onClick={handleApprove} disabled={error || !can.approve}>
+          {t(`purchase-section.purchase.approve`)}
+        </Button>
+        <Button onClick={handleContractCreate} disabled={error || !can.createContract}>
+          {t(`purchase-section.purchase.create-proposal`)}
+        </Button>
       </div>
     </Root>
   );

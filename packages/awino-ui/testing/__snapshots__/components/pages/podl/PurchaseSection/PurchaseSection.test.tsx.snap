@@ -34,10 +34,10 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                 class="AwiPanel-root MuiBox-root css-8"
               >
                 <div
-                  class="header"
+                  class="AwiPanel-header header"
                 >
                   <h2
-                    class="MuiTypography-root MuiTypography-h7 label css-9"
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root label css-9"
                     id="infoTitle"
                   >
                     podl:purchase-section.info.title
@@ -67,7 +67,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                   </h2>
                 </div>
                 <div
-                  class="content"
+                  class="AwiPanel-content content"
                 >
                   <div
                     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11"
@@ -111,7 +111,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
                           >
-                            1.21 USD
+                            1.21  USD
                           </td>
                         </tr>
                         <tr
@@ -128,12 +128,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                             <span
                               class="MuiTypography-root MuiTypography-body css-24"
                             >
-                              1.31 USD
+                              1.31  USD
                             </span>
                             <span
                               class="MuiTypography-root MuiTypography-body css-25"
                             >
-                              + 0.1 USD
+                              + 0.1  USD
                               <svg
                                 aria-hidden="true"
                                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
@@ -161,10 +161,10 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                 class="AwiPanel-root MuiBox-root css-28"
               >
                 <div
-                  class="header"
+                  class="AwiPanel-header header"
                 >
                   <h2
-                    class="MuiTypography-root MuiTypography-h7 label css-9"
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root label css-9"
                     id="purchaseTitle"
                   >
                     podl:purchase-section.purchase.title
@@ -194,7 +194,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                   </h2>
                 </div>
                 <div
-                  class="content"
+                  class="AwiPanel-content content"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body minimum css-31"
@@ -318,38 +318,42 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                 class="AwiPanel-root MuiBox-root css-48"
               >
                 <div
-                  class="content"
+                  class="AwiPanel-content content"
                 >
-                  <h2
-                    class="MuiTypography-root MuiTypography-h7 css-9"
-                  >
-                    podl:purchase-section.buyable
-                  </h2>
                   <div
-                    class="asset MuiBox-root css-50"
+                    class="AwiAvailablePanel-content"
                   >
-                    <div
-                      class="icon"
+                    <h2
+                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-9"
                     >
-                      <img
-                        alt=""
-                        class="source"
-                        src="/images/icons/ftm.svg"
-                      />
-                    </div>
+                      podl:purchase-section.buyable
+                    </h2>
                     <div
-                      class="values"
+                      class="AwiAvailablePanel-asset MuiBox-root css-50"
                     >
-                      <p
-                        class="MuiTypography-root MuiTypography-body value css-31"
+                      <div
+                        class="icon"
                       >
-                        99.5 FTM
-                      </p>
-                      <p
-                        class="MuiTypography-root MuiTypography-body alt css-31"
+                        <img
+                          alt=""
+                          class="source"
+                          src="/images/icons/ftm.svg"
+                        />
+                      </div>
+                      <div
+                        class="values"
                       >
-                        199.5 USD
-                      </p>
+                        <p
+                          class="MuiTypography-root MuiTypography-body value css-31"
+                        >
+                          99.5 FTM
+                        </p>
+                        <p
+                          class="MuiTypography-root MuiTypography-body alt css-31"
+                        >
+                          199.5 USD
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -362,18 +366,18 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                 class="AwiPanel-root MuiBox-root css-54"
               >
                 <div
-                  class="content"
+                  class="AwiPanel-content content"
                 >
                   <button
-                    class="MuiButtonBase-root summary css-55"
+                    class="MuiButtonBase-root AwiTreasurePanel-summary css-55"
                     tabindex="0"
                     type="button"
                   >
                     <div
-                      class="left"
+                      class="AwiTreasurePanel-left"
                     >
                       <h2
-                        class="MuiTypography-root MuiTypography-body-xl summary-title css-56"
+                        class="MuiTypography-root MuiTypography-body-xl AwiLabel-root AwiTreasurePanel-summaryTitle css-56"
                       >
                         podl:purchase-section.treasury.title 
                         <svg
@@ -406,12 +410,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         </svg>
                       </h2>
                       <p
-                        class="MuiTypography-root MuiTypography-body-md summary-amount css-38"
+                        class="MuiTypography-root MuiTypography-body-md AwiTreasurePanel-summaryAmount css-38"
                       >
                         1.31
                       </p>
                       <div
-                        class="summary-images MuiBox-root css-39"
+                        class="AwiTreasurePanel-summaryImages MuiBox-root css-39"
                         title="common.convertion-from-to"
                       >
                         <img
@@ -437,27 +441,8 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
-                      <defs>
-                        <lineargradient
-                          id="expandIconGradient1"
-                          x1="0"
-                          x2="0"
-                          y1="0"
-                          y2="1"
-                        >
-                          <stop
-                            offset="0%"
-                            stop-color="rgba(0,255,235,1)"
-                          />
-                          <stop
-                            offset="50%"
-                            stop-color="rgba(0,230,62,1)"
-                          />
-                        </lineargradient>
-                      </defs>
                       <path
                         d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
-                        fill="url(#expandIconGradient1)"
                       />
                     </svg>
                     <span
@@ -475,15 +460,15 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         class="MuiCollapse-wrapperInner MuiCollapse-vertical css-65"
                       >
                         <div
-                          class="subcontent"
+                          class="AwiTreasurePanel-subcontent"
                         >
                           <h3
-                            class="MuiTypography-root MuiTypography-h5 subcontent-title css-66"
+                            class="MuiTypography-root MuiTypography-h5 AwiTreasurePanel-subcontentTitle css-66"
                           >
                             podl:purchase-section.treasury.info
                           </h3>
                           <a
-                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body-md link css-67"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body-md AwiTreasurePanel-link css-67"
                             href="https://todo"
                           >
                             podl:purchase-section.treasury.view-contract
@@ -508,13 +493,13 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                 class="MuiTableBody-root css-17"
                               >
                                 <tr
-                                  class="MuiTableRow-root with-border css-14"
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-14"
                                 >
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
                                   >
                                     <h6
-                                      class="MuiTypography-root MuiTypography-h7 css-9"
+                                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-9"
                                     >
                                       podl:purchase-section.treasury.total-share
                                       <span
@@ -553,7 +538,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                   </td>
                                 </tr>
                                 <tr
-                                  class="MuiTableRow-root with-border css-14"
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-14"
                                 >
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
@@ -568,7 +553,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-76"
                                   >
                                     <div
-                                      class="asset-amount MuiBox-root css-82"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-82"
                                     >
                                       <div
                                         class="icon"
@@ -602,7 +587,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                   </td>
                                 </tr>
                                 <tr
-                                  class="MuiTableRow-root with-border css-14"
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-14"
                                 >
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
@@ -617,7 +602,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-76"
                                   >
                                     <div
-                                      class="asset-amount MuiBox-root css-89"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-89"
                                     >
                                       <div
                                         class="icon"
@@ -644,7 +629,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                       </div>
                                     </div>
                                     <div
-                                      class="asset-amount MuiBox-root css-82"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-82"
                                     >
                                       <div
                                         class="icon"
@@ -688,7 +673,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-76"
                                   >
                                     <div
-                                      class="asset-amount MuiBox-root css-82"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-82"
                                     >
                                       <div
                                         class="icon"

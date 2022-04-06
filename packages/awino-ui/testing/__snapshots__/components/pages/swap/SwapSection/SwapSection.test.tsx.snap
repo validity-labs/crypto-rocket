@@ -94,10 +94,10 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
           role="tabpanel"
         >
           <div
-            class="header"
+            class="AwiSwapPanel-header"
           >
             <h6
-              class="MuiTypography-root MuiTypography-h7 css-15"
+              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-15"
             >
               swap:swap-section.swap.prompt
             </h6>
@@ -132,7 +132,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               </button>
             </div>
             <div
-              class="aside"
+              class="AwiSwapPanel-aside"
             >
               <button
                 class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
@@ -145,7 +145,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
             </div>
           </div>
           <div
-            class="content"
+            class="AwiSwapPanel-content"
           >
             <div
               class="sub-panel"
@@ -213,27 +213,8 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
-                          <defs>
-                            <lineargradient
-                              id="expandIconGradient1"
-                              x1="0"
-                              x2="0"
-                              y1="0"
-                              y2="1"
-                            >
-                              <stop
-                                offset="0%"
-                                stop-color="rgba(0,255,235,1)"
-                              />
-                              <stop
-                                offset="50%"
-                                stop-color="rgba(0,230,62,1)"
-                              />
-                            </lineargradient>
-                          </defs>
                           <path
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
-                            fill="url(#expandIconGradient1)"
                           />
                         </svg>
                       </div>
@@ -339,27 +320,8 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
-                          <defs>
-                            <lineargradient
-                              id="expandIconGradient1"
-                              x1="0"
-                              x2="0"
-                              y1="0"
-                              y2="1"
-                            >
-                              <stop
-                                offset="0%"
-                                stop-color="rgba(0,255,235,1)"
-                              />
-                              <stop
-                                offset="50%"
-                                stop-color="rgba(0,230,62,1)"
-                              />
-                            </lineargradient>
-                          </defs>
                           <path
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
-                            fill="url(#expandIconGradient1)"
                           />
                         </svg>
                       </div>
@@ -405,16 +367,16 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
         </div>
         <div
           aria-labelledby="tab-swapSection-1"
-          class="css-14"
+          class="css-55"
           hidden=""
           id="tabpanel-swapSection-1"
           role="tabpanel"
         >
           <div
-            class="header"
+            class="AwiZapPanel-header"
           >
             <h6
-              class="MuiTypography-root MuiTypography-h7 css-15"
+              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-15"
             >
               swap:swap-section.zap.prompt
             </h6>
@@ -449,7 +411,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               </button>
             </div>
             <div
-              class="aside"
+              class="AwiZapPanel-aside"
             >
               <button
                 class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
@@ -462,7 +424,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
             </div>
           </div>
           <div
-            class="content"
+            class="AwiZapPanel-content"
           >
             <div
               class="sub-panel"
@@ -530,27 +492,8 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
-                          <defs>
-                            <lineargradient
-                              id="expandIconGradient1"
-                              x1="0"
-                              x2="0"
-                              y1="0"
-                              y2="1"
-                            >
-                              <stop
-                                offset="0%"
-                                stop-color="rgba(0,255,235,1)"
-                              />
-                              <stop
-                                offset="50%"
-                                stop-color="rgba(0,230,62,1)"
-                              />
-                            </lineargradient>
-                          </defs>
                           <path
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
-                            fill="url(#expandIconGradient1)"
                           />
                         </svg>
                       </div>
@@ -656,27 +599,8 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
-                          <defs>
-                            <lineargradient
-                              id="expandIconGradient1"
-                              x1="0"
-                              x2="0"
-                              y1="0"
-                              y2="1"
-                            >
-                              <stop
-                                offset="0%"
-                                stop-color="rgba(0,255,235,1)"
-                              />
-                              <stop
-                                offset="50%"
-                                stop-color="rgba(0,230,62,1)"
-                              />
-                            </lineargradient>
-                          </defs>
                           <path
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
-                            fill="url(#expandIconGradient1)"
                           />
                         </svg>
                       </div>

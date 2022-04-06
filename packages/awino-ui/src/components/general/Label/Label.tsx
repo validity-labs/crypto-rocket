@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { Tooltip, Typography, TypographyProps, TypographyTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { styled } from '@mui/material/styles';
@@ -6,11 +8,12 @@ import InfoIcon from '@/components/icons/InfoIcon';
 
 export interface LabelProps extends Partial<TypographyProps> {
   tooltip?: string;
+  className?: string;
 }
 
-const Label = styled(({ children, tooltip, ...restOfProps }: LabelProps) => {
+const Label = styled(({ children, tooltip, className, ...restOfProps }: LabelProps) => {
   return (
-    <Typography variant="h7" {...restOfProps}>
+    <Typography variant="h7" className={clsx('AwiLabel-root', className)} {...restOfProps}>
       {children}
       {tooltip && (
         <Tooltip title={tooltip} placement="right">

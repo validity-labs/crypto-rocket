@@ -16,13 +16,13 @@ import { ID } from '@/types/app';
 import NumberInput from './NumberInput';
 
 const Root = styled('div')(({ theme }) => ({
-  '.header': {
-    '.aside': {
+  '.AwiSwapPanel-header': {
+    '.AwiSwapPanel-aside': {
       flex: 1,
       textAlign: 'end',
     },
   },
-  '.content': {
+  '.AwiSwapPanel-content': {
     '.info': {
       width: '100%',
       padding: theme.spacing(0, 10),
@@ -100,7 +100,7 @@ const Root = styled('div')(({ theme }) => ({
   },
 
   [theme.breakpoints.up('md')]: {
-    '.content': {
+    '.AwiSwapPanel-content': {
       '.target': {
         '&:before': {
           position: 'absolute',
@@ -212,7 +212,7 @@ const SwapPanel = (props: TabPanelProps) => {
       aria-labelledby={`tab-${id}-${index}`}
       {...other}
     >
-      <div className="header">
+      <div className="AwiSwapPanel-header">
         <Label>{t(`swap-section.swap.prompt`)}</Label>
         <ToggleButtonGroup
           value={type}
@@ -223,13 +223,13 @@ const SwapPanel = (props: TabPanelProps) => {
           <ToggleButton value="market">{t(`swap-section.swap.market`)}</ToggleButton>
           <ToggleButton value="limit">{t(`swap-section.swap.limit`)}</ToggleButton>
         </ToggleButtonGroup>
-        <div className="aside">
+        <div className="AwiSwapPanel-aside">
           <LoadingButton color="primary" onClick={handleExecute} disabled={!canExecute} loading={executing}>
             {t('swap-section.swap.execute')}
           </LoadingButton>
         </div>
       </div>
-      <div className="content">
+      <div className="AwiSwapPanel-content">
         <div className="sub-panel">
           <Grid container>
             <Grid item xs={12} md={6}>

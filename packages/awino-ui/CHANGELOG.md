@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-04-06
+
+### Added
+
+- Added market detail page with charts and all components
+
 ## [0.0.0] - 2022-03-31
 
 ### Added

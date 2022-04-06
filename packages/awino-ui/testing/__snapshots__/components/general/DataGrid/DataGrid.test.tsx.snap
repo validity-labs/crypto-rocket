@@ -128,7 +128,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
           <div
             aria-colindex="2"
             class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
-            data-field="marketSize"
+            data-field="totalSupply"
             role="columnheader"
             style="width: 0px; min-width: 0; max-width: 0;"
             tabindex="-1"
@@ -148,7 +148,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                     class="MuiDataGrid-columnHeaderTitle css-4"
                     data-mui-internal-clone-element="true"
                   >
-                    asset-section.fields.market-size
+                    asset-section.fields.total-supply
                   </div>
                 </div>
                 <div
@@ -374,7 +374,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   aria-colindex="2"
                   class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                   data-colindex="1"
-                  data-field="marketSize"
+                  data-field="totalSupply"
                   role="cell"
                   style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
                   tabindex="-1"
@@ -382,7 +382,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   <div
                     class="MuiDataGrid-cellContent"
                   >
-                    —
+                    86.51  USD
                   </div>
                 </div>
                 <div
@@ -397,7 +397,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   <div
                     class="MuiDataGrid-cellContent"
                   >
-                    74.86 %
+                    21.66  USD
                   </div>
                 </div>
               </div>
@@ -433,7 +433,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   aria-colindex="2"
                   class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                   data-colindex="1"
-                  data-field="marketSize"
+                  data-field="totalSupply"
                   role="cell"
                   style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
                   tabindex="-1"
@@ -441,7 +441,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   <div
                     class="MuiDataGrid-cellContent"
                   >
-                    —
+                    34.47  USD
                   </div>
                 </div>
                 <div
@@ -456,7 +456,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   <div
                     class="MuiDataGrid-cellContent"
                   >
-                    36.71 %
+                    46.71  USD
                   </div>
                 </div>
               </div>
@@ -492,7 +492,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   aria-colindex="2"
                   class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                   data-colindex="1"
-                  data-field="marketSize"
+                  data-field="totalSupply"
                   role="cell"
                   style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
                   tabindex="-1"
@@ -500,7 +500,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   <div
                     class="MuiDataGrid-cellContent"
                   >
-                    —
+                    49.03  USD
                   </div>
                 </div>
                 <div
@@ -515,7 +515,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   <div
                     class="MuiDataGrid-cellContent"
                   >
-                    31.67 %
+                    90.77  USD
                   </div>
                 </div>
               </div>

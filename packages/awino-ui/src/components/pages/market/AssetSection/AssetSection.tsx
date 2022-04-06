@@ -1,11 +1,16 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
 
-import { GridRowsProp, GridSortModel } from '@mui/x-data-grid';
+import { useRouter } from 'next/router';
+
+import { Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { GridEventListener, GridEvents, GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
 import { TABLE_ROWS_PER_PAGE, TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
 import loadData from '@/app/data';
 import DataGrid from '@/components/general/DataGrid/DataGrid';
 import GridPagination from '@/components/general/GridPagination/GridPagination';
+import Label from '@/components/general/Label/Label';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
@@ -15,12 +20,24 @@ import { RowsState } from '@/types/app';
 import { TotalAssetSize } from '@/types/pages/market';
 
 import getColumns from './columns';
+
+const Root = styled(Section)(({ theme }) => ({
+  '.AwiLabelValue-label': {
+    color: theme.palette.text.secondary,
+    fontWeight: 400,
+  },
+  '.AwiLabelValue-value': {
+    fontSize: '1.125rem' /* 18px */,
+  },
+}));
+
 interface Props {
   total: TotalAssetSize;
 }
 
 export default function AssetSection({ total }: Props) {
   const t = usePageTranslation();
+  const router = useRouter();
   const columns = useMemo(() => {
     return getColumns(t);
   }, [t]);
@@ -71,65 +88,78 @@ export default function AssetSection({ total }: Props) {
     };
   }, [sortModel, rowsState /* data */]);
 
+  const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback(
+    (props) => {
+      router.push(`/market/${props.row.asset}`);
+    },
+    [router]
+  );
+
   return (
-    <Section>
-      <Panel sx={{ '.header': { justifyContent: 'flex-start' } }}>
-        <div className="header">
-          <LabelValue
-            id="marketTotalSize"
-            value={formatUSD(total.market)}
-            labelProps={{
-              children: t('asset-section.market.total-size'),
-              tooltip: t('asset-section.market.total-size-hint'),
+    <Root>
+      <Panel
+        header={
+          <>
+            <Typography variant="h4" component="h1" color="text.active" fontWeight="bold">
+              {t(`asset-section.title`)}
+            </Typography>
+            <div className="aside">
+              <LabelValue
+                id="marketTotalSize"
+                value={formatUSD(total.market)}
+                labelProps={{
+                  children: t('asset-section.market-total-size'),
+                }}
+              />
+              <LabelValue
+                id="platformTotalFee"
+                value={formatUSD(total.platform)}
+                labelProps={{
+                  children: t('asset-section.platform.total-fee'),
+                  tooltip: t('asset-section.platform.total-fee-hint'),
+                }}
+              />
+            </div>
+          </>
+        }
+      >
+        <div className="table-container">
+          <DataGrid
+            loading={loading}
+            columns={columns}
+            disableColumnMenu
+            disableColumnFilter
+            disableSelectionOnClick
+            disableColumnSelector
+            rowHeight={66}
+            rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
+            // rows
+            rows={rows}
+            rowCount={rowCountState}
+            onRowClick={handleRowClick}
+            // sorting
+            sortingMode="server"
+            sortModel={sortModel}
+            onSortModelChange={handleSortModelChange}
+            // pagination
+            paginationMode="server"
+            {...rowsState}
+            onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
+            onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
+            components={{
+              Pagination: GridPagination,
+            }}
+            localeText={{
+              columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
+              footerTotalVisibleRows: (visibleCount, totalCount) =>
+                t('common.table.rows-out-of', {
+                  visibleCount: visibleCount.toLocaleString(),
+                  totalCount: totalCount.toLocaleString() + '1',
+                }),
             }}
           />
-          <LabelValue
-            id="platformTotalFee"
-            value={formatUSD(total.platform)}
-            labelProps={{
-              children: t('asset-section.platform.total-fee'),
-              tooltip: t('asset-section.platform.total-fee-hint'),
-            }}
-          />
-        </div>
-        <div className="content">
-          <div className="table-container">
-            <DataGrid
-              loading={loading}
-              columns={columns}
-              disableColumnMenu
-              disableColumnFilter
-              disableSelectionOnClick
-              disableColumnSelector
-              rowHeight={66}
-              rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
-              // rows
-              rows={rows}
-              rowCount={rowCountState}
-              // sorting
-              sortingMode="server"
-              sortModel={sortModel}
-              onSortModelChange={handleSortModelChange}
-              // pagination
-              paginationMode="server"
-              {...rowsState}
-              onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
-              onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
-              components={{
-                Pagination: GridPagination,
-              }}
-              localeText={{
-                columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
-                footerTotalVisibleRows: (visibleCount, totalCount) =>
-                  t('common.table.rows-out-of', {
-                    visibleCount: visibleCount.toLocaleString(),
-                    totalCount: totalCount.toLocaleString() + '1',
-                  }),
-              }}
-            />
-          </div>
         </div>
       </Panel>
-    </Section>
+    </Root>
   );
 }

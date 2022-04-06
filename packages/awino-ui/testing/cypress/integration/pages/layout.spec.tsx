@@ -20,7 +20,8 @@ describe('Layout', () => {
       cy.get('ul').should('have.length.gte', 1);
       cy.get('.top p').should('contain', 'AWI');
       cy.get('a').should('have.length.gte', 1);
-      cy.get('svg').should('have.length', 5);
+      cy.get('svg').should('have.length', 1);
+      cy.get('img').should('have.length', 5);
       cy.get('button').should('have.length', 1);
     });
   });

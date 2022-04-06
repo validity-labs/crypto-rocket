@@ -96,14 +96,46 @@ export const formatAmount = (amount: BigNumber | number, { prefix, postfix }: Fo
   }
   const outputPrefix = prefix ? `${prefix} ` : '';
   const outputPostfix = postfix ? ` ${postfix}` : '';
+
   return `${outputPrefix}${
     n.toFormat(/* { groupSize: 3, decimalSeparator: '.', groupSeparator: ',' } */)
   }${outputPostfix}`;
 };
 
-export const formatUSD = (amount: BigNumber | number) => formatAmount(amount, { /* prefix: '$', */ postfix: 'USD' });
-export const formatAWI = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'AWI' });
-export const formatFTM = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'FTM' });
+var ranges = [
+  // { divider: 1e18 , suffix: 'E' },
+  // { divider: 1e15 , suffix: 'P' },
+  // { divider: 1e12 , suffix: 'T' },
+  // { divider: 1e9 , suffix: 'G' },
+  { divider: 1e6, suffix: 'm' },
+  { divider: 1e3, suffix: 'k' },
+];
+
+export const abbreviateNumber = (num: BigNumber | number) => {
+  let n = num;
+  if (typeof n === 'number') {
+    n = new BigNumber(num);
+  }
+  // if (n < 0) {
+  //   return '-' + formatNumber(-n);
+  // }
+  for (var i = 0; i < ranges.length; i++) {
+    if (n.gte(ranges[i].divider)) {
+      const suffix = ranges[i].suffix;
+      BigNumber.set({ DECIMAL_PLACES: 2 });
+      return { num: n.div(ranges[i].divider), suffix: i18n?.t(`format.abbreviate.number.${suffix}`) || suffix };
+    }
+  }
+  return { num: n, suffix: '' };
+};
+
+export const formatCurrency = (amount: BigNumber | number, currency: string) => {
+  const { num, suffix } = abbreviateNumber(amount);
+  return formatAmount(num, { /* prefix: '$', */ postfix: [suffix, currency].join(' ') });
+};
+export const formatUSD = (amount: BigNumber | number) => formatCurrency(amount, 'USD');
+export const formatAWI = (amount: BigNumber | number) => formatCurrency(amount, 'AWI');
+export const formatFTM = (amount: BigNumber | number) => formatCurrency(amount, 'FTM');
 
 /**
  * Format value to have dash as default string if value missing

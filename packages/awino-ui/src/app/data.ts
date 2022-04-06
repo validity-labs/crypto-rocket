@@ -34,11 +34,11 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
   market: new Array(20)
     .fill({
       // asset
-      marketSize: null,
     })
     .map((m, index) => ({
       id: index,
       asset: assets[index % 5],
+      totalSupply: nextValue(),
       totalBorrowed: nextValue(),
       depositAPY: nextValue(),
       borrowAPY: nextValue(),

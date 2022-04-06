@@ -18,10 +18,10 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
             class="AwiPanel-root MuiBox-root css-4"
           >
             <div
-              class="header"
+              class="AwiPanel-header header"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h7 css-5"
+                class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-5"
                 id="dailyPlatformFees"
               >
                 analytics:platform-section.daily-fees.title
@@ -51,7 +51,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
               </h2>
             </div>
             <div
-              class="content"
+              class="AwiPanel-content content"
             >
               <div
                 class="table-container"
@@ -401,10 +401,10 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
             class="AwiPanel-root MuiBox-root css-4"
           >
             <div
-              class="header"
+              class="AwiPanel-header header"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h7 label css-5"
+                class="MuiTypography-root MuiTypography-h7 AwiLabel-root label css-5"
                 id="platformStats"
               >
                 analytics:platform-section.stats.title
@@ -434,45 +434,45 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
               </h6>
             </div>
             <div
-              class="content"
+              class="AwiPanel-content content"
             >
               <div
                 class="label-value-column MuiBox-root css-49"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="totalDeposits"
                 >
                   analytics:platform-section.stats.total-deposits
                 </h3>
                 <p
                   aria-describedby="totalDeposits"
-                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
                 >
-                  1,232,432 USD
+                  1.23 m USD
                 </p>
               </div>
               <div
                 class="label-value-column MuiBox-root css-49"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="totalBorrow"
                 >
                   analytics:platform-section.stats.total-borrows
                 </h3>
                 <p
                   aria-describedby="totalBorrow"
-                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
                 >
-                  438,403.33 USD
+                  438.4 k USD
                 </p>
               </div>
               <div
                 class="label-value-column MuiBox-root css-49"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="globalHealthRatio"
                 >
                   analytics:platform-section.stats.health-ratio
@@ -502,7 +502,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 </h3>
                 <p
                   aria-describedby="globalHealthRatio"
-                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
                 >
                   1.38
                 </p>
@@ -511,7 +511,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 class="label-value-column MuiBox-root css-49"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h7 label css-5"
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="totalPlatformFee"
                 >
                   analytics:platform-section.stats.total-fees
@@ -541,9 +541,9 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 </h3>
                 <p
                   aria-describedby="totalPlatformFee"
-                  class="MuiTypography-root MuiTypography-h5 value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
                 >
-                  3,432,332 USD
+                  3.43 m USD
                 </p>
               </div>
             </div>

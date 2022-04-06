@@ -1,0 +1,64 @@
+{
+  "page": {
+    "title": "{{asset}} - MISSING TITLE",
+    "description": "{{asset}} - MISSING DESCRIPTION"
+  },
+  "breadcrumb-section": {
+    "page": {
+      "market": "Markets"
+    }
+  },
+  "timeline-section": {
+    "market-switch-hint": "Switch between market types supply/borrow",
+    "supply": {
+      "title": "Supply",
+      "net-rate": "Net rate",
+      "apy": "Supply APY",
+      "distribution-apy": "Distribution APY",
+      "total": "Total Supply"
+    },
+    "borrow": {
+      "title": "Borrow",
+      "net-rate": "Net rate",
+      "apy": "Borrow APY",
+      "distribution-apy": "Distribution APY",
+      "total": "Total Borrow"
+    },
+    "chart": {
+      "supply": {
+        "apy": "Supply APY",
+        "total": "Total Supply"
+      },
+      "borrow": {
+        "apy": "Borrow APY",
+        "total": "Total Borrow"
+      }
+    }
+  },
+  "detail-section": {
+    "model": {
+      "title": "Interest rate model",
+      "utilization-vs-apy": "Utilization vs. APY",
+      "current": "Current",
+      "chart": {
+        "base": "Utilization",
+        "borrow": "Borrow APY",
+        "supply": "Supply APY"
+      }
+    },
+    "details": {
+      "title": "Market details",
+      "price": "Price",
+      "market-liquidity": "Market liquidity",
+      "n-of-suppliers": "# of suppliers",
+      "n-of-borrowers": "# of borrowers",
+      "borrow-cap": "{{asset}} borrow cap",
+      "interest-paid-day": "Interest paid/day",
+      "reserves": "Reserves",
+      "reserve-factor": "Reserve factor",
+      "collateral-factor": "Colleteral factor",
+      "ctoken-minted": "c{{asset}} minted",
+      "exchange-rate": "Exchange rate"
+    }
+  }
+}

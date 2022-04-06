@@ -12,9 +12,9 @@ import StatsSection from '@/components/pages/market/StatsSection/StatsSection';
 const stats = [
   { value: 89.7, subvalue: 24.72 },
   { value: 89.7, subvalue: 24.72 },
-  { value: 0.27 },
+  { value: 0.27, subvalue: 24.72 },
   { value: 273.4, subvalue: 52 },
-  { value: 47.4, subvalue: 24.72 },
+  { value: 47.4 },
 ];
 
 const assets = { market: 12345678, platform: 1234567.89 };

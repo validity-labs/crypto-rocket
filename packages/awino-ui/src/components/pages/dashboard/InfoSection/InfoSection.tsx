@@ -17,11 +17,8 @@ export default function InfoSection(/* { total }: Props */) {
 
   return (
     <Root>
-      <Panel>
-        <div className="header">
-          <Label tooltip={t(`info-section.title-hint`)}>{t(`info-section.title`)}</Label>
-        </div>
-        <div className="content">{connected ? <>TODO</> : <ConnectPanel back="/" />}</div>
+      <Panel header={<Label tooltip={t(`info-section.title-hint`)}>{t(`info-section.title`)}</Label>}>
+        {connected ? <>TODO</> : <ConnectPanel back="/" />}
       </Panel>
     </Root>
   );

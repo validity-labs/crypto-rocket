@@ -19,13 +19,8 @@ export default function Seo({ title, description, ...restOfProps }: Props) {
   // const { defaultOGImage } = useApp();
 
   const ns = useAppSelector((state) => state.app.ns);
-
-  let newTitle = title;
-  let newDescription = description;
-  if (ns) {
-    newTitle = t('page.title', 'MISSING_SEO', { ns });
-    newDescription = t('page.description', 'MISSING_SEO', { ns });
-  }
+  let newTitle = title || t('page.title', 'MISSING_SEO', { ns });
+  let newDescription = description || t('page.description', 'MISSING_SEO', { ns });
 
   const siteTitle = t('app.name', { ns: 'common' });
   const metaTitle = `${newTitle} | ${siteTitle}`;

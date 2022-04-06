@@ -16,13 +16,13 @@ import { ID } from '@/types/app';
 import NumberInput from './NumberInput';
 
 const Root = styled('div')(({ theme }) => ({
-  '.header': {
-    '.aside': {
+  '.AwiZapPanel-header': {
+    '.AwiZapPanel-aside': {
       flex: 1,
       textAlign: 'end',
     },
   },
-  '.content': {
+  '.AwiZapPanel-content': {
     '.info': {
       width: '100%',
       padding: theme.spacing(0, 10),
@@ -100,7 +100,7 @@ const Root = styled('div')(({ theme }) => ({
   },
 
   [theme.breakpoints.up('md')]: {
-    '.content': {
+    '.AwiZapPanel-content': {
       '.target': {
         '&:before': {
           position: 'absolute',
@@ -212,7 +212,7 @@ const ZapPanel = (props: TabPanelProps) => {
       aria-labelledby={`tab-${id}-${index}`}
       {...other}
     >
-      <div className="header">
+      <div className="AwiZapPanel-header">
         <Label>{t(`swap-section.zap.prompt`)}</Label>
         <ToggleButtonGroup
           value={type}
@@ -223,13 +223,13 @@ const ZapPanel = (props: TabPanelProps) => {
           <ToggleButton value="market">{t(`swap-section.swap.market`)}</ToggleButton>
           <ToggleButton value="limit">{t(`swap-section.swap.limit`)}</ToggleButton>
         </ToggleButtonGroup>
-        <div className="aside">
+        <div className="AwiZapPanel-aside">
           <LoadingButton color="primary" onClick={handleExecute} disabled={!canExecute} loading={executing}>
             {t('swap-section.swap.execute')}
           </LoadingButton>
         </div>
       </div>
-      <div className="content">
+      <div className="AwiZapPanel-content">
         <div className="sub-panel">
           <Grid container>
             <Grid item xs={12} md={6}>

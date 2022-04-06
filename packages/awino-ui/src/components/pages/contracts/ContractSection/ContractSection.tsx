@@ -53,33 +53,31 @@ export default function ContractSection({ items }: Props) {
   return (
     <Root>
       <Panel className="AwiPanel-wrapper">
-        <div className="content">
-          <Typography variant="h1" color="text.active" className="AwiContractSection-title">
-            {t('contract-section.title')}
-          </Typography>
-          <Typography variant="h2" className="AwiContractSection-groupTitle">
-            {t('contract-section.group-tokens')}
-          </Typography>
-          <Grid container spacing={6.5} mb={25}>
-            {tokens.map((item) => (
+        <Typography variant="h1" color="text.active" className="AwiContractSection-title">
+          {t('contract-section.title')}
+        </Typography>
+        <Typography variant="h2" className="AwiContractSection-groupTitle">
+          {t('contract-section.group-tokens')}
+        </Typography>
+        <Grid container spacing={6.5} mb={25}>
+          {tokens.map((item) => (
+            <Grid key={item.key} item xs={12}>
+              <ContractCard item={item} />
+            </Grid>
+          ))}
+        </Grid>
+        <Typography variant="h2" className="AwiContractSection-groupTitle">
+          {t('contract-section.group-stable-coins')}
+        </Typography>
+        <Panel sx={{ p: 0 }}>
+          <Grid container sx={{ '.MuiGrid-item:last-child .AwiContactCard-root': { border: 0 } }}>
+            {stableCoins.map((item) => (
               <Grid key={item.key} item xs={12}>
-                <ContractCard item={item} />
+                <ContractCard item={item} mode="row" />
               </Grid>
             ))}
           </Grid>
-          <Typography variant="h2" className="AwiContractSection-groupTitle">
-            {t('contract-section.group-stable-coins')}
-          </Typography>
-          <Panel sx={{ p: 0 }}>
-            <Grid container sx={{ '.MuiGrid-item:last-child .AwiContactCard-root': { border: 0 } }}>
-              {stableCoins.map((item) => (
-                <Grid key={item.key} item xs={12}>
-                  <ContractCard item={item} mode="row" />
-                </Grid>
-              ))}
-            </Grid>
-          </Panel>
-        </div>
+        </Panel>
       </Panel>
     </Root>
   );

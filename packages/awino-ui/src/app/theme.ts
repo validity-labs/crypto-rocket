@@ -188,10 +188,10 @@ const themeCreator = (mode: PaletteMode) => {
           list-style: none;
         }
         a {
-          color: #7294ff;
+          color: #00FFEB;
           text-decoration: none;
         }
-        a:hover, a:focus, a:visited: {
+        a:hover, a:focus, a:visited {
           color: inherit;
         }
         ::-webkit-scrollbar {

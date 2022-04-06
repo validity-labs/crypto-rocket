@@ -5,7 +5,11 @@ exports[`<Panel /> has valid snapshot 1`] = `
   <div
     class="AwiPanel-root MuiBox-root css-0"
   >
-    Lorem ipsum
+    <div
+      class="AwiPanel-content content"
+    >
+      Lorem ipsum
+    </div>
   </div>
 </DocumentFragment>
 `;

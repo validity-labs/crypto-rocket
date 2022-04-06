@@ -12,10 +12,10 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
         class="AwiPanel-root MuiBox-root css-2"
       >
         <div
-          class="header"
+          class="AwiPanel-header header"
         >
           <h6
-            class="MuiTypography-root MuiTypography-h7 css-3"
+            class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-3"
           >
             dashboard:info-section.title
             <span
@@ -44,7 +44,7 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
           </h6>
         </div>
         <div
-          class="content"
+          class="AwiPanel-content content"
         >
           <div
             class="MuiBox-root css-5"
@@ -79,7 +79,7 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
                 />
               </a>
               <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-10"
+                class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root css-10"
                 tabindex="0"
                 type="button"
               >

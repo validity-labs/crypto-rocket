@@ -18,7 +18,7 @@ const Root = styled(Container)(({ theme }) => ({
     alignItems: 'center',
     maxWidth: '280px',
     height: '100%',
-    padding: theme.spacing(12, 7, 11),
+    padding: theme.spacing(9.5, 7, 7),
     margin: '0 auto',
     borderRadius: +theme.shape.borderRadius * 5,
     backgroundColor: theme.palette.background.transparent,
@@ -46,7 +46,7 @@ export default function StatsItems({ items, className, ...containerProps }: Prop
   );
   const gridItemLG = 12 / items.length;
   return (
-    <Root {...containerProps}>
+    <Root disableGutters {...containerProps}>
       <VisibilitySensor active={!glanced} partialVisibility offset={{ bottom: 100 }} onChange={handleVisibilityChange}>
         <Grid container spacing={8}>
           {items.map(({ value, subvalue }, index) => {
@@ -58,12 +58,13 @@ export default function StatsItems({ items, className, ...containerProps }: Prop
                 <div className="card" data-test-id="AwiStatsItems-card">
                   <h2>
                     <Typography
-                      variant="h3"
+                      variant="h4"
                       fontWeight={600}
+                      color="text.active"
                       component="span"
                       sx={{
                         display: 'block',
-                        mb: 3,
+                        mb: 1,
                       }}
                     >
                       {glanced ? (
@@ -75,11 +76,11 @@ export default function StatsItems({ items, className, ...containerProps }: Prop
                       )}
                     </Typography>
                     <Typography
-                      variant="body-lg"
+                      variant="body-md"
                       fontWeight={500}
                       component="span"
                       color="text.primary"
-                      sx={{ display: 'block', mb: 1.5 }}
+                      sx={{ display: 'block' }}
                     >
                       {t(`stats-section.items.${index}.title`)}
                     </Typography>

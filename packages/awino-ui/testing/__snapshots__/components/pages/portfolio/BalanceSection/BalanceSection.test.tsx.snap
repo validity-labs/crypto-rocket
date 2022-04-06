@@ -12,7 +12,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
         class="AwiPanel-wrapper AwiPanel-root MuiBox-root css-2"
       >
         <div
-          class="content"
+          class="AwiPanel-content content"
         >
           <h1
             class="MuiTypography-root MuiTypography-h1 AwiBalanceSection-title css-3"
@@ -64,14 +64,14 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       class="AwiBalanceCard-labelValue MuiBox-root css-12"
                     >
                       <h6
-                        class="MuiTypography-root MuiTypography-h7 label css-13"
+                        class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                         id="balanceCard-awi"
                       >
                         contracts:balance-section.total-balance
                       </h6>
                       <p
                         aria-describedby="balanceCard-awi"
-                        class="MuiTypography-root MuiTypography-h5 value css-14"
+                        class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                       >
                         23.45
                       </p>
@@ -109,14 +109,14 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       class="AwiBalanceCard-labelValue MuiBox-root css-19"
                     >
                       <h6
-                        class="MuiTypography-root MuiTypography-h7 label css-13"
+                        class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                         id="balanceCard-infinity"
                       >
                         contracts:balance-section.total-balance
                       </h6>
                       <p
                         aria-describedby="balanceCard-infinity"
-                        class="MuiTypography-root MuiTypography-h5 value css-14"
+                        class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                       >
                         93.45
                       </p>
@@ -154,14 +154,14 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       class="AwiBalanceCard-labelValue MuiBox-root css-26"
                     >
                       <h6
-                        class="MuiTypography-root MuiTypography-h7 label css-13"
+                        class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                         id="balanceCard-wealth"
                       >
                         contracts:balance-section.total-balance
                       </h6>
                       <p
                         aria-describedby="balanceCard-wealth"
-                        class="MuiTypography-root MuiTypography-h5 value css-14"
+                        class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                       >
                         123.45
                       </p>
@@ -172,7 +172,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
             </div>
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-29"
-              data-test-id="AwiDoughnut-wrapper"
+              data-test-id="AwiChart-wrapper"
             >
               <canvas
                 height="150"
@@ -192,20 +192,20 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                 class="AwiPanel-root MuiBox-root css-2"
               >
                 <div
-                  class="content"
+                  class="AwiPanel-content content"
                 >
                   <div
                     class="AwiBalanceSection-labelValue MuiBox-root css-33"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h7 label css-13"
+                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                       id="balanceSectionPool-totalBalance"
                     >
                       contracts:balance-section.total-balance
                     </h6>
                     <p
                       aria-describedby="balanceSectionPool-totalBalance"
-                      class="MuiTypography-root MuiTypography-h5 value css-14"
+                      class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                     >
                       0
                     </p>
@@ -214,14 +214,14 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                     class="AwiBalanceSection-labelValue MuiBox-root css-36"
                   >
                     <h6
-                      class="MuiTypography-root MuiTypography-h7 label css-13"
+                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                       id="balanceSectionPool-stackedBalance"
                     >
                       contracts:balance-section.staked-balance
                     </h6>
                     <p
                       aria-describedby="balanceSectionPool-stackedBalance"
-                      class="MuiTypography-root MuiTypography-h5 value css-14"
+                      class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                     >
                       0
                     </p>
@@ -244,140 +244,144 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                 class="AwiPanel-root MuiBox-root css-42"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container css-43"
+                  class="AwiPanel-content content"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
+                    class="MuiGrid-root MuiGrid-container css-43"
                   >
                     <div
-                      class="AwiBalanceCard-root MuiBox-root css-45"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
                     >
                       <div
-                        class="AwiBalanceCard-startBox"
+                        class="AwiBalanceCard-root MuiBox-root css-45"
                       >
-                        <img
-                          alt=""
-                          class="AwiBalanceCard-icon"
-                          src="/images/assets/dai.svg"
-                        />
-                        <div>
-                          <p
-                            class="MuiTypography-root MuiTypography-body css-10"
+                        <div
+                          class="AwiBalanceCard-startBox"
+                        >
+                          <img
+                            alt=""
+                            class="AwiBalanceCard-icon"
+                            src="/images/assets/dai.svg"
+                          />
+                          <div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-10"
+                            >
+                              contracts:balance-section.assets.dai.title
+                            </p>
+                            <p
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
+                            >
+                              contracts:balance-section.assets.dai.description
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="AwiBalanceCard-labelValue MuiBox-root css-36"
+                        >
+                          <h6
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
+                            id="balanceCard-dai"
                           >
-                            contracts:balance-section.assets.dai.title
-                          </p>
+                            contracts:balance-section.total-balance
+                          </h6>
                           <p
-                            class="MuiTypography-root MuiTypography-body-sm css-11"
+                            aria-describedby="balanceCard-dai"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
-                            contracts:balance-section.assets.dai.description
+                            123.45
                           </p>
                         </div>
-                      </div>
-                      <div
-                        class="AwiBalanceCard-labelValue MuiBox-root css-36"
-                      >
-                        <h6
-                          class="MuiTypography-root MuiTypography-h7 label css-13"
-                          id="balanceCard-dai"
-                        >
-                          contracts:balance-section.total-balance
-                        </h6>
-                        <p
-                          aria-describedby="balanceCard-dai"
-                          class="MuiTypography-root MuiTypography-h5 value css-14"
-                        >
-                          123.45
-                        </p>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
-                  >
                     <div
-                      class="AwiBalanceCard-root MuiBox-root css-45"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
                     >
                       <div
-                        class="AwiBalanceCard-startBox"
+                        class="AwiBalanceCard-root MuiBox-root css-45"
                       >
-                        <img
-                          alt=""
-                          class="AwiBalanceCard-icon"
-                          src="/images/assets/usdc.svg"
-                        />
-                        <div>
-                          <p
-                            class="MuiTypography-root MuiTypography-body css-10"
+                        <div
+                          class="AwiBalanceCard-startBox"
+                        >
+                          <img
+                            alt=""
+                            class="AwiBalanceCard-icon"
+                            src="/images/assets/usdc.svg"
+                          />
+                          <div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-10"
+                            >
+                              contracts:balance-section.assets.usdc.title
+                            </p>
+                            <p
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
+                            >
+                              contracts:balance-section.assets.usdc.description
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="AwiBalanceCard-labelValue MuiBox-root css-36"
+                        >
+                          <h6
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
+                            id="balanceCard-usdc"
                           >
-                            contracts:balance-section.assets.usdc.title
-                          </p>
+                            contracts:balance-section.total-balance
+                          </h6>
                           <p
-                            class="MuiTypography-root MuiTypography-body-sm css-11"
+                            aria-describedby="balanceCard-usdc"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
-                            contracts:balance-section.assets.usdc.description
+                            123.45
                           </p>
                         </div>
-                      </div>
-                      <div
-                        class="AwiBalanceCard-labelValue MuiBox-root css-36"
-                      >
-                        <h6
-                          class="MuiTypography-root MuiTypography-h7 label css-13"
-                          id="balanceCard-usdc"
-                        >
-                          contracts:balance-section.total-balance
-                        </h6>
-                        <p
-                          aria-describedby="balanceCard-usdc"
-                          class="MuiTypography-root MuiTypography-h5 value css-14"
-                        >
-                          123.45
-                        </p>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
-                  >
                     <div
-                      class="AwiBalanceCard-root MuiBox-root css-45"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
                     >
                       <div
-                        class="AwiBalanceCard-startBox"
+                        class="AwiBalanceCard-root MuiBox-root css-45"
                       >
-                        <img
-                          alt=""
-                          class="AwiBalanceCard-icon"
-                          src="/images/assets/usdt.svg"
-                        />
-                        <div>
-                          <p
-                            class="MuiTypography-root MuiTypography-body css-10"
+                        <div
+                          class="AwiBalanceCard-startBox"
+                        >
+                          <img
+                            alt=""
+                            class="AwiBalanceCard-icon"
+                            src="/images/assets/usdt.svg"
+                          />
+                          <div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-10"
+                            >
+                              contracts:balance-section.assets.usdt.title
+                            </p>
+                            <p
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
+                            >
+                              contracts:balance-section.assets.usdt.description
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="AwiBalanceCard-labelValue MuiBox-root css-36"
+                        >
+                          <h6
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
+                            id="balanceCard-usdt"
                           >
-                            contracts:balance-section.assets.usdt.title
-                          </p>
+                            contracts:balance-section.total-balance
+                          </h6>
                           <p
-                            class="MuiTypography-root MuiTypography-body-sm css-11"
+                            aria-describedby="balanceCard-usdt"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
-                            contracts:balance-section.assets.usdt.description
+                            123.45
                           </p>
                         </div>
-                      </div>
-                      <div
-                        class="AwiBalanceCard-labelValue MuiBox-root css-36"
-                      >
-                        <h6
-                          class="MuiTypography-root MuiTypography-h7 label css-13"
-                          id="balanceCard-usdt"
-                        >
-                          contracts:balance-section.total-balance
-                        </h6>
-                        <p
-                          aria-describedby="balanceCard-usdt"
-                          class="MuiTypography-root MuiTypography-h5 value css-14"
-                        >
-                          123.45
-                        </p>
                       </div>
                     </div>
                   </div>

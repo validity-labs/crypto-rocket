@@ -3,7 +3,7 @@
 exports[`<Label /> has valid snapshot 1`] = `
 <DocumentFragment>
   <h6
-    class="MuiTypography-root MuiTypography-h7 css-0"
+    class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-0"
   >
     Text
     <span

@@ -14,22 +14,6 @@ const stringDateInvalid = '2000-99-01T00:00:00Z';
 const objectDate = new Date(2001, 1, 1, 1, 1, 1);
 const objectDateInvalid = new Date('Invalid Date');
 
-jest.mock('next-i18next', () => ({
-  i18n: {
-    language: 'en',
-    t: (key: string) => {
-      if (key === 'format.date') {
-        return 'yyyy-MM-dd';
-      } else if (key === 'format.date-pretty') {
-        return 'MMMM d, yyyy';
-      } else if (key === 'format.date-time') {
-        return 'yyyy-MM-dd HH:mm';
-      }
-      throw new Error('Only predefined keys allowed.');
-    },
-  },
-}));
-
 // describe('formatDate', () => {
 //   it('should return formatted date', () => {
 //     expect(formatDate(stringDate)).toBe('2000-01-01');
@@ -123,6 +107,6 @@ describe('formatGridEmptyString', () => {
 
 describe('formatGridUSD', () => {
   it('should return formatted amount and currency', () => {
-    expect(formatGridUSD({ value: 1000.99 })).toBe('1,000.99 USD');
+    expect(formatGridUSD({ value: 1000.99 })).toBe('1 k USD');
   });
 });

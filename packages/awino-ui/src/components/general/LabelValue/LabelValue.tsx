@@ -16,10 +16,10 @@ const LabelValue = styled(({ id, value, labelProps, ...restOfProps }: Props) => 
   const { children, ...restOfLabelProps } = labelProps;
   return (
     <Box {...restOfProps}>
-      <Label id={id} className="label" {...restOfLabelProps}>
+      <Label id={id} className="AwiLabelValue-label label" {...restOfLabelProps}>
         {children}
       </Label>
-      <Typography variant="h5" component="p" className="value" aria-describedby={id}>
+      <Typography variant="h5" component="p" className="AwiLabelValue-value value" aria-describedby={id}>
         {value}
       </Typography>
     </Box>

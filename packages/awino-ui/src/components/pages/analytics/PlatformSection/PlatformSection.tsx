@@ -109,96 +109,94 @@ export default function PlatformSection({ stats }: Props) {
     <Root>
       <Grid container columnSpacing={9} rowSpacing={15}>
         <Grid item xs={12} md={7}>
-          <Panel>
-            <div className="header">
+          <Panel
+            header={
               <Label component="h2" id="dailyPlatformFees" tooltip={t('platform-section.daily-fees.title-hint')}>
                 {t('platform-section.daily-fees.title')}
               </Label>
-            </div>
-            <div className="content">
-              <div className="table-container">
-                <DataGrid
-                  loading={loading}
-                  columns={columns}
-                  disableColumnMenu
-                  disableColumnFilter
-                  disableSelectionOnClick
-                  disableColumnSelector
-                  rowHeight={56}
-                  rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
-                  // rows
-                  rows={rows}
-                  rowCount={rowCountState}
-                  // sorting
-                  sortingMode="server"
-                  sortModel={sortModel}
-                  onSortModelChange={handleSortModelChange}
-                  // pagination
-                  paginationMode="server"
-                  {...rowsState}
-                  onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
-                  onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
-                  components={{
-                    Pagination: GridPagination,
-                  }}
-                  localeText={{
-                    columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
-                    footerTotalVisibleRows: (visibleCount, totalCount) =>
-                      t('common.table.rows-out-of', {
-                        visibleCount: visibleCount.toLocaleString(),
-                        totalCount: totalCount.toLocaleString() + '1',
-                      }),
-                  }}
-                />
-              </div>
+            }
+          >
+            <div className="table-container">
+              <DataGrid
+                loading={loading}
+                columns={columns}
+                disableColumnMenu
+                disableColumnFilter
+                disableSelectionOnClick
+                disableColumnSelector
+                rowHeight={56}
+                rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
+                // rows
+                rows={rows}
+                rowCount={rowCountState}
+                // sorting
+                sortingMode="server"
+                sortModel={sortModel}
+                onSortModelChange={handleSortModelChange}
+                // pagination
+                paginationMode="server"
+                {...rowsState}
+                onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
+                onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
+                components={{
+                  Pagination: GridPagination,
+                }}
+                localeText={{
+                  columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
+                  footerTotalVisibleRows: (visibleCount, totalCount) =>
+                    t('common.table.rows-out-of', {
+                      visibleCount: visibleCount.toLocaleString(),
+                      totalCount: totalCount.toLocaleString() + '1',
+                    }),
+                }}
+              />
             </div>
           </Panel>
         </Grid>
         <Grid item xs={12} md={5}>
-          <Panel>
-            <div className="header">
+          <Panel
+            header={
               <Label id="platformStats" className="label" tooltip={t('platform-section.stats.title-hint')}>
                 {t('platform-section.stats.title')}
               </Label>
-            </div>
-            <div className="content">
-              <LabelValue
-                id="totalDeposits"
-                className="label-value-column"
-                value={formatUSD(stats.totalDeposit)}
+            }
+          >
+            <LabelValue
+              id="totalDeposits"
+              className="label-value-column"
+              value={formatUSD(stats.totalDeposit)}
+              /* @ts-ignore */
+              labelProps={{ component: 'h3', children: t('platform-section.stats.total-deposits') }}
+            />
+            <LabelValue
+              id="totalBorrow"
+              className="label-value-column"
+              value={formatUSD(stats.totalBorrow)}
+              /* @ts-ignore */
+              labelProps={{ component: 'h3', children: t('platform-section.stats.total-borrows') }}
+            />
+            <LabelValue
+              id="globalHealthRatio"
+              className="label-value-column"
+              value={formatEmptyString(stats.globalHealthRatio)}
+              labelProps={{
                 /* @ts-ignore */
-                labelProps={{ component: 'h3', children: t('platform-section.stats.total-deposits') }}
-              />
-              <LabelValue
-                id="totalBorrow"
-                className="label-value-column"
-                value={formatUSD(stats.totalBorrow)}
+                component: 'h3',
+                children: t('platform-section.stats.health-ratio'),
+                tooltip: t('platform-section.stats.health-ratio-hint'),
+              }}
+            />
+            <LabelValue
+              id="totalPlatformFee"
+              className="label-value-column"
+              value={formatUSD(stats.totalPlatformFee)}
+              labelProps={{
                 /* @ts-ignore */
-                labelProps={{ component: 'h3', children: t('platform-section.stats.total-borrows') }}
-              />
-              <LabelValue
-                id="globalHealthRatio"
-                className="label-value-column"
-                value={formatEmptyString(stats.globalHealthRatio)}
-                labelProps={{
-                  /* @ts-ignore */
-                  component: 'h3',
-                  children: t('platform-section.stats.health-ratio'),
-                  tooltip: t('platform-section.stats.health-ratio-hint'),
-                }}
-              />
-              <LabelValue
-                id="totalPlatformFee"
-                className="label-value-column"
-                value={formatUSD(stats.totalPlatformFee)}
-                labelProps={{
-                  /* @ts-ignore */
-                  component: 'h3',
-                  children: t('platform-section.stats.total-fees'),
-                  tooltip: t('platform-section.stats.total-fees-hint'),
-                }}
-              />
-            </div>
+                component: 'h3',
+                children: t('platform-section.stats.total-fees'),
+                tooltip: t('platform-section.stats.total-fees-hint'),
+              }}
+            />
           </Panel>
         </Grid>
       </Grid>

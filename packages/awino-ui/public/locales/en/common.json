@@ -55,7 +55,13 @@
   "format": {
     "date": "dd-MM-yyyy",
     "date-pretty": "MMMM d, yyyy",
-    "date-time": "EEEE | LLLL d, yyyy O HH:mm"
+    "date-time": "EEEE | LLLL d, yyyy O HH:mm",
+    "abbreviate": {
+      "number": {
+        "m": "M",
+        "k": "k"
+      }
+    }
   },
   "header": {
     "search": "Your search phrase",

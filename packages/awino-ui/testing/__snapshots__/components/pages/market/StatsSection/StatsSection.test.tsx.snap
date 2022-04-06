@@ -9,7 +9,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl css-2"
+        class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-2"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-3"
@@ -23,14 +23,14 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h3 css-5"
+                  class="MuiTypography-root MuiTypography-h4 css-5"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-lg css-6"
+                  class="MuiTypography-root MuiTypography-body-md css-6"
                 >
                   landing:stats-section.items.0.title
                 </span>
@@ -51,14 +51,14 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h3 css-5"
+                  class="MuiTypography-root MuiTypography-h4 css-5"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-lg css-6"
+                  class="MuiTypography-root MuiTypography-body-md css-6"
                 >
                   landing:stats-section.items.1.title
                 </span>
@@ -79,14 +79,14 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h3 css-5"
+                  class="MuiTypography-root MuiTypography-h4 css-5"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-lg css-6"
+                  class="MuiTypography-root MuiTypography-body-md css-6"
                 >
                   landing:stats-section.items.2.title
                 </span>
@@ -102,14 +102,14 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h3 css-5"
+                  class="MuiTypography-root MuiTypography-h4 css-5"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-lg css-6"
+                  class="MuiTypography-root MuiTypography-body-md css-6"
                 >
                   landing:stats-section.items.3.title
                 </span>

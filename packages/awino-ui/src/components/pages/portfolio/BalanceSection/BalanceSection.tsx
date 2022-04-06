@@ -51,7 +51,7 @@ const Root = styled(Section)(({ theme }) => ({
     marginBottom: theme.spacing(6),
   },
   '.AwiPanel-root': {
-    '.content': {
+    '.AwiPanel-content': {
       padding: theme.spacing(5.5, 8, 10, 12),
     },
     '&.AwiPanel-wrapper': {
@@ -78,7 +78,7 @@ const Root = styled(Section)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     '.AwiPanel-root': {
       '&.AwiPanel-wrapper': {
-        '.content': {
+        '.AwiPanel-content': {
           padding: theme.spacing(12.5, 12.5, 10),
         },
       },
@@ -115,98 +115,94 @@ export default function BalanceSection({ items }: Props) {
   return (
     <Root>
       <Panel className="AwiPanel-wrapper">
-        <div className="content">
-          <Typography variant="h1" color="text.active" className="AwiBalanceSection-title">
-            {t('balance-section.title')}
-          </Typography>
-          <Grid container rowSpacing={25} columnSpacing={6.5}>
-            <Grid item xs={12} md={7}>
-              <Typography variant="h2" className="AwiBalanceSection-groupTitle">
-                {t('balance-section.group-tokens')}
-              </Typography>
-              <Grid container spacing={6.5}>
-                {tokens.map((item, itemIndex) => (
-                  <Grid key={item.key} item xs={12}>
-                    <BalanceCard item={item} totalColor={tokenColors[itemIndex % tokenColors.length]} />
-                  </Grid>
-                ))}
-              </Grid>
+        <Typography variant="h1" color="text.active" className="AwiBalanceSection-title">
+          {t('balance-section.title')}
+        </Typography>
+        <Grid container rowSpacing={25} columnSpacing={6.5}>
+          <Grid item xs={12} md={7}>
+            <Typography variant="h2" className="AwiBalanceSection-groupTitle">
+              {t('balance-section.group-tokens')}
+            </Typography>
+            <Grid container spacing={6.5}>
+              {tokens.map((item, itemIndex) => (
+                <Grid key={item.key} item xs={12}>
+                  <BalanceCard item={item} totalColor={tokenColors[itemIndex % tokenColors.length]} />
+                </Grid>
+              ))}
             </Grid>
-            <Grid item xs={12} md={5} data-test-id="AwiDoughnut-wrapper">
-              <Doughnut
-                data={chartData}
-                options={{
-                  cutout: '70%',
-                  radius: '80%',
-                  plugins: {
-                    /* @ts-ignore */
-                    // OutlineDoughnut: {},
-                    legend: {
-                      title: {
-                        font: {
-                          family: 'Comfortaa, sans-serif',
-                          size: 20,
-                        },
-                        padding: { top: 4, left: 12 },
+          </Grid>
+          <Grid item xs={12} md={5} data-test-id="AwiChart-wrapper">
+            <Doughnut
+              data={chartData}
+              options={{
+                cutout: '70%',
+                radius: '80%',
+                plugins: {
+                  /* @ts-ignore */
+                  // OutlineDoughnut: {},
+                  legend: {
+                    title: {
+                      font: {
+                        family: 'Comfortaa, sans-serif',
+                        size: 20,
                       },
-                      labels: {
-                        boxWidth: 20,
-                        boxHeight: 20,
-                        color: 'rgba(255, 255, 255, 1)',
-                        font: {
-                          family: 'Comfortaa, sans-serif',
-                          size: 14,
-                        },
+                      padding: { top: 4, left: 12 },
+                    },
+                    labels: {
+                      boxWidth: 20,
+                      boxHeight: 20,
+                      color: 'rgba(255, 255, 255, 1)',
+                      font: {
+                        family: 'Comfortaa, sans-serif',
+                        size: 14,
                       },
                     },
                   },
+                },
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={7} className="AwiBalanceSection-poolGroup">
+            <Typography variant="h2" className="AwiBalanceSection-groupTitle">
+              {t('balance-section.group-pool')}
+            </Typography>
+            <Panel>
+              <LabelValue
+                id="balanceSectionPool-totalBalance"
+                className="AwiBalanceSection-labelValue"
+                value={formatAmount(0)}
+                labelProps={{
+                  children: t('balance-section.total-balance'),
+                }}
+                sx={{ mb: 6 }}
+              />
+              <LabelValue
+                id="balanceSectionPool-stackedBalance"
+                className="AwiBalanceSection-labelValue"
+                value={formatAmount(0)}
+                labelProps={{
+                  children: t('balance-section.staked-balance'),
                 }}
               />
-            </Grid>
-            <Grid item xs={12} md={7} className="AwiBalanceSection-poolGroup">
-              <Typography variant="h2" className="AwiBalanceSection-groupTitle">
-                {t('balance-section.group-pool')}
-              </Typography>
-              <Panel>
-                <div className="content">
-                  <LabelValue
-                    id="balanceSectionPool-totalBalance"
-                    className="AwiBalanceSection-labelValue"
-                    value={formatAmount(0)}
-                    labelProps={{
-                      children: t('balance-section.total-balance'),
-                    }}
-                    sx={{ mb: 6 }}
-                  />
-                  <LabelValue
-                    id="balanceSectionPool-stackedBalance"
-                    className="AwiBalanceSection-labelValue"
-                    value={formatAmount(0)}
-                    labelProps={{
-                      children: t('balance-section.staked-balance'),
-                    }}
-                  />
-                </div>
-              </Panel>
-            </Grid>
-            <Grid item xs={12} md={5}></Grid>
-            <Grid item xs={12} md={7}>
-              <Typography variant="h2" className="AwiBalanceSection-groupTitle">
-                {t('balance-section.group-stable-coins')}
-              </Typography>
-              <Panel sx={{ p: 0 }}>
-                <Grid container sx={{ '.MuiGrid-item:last-child .AwiBalanceCard-root': { border: 0 } }}>
-                  {stableCoins.map((item) => (
-                    <Grid key={item.key} item xs={12}>
-                      <BalanceCard item={item} mode="row" />
-                    </Grid>
-                  ))}
-                </Grid>
-              </Panel>
-            </Grid>
-            <Grid item xs={12} md={5}></Grid>
+            </Panel>
           </Grid>
-        </div>
+          <Grid item xs={12} md={5}></Grid>
+          <Grid item xs={12} md={7}>
+            <Typography variant="h2" className="AwiBalanceSection-groupTitle">
+              {t('balance-section.group-stable-coins')}
+            </Typography>
+            <Panel sx={{ p: 0 }}>
+              <Grid container sx={{ '.MuiGrid-item:last-child .AwiBalanceCard-root': { border: 0 } }}>
+                {stableCoins.map((item) => (
+                  <Grid key={item.key} item xs={12}>
+                    <BalanceCard item={item} mode="row" />
+                  </Grid>
+                ))}
+              </Grid>
+            </Panel>
+          </Grid>
+          <Grid item xs={12} md={5}></Grid>
+        </Grid>
       </Panel>
     </Root>
   );

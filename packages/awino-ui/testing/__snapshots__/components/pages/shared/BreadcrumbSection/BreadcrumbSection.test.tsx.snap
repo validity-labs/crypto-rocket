@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BreadcrumbSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        role="presentation"
+      >
+        <nav
+          aria-label="breadcrumb"
+          class="MuiTypography-root MuiTypography-body MuiBreadcrumbs-root css-2"
+        >
+          <ol
+            class="MuiBreadcrumbs-ol css-3"
+          >
+            <li
+              class="MuiBreadcrumbs-li"
+            >
+              <a
+                href="/market"
+              >
+                market-details:breadcrumb-section.page.market
+              </a>
+            </li>
+            <li
+              aria-hidden="true"
+              class="MuiBreadcrumbs-separator css-4"
+            >
+              &gt;
+            </li>
+            <li
+              class="MuiBreadcrumbs-li"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body css-5"
+              >
+                DAI
+              </p>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

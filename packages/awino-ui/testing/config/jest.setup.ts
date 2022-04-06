@@ -40,6 +40,19 @@ jest.mock('next-i18next', () => ({
   Trans: ({ i18nKey, values }: TransProps) => `${i18nKey}${values ? ` - ${JSON.stringify(values)}` : ''}`,
   i18n: {
     language: 'en',
+    t: (key: string) => {
+      if (key === 'format.date') {
+        return 'yyyy-MM-dd';
+      } else if (key === 'format.date-pretty') {
+        return 'MMMM d, yyyy';
+      } else if (key === 'format.date-time') {
+        return 'yyyy-MM-dd HH:mm';
+      } else if (key.startsWith('format.abbreviate.number')) {
+        const parts = key.split('.');
+        return parts[parts.length - 1];
+      }
+      throw new Error(`${key} - only predefined keys allowed.`);
+    },
   },
 }));
 

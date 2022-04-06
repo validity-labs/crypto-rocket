@@ -30,14 +30,14 @@ exports[`<BalanceCard /> has valid snapshot 1`] = `
       class="AwiBalanceCard-labelValue MuiBox-root css-3"
     >
       <h6
-        class="MuiTypography-root MuiTypography-h7 label css-4"
+        class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-4"
         id="balanceCard-awi"
       >
         contracts:balance-section.total-balance
       </h6>
       <p
         aria-describedby="balanceCard-awi"
-        class="MuiTypography-root MuiTypography-h5 value css-5"
+        class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-5"
       >
         23.45
       </p>
