@@ -10,7 +10,29 @@
     "fields": {
       "asset": "Asset",
       "wallet-balance": "Your wallet balance",
-      "apy": "APY"
+      "apy": "APY",
+      "collateral": "Collateral"
+    }
+  },
+  "collateral-modal": {
+    "view-on-etherscan": "View on etherscan",
+    "confirm-transaction": "Please confirm the transaction. ☝",
+    "confirm-error": "Transaction failed.",
+    "confirm-error-prompt": "Transaction failed. Try again later.",
+    "confirm-success": "Transaction broadcast.",
+    "borrow-limit": "Borrow limit",
+    "borrow-limit-used": "Borrow limit used",
+    "enable": {
+      "title": "Enable as collateral",
+      "description": "Each asset used as collateral increases your borrowing limit. This can subject the asset to being seized in liquidation.",
+      "cta": "Use {{asset}} as collateral",
+      "cta-done": "{{asset}} is used as collateral"
+    },
+    "disable": {
+      "title": "Disable as collateral",
+      "description": "This asset will no longer be used towards your borrowing limit, and can't be seized in liquidation.",
+      "cta": "Disable {{asset}} as collateral",
+      "cta-done": "{{asset}} is not used as collateral anymore"
     }
   }
 }

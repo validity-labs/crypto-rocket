@@ -18,3 +18,5 @@ export const stopPropagation =
     event.stopPropagation();
     callback();
   };
+
+export const etherscan = (address) => `https://etherscan.io/address/${address}`;

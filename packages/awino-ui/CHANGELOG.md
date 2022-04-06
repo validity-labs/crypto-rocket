@@ -23,6 +23,7 @@ Date format: `YYYY-MM-DD`
 ### Added
 
 - Added market detail page with charts and all components
+- Added collateral modal to earn-deposit page
 
 ## [0.0.0] - 2022-03-31
 

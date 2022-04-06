@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 import MuiSwitch, { SwitchProps } from '@mui/material/Switch';
 
 import { SetState } from '@/types/app';
-const IOSSwitch = styled((props: SwitchProps) => (
+export const PlainSwitch = styled((props: SwitchProps) => (
   <MuiSwitch focusVisibleClassName="Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
   width: 38,
@@ -69,7 +69,12 @@ export default function Switch({ checked, setChecked, ...restOfProps }: Props) {
   return (
     // <FormControlLabel
     //   control={
-    <IOSSwitch checked={checked} onChange={handleChange} inputProps={{ 'aria-label': 'controlled' }} {...restOfProps} />
+    <PlainSwitch
+      checked={checked}
+      onChange={handleChange}
+      inputProps={{ 'aria-label': 'controlled' }}
+      {...restOfProps}
+    />
     //   }
     //   label="iOS style"
     // />

@@ -6,8 +6,6 @@ import { GridEventListener, GridEvents, GridRowsProp, GridSortModel } from '@mui
 
 import { TABLE_ROWS_PER_PAGE, TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
 import loadData from '@/app/data';
-// import { useAppSelector } from '@/app/hooks';
-// import ConnectPanel from '@/components/general/ConnectPanel/ConnectPanel';
 import DataGrid from '@/components/general/DataGrid/DataGrid';
 import GridPagination from '@/components/general/GridPagination/GridPagination';
 import Label from '@/components/general/Label/Label';
@@ -16,25 +14,33 @@ import Search from '@/components/general/Search/Search';
 import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { RowsState } from '@/types/app';
+import { AssetKey, RowsState } from '@/types/app';
 
+import CollateralModal, { CollateralModalData } from './CollateralModal';
 import getColumns from './columns';
-
-// interface Props {
-//   total: TotalAssetSize;
-// }
+export interface CollateralInfo {
+  borrowLimit: [number, number];
+  borrowLimitUsed: [number, number];
+}
 
 export default function AssetSection(/* { total }: Props */) {
   const t = usePageTranslation();
   const router = useRouter();
-  // const { connected } = useAppSelector((state) => ({
-  //   connected: state.account.connected,
-  // }));
+  const [collateralInfo, setCollateralInfo] = useState<CollateralInfo>({
+    borrowLimit: [0, 0],
+    borrowLimitUsed: [0, 0],
+  });
+  const [collateralModal, setCollateralModal] = useState<CollateralModalData | null>(null);
   const [toggle, setToggle] = useState(false);
   const [term, setTerm] = useState<string>('');
   const columns = useMemo(() => {
-    return getColumns(t);
+    return getColumns(t, {
+      collateralCallback: (data: CollateralModalData) => {
+        setCollateralModal(data);
+      },
+    });
   }, [t]);
+
   const [sortModel, setSortModel] = useState<GridSortModel>([
     /* { field: 'asset', sort: 'asc' } */
   ]);
@@ -74,6 +80,10 @@ export default function AssetSection(/* { total }: Props */) {
       }
       setRows(records);
       setRowCount(total);
+      setCollateralInfo({
+        borrowLimit: [1.03, 1.03],
+        borrowLimitUsed: [0, 0],
+      });
       setLoading(false);
     })();
 
@@ -98,62 +108,105 @@ export default function AssetSection(/* { total }: Props */) {
     },
     [router]
   );
-  return (
-    <Section>
-      <Panel
-        header={
-          <>
-            <Label id="marketTotalSize" className="label" tooltip={t(`asset-section.title-hint`)}>
-              {t(`asset-section.title`)}
-            </Label>
-            <div className="aside">
-              <Switch checked={toggle} setChecked={setToggle} sx={{ mr: 4.5 }} title={t(`asset-section.toggle-hint`)} />
-              <Search onSearch={handleSearch} />
-            </div>
-          </>
+
+  const handleCellClick: GridEventListener<GridEvents.cellClick> = useCallback((props, event, details) => {
+    const { field } = props;
+    if (field === 'collateral') {
+      event.stopPropagation();
+    }
+    // router.push(`/earn/deposit/${props.row.asset}`);
+  }, []);
+
+  const handleCollateralToggle = (asset: AssetKey) => {
+    setRows((prevRows) =>
+      prevRows.map((r) => {
+        if (r.asset === asset) {
+          return { ...r, collateral: !r.collateral };
         }
-      >
-        {/* {connected ? ( */}
-        <div className="table-container">
-          <DataGrid
-            loading={loading}
-            columns={columns}
-            disableColumnMenu
-            disableColumnFilter
-            disableSelectionOnClick
-            disableColumnSelector
-            rowHeight={66}
-            rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
-            // rows
-            rows={rows}
-            rowCount={rowCountState}
-            onRowClick={handleRowClick}
-            // sorting
-            sortingMode="server"
-            sortModel={sortModel}
-            onSortModelChange={handleSortModelChange}
-            // pagination
-            paginationMode="server"
-            {...rowsState}
-            onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
-            onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
-            components={{
-              Pagination: GridPagination,
-            }}
-            localeText={{
-              columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
-              footerTotalVisibleRows: (visibleCount, totalCount) =>
-                t('common.table.rows-out-of', {
-                  visibleCount: visibleCount.toLocaleString(),
-                  totalCount: totalCount.toLocaleString() + '1',
-                }),
-            }}
-          />
-        </div>
-        {/* ) : (
+        return r;
+      })
+    );
+  };
+
+  return (
+    <>
+      <Section>
+        <Panel
+          header={
+            <>
+              <Label
+                id="earnDepositTitle"
+                tooltip={t(`asset-section.title-hint`)}
+                variant="h4"
+                component="h2"
+                color="text.active"
+              >
+                {t(`asset-section.title`)}
+              </Label>
+              <div className="aside">
+                <Switch
+                  checked={toggle}
+                  setChecked={setToggle}
+                  sx={{ mr: 4.5 }}
+                  title={t(`asset-section.toggle-hint`)}
+                />
+                <Search onSearch={handleSearch} />
+              </div>
+            </>
+          }
+        >
+          {/* {connected ? ( */}
+          <div className="table-container">
+            <DataGrid
+              loading={loading}
+              columns={columns}
+              disableColumnMenu
+              disableColumnFilter
+              disableSelectionOnClick
+              disableColumnSelector
+              rowHeight={66}
+              rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
+              // rows
+              rows={rows}
+              rowCount={rowCountState}
+              onRowClick={handleRowClick}
+              onCellClick={handleCellClick}
+              // sorting
+              sortingMode="server"
+              sortModel={sortModel}
+              onSortModelChange={handleSortModelChange}
+              // pagination
+              paginationMode="server"
+              {...rowsState}
+              onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
+              onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
+              components={{
+                Pagination: GridPagination,
+              }}
+              localeText={{
+                columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
+                footerTotalVisibleRows: (visibleCount, totalCount) =>
+                  t('common.table.rows-out-of', {
+                    visibleCount: visibleCount.toLocaleString(),
+                    totalCount: totalCount.toLocaleString() + '1',
+                  }),
+              }}
+            />
+          </div>
+          {/* ) : (
             <ConnectPanel />
           )} */}
-      </Panel>
-    </Section>
+        </Panel>
+      </Section>
+      {!!collateralModal && (
+        <CollateralModal
+          open={!!collateralModal}
+          close={() => setCollateralModal(null)}
+          data={collateralModal}
+          info={collateralInfo}
+          callback={handleCollateralToggle}
+        />
+      )}
+    </>
   );
 }

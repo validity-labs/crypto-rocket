@@ -14,9 +14,9 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
         <div
           class="AwiPanel-header header"
         >
-          <h6
-            class="MuiTypography-root MuiTypography-h7 AwiLabel-root label css-3"
-            id="marketTotalSize"
+          <h2
+            class="MuiTypography-root MuiTypography-h4 AwiLabel-root css-3"
+            id="earnDepositTitle"
           >
             earn-deposit:asset-section.title
             <span
@@ -42,7 +42,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 />
               </svg>
             </span>
-          </h6>
+          </h2>
           <div
             class="aside"
           >
@@ -105,7 +105,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             class="table-container"
           >
             <div
-              aria-colcount="3"
+              aria-colcount="4"
               aria-multiselectable="false"
               aria-rowcount="0"
               class="MuiDataGrid-root css-14"

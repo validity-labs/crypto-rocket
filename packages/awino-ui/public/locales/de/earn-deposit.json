@@ -10,7 +10,8 @@
     "fields": {
       "asset": "Asset",
       "wallet-balance": "Your wallet balance",
-      "apy": "APY"
+      "apy": "APY",
+      "collateral": "Collateral"
     }
   }
 }

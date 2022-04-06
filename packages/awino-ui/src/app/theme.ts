@@ -591,13 +591,14 @@ const themeCreator = (mode: PaletteMode) => {
         {
           props: { variant: 'outlined' },
           style: {
-            borderColor: 'currentcolor',
+            // borderColor: 'currentcolor',
             borderWidth: 2,
             borderRadius: +theme.shape.borderRadius * 2,
-            color: theme.palette.text.primary,
+            boxShadow: 'inset 10px 10px 6px #00000029',
+            // color: theme.palette.text.primary,
             '&:hover': {
               borderWidth: 2,
-              color: theme.palette.text.primary,
+              // color: theme.palette.text.primary,
             },
             '&.Mui-disabled': {
               borderWidth: 2,

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-1om0hkc"
+   focusable="false"
+   viewBox="0 0 24 24"
+   aria-hidden="true"
+   data-testid="AccountBoxIcon"
+   version="1.1"
+   id="svg4"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8">
+    <linearGradient
+       id="linear-gradient"
+       x1="8.762214"
+       x2="8.762214"
+       y2="17.524184"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0256419,0,0,0.99971189,3.0131065,0.5602206)"
+       y1="-0.00024814944">
+      <stop
+         offset="0"
+         stop-color="#00ffeb"
+         id="stop915" />
+      <stop
+         offset="1"
+         stop-color="#00e84d"
+         id="stop917" />
+      <stop
+         offset="1"
+         stop-color="#00e63e"
+         id="stop919" />
+    </linearGradient>
+  </defs>
+  <path
+     id="Icon_awesome-arrow-right"
+     data-name="Icon awesome-arrow-right"
+     d="m 10.656165,4.414153 0.891082,-0.8910826 a 0.95892643,0.95892643 0 0 1 1.359914,0 l 7.796973,7.7969736 a 0.95892643,0.95892643 0 0 1 0,1.359913 l -7.796973,7.796973 a 0.95892643,0.95892643 0 0 1 -1.359914,0 l -0.891082,-0.891082 a 0.96398939,0.96398939 0 0 1 0.0162,-1.376115 l 4.834124,-4.605277 H 3.9760833 A 0.96095161,0.96095161 0 0 1 3.0131065,12.642491 V 11.358522 A 0.96095161,0.96095161 0 0 1 3.9760833,10.395546 H 15.50649 L 10.672366,5.7902681 a 0.95690124,0.95690124 0 0 1 -0.0162,-1.3761151 z"
+     fill="url(#linear-gradient)"
+     style="fill:url(#linear-gradient);stroke-width:1.01259" />
+</svg>

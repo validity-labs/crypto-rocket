@@ -1,18 +1,26 @@
 import React from 'react';
 
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 import { Button, ButtonProps, CircularProgress } from '@mui/material';
-
 interface Props extends ButtonProps {
   loading?: boolean;
+  done?: boolean;
+  once?: boolean;
 }
 
 const LoadingButton = React.forwardRef<HTMLButtonElement, Props>(function LoadingButtonInner(
-  { loading = false, children, ...restOfProps },
+  { loading = false, done = false, once = false, children, ...restOfProps },
   ref
 ) {
   return (
-    <Button ref={ref} {...restOfProps}>
-      {loading && <CircularProgress size={16} sx={{ mr: 2, color: 'text.secondary' }} />}
+    <Button
+      ref={ref}
+      {...restOfProps}
+      disabled={loading || (once && done)}
+      sx={{ display: 'flex', alignItems: 'center' }}
+    >
+      {!loading && done && <CheckCircleOutlineRoundedIcon color="success" /* fontSize={18}  */ sx={{ mr: 3 }} />}
+      {loading && <CircularProgress size={18} sx={{ mr: 3 }} />}
       {children}
     </Button>
   );

@@ -470,6 +470,8 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                           <a
                             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body-md AwiTreasurePanel-link css-67"
                             href="https://todo"
+                            rel="noreferrer"
+                            target="_blank"
                           >
                             podl:purchase-section.treasury.view-contract
                             <svg

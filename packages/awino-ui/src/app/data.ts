@@ -53,6 +53,7 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
       id: index,
       asset: assets[index % 5],
       apy: nextValue(),
+      collateral: !!Math.round(Math.random()),
       ...m,
     })) as GridRowsProp,
   'earn-deposit-details': new Array(20)

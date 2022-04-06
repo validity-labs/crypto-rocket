@@ -3,14 +3,15 @@
 exports[`<LoadingButton /> has valid snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-0"
-    tabindex="0"
+    class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-0"
+    disabled=""
+    tabindex="-1"
     type="button"
   >
     <span
       class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1"
       role="progressbar"
-      style="width: 16px; height: 16px;"
+      style="width: 18px; height: 18px;"
     >
       <svg
         class="MuiCircularProgress-svg css-2"
@@ -27,9 +28,6 @@ exports[`<LoadingButton /> has valid snapshot 1`] = `
       </svg>
     </span>
     Lorem
-    <span
-      class="MuiTouchRipple-root css-4"
-    />
   </button>
 </DocumentFragment>
 `;
