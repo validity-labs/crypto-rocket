@@ -7,7 +7,7 @@ import LinkIcon from '@/components/icons/LinkIcon';
 const Root = styled(Typography)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   alignItems: 'center',
   flexWrap: 'wrap',
   '&.MuiLink-root': {

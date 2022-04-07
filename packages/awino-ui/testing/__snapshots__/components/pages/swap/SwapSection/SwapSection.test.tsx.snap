@@ -135,14 +135,12 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               class="AwiSwapPanel-aside"
             >
               <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-21"
-                tabindex="0"
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                disabled=""
+                tabindex="-1"
                 type="button"
               >
                 swap:swap-section.swap.execute
-                <span
-                  class="MuiTouchRipple-root css-8"
-                />
               </button>
             </div>
           </div>
@@ -153,45 +151,45 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               class="sub-panel"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-23"
+                class="MuiGrid-root MuiGrid-container css-22"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-24"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
                 >
                   <div
                     class="source"
                   >
                     <div
-                      class="MuiFormControl-root MuiBox-root css-25"
+                      class="MuiFormControl-root MuiBox-root css-24"
                       id="assetSource"
                     >
                       <div
                         aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-26"
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
                       >
                         <div
                           aria-disabled="true"
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-27"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
                           id="demo-simple-select"
                           role="button"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-28"
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
                           >
                             <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-29"
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
                               role="progressbar"
                               style="width: 20px; height: 20px;"
                             >
                               <svg
-                                class="MuiCircularProgress-svg css-30"
+                                class="MuiCircularProgress-svg css-29"
                                 viewBox="22 22 44 44"
                               >
                                 <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-31"
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
                                   cx="44"
                                   cy="44"
                                   fill="none"
@@ -204,14 +202,14 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-32"
+                          class="MuiSelect-nativeInput css-31"
                           disabled=""
                           tabindex="-1"
                           value=""
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-33"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -222,10 +220,10 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-34"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-35"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-34"
                         for="sourceValue"
                       >
                         <span>
@@ -233,11 +231,11 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-36"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-35"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-37"
+                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-36"
                           disabled=""
                           id="sourceValue"
                           inputmode="numeric"
@@ -246,7 +244,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           value=""
                         />
                         <button
-                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-38"
+                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-37"
                           tabindex="0"
                           type="button"
                         >
@@ -257,48 +255,48 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </button>
                       </div>
                       <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-40"
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-39"
                       />
                     </div>
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-24"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
                 >
                   <div
                     class="target"
                   >
                     <div
-                      class="MuiFormControl-root MuiBox-root css-25"
+                      class="MuiFormControl-root MuiBox-root css-24"
                       id="assetTarget"
                     >
                       <div
                         aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-26"
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
                       >
                         <div
                           aria-disabled="true"
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-27"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
                           id="demo-simple-select"
                           role="button"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-28"
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
                           >
                             <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-29"
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
                               role="progressbar"
                               style="width: 20px; height: 20px;"
                             >
                               <svg
-                                class="MuiCircularProgress-svg css-30"
+                                class="MuiCircularProgress-svg css-29"
                                 viewBox="22 22 44 44"
                               >
                                 <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-31"
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
                                   cx="44"
                                   cy="44"
                                   fill="none"
@@ -311,14 +309,14 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-32"
+                          class="MuiSelect-nativeInput css-31"
                           disabled=""
                           tabindex="-1"
                           value=""
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-33"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -329,10 +327,10 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-34"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-35"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-34"
                         for="targetValue"
                       >
                         <span>
@@ -340,11 +338,11 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-36"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-35"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled css-37"
+                          class="MuiInputBase-input Mui-disabled css-36"
                           disabled=""
                           id="targetValue"
                           inputmode="numeric"
@@ -354,7 +352,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         />
                       </div>
                       <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-40"
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-39"
                       >
                         <span>
                           swap:swap-section.swap.price
@@ -369,7 +367,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
         </div>
         <div
           aria-labelledby="tab-swapSection-1"
-          class="css-56"
+          class="css-55"
           hidden=""
           id="tabpanel-swapSection-1"
           role="tabpanel"
@@ -416,14 +414,12 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               class="AwiZapPanel-aside"
             >
               <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-21"
-                tabindex="0"
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                disabled=""
+                tabindex="-1"
                 type="button"
               >
                 swap:swap-section.swap.execute
-                <span
-                  class="MuiTouchRipple-root css-8"
-                />
               </button>
             </div>
           </div>
@@ -434,45 +430,45 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               class="sub-panel"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-23"
+                class="MuiGrid-root MuiGrid-container css-22"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-24"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
                 >
                   <div
                     class="source"
                   >
                     <div
-                      class="MuiFormControl-root MuiBox-root css-25"
+                      class="MuiFormControl-root MuiBox-root css-24"
                       id="assetSource"
                     >
                       <div
                         aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-26"
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
                       >
                         <div
                           aria-disabled="true"
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-27"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
                           id="demo-simple-select"
                           role="button"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-28"
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
                           >
                             <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-29"
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
                               role="progressbar"
                               style="width: 20px; height: 20px;"
                             >
                               <svg
-                                class="MuiCircularProgress-svg css-30"
+                                class="MuiCircularProgress-svg css-29"
                                 viewBox="22 22 44 44"
                               >
                                 <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-31"
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
                                   cx="44"
                                   cy="44"
                                   fill="none"
@@ -485,14 +481,14 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-32"
+                          class="MuiSelect-nativeInput css-31"
                           disabled=""
                           tabindex="-1"
                           value=""
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-33"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -503,10 +499,10 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-34"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-35"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-34"
                         for="sourceValue"
                       >
                         <span>
@@ -514,11 +510,11 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-36"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-35"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-37"
+                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-36"
                           disabled=""
                           id="sourceValue"
                           inputmode="numeric"
@@ -527,7 +523,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           value=""
                         />
                         <button
-                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-38"
+                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-37"
                           tabindex="0"
                           type="button"
                         >
@@ -538,48 +534,48 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </button>
                       </div>
                       <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-40"
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-39"
                       />
                     </div>
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-24"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
                 >
                   <div
                     class="target"
                   >
                     <div
-                      class="MuiFormControl-root MuiBox-root css-25"
+                      class="MuiFormControl-root MuiBox-root css-24"
                       id="assetTarget"
                     >
                       <div
                         aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-26"
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
                       >
                         <div
                           aria-disabled="true"
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-27"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
                           id="demo-simple-select"
                           role="button"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-28"
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
                           >
                             <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-29"
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
                               role="progressbar"
                               style="width: 20px; height: 20px;"
                             >
                               <svg
-                                class="MuiCircularProgress-svg css-30"
+                                class="MuiCircularProgress-svg css-29"
                                 viewBox="22 22 44 44"
                               >
                                 <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-31"
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
                                   cx="44"
                                   cy="44"
                                   fill="none"
@@ -592,14 +588,14 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-32"
+                          class="MuiSelect-nativeInput css-31"
                           disabled=""
                           tabindex="-1"
                           value=""
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-33"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -610,10 +606,10 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-34"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-35"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-34"
                         for="targetValue"
                       >
                         <span>
@@ -621,11 +617,11 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-36"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-35"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled css-37"
+                          class="MuiInputBase-input Mui-disabled css-36"
                           disabled=""
                           id="targetValue"
                           inputmode="numeric"
@@ -635,7 +631,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         />
                       </div>
                       <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-40"
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-39"
                       >
                         <span>
                           swap:swap-section.swap.price

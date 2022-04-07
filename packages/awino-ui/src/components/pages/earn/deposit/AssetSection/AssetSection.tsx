@@ -18,6 +18,7 @@ import { AssetKey, RowsState } from '@/types/app';
 
 import CollateralModal, { CollateralModalData } from './CollateralModal';
 import getColumns from './columns';
+import OperationModal, { OperationModalData } from './OperationModal';
 export interface CollateralInfo {
   borrowLimit: [number, number];
   borrowLimitUsed: [number, number];
@@ -31,6 +32,7 @@ export default function AssetSection(/* { total }: Props */) {
     borrowLimitUsed: [0, 0],
   });
   const [collateralModal, setCollateralModal] = useState<CollateralModalData | null>(null);
+  const [operationModal, setOperationModal] = useState<OperationModalData | null>(null);
   const [toggle, setToggle] = useState(false);
   const [term, setTerm] = useState<string>('');
   const columns = useMemo(() => {
@@ -102,12 +104,10 @@ export default function AssetSection(/* { total }: Props */) {
     [term]
   );
 
-  const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback(
-    (props) => {
-      router.push(`/earn/deposit/${props.row.asset}`);
-    },
-    [router]
-  );
+  const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback((props) => {
+    const { asset, enabled } = props.row;
+    setOperationModal({ asset, enabled });
+  }, []);
 
   const handleCellClick: GridEventListener<GridEvents.cellClick> = useCallback((props, event, details) => {
     const { field } = props;
@@ -206,6 +206,9 @@ export default function AssetSection(/* { total }: Props */) {
           info={collateralInfo}
           callback={handleCollateralToggle}
         />
+      )}
+      {!!operationModal && (
+        <OperationModal open={!!operationModal} close={() => setOperationModal(null)} data={operationModal} />
       )}
     </>
   );

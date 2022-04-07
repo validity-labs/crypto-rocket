@@ -264,6 +264,11 @@ const themeCreator = (mode: PaletteMode) => {
           outline-color: #00FFEB;
           outline-style: auto;
         }
+        .Awi-row {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
       `,
     },
     MuiAppBar: {
@@ -1069,7 +1074,20 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
-
+    MuiModal: {
+      styleOverrides: {
+        root: {
+          '::-webkit-scrollbar': {
+            width: '6px',
+            height: '6px',
+          },
+          '::-webkit-scrollbar-thumb': {
+            backgroundColor: theme.palette.grey[400],
+            borderRadius: '6px',
+          },
+        },
+      },
+    },
     // MuiSvgIcon: {
     //   defaultProps: {
     //     color: 'primary',

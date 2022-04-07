@@ -92,6 +92,9 @@ const Root = styled(Modal)(({ theme }) => ({
       marginBottom: theme.spacing(10),
     },
   },
+  '.AwiExternalLink-root': {
+    justifyContent: 'center',
+  },
 }));
 
 export interface CollateralModalData {

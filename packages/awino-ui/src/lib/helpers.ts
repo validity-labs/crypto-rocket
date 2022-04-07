@@ -20,3 +20,7 @@ export const stopPropagation =
   };
 
 export const etherscan = (address) => `https://etherscan.io/address/${address}`;
+
+export const sleep = (s: number) => {
+  return new Promise((resolve) => setTimeout(resolve, s * 1000));
+};

@@ -6,17 +6,18 @@ interface Props extends ButtonProps {
   loading?: boolean;
   done?: boolean;
   once?: boolean;
+  disabled?: boolean;
 }
 
 const LoadingButton = React.forwardRef<HTMLButtonElement, Props>(function LoadingButtonInner(
-  { loading = false, done = false, once = false, children, ...restOfProps },
+  { disabled = false, loading = false, done = false, once = false, children, ...restOfProps },
   ref
 ) {
   return (
     <Button
       ref={ref}
       {...restOfProps}
-      disabled={loading || (once && done)}
+      disabled={disabled || loading || (once && done)}
       sx={{ display: 'flex', alignItems: 'center' }}
     >
       {!loading && done && <CheckCircleOutlineRoundedIcon color="success" /* fontSize={18}  */ sx={{ mr: 3 }} />}
