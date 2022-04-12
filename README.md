@@ -23,27 +23,30 @@ You have option to commit as usual, in this case `husky` `commit-msg` will trigg
 ```bash
   # choose proper node version, nvm should be already installed
   nvm use
-  # tested with `yarn` 1 version aka classic
-  yarn
+   # from root directory
+  npm install
+  # from packages/awino-ui directory; --legacy-peer-deps is required for cypress-image-snapshot package
+  npm install --legacy-peer-deps
+
 ```
 
 ```bash
   # initialize husky https://typicode.github.io/husky/#/
-  yarn prepare
+  npm run prepare
 ```
 
 ## Local development
 
-_Enviroment variables can be injected using .env.local file inside `packages/awino-ui` folder. For initial template use `config/awino-ui/.env.development`_
+_Enviroment variables can be injected using .env.local file inside `packages/awino-ui` folder. For initial template use `extra/config/awino-ui/.env.development`_
 
 ```bash
   # start development server locally
-  yarn start
+  npm run start
 ```
 
 ## Local development with docker
 
-_Enviroment variables are in `config/awino-ui/.env.development`_
+_Enviroment variables are in `extra/config/awino-ui/.env.development`_
 
 ```bash
   # start development server locally in docker container

@@ -6,7 +6,7 @@ services:
     build:
       target: development
     env_file:
-      - ./config/awino-ui/.env.development
+      - ./extra/config/awino-ui/.env.development
     volumes:
       - ./packages/awino-ui:/src
       - /src/node_modules
