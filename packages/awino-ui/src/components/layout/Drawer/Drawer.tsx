@@ -35,8 +35,8 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    svg: {
-      fontSize: '18px',
+    img: {
+      // fontSize: '18px',
       marginRight: theme.spacing(3),
     },
   },
@@ -84,7 +84,8 @@ const LinkList = ({ items, menu, closeDrawer, icon = false }: LinkListProps) => 
               {...(isURL ? { component: Link, href: (link as MenuItemLink).url, className: 'link' } : {})}
               onClick={isURL ? closeDrawer : () => {}}
             >
-              {icon && <Icon />}
+              {/* {icon && <Icon />} */}
+              {icon && <img src={`/images/icons/${key}.svg`} alt="" width="22" height="22" />}
               <Typography variant="menu" component="span">
                 {t(`menu.${menu}.${key}.title`)}
               </Typography>

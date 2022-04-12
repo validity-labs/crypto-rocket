@@ -262,7 +262,7 @@ export default function CollateralModal({ open, close, data, info, callback }: P
               <ExternalLink
                 variant="body-sm"
                 href={etherscan(transactionAddress)}
-                text={t(`collateral-modal.view-on-etherscan`)}
+                text={t('common:common.view-on-etherscan')}
               />
             )}
             {isError && (

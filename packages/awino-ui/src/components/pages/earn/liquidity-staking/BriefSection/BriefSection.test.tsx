@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { earnLiquidityStakingStats } from '@/fixtures/earn-liquidity-staking';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import AssetSection from './AssetSection';
+import BriefSection from './BriefSection';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -16,9 +17,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<AssetSection />', () => {
+describe('<BriefSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<AssetSection />, {}, 'earn-liquidity-staking');
+    const { asFragment } = render(<BriefSection items={earnLiquidityStakingStats} />, {}, 'earn-liquidity-staking');
     expect(asFragment()).toMatchSnapshot();
   });
 });

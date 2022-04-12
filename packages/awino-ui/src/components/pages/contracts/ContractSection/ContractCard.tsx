@@ -26,7 +26,7 @@ const ContractCard = styled(
         <div className="AwiContactCard-startBox">
           <img src={`/images/assets/${key}.svg`} alt="" className="AwiContactCard-icon" />
           <div>
-            <Typography color="text.primary" mt={2}>
+            <Typography color="text.primary" mt={1.5}>
               {t(`contract-section.assets.${key}.title`)}
             </Typography>
             <Address address={address} />

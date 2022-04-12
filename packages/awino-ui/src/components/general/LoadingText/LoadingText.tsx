@@ -14,27 +14,37 @@ const LoadingText = styled(({ loading, text, ...restOfProps }: LoadingTextProps)
 ))<LoadingTextProps>(({ theme }) => ({
   position: 'relative',
   display: 'inline-block',
-  height: '2px',
-  width: '20px',
+  height: '20px',
+  width: '40px',
   verticalAlign: 'middle',
   backgroundColor: theme.palette.divider,
-  borderRadius: +theme.shape.borderRadius,
+  borderRadius: +theme.shape.borderRadius * 1.5,
   overflow: 'hidden',
   '&:before': {
     content: '""',
-    height: '100%',
-    width: '10px',
-    backgroundColor: theme.palette.text.active,
     position: 'absolute',
-    animation: 'loading 1.5s cubic-bezier(0.76, 0, 0.24, 1) infinite',
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: '100%',
+    background: [
+      theme.palette.background.transparent,
+      `linear-gradient(120deg, ${theme.palette.background.transparent} 30%, rgba(225, 225, 225, 0.66) 38%,  ${theme.palette.background.transparent} 48%)`,
+    ],
+    backgroundSize: '200% 100%',
+    backgroundPosition: '100% 0',
+    animation: 'loading 2s cubic-bezier(0.76, 0, 0.24, 1) infinite',
   },
   '@keyframes loading': {
-    from: {
-      transform: 'translateX(-10px)',
+    '100%': {
+      backgroundPosition: '-100% 0',
     },
-    to: {
-      transform: 'translateX(20px)',
-    },
+    // from: {
+    //   transform: 'translateX(-40px)',
+    // },
+    // to: {
+    //   transform: 'translateX(40px)',
+    // },
   },
 }));
 

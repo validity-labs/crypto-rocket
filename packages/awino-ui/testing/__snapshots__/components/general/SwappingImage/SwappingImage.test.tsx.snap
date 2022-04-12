@@ -8,12 +8,12 @@ exports[`<SwappingImage /> has valid snapshot 1`] = `
   >
     <img
       alt=""
-      class="source"
+      class="source AwiSwappingImage-source"
       src="/images/icons/ftm.svg"
     />
     <img
       alt=""
-      class="target"
+      class="target AwiSwappingImage-target"
       src="/images/icons/awi.svg"
     />
   </div>

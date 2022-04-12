@@ -528,7 +528,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
               <ExternalLink
                 variant="body-sm"
                 href={etherscan(transactionAddress)}
-                text={t(`operation-modal.view-on-etherscan`)}
+                text={t('common:common.view-on-etherscan')}
                 mb={5}
                 justifyContent="center"
               />

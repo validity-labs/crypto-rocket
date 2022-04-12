@@ -1,4 +1,4 @@
-import type { StatsData } from '@/types/pages/landing';
+import type { StatsData } from '@/types/app';
 
 export const statsSectionData: StatsData = [
   { value: 89.7, subvalue: 24.72 },

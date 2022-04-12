@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 
 import { MarketTypeInfo, MarketInfo } from '@/types/app';
-import type { StatsData } from '@/types/pages/landing';
+import type { StatsData } from '@/types/app';
 import { TotalAssetSize } from '@/types/pages/market';
 
 export const statsSectionData: StatsData = [

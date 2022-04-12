@@ -15,7 +15,6 @@
     }
   },
   "collateral-modal": {
-    "view-on-etherscan": "View on etherscan",
     "confirm-transaction": "Please confirm the transaction. ☝",
     "confirm-error": "Transaction failed.",
     "confirm-error-prompt": "Transaction failed. Try again later.",
@@ -46,7 +45,6 @@
     "borrow-limit-used": "Borrow limit used",
     "wallet-balance": "Wallet balance",
     "currently-supplying": "Currently supplying",
-    "view-on-etherscan": "View on etherscan",
     "confirm-transaction": "Please confirm the transaction. ☝",
     "confirm-error": "Transaction failed.",
     "confirm-error-prompt": "Transaction failed. Try again later.",

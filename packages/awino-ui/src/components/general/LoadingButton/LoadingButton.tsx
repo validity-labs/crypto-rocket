@@ -20,7 +20,11 @@ const LoadingButton = React.forwardRef<HTMLButtonElement, Props>(function Loadin
       disabled={disabled || loading || (once && done)}
       sx={{ display: 'flex', alignItems: 'center' }}
     >
-      {!loading && done && <CheckCircleOutlineRoundedIcon color="success" /* fontSize={18}  */ sx={{ mr: 3 }} />}
+      {!loading && done && (
+        <CheckCircleOutlineRoundedIcon
+          /* fontSize={18}  */ sx={{ mr: 3, color: restOfProps?.variant === 'outlined' ? 'success' : 'success.dark' }}
+        />
+      )}
       {loading && <CircularProgress size={18} sx={{ mr: 3 }} />}
       {children}
     </Button>

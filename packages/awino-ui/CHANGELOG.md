@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-04-12
+
+### Changed
+
+- Changed earn liquidity staking page to match new mockup
+
 ## [0.0.0] - 2022-04-06
 
 ### Added

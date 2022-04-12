@@ -123,3 +123,9 @@ export type MarketTypeInfo = Record<
     total: number;
   }
 >;
+
+interface StatsDataItem {
+  value: number;
+  subvalue?: number;
+}
+export type StatsData = StatsDataItem[];

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, memo } from 'react';
 
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -9,7 +9,7 @@ import { Container, ContainerProps, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { StatsData } from '@/types/pages/landing';
+import { StatsData } from '@/types/app';
 
 const Root = styled(Container)(({ theme }) => ({
   '.card': {
@@ -32,7 +32,7 @@ interface Props extends ContainerProps {
   items: StatsData;
 }
 
-export default function StatsItems({ items, className, ...containerProps }: Props) {
+function StatsItems({ items, className, ...containerProps }: Props) {
   const t = usePageTranslation();
   const [glanced, setGlanced] = useState(false);
 
@@ -99,3 +99,5 @@ export default function StatsItems({ items, className, ...containerProps }: Prop
     </Root>
   );
 }
+
+export default memo(StatsItems);

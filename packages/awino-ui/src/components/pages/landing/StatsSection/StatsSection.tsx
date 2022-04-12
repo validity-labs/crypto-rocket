@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { StatsData } from '@/types/pages/landing';
+import { StatsData } from '@/types/app';
 
 import StatsItems from '../../shared/StatsItems/StatsItems';
 

@@ -1,5 +1,5 @@
 import Section from '@/components/layout/Section/Section';
-import { StatsData } from '@/types/pages/landing';
+import { StatsData } from '@/types/app';
 
 import StatsItems from '../../shared/StatsItems/StatsItems';
 
