@@ -1,0 +1,5 @@
+environment_name                = "p"
+environment_label               = "prod"
+gcp_project                     = "cherubim-auction-p-45foka"
+gitlab_project                  = "validitylabs/projects/cherubim/cherubim-landingpage"
+domain                          = "cherubsdao.com"
