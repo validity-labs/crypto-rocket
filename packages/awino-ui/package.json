@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "node ./scripts/env-check.js && next start",
     "type-check": "tsc",
     "test": "jest",
     "test:unit": "TZ=UTC jest",

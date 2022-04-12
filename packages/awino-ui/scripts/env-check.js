@@ -3,7 +3,7 @@ const isURL = require('validator/lib/isURL');
 const yup = require('yup');
 
 // only for test purposes install dotenv for this
-// require('dotenv').config({ path: '../../../config/awino-ui/.env.development' })
+// require('dotenv').config({ path: '../../../extra/config/awino-ui/.env.development' })
 
 const envValidator = {
   prepare() {
