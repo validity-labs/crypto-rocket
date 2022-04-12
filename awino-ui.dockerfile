@@ -25,7 +25,7 @@ ENV CHOKIDAR_USEPOLLING=true
 
 WORKDIR /src
 
-CMD npm install && npm run dev -- --port $PORT
+CMD npm install --legacy-peer-deps && npm run dev -- --port $PORT
 
 # -- BASE STAGE --------------------------------
 
