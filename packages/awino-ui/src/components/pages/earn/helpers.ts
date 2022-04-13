@@ -5,7 +5,7 @@ export const handleTransactionSubmit = () => {
   // TODO PROROTYPE
   let resError = 0;
 
-  return async (balance: number, setStep, dispatch, t) => {
+  return async (balance: number, setStep, dispatch, t, i18nKey) => {
     if (!(balance > 0)) {
       setStep({ type: 'invalid' });
       return;
@@ -13,7 +13,7 @@ export const handleTransactionSubmit = () => {
     setStep({ type: 'confirmation' });
     dispatch(
       showMessage({
-        message: t('vest-card.confirm'),
+        message: t(`${i18nKey}.confirm`),
         alertProps: {
           severity: 'info',
         },
@@ -29,7 +29,7 @@ export const handleTransactionSubmit = () => {
       setStep({ type: 'error' });
       dispatch(
         showMessage({
-          message: t('vest-card.error'),
+          message: t(`${i18nKey}.error`),
           alertProps: {
             severity: 'error',
           },
@@ -41,7 +41,7 @@ export const handleTransactionSubmit = () => {
       // callback();
       dispatch(
         showMessage({
-          message: t('vest-card.success'),
+          message: t(`${i18nKey}.success`),
           alertProps: {
             severity: 'success',
           },

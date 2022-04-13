@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { earnLiquidityStakingStats } from '@/fixtures/earn-liquidity-staking';
+import { earnLiquidityStakingStats } from '@/fixtures/earn';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 

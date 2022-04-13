@@ -12,6 +12,7 @@ export const mainMenuLinks: MenuItemType[] = [
     items: [
       { type: 'internal', key: 'deposit', url: '/earn/deposit' },
       { type: 'internal', key: 'liquidity-staking', url: '/earn/liquidity-staking' },
+      { type: 'internal', key: 'manage-awino', url: '/earn/manage-awino' },
     ],
   },
   {

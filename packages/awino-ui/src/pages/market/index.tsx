@@ -7,7 +7,7 @@ import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
 import AssetSection from '@/components/pages/market/AssetSection/AssetSection';
-import StatsSection from '@/components/pages/market/StatsSection/StatsSection';
+import StatsSection from '@/components/pages/shared/StatsSection/StatsSection';
 
 const stats = [
   { value: 89.7, subvalue: 24.72 },

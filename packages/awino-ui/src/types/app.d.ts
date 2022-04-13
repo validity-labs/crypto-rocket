@@ -22,6 +22,7 @@ export type I18nPageNamespace =
   | 'earn-deposit'
   | 'earn-deposit-details'
   | 'earn-liquidity-staking'
+  | 'earn-manage-awino'
   | 'borrow'
   | 'borrow-details'
   | 'swap'
@@ -124,8 +125,13 @@ export type MarketTypeInfo = Record<
   }
 >;
 
-interface StatsDataItem {
+export interface StatsDataItem {
   value: number;
   subvalue?: number;
+  subValues?: number[];
 }
+
 export type StatsData = StatsDataItem[];
+
+type FormatterMethod = (a: any) => string;
+export type StatsFormatter = { value: FormatterMethod; subValues?: FormatterMethod[] };

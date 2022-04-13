@@ -25,12 +25,13 @@ const getColumns = (t: TFunction): GridColDef[] => {
       renderHeader: (/* params: GridColumnHeaderParams */) => {
         return (
           <div className="MuiDataGrid-columnHeaderTitle">
-            <Trans
-              as={Typography}
-              i18nKey="asset-section.fields.available-to-borrow"
-              t={t}
-              components={{ hint: <span key="span" className="hint" /> }}
-            />
+            <Typography>
+              <Trans
+                i18nKey="asset-section.fields.available-to-borrow"
+                t={t}
+                components={{ hint: <span key="span" className="hint" /> }}
+              />
+            </Typography>
           </div>
         );
       },

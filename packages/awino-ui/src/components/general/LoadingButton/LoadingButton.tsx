@@ -1,5 +1,7 @@
 import React from 'react';
 
+import clsx from 'clsx';
+
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 import { Button, ButtonProps, CircularProgress } from '@mui/material';
 interface Props extends ButtonProps {
@@ -10,12 +12,13 @@ interface Props extends ButtonProps {
 }
 
 const LoadingButton = React.forwardRef<HTMLButtonElement, Props>(function LoadingButtonInner(
-  { disabled = false, loading = false, done = false, once = false, children, ...restOfProps },
+  { className, disabled = false, loading = false, done = false, once = false, children, ...restOfProps },
   ref
 ) {
   return (
     <Button
       ref={ref}
+      className={clsx(className, 'AwiLoadingButton-root')}
       {...restOfProps}
       disabled={disabled || loading || (once && done)}
       sx={{ display: 'flex', alignItems: 'center' }}

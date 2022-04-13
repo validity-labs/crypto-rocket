@@ -66,7 +66,7 @@ const themeCreator = (mode: PaletteMode) => {
             },
             background: {
               dark: '#0e193c',
-              darker: '#10172b',
+              darker: '#12191F',
               main: '#002433',
               light: '#093143',
               lighter: '#f7f9ff',

@@ -50,7 +50,9 @@
     "filter-by-name": "Filter by name",
     "select-token": "Choose token",
     "convertion-from-to": "Convert from {{from}} to {{to}}",
-    "close-modal": "Close Modal"
+    "close-modal": "Close Modal",
+    "max": "Max",
+    "view-on-etherscan": "View on etherscan"
   },
   "format": {
     "date": "dd-MM-yyyy",
@@ -77,7 +79,8 @@
       "earn": {
         "title": "Earn",
         "deposit": "Deposit",
-        "liquidity-staking": "Liquidity Staking"
+        "liquidity-staking": "Liquidity Staking",
+        "manage-awino": "Manage AWINO"
       },
       "borrow": {
         "title": "Borrow"

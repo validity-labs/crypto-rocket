@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OperationSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-md-4 css-3"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-4"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-2"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-6 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md css-9"
+                    >
+                      earn-manage-awino:stats-section.items.0.title
+                    </span>
+                  </h2>
+                  <p
+                    class="MuiTypography-root MuiTypography-body-sm css-10"
+                  >
+                    earn-manage-awino:stats-section.items.0.sub-values.0
+                  </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-body-sm css-10"
+                  >
+                    earn-manage-awino:stats-section.items.0.sub-values.1
+                  </p>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-6 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md css-9"
+                    >
+                      earn-manage-awino:stats-section.items.1.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-6 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md css-9"
+                    >
+                      earn-manage-awino:stats-section.items.2.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-6 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md css-9"
+                    >
+                      earn-manage-awino:stats-section.items.3.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-6 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md css-9"
+                    >
+                      earn-manage-awino:stats-section.items.4.title
+                    </span>
+                  </h2>
+                  <p
+                    class="MuiTypography-root MuiTypography-body-sm css-10"
+                  >
+                    earn-manage-awino:stats-section.items.4.sub-values.0
+                  </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-body-sm css-10"
+                  >
+                    earn-manage-awino:stats-section.items.4.sub-values.1
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-md-3 css-30"
+        >
+          <div
+            class="css-31"
+          >
+            <div
+              class="AwiStakeCard-header"
+            >
+              <div
+                class="AwiStakeCard-headerTop"
+              >
+                <h2
+                  class="MuiTypography-root MuiTypography-h7 css-32"
+                >
+                  earn-manage-awino:stake-card.title
+                </h2>
+                <p
+                  class="MuiTypography-root MuiTypography-body-xs AwiStakeCard-apr css-33"
+                >
+                  earn-manage-awino:common:common.apr 
+                  <span>
+                    39.17 %
+                  </span>
+                </p>
+              </div>
+              <p
+                class="MuiTypography-root MuiTypography-body css-34"
+              >
+                earn-manage-awino:stake-card.description
+              </p>
+            </div>
+            <div
+              class="AwiStakeCard-content"
+            >
+              <div
+                class="AwiStakeCard-walletBalance"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-35"
+                >
+                  earn-manage-awino:stake-card.wallet-balance
+                </p>
+                <p
+                  class="MuiTypography-root MuiTypography-body AwiStakeCard-walletBalanceValue css-36"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-body css-37"
+                  >
+                    99.99  GEIST
+                  </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-body-sm css-38"
+                  >
+                    199  USD
+                  </span>
+                </p>
+              </div>
+              <div
+                class="MuiFormControl-root MuiFormControl-fullWidth css-39"
+              >
+                <div
+                  class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd AwiStakeCard-input css-40"
+                >
+                  <img
+                    alt=""
+                    height="30"
+                    src="/images/assets/geist.svg"
+                    width="30"
+                  />
+                  <input
+                    aria-describedby="assetValueHelperText"
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-41"
+                    id="assetValue"
+                    inputmode="numeric"
+                    name="assetValue"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiStakeCard-max css-42"
+                    tabindex="0"
+                    type="button"
+                  >
+                    earn-manage-awino:common:common.max
+                    <span
+                      class="MuiTouchRipple-root css-43"
+                    />
+                  </button>
+                </div>
+              </div>
+              <button
+                class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root AwiStakeCard-submit AwiLoadingButton-root css-44"
+                tabindex="0"
+                type="button"
+              >
+                earn-manage-awino:stake-card.submit
+                <span
+                  class="MuiTouchRipple-root css-43"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-md-3 css-30"
+        >
+          <div
+            class="css-47"
+          >
+            <div
+              class="AwiLockCard-header"
+            >
+              <div
+                class="AwiLockCard-headerTop"
+              >
+                <h2
+                  class="MuiTypography-root MuiTypography-h7 css-32"
+                >
+                  earn-manage-awino:lock-card.title
+                </h2>
+                <p
+                  class="MuiTypography-root MuiTypography-body-xs AwiLockCard-apr css-33"
+                >
+                  earn-manage-awino:common:common.apr 
+                  <span>
+                    39.17 %
+                  </span>
+                </p>
+              </div>
+              <p
+                class="MuiTypography-root MuiTypography-body css-34"
+              >
+                earn-manage-awino:lock-card.description
+              </p>
+            </div>
+            <div
+              class="AwiLockCard-content"
+            >
+              <div
+                class="AwiLockCard-walletBalance"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-35"
+                >
+                  earn-manage-awino:lock-card.wallet-balance
+                </p>
+                <p
+                  class="MuiTypography-root MuiTypography-body AwiLockCard-walletBalanceValue css-36"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-body css-37"
+                  >
+                    99.99  GEIST
+                  </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-body-sm css-38"
+                  >
+                    199  USD
+                  </span>
+                </p>
+              </div>
+              <div
+                class="MuiFormControl-root MuiFormControl-fullWidth css-39"
+              >
+                <div
+                  class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd AwiLockCard-input css-40"
+                >
+                  <img
+                    alt=""
+                    height="30"
+                    src="/images/assets/geist.svg"
+                    width="30"
+                  />
+                  <input
+                    aria-describedby="assetValueHelperText"
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-41"
+                    id="assetValue"
+                    inputmode="numeric"
+                    name="assetValue"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiLockCard-max css-42"
+                    tabindex="0"
+                    type="button"
+                  >
+                    earn-manage-awino:common:common.max
+                    <span
+                      class="MuiTouchRipple-root css-43"
+                    />
+                  </button>
+                </div>
+              </div>
+              <button
+                class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root AwiLockCard-submit AwiLoadingButton-root css-44"
+                tabindex="0"
+                type="button"
+              >
+                earn-manage-awino:lock-card.submit
+                <span
+                  class="MuiTouchRipple-root css-43"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

@@ -79,7 +79,8 @@
       "earn": {
         "title": "Earn",
         "deposit": "Deposit",
-        "liquidity-staking": "Liquidity Staking"
+        "liquidity-staking": "Liquidity Staking",
+        "manage-awino": "Manage AWINO"
       },
       "borrow": {
         "title": "Borrow"

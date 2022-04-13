@@ -11,8 +11,8 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAWI } from '@/lib/formatters';
 import { etherscan } from '@/lib/helpers';
 
-import { handleTransactionSubmit } from '../helpers';
-import { useTransaction } from '../useTransaction';
+import { handleTransactionSubmit } from '../../helpers';
+import { useTransaction } from '../../useTransaction';
 
 const Root = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -47,17 +47,17 @@ export default function UnstakeCard({ balance, ...restOfProps }: Props) {
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
   const handleSubmit = useCallback(async () => {
-    await handleTransaction(balance, setStep, dispatch, t);
+    await handleTransaction(balance, setStep, dispatch, t, 'unstake-card');
   }, [balance, setStep, dispatch, t, handleTransaction]);
 
   const isDisabled = balance <= 0;
 
   return (
     <Root {...restOfProps}>
-      <Typography className="AwiUnstakeCard-balance">
+      <div className="AwiUnstakeCard-balance">
         <SwappingImage source="awi" target="usdt" path="assets" />
-        {formatAWI(balance)}
-      </Typography>
+        <Typography>{formatAWI(balance)}</Typography>
+      </div>
       <Typography variant="body-sm" mb={8}>
         {t('unstake-card.subtitle')}
       </Typography>

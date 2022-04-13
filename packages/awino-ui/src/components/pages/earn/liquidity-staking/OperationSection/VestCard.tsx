@@ -11,8 +11,8 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAWI } from '@/lib/formatters';
 import { etherscan } from '@/lib/helpers';
 
-import { handleTransactionSubmit } from '../helpers';
-import { useTransaction } from '../useTransaction';
+import { handleTransactionSubmit } from '../../helpers';
+import { useTransaction } from '../../useTransaction';
 
 const Root = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -47,17 +47,17 @@ export default function VestCard({ balance }: Props) {
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
   const handleSubmit = useCallback(async () => {
-    await handleTransaction(balance, setStep, dispatch, t);
+    await handleTransaction(balance, setStep, dispatch, t, 'vest-card');
   }, [balance, setStep, dispatch, t, handleTransaction]);
 
   const isDisabled = balance <= 0;
 
   return (
     <Root>
-      <Typography className="AwiVestCard-balance">
+      <div className="AwiVestCard-balance">
         <SwappingImage source="awi" target="usdt" path="assets" />
-        {formatAWI(balance)}
-      </Typography>
+        <Typography>{formatAWI(balance)}</Typography>
+      </div>
       <Typography variant="body-sm" mb={8}>
         {t('vest-card.subtitle')}
       </Typography>

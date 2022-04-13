@@ -12,8 +12,8 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAWI } from '@/lib/formatters';
 import { etherscan } from '@/lib/helpers';
 
-import { handleTransactionSubmit } from '../helpers';
-import { useTransaction } from '../useTransaction';
+import { handleTransactionSubmit } from '../../helpers';
+import { useTransaction } from '../../useTransaction';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,10 +55,6 @@ const Root = styled('div')(({ theme }) => ({
   '.AwiStakeCard-submit': {
     margin: '0 0 0 auto',
   },
-  '.AwiSwappingImage-source, .AwiSwappingImage-target': {
-    width: 30,
-    height: 30,
-  },
   '.AwiStakeCard-max': {
     padding: theme.spacing(1, 3),
     border: `1px solid ${theme.palette.text.secondary}`,
@@ -93,7 +89,7 @@ export default function StakeCard({ balance }: Props) {
       setStep({ type: 'invalid' });
       return;
     }
-    await handleTransaction(balance, setStep, dispatch, t);
+    await handleTransaction(balance, setStep, dispatch, t, 'stake-card');
   }, [assetValue, balance, setStep, dispatch, t, handleTransaction]);
 
   const handleAssetValueMax = () => {
@@ -120,7 +116,7 @@ export default function StakeCard({ balance }: Props) {
           value={assetValue}
           onChange={handleAssetValueChange}
           aria-describedby="assetValueHelperText"
-          startAdornment={<SwappingImage source="awi" target="usdt" path="assets" />}
+          startAdornment={<SwappingImage source="awi" target="usdt" path="assets" size="small" />}
           endAdornment={
             <Button variant="outlined" onClick={handleAssetValueMax} className="AwiStakeCard-max">
               {t('common:common.max')}

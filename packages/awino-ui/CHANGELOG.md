@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-04-13
+
+### Added
+
+- Added earn manage awino page
+
 ## [0.0.0] - 2022-04-12
 
 ### Changed

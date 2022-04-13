@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ClaimSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="AwiPanel-root MuiBox-root css-2"
+      >
+        <div
+          class="AwiPanel-content content"
+        >
+          <div
+            class="MuiTableContainer-root css-3"
+          >
+            <table
+              class="MuiTable-root css-4"
+              width="100"
+            >
+              <tbody
+                class="MuiTableBody-root css-5"
+              >
+                <tr
+                  class="MuiTableRow-root css-6"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="60%"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-8"
+                    >
+                      earn-manage-awino:claim-section.unlocked-awi.title
+                    </p>
+                    <p
+                      class="MuiTypography-root MuiTypography-body-sm css-9"
+                    >
+                      claim-section.unlocked-awi.description
+                    </p>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  >
+                    <div
+                      class="Awi-row"
+                    >
+                      <img
+                        alt=""
+                        class="AwiClaimSection-geist"
+                        height="30"
+                        src="/images/assets/geist.svg"
+                        width="30"
+                      />
+                      <p
+                        class="MuiTypography-root MuiTypography-body css-11"
+                      >
+                        100  GEIST
+                      </p>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  >
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiClaimSection css-13"
+                      tabindex="0"
+                      type="button"
+                    >
+                      earn-manage-awino:claim-section.claim-awi
+                      <span
+                        class="MuiTouchRipple-root css-14"
+                      />
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-6"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="60%"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-8"
+                    >
+                      earn-manage-awino:claim-section.vesting-awi.title
+                    </p>
+                    <p
+                      class="MuiTypography-root MuiTypography-body-sm css-9"
+                    >
+                      claim-section.vesting-awi.description
+                    </p>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  >
+                    <div
+                      class="Awi-row"
+                    >
+                      <img
+                        alt=""
+                        class="AwiClaimSection-geist"
+                        height="30"
+                        src="/images/assets/geist.svg"
+                        width="30"
+                      />
+                      <p
+                        class="MuiTypography-root MuiTypography-body css-11"
+                      >
+                        100  GEIST
+                      </p>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  />
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-6"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="60%"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-8"
+                    >
+                      earn-manage-awino:claim-section.claim-all.title
+                    </p>
+                    <p
+                      class="MuiTypography-root MuiTypography-body-sm css-9"
+                    >
+                      claim-section.claim-all.description - {"v":"100.99  AWI"}
+                    </p>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  >
+                    <div
+                      class="Awi-row"
+                    >
+                      <img
+                        alt=""
+                        class="AwiClaimSection-geist"
+                        height="30"
+                        src="/images/assets/geist.svg"
+                        width="30"
+                      />
+                      <p
+                        class="MuiTypography-root MuiTypography-body css-11"
+                      >
+                        50  GEIST
+                      </p>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  >
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiClaimSection css-13"
+                      tabindex="0"
+                      type="button"
+                    >
+                      earn-manage-awino:claim-section.claim-awi
+                      <span
+                        class="MuiTouchRipple-root css-14"
+                      />
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-6"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="60%"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-8"
+                    >
+                      earn-manage-awino:claim-section.expired-locked-awi.title
+                    </p>
+                    <p
+                      class="MuiTypography-root MuiTypography-body-sm css-9"
+                    >
+                      claim-section.expired-locked-awi.description
+                    </p>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  >
+                    <div
+                      class="Awi-row"
+                    >
+                      <img
+                        alt=""
+                        class="AwiClaimSection-geist"
+                        height="30"
+                        src="/images/assets/geist.svg"
+                        width="30"
+                      />
+                      <p
+                        class="MuiTypography-root MuiTypography-body css-11"
+                      >
+                        100  GEIST
+                      </p>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-7"
+                    width="20%"
+                  >
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiClaimSection css-13"
+                      tabindex="0"
+                      type="button"
+                    >
+                      earn-manage-awino:claim-section.claim-awi
+                      <span
+                        class="MuiTouchRipple-root css-14"
+                      />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

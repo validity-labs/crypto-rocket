@@ -3,20 +3,65 @@
     "title": "Earn liquidity staking",
     "description": "MISSING DESCRIPTION"
   },
-  "asset-section": {
-    "title": "Staking AWI",
-    "title-hint": "MISSING TEXT",
-    "you-staked": "You staked",
-    "total-collateral": "Total collateral",
-    "loan-to-value": "Loan to value",
-    "your-share": "Your share",
-    "your-daily-revenue": {
-      "title": "Your daily revenue",
-      "hint": "MISSING TEXT"
-    },
-    "your-weekly-revenue": {
-      "title": "Your weekly revenue",
-      "hint": "MISSING TEXT"
-    }
+  "brief-section": {
+    "title": "Stake AWI tokens",
+    "description": "Provide AWI liquidity and stake the LP token here to earn more AWI."
+  },
+  "stats-section": {
+    "items": [
+      {
+        "title": "Your staked AWI",
+        "value": "{{v}} USD"
+      },
+      {
+        "title": "Your share",
+        "value": "{{v}} %"
+      },
+      {
+        "title": "Your daily revenue",
+        "value": "{{v}} USD"
+      }
+    ]
+  },
+  "details-section": {
+    "title": "Staking details",
+    "staking-apr": "Staking APR",
+    "total-rewards-per-day": "Total rewards per day",
+    "lp-token-price": "LP token price",
+    "total-rewards-per-week": "Total rewards per week",
+    "total-lp-tokens-staked": "Total LP tokens staked"
+  },
+  "operation-section": {
+    "confirm": "Please confirm the transaction. ☝",
+    "error": "Transaction failed.",
+    "error-hint": "Transaction failed. Try again later.",
+    "success": "Transaction broadcast."
+  },
+  "stake-card": {
+    "title": "How much would you like to stake?",
+    "description": "Provide AWI liquidity and stake the LP token here to earn more AWI.",
+    "available-to-stake": "Available to stake",
+    "stake": "Stake",
+    "invalid-input": "Invalid amount specified.",
+    "confirm": "$t(operation-section.confirm)",
+    "error": "$t(operation-section.error)",
+    "error-hint": "$t(operation-section.error-hint)",
+    "success": "$t(operation-section.success)"
+  },
+  "unstake-card": {
+    "subtitle": "Staked",
+    "submit": "Unstake",
+    "confirm": "$t(operation-section.confirm)",
+    "error": "$t(operation-section.error)",
+    "error-hint": "$t(operation-section.error-hint)",
+    "success": "$t(operation-section.success)"
+  },
+  "vest-card": {
+    "subtitle": "Vestable",
+    "submit": "Vest",
+    "confirm": "$t(operation-section.confirm)",
+    "error": "$t(operation-section.error)",
+    "error-hint": "$t(operation-section.error-hint)",
+    "success": "$t(operation-section.success)"
   }
 }

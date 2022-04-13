@@ -81,7 +81,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
               </span>
             </p>
             <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiStakeCard-submit css-14"
+              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiStakeCard-submit AwiLoadingButton-root css-14"
               tabindex="0"
               type="button"
             >
@@ -98,33 +98,37 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
           <div
             class="MuiBox-root css-17"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body AwiUnstakeCard-balance css-13"
-            />
             <div
-              class="MuiBox-root css-9"
-              title="common.convertion-from-to"
+              class="AwiUnstakeCard-balance"
             >
-              <img
-                alt=""
-                class="source AwiSwappingImage-source"
-                src="/images/assets/awi.svg"
-              />
-              <img
-                alt=""
-                class="target AwiSwappingImage-target"
-                src="/images/assets/usdt.svg"
-              />
+              <div
+                class="MuiBox-root css-9"
+                title="common.convertion-from-to"
+              >
+                <img
+                  alt=""
+                  class="source AwiSwappingImage-source"
+                  src="/images/assets/awi.svg"
+                />
+                <img
+                  alt=""
+                  class="target AwiSwappingImage-target"
+                  src="/images/assets/usdt.svg"
+                />
+              </div>
+              <p
+                class="MuiTypography-root MuiTypography-body css-13"
+              >
+                99.99  AWI
+              </p>
             </div>
-            99.99  AWI
-            <p />
             <p
               class="MuiTypography-root MuiTypography-body-sm css-20"
             >
               earn-liquidity-staking:unstake-card.subtitle
             </p>
             <button
-              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-21"
+              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiLoadingButton-root css-21"
               tabindex="0"
               type="button"
             >
@@ -137,33 +141,37 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
           <div
             class="css-23"
           >
-            <p
-              class="MuiTypography-root MuiTypography-body AwiVestCard-balance css-13"
-            />
             <div
-              class="MuiBox-root css-9"
-              title="common.convertion-from-to"
+              class="AwiVestCard-balance"
             >
-              <img
-                alt=""
-                class="source AwiSwappingImage-source"
-                src="/images/assets/awi.svg"
-              />
-              <img
-                alt=""
-                class="target AwiSwappingImage-target"
-                src="/images/assets/usdt.svg"
-              />
+              <div
+                class="MuiBox-root css-9"
+                title="common.convertion-from-to"
+              >
+                <img
+                  alt=""
+                  class="source AwiSwappingImage-source"
+                  src="/images/assets/awi.svg"
+                />
+                <img
+                  alt=""
+                  class="target AwiSwappingImage-target"
+                  src="/images/assets/usdt.svg"
+                />
+              </div>
+              <p
+                class="MuiTypography-root MuiTypography-body css-13"
+              >
+                99.99  AWI
+              </p>
             </div>
-            99.99  AWI
-            <p />
             <p
               class="MuiTypography-root MuiTypography-body-sm css-20"
             >
               earn-liquidity-staking:vest-card.subtitle
             </p>
             <button
-              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-21"
+              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiLoadingButton-root css-21"
               tabindex="0"
               type="button"
             >

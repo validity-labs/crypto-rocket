@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { earnLiquidityStakingDetails, earnLiquidityStakingStats } from '@/fixtures/earn';
+import { earnManageAwinoClaim } from '@/fixtures/earn';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import DetailsSection from './DetailsSection';
+import ClaimSection from './ClaimSection';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -17,13 +17,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<DetailsSection />', () => {
+describe('<ClaimSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(
-      <DetailsSection loading={false} data={earnLiquidityStakingDetails} />,
-      {},
-      'earn-liquidity-staking'
-    );
+    const { asFragment } = render(<ClaimSection data={earnManageAwinoClaim} />, {}, 'earn-manage-awino');
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -13,7 +13,7 @@ import DetailsSection, {
 import OperationSection, {
   LiquidityStakingOperationBalance as OperationBalance,
 } from '@/components/pages/earn/liquidity-staking/OperationSection/OperationSection';
-import { earnLiquidityStakingDetails, earnLiquidityStakingStats } from '@/fixtures/earn-liquidity-staking';
+import { earnLiquidityStakingDetails, earnLiquidityStakingStats } from '@/fixtures/earn';
 import { sleep } from '@/lib/helpers';
 import { StatsData } from '@/types/app';
 

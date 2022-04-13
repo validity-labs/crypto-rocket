@@ -135,7 +135,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               class="AwiSwapPanel-aside"
             >
               <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled AwiLoadingButton-root css-21"
                 disabled=""
                 tabindex="-1"
                 type="button"
@@ -414,7 +414,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               class="AwiZapPanel-aside"
             >
               <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled AwiLoadingButton-root css-21"
                 disabled=""
                 tabindex="-1"
                 type="button"

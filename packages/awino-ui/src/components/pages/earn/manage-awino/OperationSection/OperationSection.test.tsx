@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { earnLiquidityStakingDetails, earnLiquidityStakingStats } from '@/fixtures/earn';
+import { earnManageAwinoLock, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
+import { statsFormatters } from '@/pages/earn/manage-awino';
 import { cleanup, render } from '@/testing/utils';
 
 import OperationSection from './OperationSection';
@@ -19,7 +20,16 @@ afterEach(cleanup);
 
 describe('<OperationSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<OperationSection balance={{ awi: 99.99 }} />, {}, 'earn-liquidity-staking');
+    const { asFragment } = render(
+      <OperationSection
+        statItems={earnManageAwinoStats}
+        stake={earnManageAwinoStake}
+        lock={earnManageAwinoLock}
+        statFormatters={statsFormatters}
+      />,
+      {},
+      'earn-manage-awino'
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
