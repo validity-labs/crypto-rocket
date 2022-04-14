@@ -19,6 +19,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { RowsState } from '@/types/app';
 
 import getColumns from './columns';
+import OperationModal, { OperationModalData } from './OperationModal';
 
 // interface Props {
 //   total: TotalAssetSize;
@@ -30,6 +31,7 @@ export default function AssetSection(/* { total }: Props */) {
   // const { connected } = useAppSelector((state) => ({
   //   connected: state.account.connected,
   // }));
+  const [operationModal, setOperationModal] = useState<OperationModalData | null>(null);
   const [toggle, setToggle] = useState(false);
   const [term, setTerm] = useState<string>('');
   const columns = useMemo(() => {
@@ -92,68 +94,90 @@ export default function AssetSection(/* { total }: Props */) {
     [term]
   );
 
-  const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback(
-    (props) => {
-      router.push(`/borrow/${props.row.asset}`);
-    },
-    [router]
-  );
+  // const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback(
+  //   (props) => {
+  //     router.push(`/borrow/${props.row.asset}`);
+  //   },
+  //   [router]
+  // );
+
+  const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback((props) => {
+    const { asset, enabled } = props.row;
+    setOperationModal({ asset, enabled });
+  }, []);
+
   return (
-    <Section>
-      <Panel
-        header={
-          <>
-            <Label id="marketTotalSize" className="label" tooltip={t(`asset-section.title-hint`)}>
-              {t(`asset-section.title`)}
-            </Label>
-            <div className="aside">
-              <Switch checked={toggle} setChecked={setToggle} sx={{ mr: 4.5 }} title={t(`asset-section.toggle-hint`)} />
-              <Search onSearch={handleSearch} />
-            </div>
-          </>
-        }
-      >
-        {/* {connected ? ( */}
-        <div className="table-container">
-          <DataGrid
-            loading={loading}
-            columns={columns}
-            disableColumnMenu
-            disableColumnFilter
-            disableSelectionOnClick
-            disableColumnSelector
-            rowHeight={66}
-            rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
-            // rows
-            rows={rows}
-            rowCount={rowCountState}
-            onRowClick={handleRowClick}
-            // sorting
-            sortingMode="server"
-            sortModel={sortModel}
-            onSortModelChange={handleSortModelChange}
-            // pagination
-            paginationMode="server"
-            {...rowsState}
-            onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
-            onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
-            components={{
-              Pagination: GridPagination,
-            }}
-            localeText={{
-              columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
-              footerTotalVisibleRows: (visibleCount, totalCount) =>
-                t('common.table.rows-out-of', {
-                  visibleCount: visibleCount.toLocaleString(),
-                  totalCount: totalCount.toLocaleString() + '1',
-                }),
-            }}
-          />
-        </div>
-        {/* ) : (
+    <>
+      <Section>
+        <Panel
+          header={
+            <>
+              <Label
+                id="marketTotalSize"
+                tooltip={t(`asset-section.title-hint`)}
+                variant="h4"
+                component="h2"
+                color="text.active"
+              >
+                {t(`asset-section.title`)}
+              </Label>
+              <div className="aside">
+                <Switch
+                  checked={toggle}
+                  setChecked={setToggle}
+                  sx={{ mr: 4.5 }}
+                  title={t(`asset-section.toggle-hint`)}
+                />
+                <Search onSearch={handleSearch} />
+              </div>
+            </>
+          }
+        >
+          {/* {connected ? ( */}
+          <div className="table-container">
+            <DataGrid
+              loading={loading}
+              columns={columns}
+              disableColumnMenu
+              disableColumnFilter
+              disableSelectionOnClick
+              disableColumnSelector
+              rowHeight={66}
+              rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
+              // rows
+              rows={rows}
+              rowCount={rowCountState}
+              onRowClick={handleRowClick}
+              // sorting
+              sortingMode="server"
+              sortModel={sortModel}
+              onSortModelChange={handleSortModelChange}
+              // pagination
+              paginationMode="server"
+              {...rowsState}
+              onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
+              onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
+              components={{
+                Pagination: GridPagination,
+              }}
+              localeText={{
+                columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
+                footerTotalVisibleRows: (visibleCount, totalCount) =>
+                  t('common.table.rows-out-of', {
+                    visibleCount: visibleCount.toLocaleString(),
+                    totalCount: totalCount.toLocaleString() + '1',
+                  }),
+              }}
+            />
+          </div>
+          {/* ) : (
             <ConnectPanel />
           )} */}
-      </Panel>
-    </Section>
+        </Panel>
+      </Section>
+      {!!operationModal && (
+        <OperationModal open={!!operationModal} close={() => setOperationModal(null)} data={operationModal} />
+      )}
+    </>
   );
 }

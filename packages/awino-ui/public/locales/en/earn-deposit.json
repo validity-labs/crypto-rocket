@@ -36,7 +36,6 @@
   },
   "operation-modal": {
     "operation-switch-hint": "Switch between supply and withdraw operations",
-    "max": "MAX",
     "supply-rates": "Supply rates",
     "supply-apy": "Supply APY",
     "distribution-apy": "Distribution APY",

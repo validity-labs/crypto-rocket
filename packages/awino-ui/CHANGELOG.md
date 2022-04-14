@@ -24,6 +24,7 @@ Date format: `YYYY-MM-DD`
 
 - Changed portfolio page
 - Changed contracts page
+- Changed borrow page
 
 ## [0.0.0] - 2022-04-13
 

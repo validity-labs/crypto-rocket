@@ -37,8 +37,12 @@ const getColumns = (t: TFunction): GridColDef[] => {
       },
     },
     {
-      field: 'borrowAPY',
-      i18nKey: 'borrow-apy',
+      field: 'apy',
+      sortable: true,
+      valueFormatter: formatGridPercent,
+    },
+    {
+      field: 'utilization',
       sortable: true,
       valueFormatter: formatGridPercent,
     },

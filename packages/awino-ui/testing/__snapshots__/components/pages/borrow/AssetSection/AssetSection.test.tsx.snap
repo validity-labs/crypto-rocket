@@ -14,8 +14,8 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
         <div
           class="AwiPanel-header header"
         >
-          <h6
-            class="MuiTypography-root MuiTypography-h7 AwiLabel-root label css-3"
+          <h2
+            class="MuiTypography-root MuiTypography-h4 AwiLabel-root css-3"
             id="marketTotalSize"
           >
             earn-deposit:asset-section.title
@@ -42,7 +42,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 />
               </svg>
             </span>
-          </h6>
+          </h2>
           <div
             class="aside"
           >
@@ -105,7 +105,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             class="table-container"
           >
             <div
-              aria-colcount="3"
+              aria-colcount="4"
               aria-multiselectable="false"
               aria-rowcount="0"
               class="MuiDataGrid-root css-14"
@@ -301,7 +301,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     <div
                       aria-colindex="3"
                       class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
-                      data-field="borrowAPY"
+                      data-field="apy"
                       role="columnheader"
                       style="width: 0px; min-width: 0; max-width: 0;"
                       tabindex="-1"
@@ -321,7 +321,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                               class="MuiDataGrid-columnHeaderTitle css-22"
                               data-mui-internal-clone-element="true"
                             >
-                              earn-deposit:asset-section.fields.borrow-apy
+                              earn-deposit:asset-section.fields.apy
                             </div>
                           </div>
                           <div

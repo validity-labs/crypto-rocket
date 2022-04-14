@@ -72,7 +72,9 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
     id: index,
     asset: assets[index % 5],
     availableToBorrow: nextValue(),
-    borrowAPY: nextValue(),
+    apy: nextValue(),
+    utilization: nextValue(),
+    enabled: index % 2 === 0,
     ...m,
   })) as GridRowsProp,
   'borrow-details': new Array(20)

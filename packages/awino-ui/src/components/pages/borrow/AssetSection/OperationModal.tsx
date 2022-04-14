@@ -2,7 +2,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
-import { isEmpty } from 'lodash';
 
 import CloseIcon from '@mui/icons-material/CloseRounded';
 import { Modal, Typography, Container, IconButton, Button } from '@mui/material';
@@ -205,11 +204,11 @@ interface Props {
   data: OperationModalData;
 }
 
-type OperationType = 'supply' | 'withdraw';
+type OperationType = 'repay' | 'borrow';
 
 interface AssetBalance {
   walletBalance: number;
-  supplyBalance: number;
+  borrowBalance: number;
 }
 
 // TODO PROROTYPE
@@ -220,7 +219,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
   const dispatch = useAppDispatch();
   const [transactionAddress, setTransactionAddress] = useState<string | null>(null);
 
-  const [operationType, setOperationType] = useState<OperationType>('supply');
+  const [operationType, setOperationType] = useState<OperationType>('borrow');
   const [operationAmount, setOperationAmount] = useState<number | undefined>();
 
   const [operationBorrow, setOperationBorrow] = useState<{
@@ -233,20 +232,20 @@ export default function OperationModal({ open, close, data /* , info, callback  
 
   const [balance, setBalance] = useState<AssetBalance>({
     walletBalance: null,
-    supplyBalance: null,
+    borrowBalance: null,
   });
 
   const [apy, setAPY] = useState({
-    supply: 0,
+    borrow: 0,
     distribution: undefined,
   });
 
   const [step, setStep] = useState<{
-    supply: 'initial' | 'enable' | 'no-balance' | 'insufficient' | 'ready' | 'confirmation' | 'complete' | 'error';
-    withdraw: 'initial' | 'no-balance' | 'insufficient' | 'ready' | 'confirmation' | 'complete' | 'error';
+    repay: 'initial' | 'enable' | 'no-balance' | 'insufficient' | 'ready' | 'confirmation' | 'complete' | 'error';
+    borrow: 'initial' | 'no-balance' | 'insufficient' | 'ready' | 'confirmation' | 'complete' | 'error';
   }>({
-    supply: 'initial',
-    withdraw: 'initial',
+    repay: 'initial',
+    borrow: 'initial',
   });
 
   const { asset, enabled: isEnabled } = data;
@@ -257,12 +256,12 @@ export default function OperationModal({ open, close, data /* , info, callback  
       const newBalance = await new Promise<AssetBalance>((res) => {
         return res({
           walletBalance: 3.44,
-          supplyBalance: 0.98,
+          borrowBalance: 0.98,
         });
       });
 
       setAPY({
-        supply: 25.2,
+        borrow: 25.2,
         distribution: undefined,
       });
       setBalance(newBalance);
@@ -270,7 +269,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
   }, [asset]);
 
   useEffect(() => {
-    const validateSupply = () => {
+    const validateRepay = () => {
       if (!data.enabled) {
         return 'enable';
       }
@@ -287,14 +286,14 @@ export default function OperationModal({ open, close, data /* , info, callback  
       return 'ready';
     };
 
-    const validateWithdraw = () => {
-      const supplyBalance = balance.supplyBalance;
+    const validateBorrow = () => {
+      const borrowBalance = balance.borrowBalance;
 
-      if (supplyBalance <= 0) {
+      if (borrowBalance <= 0) {
         return 'no-balance';
       }
 
-      if (operationAmount > supplyBalance) {
+      if (operationAmount > borrowBalance) {
         return 'insufficient';
       }
 
@@ -302,16 +301,16 @@ export default function OperationModal({ open, close, data /* , info, callback  
     };
 
     setStep({
-      supply: validateSupply(),
-      withdraw: validateWithdraw(),
+      repay: validateRepay(),
+      borrow: validateBorrow(),
     });
   }, [operationAmount, balance, data]);
 
   useEffect(() => {
-    // const { current, unit, ratio } = borrowInfo[operationType];
+    // const { current, unit, ratio } = repayInfo[operationType];
     setOperationBorrow({
       borrowLimit: [1.03, operationAmount ? 1.03 * operationAmount : undefined],
-      borrowLimitUsed: [0, operationType === 'supply' ? undefined : operationAmount ? 13 : undefined],
+      borrowLimitUsed: [0, operationType === 'borrow' ? undefined : operationAmount ? 13 : undefined],
     });
   }, [operationType, operationAmount]);
 
@@ -362,9 +361,9 @@ export default function OperationModal({ open, close, data /* , info, callback  
     setOperationType(event.target.value);
   };
 
-  const [isSupplying, isWithdrawing] = [operationType === 'supply', operationType === 'withdraw'];
+  const [isRepaying, isBorrowing] = [operationType === 'repay', operationType === 'borrow'];
   const handleOperationAmountMaxClick = () => {
-    setOperationAmount(isSupplying ? balance.walletBalance : balance.supplyBalance);
+    setOperationAmount(isRepaying ? balance.walletBalance : balance.borrowBalance);
   };
 
   const handleOperationAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -372,8 +371,8 @@ export default function OperationModal({ open, close, data /* , info, callback  
     setOperationAmount(newValue);
   };
 
-  const { walletBalance, supplyBalance } = balance;
-  const operationBalance = isSupplying ? walletBalance : supplyBalance;
+  const { walletBalance, borrowBalance } = balance;
+  const operationBalance = isRepaying ? walletBalance : borrowBalance;
   const assetLabel = asset.toUpperCase();
   const isOperational =
     ['initial', 'no-balance', 'insufficient'].indexOf(step[operationType]) === -1 &&
@@ -407,15 +406,15 @@ export default function OperationModal({ open, close, data /* , info, callback  
           </div>
           <div className="AwiOperationModal-content">
             <div className="AwiOperationModal-top">
-              {isSupplying && !isEnabled && (
+              {isRepaying && !isEnabled && (
                 <div className="AwiOperationModal-enablePrompt">
                   <img src={`/images/assets/${asset}.svg`} alt="" width="60" height="60" />
                   <Typography variant="body-md" color="text.primary">
-                    {t(`operation-modal.supply.enable-prompt`)}
+                    {t(`operation-modal.repay.enable-prompt`)}
                   </Typography>
                 </div>
               )}
-              {(isEnabled || isWithdrawing) && (
+              {(isEnabled || isBorrowing) && (
                 <NumberInput
                   id="operationAmount"
                   name="operationAmount"
@@ -431,7 +430,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
                   onChange={handleOperationAmountChange}
                   endAdornment={
                     <Button variant="text" size="small" onClick={handleOperationAmountMaxClick}>
-                      {t('common:common.max')}
+                      {t(isBorrowing ? 'operation-modal.borrow.limit' : 'common:common.max', { p: 80 })}
                     </Button>
                   }
                 />
@@ -441,26 +440,26 @@ export default function OperationModal({ open, close, data /* , info, callback  
               <Button
                 variant="text"
                 disabled={isProcessing}
-                value="supply"
-                className={clsx({ 'Mui-selected': isSupplying })}
+                value="borrow"
+                className={clsx({ 'Mui-selected': isBorrowing })}
                 onClick={handleOperationTypeChange}
               >
-                {t(`operation-modal.supply.cta`)}
+                {t(`operation-modal.borrow.cta`)}
               </Button>
               <Button
                 variant="text"
                 disabled={isProcessing}
-                value="withdraw"
-                className={clsx({ 'Mui-selected': isWithdrawing })}
+                value="repay"
+                className={clsx({ 'Mui-selected': isRepaying })}
                 onClick={handleOperationTypeChange}
               >
-                {t(`operation-modal.withdraw.cta`)}
+                {t(`operation-modal.repay.cta`)}
               </Button>
             </div>
             <div className="AwiOperationModal-rates">
               <ExternalLink
                 href={'https://todo'}
-                text={t(`operation-modal.supply-rates`)}
+                text={t(`operation-modal.borrow-rates`)}
                 variant="body-sm"
                 fontWeight={500}
                 mb={5}
@@ -468,9 +467,9 @@ export default function OperationModal({ open, close, data /* , info, callback  
               <div className="AwiOperationModal-row">
                 <div className="Awi-row">
                   <img src={`/images/assets/${asset}.svg`} alt="" width="32" height="32" />
-                  <Typography color="inherit">{t(`operation-modal.supply-apy`)}</Typography>
+                  <Typography color="inherit">{t(`operation-modal.borrow-apy`)}</Typography>
                 </div>
-                <Typography color="inherit">{formatPercent(apy.supply)}</Typography>
+                <Typography color="inherit">{formatPercent(apy.borrow)}</Typography>
               </div>
               <div className="AwiOperationModal-row Mui-last">
                 <div className="Awi-row">
@@ -480,7 +479,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
                 <Typography color="inherit">{formatPercent(apy.distribution)}</Typography>
               </div>
             </div>
-            {(isEnabled || isWithdrawing) && (
+            {(isEnabled || isBorrowing) && (
               <div className="AwiOperationModal-borrow">
                 <Typography variant="body-sm" fontWeight={500} mb={5}>
                   {t(`operation-modal.borrow-limit-title`)}
@@ -539,7 +538,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
             )}
             <div className="AwiOperationModal-status">
               <Typography variant="body-sm" fontWeight={500}>
-                {t(`operation-modal.${operationType === 'supply' ? 'wallet-balance' : 'currently-supplying'}`)}
+                {t(`operation-modal.${operationType === 'repay' ? 'wallet-balance' : 'currently-borrowing'}`)}
               </Typography>
               <Typography variant="body-sm" fontWeight={500} color="text.primary">
                 <LoadingText loading={operationBalance === null} text={operationBalance} />
