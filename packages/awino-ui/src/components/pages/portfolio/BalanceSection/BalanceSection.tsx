@@ -34,8 +34,7 @@ const Root = styled(Section)(({ theme }) => ({
     padding: theme.spacing(12.5, 6.5, 10),
   },
   '.AwiBalanceSection-subPanel': {
-    '.AwiPanel-content': { padding: theme.spacing(4, 12, 5, 15) },
-    '.MuiGrid-item:last-child .AwiBalanceCard-root': { border: 0 },
+    '.AwiPanel-content': { padding: theme.spacing(4, 6.5, 5) },
     '.Awi-divider': {
       borderBottom: `1px solid ${theme.palette.divider}`,
     },
@@ -53,7 +52,10 @@ const Root = styled(Section)(({ theme }) => ({
   },
   [theme.breakpoints.up('md')]: {
     '.AwiBalanceSection-panel > .AwiPanel-content': {
-      padding: theme.spacing(12.5, 12.5, 10),
+      padding: theme.spacing(12.5, 20, 20),
+    },
+    '.AwiBalanceSection-subPanel': {
+      '.AwiPanel-content': { padding: theme.spacing(4, 12, 5, 15) },
     },
   },
 }));
@@ -142,11 +144,15 @@ export default function BalanceSection({ items, loading }: Props) {
               <Panel className="AwiBalanceSection-subPanel">
                 <Grid container>
                   {stableCoins.map((item, itemIndex) => (
-                    <Grid key={item.key} item xs={12}>
+                    <Grid
+                      key={item.key}
+                      item
+                      xs={12}
+                      className={clsx({ 'Awi-divider': itemIndex !== tokens.length - 1 })}
+                    >
                       <BalanceCard
                         item={item}
                         totalColor={assetColorMap.stableCoins[itemIndex % assetColorMap.stableCoins.length]}
-                        className={clsx({ 'Awi-divider': itemIndex !== tokens.length - 1 })}
                       />
                     </Grid>
                   ))}

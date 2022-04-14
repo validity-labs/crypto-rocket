@@ -600,10 +600,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                     class="MuiGrid-root MuiGrid-container css-8"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-9"
                     >
                       <div
-                        class="Awi-divider AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-10"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -645,10 +645,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-9"
                     >
                       <div
-                        class="Awi-divider AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-10"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -693,7 +693,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-9"
                     >
                       <div
-                        class=" AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-10"
                       >
                         <div
                           class="AwiBalanceCard-left"

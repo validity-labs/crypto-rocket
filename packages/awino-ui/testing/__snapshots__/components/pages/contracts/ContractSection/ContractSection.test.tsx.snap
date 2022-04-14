@@ -9,7 +9,7 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
     >
       <div
-        class="AwiPanel-wrapper AwiPanel-root MuiBox-root css-2"
+        class="AwiContractSection-panel AwiPanel-root MuiBox-root css-2"
       >
         <div
           class="AwiPanel-content content"
@@ -20,290 +20,298 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
             contracts:contract-section.title
           </h1>
           <h2
-            class="MuiTypography-root MuiTypography-h2 AwiContractSection-groupTitle css-4"
+            class="MuiTypography-root MuiTypography-h2 AwiContractSection-groupTitle Awi-first css-4"
           >
             contracts:contract-section.group-tokens
           </h2>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6.5 css-5"
+            class="AwiContractSection-subPanel AwiPanel-root MuiBox-root css-2"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
+              class="AwiPanel-content content"
             >
               <div
-                class="AwiContactCard-root MuiBox-root css-7"
+                class="MuiGrid-root MuiGrid-container css-6"
               >
                 <div
-                  class="AwiContactCard-startBox"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-7"
                 >
-                  <img
-                    alt=""
-                    class="AwiContactCard-icon"
-                    src="/images/assets/awi.svg"
-                  />
-                  <div>
-                    <p
-                      class="MuiTypography-root MuiTypography-body css-8"
-                    >
-                      contracts:contract-section.assets.awi.title
-                    </p>
+                  <div
+                    class="AwiContactCard-root MuiBox-root css-8"
+                  >
                     <div
-                      class="AwiAddress-root css-9"
+                      class="AwiContactCard-left"
                     >
-                      <p
-                        class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-10"
-                        title="0x0f2d719407fdbeff09d87557abb7232601fd9f21"
-                      >
-                        <span
-                          class="AwiAddress-prefix"
+                      <img
+                        alt=""
+                        class="AwiContactCard-icon"
+                        src="/images/assets/awi.svg"
+                      />
+                      <div>
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-9"
                         >
-                          0x0f2d719407fdbeff09d87557abb7232601fd
-                        </span>
-                        <span
-                          class="AwiAddress-postfix"
+                          contracts:contract-section.assets.awi.title
+                        </p>
+                        <div
+                          class="AwiAddress-root css-10"
                         >
-                          9f21
-                        </span>
-                      </p>
-                      <button
-                        aria-label="common.copy"
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-11"
-                        tabindex="0"
-                        title="common.copy"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                          <p
+                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
+                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f21"
+                          >
+                            <span
+                              class="AwiAddress-prefix"
+                            >
+                              0x0f2d719407fdbeff09d87557abb7232601fd
+                            </span>
+                            <span
+                              class="AwiAddress-postfix"
+                            >
+                              9f21
+                            </span>
+                          </p>
+                          <button
+                            aria-label="common.copy"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-12"
+                            tabindex="0"
+                            title="common.copy"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="m 15.014681,3.1235449 c -0.31293,-0.00146 -0.573278,0.2588891 -0.571819,0.5718182 v 2.5887331 c 0.0029,0.5396559 0.446069,0.983802 0.985729,0.9857284 h 0.0024 3.21558 c 0.282335,-0.0016 0.517525,-0.2367887 0.519125,-0.5191822 v -0.00239 c -0.0017,-0.383959 -0.171874,-0.7490735 -0.466497,-0.9952972 l -2.760996,-2.2992354 -0.0072,-0.00479 C 15.669022,3.2529864 15.355813,3.1395613 15.029036,3.1235449 h -0.0072 z m 0.04067,0.6316318 c 0.182497,0.020075 0.361969,0.073808 0.509613,0.1842259 l 2.741859,2.2824875 c 0.12885,0.1076834 0.177215,0.2720909 0.203367,0.4354431 h -3.079205 c -0.209913,-7.494e-4 -0.373468,-0.1636228 -0.37563,-0.373237 z"
+                              />
+                              <path
+                                d="M 9.1392235,3.1188747 C 8.3440369,3.1214193 7.6942782,3.7711775 7.6917336,4.5663641 V 16.574545 c 0.00255,0.795187 0.6523033,1.444944 1.4474899,1.44749 h 8.5772715 c 0.795187,-0.0026 1.444945,-0.652303 1.447489,-1.44749 V 7.5857553 H 15.429222 C 14.706945,7.5846561 14.128227,7.0040959 14.127678,6.2818186 V 3.1188747 Z m 0.00245,0.6124914 h 4.3735705 v 2.552845 c 8e-4,1.0527977 0.861239,1.9124335 1.914036,1.9140356 h 3.12227 v 8.3739063 c -0.0015,0.465559 -0.37183,0.8359 -0.837389,0.837391 H 9.1416158 C 8.6760562,17.408053 8.3057145,17.037712 8.304225,16.572153 V 4.5687567 C 8.3057145,4.103197 8.6760562,3.7328559 9.1416158,3.7313661 Z"
+                              />
+                              <path
+                                d="M 6.2813381,5.4059175 C 5.4861516,5.4084622 4.8363934,6.0582204 4.8338487,6.853407 v 12.579999 c 0.00255,0.795187 0.6523029,1.444945 1.4474894,1.447489 h 9.1490909 c 0.795186,-0.0026 1.444944,-0.652302 1.447489,-1.447489 V 18.41179 H 8.1427378 8.1403452 C 7.6760248,18.409252 7.3073903,18.038722 7.3053472,17.574399 V 5.4059175 Z m 0.00239,0.6124914 H 6.692852 V 17.574399 c 0.00169,0.795781 0.651711,1.447333 1.4474894,1.449881 h 8.1250806 v 0.406734 c -0.0015,0.46556 -0.37183,0.8359 -0.837389,0.83739 H 6.2837306 C 5.818171,20.266914 5.4478299,19.896574 5.4463401,19.431014 V 6.8557995 C 5.4478299,6.3902399 5.818171,6.0198988 6.2837306,6.0184089 Z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-14"
+                            />
+                          </button>
+                        </div>
+                        <p
+                          class="MuiTypography-root MuiTypography-body-sm css-11"
                         >
-                          <path
-                            d="m 15.014681,3.1235449 c -0.31293,-0.00146 -0.573278,0.2588891 -0.571819,0.5718182 v 2.5887331 c 0.0029,0.5396559 0.446069,0.983802 0.985729,0.9857284 h 0.0024 3.21558 c 0.282335,-0.0016 0.517525,-0.2367887 0.519125,-0.5191822 v -0.00239 c -0.0017,-0.383959 -0.171874,-0.7490735 -0.466497,-0.9952972 l -2.760996,-2.2992354 -0.0072,-0.00479 C 15.669022,3.2529864 15.355813,3.1395613 15.029036,3.1235449 h -0.0072 z m 0.04067,0.6316318 c 0.182497,0.020075 0.361969,0.073808 0.509613,0.1842259 l 2.741859,2.2824875 c 0.12885,0.1076834 0.177215,0.2720909 0.203367,0.4354431 h -3.079205 c -0.209913,-7.494e-4 -0.373468,-0.1636228 -0.37563,-0.373237 z"
-                          />
-                          <path
-                            d="M 9.1392235,3.1188747 C 8.3440369,3.1214193 7.6942782,3.7711775 7.6917336,4.5663641 V 16.574545 c 0.00255,0.795187 0.6523033,1.444944 1.4474899,1.44749 h 8.5772715 c 0.795187,-0.0026 1.444945,-0.652303 1.447489,-1.44749 V 7.5857553 H 15.429222 C 14.706945,7.5846561 14.128227,7.0040959 14.127678,6.2818186 V 3.1188747 Z m 0.00245,0.6124914 h 4.3735705 v 2.552845 c 8e-4,1.0527977 0.861239,1.9124335 1.914036,1.9140356 h 3.12227 v 8.3739063 c -0.0015,0.465559 -0.37183,0.8359 -0.837389,0.837391 H 9.1416158 C 8.6760562,17.408053 8.3057145,17.037712 8.304225,16.572153 V 4.5687567 C 8.3057145,4.103197 8.6760562,3.7328559 9.1416158,3.7313661 Z"
-                          />
-                          <path
-                            d="M 6.2813381,5.4059175 C 5.4861516,5.4084622 4.8363934,6.0582204 4.8338487,6.853407 v 12.579999 c 0.00255,0.795187 0.6523029,1.444945 1.4474894,1.447489 h 9.1490909 c 0.795186,-0.0026 1.444944,-0.652302 1.447489,-1.447489 V 18.41179 H 8.1427378 8.1403452 C 7.6760248,18.409252 7.3073903,18.038722 7.3053472,17.574399 V 5.4059175 Z m 0.00239,0.6124914 H 6.692852 V 17.574399 c 0.00169,0.795781 0.651711,1.447333 1.4474894,1.449881 h 8.1250806 v 0.406734 c -0.0015,0.46556 -0.37183,0.8359 -0.837389,0.83739 H 6.2837306 C 5.818171,20.266914 5.4478299,19.896574 5.4463401,19.431014 V 6.8557995 C 5.4478299,6.3902399 5.818171,6.0198988 6.2837306,6.0184089 Z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-13"
-                        />
-                      </button>
+                          contracts:contract-section.assets.awi.description
+                        </p>
+                      </div>
                     </div>
-                    <p
-                      class="MuiTypography-root MuiTypography-body-sm css-10"
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-16"
+                      tabindex="0"
+                      type="button"
                     >
-                      contracts:contract-section.assets.awi.description
-                    </p>
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-17"
+                      >
+                        <img
+                          alt=""
+                          src="images/wallets/metamask.svg"
+                        />
+                      </span>
+                      contracts:contract-section.add-to-wallet
+                      <span
+                        class="MuiTouchRipple-root css-14"
+                      />
+                    </button>
                   </div>
                 </div>
-                <button
-                  class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-15"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-startIcon MuiButton-iconSizeSmall css-16"
-                  >
-                    <img
-                      alt=""
-                      src="images/wallets/metamask.svg"
-                    />
-                  </span>
-                  contracts:contract-section.add-to-wallet
-                  <span
-                    class="MuiTouchRipple-root css-13"
-                  />
-                </button>
-              </div>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
-            >
-              <div
-                class="AwiContactCard-root MuiBox-root css-7"
-              >
                 <div
-                  class="AwiContactCard-startBox"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-7"
                 >
-                  <img
-                    alt=""
-                    class="AwiContactCard-icon"
-                    src="/images/assets/infinite.svg"
-                  />
-                  <div>
-                    <p
-                      class="MuiTypography-root MuiTypography-body css-8"
-                    >
-                      contracts:contract-section.assets.infinite.title
-                    </p>
+                  <div
+                    class="AwiContactCard-root MuiBox-root css-8"
+                  >
                     <div
-                      class="AwiAddress-root css-9"
+                      class="AwiContactCard-left"
                     >
-                      <p
-                        class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-10"
-                        title="0x0f2d719407fdbeff09d87557abb7232601fd9f22"
-                      >
-                        <span
-                          class="AwiAddress-prefix"
+                      <img
+                        alt=""
+                        class="AwiContactCard-icon"
+                        src="/images/assets/infinite.svg"
+                      />
+                      <div>
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-9"
                         >
-                          0x0f2d719407fdbeff09d87557abb7232601fd
-                        </span>
-                        <span
-                          class="AwiAddress-postfix"
+                          contracts:contract-section.assets.infinite.title
+                        </p>
+                        <div
+                          class="AwiAddress-root css-10"
                         >
-                          9f22
-                        </span>
-                      </p>
-                      <button
-                        aria-label="common.copy"
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-11"
-                        tabindex="0"
-                        title="common.copy"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                          <p
+                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
+                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f22"
+                          >
+                            <span
+                              class="AwiAddress-prefix"
+                            >
+                              0x0f2d719407fdbeff09d87557abb7232601fd
+                            </span>
+                            <span
+                              class="AwiAddress-postfix"
+                            >
+                              9f22
+                            </span>
+                          </p>
+                          <button
+                            aria-label="common.copy"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-12"
+                            tabindex="0"
+                            title="common.copy"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="m 15.014681,3.1235449 c -0.31293,-0.00146 -0.573278,0.2588891 -0.571819,0.5718182 v 2.5887331 c 0.0029,0.5396559 0.446069,0.983802 0.985729,0.9857284 h 0.0024 3.21558 c 0.282335,-0.0016 0.517525,-0.2367887 0.519125,-0.5191822 v -0.00239 c -0.0017,-0.383959 -0.171874,-0.7490735 -0.466497,-0.9952972 l -2.760996,-2.2992354 -0.0072,-0.00479 C 15.669022,3.2529864 15.355813,3.1395613 15.029036,3.1235449 h -0.0072 z m 0.04067,0.6316318 c 0.182497,0.020075 0.361969,0.073808 0.509613,0.1842259 l 2.741859,2.2824875 c 0.12885,0.1076834 0.177215,0.2720909 0.203367,0.4354431 h -3.079205 c -0.209913,-7.494e-4 -0.373468,-0.1636228 -0.37563,-0.373237 z"
+                              />
+                              <path
+                                d="M 9.1392235,3.1188747 C 8.3440369,3.1214193 7.6942782,3.7711775 7.6917336,4.5663641 V 16.574545 c 0.00255,0.795187 0.6523033,1.444944 1.4474899,1.44749 h 8.5772715 c 0.795187,-0.0026 1.444945,-0.652303 1.447489,-1.44749 V 7.5857553 H 15.429222 C 14.706945,7.5846561 14.128227,7.0040959 14.127678,6.2818186 V 3.1188747 Z m 0.00245,0.6124914 h 4.3735705 v 2.552845 c 8e-4,1.0527977 0.861239,1.9124335 1.914036,1.9140356 h 3.12227 v 8.3739063 c -0.0015,0.465559 -0.37183,0.8359 -0.837389,0.837391 H 9.1416158 C 8.6760562,17.408053 8.3057145,17.037712 8.304225,16.572153 V 4.5687567 C 8.3057145,4.103197 8.6760562,3.7328559 9.1416158,3.7313661 Z"
+                              />
+                              <path
+                                d="M 6.2813381,5.4059175 C 5.4861516,5.4084622 4.8363934,6.0582204 4.8338487,6.853407 v 12.579999 c 0.00255,0.795187 0.6523029,1.444945 1.4474894,1.447489 h 9.1490909 c 0.795186,-0.0026 1.444944,-0.652302 1.447489,-1.447489 V 18.41179 H 8.1427378 8.1403452 C 7.6760248,18.409252 7.3073903,18.038722 7.3053472,17.574399 V 5.4059175 Z m 0.00239,0.6124914 H 6.692852 V 17.574399 c 0.00169,0.795781 0.651711,1.447333 1.4474894,1.449881 h 8.1250806 v 0.406734 c -0.0015,0.46556 -0.37183,0.8359 -0.837389,0.83739 H 6.2837306 C 5.818171,20.266914 5.4478299,19.896574 5.4463401,19.431014 V 6.8557995 C 5.4478299,6.3902399 5.818171,6.0198988 6.2837306,6.0184089 Z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-14"
+                            />
+                          </button>
+                        </div>
+                        <p
+                          class="MuiTypography-root MuiTypography-body-sm css-11"
                         >
-                          <path
-                            d="m 15.014681,3.1235449 c -0.31293,-0.00146 -0.573278,0.2588891 -0.571819,0.5718182 v 2.5887331 c 0.0029,0.5396559 0.446069,0.983802 0.985729,0.9857284 h 0.0024 3.21558 c 0.282335,-0.0016 0.517525,-0.2367887 0.519125,-0.5191822 v -0.00239 c -0.0017,-0.383959 -0.171874,-0.7490735 -0.466497,-0.9952972 l -2.760996,-2.2992354 -0.0072,-0.00479 C 15.669022,3.2529864 15.355813,3.1395613 15.029036,3.1235449 h -0.0072 z m 0.04067,0.6316318 c 0.182497,0.020075 0.361969,0.073808 0.509613,0.1842259 l 2.741859,2.2824875 c 0.12885,0.1076834 0.177215,0.2720909 0.203367,0.4354431 h -3.079205 c -0.209913,-7.494e-4 -0.373468,-0.1636228 -0.37563,-0.373237 z"
-                          />
-                          <path
-                            d="M 9.1392235,3.1188747 C 8.3440369,3.1214193 7.6942782,3.7711775 7.6917336,4.5663641 V 16.574545 c 0.00255,0.795187 0.6523033,1.444944 1.4474899,1.44749 h 8.5772715 c 0.795187,-0.0026 1.444945,-0.652303 1.447489,-1.44749 V 7.5857553 H 15.429222 C 14.706945,7.5846561 14.128227,7.0040959 14.127678,6.2818186 V 3.1188747 Z m 0.00245,0.6124914 h 4.3735705 v 2.552845 c 8e-4,1.0527977 0.861239,1.9124335 1.914036,1.9140356 h 3.12227 v 8.3739063 c -0.0015,0.465559 -0.37183,0.8359 -0.837389,0.837391 H 9.1416158 C 8.6760562,17.408053 8.3057145,17.037712 8.304225,16.572153 V 4.5687567 C 8.3057145,4.103197 8.6760562,3.7328559 9.1416158,3.7313661 Z"
-                          />
-                          <path
-                            d="M 6.2813381,5.4059175 C 5.4861516,5.4084622 4.8363934,6.0582204 4.8338487,6.853407 v 12.579999 c 0.00255,0.795187 0.6523029,1.444945 1.4474894,1.447489 h 9.1490909 c 0.795186,-0.0026 1.444944,-0.652302 1.447489,-1.447489 V 18.41179 H 8.1427378 8.1403452 C 7.6760248,18.409252 7.3073903,18.038722 7.3053472,17.574399 V 5.4059175 Z m 0.00239,0.6124914 H 6.692852 V 17.574399 c 0.00169,0.795781 0.651711,1.447333 1.4474894,1.449881 h 8.1250806 v 0.406734 c -0.0015,0.46556 -0.37183,0.8359 -0.837389,0.83739 H 6.2837306 C 5.818171,20.266914 5.4478299,19.896574 5.4463401,19.431014 V 6.8557995 C 5.4478299,6.3902399 5.818171,6.0198988 6.2837306,6.0184089 Z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-13"
-                        />
-                      </button>
+                          contracts:contract-section.assets.infinite.description
+                        </p>
+                      </div>
                     </div>
-                    <p
-                      class="MuiTypography-root MuiTypography-body-sm css-10"
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-16"
+                      tabindex="0"
+                      type="button"
                     >
-                      contracts:contract-section.assets.infinite.description
-                    </p>
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-17"
+                      >
+                        <img
+                          alt=""
+                          src="images/wallets/metamask.svg"
+                        />
+                      </span>
+                      contracts:contract-section.add-to-wallet
+                      <span
+                        class="MuiTouchRipple-root css-14"
+                      />
+                    </button>
                   </div>
                 </div>
-                <button
-                  class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-15"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-startIcon MuiButton-iconSizeSmall css-16"
-                  >
-                    <img
-                      alt=""
-                      src="images/wallets/metamask.svg"
-                    />
-                  </span>
-                  contracts:contract-section.add-to-wallet
-                  <span
-                    class="MuiTouchRipple-root css-13"
-                  />
-                </button>
-              </div>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
-            >
-              <div
-                class="AwiContactCard-root MuiBox-root css-7"
-              >
                 <div
-                  class="AwiContactCard-startBox"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
                 >
-                  <img
-                    alt=""
-                    class="AwiContactCard-icon"
-                    src="/images/assets/wealth.svg"
-                  />
-                  <div>
-                    <p
-                      class="MuiTypography-root MuiTypography-body css-8"
-                    >
-                      contracts:contract-section.assets.wealth.title
-                    </p>
+                  <div
+                    class="AwiContactCard-root MuiBox-root css-8"
+                  >
                     <div
-                      class="AwiAddress-root css-9"
+                      class="AwiContactCard-left"
                     >
-                      <p
-                        class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-10"
-                        title="0x0f2d719407fdbeff09d87557abb7232601fd9f23"
-                      >
-                        <span
-                          class="AwiAddress-prefix"
+                      <img
+                        alt=""
+                        class="AwiContactCard-icon"
+                        src="/images/assets/wealth.svg"
+                      />
+                      <div>
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-9"
                         >
-                          0x0f2d719407fdbeff09d87557abb7232601fd
-                        </span>
-                        <span
-                          class="AwiAddress-postfix"
+                          contracts:contract-section.assets.wealth.title
+                        </p>
+                        <div
+                          class="AwiAddress-root css-10"
                         >
-                          9f23
-                        </span>
-                      </p>
-                      <button
-                        aria-label="common.copy"
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-11"
-                        tabindex="0"
-                        title="common.copy"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                          <p
+                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
+                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f23"
+                          >
+                            <span
+                              class="AwiAddress-prefix"
+                            >
+                              0x0f2d719407fdbeff09d87557abb7232601fd
+                            </span>
+                            <span
+                              class="AwiAddress-postfix"
+                            >
+                              9f23
+                            </span>
+                          </p>
+                          <button
+                            aria-label="common.copy"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-12"
+                            tabindex="0"
+                            title="common.copy"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="m 15.014681,3.1235449 c -0.31293,-0.00146 -0.573278,0.2588891 -0.571819,0.5718182 v 2.5887331 c 0.0029,0.5396559 0.446069,0.983802 0.985729,0.9857284 h 0.0024 3.21558 c 0.282335,-0.0016 0.517525,-0.2367887 0.519125,-0.5191822 v -0.00239 c -0.0017,-0.383959 -0.171874,-0.7490735 -0.466497,-0.9952972 l -2.760996,-2.2992354 -0.0072,-0.00479 C 15.669022,3.2529864 15.355813,3.1395613 15.029036,3.1235449 h -0.0072 z m 0.04067,0.6316318 c 0.182497,0.020075 0.361969,0.073808 0.509613,0.1842259 l 2.741859,2.2824875 c 0.12885,0.1076834 0.177215,0.2720909 0.203367,0.4354431 h -3.079205 c -0.209913,-7.494e-4 -0.373468,-0.1636228 -0.37563,-0.373237 z"
+                              />
+                              <path
+                                d="M 9.1392235,3.1188747 C 8.3440369,3.1214193 7.6942782,3.7711775 7.6917336,4.5663641 V 16.574545 c 0.00255,0.795187 0.6523033,1.444944 1.4474899,1.44749 h 8.5772715 c 0.795187,-0.0026 1.444945,-0.652303 1.447489,-1.44749 V 7.5857553 H 15.429222 C 14.706945,7.5846561 14.128227,7.0040959 14.127678,6.2818186 V 3.1188747 Z m 0.00245,0.6124914 h 4.3735705 v 2.552845 c 8e-4,1.0527977 0.861239,1.9124335 1.914036,1.9140356 h 3.12227 v 8.3739063 c -0.0015,0.465559 -0.37183,0.8359 -0.837389,0.837391 H 9.1416158 C 8.6760562,17.408053 8.3057145,17.037712 8.304225,16.572153 V 4.5687567 C 8.3057145,4.103197 8.6760562,3.7328559 9.1416158,3.7313661 Z"
+                              />
+                              <path
+                                d="M 6.2813381,5.4059175 C 5.4861516,5.4084622 4.8363934,6.0582204 4.8338487,6.853407 v 12.579999 c 0.00255,0.795187 0.6523029,1.444945 1.4474894,1.447489 h 9.1490909 c 0.795186,-0.0026 1.444944,-0.652302 1.447489,-1.447489 V 18.41179 H 8.1427378 8.1403452 C 7.6760248,18.409252 7.3073903,18.038722 7.3053472,17.574399 V 5.4059175 Z m 0.00239,0.6124914 H 6.692852 V 17.574399 c 0.00169,0.795781 0.651711,1.447333 1.4474894,1.449881 h 8.1250806 v 0.406734 c -0.0015,0.46556 -0.37183,0.8359 -0.837389,0.83739 H 6.2837306 C 5.818171,20.266914 5.4478299,19.896574 5.4463401,19.431014 V 6.8557995 C 5.4478299,6.3902399 5.818171,6.0198988 6.2837306,6.0184089 Z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root css-14"
+                            />
+                          </button>
+                        </div>
+                        <p
+                          class="MuiTypography-root MuiTypography-body-sm css-11"
                         >
-                          <path
-                            d="m 15.014681,3.1235449 c -0.31293,-0.00146 -0.573278,0.2588891 -0.571819,0.5718182 v 2.5887331 c 0.0029,0.5396559 0.446069,0.983802 0.985729,0.9857284 h 0.0024 3.21558 c 0.282335,-0.0016 0.517525,-0.2367887 0.519125,-0.5191822 v -0.00239 c -0.0017,-0.383959 -0.171874,-0.7490735 -0.466497,-0.9952972 l -2.760996,-2.2992354 -0.0072,-0.00479 C 15.669022,3.2529864 15.355813,3.1395613 15.029036,3.1235449 h -0.0072 z m 0.04067,0.6316318 c 0.182497,0.020075 0.361969,0.073808 0.509613,0.1842259 l 2.741859,2.2824875 c 0.12885,0.1076834 0.177215,0.2720909 0.203367,0.4354431 h -3.079205 c -0.209913,-7.494e-4 -0.373468,-0.1636228 -0.37563,-0.373237 z"
-                          />
-                          <path
-                            d="M 9.1392235,3.1188747 C 8.3440369,3.1214193 7.6942782,3.7711775 7.6917336,4.5663641 V 16.574545 c 0.00255,0.795187 0.6523033,1.444944 1.4474899,1.44749 h 8.5772715 c 0.795187,-0.0026 1.444945,-0.652303 1.447489,-1.44749 V 7.5857553 H 15.429222 C 14.706945,7.5846561 14.128227,7.0040959 14.127678,6.2818186 V 3.1188747 Z m 0.00245,0.6124914 h 4.3735705 v 2.552845 c 8e-4,1.0527977 0.861239,1.9124335 1.914036,1.9140356 h 3.12227 v 8.3739063 c -0.0015,0.465559 -0.37183,0.8359 -0.837389,0.837391 H 9.1416158 C 8.6760562,17.408053 8.3057145,17.037712 8.304225,16.572153 V 4.5687567 C 8.3057145,4.103197 8.6760562,3.7328559 9.1416158,3.7313661 Z"
-                          />
-                          <path
-                            d="M 6.2813381,5.4059175 C 5.4861516,5.4084622 4.8363934,6.0582204 4.8338487,6.853407 v 12.579999 c 0.00255,0.795187 0.6523029,1.444945 1.4474894,1.447489 h 9.1490909 c 0.795186,-0.0026 1.444944,-0.652302 1.447489,-1.447489 V 18.41179 H 8.1427378 8.1403452 C 7.6760248,18.409252 7.3073903,18.038722 7.3053472,17.574399 V 5.4059175 Z m 0.00239,0.6124914 H 6.692852 V 17.574399 c 0.00169,0.795781 0.651711,1.447333 1.4474894,1.449881 h 8.1250806 v 0.406734 c -0.0015,0.46556 -0.37183,0.8359 -0.837389,0.83739 H 6.2837306 C 5.818171,20.266914 5.4478299,19.896574 5.4463401,19.431014 V 6.8557995 C 5.4478299,6.3902399 5.818171,6.0198988 6.2837306,6.0184089 Z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-13"
-                        />
-                      </button>
+                          contracts:contract-section.assets.wealth.description
+                        </p>
+                      </div>
                     </div>
-                    <p
-                      class="MuiTypography-root MuiTypography-body-sm css-10"
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-16"
+                      tabindex="0"
+                      type="button"
                     >
-                      contracts:contract-section.assets.wealth.description
-                    </p>
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-17"
+                      >
+                        <img
+                          alt=""
+                          src="images/wallets/metamask.svg"
+                        />
+                      </span>
+                      contracts:contract-section.add-to-wallet
+                      <span
+                        class="MuiTouchRipple-root css-14"
+                      />
+                    </button>
                   </div>
                 </div>
-                <button
-                  class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-15"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-startIcon MuiButton-iconSizeSmall css-16"
-                  >
-                    <img
-                      alt=""
-                      src="images/wallets/metamask.svg"
-                    />
-                  </span>
-                  contracts:contract-section.add-to-wallet
-                  <span
-                    class="MuiTouchRipple-root css-13"
-                  />
-                </button>
               </div>
             </div>
           </div>
@@ -313,22 +321,22 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
             contracts:contract-section.group-stable-coins
           </h2>
           <div
-            class="AwiPanel-root MuiBox-root css-43"
+            class="AwiContractSection-subPanel AwiPanel-root MuiBox-root css-2"
           >
             <div
               class="AwiPanel-content content"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-44"
+                class="MuiGrid-root MuiGrid-container css-6"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-7"
                 >
                   <div
-                    class="AwiContactCard-root MuiBox-root css-46"
+                    class="AwiContactCard-root MuiBox-root css-8"
                   >
                     <div
-                      class="AwiContactCard-startBox"
+                      class="AwiContactCard-left"
                     >
                       <img
                         alt=""
@@ -337,15 +345,15 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                       />
                       <div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-8"
+                          class="MuiTypography-root MuiTypography-body css-9"
                         >
                           contracts:contract-section.assets.dai.title
                         </p>
                         <div
-                          class="AwiAddress-root css-9"
+                          class="AwiAddress-root css-10"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-10"
+                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
                             title="0x0f2d719407fdbeff09d87557abb7232601fd9f24"
                           >
                             <span
@@ -361,14 +369,14 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                           </p>
                           <button
                             aria-label="common.copy"
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-11"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-12"
                             tabindex="0"
                             title="common.copy"
                             type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -383,24 +391,24 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                               />
                             </svg>
                             <span
-                              class="MuiTouchRipple-root css-13"
+                              class="MuiTouchRipple-root css-14"
                             />
                           </button>
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body-sm css-10"
+                          class="MuiTypography-root MuiTypography-body-sm css-11"
                         >
                           contracts:contract-section.assets.dai.description
                         </p>
                       </div>
                     </div>
                     <button
-                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-15"
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-16"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-16"
+                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-17"
                       >
                         <img
                           alt=""
@@ -409,19 +417,19 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                       </span>
                       contracts:contract-section.add-to-wallet
                       <span
-                        class="MuiTouchRipple-root css-13"
+                        class="MuiTouchRipple-root css-14"
                       />
                     </button>
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-7"
                 >
                   <div
-                    class="AwiContactCard-root MuiBox-root css-46"
+                    class="AwiContactCard-root MuiBox-root css-8"
                   >
                     <div
-                      class="AwiContactCard-startBox"
+                      class="AwiContactCard-left"
                     >
                       <img
                         alt=""
@@ -430,15 +438,15 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                       />
                       <div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-8"
+                          class="MuiTypography-root MuiTypography-body css-9"
                         >
                           contracts:contract-section.assets.usdc.title
                         </p>
                         <div
-                          class="AwiAddress-root css-9"
+                          class="AwiAddress-root css-10"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-10"
+                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
                             title="0x0f2d719407fdbeff09d87557abb7232601fd9f25"
                           >
                             <span
@@ -454,14 +462,14 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                           </p>
                           <button
                             aria-label="common.copy"
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-11"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-12"
                             tabindex="0"
                             title="common.copy"
                             type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -476,24 +484,24 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                               />
                             </svg>
                             <span
-                              class="MuiTouchRipple-root css-13"
+                              class="MuiTouchRipple-root css-14"
                             />
                           </button>
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body-sm css-10"
+                          class="MuiTypography-root MuiTypography-body-sm css-11"
                         >
                           contracts:contract-section.assets.usdc.description
                         </p>
                       </div>
                     </div>
                     <button
-                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-15"
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-16"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-16"
+                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-17"
                       >
                         <img
                           alt=""
@@ -502,19 +510,19 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                       </span>
                       contracts:contract-section.add-to-wallet
                       <span
-                        class="MuiTouchRipple-root css-13"
+                        class="MuiTouchRipple-root css-14"
                       />
                     </button>
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
                 >
                   <div
-                    class="AwiContactCard-root MuiBox-root css-46"
+                    class="AwiContactCard-root MuiBox-root css-8"
                   >
                     <div
-                      class="AwiContactCard-startBox"
+                      class="AwiContactCard-left"
                     >
                       <img
                         alt=""
@@ -523,15 +531,15 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                       />
                       <div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-8"
+                          class="MuiTypography-root MuiTypography-body css-9"
                         >
                           contracts:contract-section.assets.usdt.title
                         </p>
                         <div
-                          class="AwiAddress-root css-9"
+                          class="AwiAddress-root css-10"
                         >
                           <p
-                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-10"
+                            class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
                             title="0x0f2d719407fdbeff09d87557abb7232601fd9f26"
                           >
                             <span
@@ -547,14 +555,14 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                           </p>
                           <button
                             aria-label="common.copy"
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-11"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-12"
                             tabindex="0"
                             title="common.copy"
                             type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -569,24 +577,24 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                               />
                             </svg>
                             <span
-                              class="MuiTouchRipple-root css-13"
+                              class="MuiTouchRipple-root css-14"
                             />
                           </button>
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body-sm css-10"
+                          class="MuiTypography-root MuiTypography-body-sm css-11"
                         >
                           contracts:contract-section.assets.usdt.description
                         </p>
                       </div>
                     </div>
                     <button
-                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-15"
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiContactCard-add css-16"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-16"
+                        class="MuiButton-startIcon MuiButton-iconSizeSmall css-17"
                       >
                         <img
                           alt=""
@@ -595,7 +603,7 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                       </span>
                       contracts:contract-section.add-to-wallet
                       <span
-                        class="MuiTouchRipple-root css-13"
+                        class="MuiTouchRipple-root css-14"
                       />
                     </button>
                   </div>

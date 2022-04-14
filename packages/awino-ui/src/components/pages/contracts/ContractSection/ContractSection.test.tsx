@@ -19,7 +19,7 @@ afterEach(cleanup);
 
 describe('<ContractSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<ContractSection items={contractGroupedList} />, {}, 'contracts');
+    const { asFragment } = render(<ContractSection loading={false} items={contractGroupedList} />, {}, 'contracts');
     expect(asFragment()).toMatchSnapshot();
   });
 });

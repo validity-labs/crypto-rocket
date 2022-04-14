@@ -23,6 +23,7 @@ Date format: `YYYY-MM-DD`
 ### Changed
 
 - Changed portfolio page
+- Changed contracts page
 
 ## [0.0.0] - 2022-04-13
 

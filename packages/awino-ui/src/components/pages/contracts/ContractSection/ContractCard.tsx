@@ -10,7 +10,7 @@ import { ContractInfo } from '@/types/app';
 
 export interface ContractCardProps extends Partial<BoxProps> {
   item: ContractInfo;
-  mode?: 'row' | 'card';
+  // mode?: 'row' | 'card';
 }
 
 const ContractCard = styled(
@@ -23,12 +23,10 @@ const ContractCard = styled(
     };
     return (
       <Box className={clsx(className, 'AwiContactCard-root')} {...restOfProps}>
-        <div className="AwiContactCard-startBox">
+        <div className="AwiContactCard-left">
           <img src={`/images/assets/${key}.svg`} alt="" className="AwiContactCard-icon" />
           <div>
-            <Typography color="text.primary" mt={1.5}>
-              {t(`contract-section.assets.${key}.title`)}
-            </Typography>
+            <Typography color="text.primary">{t(`contract-section.assets.${key}.title`)}</Typography>
             <Address address={address} />
             <Typography variant="body-sm">{t(`contract-section.assets.${key}.description`)}</Typography>
           </div>
@@ -36,6 +34,7 @@ const ContractCard = styled(
         <Button
           variant="outlined"
           className="AwiContactCard-add"
+          color="primary"
           size="small"
           startIcon={<img src={`images/wallets/metamask.svg`} alt="" />}
           onClick={handleAdd}
@@ -48,46 +47,44 @@ const ContractCard = styled(
   {
     shouldForwardProp: (prop) => prop !== 'mode',
   }
-)<ContractCardProps>(({ theme, mode = 'card' }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  gap: theme.spacing(10),
-
-  // marginBottom: theme.spacing(6.5),
-  ...(mode === 'card'
-    ? {
-        padding: theme.spacing(10.5, 8, 9, 12),
-        borderRadius: +theme.shape.borderRadius * 5,
-        backgroundColor: theme.palette.background.transparent,
-      }
-    : {
-        padding: theme.spacing(10.5, 0, 9, 0),
-        margin: theme.spacing(0, 8, 0, 12),
-        borderBottom: `1px solid ${theme.palette.divider}`,
-      }),
-
-  '.AwiContactCard-startBox': {
+)(
+  /* <ContractCardProps> */ ({ theme /* , mode = 'row' */ }) => ({
     display: 'flex',
-    flexDirection: 'row',
-  },
-  '.AwiContactCard-icon': {
-    width: 32,
-    height: 32,
-    marginRight: theme.spacing(5),
-  },
-  '.AwiContactCard-add': {
-    img: {
-      width: 32,
-      height: 32,
-    },
-  },
-  p: { fontWeight: 500 },
-  [theme.breakpoints.up('md')]: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-  },
-}));
+    flexWrap: 'wrap',
+    gap: theme.spacing(10),
+    padding: theme.spacing(10, 0, 9),
+    // ...(mode === 'card'
+    //   ? {
+    //       padding: theme.spacing(10.5, 8, 9, 12),
+    //       borderRadius: +theme.shape.borderRadius * 5,
+    //       backgroundColor: theme.palette.background.transparent,
+    //     }
+    //   : {
+    //       padding: theme.spacing(10, 0, 9),
+    //     }),
+    '.AwiContactCard-left': {
+      display: 'flex',
+      flexDirection: 'row',
+    },
+    '.AwiContactCard-icon': {
+      position: 'relative',
+      top: -4,
+      width: 30,
+      height: 30,
+      marginRight: theme.spacing(3),
+    },
+    '.AwiContactCard-add': {
+      margin: '0 0 0 auto',
+      img: {
+        width: 32,
+        height: 32,
+      },
+    },
+    p: { fontWeight: 500 },
+  })
+);
 
 export default ContractCard as OverridableComponent<BoxTypeMap<ContractCardProps, 'div'>>;

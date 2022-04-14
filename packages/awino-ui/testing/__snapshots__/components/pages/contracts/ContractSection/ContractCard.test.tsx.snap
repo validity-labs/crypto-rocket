@@ -6,7 +6,7 @@ exports[`<ContractCard /> has valid snapshot 1`] = `
     class="AwiContactCard-root MuiBox-root css-0"
   >
     <div
-      class="AwiContactCard-startBox"
+      class="AwiContactCard-left"
     >
       <img
         alt=""
