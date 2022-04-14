@@ -328,7 +328,6 @@ export default function OperationModal({ open, close, data /* , info, callback  
     const res = await new Promise<{ error: boolean; msg: string }>((res) =>
       // TODO PROTOTYPE
       setTimeout(() => {
-        console.log(asset);
         res({ error: !resError++, msg: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48' });
       }, 4000)
     );

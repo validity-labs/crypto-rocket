@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-04-14
+
+### Changed
+
+- Changed portfolio page
+
 ## [0.0.0] - 2022-04-13
 
 ### Added

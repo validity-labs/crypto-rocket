@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PoolCard /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="AwiPoolCard-root MuiBox-root css-0"
+  >
+    <div
+      class="AwiPoolCard-left"
+    >
+      <img
+        alt=""
+        class="AwiPoolCard-icon"
+        src="/images/assets/nusd.svg"
+      />
+      <div>
+        <p
+          class="MuiTypography-root MuiTypography-body css-1"
+        >
+          portfolio:balance-section.assets.nusd.title
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body-sm css-2"
+        >
+          portfolio:balance-section.assets.nusd.description
+        </p>
+        <div
+          class="AwiPoolCard-assets"
+        >
+          <img
+            alt="portfolio:balance-section.assets.dai.title"
+            src="/images/assets/dai.svg"
+            style="transform: translateX(0px);"
+            title="portfolio:balance-section.assets.dai.title"
+          />
+          <img
+            alt="portfolio:balance-section.assets.usdc.title"
+            src="/images/assets/usdc.svg"
+            style="transform: translateX(-15px);"
+            title="portfolio:balance-section.assets.usdc.title"
+          />
+          <img
+            alt="portfolio:balance-section.assets.usdt.title"
+            src="/images/assets/usdt.svg"
+            style="transform: translateX(-30px);"
+            title="portfolio:balance-section.assets.usdt.title"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="AwiPoolCard-right"
+    >
+      <div
+        class="AwiPoolCard-labelValue MuiBox-root css-3"
+      >
+        <h6
+          class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-4"
+          id="poolCard-nusd"
+        >
+          portfolio:balance-section.total-balance
+        </h6>
+        <p
+          aria-describedby="poolCard-nusd"
+          class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-5"
+        >
+          34.55
+        </p>
+      </div>
+      <div
+        class="AwiPoolCard-labelValue MuiBox-root css-6"
+      >
+        <h6
+          class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-4"
+          id="poolCard-nusd"
+        >
+          portfolio:balance-section.staked-balance
+        </h6>
+        <p
+          aria-describedby="poolCard-nusd"
+          class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-5"
+        >
+          45.6
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

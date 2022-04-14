@@ -10,18 +10,37 @@
     "group-stable-coins": "Stable balances",
     "total-balance": "Total balance",
     "staked-balance": "Staked balance",
+    "chart": {
+      "tokens": {
+        "title": "AWINO balances"
+      },
+      "pool": {
+        "title": "Pool balances"
+      },
+      "stable-coins": {
+        "title": "Stable balances"
+      }
+    },
     "assets": {
       "awi": {
         "title": "AWINO",
-        "description": "awino"
+        "description": "AWINO"
       },
-      "infinity": {
-        "title": "INFINITE",
-        "description": "Infinite"
+      "infinite": {
+        "title": "INF",
+        "description": "INFINITE"
       },
       "wealth": {
-        "title": "WEALTH",
-        "description": "Wealth"
+        "title": "WEA",
+        "description": "WEALTH"
+      },
+      "nusd": {
+        "title": "nUSD",
+        "description": "AWINO nUSD LP token ethereum (dai, usdc, usdt)"
+      },
+      "xusd": {
+        "title": "xUSD",
+        "description": "AWINO xUSD LP token ethereum (awi, infinite, wealth)"
       },
       "dai": {
         "title": "DAI",
@@ -34,6 +53,12 @@
       "usdt": {
         "title": "USDT",
         "description": "USD Tether"
+      },
+      "total": {
+        "title": "Total"
+      },
+      "staked": {
+        "title": "Staked"
       }
     }
   }

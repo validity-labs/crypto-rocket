@@ -11,81 +11,60 @@ import { BalanceInfo } from '@/types/app';
 
 export interface BalanceCardProps extends Partial<BoxProps> {
   item: BalanceInfo;
-  mode?: 'row' | 'card';
   totalColor?: string;
 }
 
-const BalanceCard = styled(
-  ({ item, totalColor, className, ...restOfProps }: BalanceCardProps) => {
-    const { key, value } = item;
-    const t = usePageTranslation();
-
-    return (
-      <Box className={clsx(className, 'AwiBalanceCard-root')} {...restOfProps}>
-        <div className="AwiBalanceCard-startBox">
-          <img src={`/images/assets/${key}.svg`} alt="" className="AwiBalanceCard-icon" />
-          <div>
-            <Typography color="text.primary" mt={2}>
-              {t(`balance-section.assets.${key}.title`)}
-            </Typography>
-            <Typography variant="body-sm">{t(`balance-section.assets.${key}.description`)}</Typography>
-          </div>
+const BalanceCard = styled(({ item, totalColor, className, ...restOfProps }: BalanceCardProps) => {
+  const { key, total: value } = item;
+  const t = usePageTranslation();
+  const sx = totalColor ? { color: totalColor } : void 0;
+  return (
+    <Box className={clsx(className, 'AwiBalanceCard-root')} {...restOfProps}>
+      <div className="AwiBalanceCard-left">
+        <img src={`/images/assets/${key}.svg`} alt="" className="AwiBalanceCard-icon" />
+        <div>
+          <Typography color="text.primary">{t(`balance-section.assets.${key}.title`)}</Typography>
+          <Typography variant="body-sm">{t(`balance-section.assets.${key}.description`)}</Typography>
         </div>
-        <LabelValue
-          id={`balanceCard-${key}`}
-          className="AwiBalanceCard-labelValue"
-          value={formatAmount(value)}
-          {...(totalColor
-            ? {
-                sx: { borderBottom: `2px solid ${totalColor}` },
-              }
-            : {})}
-          labelProps={{
-            children: t('balance-section.total-balance'),
-          }}
-        />
-      </Box>
-    );
-  },
-  {
-    shouldForwardProp: (prop) => prop !== 'mode',
-  }
-)<BalanceCardProps>(({ theme, mode = 'card' }) => ({
+      </div>
+      <LabelValue
+        id={`balanceCard-${key}`}
+        className="AwiBalanceCard-labelValue"
+        value={formatAmount(value)}
+        sx={sx}
+        labelProps={{
+          children: t('balance-section.total-balance'),
+        }}
+      />
+    </Box>
+  );
+})<BalanceCardProps>(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
-  alignItems: 'flex-end',
+  alignItems: 'flex-start',
   flexWrap: 'wrap',
   gap: theme.spacing(10),
-
-  ...(mode === 'card'
-    ? {
-        padding: theme.spacing(10.5, 8, 9, 12),
-        borderRadius: +theme.shape.borderRadius * 5,
-        backgroundColor: theme.palette.background.transparent,
-      }
-    : {
-        padding: theme.spacing(10.5, 0, 9, 0),
-        margin: theme.spacing(0, 8, 0, 12),
-        borderBottom: `1px solid ${theme.palette.divider}`,
-      }),
-
-  '.AwiBalanceCard-startBox': {
+  padding: theme.spacing(6, 0, 5),
+  '.AwiBalanceCard-left': {
     display: 'flex',
     flexDirection: 'row',
   },
   '.AwiBalanceCard-icon': {
-    width: 32,
-    height: 32,
-    marginRight: theme.spacing(5),
+    position: 'relative',
+    top: -4,
+    width: 30,
+    height: 30,
+    marginRight: theme.spacing(3),
   },
   '.AwiBalanceCard-labelValue': {
     flexDirection: 'row',
-    '.label, .value': {
+    margin: '0 0 0 auto',
+    '.AwiLabelValue-label, .AwiLabelValue-value': {
       ...theme.typography['body-xs'],
-      color: theme.palette.text.secondary,
+      color: 'inherit',
     },
-    '.label': {
+    '.AwiLabelValue-value': {
       marginRight: theme.spacing(1),
     },
   },

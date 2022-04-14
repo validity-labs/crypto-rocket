@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { balanceGroupedList } from '@/fixtures/portfolio';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import BalanceSection from './BalanceSection';
+import Loader from './Loader';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -17,9 +16,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<BalanceSection />', () => {
+describe('<Loader />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<BalanceSection loading={false} items={balanceGroupedList} />, {}, 'contracts');
+    const { asFragment } = render(<Loader />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

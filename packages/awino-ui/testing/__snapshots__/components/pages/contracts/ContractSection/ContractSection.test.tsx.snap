@@ -132,13 +132,13 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                   <img
                     alt=""
                     class="AwiContactCard-icon"
-                    src="/images/assets/infinity.svg"
+                    src="/images/assets/infinite.svg"
                   />
                   <div>
                     <p
                       class="MuiTypography-root MuiTypography-body css-8"
                     >
-                      contracts:contract-section.assets.infinity.title
+                      contracts:contract-section.assets.infinite.title
                     </p>
                     <div
                       class="AwiAddress-root css-9"
@@ -189,7 +189,7 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body-sm css-10"
                     >
-                      contracts:contract-section.assets.infinity.description
+                      contracts:contract-section.assets.infinite.description
                     </p>
                   </div>
                 </div>

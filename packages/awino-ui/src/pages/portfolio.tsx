@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -8,12 +8,28 @@ import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
 import BalanceSection from '@/components/pages/portfolio/BalanceSection/BalanceSection';
 import { balanceGroupedList } from '@/fixtures/portfolio';
+import { sleep } from '@/lib/helpers';
+import { BalanceGrouped } from '@/types/app';
 
 const PortfolioPage: NextPage = () => {
+  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState<BalanceGrouped>({ tokens: [], stableCoins: [], pool: [] });
+
+  useEffect(() => {
+    (async () => {
+      await sleep(2);
+      const itemsNew = await new Promise<any>((res) => {
+        return res(balanceGroupedList);
+      });
+      setItems(itemsNew);
+      setLoading(false);
+    })();
+  }, []);
+
   return (
     <>
       <Seo />
-      <BalanceSection items={balanceGroupedList} />
+      <BalanceSection loading={loading} items={items} />
     </>
   );
 };

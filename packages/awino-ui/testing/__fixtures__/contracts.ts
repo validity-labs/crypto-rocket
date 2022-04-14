@@ -7,7 +7,7 @@ export const contractGroupedList: ContractsGrouped = {
       address: '0x0f2d719407fdbeff09d87557abb7232601fd9f21',
     },
     {
-      key: 'infinity',
+      key: 'infinite',
       address: '0x0f2d719407fdbeff09d87557abb7232601fd9f22',
     },
     {

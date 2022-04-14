@@ -64,9 +64,10 @@ export interface RowsState {
 export type ID = string;
 
 export type Address = string;
-export type TokenAsset = 'awi' | 'infinity' | 'wealth';
+export type TokenAsset = 'awi' | 'infinite' | 'wealth';
 export type StableCoinAsset = 'dai' | 'usdc' | 'usdt';
-export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd';
+export type PoolAsset = any;
+export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd' | 'nusd';
 
 export interface ContractInfo {
   key: AssetKey;
@@ -83,19 +84,20 @@ export interface ContractsGrouped {
   }[];
 }
 
-export interface BalanceInfo {
-  key: AssetKey;
-  value: number;
+export interface BalanceInfo<T = AssetKey> {
+  key: T;
+  total: number;
+}
+export interface BalancePoolInfo {
+  key: PoolAsset;
+  total: number;
+  staked: number;
+  assets: AssetKey[];
 }
 export interface BalanceGrouped {
-  tokens: {
-    key: TokenAsset;
-    value: number;
-  }[];
-  stableCoins: {
-    key: StableCoinAsset;
-    value: number;
-  }[];
+  tokens: BalanceInfo<TokenAsset>[];
+  stableCoins: BalanceInfo<StableCoinAsset>[];
+  pool: BalancePoolInfo[];
 }
 
 export type MarketType = 'supply' | 'borrow';
