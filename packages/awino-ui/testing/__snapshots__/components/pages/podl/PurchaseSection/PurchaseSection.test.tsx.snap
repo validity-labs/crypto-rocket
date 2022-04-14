@@ -320,40 +320,36 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                 <div
                   class="AwiPanel-content content"
                 >
-                  <div
-                    class="AwiAvailablePanel-content"
+                  <h2
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-9"
                   >
-                    <h2
-                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-9"
-                    >
-                      podl:purchase-section.buyable
-                    </h2>
+                    podl:purchase-section.buyable
+                  </h2>
+                  <div
+                    class="AwiAvailablePanel-asset MuiBox-root css-50"
+                  >
                     <div
-                      class="AwiAvailablePanel-asset MuiBox-root css-50"
+                      class="icon"
                     >
-                      <div
-                        class="icon"
+                      <img
+                        alt=""
+                        class="source"
+                        src="/images/icons/ftm.svg"
+                      />
+                    </div>
+                    <div
+                      class="values"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body value css-31"
                       >
-                        <img
-                          alt=""
-                          class="source"
-                          src="/images/icons/ftm.svg"
-                        />
-                      </div>
-                      <div
-                        class="values"
+                        99.5 FTM
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-body alt css-31"
                       >
-                        <p
-                          class="MuiTypography-root MuiTypography-body value css-31"
-                        >
-                          99.5 FTM
-                        </p>
-                        <p
-                          class="MuiTypography-root MuiTypography-body alt css-31"
-                        >
-                          199.5 USD
-                        </p>
-                      </div>
+                        199.5 USD
+                      </p>
                     </div>
                   </div>
                 </div>
