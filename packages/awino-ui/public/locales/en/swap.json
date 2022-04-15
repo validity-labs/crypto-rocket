@@ -42,5 +42,36 @@
       "prompt": "Zap your tokens into LP tokens with one click",
       "choose-token": "Choose a lp token"
     }
+  },
+  "settings-modal": {
+    "title": "Settings",
+    "slippage-tolerance": {
+      "title": "Slippage tolerance",
+      "title-hint": "MISSING TEXT",
+      "value-hint": "Choose one of the predefined slippage tolerance value",
+      "updated": "Slippage tolerance updated to {{v}}"
+    },
+    "transaction-deadline": {
+      "title": "Transaction deadline",
+      "hint": "MISSING TEXT",
+      "minutes": "Minutes",
+      "updated": "Transaction deadline is set to {{v}} minutes"
+    }
+  },
+  "asset-swap-modal": {
+    "title": "Select a token",
+    "title-hint": "MISSING TEXT",
+    "search": "Search name",
+    "common-bases": "Common bases",
+    "common-bases-hint": "MISSING TEXT",
+    "tokens": "Token name"
+  },
+  "asset-zap-modal": {
+    "title": "Select a AWI token",
+    "title-hint": "MISSING TEXT",
+    "search": "Search name",
+    "common-bases": "Common bases",
+    "common-bases-hint": "MISSING TEXT",
+    "tokens": "AWI token name"
   }
 }

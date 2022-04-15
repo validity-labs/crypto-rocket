@@ -8,6 +8,7 @@ import ZapIcon from '@/components/icons/ZapIcon';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { tabA11yProps } from '@/lib/helpers';
+import { AssetKey } from '@/types/app';
 
 import SwapPanel from './SwapPanel';
 import ZapPanel from './ZapPanel';
@@ -42,15 +43,19 @@ const Panel = styled(Box)(({ theme }) => ({
   padding: theme.spacing(5.5, 12, 12),
   borderRadius: +theme.shape.borderRadius * 6,
   backgroundColor: theme.palette.background.transparent,
-  '.header': {
+  '.AwiSwapSection-header': {
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'wrap',
     gap: theme.spacing(7),
     minHeight: 56,
-    margin: theme.spacing(0, 0, 8.5, 0),
+    margin: theme.spacing(0, 0, 8.5),
+    '.Awi-row': {
+      gap: theme.spacing(7),
+    },
   },
-  '.sub-panel': {
+  '.AwiSwapSection-subPanel': {
     position: 'relative',
     borderRadius: +theme.shape.borderRadius * 6,
     boxShadow: '0px 3px 6px #00000029',
@@ -72,18 +77,27 @@ const Panel = styled(Box)(({ theme }) => ({
 
 const id = 'swapSection';
 
+export interface AssetInfo {
+  id: AssetKey;
+  label: string;
+  common: boolean;
+  value: number;
+}
+
+export type AssetInfoMap = Map<AssetKey, AssetInfo>;
+
 export default function SwapSection() {
   const t = usePageTranslation();
   const [loading, setLoading] = useState(true);
-  const [assets, setAssets] = useState(new Map());
+  const [assets, setAssets] = useState<AssetInfoMap>(new Map());
 
   useEffect(() => {
-    const fakeAssets = [
-      { id: 'dai', label: 'DAI' },
-      { id: 'usdt', label: 'USDT' },
-      { id: 'usdc', label: 'USDC' },
-      { id: 'eth', label: 'ETH' },
-      { id: 'link', label: 'LINK' },
+    const fakeAssets: AssetInfo[] = [
+      { id: 'dai', label: 'DAI', common: true, value: 10 },
+      { id: 'usdt', label: 'USDT', common: true, value: 10 },
+      { id: 'usdc', label: 'USDC', common: true, value: 10 },
+      { id: 'eth', label: 'ETH', common: true, value: 10 },
+      { id: 'link', label: 'LINK', common: true, value: 10 },
     ];
 
     setTimeout(() => {

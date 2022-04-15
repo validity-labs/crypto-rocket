@@ -1,6 +1,7 @@
 // import { red } from '@mui/material/colors';
 import { PaletteMode } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
+import { CSSProperties } from '@mui/material/styles/createMixins';
 import { alpha, createBreakpoints, createSpacing } from '@mui/system';
 
 const shapeBorderRadiusBase = 5;
@@ -157,6 +158,21 @@ const themeCreator = (mode: PaletteMode) => {
     },
   });
 
+  theme.mixins = {
+    ...theme.mixins,
+    divider: {
+      borderBottom: `1px solid ${theme.palette.divider}`,
+    },
+    radius: (multiplier: number) => ({ borderRadius: multiplier * +theme.shape.borderRadius }),
+    border: {
+      outlined: {
+        border: `1px solid ${theme.palette.divider}`,
+      },
+      active: {
+        border: `1px solid ${theme.palette.text.active}`,
+      },
+    },
+  };
   theme.components = {
     MuiCssBaseline: {
       styleOverrides: `
@@ -696,6 +712,13 @@ const themeCreator = (mode: PaletteMode) => {
           padding: sp(4.5, 9, 5),
           fontSize: '1.25rem', // 20
           fontWeight: 600,
+        },
+      },
+    },
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Comfortaa, sans-serif',
         },
       },
     },

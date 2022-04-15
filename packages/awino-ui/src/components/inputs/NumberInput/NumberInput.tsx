@@ -39,6 +39,9 @@ const SourceInput = styled(InputBase)(({ theme }) => ({
   padding: theme.spacing(3, 3.5, 3, 7),
   borderRadius: +theme.shape.borderRadius * 2,
   backgroundColor: theme.palette.background.transparent,
+  input: {
+    minWidth: 60,
+  },
 }));
 
 const NumberInput = (props: InputBaseProps) => {

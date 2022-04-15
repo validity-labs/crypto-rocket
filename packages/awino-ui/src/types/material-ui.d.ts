@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { ThemeOptions } from '@mui/material/styles';
+import { CSSProperties } from '@mui/material/styles/createMixins';
 import { TypeBackground, TypeText } from '@mui/material/styles/createPalette';
 
 declare module '@mui/material/styles/createPalette' {
@@ -23,11 +24,14 @@ declare module '@mui/material/styles/createPalette' {
 }
 
 // attempt to override shape to be a number instead of number | string, not working at the moment
-declare module '@mui/system/createTheme/shape' {
-  interface Shape {
-    borderRadius: number;
-  }
-}
+// declare module '@mui/system/createTheme/shape' {
+//   interface Shape {
+//     borderRadius: number;
+//   }
+//   interface ShapeOptions {
+//     borderRadius: number;
+//   }
+// }
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
@@ -83,5 +87,18 @@ declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     containedIcon: true;
     inverted: true;
+  }
+}
+
+declare module '@mui/material/styles/createMixins' {
+  interface Mixins {
+    divider: CSSProperties;
+    radius: (multiplier: number) => CSSProperties;
+    border: { outlined: CSSProperties; active: CSSProperties };
+  }
+  interface MixinOptions {
+    divider: CSSProperties;
+    radius: CSSProperties;
+    border: { outlined: CSSProperties; active: CSSProperties };
   }
 }

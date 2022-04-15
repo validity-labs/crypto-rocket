@@ -67,7 +67,7 @@ export type Address = string;
 export type TokenAsset = 'awi' | 'infinite' | 'wealth';
 export type StableCoinAsset = 'dai' | 'usdc' | 'usdt';
 export type PoolAsset = any;
-export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd' | 'nusd';
+export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd' | 'nusd' | 'eth' | 'link';
 
 export interface ContractInfo {
   key: AssetKey;

@@ -6,9 +6,9 @@ interface Props {
 }
 
 const Loader = styled(({ progressProps, ...props }: Props) => (
-  <div {...props}>
+  <span {...props}>
     <CircularProgress {...progressProps} />
-  </div>
+  </span>
 ))({
   display: 'flex',
   flexDirection: 'row',
