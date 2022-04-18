@@ -2,117 +2,122 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-import { Button, FormControl, FormHelperText, FormLabel, Grid, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import Label from '@/components/general/Label/Label';
-import LabelValue from '@/components/general/LabelValue/LabelValue';
+import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
-import Select from '@/components/general/Select/Select';
+import ExpandIcon from '@/components/icons/ExpandIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount } from '@/lib/formatters';
-import { ID } from '@/types/app';
+import { formatPercent } from '@/lib/formatters';
+import { AssetKey, ID, PairedAssetKey } from '@/types/app';
 
+import AssetIcons from './AssetIcons';
+import AssetModal, { AssetModalData, AssetModalUpdateCallback } from './AssetModal';
 import NumberInput from './NumberInput';
+import { AssetInfoMap } from './SwapSection';
 
 const Root = styled('div')(({ theme }) => ({
-  '.AwiZapPanel-header': {
-    '.AwiZapPanel-aside': {
-      flex: 1,
-      textAlign: 'end',
+  '.AwiSwapPanel-source, .AwiSwapPanel-target': {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    height: '100%',
+  },
+  '.AwiSwapPanel-source': {
+    padding: theme.spacing(11, 8, 12),
+  },
+  '.AwiSwapPanel-target': {
+    position: 'relative',
+    borderRadius: +theme.shape.borderRadius * 6,
+    padding: theme.spacing(11, 8, 12),
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 64,
+      height: 64,
+      background: 'url(/images/icons/zap-icon.svg) no-repeat',
+    },
+    '&.Awi-active': {
+      backgroundColor: 'rgba(0, 255, 186, 0.04)',
     },
   },
-  '.AwiZapPanel-content': {
-    '.info': {
-      width: '100%',
-      padding: theme.spacing(0, 10),
-      '.label-value': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        margin: theme.spacing(0, 0, 3),
-        '.value': {
-          textAlign: 'end',
-        },
-        '.label, .value': {
-          fontSize: '0.875rem' /* 14px */,
-          fontWeight: 400,
-          color: theme.palette.text.secondary,
-        },
-      },
+  '.AwiSwapPanel-sourceAmountLabel, .AwiSwapPanel-targetAmountLabel': {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: theme.spacing(0, 0, 3),
+    ...theme.typography.body,
+  },
+  '.AwiSwapPanel-percentage': {
+    alignSelf: 'flex-start',
+    margin: theme.spacing(2, 0, 0),
+    '.MuiToggleButtonGroup-root': {
+      flexWrap: 'wrap',
+      gap: theme.spacing(2),
+      background: 'none',
     },
-    '.source__amount-label, .target__amount-label': {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      margin: theme.spacing(0, 0, 3),
-      ...theme.typography.body,
-    },
-    '.source__amount-max': {
-      padding: theme.spacing(1, 3),
-      border: `1px solid ${theme.palette.text.secondary}`,
+    '.MuiToggleButton-root': {
+      padding: theme.spacing(2, 4, 1.5),
       ...theme.typography['body-sm'],
-      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.background.transparent,
+      whiteSpace: 'nowrap',
       '&:hover': {
-        color: theme.palette.text.primary,
-      },
-      '.help-text': {
-        position: 'static',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
-        margin: theme.spacing(2, 0, 3),
-        ...theme.typography.body,
-      },
-    },
-    '.source, .target': {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: theme.spacing(11, 8, 12),
-    },
-    '.source': {
-      paddingRight: theme.spacing(22),
-    },
-    '.target': {
-      position: 'relative',
-      borderRadius: +theme.shape.borderRadius * 6,
-      paddingLeft: theme.spacing(22),
-      // padding: theme.spacing(0, 10),
-      '&:before': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 64,
-        height: 64,
-        background: 'url(/images/icons/swap-icon.svg) no-repeat',
-      },
-      '&.active': {
-        backgroundColor: theme.palette.background.transparent,
-        // 'rgba(98,98,98,0.04)',
+        backgroundColor: theme.palette.action.hover,
       },
     },
   },
 
+  '.AwiSwapPanel-assetToggle': {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    minHeight: 58,
+    minWidth: 240,
+    padding: theme.spacing(1, 6, 1),
+    margin: theme.spacing(0, 'auto', 3),
+    ...theme.typography['body-md'],
+    color: theme.palette.text.primary,
+    '.AwiSwapPanel-assetToggleIcon': {
+      fontSize: '32px',
+      color: theme.palette.text.secondary,
+      marginLeft: theme.spacing(4),
+      path: {
+        fill: 'currentColor !important',
+      },
+    },
+    '&:hover': {
+      backgroundColor: theme.palette.background.transparent,
+    },
+    '&.Mui-focusVisible': {
+      outline: `2px solid ${theme.palette.success.light}`,
+      outlineOffset: -2,
+    },
+  },
   [theme.breakpoints.up('md')]: {
-    '.AwiZapPanel-content': {
-      '.target': {
-        '&:before': {
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-        },
+    '.AwiSwapPanel-source': {
+      padding: theme.spacing(11, 22, 12, 8),
+      paddingRight: theme.spacing(22),
+    },
+    '.AwiSwapPanel-target': {
+      padding: theme.spacing(11, 8, 12, 22),
+      '&:before': {
+        position: 'absolute',
+        top: '50%',
+        left: 0,
       },
     },
   },
 }));
 
-type TypeKeys = 'market' | 'limit';
+const percentageList = [25, 50, 75, 100];
 
 interface TabPanelProps {
   id: ID;
@@ -120,58 +125,28 @@ interface TabPanelProps {
   index: number;
   value: number;
   loading: boolean;
-  assets: Map<string, { id: string; label: string }>;
+  sourceAssets: AssetInfoMap;
+  targetAssets: AssetInfoMap;
 }
 
 const ZapPanel = (props: TabPanelProps) => {
   const t = usePageTranslation();
-  const { id, value, index, assets, loading, ...other } = props;
-
-  const [type, setType] = useState<TypeKeys>('market');
+  const { id, value, index, sourceAssets, targetAssets, loading, ...other } = props;
+  const sourceMaxValue = 9999.99;
   const [executing, setExecuting] = useState(false);
-  const [sourceAsset, setSourceAsset] = useState('');
+  const [sourceAsset, setSourceAsset] = useState<AssetKey | ''>('');
   const [sourceValue, setSourceValue] = useState(null);
-  const [targetAsset, setTargetAsset] = useState('');
+  const [targetAsset, setTargetAsset] = useState<PairedAssetKey | ''>('');
   const [targetValue, setTargetValue] = useState(null);
   const [canExecute, setCanExecute] = useState(false);
-  const [info, setInfo] = useState(null);
-  const [sourceMaxValue, setSourceMaxValue] = useState(0);
+  const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
 
-  const handleType = (event: React.MouseEvent<HTMLElement>, newType: TypeKeys) => {
-    setType(newType);
-    // setCanExecute((prev) => !prev);
-  };
   useEffect(() => {
     if (targetAsset) setTargetValue(sourceValue || 0 * 2);
   }, [sourceValue, targetAsset]);
 
   useEffect(() => {
-    setSourceMaxValue(null);
-    if (sourceAsset) {
-      setTimeout(() => {
-        setSourceMaxValue(100.99);
-      }, 400);
-    }
-  }, [sourceAsset]);
-
-  useEffect(() => {
-    if (sourceAsset && targetAsset) {
-      setInfo(null);
-      setTimeout(() => {
-        setInfo({
-          minimumReceived: 0.9907,
-          priceImpact: '<0.01%',
-          liquidityProviderFee: 0.005991,
-          route: `${sourceAsset} CRE USDC ${targetAsset}`,
-        });
-      }, 400);
-    }
-  }, [sourceAsset, targetAsset]);
-
-  useEffect(() => {
-    if (sourceAsset && targetAsset && sourceValue && targetValue) {
-      setCanExecute(true);
-    }
+    setCanExecute(sourceAsset && targetAsset && sourceValue && targetValue);
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
   const handleExecute = useCallback(() => {
@@ -183,181 +158,155 @@ const ZapPanel = (props: TabPanelProps) => {
     }
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
-  const validateSourceValue = useCallback(
-    (newValue) => {
-      return newValue >= 0 && newValue <= sourceMaxValue;
-    },
-    [sourceMaxValue]
-  );
-
-  const handleSourceMax = () => {
-    if (validateSourceValue(sourceMaxValue)) {
-      setSourceValue(`${sourceMaxValue}`);
-    }
-  };
+  const validateSourceValue = useCallback((newValue) => {
+    return newValue >= 0;
+  }, []);
 
   const handleSourceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSourceValue(event.target.value);
   };
 
-  // const handleTargetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setTargetValue(event.target.value);
-  // };
+  const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
+    setSourceValue(`${(+newPercent / 100) * sourceMaxValue}`);
+  };
+
+  const handleSourceAssetModalToggle = () => {
+    setAssetModal({
+      currentAsset: sourceAsset as AssetKey,
+      type: 'source',
+      assets: sourceAssets, //: new Map(Array.from(assets).filter(([id]) => id !== targetAsset)),
+    });
+  };
+
+  const handleTargetAssetModalToggle = () => {
+    setAssetModal({
+      currentAsset: targetAsset as AssetKey,
+      type: 'target',
+      assets: targetAssets, //: new Map(Array.from(assets).filter(([id]) => id !== sourceAsset)),
+    });
+  };
+
+  const handleAssetModalUpdate: AssetModalUpdateCallback = (type, payload) => {
+    if (type === 'source') {
+      setSourceAsset(payload as AssetKey);
+    } else {
+      setTargetAsset(payload as PairedAssetKey);
+    }
+  };
 
   return (
-    <Root
-      role="tabpanel"
-      hidden={value !== index}
-      id={`tabpanel-${id}-${index}`}
-      aria-labelledby={`tab-${id}-${index}`}
-      {...other}
-    >
-      <div className="AwiZapPanel-header">
-        <Label>{t(`swap-section.zap.prompt`)}</Label>
-        <ToggleButtonGroup
-          value={type}
-          exclusive
-          onChange={handleType}
-          aria-label={t(`swap-section.swap.trading-type-hint`)}
-        >
-          <ToggleButton value="market">{t(`swap-section.swap.market`)}</ToggleButton>
-          <ToggleButton value="limit">{t(`swap-section.swap.limit`)}</ToggleButton>
-        </ToggleButtonGroup>
-        <div className="AwiZapPanel-aside">
-          <LoadingButton color="primary" onClick={handleExecute} disabled={!canExecute} loading={executing}>
-            {t('swap-section.swap.execute')}
-          </LoadingButton>
+    <>
+      <Root
+        role="tabpanel"
+        hidden={value !== index}
+        id={`tabpanel-${id}-${index}`}
+        aria-labelledby={`tab-${id}-${index}`}
+        {...other}
+      >
+        <div className="AwiSwapSection-header">
+          <Label>{t(`swap-section.zap.prompt`)}</Label>
+          <div className="AwiSwapPanel-aside Awi-row">
+            <LoadingButton color="primary" onClick={handleExecute} disabled={!canExecute} loading={executing}>
+              {t('swap-section.zap.execute')}
+            </LoadingButton>
+          </div>
         </div>
-      </div>
-      <div className="AwiZapPanel-content">
-        <div className="sub-panel">
-          <Grid container>
-            <Grid item xs={12} md={6}>
-              <div className="source">
-                <Select
-                  id="assetSource"
-                  mb={3}
-                  value={sourceAsset}
-                  setValue={setSourceAsset}
-                  items={assets}
-                  disabled={executing}
-                  loading={loading}
-                />
-                <FormControl variant="standard" fullWidth disabled={loading || executing || !sourceAsset}>
-                  <FormLabel htmlFor="sourceValue" className="source__amount-label">
-                    <span>{t('swap-section.swap.you-pay')}</span>
-                    {sourceAsset && sourceMaxValue && (
-                      <span>
-                        {t('swap-section.swap.max-of-asset', {
-                          value: sourceMaxValue,
-                          asset: assets.get(sourceAsset).label,
-                        })}
-                      </span>
-                    )}
-                  </FormLabel>
-                  <NumberInput
-                    id="sourceValue"
-                    name="sourceValue"
-                    inputProps={{
-                      isAllowed: (value) => validateSourceValue(value.floatValue),
-                    }}
-                    value={sourceValue}
-                    onChange={handleSourceChange}
-                    endAdornment={
-                      <Button variant="outlined" onClick={handleSourceMax} className="source__amount-max">
-                        {t('swap-section.swap.max')}
-                      </Button>
+        <div>
+          <div className="AwiSwapSection-subPanel">
+            <Grid container>
+              <Grid item xs={12} md={6}>
+                <div className="AwiSwapPanel-source">
+                  <Button
+                    variant="text"
+                    className="AwiSwapPanel-assetToggle"
+                    startIcon={
+                      loading ? (
+                        <Loader progressProps={{ size: 20 }} />
+                      ) : (
+                        sourceAsset && <AssetIcons ids={sourceAsset} size="large" />
+                      )
                     }
-                  />
-                  <FormHelperText className="helper-text" variant="standard" />
-                </FormControl>
-              </div>
+                    disabled={executing}
+                    endIcon={<ExpandIcon className="AwiSwapPanel-assetToggleIcon" />}
+                    onClick={handleSourceAssetModalToggle}
+                  >
+                    <>{sourceAsset ? sourceAssets.get(sourceAsset).label : t('swap-section.zap.choose-token')}</>
+                  </Button>
+                  <FormControl variant="standard" fullWidth disabled={loading || executing || !sourceAsset}>
+                    <FormLabel htmlFor="sourceValue" className="AwiSwapPanel-sourceAmountLabel">
+                      {t('swap-section.zap.you-pay')}
+                    </FormLabel>
+                    <NumberInput
+                      id="sourceValue"
+                      name="sourceValue"
+                      inputProps={{
+                        isAllowed: (value) => validateSourceValue(value.floatValue),
+                      }}
+                      value={sourceValue}
+                      onChange={handleSourceChange}
+                    />
+                  </FormControl>
+                  <div className="AwiSwapPanel-percentage">
+                    <ToggleButtonGroup
+                      size="small"
+                      exclusive
+                      onChange={handlePercentClick}
+                      aria-label={t(`swap-section.zap.trading-type-hint`)}
+                    >
+                      {percentageList.map((percent) => (
+                        <ToggleButton size="small" key={percent} value={percent}>
+                          {formatPercent(percent)}
+                        </ToggleButton>
+                      ))}
+                    </ToggleButtonGroup>
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <div className={clsx('AwiSwapPanel-target', { 'Awi-active': canExecute })}>
+                  <Button
+                    variant="text"
+                    className="AwiSwapPanel-assetToggle"
+                    startIcon={
+                      loading ? (
+                        <Loader progressProps={{ size: 20 }} />
+                      ) : (
+                        targetAsset && (
+                          <AssetIcons
+                            ids={targetAsset.split('-').map((m) => m.toLowerCase()) as AssetKey[]}
+                            size="large"
+                          />
+                        )
+                      )
+                    }
+                    disabled={executing}
+                    endIcon={<ExpandIcon className="AwiSwapPanel-assetToggleIcon" />}
+                    onClick={handleTargetAssetModalToggle}
+                  >
+                    <>{targetAsset ? targetAssets.get(targetAsset).label : t('swap-section.zap.choose-lp-token')}</>
+                  </Button>
+                  <FormControl variant="standard" fullWidth disabled={true /* loading || !targetAsset */}>
+                    <FormLabel htmlFor="targetValue" className="AwiSwapPanel-targetAmountLabel">
+                      <span>{t(`swap-section.zap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span>
+                    </FormLabel>
+                    <NumberInput id="targetValue" name="targetValue" value={targetValue} />
+                  </FormControl>
+                </div>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <div className={clsx('target', { active: canExecute })}>
-                <Select
-                  id="assetTarget"
-                  mb={3}
-                  value={targetAsset}
-                  setValue={setTargetAsset}
-                  items={assets}
-                  disabled={executing}
-                  loading={loading}
-                />
-                <FormControl variant="standard" fullWidth disabled={true /* loading || !targetAsset */}>
-                  <FormLabel htmlFor="targetValue" className="target__amount-label">
-                    <span>{t(`swap-section.swap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span>
-                  </FormLabel>
-                  <NumberInput
-                    id="targetValue"
-                    name="targetValue"
-                    value={targetValue} /* onChange={handleTargetChange} */
-                  />
-                  <FormHelperText className="help-text">
-                    <span>{t('swap-section.swap.price')}</span>
-                    {canExecute && (
-                      <span>
-                        {t('swap-section.swap.ratio-per', {
-                          value: targetValue,
-                          target: assets.get(targetAsset).label,
-                          source: assets.get(sourceAsset).label,
-                        })}
-                      </span>
-                    )}
-                  </FormHelperText>
-                </FormControl>
-              </div>
-            </Grid>
-          </Grid>
+          </div>
         </div>
-        {canExecute && info && (
-          <Grid container>
-            <Grid item xs={false} md={6}></Grid>
-            <Grid item xs={12} md={6}>
-              <div className="info">
-                <LabelValue
-                  id="minimumReceived"
-                  className="label-value"
-                  value={formatAmount(info.liquidityProviderFee, { postfix: assets.get(sourceAsset).label })}
-                  labelProps={{
-                    children: t('swap-section.swap.minimum-received.title'),
-                    tooltip: t('swap-section.swap.minimum-received.hint'),
-                  }}
-                />
-                <LabelValue
-                  id="priceImpact"
-                  className="label-value"
-                  sx={{ '&.label-value .value': { color: 'success.main' } }}
-                  value={info.priceImpact}
-                  labelProps={{
-                    children: t('swap-section.swap.price-impact.title'),
-                    tooltip: t('swap-section.swap.price-impact.hint'),
-                  }}
-                />
-                <LabelValue
-                  id="liquidityProviderFee"
-                  className="label-value"
-                  value={formatAmount(info.liquidityProviderFee, { postfix: assets.get(targetAsset).label })}
-                  labelProps={{
-                    children: t('swap-section.swap.liquidity-provider-fee.title'),
-                    tooltip: t('swap-section.swap.liquidity-provider-fee.hint'),
-                  }}
-                />
-                <LabelValue
-                  id="route"
-                  className="label-value"
-                  value={info.route}
-                  labelProps={{
-                    children: t('swap-section.swap.route.title'),
-                    tooltip: t('swap-section.swap.route.hint'),
-                  }}
-                />
-              </div>
-            </Grid>
-          </Grid>
-        )}
-      </div>
-    </Root>
+      </Root>
+      {!!assetModal && (
+        <AssetModal
+          open={!!assetModal}
+          close={() => setAssetModal(null)}
+          data={assetModal}
+          callback={handleAssetModalUpdate}
+          i18nKey="asset-zap-modal"
+        />
+      )}
+    </>
   );
 };
 

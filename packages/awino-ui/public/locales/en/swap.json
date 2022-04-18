@@ -19,6 +19,7 @@
       "max-of-asset": "Max. {{value}} {{asset}}",
       "max": "Max",
       "price": "Price",
+      "slippage-tolerance": "Slippage Tolerance",
       "ratio-per": "{{value}} {{target}} per {{source}}",
       "minimum-received": {
         "title": "Minimum received",
@@ -40,7 +41,13 @@
     "zap": {
       "title": "Zap",
       "prompt": "Zap your tokens into LP tokens with one click",
-      "choose-token": "Choose a lp token"
+      "prompt-hint": "MISSING TEXT",
+      "you-pay": "You pay",
+      "you-receive": "You receive",
+      "you-receive-estimated": "You receive (estimated)",
+      "choose-token": "Choose token",
+      "choose-lp-token": "Choose a lp token",
+      "execute": "Execute zap"
     }
   },
   "settings-modal": {
@@ -59,16 +66,28 @@
     }
   },
   "asset-swap-modal": {
-    "title": "Select a token",
-    "title-hint": "MISSING TEXT",
+    "source": {
+      "title": "Select a token",
+      "title-hint": "MISSING TEXT"
+    },
+    "target": {
+      "title": "Select a token",
+      "title-hint": "MISSING TEXT"
+    },
     "search": "Search name",
     "common-bases": "Common bases",
     "common-bases-hint": "MISSING TEXT",
     "tokens": "Token name"
   },
   "asset-zap-modal": {
-    "title": "Select a AWI token",
-    "title-hint": "MISSING TEXT",
+    "source": {
+      "title": "Select a token",
+      "title-hint": "MISSING TEXT"
+    },
+    "target": {
+      "title": "Select a AWI token",
+      "title-hint": "MISSING TEXT"
+    },
     "search": "Search name",
     "common-bases": "Common bases",
     "common-bases-hint": "MISSING TEXT",

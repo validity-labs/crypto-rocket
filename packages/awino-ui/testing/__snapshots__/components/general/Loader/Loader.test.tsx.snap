@@ -2,7 +2,7 @@
 
 exports[`<Loader /> has valid snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <span
     class="css-0"
   >
     <span
@@ -24,6 +24,6 @@ exports[`<Loader /> has valid snapshot 1`] = `
         />
       </svg>
     </span>
-  </div>
+  </span>
 </DocumentFragment>
 `;

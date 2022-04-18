@@ -69,6 +69,9 @@ export type StableCoinAsset = 'dai' | 'usdc' | 'usdt';
 export type PoolAsset = any;
 export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd' | 'nusd' | 'eth' | 'link';
 
+// TODO make sure there is no item that has same asset key on both sides
+export type PairedAssetKey = `${AssetKey}-${AssetKey}`;
+
 export interface ContractInfo {
   key: AssetKey;
   address: string;

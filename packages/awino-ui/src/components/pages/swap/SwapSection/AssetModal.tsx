@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 
+import clsx from 'clsx';
 import { debounce } from 'lodash';
 
 import CloseIcon from '@mui/icons-material/CloseRounded';
@@ -11,8 +12,9 @@ import Label from '@/components/general/Label/Label';
 import Modal from '@/components/general/Modal/Modal';
 import SearchIcon from '@/components/icons/SearchIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { AssetKey } from '@/types/app';
+import { AssetKey, PairedAssetKey } from '@/types/app';
 
+import AssetIcons from './AssetIcons';
 import { AssetInfo, AssetInfoMap } from './SwapSection';
 
 const Root = styled(Modal)(({ theme }) => ({
@@ -37,6 +39,7 @@ const Root = styled(Modal)(({ theme }) => ({
   '.AwiAssetModal-common': {
     '> .Awi-row': {
       gap: theme.spacing(3.5),
+      flexWrap: 'wrap',
     },
   },
   '.AwiAssetModal-commonItem': {
@@ -44,10 +47,14 @@ const Root = styled(Modal)(({ theme }) => ({
     padding: theme.spacing(2, 3),
     ...theme.mixins.border.outlined,
     ...theme.mixins.radius(2),
-
-    img: {
-      position: 'relative',
+    '.AwiAssetModal-commonIcons': {
+      display: 'flex',
       marginRight: theme.spacing(1),
+      position: 'relative',
+      img: {
+        position: 'relative',
+        display: 'block',
+      },
     },
   },
   '.AwiAssetModal-tokenItems': {
@@ -60,7 +67,7 @@ const Root = styled(Modal)(({ theme }) => ({
     ...theme.typography.body,
     fontWeight: 500,
     img: {
-      marginRight: theme.spacing(1),
+      // marginRight: theme.spacing(1),
     },
     '&.Awi-row': {
       justifyContent: 'space-between',
@@ -89,20 +96,22 @@ const Root = styled(Modal)(({ theme }) => ({
 }));
 
 interface CommonItemProps extends Omit<ButtonBaseProps, 'type'> {
-  id: AssetKey;
-  label: string;
+  item: AssetInfo;
   type: AssetModalDataType;
   callback: AssetModalUpdateCallback;
 }
 
-const CommonItem = ({ id, label, type, callback, ...restOfProps }: CommonItemProps) => {
+const CommonItem = ({ item, type, callback, ...restOfProps }: CommonItemProps) => {
+  const { id, label, assets } = item;
+
   const handleClick = useCallback(() => {
     callback(type, id);
   }, [id, type, callback]);
 
+  const assetIds = typeof assets !== 'undefined' ? assets : [id as AssetKey];
   return (
     <ButtonBase key={id} className="AwiAssetModal-commonItem Awi-row" onClick={handleClick} {...restOfProps}>
-      <img src={`/images/assets/${id}.svg`} alt="" width="24" height="24" />
+      <AssetIcons ids={assetIds} size="small" />
       {label}
     </ButtonBase>
   );
@@ -114,16 +123,17 @@ interface TokenItemProps extends Omit<ButtonBaseProps, 'type'> {
   callback: AssetModalUpdateCallback;
 }
 const TokenItem = ({ item, type, callback, ...restOfProps }: TokenItemProps) => {
-  const { id, label, value } = item;
+  const { id, label, value, assets } = item;
 
   const handleClick = useCallback(() => {
     callback(type, id);
   }, [id, type, callback]);
 
+  const assetIds = typeof assets !== 'undefined' ? assets : [id as AssetKey];
   return (
     <ButtonBase key={id} className="AwiAssetModal-tokenItem Awi-row" onClick={handleClick} {...restOfProps}>
       <span className="Awi-row">
-        <img src={`/images/assets/${id}.svg`} alt="" width="30" height="30" />
+        <AssetIcons ids={assetIds} size="medium" />
         {label}
       </span>
       <span>{value}</span>
@@ -139,7 +149,7 @@ export interface AssetModalData {
   assets: AssetInfoMap;
 }
 
-export type AssetModalUpdateCallback<T = void> = (type: 'source' | 'target', payload: AssetKey) => T;
+export type AssetModalUpdateCallback<T = void> = (type: 'source' | 'target', payload: AssetKey | PairedAssetKey) => T;
 
 interface Props {
   open: boolean;
@@ -216,7 +226,7 @@ export default function AssetModal({ open, close, data, callback, i18nKey }: Pro
   const clearSeachLabel = t('common:common.clear-search');
 
   return (
-    <Root id="assetSwap" title={t('title')} open={open} close={close}>
+    <Root id="assetSwap" title={t(`${type}.title`)} titleTooltip={t(`${type}.title-hint`)} open={open} close={close}>
       <form
         noValidate
         autoComplete="off"
@@ -251,10 +261,10 @@ export default function AssetModal({ open, close, data, callback, i18nKey }: Pro
             {commonIds.map((id) => (
               <CommonItem
                 key={id}
-                id={id}
-                label={assets.get(id).label}
+                item={assets.get(id)}
                 callback={handleAssetClick}
                 type={type}
+                // parts={asset.get(id)}
                 aria-labelledby="assetModalCommon"
               />
             ))}

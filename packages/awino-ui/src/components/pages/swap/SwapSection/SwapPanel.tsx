@@ -4,12 +4,10 @@ import clsx from 'clsx';
 
 import {
   Button,
-  ButtonBase,
-  CircularProgress,
   FormControl,
-  FormHelperText,
   FormLabel,
   Grid,
+  IconButton,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
@@ -17,98 +15,121 @@ import {
 import { styled } from '@mui/material/styles';
 
 import { useAppDispatch } from '@/app/hooks';
-import { showMessage } from '@/app/state/slices/app';
 import Label from '@/components/general/Label/Label';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
-import Select from '@/components/general/Select/Select';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import GearIcon from '@/components/icons/GearIcon';
+import ReloadIcon from '@/components/icons/ReloadIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount } from '@/lib/formatters';
+import { formatAmount, formatPercent } from '@/lib/formatters';
 import { AssetKey, ID } from '@/types/app';
 
+import AssetIcons from './AssetIcons';
 import AssetModal, { AssetModalData, AssetModalUpdateCallback } from './AssetModal';
 import NumberInput from './NumberInput';
 import SettingsModal, { SettingsModalData, SettingsModalUpdateCallback } from './SettingsModal';
 import { AssetInfoMap } from './SwapSection';
 
 const Root = styled('div')(({ theme }) => ({
-  '.AwiSwapPanel-content': {
-    '.AwiSwapPanel-info': {
-      width: '100%',
-      padding: theme.spacing(0, 10),
-      '.AwiSwapPanel-infoLabelValue': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        margin: theme.spacing(0, 0, 3),
-        '.AwiLabelValue-value': {
-          textAlign: 'end',
-        },
-        '.AwiLabelValue-label, .AwiLabelValue-value': {
-          fontSize: '0.875rem' /* 14px */,
-          fontWeight: 400,
-          color: theme.palette.text.secondary,
-        },
-      },
-    },
-    '.AwiSwapPanel-sourceAmountLabel, .AwiSwapPanel-targetAmountLabel': {
+  '.AwiSwapPanel-info': {
+    width: '100%',
+    padding: theme.spacing(0, 10),
+    '.AwiSwapPanel-infoLabelValue': {
       display: 'flex',
-      flexDirection: 'row',
       justifyContent: 'space-between',
-      alignItems: 'center',
       margin: theme.spacing(0, 0, 3),
-      ...theme.typography.body,
+      '.AwiLabelValue-value': {
+        textAlign: 'end',
+      },
+      '.AwiLabelValue-label, .AwiLabelValue-value': {
+        fontSize: '0.875rem' /* 14px */,
+        fontWeight: 400,
+        color: theme.palette.text.secondary,
+      },
     },
-    '.AwiSwapPanel-sourceAmountMax': {
-      padding: theme.spacing(1, 3),
-      border: `1px solid ${theme.palette.text.secondary}`,
+  },
+  '.AwiSwapPanel-source, .AwiSwapPanel-target': {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    height: '100%',
+  },
+  '.AwiSwapPanel-source': {
+    padding: theme.spacing(11, 8, 12),
+  },
+  '.AwiSwapPanel-target': {
+    position: 'relative',
+    borderRadius: +theme.shape.borderRadius * 6,
+    padding: theme.spacing(11, 8, 12),
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 64,
+      height: 64,
+      background: 'url(/images/icons/swap-icon.svg) no-repeat',
+    },
+    '&.Awi-active': {
+      backgroundColor: 'rgba(0, 255, 186, 0.04)',
+    },
+  },
+  '.AwiSwapPanel-sourceAmountLabel, .AwiSwapPanel-targetAmountLabel': {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: theme.spacing(0, 0, 3),
+    ...theme.typography.body,
+  },
+  '.AwiSwapPanel-sourceAmountMax': {
+    padding: theme.spacing(1, 3),
+    border: `1px solid ${theme.palette.text.secondary}`,
+    ...theme.typography['body-sm'],
+    color: theme.palette.text.secondary,
+    '&:hover': {
+      color: theme.palette.text.primary,
+      ...theme.mixins.border.active,
+    },
+  },
+
+  '.AwiSwapPanel-help': {
+    position: 'static',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    margin: theme.spacing(2, 0, 3),
+    ...theme.typography.body,
+  },
+  '.AwiSwapPanel-percentage': {
+    alignSelf: 'flex-start',
+    margin: theme.spacing(2, 0, 0),
+    '.MuiToggleButtonGroup-root': {
+      flexWrap: 'wrap',
+      gap: theme.spacing(2),
+      background: 'none',
+    },
+    '.MuiToggleButton-root': {
+      padding: theme.spacing(2, 4, 1.5),
       ...theme.typography['body-sm'],
-      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.background.transparent,
+      whiteSpace: 'nowrap',
       '&:hover': {
-        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.action.hover,
       },
     },
-    '.AwiSwapPanel-source, .AwiSwapPanel-target': {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: theme.spacing(11, 8, 12),
-    },
-    '.AwiSwapPanel-source': {
-      paddingRight: theme.spacing(22),
-    },
-    '.AwiSwapPanel-target': {
-      position: 'relative',
-      borderRadius: +theme.shape.borderRadius * 6,
-      paddingLeft: theme.spacing(22),
-      // padding: theme.spacing(0, 10),
-      '&:before': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 64,
-        height: 64,
-        background: 'url(/images/icons/swap-icon.svg) no-repeat',
-      },
-      '&.Awi-active': {
-        backgroundColor: theme.palette.background.transparent,
-        // 'rgba(98,98,98,0.04)',
-      },
-    },
-    '.AwiSwapPanel-help': {
-      position: 'static',
-      display: 'flex',
-      flexDirection: 'row',
+  },
+  '.AwiSwapPanel-slippageTolerance': {
+    width: '100%',
+    margin: theme.spacing(2, 0, 0),
+    '&.Awi-row': {
       justifyContent: 'space-between',
-      alignItems: 'center',
-      width: '100%',
-      margin: theme.spacing(2, 0, 3),
-      ...theme.typography.body,
     },
   },
   '.AwiSwapPanel-assetToggle': {
@@ -119,14 +140,14 @@ const Root = styled('div')(({ theme }) => ({
     minHeight: 58,
     minWidth: 240,
     padding: theme.spacing(1, 6, 1),
-    margin: theme.spacing(0, 0, 3),
+    margin: theme.spacing(0, 'auto', 3),
     ...theme.typography['body-md'],
     color: theme.palette.text.primary,
-    img: {
-      width: 50,
-      height: 50,
-      marginRight: theme.spacing(4),
-    },
+    // img: {
+    //   width: 50,
+    //   height: 50,
+    //   marginRight: theme.spacing(4),
+    // },
     '.AwiSwapPanel-assetToggleIcon': {
       fontSize: '32px',
       color: theme.palette.text.secondary,
@@ -143,18 +164,40 @@ const Root = styled('div')(({ theme }) => ({
       outlineOffset: -2,
     },
   },
+  '.AwiSwapPanel-sourcePriceLabel': {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: theme.spacing(12.5, 0, 3),
+    ...theme.typography.body,
+    '.MuiIconButton-root': {
+      padding: 4,
+      margin: theme.spacing(0, 0, 0, 1),
+      '&:hover, &.Mui-focusVisible': {
+        color: theme.palette.text.active,
+      },
+      svg: {
+        fontSize: '16px',
+      },
+    },
+  },
   [theme.breakpoints.up('md')]: {
-    '.AwiSwapPanel-content': {
-      '.AwiSwapPanel-target': {
-        '&:before': {
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-        },
+    '.AwiSwapPanel-source': {
+      padding: theme.spacing(11, 22, 12, 8),
+      paddingRight: theme.spacing(22),
+    },
+    '.AwiSwapPanel-target': {
+      padding: theme.spacing(11, 8, 12, 22),
+      '&:before': {
+        position: 'absolute',
+        top: '50%',
+        left: 0,
       },
     },
   },
 }));
+
+const percentageList = [25, 50, 75, 100];
 
 type TypeKeys = 'market' | 'limit';
 
@@ -169,7 +212,7 @@ interface TabPanelProps {
 
 const SwapPanel = (props: TabPanelProps) => {
   const t = usePageTranslation();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const { id, value, index, assets, loading, ...other } = props;
 
   const [type, setType] = useState<TypeKeys>('market');
@@ -183,6 +226,8 @@ const SwapPanel = (props: TabPanelProps) => {
   const [sourceMaxValue, setSourceMaxValue] = useState(0);
   const [settingsModal, setSettingsModal] = useState<SettingsModalData | null>(null);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
+  const [slippageTolerance, setSlippageTolerance] = useState(0);
+  const [sourcePriceValue, setSourcePriceValue] = useState(null);
 
   const handleType = (event: React.MouseEvent<HTMLElement>, newType: TypeKeys) => {
     setType(newType);
@@ -197,6 +242,7 @@ const SwapPanel = (props: TabPanelProps) => {
     if (sourceAsset) {
       setTimeout(() => {
         setSourceMaxValue(100.99);
+        setSlippageTolerance(0.2);
       }, 400);
     }
   }, [sourceAsset]);
@@ -245,19 +291,32 @@ const SwapPanel = (props: TabPanelProps) => {
     setSourceValue(event.target.value);
   };
 
+  const handleSourcePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSourcePriceValue(event.target.value);
+  };
+
+  const handleSourcePriceRefresh = () => {
+    console.log('handleSourcePriceRefresh');
+  };
+
+  const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
+    setSourceValue(`${(+newPercent / 100) * sourceMaxValue}`);
+  };
+
   // const handleTargetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   setTargetValue(event.target.value);
   // };
 
   const handleSettingsModalToggle = () => {
     setSettingsModal({
-      slippageTolerance: 0.5,
+      slippageTolerance,
       transactionDeadline: 20,
     });
   };
 
   const handleSettingsUpdate: SettingsModalUpdateCallback<Promise<void>> = (type, payload) => {
     return new Promise((res) => {
+      setSlippageTolerance(payload);
       res();
     });
   };
@@ -279,11 +338,10 @@ const SwapPanel = (props: TabPanelProps) => {
   };
 
   const handleAssetModalUpdate: AssetModalUpdateCallback = (type, payload) => {
-    console.log(type, payload);
     if (type === 'source') {
-      setSourceAsset(payload);
+      setSourceAsset(payload as AssetKey);
     } else {
-      setTargetAsset(payload);
+      setTargetAsset(payload as AssetKey);
     }
   };
 
@@ -318,7 +376,7 @@ const SwapPanel = (props: TabPanelProps) => {
             </LoadingButton>
           </div>
         </div>
-        <div className="AwiSwapPanel-content">
+        <div>
           <div className="AwiSwapSection-subPanel">
             <Grid container>
               <Grid item xs={12} md={6}>
@@ -330,7 +388,7 @@ const SwapPanel = (props: TabPanelProps) => {
                       loading ? (
                         <Loader progressProps={{ size: 20 }} />
                       ) : (
-                        sourceAsset && <img src={`/images/assets/${sourceAsset}.svg`} alt="" width="24" />
+                        sourceAsset && <AssetIcons ids={sourceAsset} size="small" />
                       )
                     }
                     disabled={executing}
@@ -341,7 +399,7 @@ const SwapPanel = (props: TabPanelProps) => {
                       {sourceAsset
                         ? assets.get(sourceAsset)
                             .label /*  new Map(Array.from(assets).filter((f) => f[0] !== targetAsset)).get(sourceAsset).label */
-                        : t('common:common.select-token')}
+                        : t('swap-section.swap.choose-token')}
                     </>
                   </Button>
                   <FormControl variant="standard" fullWidth disabled={loading || executing || !sourceAsset}>
@@ -370,8 +428,37 @@ const SwapPanel = (props: TabPanelProps) => {
                         </Button>
                       }
                     />
-                    <FormHelperText className="AwiSwapPanel-help" variant="standard" />
                   </FormControl>
+                  <div className="AwiSwapPanel-percentage">
+                    <ToggleButtonGroup
+                      size="small"
+                      exclusive
+                      onChange={handlePercentClick}
+                      aria-label={t(`swap-section.swap.trading-type-hint`)}
+                    >
+                      {percentageList.map((percent) => (
+                        <ToggleButton size="small" key={percent} value={percent}>
+                          {formatPercent(percent)}
+                        </ToggleButton>
+                      ))}
+                    </ToggleButtonGroup>
+                  </div>
+                  {type === 'limit' && (
+                    <FormControl variant="standard" fullWidth disabled={loading || executing || !sourceAsset}>
+                      <FormLabel htmlFor="sourcePriceValue" className="AwiSwapPanel-sourcePriceLabel">
+                        {t('swap-section.swap.price')}
+                        <IconButton onClick={handleSourcePriceRefresh}>
+                          <ReloadIcon />
+                        </IconButton>
+                      </FormLabel>
+                      <NumberInput
+                        id="sourcePriceValue"
+                        name="sourcePriceValue"
+                        value={sourcePriceValue}
+                        onChange={handleSourcePriceChange}
+                      />
+                    </FormControl>
+                  )}
                 </div>
               </Grid>
               <Grid item xs={12} md={6}>
@@ -383,7 +470,7 @@ const SwapPanel = (props: TabPanelProps) => {
                       loading ? (
                         <Loader progressProps={{ size: 20 }} />
                       ) : (
-                        targetAsset && <img src={`/images/assets/${targetAsset}.svg`} alt="" width="50" height="50" />
+                        targetAsset && <AssetIcons ids={targetAsset} size="large" />
                       )
                     }
                     disabled={executing}
@@ -406,7 +493,7 @@ const SwapPanel = (props: TabPanelProps) => {
                       name="targetValue"
                       value={targetValue} /* onChange={handleTargetChange} */
                     />
-                    <FormHelperText className="AwiSwapPanel-help">
+                    {/* <FormHelperText className="AwiSwapPanel-help">
                       <span>{t('swap-section.swap.price')}</span>
                       {canExecute && (
                         <span>
@@ -417,14 +504,24 @@ const SwapPanel = (props: TabPanelProps) => {
                           })}
                         </span>
                       )}
-                    </FormHelperText>
+                    </FormHelperText> */}
                   </FormControl>
+                  {type === 'market' && (
+                    <Typography
+                      variant="body-sm"
+                      color="text.primary"
+                      className="AwiSwapPanel-slippageTolerance Awi-row"
+                    >
+                      <span>{t('swap-section.swap.slippage-tolerance')}</span>
+                      <span>{formatPercent(slippageTolerance)}</span>
+                    </Typography>
+                  )}
                 </div>
               </Grid>
             </Grid>
           </div>
           {canExecute && info && (
-            <Grid container>
+            <Grid container mt={13}>
               <Grid item xs={false} md={6}></Grid>
               <Grid item xs={12} md={6}>
                 <div className="AwiSwapPanel-info">

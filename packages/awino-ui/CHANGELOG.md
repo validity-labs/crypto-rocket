@@ -18,6 +18,16 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-04-18
+
+### Changed
+
+- Changed swap page
+
+### Added
+
+- Added swap page settings and asset modals
+
 ## [0.0.0] - 2022-04-14
 
 ### Changed

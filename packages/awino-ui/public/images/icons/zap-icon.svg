@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-1om0hkc"
+   focusable="false"
+   viewBox="0 0 24 24"
+   aria-hidden="true"
+   data-testid="AccountBoxIcon"
+   version="1.1"
+   id="svg4"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <path
+     id="Icon_feather-zap"
+     data-name="Icon feather-zap"
+     d="M 12.867485,3.3255934 4.1930775,13.734968 h 7.8071405 l -0.86857,6.939439 8.675275,-10.409375 h -7.806705 z"
+     fill="none"
+     stroke="#00ffeb"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="0.434285" />
+</svg>
