@@ -31,10 +31,11 @@ interface StatsItemProps {
   formatters: StatsFormatter;
   index: number;
   glanced: boolean;
+  i18nKey?: string;
 }
 
-export const StatsItem = memo(function StatsItem({ item, formatters, index, glanced }: StatsItemProps) {
-  const t = usePageTranslation();
+export const StatsItem = memo(function StatsItem({ item, formatters, index, glanced, i18nKey }: StatsItemProps) {
+  const t = usePageTranslation({ keyPrefix: i18nKey });
   const { value, subValues } = item;
 
   const formatter = formatters.value;
@@ -55,6 +56,7 @@ export const StatsItem = memo(function StatsItem({ item, formatters, index, glan
             display: 'block',
             mb: 1,
           }}
+          className="AwiStatsItem-value"
         >
           {glanced ? (
             <CountUp delay={0} end={value} duration={2} decimals={2} formattingFn={formatter}>
@@ -64,8 +66,15 @@ export const StatsItem = memo(function StatsItem({ item, formatters, index, glan
             <span>&nbsp;</span>
           )}
         </Typography>
-        <Typography variant="body-md" fontWeight={500} component="span" color="text.primary" sx={{ display: 'block' }}>
-          {t(`stats-section.items.${index}.title`)}
+        <Typography
+          variant="body-md"
+          fontWeight={500}
+          component="span"
+          color="text.primary"
+          sx={{ display: 'block' }}
+          className="AwiStatsItem-title"
+        >
+          {t(`items.${index}.title`)}
         </Typography>
       </h2>
       {subValues?.map((subValue, subValueIndex) => {
@@ -76,7 +85,7 @@ export const StatsItem = memo(function StatsItem({ item, formatters, index, glan
         }
         return (
           <Typography key={subValueIndex} variant="body-sm" fontWeight={500}>
-            {t(`stats-section.items.${index}.sub-values.${subValueIndex}`, { v: subFormatter(subValue) })}
+            {t(`items.${index}.sub-values.${subValueIndex}`, { v: subFormatter(subValue) })}
           </Typography>
         );
       })}
@@ -88,10 +97,10 @@ interface Props extends ContainerProps {
   items: StatsData;
   formatters: StatsFormatter[];
   gridItemProps?: GridProps;
+  i18nKey?: string;
 }
 
-function StatsItems({ items, formatters, className, gridItemProps, ...containerProps }: Props) {
-  const t = usePageTranslation();
+function StatsItems({ items, formatters, gridItemProps, i18nKey = 'stats-section', ...containerProps }: Props) {
   const [glanced, setGlanced] = useState(false);
 
   const handleVisibilityChange = useCallback(
@@ -109,7 +118,7 @@ function StatsItems({ items, formatters, className, gridItemProps, ...containerP
         <Grid container spacing={8}>
           {items.map((item, index) => (
             <Grid key={index} item xs={12} sm={6} lg={gridItemLG} {...gridItemProps}>
-              <StatsItem glanced={glanced} item={item} index={index} formatters={formatters[index]} />
+              <StatsItem glanced={glanced} item={item} index={index} formatters={formatters[index]} i18nKey={i18nKey} />
             </Grid>
           ))}
         </Grid>

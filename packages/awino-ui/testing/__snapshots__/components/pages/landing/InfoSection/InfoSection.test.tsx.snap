@@ -9,29 +9,49 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
     >
       <div
-        class="image"
+        class="AwiInfoSection-image"
       >
-        {"src":"/images/pages/landing/info.png","width":686,"height":582,"alt":""}
+        <img
+          alt=""
+          src="/images/pages/landing/info.svg"
+        />
       </div>
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg css-2"
       >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth divider css-3"
+        <div
+          class="AwiInfoSection-divider"
         />
         <div
-          class="card"
+          class="AwiInfoSection-card"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h3 css-4"
+            class="MuiTypography-root MuiTypography-h3 css-3"
           >
             info-section.title
           </h2>
-          <p
-            class="MuiTypography-root MuiTypography-body css-5"
+          <div
+            class="MuiGrid-root MuiGrid-container css-4"
           >
-            info-section.description
-          </p>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-5"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body css-6"
+              >
+                info-section.description.0
+              </p>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-5"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body css-6"
+              >
+                info-section.description.1
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

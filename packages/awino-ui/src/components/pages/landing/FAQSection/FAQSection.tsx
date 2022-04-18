@@ -17,7 +17,7 @@ const Root = styled(Section)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {},
 }));
 
-const items = [1, 2, 3, 4];
+const items = [1, 2, 3, 4, 5];
 
 export default function FAQSection() {
   const t = usePageTranslation();

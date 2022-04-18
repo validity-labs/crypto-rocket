@@ -43,7 +43,7 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
       <h1
         class="MuiTypography-root MuiTypography-h1 css-2"
       >
-        landing:stats-section.title
+        stats-section.title
       </h1>
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-3"

@@ -3,8 +3,27 @@
     "title": "Awino",
     "description": "MISSING DESCRIPTION"
   },
+  "total-section": {
+    "title": "Smart\n overview",
+    "items": [
+      {
+        "title": "Total deposits",
+        "value": "{{v}} M"
+      },
+      {
+        "title": "Total rewards",
+        "value": "{{v}}"
+      },
+      {
+        "title": "To collect from 3 farms",
+        "value": "{{v}}"
+      }
+    ]
+  },
   "stats-section": {
-    "title": "Defi. Next generation",
+    "title": "<0>AWINO Ecosystem</0>\n The <1>Gold</1> Standard in DeFi",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing",
+    "cta": "Trade now",
     "badges": [
       "Lorem ipsum 1",
       "Lorem ipsum 2",
@@ -35,23 +54,30 @@
   },
   "info-section": {
     "title": "We make DeFi easy as\n possible for everyone",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\n Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."
+    "description": [
+      "The DeFi and crypto space in general is still in its genesis stage and has yet to experience mainstream adaption. That said, the AWINO ecosystem is built to be simple, intuitive and user friendly for new investors. But yet, has all the tools for experienced DeFi enthusiasts, non the less.",
+      "AWINO takes a problem-solving approach and addresses the following issues we are currently faced with in the DeFi and crypto space in general."
+    ]
   },
   "benefit-section": {
     "title": "Why you should use our platform",
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
     "items": [
       {
-        "title": "Lorem ipsum",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+        "title": "Liquidity / stability:",
+        "description": "AWINO has built mechanics within the token economics with the intent to strategically provide liquidity into the ecosystem. This will allow for seamless trades and bring stability in an otherwise, volatile market."
       },
       {
-        "title": "Lorem ipsum",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+        "title": "Profitability / sustainability:",
+        "description": "To ensure sustainability, AWINO invests within its own ecosystem. Revenue is re-invested 100% back into the protocol through buy backs and locking LP tokens into the treasury forever. This allows the protocol to be profitable, while accumulating appreciating assets in its treasury."
       },
       {
-        "title": "Lorem ipsum",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+        "title": "Safety and security:",
+        "description": "Security and safety are major issue that investors face on a daily basis. To address these, AWINO has developed a state-of-the-art wallet application with above industry standard security features."
+      },
+      {
+        "title": "Profitability / sustainability:",
+        "description": "To ensure sustainability, AWINO invests within its own ecosystem. Revenue is re-invested 100% back into the protocol through buy backs and locking LP tokens into the treasury forever. This allows the protocol to be profitable, while accumulating appreciating assets in its treasury."
       }
     ]
   },
@@ -94,21 +120,29 @@
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
     "items": [
       {
-        "title": "Lorem ipsum 1",
+        "title": "What is AWINO about?",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       },
       {
-        "title": "Lorem ipsum 2",
+        "title": "Why is AWINO different?",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       },
       {
-        "title": "Lorem ipsum 3",
+        "title": "Which problem is AWINO solving?",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       },
       {
-        "title": "Lorem ipsum 4",
+        "title": "What can I do with AWINO?",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      },
+      {
+        "title": "Who created AWINO?",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       }
     ]
+  },
+  "join-section": {
+    "title": "Join the golden journey",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
   }
 }

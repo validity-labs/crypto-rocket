@@ -23,27 +23,27 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
                 >
-                  landing:stats-section.items.0.title
+                  landing:items.0.title
                 </span>
               </h2>
               <p
                 class="MuiTypography-root MuiTypography-body-sm css-8"
               >
-                landing:stats-section.items.0.sub-values.0
+                landing:items.0.sub-values.0
               </p>
               <p
                 class="MuiTypography-root MuiTypography-body-sm css-8"
               >
-                landing:stats-section.items.0.sub-values.1
+                landing:items.0.sub-values.1
               </p>
             </div>
           </div>
@@ -56,16 +56,16 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
                 >
-                  landing:stats-section.items.1.title
+                  landing:items.1.title
                 </span>
               </h2>
             </div>
@@ -79,16 +79,16 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
                 >
-                  landing:stats-section.items.2.title
+                  landing:items.2.title
                 </span>
               </h2>
             </div>
@@ -102,16 +102,16 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
                 >
-                  landing:stats-section.items.3.title
+                  landing:items.3.title
                 </span>
               </h2>
             </div>
@@ -125,27 +125,27 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
                 >
-                  landing:stats-section.items.4.title
+                  landing:items.4.title
                 </span>
               </h2>
               <p
                 class="MuiTypography-root MuiTypography-body-sm css-8"
               >
-                landing:stats-section.items.4.sub-values.0
+                landing:items.4.sub-values.0
               </p>
               <p
                 class="MuiTypography-root MuiTypography-body-sm css-8"
               >
-                landing:stats-section.items.4.sub-values.1
+                landing:items.4.sub-values.1
               </p>
             </div>
           </div>

@@ -1,12 +1,13 @@
 import React, { /* FC, */ ReactElement /* , useMemo */ } from 'react';
 
+import { Provider } from 'react-redux';
+
 import { render, RenderOptions } from '@testing-library/react';
 
-import themeCreator from '@/app/theme';
-import { AppStore, makeStore } from '@/app/store';
-import { setPageI18nNamespace } from '@/app/state/slices/app';
-import { Provider } from 'react-redux';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { setPageI18nNamespace } from '@/app/state/slices/app';
+import { AppStore, makeStore } from '@/app/store';
+import themeCreator from '@/app/theme';
 import { I18nPageNamespace } from '@/types/app';
 
 // // Theme provider component wrapper

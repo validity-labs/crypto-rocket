@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TotalSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg vl-container css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-3"
+        >
+          <h1
+            class="MuiTypography-root MuiTypography-h3 css-4"
+          >
+            landing:total-section.title
+          </h1>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-5"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters AwiTotalSection-items css-6"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-7"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-8"
+              >
+                <div
+                  class="AwiStatsCard-root css-9"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-10"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-11"
+                    >
+                      landing:items.0.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-8"
+              >
+                <div
+                  class="AwiStatsCard-root css-9"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-10"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-11"
+                    >
+                      landing:items.1.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-8"
+              >
+                <div
+                  class="AwiStatsCard-root css-9"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-10"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-11"
+                    >
+                      landing:items.2.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

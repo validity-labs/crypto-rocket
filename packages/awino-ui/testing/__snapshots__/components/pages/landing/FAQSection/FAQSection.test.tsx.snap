@@ -265,6 +265,67 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
             </div>
           </div>
         </article>
+        <article
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-5"
+        >
+          <div
+            aria-controls="panel-content-5"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-6"
+            id="panel-header-5"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-7"
+            >
+              landing:faq-section.items.4.title
+            </div>
+            <div
+              class="MuiAccordionSummary-expandIconWrapper css-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-20"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+              >
+                <div
+                  aria-labelledby="panel-header-5"
+                  class="MuiAccordion-region"
+                  id="panel-content-5"
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root css-13"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-14"
+                    >
+                      landing:faq-section.items.4.description
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>

@@ -1,6 +1,10 @@
-import { Typography } from '@mui/material';
+import { Trans } from 'next-i18next';
+
+import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { useAppSelector } from '@/app/hooks';
+import Link from '@/components/general/Link/Link';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { StatsData } from '@/types/app';
@@ -10,9 +14,22 @@ import StatsItems from '../../shared/StatsItems/StatsItems';
 const Root = styled(Section)(({ theme }) => ({
   textAlign: 'center',
   h1: {
-    marginBottom: theme.spacing(7.5),
+    marginBottom: theme.spacing(21),
     fontFamily: 'MuseoModerno, cursive',
     fontWeight: 400,
+    '.Awi-small': {
+      textTransform: 'uppercase',
+    },
+    '.Awi-highlight': {
+      background: [
+        '#FFE4B2',
+        '-webkit-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
+        '-moz-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
+        'linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
+      ],
+      '-webkit-background-clip': 'text',
+      '-webkit-text-fill-color': 'transparent',
+    },
   },
   '.badges': {
     display: 'flex',
@@ -35,6 +52,10 @@ const Root = styled(Section)(({ theme }) => ({
     h1: {
       fontSize: '5rem' /* 80px */,
       lineHeight: '8rem' /* 128px */,
+      '.Awi-small': {
+        fontSize: '3.75rem' /* 60px */,
+        lineHeight: '6.125rem' /* 98px */,
+      },
     },
   },
 }));
@@ -46,18 +67,38 @@ interface Props {
 }
 export default function StatsSection({ items }: Props) {
   const t = usePageTranslation();
-
+  const { connected } = useAppSelector((state) => ({
+    connected: state.account.connected,
+  }));
   return (
     <>
       <Root>
-        <ul className="badges">
-          {badgeList.map((filename, index) => (
-            <li key={index}>
-              <img src={`images/icons/${filename}`} alt="" title={t(`stats-section.badges.${index}`)} />
-            </li>
-          ))}
-        </ul>
-        <Typography variant="h1">{t('stats-section.title')}</Typography>
+        {!connected && (
+          <ul className="badges">
+            {badgeList.map((filename, index) => (
+              <li key={index}>
+                <img src={`images/icons/${filename}`} alt="" title={t(`stats-section.badges.${index}`)} />
+              </li>
+            ))}
+          </ul>
+        )}
+        <Typography variant="h1">
+          <Trans
+            i18nKey={'stats-section.title'}
+            t={t}
+            components={[<span key="span1" className="Awi-small" />, <span key="span2" className="Awi-highlight" />]}
+          />
+        </Typography>
+        {connected && (
+          <Box mb={20}>
+            <Typography mx="auto" mb={10}>
+              {t('stats-section.description')}
+            </Typography>
+            <Button component={Link} href="/market">
+              {t('stats-section.cta')}
+            </Button>
+          </Box>
+        )}
         <StatsItems items={items} maxWidth="lg" />
       </Root>
     </>

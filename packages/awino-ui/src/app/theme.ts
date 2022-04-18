@@ -252,11 +252,12 @@ const themeCreator = (mode: PaletteMode) => {
           z-index: 100000; /* Above WP toolbar. */
         }
         /* Grow Shadow  https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
-        .hvr-grow-shadow {
+        .Awi-hoverGrow {
           transform: perspective(1px) translateZ(0);
-          transition: box-shadow, transform 0.3s !important;
+          // transition: box-shadow, transform 0.3s !important;
+          transition: transform 0.3s !important;
         }
-        .hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+        .Awi-hoverGrow:hover, .Awi-hoverGrow:focus, .Awi-hoverGrow:active {
           // box-shadow: 10px 15px 10px #B4BBC629;
           transform: scale(1.1);
         }

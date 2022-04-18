@@ -66,6 +66,7 @@
     "react-use": "^17.3.2",
     "react-visibility-sensor": "^5.1.1",
     "sharp": "^0.30.3",
+    "swiper": "^8.1.1",
     "validator": "^13.7.0",
     "yup": "^0.32.11"
   },

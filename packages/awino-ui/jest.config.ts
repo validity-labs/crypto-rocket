@@ -25,6 +25,12 @@ const config: InitialOptionsTsJest = {
     '^@/fixtures/(.*)$': '<rootDir>/testing/__fixtures__/$1',
     '^@/testing/(.*)$': '<rootDir>/testing/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
+
+    swiper: '<rootDir>/testing/__mocks__/swiper',
+    'swiper/react': '<rootDir>/testing/__mocks__/swiper/react',
+    'swiper/css': '<rootDir>/testing/__mocks__/swiper/css',
+    'swiper/css/a11y': '<rootDir>/testing/__mocks__/swiper/css/a11y',
+    'swiper/css/navigation': '<rootDir>/testing/__mocks__/swiper/css/navigation',
   },
   transform: {
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',

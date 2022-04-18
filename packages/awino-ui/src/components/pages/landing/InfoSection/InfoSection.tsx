@@ -1,6 +1,4 @@
-import Image from 'next/image';
-
-import { Container, Divider, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import Section from '@/components/layout/Section/Section';
@@ -10,13 +8,16 @@ const Root = styled(Section)(({ theme }) => ({
   position: 'relative',
   padding: theme.spacing(15, 0),
   overflow: 'hidden',
-  '.image': {
+  '.AwiInfoSection-image': {
     position: 'absolute',
-    top: '10%',
+    top: '5%',
     right: 0,
-    maxWidth: '50%',
+    width: 240,
+    img: {
+      maxWidth: '100%',
+    },
   },
-  '.card': {
+  '.AwiInfoSection-card': {
     display: 'flex',
     flexDirection: 'column',
     padding: theme.spacing(11, 6, 10),
@@ -26,19 +27,28 @@ const Root = styled(Section)(({ theme }) => ({
       maxWidth: 420,
     },
   },
-  '.divider': {
+  '.AwiInfoSection-divider': {
     width: '90%',
     margin: theme.spacing(7, 'auto', 28),
+    ...theme.mixins.divider,
   },
+
   [theme.breakpoints.up('md')]: {
-    '.image': {
+    '.AwiInfoSection-image': {
       top: 0,
+      // maxWidth: '50%',
+      width: 540,
     },
-    '.card': {
+    '.AwiInfoSection-card': {
       padding: theme.spacing(26, 22.5, 25),
     },
-    '.divider': {
+    '.AwiInfoSection-divider': {
       margin: theme.spacing(7, 'auto', 48),
+    },
+  },
+  [theme.breakpoints.up('lg')]: {
+    '.AwiInfoSection-image': {
+      right: '10%',
     },
   },
 }));
@@ -47,16 +57,23 @@ export default function InfoSection() {
   const t = usePageTranslation();
   return (
     <Root>
-      <div className="image">
-        <Image src="/images/pages/landing/info.png" width={686} height={582} alt="" />
+      <div className="AwiInfoSection-image">
+        <img src="/images/pages/landing/info.svg" alt="" />
       </div>
       <Container maxWidth="lg">
-        <Divider className="divider" />
-        <div className="card">
-          <Typography variant="h3" component="h2" mb={9.5} fontWeight={400}>
+        <div className="AwiInfoSection-divider" />
+        <div className="AwiInfoSection-card">
+          <Typography variant="h3" component="h2" mb={10} fontWeight={400}>
             {t('info-section.title')}
           </Typography>
-          <Typography>{t('info-section.description')}</Typography>
+          <Grid container columnSpacing={37} rowSpacing={6}>
+            <Grid item xs={12} md={6}>
+              <Typography>{t('info-section.description.0')}</Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Typography>{t('info-section.description.1')}</Typography>
+            </Grid>
+          </Grid>
         </div>
       </Container>
     </Root>
