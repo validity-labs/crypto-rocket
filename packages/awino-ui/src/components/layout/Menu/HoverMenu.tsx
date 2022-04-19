@@ -1,48 +1,51 @@
 import * as React from 'react';
 
+import { ButtonUnstyled, ButtonUnstyledProps } from '@mui/base';
 import {
-  ButtonBase,
-  ButtonBaseProps,
+  BoxProps,
   ClickAwayListener,
   Grow,
   IconButton,
   IconButtonProps,
-  MenuList,
   Paper,
   Popper as MuiPopper,
   PopperProps,
   SxProps,
+  Box,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import TrapFocus from '@mui/material/Unstable_TrapFocus';
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled(Box)(({ theme }) => ({
   zIndex: 9999,
   '.AwiHoverMenu-toggle': {
+    border: 0,
+    boxShadow: 'none',
+    backgroundColor: 'transparent',
     transition: 'color 300ms ease-in-out',
+    cursor: 'pointer',
     '&[aria-expanded="true"]': {
       color: theme.palette.text.active,
-      transition: 'color 300ms ease-in-out',
     },
-  },
-
-  '.MuiMenuItem-content': {
-    padding: theme.spacing(4, 8),
-    ...theme.typography.menu,
   },
 }));
 
 const Popper = styled(MuiPopper)(({ theme }) => ({
   '.AwiHoverMenu-paper': {
+    marginTop: theme.spacing(4),
     border: `2px solid ${theme.palette.mode === 'dark' ? '#00ffeb' : 'transparent'}`,
     borderRadius: +theme.shape.borderRadius * 2,
     overflow: 'hidden',
-    marginTop: theme.spacing(8),
   },
   '.AwiHoverMenu-list': {
-    backgroundColor: theme.palette.background.light,
     padding: 0,
-    overflow: 'hidden',
+    backgroundColor: theme.palette.background.light,
+    '> .AwiHoverMenu-item': {
+      borderBottom: `2px solid ${theme.palette.mode === 'dark' ? '#217471' : theme.palette.divider}`,
+      '&:last-of-type, &.Awi-reset': {
+        borderBottom: 0,
+      },
+    },
   },
 }));
 
@@ -50,14 +53,14 @@ interface InjectedHoverMenuProps {
   close: (event: React.SyntheticEvent) => void;
 }
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface Props extends BoxProps {
   id: string;
   ariaLabel?: string;
   popperProps?: Partial<PopperProps>;
   popperSx?: SxProps;
   toggle: React.ReactNode;
-  toggleProps?: IconButtonProps | ButtonBaseProps;
-  toggleComponent?: typeof IconButton | typeof ButtonBase;
+  toggleProps?: IconButtonProps | ButtonUnstyledProps;
+  toggleComponent?: typeof IconButton | typeof ButtonUnstyled;
   children(props: InjectedHoverMenuProps): React.ReactNode;
 }
 
@@ -76,9 +79,6 @@ export default function HoverMenu({
   const anchorRef = React.useRef<HTMLButtonElement>(null);
 
   const ToggleButton = toggleComponent ? toggleComponent : IconButton;
-  // const handleToggle = () => {
-  //   setOpen((prevOpen) => !prevOpen);
-  // };
 
   const handleOpen = () => {
     setOpen(true);
@@ -86,11 +86,11 @@ export default function HoverMenu({
 
   function handleListKeyDown(event: React.KeyboardEvent) {
     // if (event.key === 'Tab') {
-    //   event.preventDefault();
     //   setOpen(false);
     // } else
 
     if (event.key === 'Escape') {
+      event.stopPropagation();
       setOpen(false);
     }
   }
@@ -117,17 +117,9 @@ export default function HoverMenu({
     handleClose(null);
   };
 
-  // function handleToggleKeyDown(event: React.KeyboardEvent) {
-  //   if (event.key === 'Space') {
-  //     setOpen(true);
-
-  //     event.preventDefault();
-  //   }
-  // }
-
   const toggleId = `${id}Toggle`;
   return (
-    <Root onMouseLeave={handleLeave} {...restOfProps}>
+    <Root onMouseLeave={handleLeave} tabIndex={-1} {...restOfProps}>
       {/* @ts-ignore */}
       <ToggleButton
         ref={anchorRef}
@@ -139,8 +131,6 @@ export default function HoverMenu({
         aria-haspopup="true"
         onClick={handleOpen}
         onMouseEnter={handleOpen}
-        // onKeyDown={handleToggleKeyDown}
-        // disableRipple
         className="AwiHoverMenu-toggle"
         {...toggleProps}
       >
@@ -156,14 +146,6 @@ export default function HoverMenu({
         onMouseLeave={handleClose}
         {...popperProps}
         sx={popperSx}
-        // anchorOrigin={{
-        //   vertical: 'bottom',
-        //   horizontal: 'center',
-        // }}
-        // transformOrigin={{
-        //   vertical: 'top',
-        //   horizontal: 'center',
-        // }}
       >
         {({ TransitionProps, placement }) => (
           <Grow
@@ -174,20 +156,13 @@ export default function HoverMenu({
           >
             <Paper className="AwiHoverMenu-paper">
               <TrapFocus open>
-                <div>
+                <Box tabIndex={-1}>
                   <ClickAwayListener onClickAway={handleClose}>
-                    <MenuList
-                      autoFocusItem={open}
-                      id={id}
-                      aria-labelledby={toggleId}
-                      onKeyDown={handleListKeyDown}
-                      className="AwiHoverMenu-list"
-                      tabIndex={-1}
-                    >
+                    <ul id={id} aria-labelledby={toggleId} className="AwiHoverMenu-list" onKeyDown={handleListKeyDown}>
                       {children({ close: handleClose })}
-                    </MenuList>
+                    </ul>
                   </ClickAwayListener>
-                </div>
+                </Box>
               </TrapFocus>
             </Paper>
           </Grow>

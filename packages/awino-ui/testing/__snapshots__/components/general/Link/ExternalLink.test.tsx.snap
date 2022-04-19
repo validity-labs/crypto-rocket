@@ -3,7 +3,7 @@
 exports[`<ExternalLink /> has valid snapshot 1`] = `
 <DocumentFragment>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body AwiExternalLink-root active css-0"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body AwiExternalLink-root active Awi-active css-0"
     href="/"
   >
     Lorem Ipsum

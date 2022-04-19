@@ -277,9 +277,9 @@ const themeCreator = (mode: PaletteMode) => {
         }
         .Mui-focusVisible {
           outline-offset: -2px;
-          outline-width: 1;
+          outline-width: 2px;
           outline-color: #00FFEB;
-          outline-style: auto;
+          outline-style: solid;
         }
         .Awi-row {
           display: flex;
@@ -489,127 +489,6 @@ const themeCreator = (mode: PaletteMode) => {
             },
           },
         },
-        // {
-        //   props: { variant: 'containedIcon' },
-        //   style: {
-        //     padding: theme.spacing(0, 0, 0, 9),
-        //     borderRadius: shapeBorderRadiusBase * 8,
-        //     overflow: 'hidden',
-        //     color: theme.palette.text.contrast,
-        //     '&:hover': {
-        //       color: theme.palette.text.contrast,
-        //       '& .MuiButton-endIcon': {
-        //         transition: 'background-color .1s, transform .3s',
-        //         transform: 'rotate(10deg)',
-        //       },
-        //     },
-        //     '& .MuiButton-endIcon': {
-        //       display: 'flex',
-        //       justifyContent: 'center',
-        //       alignItems: 'center',
-        //       width: 54,
-        //       height: 54,
-        //       borderRadius: '100%',
-        //       margin: theme.spacing(0, 0, 0, 4),
-        //       transition: 'background-color .1s, transform .3s',
-        //       svg: {
-        //         fontSize: '32px',
-        //       },
-        //     },
-        //   },
-        // },
-        // {
-        //   props: { variant: 'containedIcon', color: 'primary' },
-        //   style: {
-        //     backgroundColor: theme.palette.primary.main,
-        //     '&:hover': {
-        //       backgroundColor: theme.palette.primary.dark,
-        //       '@media (hover: none)': {
-        //         backgroundColor: theme.palette.primary.main,
-        //       },
-        //       '& .MuiButton-endIcon': {
-        //         backgroundColor: theme.palette.primary.main,
-        //       },
-        //     },
-        //     '& .MuiButton-endIcon': {
-        //       backgroundColor: theme.palette.primary.light,
-        //     },
-        //   },
-        // },
-        // {
-        //   props: { variant: 'containedIcon', color: 'secondary' },
-        //   style: {
-        //     backgroundColor: theme.palette.secondary.main,
-        //     '&:hover': {
-        //       backgroundColor: theme.palette.secondary.dark,
-        //       '@media (hover: none)': {
-        //         backgroundColor: theme.palette.secondary.main,
-        //       },
-        //       '& .MuiButton-endIcon': {
-        //         backgroundColor: theme.palette.secondary.main,
-        //       },
-        //     },
-        //     '& .MuiButton-endIcon': {
-        //       backgroundColor: theme.palette.secondary.light,
-        //     },
-        //   },
-        // },
-        // {
-        //   props: { variant: 'containedIcon', color: 'info' },
-        //   style: {
-        //     backgroundColor: '#E6C301',
-        //     '&:hover': {
-        //       backgroundColor: '#b39700',
-        //       '@media (hover: none)': {
-        //         backgroundColor: '#E6C301',
-        //       },
-        //       '& .MuiButton-endIcon': {
-        //         backgroundColor: '#E6C301',
-        //       },
-        //     },
-        //     '& .MuiButton-endIcon': {
-        //       backgroundColor: '#EDD032',
-        //     },
-        //   },
-        // },
-        // {
-        //   props: { variant: 'containedIcon', color: 'success' },
-        //   style: {
-        //     backgroundColor: '#25AD64',
-        //     '&:hover': {
-        //       backgroundColor: '#1b894e',
-        //       '@media (hover: none)': {
-        //         backgroundColor: '#25AD64',
-        //       },
-        //       '& .MuiButton-endIcon': {
-        //         backgroundColor: '#25AD64',
-        //       },
-        //     },
-        //     '& .MuiButton-endIcon': {
-        //       backgroundColor: '#36C377',
-        //     },
-        //   },
-        // },
-        // {
-        //   props: { variant: 'inverted' },
-        //   style: {
-        //     borderRadius: shapeBorderRadiusBase * 8,
-        //   },
-        // },
-        // {
-        //   props: { variant: 'inverted', color: 'primary' },
-        //   style: {
-        //     color: theme.palette.primary.main,
-        //     backgroundColor: theme.palette.common.white,
-        //     '&:hover': {
-        //       color: theme.palette.primary.dark,
-        //       backgroundColor: theme.palette.common.white,
-        //       '@media (hover: none)': {
-        //         backgroundColor: theme.palette.common.white,
-        //       },
-        //     },
-        //   },
-        // },
         {
           props: { variant: 'outlined' },
           style: {
@@ -1059,53 +938,53 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
-    MuiMenuItem: {
-      defaultProps: {
-        disableGutters: true,
-        divider: true,
-      },
-      styleOverrides: {
-        root: {
-          padding: 0,
-          '.MuiMenuItem-content': {
-            padding: theme.spacing(4, 8),
-            width: '100%',
-            ...theme.typography.menu,
-            color: theme.palette.text.menu,
-            transition: 'color 200ms ease-in-out',
-          },
-          '&.active': {
-            '.MuiMenuItem-content': {
-              color: theme.palette.text.active,
-              transition: 'color 200ms ease-in-out',
-            },
-          },
-          '&:hover': {
-            '.MuiMenuItem-content': {
-              color: theme.palette.text.primary,
-              transition: 'color 200ms ease-in-out',
-            },
-          },
-          '&.Mui-selected': {
-            backgroundColor: 'transparent',
-            '.MuiMenuItem-content, .MuiMenuItem-content:hover': {
-              color: theme.palette.text.active,
-            },
-          },
-        },
-        dense: {
-          '.MuiMenuItem-content': {
-            padding: theme.spacing(2.5, 8),
-          },
-        },
-        divider: {
-          borderBottom: `2px solid ${theme.palette.mode === 'dark' ? '#217471' : theme.palette.divider}`,
-          '&:last-of-type': {
-            // borderBottom: 0,
-          },
-        },
-      },
-    },
+    // MuiMenuItem: {
+    //   defaultProps: {
+    //     disableGutters: true,
+    //     divider: true,
+    //   },
+    //   styleOverrides: {
+    //     root: {
+    //       padding: 0,
+    //       '.MuiMenuItem-content': {
+    //         padding: theme.spacing(4, 8),
+    //         width: '100%',
+    //         ...theme.typography.menu,
+    //         color: theme.palette.text.menu,
+    //         transition: 'color 200ms ease-in-out',
+    //       },
+    //       '&.active': {
+    //         '.MuiMenuItem-content': {
+    //           color: theme.palette.text.active,
+    //           transition: 'color 200ms ease-in-out',
+    //         },
+    //       },
+    //       '&:hover': {
+    //         '.MuiMenuItem-content': {
+    //           color: theme.palette.text.primary,
+    //           transition: 'color 200ms ease-in-out',
+    //         },
+    //       },
+    //       '&.Mui-selected': {
+    //         backgroundColor: 'transparent',
+    //         '.MuiMenuItem-content, .MuiMenuItem-content:hover': {
+    //           color: theme.palette.text.active,
+    //         },
+    //       },
+    //     },
+    //     dense: {
+    //       '.MuiMenuItem-content': {
+    //         padding: theme.spacing(2.5, 8),
+    //       },
+    //     },
+    //     divider: {
+    //       borderBottom: `2px solid ${theme.palette.mode === 'dark' ? '#217471' : theme.palette.divider}`,
+    //       '&:last-of-type': {
+    //         // borderBottom: 0,
+    //       },
+    //     },
+    //   },
+    // },
     MuiModal: {
       styleOverrides: {
         root: {

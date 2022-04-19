@@ -29,6 +29,7 @@
     "copy": "Copy to Clipboard",
     "copied": "Copied!",
     "search": "Search ...",
+    "clear-search": "Clear search",
     "navigate-to": "Navigate to \"{{title}}\"",
     "navigate-to-product": "Navigate to \"{{title}}\" product",
     "table": {
@@ -97,6 +98,9 @@
         "docs": "Docs",
         "launchpad": "Launchpad"
       }
+    },
+    "language": {
+      "toggle-label": "Change language"
     },
     "settings": {
       "toggle-label": "Application settings",

@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-04-19
+
+### Changed
+
+- Changed header menus to be hoverable
+
 ## [0.0.0] - 2022-04-18
 
 ### Changed

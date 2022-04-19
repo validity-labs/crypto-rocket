@@ -1,22 +1,20 @@
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
+import clsx from 'clsx';
+
+import { ButtonUnstyled } from '@mui/base';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import { ButtonBase, MenuItem, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { SUPPORTED_LANGUAGES } from '@/app/constants';
 
 import { Language } from '../../../types/app';
 import HoverMenu from '../Menu/HoverMenu';
+import HoverMenuItem from '../Menu/HoverMenuItem';
 
 const Root = styled(HoverMenu)(({ theme }) => ({
   '.AwiHoverMenu-toggle': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 0,
-    ...theme.typography.menu,
     '& svg': {
       fontSize: '12px',
       marginLeft: theme.spacing(3),
@@ -27,8 +25,6 @@ const Root = styled(HoverMenu)(({ theme }) => ({
 interface Props {
   onClose: (event: any) => void;
 }
-
-const languageCount = SUPPORTED_LANGUAGES.length;
 
 export default function LanguageMenu({ onClose }: Props) {
   const { t, i18n } = useTranslation();
@@ -46,30 +42,22 @@ export default function LanguageMenu({ onClose }: Props) {
     return null;
   }
 
-  //  anchorOrigin={{
-  //   vertical: 'top',
-  //   horizontal: 'right',
-  // }}
-  // transformOrigin={{
-  //   vertical: 'top',
-  //   horizontal: 'left',
-  // }}
-
   return (
     <Root
       id="languageMenu"
       ariaLabel={t(`menu.language.toggle-label`)}
+      component={HoverMenuItem}
+      onMouseLeave={null}
       toggle={
-        <span className="MuiMenuItem-content">
+        <>
           {t(`language.choose`)}
-          <ArrowForwardIosRoundedIcon fontSize="small" />
-        </span>
+          <ArrowForwardIosRoundedIcon />
+        </>
       }
       toggleProps={{
         disableRipple: true,
       }}
-      // toggleComponent={}
-      onMouseLeave={null}
+      toggleComponent={ButtonUnstyled}
       popperProps={{
         placement: 'right-start',
         disablePortal: false,
@@ -82,19 +70,19 @@ export default function LanguageMenu({ onClose }: Props) {
       }}
     >
       {({ close }) =>
-        SUPPORTED_LANGUAGES.map((lang, index) => (
-          <MenuItem
-            key={lang}
-            onClick={() => {
-              changeLanguage(lang);
-              close(null);
-            }}
-            selected={lang === i18n.language}
-            divider={index !== languageCount - 1}
-            dense
-          >
-            <Typography className="MuiMenuItem-content">{t(`language.${lang}`)}</Typography>
-          </MenuItem>
+        SUPPORTED_LANGUAGES.map((lang) => (
+          <HoverMenuItem key={lang}>
+            <ButtonUnstyled
+              onClick={(event) => {
+                event.preventDefault();
+                changeLanguage(lang);
+                close(null);
+              }}
+              className={clsx({ 'Awi-active': lang === i18n.language })}
+            >
+              {t(`language.${lang}`)}
+            </ButtonUnstyled>
+          </HoverMenuItem>
         ))
       }
     </Root>

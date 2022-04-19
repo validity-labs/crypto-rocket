@@ -99,6 +99,9 @@
         "launchpad": "Launchpad"
       }
     },
+    "language": {
+      "toggle-label": "Change language"
+    },
     "settings": {
       "toggle-label": "Application settings",
       "profile": {

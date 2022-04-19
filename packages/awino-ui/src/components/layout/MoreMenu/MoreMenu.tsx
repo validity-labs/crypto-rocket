@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import { useTranslation } from 'next-i18next';
 
-import { ButtonBase, MenuItem, Typography } from '@mui/material';
+import clsx from 'clsx';
+
 import { styled } from '@mui/material/styles';
 
 import { moreMenuLinks, socialLinks } from '@/app/menu';
@@ -10,6 +11,7 @@ import Link from '@/components/general/Link/Link';
 import MoreIcon from '@/components/icons/MoreIcon';
 
 import HoverMenu from '../Menu/HoverMenu';
+import HoverMenuItem from '../Menu/HoverMenuItem';
 
 const Root = styled(HoverMenu)(({ theme }) => ({
   '.AwiHoverMenu-toggle': {
@@ -17,48 +19,36 @@ const Root = styled(HoverMenu)(({ theme }) => ({
     padding: theme.spacing(2),
     border: '2px solid #00FFEB',
     borderRadius: +theme.shape.borderRadius * 2,
-    transition: 'color 300ms ease-in-out',
     '& svg': {
       fontSize: '30px',
     },
-    '&[aria-expanded="true"]': {
-      color: theme.palette.text.active,
-      transition: 'color 300ms ease-in-out',
-    },
   },
-  '.MuiMenuItem-content': {
+  '.AwiMoreMenu-title': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     ...theme.typography['body-xs'],
     fontWeight: 600,
-  },
-  '.MuiMenu-list': {
-    padding: theme.spacing(1.5, 0, 2.5),
-  },
-  '.MuiMenuItem-spacer': {
-    height: theme.spacing(1),
-  },
-  '.title-description': {
-    textAlign: 'center',
     span: {
-      display: 'block',
       marginTop: theme.spacing(1),
       ...theme.typography.menu,
       fontWeight: 500,
     },
-    '&:hover': {
-      span: {
-        color: 'inherit',
-      },
-    },
   },
-  '.icon-title': {
+  '.AwiMoreMenu-social': {
     display: 'flex',
     alignItems: 'center',
     ...theme.typography['body-xs'],
     fontWeight: 600,
-    color: theme.palette.text.menu,
     img: {
-      marginRight: theme.spacing(3),
+      marginRight: theme.spacing(2),
     },
+  },
+  '.AwiMoreMenu-spacer': {
+    marginTop: theme.spacing(2),
+  },
+  '.AwiHoverMenu-list': {
+    paddingBottom: theme.spacing(6),
   },
 }));
 
@@ -69,21 +59,23 @@ export default function MoreMenu() {
     <Root id="moreMenu" ariaLabel={t(`menu.more.toggle-label`)} toggle={<MoreIcon />}>
       {({ close }) => [
         ...moreMenuLinks.map(({ key, url }, index) => (
-          <MenuItem key={key} component={Link} href={url} onClick={close} divider={index !== moreMenuLinks.length - 1}>
-            <Typography className="MuiMenuItem-content title-description">
+          <HoverMenuItem key={key} close={close} className={clsx({ 'Awi-reset': index === moreMenuLinks.length - 1 })}>
+            <Link href={url} className="AwiMoreMenu-title">
               {t(`menu.more.${key}.title`)}
-              <Typography component="span">{t(`menu.more.${key}.description`)}</Typography>
-            </Typography>
-          </MenuItem>
+              <span>{t(`menu.more.${key}.description`)}</span>
+            </Link>
+          </HoverMenuItem>
         )),
-        <div key="spacer" role="presentation" className="MuiMenuItem-spacer" />,
+        <li key="spacer" role="presentation">
+          <div className="AwiMoreMenu-spacer"></div>
+        </li>,
         ...socialLinks.map(({ key, url }) => (
-          <MenuItem key={key} component={Link} href={url} onClick={close} divider={false} dense>
-            <Typography className="MuiMenuItem-content icon-title">
+          <HoverMenuItem key={key} close={close} className="Awi-reset Awi-dense">
+            <Link href={url} className="AwiMoreMenu-social">
               <img src={`/images/icons/${key}.svg`} alt="" width="22" height="22" />
               {t(`menu.social.${key}.title`)}
-            </Typography>
-          </MenuItem>
+            </Link>
+          </HoverMenuItem>
         )),
       ]}
     </Root>
