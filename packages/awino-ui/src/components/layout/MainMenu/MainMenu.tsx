@@ -18,7 +18,7 @@ const Root = styled('ul')(({ theme }) => ({
   borderRadius: +theme.shape.borderRadius * 2,
   background: theme.palette.background.transparent,
   padding: theme.spacing(0, 2),
-  '.MenuItem-content': {
+  '.AwiMainMenu-item, .AwiHoverMenu-toggle': {
     display: 'block',
     padding: theme.spacing(5, 4),
     whiteSpace: 'nowrap',
@@ -44,7 +44,7 @@ function MenuItem({ item, i18nKey }: MenuItemProps) {
     const { url } = item as MenuItemLink;
     return (
       <li>
-        <Typography variant="menu" component={Link} href={url} className="MenuItem-content">
+        <Typography variant="menu" component={Link} href={url} className="AwiMainMenu-item">
           {t(`menu.${i18nKey}.${key}.title`)}
         </Typography>
       </li>

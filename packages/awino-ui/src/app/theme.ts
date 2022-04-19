@@ -1068,12 +1068,20 @@ const themeCreator = (mode: PaletteMode) => {
         root: {
           padding: 0,
           '.MuiMenuItem-content': {
-            padding: theme.spacing(5.5, 8),
+            padding: theme.spacing(4, 8),
             width: '100%',
             ...theme.typography.menu,
             color: theme.palette.text.menu,
             transition: 'color 200ms ease-in-out',
-            '&:hover, &.active': {
+          },
+          '&.active': {
+            '.MuiMenuItem-content': {
+              color: theme.palette.text.active,
+              transition: 'color 200ms ease-in-out',
+            },
+          },
+          '&:hover': {
+            '.MuiMenuItem-content': {
               color: theme.palette.text.primary,
               transition: 'color 200ms ease-in-out',
             },
@@ -1093,7 +1101,7 @@ const themeCreator = (mode: PaletteMode) => {
         divider: {
           borderBottom: `2px solid ${theme.palette.mode === 'dark' ? '#217471' : theme.palette.divider}`,
           '&:last-of-type': {
-            borderBottom: 0,
+            // borderBottom: 0,
           },
         },
       },
