@@ -122,6 +122,7 @@ const Root = styled(Modal)(({ theme }) => ({
     height: '100%',
     maxHeight: '100%',
     overflow: 'hidden',
+    outline: 0,
   },
   '.AwiWalletConnect-paper': {
     pointerEvents: 'all',
