@@ -5,7 +5,7 @@ terraform {
 
   # Configure gcs as the backend for the terraform state
   backend "gcs" {
-    bucket = "awino-terraform-state-oymd"
+    bucket = "crypto-rocket-terraform-state-h9fg"
   }
 
   required_providers {
@@ -91,7 +91,7 @@ resource "local_sensitive_file" "gitlab_ci_sa_private_key" {
 
 resource "google_storage_bucket" "tf_state" {
   project       = google_project.default.project_id
-  name          = "awino-${local.environment_name}-tf-state-${random_string.project_suffix.result}"
+  name          = "crypto-rocket-${local.environment_name}-tf-state-${random_string.project_suffix.result}"
   location      = "EU"
   force_destroy = false
 }

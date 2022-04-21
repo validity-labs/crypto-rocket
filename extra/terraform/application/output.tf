@@ -1,5 +1,5 @@
 # -- LANDINGPAGE --------------------------------
 
-output "awino_ui_url" {
-  value = var.awino_ui_domain
+output "dapin_ui_url" {
+  value = var.dapin_ui_domain
 }
