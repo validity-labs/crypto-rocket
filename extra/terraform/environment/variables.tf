@@ -97,9 +97,9 @@ variable "gcp_ci_sa_iam_roles" {
 }
 
 
-# -- AWINO UI -----------------------------------
+# -- AWINO / CryptoRocket UI -----------------------------------
 
-variable "awino_ui_sub_domain" {
+variable "crypto_rocket_ui_domain" {
   description = "The domain name of the web app."
   type        = string
 }
