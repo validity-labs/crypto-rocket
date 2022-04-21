@@ -4,12 +4,12 @@ services:
   awino-ui:
     build:
       context: .
-      dockerfile: crypto_rocket-ui.dockerfile
+      dockerfile: crypto-rocket-ui.dockerfile
       target: production
     environment:
       - PORT=3001
     env_file:
-      - ./extra/config/crypto_rocket-ui/.env.development
+      - ./extra/config/crypto-rocket-ui/.env.development
     ports:
       - 3001:3001
     # depends_on:
