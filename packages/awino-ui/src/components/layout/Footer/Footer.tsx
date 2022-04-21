@@ -89,7 +89,7 @@ export default function Footer(): ReactElement {
         <div className="top">
           <Typography variant="menu" color="inherit" className="rate">
             {t('common.awi')}
-            <img src="/images/awi.svg" alt="" />
+            <img src="/images/assets/awi.svg" alt="" />
             {formatAmount(awiRate, { prefix: '$' })}
           </Typography>
         </div>
