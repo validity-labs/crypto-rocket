@@ -60,7 +60,7 @@ module "dotenv_file_parser_ui" {
 }
 
 resource "google_cloud_run_service" "crypto_rocket_ui" {
-  name     = "crypto_rocket-ui-${random_string.suffix.result}"
+  name     = "crypto-rocket-ui-${random_string.suffix.result}"
   project  = var.gcp_project
   location = var.gcp_cloud_run_region
 
