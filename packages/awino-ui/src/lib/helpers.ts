@@ -9,6 +9,19 @@ export function tabA11yProps(id: ID, index: number) {
   };
 }
 
+export function simpleTabA11yProps(id: ID) {
+  return {
+    id: `tab-${id}`,
+    'aria-controls': `tabpanel-${id}`,
+  };
+}
+export function simpleTabPanelA11yProps(id: ID) {
+  return {
+    id: `tabpanel-${id}`,
+    'aria-labelledby': `tab-${id}`,
+  };
+}
+
 /**
  * Wrap callback method, with event stop propagation
  */

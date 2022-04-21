@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.587" height="24.568" viewBox="0 0 14.587 24.568">
-  <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="blue"/>
-      <stop offset="1" stop-color="#000005"/>
-    </linearGradient>
-  </defs>
-  <path id="Icon_awesome-ethereum" data-name="Icon awesome-ethereum" d="M15.145,12.514,7.856,16.967.563,12.514,7.856,0ZM7.856,18.4.563,13.944,7.856,24.568,15.15,13.944,7.856,18.4Z" transform="translate(-0.563)" fill="url(#linear-gradient)"/>
-</svg>

@@ -27,19 +27,34 @@ const StyledSection = styled(Section)(({ theme }) => ({
   //   width: 'auto',
   // },
   '.AwiBenefitSlide-root': {
-    padding: theme.spacing(0, 4),
+    padding: theme.spacing(0, 6),
+    position: 'relative',
+
     '>div': {
+      position: 'relative',
+      boxSizing: 'border-box',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-start',
       maxWidth: '420px',
       height: '100%',
-      minHeight: 420,
+      minHeight: 370,
       padding: theme.spacing(14, 10.5),
       margin: '0 auto',
-      boxSizing: 'border-box',
       borderRadius: +theme.shape.borderRadius * 5,
-      backgroundColor: theme.palette.background.transparent,
+      boxShadow: '0px 3px 6px #00000029',
+      backgroundColor: theme.palette.background.darker,
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        top: -5,
+        left: -5,
+        right: -5,
+        bottom: -5,
+        borderRadius: +theme.shape.borderRadius * 6,
+        background: ['rgb(0,255,235)', 'linear-gradient(154deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 100%)'],
+        zIndex: -1,
+      },
     },
     h3: {
       marginBottom: theme.spacing(7),
@@ -59,7 +74,7 @@ const StyledSection = styled(Section)(({ theme }) => ({
   },
   '.AwiBenefitSection-navigationPrev, .AwiBenefitSection-navigationNext': {
     margin: theme.spacing(0, 3, 3, 0),
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.primary,
     backgroundColor: theme.palette.background.transparent,
     '&:hover': {
       backgroundColor: theme.palette.action.hover,
@@ -79,8 +94,8 @@ interface BenefitSlideProps {
 const BenefitSlide = ({ /* item,  */ index }: BenefitSlideProps) => {
   const t = usePageTranslation();
   return (
-    <div className="AwiBenefitSlide-root">
-      <div className="Awi-hoverGrow">
+    <div className="AwiBenefitSlide-root Awi-hoverGrow">
+      <div>
         <Typography variant="h5" component="h3">
           {t(`benefit-section.items.${index}.title`)}
         </Typography>
@@ -90,18 +105,16 @@ const BenefitSlide = ({ /* item,  */ index }: BenefitSlideProps) => {
   );
 };
 
-const items = [0, 1, 2, 3];
+const items = [0, 1, 2, 3, 4];
 
 export default function BenefitSection() {
   const t = usePageTranslation();
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <StyledSection containerProps={{ maxWidth: 'lg' }}>
+    <StyledSection /* containerProps={{ maxWidth: 'lg' }} */>
       <Header title={t('benefit-section.title')} description={t('benefit-section.description')} />
       <SwiperReact
-        modules={[A11y, Navigation]}
+        modules={[Navigation, A11y]}
         slidesPerView={1}
         spaceBetween={0}
         breakpoints={{
@@ -113,21 +126,21 @@ export default function BenefitSection() {
           },
         }}
         navigation={{
-          nextEl: nextRef.current,
-          prevEl: prevRef.current,
+          nextEl: '#awiBenefitSectionNavigationNext',
+          prevEl: '#awiBenefitSectionNavigationPrev',
         }}
       >
         {items?.map((item, itemIndex) => (
           <SwiperSlide key={itemIndex}>
-            <BenefitSlide /*  item={item} */ index={itemIndex} />
+            <BenefitSlide index={itemIndex} />
           </SwiperSlide>
         ))}
       </SwiperReact>
       <div className="AwiBenefitSection-navigation">
-        <IconButton className="AwiBenefitSection-navigationPrev" ref={prevRef}>
+        <IconButton id="awiBenefitSectionNavigationPrev" className="AwiBenefitSection-navigationPrev">
           <ArrowForwardOutlined />
         </IconButton>
-        <IconButton className="AwiBenefitSection-navigationNext" ref={nextRef}>
+        <IconButton id="awiBenefitSectionNavigationNext" className="AwiBenefitSection-navigationNext">
           <ArrowForwardOutlined />
         </IconButton>
       </div>

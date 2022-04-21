@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Poiret+One&family=MuseoModerno&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Baloo+Bhai+2&display=swap"
             rel="stylesheet"
           />
           <script

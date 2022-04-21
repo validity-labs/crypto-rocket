@@ -54,30 +54,58 @@
   },
   "info-section": {
     "title": "We make DeFi easy as\n possible for everyone",
-    "description": [
-      "The DeFi and crypto space in general is still in its genesis stage and has yet to experience mainstream adaption. That said, the AWINO ecosystem is built to be simple, intuitive and user friendly for new investors. But yet, has all the tools for experienced DeFi enthusiasts, non the less.",
-      "AWINO takes a problem-solving approach and addresses the following issues we are currently faced with in the DeFi and crypto space in general."
+    "description": "The DeFi and crypto space in general is still in its genesis stage and has yet to experience mainstream adaption. That said, the AWINO ecosystem is built to be simple, intuitive and user friendly for new investors. But yet, has all the tools for experienced DeFi enthusiasts, non the less. AWINO takes a problem-solving approach and addresses the following issues we are currently faced with in the DeFi and crypto space in general.\n\n If you are not part of the solution, then you are part of the problem. AWINO ecosystem strives to address all these issues stated above, before expanding into other blockchains. This will have a proof-of-concept effect and allow for seamless expansions into other blockchains.",
+    "tabs-aria": "Switch between tool description",
+    "items": [
+      {
+        "title": "Deposit",
+        "description": "Supply into the protocol and watch your assets grow as a liquidity provider."
+      },
+      {
+        "title": "Stake",
+        "description": "Veniam dolore ut enim eiusmod eiusmod fugiat adipisicing qui veniam enim."
+      },
+      {
+        "title": "Borrow",
+        "description": "Velit deserunt nisi laborum voluptate commodo eiusmod magna laborum ut."
+      },
+      {
+        "title": "Swap",
+        "description": "Reprehenderit amet dolore culpa reprehenderit dolor sit velit aliquip dolor culpa."
+      },
+      {
+        "title": "Zap",
+        "description": "Est officia eiusmod aliquip dolor mollit do nostrud Lorem nulla ex sint eu id nostrud."
+      },
+      {
+        "title": "Vote",
+        "description": "In aliquip cillum non dolor incididunt aliquip fugiat."
+      }
     ]
   },
   "benefit-section": {
     "title": "Why you should use our platform",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "description": "AWINO takes a problem-solving approach and addresses the following issues we are currently faced with in the DeFi and crypto space in general.",
     "items": [
       {
-        "title": "Liquidity / stability:",
+        "title": "Liquidity / stability",
         "description": "AWINO has built mechanics within the token economics with the intent to strategically provide liquidity into the ecosystem. This will allow for seamless trades and bring stability in an otherwise, volatile market."
       },
       {
-        "title": "Profitability / sustainability:",
+        "title": "Profitability / sustainability",
         "description": "To ensure sustainability, AWINO invests within its own ecosystem. Revenue is re-invested 100% back into the protocol through buy backs and locking LP tokens into the treasury forever. This allows the protocol to be profitable, while accumulating appreciating assets in its treasury."
       },
       {
-        "title": "Safety and security:",
+        "title": "Safety and security",
         "description": "Security and safety are major issue that investors face on a daily basis. To address these, AWINO has developed a state-of-the-art wallet application with above industry standard security features."
       },
       {
-        "title": "Profitability / sustainability:",
-        "description": "To ensure sustainability, AWINO invests within its own ecosystem. Revenue is re-invested 100% back into the protocol through buy backs and locking LP tokens into the treasury forever. This allows the protocol to be profitable, while accumulating appreciating assets in its treasury."
+        "title": "Decentralized reserve currency",
+        "description": "Unlike other algorithmic stable coins pegged to fiat, AWINO takes a different approach. Protocol Owned Liquidity (POL) is the heart of the AWINO ecosystem. A treasury that generates revenue and maintains a floor price through its Assets Under Management (AUM)."
+      },
+      {
+        "title": "Interoperability",
+        "description": "Awino has multiple bridges, connecting to other blockchains such as Terra (LUNA), Avalanche (AVAX) and BSC (BNB), with the intention to further expand on other blockchains in the future. AWINO will later migrate to its own L1 block chain."
       }
     ]
   },

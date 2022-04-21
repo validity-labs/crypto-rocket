@@ -11,7 +11,7 @@ const Header = ({ title, description, dense = false }: Props) => {
       <Typography variant="h2" mb={12.5} textAlign="center">
         {title}
       </Typography>
-      <Typography color="text.primary" textAlign="center" mb={dense ? 11 : 31} mx="auto">
+      <Typography textAlign="center" mb={dense ? 11 : 31} mx="auto">
         {description}
       </Typography>
     </>

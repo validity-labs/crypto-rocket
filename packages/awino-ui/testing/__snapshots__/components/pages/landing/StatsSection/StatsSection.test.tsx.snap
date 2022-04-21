@@ -8,38 +8,6 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
     >
-      <ul
-        class="badges"
-      >
-        <li>
-          <img
-            alt=""
-            src="images/icons/analytics.jpg"
-            title="landing:stats-section.badges.0"
-          />
-        </li>
-        <li>
-          <img
-            alt=""
-            src="images/icons/ethereum-blue.svg"
-            title="landing:stats-section.badges.1"
-          />
-        </li>
-        <li>
-          <img
-            alt=""
-            src="images/icons/swap.svg"
-            title="landing:stats-section.badges.2"
-          />
-        </li>
-        <li>
-          <img
-            alt=""
-            src="images/icons/ethereum-yellow.svg"
-            title="landing:stats-section.badges.3"
-          />
-        </li>
-      </ul>
       <h1
         class="MuiTypography-root MuiTypography-h1 css-2"
       >
