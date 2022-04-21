@@ -1,24 +1,120 @@
+import { LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { useAppSelector } from '@/app/hooks';
-import ConnectPanel from '@/components/general/ConnectPanel/ConnectPanel';
-import Label from '@/components/general/Label/Label';
+import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { formatPercent, formatUSD } from '@/lib/formatters';
+import { StatsData, StatsFormatter } from '@/types/app';
 
-const Root = styled(Section)(() => ({}));
+import StatsItems from '../../shared/FormattedStatsItems/StatsItems';
 
-export default function InfoSection(/* { total }: Props */) {
-  const t = usePageTranslation();
-  const { connected } = useAppSelector((state) => ({
-    connected: state.account.connected,
-  }));
+const Root = styled(Section)(({ theme }) => ({
+  '.AwiInfoSection-title': {
+    marginBottom: theme.spacing(10),
+  },
+  '.AwiInfoSection-panel > .AwiPanel-content': {
+    padding: theme.spacing(12.5, 6.5, 10),
+  },
+  '.AwiInfoSection-stats': {
+    marginBottom: theme.spacing(15),
+    '> .MuiGrid-container': {
+      '> .MuiGrid-item': {
+        textAlign: 'center',
+        '&:nth-of-type(2) .AwiStatsCard-root': {
+          minWidth: 160,
+          border: `2px solid ${theme.palette.text.active}`,
+          ...theme.mixins.radius(2),
+          boxShadow: 'inset 10px 10px 6px #00000029',
+        },
+      },
+    },
+    '.AwiStatsCard-root': {
+      display: 'inline-block',
+      background: 'transparent',
+    },
+    '.AwiStatsItem-title': {
+      ...theme.typography['body-sm'],
+    },
+    '.AwiStatsItem-value': {
+      color: theme.palette.text.primary,
+    },
+  },
+  '.AwiInfoSection-progress': {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: theme.spacing(8),
+  },
+  '.MuiLinearProgress-root': {
+    width: '100%',
+    borderRadius: 4,
+    backgroundColor: theme.palette.common.white,
+  },
+  '.MuiLinearProgress-bar': {
+    borderRadius: 4,
+  },
+  '.AwiInfoSection-progressAmount': {
+    alignSelf: 'flex-end',
+  },
+
+  [theme.breakpoints.up('md')]: {
+    '.AwiInfoSection-panel > .AwiPanel-content': {
+      padding: theme.spacing(12.5, 20, 20),
+    },
+    '.AwiInfoSection-progress': {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    '.MuiLinearProgress-root': {
+      flex: 1,
+    },
+  },
+}));
+
+export interface DashboardInfoData {
+  borrowLimit: {
+    percent: number;
+    amount: number;
+  };
+  stats: StatsData;
+}
+
+interface Props {
+  info: DashboardInfoData;
+  loading: boolean;
+}
+
+export const statsFormatters: StatsFormatter[] = [{ value: formatUSD }, { value: formatPercent }, { value: formatUSD }];
+
+export default function InfoSection({ info, loading }: Props) {
+  const t = usePageTranslation({ keyPrefix: 'info-section' });
 
   return (
     <Root>
-      <Panel header={<Label tooltip={t(`info-section.title-hint`)}>{t(`info-section.title`)}</Label>}>
-        {connected ? <>TODO</> : <ConnectPanel back="/" />}
+      <Panel className="AwiInfoSection-panel">
+        <Typography variant="h1" color="text.active" className="AwiInfoSection-title">
+          {t('title')}
+        </Typography>
+        <StatsItems
+          items={info.stats}
+          maxWidth="md"
+          className="AwiInfoSection-stats"
+          formatters={statsFormatters}
+          i18nKey="info-section"
+        />
+        <div className="AwiInfoSection-progress">
+          <LabelValue
+            id="infoSectionBorrowLimit"
+            value={formatPercent(info.borrowLimit.percent)}
+            labelProps={{ variant: 'body-sm', children: t('borrow-limit') }}
+            valueProps={{ variant: 'body-sm', color: 'text.primary', fontWeight: 600 }}
+          />
+          <LinearProgress value={info.borrowLimit.percent} variant={loading ? 'indeterminate' : 'determinate'} />
+          <Typography variant="body-sm" color="text.primary" className="AwiInfoSection-progressAmount">
+            {formatUSD(info.borrowLimit.amount)}
+          </Typography>
+        </div>
       </Panel>
     </Root>
   );

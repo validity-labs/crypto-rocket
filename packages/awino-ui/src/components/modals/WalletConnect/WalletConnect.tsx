@@ -116,6 +116,7 @@ function getErrorMessage(error: Error) {
 
 const Root = styled(Modal)(({ theme }) => ({
   padding: theme.spacing(10),
+  zIndex: theme.zIndex.modal,
   '.AwiWalletConnect-container': {
     pointerEvents: 'none',
     position: 'relative',

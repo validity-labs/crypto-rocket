@@ -18,6 +18,17 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-04-21
+
+### Added
+
+- Added dashboard page
+
+### Changed
+
+- Changed landing page's info and benefit components
+- Changed logo and favicon
+
 ## [0.0.0] - 2022-04-19
 
 ### Changed

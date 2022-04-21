@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, BoxProps, BoxTypeMap, Typography } from '@mui/material';
+import { Box, BoxProps, BoxTypeMap, Typography, TypographyProps } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { styled } from '@mui/material/styles';
 
@@ -10,16 +10,24 @@ interface Props extends Partial<BoxProps> {
   id: string;
   value: React.ReactNode;
   labelProps: LabelProps;
+  valueProps?: Partial<TypographyProps>;
 }
 
-const LabelValue = styled(({ id, value, labelProps, ...restOfProps }: Props) => {
+const LabelValue = styled(({ id, value, labelProps, valueProps, ...restOfProps }: Props) => {
   const { children, ...restOfLabelProps } = labelProps;
   return (
     <Box {...restOfProps}>
       <Label id={id} className="AwiLabelValue-label label" {...restOfLabelProps}>
         {children}
       </Label>
-      <Typography variant="h5" component="p" className="AwiLabelValue-value value" aria-describedby={id}>
+      {/* @ts-ignore */}
+      <Typography
+        variant="h5"
+        component="p"
+        className="AwiLabelValue-value value"
+        aria-describedby={id}
+        {...valueProps}
+      >
         {value}
       </Typography>
     </Box>

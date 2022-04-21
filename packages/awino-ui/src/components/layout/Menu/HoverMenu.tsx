@@ -17,7 +17,7 @@ import { styled } from '@mui/material/styles';
 import TrapFocus from '@mui/material/Unstable_TrapFocus';
 
 const Root = styled(Box)(({ theme }) => ({
-  zIndex: 9999,
+  zIndex: theme.zIndex.appBar,
   '.AwiHoverMenu-toggle': {
     border: 0,
     boxShadow: 'none',
