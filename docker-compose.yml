@@ -4,7 +4,7 @@ services:
   awino-ui:
     build:
       context: .
-      dockerfile: awino-ui.dockerfile
+      dockerfile: crypto_rocket-ui.dockerfile
       target: production
     environment:
       - PORT=3001
