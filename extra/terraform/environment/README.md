@@ -1,47 +1,86 @@
 # Environment setup
 
+__All commands needs to be executed relative to the directory of this readme file__
+
 We use a separate terraform configuration to create and maintain environments. This also includes creating the service account for the Gitlab CI and assigning the necessary permissions.
 Doing this is necessary so that the service account used in the CI does not need cross-project permissions. Instead, the following commands must be executed manually by a GCP administrator account. It is required that the GCP user has the permission to create new projects and assign them to a billing account. Also, this user must have write permissions to the Google Cloud Storage bucket with the terraform state of the project.
 
 If the project is newly created, the steps below [Initial setup](#initial-setup) must be executed first of all. Afterwards new environments can be created by following the instructions in the section [Creation of new environments](#creation-of-new-environments).
+If this all is done, you can continue with [Infrastructure provisioning](#infrastructure-provisioning)
 
 ## Infrastructure provisioning
 
 Requirements:
 
-- Download the terraform backend encryption key from Bitwarden
-- A gitlab access token
+- Create a new file called `tf-backend-encryption-key` based on `tf-backend-encryption-key.example` under `extra/terraform/environment`, download the terraform backend encryption key from Bitwarden and insert the value into the file.
+- Create a new tfvar file for secrets under `extra/terraform/environment/config` for each environment (`env_name-secrets.tfvars.example` to `<env>-secrets.tfvars`) and insert the required values
+  - Gitlab access token: Create a new personal access token on gitlab.com (or use an existing one if you did that already)
 
 Instructions:
 
-1. Initialize terraform:
-
+1. Define variable with the new environment name (e.g. test, staging, prod, ...)
    ```bash
-   terraform init -backend-config="./tf-backend-encryption-key"
+   export _ENV=<ENV>
    ```
 
-2. Select the terraform workspace of the environment you want to deploy the changes to:
+2. Initialize terraform:
 
    ```bash
-   terraform workspace select <environment-name>
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 init -backend-config="./tf-backend-encryption-key"
+   ```
+
+3. Select the terraform workspace of the environment you want to deploy the changes to:
+
+   ```bash
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 workspace select $_ENV
    ```
 
    You can list the available terraform workspaces with the following command:
 
    ```bash
-   terraform workspace list
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 workspace list
    ```
 
-3. Check which changes are made when Terraform deploys the infrastructure:
+4. Check which changes are made when Terraform deploys the infrastructure:
 
    ```bash
-   terraform plan -var-file="config/$(terraform workspace show).tfvars" -var-file="config/$(terraform workspace show)-secrets.tfvars"
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 plan -var-file="config/${_ENV}.tfvars" -var-file="config/${_ENV}-secrets.tfvars"
    ```
 
-4. Perform deployment of infrastructure changes:
+5. Perform deployment of infrastructure changes:
 
    ```bash
-   terraform apply -var-file="config/$(terraform workspace show).tfvars" -var-file="config/$(terraform workspace show)-secrets.tfvars"
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 apply -var-file="config/${_ENV}.tfvars" -var-file="config/${_ENV}-secrets.tfvars"
    ```
 
 ## Creation of new environments
@@ -49,37 +88,66 @@ Instructions:
 Requirements:
 
 - Download the terraform backend encryption key from Bitwarden
-- A gitlab access token
+- A personal gitlab access token
+
+- Create a new file called `tf-backend-encryption-key` based on `tf-backend-encryption-key.example` under `extra/terraform/environment`, download the terraform backend encryption key from Bitwarden and insert the value into the file.
+- Create a new tfvar file for secrets under `extra/terraform/environment/config` for each environment (`env_name-secrets.tfvars.example` to `<env>-secrets.tfvars`) and insert the required values
+  - Gitlab access token: Create a new personal access token on gitlab.com (or use an existing one if you did that already)
 
 Instructions:
+
+__In case of authentication/permission issues please execute: `gcloud auth application-default login`__
 
 1. Initialize terraform
 
    ```bash
-   terraform init -backend-config=tf-backend-encryption-key
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 init -backend-config=tf-backend-encryption-key
    ```
 
-2. Check if the corresponding terraform workspace for the environment already exists
+2. Define variable with the new environment name (e.g. test, staging, prod, ...)
+   ```bash
+   export _ENV=<ENV>
+   ```
+
+3. Check if the corresponding terraform workspace for the environment already exists
 
    ```bash
-   terraform workspace list
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 workspace list
    ```
 
    If this is not the case, proceed to the next step.
 
-3. Create a new terraform workspace for the new environment (e.g. test, staging, prod, ...)
+4. Create a new terraform workspace for the new environment
 
    ```bash
-   terraform workspace new <environment-name>
+   docker run -i -t --rm \
+      -u="$(id -u):$(id -g)" \
+      -v "$HOME/.config/gcloud/application_default_credentials.json":/google-credentials.json \
+      -e "GOOGLE_APPLICATION_CREDENTIALS=/google-credentials.json" \
+      -v "$(pwd)/":/srv \
+      --workdir="/srv" \
+      hashicorp/terraform:1.1.8 workspace new $_ENV
    ```
 
-4. Create a `config/<environment>.tfvars` file for the environment that contains the required settings for the environment.
+5. Create a `config/<environment>.tfvars` file for the environment that contains the required settings for the environment.
 
    ```bash
    vi config/$(terraform workspace show).tfvars
    ```
 
-5. In the created file, all variables from the variables.tf file can now be assigned values for the corresponding environment. Make sure that the file does not contain any credentials!
+6. In the created file, all variables from the variables.tf file can now be assigned values for the corresponding environment. Make sure that the file does not contain any credentials!
 
    The content of the file could look like this afterwards: (TODO:)
 
@@ -89,33 +157,35 @@ Instructions:
    ui_reporter_domain="<project-name>-<environment>.validity.io"
    ```
 
-6. Create a `config/<environment>-secrets.tfvars` file for the environment that contains the required secrets for the environment (because they shouldn't be tracked in git).
+7. Create a `config/<environment>-secrets.tfvars` file for the environment that contains the required secrets for the environment (because they shouldn't be tracked in git).
+
+8. Create a new personal access token on gitlab.com (or use an existing one if you did that already) and insert it into the `config/<environment>-secrets.tfvars`.
 
    ```bash
    vi config/$(terraform workspace show)-secrets.tfvars
    ```
 
-7. In the created file, all variables from the variables.tf file can now be assigned values for the corresponding environment. Make sure that the file does not contain any credentials!
+9. If there are any other secret related variables in the variables.tf file, these needs to be added as well.
 
-   The content of the file could look like this afterwards: (TODO:)
+10. Follow the steps in section [Infrastructure provisioning](#Infrastructure-provisioning)
 
-   ```bash
-   gitlab_project = "validitylabs/products/crypto-fraud"
-   gcp_folder_id = <folder-id>
-   gcp_billing_account = "<gcp-billing-account-id>"
-   reporting_engine_domain="api-<project-name>-<environment>.validity.io"
-   ui_reporter_domain="<project-name>-<environment>.validity.io"
-   ```
-
-8. Follow the steps in section [Infrastructure provisioning](#Infrastructure-provisioning)
-
-9. Grant the service account for the CI access to the domain `validity.io` in [google webmaster tools](https://www.google.com/webmasters/verification/details?hl=de&domain=validity.io)
+11. Grant the service account for the Gitlab CI access to the domain of the current system in [google webmaster tools](https://www.google.com/webmasters/verification/details?hl=de)
 
    Run the following command to get the email address of the gitlab ci service account: `terraform output --raw gcp_gitlab_ci_service_account_email`
 
-10. Set Gitlab CI variables at gitlab.com: API_DOMAIN, GCP_PROJECT, GCP_SERVICE_ACCOUNT_KEY_JSON, TERRAFORM_BACKEND_GCS_BUCKET
+12. Define Gitlab CI stage in the `gitlab-ci.yml` file if needed stage is not existent.
 
-11. Define Gitlab CI jobs in the `gitlab-ci.yml` file
+13. Ensure in GitLab repository settings the branches and tags (use wildcard for tags like `*.*.*`) which are used for triggering the deployments are protected.
+
+14. Configure Cloudflare access in order to protect the access to test and staging environments.
+    1.  Navigate to Access menu point on [CloudFlare](https://dash.cloudflare.com/)
+    2.  Click on [Launch Zero Trust](https://dash.teams.cloudflare.com/)
+    3.  Navigate to "Access / Applications" and add a new application
+        1.  Choose self hosted
+        2.  Copy & paste from any existing application to have the same settings
+    4.  Repeat adding a new application on "Access / Applications" for the SSL challenge
+        1.  Choose self hosted
+        2.  Copy & paste from any existing application to have the same settings
 
 ## Initial setup
 
@@ -129,34 +199,34 @@ For this we will create a Google Cloud Storage bucket in a general GCP project (
 1. Set the id of the gcp project in which the gcs bucket should be created:
 
    ```bash
-   export GCP_PROJECT_ID=<gcp-project-id>
+   export GCP_PROJECT_ID=<gcp-project-id> # @FIXME: devops project id
    ```
 
-1. Set the name of the project:
+2. Set the name of the project:
 
    ```bash
-   export PROJECT_NAME=<project-name>
+   export PROJECT_NAME=<project-name> # @FIXME: crypto-rocket-t-2203 vs crypto-rocket => nicht GCP project name
    ```
 
-1. Compose the bucket name including a random string which is used to make sure that the backup name is unique (command is probably only working on MacOS):
+3. Compose the bucket name including a random string which is used to make sure that the backup name is unique (command is probably only working on MacOS):
 
    ```bash
    export GCS_TERRAFORM_BUCKET_NAME="gs://$PROJECT_NAME-terraform-state-$(head -c 1024 /dev/urandom | base64 | tr -cd "[:lower:][:digit:]" | head -c 4)/"
    ```
 
-1. Create the gcs bucket:
+4. Create the gcs bucket:
 
    ```bash
    gsutil mb -l EU -p $GCP_PROJECT_ID $GCS_TERRAFORM_BUCKET_NAME
    ```
 
-1. Enable versioning:
+5. Enable versioning:
 
    ```bash
    gsutil versioning set on $GCS_TERRAFORM_BUCKET_NAME
    ```
 
-1. Open the main.tf file in the current directory and set the bucket name in the terraform configuration object.
+6. Open the main.tf file in the current directory and set the bucket name in the terraform configuration object.
    The object looks something like this and should be at the beginning of the file:
 
    ```bash
@@ -172,13 +242,21 @@ For this we will create a Google Cloud Storage bucket in a general GCP project (
    ...
    ```
 
-1. Create an customer supplied encryption key for the terraform state file inside the GCS bucket. For more instructions checkout: https://cloud.google.com/storage/docs/encryption/using-customer-supplied-keys
+7. Create an customer supplied encryption key for the terraform state file inside the GCS bucket. For more instructions checkout: https://cloud.google.com/storage/docs/encryption/using-customer-supplied-keys
 
-1. Create a file called `tf-backend-encryption-key` in the environment terraform module root directory and insert the following content (don't forget to replace `<replace-with-generated-encryption-key>` with the newly created key from the previous step):
+8. Create a file called `tf-backend-encryption-key` in the environment terraform module root directory and insert the following content (don't forget to replace `<replace-with-generated-encryption-key>` with the newly created key from the previous step):
 
    ```
    encryption_key="<replace-with-generated-encryption-key>"
    ```
+
+### Set GCP billing account
+
+Open the `variables.tf` file and search for `gcp_billing_account`.
+Enter the correct GCP billing account ID as the default value.
+
+Billing account ID for ValidityLabs: 01EF72-DEA514-1F5785
+Billing account ID for DAT.AG: 01E854-E64B20-133EDB
 
 ### Create a resource folder in GCP for the projects
 

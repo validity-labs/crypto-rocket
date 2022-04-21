@@ -37,19 +37,19 @@ variable "gitlab_auth_token" {
 variable "gcp_project_name" {
   type        = string
   description = "The name of the project."
-  default     = "awino"
+  default     = "crypto-rocket"
 }
 
 variable "gcp_billing_account" {
   type        = string
   description = "The alphanumeric ID of the billing account this project belongs to. The user or service account performing this operation with Terraform must have at mininum Billing Account User privileges (roles/billing.user) on the billing account."
-  default     = "01E854-E64B20-133EDB"
+  default     = "01EF72-DEA514-1F5785"
 }
 
 variable "gcp_folder_id" {
   type        = number
   description = "The ID of the folder in which the projects should be created."
-  default     = "544843532284"
+  default     = "947381987146"
 }
 
 variable "gcp_services" {

@@ -1,5 +1,4 @@
 environment_name                = "p"
-environment_label               = "prod"
-gcp_project                     = "cherubim-auction-p-45foka"
-gitlab_project                  = "validitylabs/projects/cherubim/cherubim-landingpage"
-domain                          = "cherubsdao.com"
+gitlab_project                  = "validitylabs/projects/crypto-rocket"
+domain                          = "validity.io"
+awino_ui_sub_domain             = "p-crypto-rocket"
