@@ -139,9 +139,9 @@ resource "gitlab_project_variable" "environment_name" {
   protected         = true
 }
 
-resource "gitlab_project_variable" "awino_ui_domain" {
+resource "gitlab_project_variable" "crypto_rocket_ui_domain" {
   project           = var.gitlab_project
-  key               = "TF_VAR_awino_ui_domain"
+  key               = "TF_VAR_crypto_rocket_ui_domain"
   value             = "${trimspace(var.crypto_rocket_ui_domain)}${trimspace(var.crypto_rocket_ui_domain) != "" ? "." : ""}${var.domain}"
   environment_scope = terraform.workspace
   protected         = true

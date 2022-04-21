@@ -12,7 +12,7 @@ variables:
 
 .vars:
   variables:
-    AWINO_UI_IMAGE: $GCP_REGISTRY/$GCP_PROJECT/awino-ui
+    CRYPTO_ROCKET_UI_IMAGE: $GCP_REGISTRY/$GCP_PROJECT/crypto_rocket-ui
 
 # Login into docker registry
 .docker-registry-login: &docker-registry-login |
@@ -60,8 +60,8 @@ variables:
 # Otherwise the variables are not defined.
 .set-terraform-vars: &set-terraform-vars
   - export TF_VAR_gcp_project=$GCP_PROJECT
-  - export TF_VAR_awino_ui_image="${AWINO_UI_IMAGE}:${CI_COMMIT_SHA}"
-  - export TF_VAR_awino_ui_dotenv_file="${CI_PROJECT_DIR}/extra/config/awino-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}"
+  - export TF_VAR_crypto_rocket_ui_image="${CRYPTO_ROCKET_UI_IMAGE}:${CI_COMMIT_SHA}"
+  - export TF_VAR_crypto_rocket_ui_dotenv_file="${CI_PROJECT_DIR}/extra/config/crypto_rocket-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}"
 
 # Export terraform environment variables and store them in the job artifacts
 # so that they can be easily accessed for debugging purposes.
@@ -69,8 +69,8 @@ variables:
 # Important: Under no circumstances should secrets be exported!
 .export-terraform-vars: &export-terraform-vars
   - export "TF_VAR_gcp_project=$GCP_PROJECT" >> terraform-vars.env
-  - export "TF_VAR_awino_ui_image=${AWINO_UI_IMAGE}:${CI_COMMIT_SHA}" >> terraform-vars.env
-  - export "TF_VAR_awino_ui_dotenv_file=${CI_PROJECT_DIR}/extra/config/awino-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}" >> terraform-vars.env
+  - export "TF_VAR_crypto_rocket_ui_image=${CRYPTO_ROCKET_UI_IMAGE}:${CI_COMMIT_SHA}" >> terraform-vars.env
+  - export "TF_VAR_crypto_rocket_ui_dotenv_file=${CI_PROJECT_DIR}/extra/config/crypto_rocket-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}" >> terraform-vars.env
 
 # Initialize terraform
 #
@@ -92,7 +92,7 @@ variables:
 
 .deployment:
   variables: &deployment-variables
-    AWINO_UI_IMAGE: !reference [.vars, variables, AWINO_UI_IMAGE]
+    CRYPTO_ROCKET_UI_IMAGE: !reference [.vars, variables, CRYPTO_ROCKET_UI_IMAGE]
   script: &deployment-script
     - *install-jq
     - *generate-gitconfig
@@ -110,7 +110,7 @@ variables:
 
 # -- RESTRICTION POLICIES -----------------------
 
-.only-awino-ui-changes: &only-awino-ui-changes
+.only-crypto_rocket-ui-changes: &only-crypto_rocket-ui-changes
   changes:
     - public/**/*
     - src/**/*
@@ -144,10 +144,10 @@ after_script:
 
 # -- PACKAGE STAGE ------------------------------
 
-package-awino-ui-test:
+package-crypto_rocket-ui-test:
   variables:
-    PACKAGE_CONTAINER_BUILD_IMAGE_NAME: !reference [.vars, variables, AWINO_UI_IMAGE]
-    DOCKERFILE: awino-ui.dockerfile
+    PACKAGE_CONTAINER_BUILD_IMAGE_NAME: !reference [.vars, variables, CRYPTO_ROCKET_UI_IMAGE]
+    DOCKERFILE: crypto_rocket-ui.dockerfile
     DOCKER_TARGET_BUILD_STAGE: production
   environment:
     name: test
@@ -156,10 +156,10 @@ package-awino-ui-test:
   only:
     <<: *only-test
 
-# package-awino-ui-staging:
+# package-crypto_rocket-ui-staging:
 #   variables:
-#     PACKAGE_CONTAINER_BUILD_IMAGE_NAME: !reference [.vars, variables, AWINO_UI_IMAGE]
-#     DOCKERFILE: awino-ui.dockerfile
+#     PACKAGE_CONTAINER_BUILD_IMAGE_NAME: !reference [.vars, variables, CRYPTO_ROCKET_UI_IMAGE]
+#     DOCKERFILE: crypto_rocket-ui.dockerfile
 #     DOCKER_TARGET_BUILD_STAGE: production
 #   environment:
 #     name: staging
@@ -168,10 +168,10 @@ package-awino-ui-test:
 #   only:
 #     <<: *only-staging
 
-package-awino-ui-prod:
+package-crypto_rocket-ui-prod:
   variables:
-    PACKAGE_CONTAINER_BUILD_IMAGE_NAME: !reference [.vars, variables, AWINO_UI_IMAGE]
-    DOCKERFILE: awino-ui.dockerfile
+    PACKAGE_CONTAINER_BUILD_IMAGE_NAME: !reference [.vars, variables, CRYPTO_ROCKET_UI_IMAGE]
+    DOCKERFILE: crypto_rocket-ui.dockerfile
     DOCKER_TARGET_BUILD_STAGE: production
   environment:
     name: prod
@@ -194,7 +194,7 @@ deploy-test:
     name: test
     action: start
   resource_group: test
-  needs: ['package-awino-ui-test']
+  needs: ['package-crypto_rocket-ui-test']
   only:
     <<: *only-test
 
@@ -210,7 +210,7 @@ deploy-test:
 #     name: staging
 #     action: start
 #   resource_group: staging
-#   needs: ['package-awino-ui-staging']
+#   needs: ['package-crypto_rocket-ui-staging']
 #   only:
 #     <<: *only-staging
 
@@ -228,6 +228,6 @@ deploy-prod:
   resource_group: prod
   when: manual
   allow_failure: false
-  needs: ['package-awino-ui-prod']
+  needs: ['package-crypto_rocket-ui-prod']
   only:
     <<: *only-prod
