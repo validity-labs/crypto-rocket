@@ -27,5 +27,8 @@
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }
