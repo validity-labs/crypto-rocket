@@ -1,0 +1,16 @@
+# The configuration in this file is the basic configuration and reflects the production systems as closely as possible.
+version: '3.9'
+services:
+  awino-ui:
+    build:
+      context: .
+      dockerfile: crypto-rocket-ui.dockerfile
+      target: production
+    environment:
+      - PORT=3001
+    env_file:
+      - ./extra/config/crypto-rocket-ui/.env.development
+    ports:
+      - 3001:3001
+    # depends_on:
+    #   - cms

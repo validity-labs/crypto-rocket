@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OperationSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-3"
+        >
+          <div
+            class="css-4"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h7 css-5"
+            >
+              earn-liquidity-staking:stake-card.title
+            </h2>
+            <p
+              class="MuiTypography-root MuiTypography-body css-6"
+            >
+              earn-liquidity-staking:stake-card.description
+            </p>
+            <div
+              class="MuiFormControl-root MuiFormControl-fullWidth css-7"
+            >
+              <div
+                class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart MuiInputBase-adornedEnd AwiStakeCard-input css-8"
+              >
+                <div
+                  class="MuiBox-root css-9"
+                  title="common.convertion-from-to"
+                >
+                  <img
+                    alt=""
+                    class="source AwiSwappingImage-source"
+                    src="/images/assets/awi.svg"
+                  />
+                  <img
+                    alt=""
+                    class="target AwiSwappingImage-target"
+                    src="/images/assets/usdt.svg"
+                  />
+                </div>
+                <input
+                  aria-describedby="assetValueHelperText"
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-10"
+                  id="assetValue"
+                  inputmode="numeric"
+                  name="assetValue"
+                  type="text"
+                  value=""
+                />
+                <button
+                  class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiStakeCard-max css-11"
+                  tabindex="0"
+                  type="button"
+                >
+                  earn-liquidity-staking:common:common.max
+                  <span
+                    class="MuiTouchRipple-root css-12"
+                  />
+                </button>
+              </div>
+            </div>
+            <p
+              class="MuiTypography-root MuiTypography-body AwiStakeCard-balance css-13"
+            >
+              <span>
+                earn-liquidity-staking:stake-card.available-to-stake
+              </span>
+              <span>
+                99.99  AWI
+              </span>
+            </p>
+            <button
+              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiStakeCard-submit css-14"
+              tabindex="0"
+              type="button"
+            >
+              earn-liquidity-staking:stake-card.stake
+              <span
+                class="MuiTouchRipple-root css-12"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-16"
+        >
+          <div
+            class="MuiBox-root css-17"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body AwiUnstakeCard-balance css-13"
+            />
+            <div
+              class="MuiBox-root css-9"
+              title="common.convertion-from-to"
+            >
+              <img
+                alt=""
+                class="source AwiSwappingImage-source"
+                src="/images/assets/awi.svg"
+              />
+              <img
+                alt=""
+                class="target AwiSwappingImage-target"
+                src="/images/assets/usdt.svg"
+              />
+            </div>
+            99.99  AWI
+            <p />
+            <p
+              class="MuiTypography-root MuiTypography-body-sm css-20"
+            >
+              earn-liquidity-staking:unstake-card.subtitle
+            </p>
+            <button
+              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-21"
+              tabindex="0"
+              type="button"
+            >
+              earn-liquidity-staking:unstake-card.submit
+              <span
+                class="MuiTouchRipple-root css-12"
+              />
+            </button>
+          </div>
+          <div
+            class="css-23"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body AwiVestCard-balance css-13"
+            />
+            <div
+              class="MuiBox-root css-9"
+              title="common.convertion-from-to"
+            >
+              <img
+                alt=""
+                class="source AwiSwappingImage-source"
+                src="/images/assets/awi.svg"
+              />
+              <img
+                alt=""
+                class="target AwiSwappingImage-target"
+                src="/images/assets/usdt.svg"
+              />
+            </div>
+            99.99  AWI
+            <p />
+            <p
+              class="MuiTypography-root MuiTypography-body-sm css-20"
+            >
+              earn-liquidity-staking:vest-card.subtitle
+            </p>
+            <button
+              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-21"
+              tabindex="0"
+              type="button"
+            >
+              earn-liquidity-staking:vest-card.submit
+              <span
+                class="MuiTouchRipple-root css-12"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

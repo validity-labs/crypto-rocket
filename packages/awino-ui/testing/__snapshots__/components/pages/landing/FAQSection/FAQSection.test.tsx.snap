@@ -1,0 +1,272 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FAQSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-2"
+      >
+        landing:faq-section.title
+      </h2>
+      <p
+        class="MuiTypography-root MuiTypography-body css-3"
+      >
+        landing:faq-section.description
+      </p>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthMd css-4"
+      >
+        <article
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-5"
+        >
+          <div
+            aria-controls="panel-content-1"
+            aria-expanded="true"
+            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-6"
+            id="panel-header-1"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-7"
+            >
+              landing:faq-section.items.0.title
+            </div>
+            <div
+              class="MuiAccordionSummary-expandIconWrapper Mui-expanded css-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-10"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+              >
+                <div
+                  aria-labelledby="panel-header-1"
+                  class="MuiAccordion-region"
+                  id="panel-content-1"
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root css-13"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-14"
+                    >
+                      landing:faq-section.items.0.description
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-5"
+        >
+          <div
+            aria-controls="panel-content-2"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-6"
+            id="panel-header-2"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-7"
+            >
+              landing:faq-section.items.1.title
+            </div>
+            <div
+              class="MuiAccordionSummary-expandIconWrapper css-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-20"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+              >
+                <div
+                  aria-labelledby="panel-header-2"
+                  class="MuiAccordion-region"
+                  id="panel-content-2"
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root css-13"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-14"
+                    >
+                      landing:faq-section.items.1.description
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-5"
+        >
+          <div
+            aria-controls="panel-content-3"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-6"
+            id="panel-header-3"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-7"
+            >
+              landing:faq-section.items.2.title
+            </div>
+            <div
+              class="MuiAccordionSummary-expandIconWrapper css-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-20"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+              >
+                <div
+                  aria-labelledby="panel-header-3"
+                  class="MuiAccordion-region"
+                  id="panel-content-3"
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root css-13"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-14"
+                    >
+                      landing:faq-section.items.2.description
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-5"
+        >
+          <div
+            aria-controls="panel-content-4"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-6"
+            id="panel-header-4"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-7"
+            >
+              landing:faq-section.items.3.title
+            </div>
+            <div
+              class="MuiAccordionSummary-expandIconWrapper css-8"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-20"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+              >
+                <div
+                  aria-labelledby="panel-header-4"
+                  class="MuiAccordion-region"
+                  id="panel-content-4"
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root css-13"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-14"
+                    >
+                      landing:faq-section.items.3.description
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

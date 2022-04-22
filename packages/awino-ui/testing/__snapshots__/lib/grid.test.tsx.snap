@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<renderCellWithAPR /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiDataGrid-cellContent MuiDataGrid-cellContent--withApr"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body MuiDataGrid-cellText css-0"
+    >
+      5.99 %
+    </p>
+    <div
+      class="MuiBox-root css-1"
+    >
+      <img
+        alt=""
+        src="/images/awi.svg"
+      />
+      <p
+        class="MuiTypography-root MuiTypography-body css-0"
+      >
+        5.99 %
+        <span
+          title="common.apr-hint"
+        >
+           common.apr
+        </span>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

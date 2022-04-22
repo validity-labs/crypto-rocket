@@ -5,7 +5,6 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 
 import createEmotionCache from '@/app/createEmotionCache';
-import theme from '@/app/theme';
 
 export default class MyDocument extends Document {
   render() {
@@ -13,9 +12,30 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="shortcut icon" href="/static/favicon.ico" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+          {/* <meta name="theme-color" content={theme.palette.primary.main} /> */}
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10172b" />
+          <meta name="theme-color" content="#10172b" />
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+          {/* eslint-disable-next-line @next/next/google-font-display  */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Comfortaa:wght@400;600;700&display=block"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Poiret+One&family=MuseoModerno&display=swap"
+            rel="stylesheet"
+          />
+          <script
+            src="https://polyfill.io/v3/polyfill.min.js?features=Intl.NumberFormat,Intl.NumberFormat.~locale.en,Intl.NumberFormat.~locale.de"
+            defer
+          ></script>
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>

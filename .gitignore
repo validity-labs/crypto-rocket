@@ -1,7 +1,15 @@
 node_modules
 tmp
+.tmp
 dist
+.eslintcache
 
 .env
 .DS_Store
 *.log
+.merge_file_*
+
+.terraform/
+*.tfstate
+*.tfstate.backup
+terraform.tfstate.d/

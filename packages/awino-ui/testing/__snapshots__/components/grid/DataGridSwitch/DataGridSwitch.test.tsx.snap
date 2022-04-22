@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DataGridSwitch /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="MuiSwitch-root MuiSwitch-sizeMedium css-0"
+  >
+    <span
+      class="MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root Mui-checked css-1"
+    >
+      <input
+        checked=""
+        class="MuiSwitch-input PrivateSwitchBase-input css-2"
+        type="checkbox"
+      />
+      <span
+        class="MuiSwitch-thumb css-3"
+      />
+    </span>
+    <span
+      class="MuiSwitch-track css-4"
+    />
+  </span>
+</DocumentFragment>
+`;

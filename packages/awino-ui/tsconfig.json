@@ -17,29 +17,14 @@
     "incremental": true,
     "paths": {
       "@/components/*": ["components/*"],
-      // "@/validators/*": [
-      //   "validators/*"
-      // ],
-      // "@/interfaces/*": [
-      //   "interfaces/*"
-      // ],
-      // "@/libs/*": [
-      //   "libs/*"
-      // ],
-      // "@/public/*": [
-      //   "../public/*"
-      // ],
-      // "@/mocks/*": [
-      //   "../__mocks__/*"
-      // ],
-      // "@/fixtures/*": [
-      //   "../__fixtures__/*"
-      // ],
-      // "@/testing/*": [
-      //   "../testing/*"
-      // ],
+      "@/libs/*": ["libs/*"],
+      "@/public/*": ["../public/*"],
+      "@/mocks/*": ["../testing/__mocks__/*"],
+      "@/fixtures/*": ["../testing/__fixtures__/*"],
+      "@/testing/*": ["../testing/*"],
       "@/*": ["*"]
-    }
+    },
+    "types": ["cypress"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

@@ -1,0 +1,651 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SwapSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="MuiTabs-root css-2"
+      >
+        <div
+          class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-3"
+          style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+        />
+        <div
+          class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-4"
+          style="margin-bottom: 0px;"
+        >
+          <div
+            aria-label="swap:swap-section.tabs-aria"
+            class="MuiTabs-flexContainer css-5"
+            role="tablist"
+          >
+            <button
+              aria-controls="tabpanel-swapSection-0"
+              aria-selected="true"
+              class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-6"
+              id="tab-swapSection-0"
+              role="tab"
+              tabindex="0"
+              type="button"
+            >
+              swap:swap-section.swap.title
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTab-iconWrapper css-7"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M 3.1085634,12 A 8.8914366,8.8914366 0 1 0 12,3.1085634 8.8949078,8.8949078 0 0 0 3.1085634,12 Z m 6.2239667,4.890233 -3.112176,-3.112176 3.112176,-3.112177 v 2.223149 h 3.5564989 v 1.778442 H 9.3325301 Z m 5.3349409,-9.7804655 3.112176,3.1121765 -3.112176,3.109863 V 11.109044 H 11.110972 V 9.3306017 h 3.556499 z"
+                  style="stroke-width: 0.385696;"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8"
+              />
+            </button>
+            <button
+              aria-controls="tabpanel-swapSection-1"
+              aria-selected="false"
+              class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary css-6"
+              id="tab-swapSection-1"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              swap:swap-section.zap.title
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTab-iconWrapper css-7"
+                fill="none"
+                focusable="false"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M 12.859856,3.4005269 4.2603837,13.719713 H 12 l -0.859857,6.87976 8.599473,-10.319186 H 12 Z"
+                  fill="none"
+                  style="stroke-width: 0.907979;"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8"
+              />
+            </button>
+          </div>
+          <span
+            class="MuiTabs-indicator css-12"
+            style="left: 0px; width: 0px;"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiBox-root css-13"
+      >
+        <div
+          aria-labelledby="tab-swapSection-0"
+          class="css-14"
+          id="tabpanel-swapSection-0"
+          role="tabpanel"
+        >
+          <div
+            class="AwiSwapPanel-header"
+          >
+            <h6
+              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-15"
+            >
+              swap:swap-section.swap.prompt
+            </h6>
+            <div
+              aria-label="swap:swap-section.swap.trading-type-hint"
+              class="MuiToggleButtonGroup-root css-16"
+              role="group"
+            >
+              <button
+                aria-pressed="true"
+                class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
+                tabindex="0"
+                type="button"
+                value="market"
+              >
+                swap:swap-section.swap.market
+                <span
+                  class="MuiTouchRipple-root css-8"
+                />
+              </button>
+              <button
+                aria-pressed="false"
+                class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
+                tabindex="0"
+                type="button"
+                value="limit"
+              >
+                swap:swap-section.swap.limit
+                <span
+                  class="MuiTouchRipple-root css-8"
+                />
+              </button>
+            </div>
+            <div
+              class="AwiSwapPanel-aside"
+            >
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                swap:swap-section.swap.execute
+              </button>
+            </div>
+          </div>
+          <div
+            class="AwiSwapPanel-content"
+          >
+            <div
+              class="sub-panel"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-22"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                >
+                  <div
+                    class="source"
+                  >
+                    <div
+                      class="MuiFormControl-root MuiBox-root css-24"
+                      id="assetSource"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      >
+                        <div
+                          aria-disabled="true"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="demo-simple-select"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
+                          id="demo-simple-select"
+                          role="button"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
+                          >
+                            <span
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
+                              role="progressbar"
+                              style="width: 20px; height: 20px;"
+                            >
+                              <svg
+                                class="MuiCircularProgress-svg css-29"
+                                viewBox="22 22 44 44"
+                              >
+                                <circle
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
+                                  cx="44"
+                                  cy="44"
+                                  fill="none"
+                                  r="20.2"
+                                  stroke-width="3.6"
+                                />
+                              </svg>
+                            </span>
+                          </p>
+                        </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-31"
+                          disabled=""
+                          tabindex="-1"
+                          value=""
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-34"
+                        for="sourceValue"
+                      >
+                        <span>
+                          swap:swap-section.swap.you-pay
+                        </span>
+                      </label>
+                      <div
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-35"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-36"
+                          disabled=""
+                          id="sourceValue"
+                          inputmode="numeric"
+                          name="sourceValue"
+                          type="text"
+                          value=""
+                        />
+                        <button
+                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-37"
+                          tabindex="0"
+                          type="button"
+                        >
+                          swap:swap-section.swap.max
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                      </div>
+                      <p
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-39"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                >
+                  <div
+                    class="target"
+                  >
+                    <div
+                      class="MuiFormControl-root MuiBox-root css-24"
+                      id="assetTarget"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      >
+                        <div
+                          aria-disabled="true"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="demo-simple-select"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
+                          id="demo-simple-select"
+                          role="button"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
+                          >
+                            <span
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
+                              role="progressbar"
+                              style="width: 20px; height: 20px;"
+                            >
+                              <svg
+                                class="MuiCircularProgress-svg css-29"
+                                viewBox="22 22 44 44"
+                              >
+                                <circle
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
+                                  cx="44"
+                                  cy="44"
+                                  fill="none"
+                                  r="20.2"
+                                  stroke-width="3.6"
+                                />
+                              </svg>
+                            </span>
+                          </p>
+                        </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-31"
+                          disabled=""
+                          tabindex="-1"
+                          value=""
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-34"
+                        for="targetValue"
+                      >
+                        <span>
+                          swap:swap-section.swap.you-receive
+                        </span>
+                      </label>
+                      <div
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-35"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input Mui-disabled css-36"
+                          disabled=""
+                          id="targetValue"
+                          inputmode="numeric"
+                          name="targetValue"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <p
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-39"
+                      >
+                        <span>
+                          swap:swap-section.swap.price
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-labelledby="tab-swapSection-1"
+          class="css-55"
+          hidden=""
+          id="tabpanel-swapSection-1"
+          role="tabpanel"
+        >
+          <div
+            class="AwiZapPanel-header"
+          >
+            <h6
+              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-15"
+            >
+              swap:swap-section.zap.prompt
+            </h6>
+            <div
+              aria-label="swap:swap-section.swap.trading-type-hint"
+              class="MuiToggleButtonGroup-root css-16"
+              role="group"
+            >
+              <button
+                aria-pressed="true"
+                class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
+                tabindex="0"
+                type="button"
+                value="market"
+              >
+                swap:swap-section.swap.market
+                <span
+                  class="MuiTouchRipple-root css-8"
+                />
+              </button>
+              <button
+                aria-pressed="false"
+                class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
+                tabindex="0"
+                type="button"
+                value="limit"
+              >
+                swap:swap-section.swap.limit
+                <span
+                  class="MuiTouchRipple-root css-8"
+                />
+              </button>
+            </div>
+            <div
+              class="AwiZapPanel-aside"
+            >
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                swap:swap-section.swap.execute
+              </button>
+            </div>
+          </div>
+          <div
+            class="AwiZapPanel-content"
+          >
+            <div
+              class="sub-panel"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-22"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                >
+                  <div
+                    class="source"
+                  >
+                    <div
+                      class="MuiFormControl-root MuiBox-root css-24"
+                      id="assetSource"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      >
+                        <div
+                          aria-disabled="true"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="demo-simple-select"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
+                          id="demo-simple-select"
+                          role="button"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
+                          >
+                            <span
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
+                              role="progressbar"
+                              style="width: 20px; height: 20px;"
+                            >
+                              <svg
+                                class="MuiCircularProgress-svg css-29"
+                                viewBox="22 22 44 44"
+                              >
+                                <circle
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
+                                  cx="44"
+                                  cy="44"
+                                  fill="none"
+                                  r="20.2"
+                                  stroke-width="3.6"
+                                />
+                              </svg>
+                            </span>
+                          </p>
+                        </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-31"
+                          disabled=""
+                          tabindex="-1"
+                          value=""
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-34"
+                        for="sourceValue"
+                      >
+                        <span>
+                          swap:swap-section.swap.you-pay
+                        </span>
+                      </label>
+                      <div
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-35"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-36"
+                          disabled=""
+                          id="sourceValue"
+                          inputmode="numeric"
+                          name="sourceValue"
+                          type="text"
+                          value=""
+                        />
+                        <button
+                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-37"
+                          tabindex="0"
+                          type="button"
+                        >
+                          swap:swap-section.swap.max
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                      </div>
+                      <p
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-39"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                >
+                  <div
+                    class="target"
+                  >
+                    <div
+                      class="MuiFormControl-root MuiBox-root css-24"
+                      id="assetTarget"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      >
+                        <div
+                          aria-disabled="true"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="demo-simple-select"
+                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
+                          id="demo-simple-select"
+                          role="button"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
+                          >
+                            <span
+                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
+                              role="progressbar"
+                              style="width: 20px; height: 20px;"
+                            >
+                              <svg
+                                class="MuiCircularProgress-svg css-29"
+                                viewBox="22 22 44 44"
+                              >
+                                <circle
+                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
+                                  cx="44"
+                                  cy="44"
+                                  fill="none"
+                                  r="20.2"
+                                  stroke-width="3.6"
+                                />
+                              </svg>
+                            </span>
+                          </p>
+                        </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-31"
+                          disabled=""
+                          tabindex="-1"
+                          value=""
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-34"
+                        for="targetValue"
+                      >
+                        <span>
+                          swap:swap-section.swap.you-receive
+                        </span>
+                      </label>
+                      <div
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-35"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input Mui-disabled css-36"
+                          disabled=""
+                          id="targetValue"
+                          inputmode="numeric"
+                          name="targetValue"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <p
+                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-39"
+                      >
+                        <span>
+                          swap:swap-section.swap.price
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

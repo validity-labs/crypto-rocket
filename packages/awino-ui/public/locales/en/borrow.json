@@ -1,0 +1,16 @@
+{
+  "page": {
+    "title": "Borrow",
+    "description": "MISSING DESCRIPTION"
+  },
+  "asset-section": {
+    "title": "Available to borrow",
+    "title-hint": "MISSING TEXT",
+    "toggle-hint": "MISSING TEXT",
+    "fields": {
+      "asset": "Asset",
+      "available-to-borrow": "Available to borrow\n <hint>(Based on your collateral)</hint>",
+      "borrow-apy": "Borrow APY"
+    }
+  }
+}

@@ -1,42 +1,117 @@
-import '../styles/globals.css';
+// import '../styles/globals.css';
 
-import { appWithTranslation } from 'next-i18next';
+import { useEffect, useMemo, useState } from 'react';
+
+import { appWithTranslation, useTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-
-import { Provider } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
 
+import { PROTECTED_ROUTES } from '@/app/constants';
 import createEmotionCache from '@/app/createEmotionCache';
-import store from '@/app/store';
-import theme from '@/app/theme';
+// import { useAppDispatch } from '@/app/hooks';
+import { changeDateIOLocale } from '@/app/dateIO';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import Web3Provider from '@/app/providers/Web3Provider';
+import { toggleConnector } from '@/app/state/slices/app';
+import storeWrapper from '@/app/store';
+import Layout from '@/components/layout/Layout/Layout';
+import { I18nPageNamespace, Language } from '@/types/app';
 
+// import { UserRejectedRequestError as UserRejec
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
+  pageProps: {
+    ns: I18nPageNamespace;
+    [key: string]: any;
+  };
 }
 
 function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const {
+    Component,
+    emotionCache = clientSideEmotionCache,
+    pageProps,
+    router: { locale },
+  } = props;
+  // const { account, chainId } = useEthers();
+  // eslint-disable-next-line no-unused-vars
+  const { t } = useTranslation();
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [isAppInitialized, isAccountConnected] = useAppSelector((state) => [
+    !state.app.initializing,
+    state.account.connected,
+  ]);
+
+  // rerender tree so on language change date-io locale is applied properly
+  const [, setDateLocale] = useState<Language | undefined>();
+
+  const isPageProtected = useMemo(() => pageProps.protected || false, [pageProps]);
+
+  /*
+    when application initialization is complete trigger showing connect modal if user is
+    a guest and page is protected
+  */
+  useEffect(() => {
+    if (isAppInitialized) {
+      const canProceed = isAccountConnected || !isPageProtected;
+      if (!canProceed) {
+        dispatch(toggleConnector(true));
+      }
+    }
+  }, [isAppInitialized, isAccountConnected, dispatch, isPageProtected]);
+
+  /*
+    intercept page navigation (internal link click) to trigger showing connect
+    modal if user is a guest and page is protected
+  */
+  useEffect(() => {
+    const handleRouteComplete = (url: string) => {
+      if (!isAccountConnected && PROTECTED_ROUTES.filter((protectedRoute) => url.startsWith(protectedRoute)).length) {
+        dispatch(toggleConnector(true));
+
+        // router.events.emit('routeChangeError');
+        // throw 'routeChange aborted.';
+      }
+    };
+
+    router.events.on('routeChangeComplete', handleRouteComplete);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteComplete);
+    };
+  }, [isAccountConnected, router, dispatch]);
+
+  useEffect(() => {
+    // on language change, change date-io locale with dynamic load
+    changeDateIOLocale(locale as Language).then(() => {
+      setDateLocale(locale as Language);
+    });
+  }, [locale]);
+
   return (
-    <Provider store={store}>
-      <CacheProvider value={emotionCache}>
-        <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Component {...pageProps} />
+    <CacheProvider value={emotionCache}>
+      <Head>
+        <title>Awino</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      <Web3Provider>
+        <ThemeProvider>
+          <Layout initialized={isAppInitialized} authorized={isAccountConnected || !isPageProtected}>
+            {/* @ts-ignore */}
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
-      </CacheProvider>
-    </Provider>
+      </Web3Provider>
+    </CacheProvider>
   );
 }
 
-export default appWithTranslation(MyApp);
+export default storeWrapper.withRedux(appWithTranslation(MyApp));

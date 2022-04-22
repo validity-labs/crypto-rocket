@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ExternalLink /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body AwiExternalLink-root active css-0"
+    href="/"
+  >
+    Lorem Ipsum
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M 18.857622,18.857622 H 5.1423777 V 5.1423777 H 12 V 3.183057 H 5.1423777 A 1.9593207,1.9593207 0 0 0 3.183057,5.1423777 V 18.857622 a 1.9593207,1.9593207 0 0 0 1.9593207,1.959321 H 18.857622 a 1.9593207,1.9593207 0 0 0 1.959321,-1.959321 V 12.000001 H 18.857622 Z M 13.959321,3.183057 v 1.9593207 h 3.517633 L 7.8462402,14.771786 9.2282144,16.15376 18.857622,6.5230463 V 10.04068 h 1.959321 V 3.183057 Z"
+      />
+    </svg>
+  </a>
+</DocumentFragment>
+`;

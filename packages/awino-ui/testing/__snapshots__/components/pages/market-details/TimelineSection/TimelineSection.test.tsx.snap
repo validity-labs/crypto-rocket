@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TimelineSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-3"
+        >
+          <div
+            aria-label="market-details:timeline-section.market-switch-hint"
+            class="MuiToggleButtonGroup-root AwiTimelineSection-marketType css-4"
+            role="group"
+          >
+            <button
+              aria-pressed="true"
+              class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-5"
+              tabindex="0"
+              type="button"
+              value="supply"
+            >
+              market-details:timeline-section.supply.title
+              <span
+                class="MuiTouchRipple-root css-6"
+              />
+            </button>
+            <button
+              aria-pressed="false"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-5"
+              tabindex="0"
+              type="button"
+              value="borrow"
+            >
+              market-details:timeline-section.borrow.title
+              <span
+                class="MuiTouchRipple-root css-6"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-9"
+        >
+          <div
+            class="AwiTimelineSection-stats"
+          >
+            <div>
+              <div
+                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
+                  id="timelineSectionInfo-netValue"
+                >
+                  market-details:timeline-section.supply.net-rate
+                </h6>
+                <p
+                  aria-describedby="timelineSectionInfo-netValue"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-12"
+                >
+                  0.1 %
+                </p>
+              </div>
+              <div
+                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
+                  id="timelineSectionInfo-apy"
+                >
+                  market-details:timeline-section.supply.apy
+                </h6>
+                <p
+                  aria-describedby="timelineSectionInfo-apy"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-12"
+                >
+                  0.04 %
+                </p>
+              </div>
+              <div
+                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
+                  id="timelineSectionInfo-distributionApy"
+                >
+                  market-details:timeline-section.supply.distribution-apy
+                </h6>
+                <p
+                  aria-describedby="timelineSectionInfo-distributionApy"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-12"
+                >
+                  0.06 %
+                </p>
+              </div>
+              <div
+                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
+                  id="timelineSectionInfo-total"
+                >
+                  market-details:timeline-section.supply.total
+                </h6>
+                <p
+                  aria-describedby="timelineSectionInfo-total"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-12"
+                >
+                  3,661.92 m USD
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-test-id="AwiChart-wrapper"
+        style="height: 400px; display: flex; align-items: center; justify-content: center;"
+      >
+        <span
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-22"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg css-23"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-24"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

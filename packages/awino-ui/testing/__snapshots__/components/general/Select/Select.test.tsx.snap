@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiFormControl-root MuiBox-root css-0"
+  >
+    <div
+      aria-label=""
+      class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="demo-simple-select"
+        class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input css-2"
+        id="demo-simple-select"
+        role="button"
+        tabindex="0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body MuiSelect-value css-3"
+        >
+          <img
+            alt=""
+            src="/images/assets/1.svg"
+            width="24"
+          />
+          First
+        </p>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput css-4"
+        tabindex="-1"
+        value="1"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-5"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;

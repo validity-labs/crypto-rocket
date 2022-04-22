@@ -2,32 +2,33 @@
   "name": "@awino/root",
   "private": true,
   "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@commitlint/config-lerna-scopes": "^16.2.2",
+    "@commitlint/prompt-cli": "^16.2.1",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
     "husky": "^7.0.4",
     "lerna": "^4.0.0",
-    "lint-staged": "^12.3.4",
-    "prettier": "^2.5.1",
-    "ts-node": "^10.5.0",
-    "typescript": "^4.5.5"
+    "lint-staged": "^12.3.4"
   },
   "scripts": {
-    "start": "lerna exec --scope=@awino/ui -- yarn dev",
-    "lint": "lerna run lint:fix",
-    "format": "lerna run format:fix"
+    "prepare": "husky install",
+    "start": "lerna exec --scope=@awino/ui -- npm run dev",
+    "lint": "lerna run lint:fix --",
+    "test": "lerna run test:pre-commit --",
+    "format": "lerna run format:fix",
+    "commit": "commit"
   },
   "workspaces": [
     "packages/*"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "yarn lint",
-      "yarn format"
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint",
+      "npm run test"
     ]
   }
 }

@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StatsSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <ul
+        class="badges"
+      >
+        <li>
+          <img
+            alt=""
+            src="images/icons/analytics.jpg"
+            title="landing:stats-section.badges.0"
+          />
+        </li>
+        <li>
+          <img
+            alt=""
+            src="images/icons/ethereum-blue.svg"
+            title="landing:stats-section.badges.1"
+          />
+        </li>
+        <li>
+          <img
+            alt=""
+            src="images/icons/swap.svg"
+            title="landing:stats-section.badges.2"
+          />
+        </li>
+        <li>
+          <img
+            alt=""
+            src="images/icons/ethereum-yellow.svg"
+            title="landing:stats-section.badges.3"
+          />
+        </li>
+      </ul>
+      <h1
+        class="MuiTypography-root MuiTypography-h1 css-2"
+      >
+        landing:stats-section.title
+      </h1>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-3"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-4"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
+          >
+            <div
+              class="card"
+              data-test-id="AwiStatsItems-card"
+            >
+              <h2>
+                <span
+                  class="MuiTypography-root MuiTypography-h4 css-6"
+                >
+                  <span>
+                     
+                  </span>
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body-md css-7"
+                >
+                  landing:stats-section.items.0.title
+                </span>
+              </h2>
+              <p
+                class="MuiTypography-root MuiTypography-body-sm css-8"
+              >
+                landing:stats-section.items.0.subvalue
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
+          >
+            <div
+              class="card"
+              data-test-id="AwiStatsItems-card"
+            >
+              <h2>
+                <span
+                  class="MuiTypography-root MuiTypography-h4 css-6"
+                >
+                  <span>
+                     
+                  </span>
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body-md css-7"
+                >
+                  landing:stats-section.items.1.title
+                </span>
+              </h2>
+              <p
+                class="MuiTypography-root MuiTypography-body-sm css-8"
+              >
+                landing:stats-section.items.1.subvalue
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
+          >
+            <div
+              class="card"
+              data-test-id="AwiStatsItems-card"
+            >
+              <h2>
+                <span
+                  class="MuiTypography-root MuiTypography-h4 css-6"
+                >
+                  <span>
+                     
+                  </span>
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body-md css-7"
+                >
+                  landing:stats-section.items.2.title
+                </span>
+              </h2>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
+          >
+            <div
+              class="card"
+              data-test-id="AwiStatsItems-card"
+            >
+              <h2>
+                <span
+                  class="MuiTypography-root MuiTypography-h4 css-6"
+                >
+                  <span>
+                     
+                  </span>
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body-md css-7"
+                >
+                  landing:stats-section.items.3.title
+                </span>
+              </h2>
+              <p
+                class="MuiTypography-root MuiTypography-body-sm css-8"
+              >
+                landing:stats-section.items.3.subvalue
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

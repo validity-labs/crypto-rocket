@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AssetSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-2"
+      >
+        landing:asset-section.title
+      </h2>
+      <p
+        class="MuiTypography-root MuiTypography-body css-3"
+      >
+        landing:asset-section.description
+      </p>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg css-4"
+      >
+        <div
+          class="items"
+        >
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.0"
+            width="92"
+          />
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.1"
+            width="92"
+          />
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.2"
+            width="92"
+          />
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.3"
+            width="92"
+          />
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.4"
+            width="92"
+          />
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.5"
+            width="92"
+          />
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.6"
+            width="92"
+          />
+          <img
+            alt=""
+            src="/images/pages/landing/asset1.svg"
+            title="landing:asset-section.items.7"
+            width="92"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

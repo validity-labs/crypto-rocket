@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GuideSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-2"
+      >
+        landing:guide-section.title
+      </h2>
+      <p
+        class="MuiTypography-root MuiTypography-body css-3"
+      >
+        landing:guide-section.description
+      </p>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg css-4"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-17 css-5"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-6"
+          >
+            <div
+              class="card"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body-xs step css-7"
+              >
+                1
+              </p>
+              <h3
+                class="MuiTypography-root MuiTypography-h3 css-8"
+              >
+                landing:guide-section.items.0.title
+              </h3>
+              <p
+                class="MuiTypography-root MuiTypography-body css-9"
+              >
+                landing:guide-section.items.0.description
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
+          >
+            <div
+              class="media1"
+            >
+              <div
+                class="media-card"
+              >
+                <img
+                  alt=""
+                  src="images/wallets/metamask.svg"
+                />
+                <p
+                  class="MuiTypography-root MuiTypography-body css-9"
+                >
+                  landing:guide-section.items.0.metamask
+                </p>
+              </div>
+              <div
+                class="media-card"
+              >
+                <img
+                  alt=""
+                  src="images/wallets/wallet-connect.svg"
+                />
+                <p
+                  class="MuiTypography-root MuiTypography-body css-9"
+                >
+                  landing:guide-section.items.0.wallet-connect
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-17 css-5"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-14"
+          >
+            <div
+              class="card"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body-xs step css-7"
+              >
+                2
+              </p>
+              <h3
+                class="MuiTypography-root MuiTypography-h3 css-8"
+              >
+                landing:guide-section.items.1.title
+              </h3>
+              <p
+                class="MuiTypography-root MuiTypography-body css-9"
+              >
+                landing:guide-section.items.1.description
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
+          >
+            <div
+              class="media2"
+            >
+              <div
+                class="image"
+              >
+                {"src":"/images/pages/landing/dashboard.png","alt":"","width":"834","height":"490","placeholder":"empty"}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-17 css-19"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-6"
+          >
+            <div
+              class="card"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body-xs step css-7"
+              >
+                3
+              </p>
+              <h3
+                class="MuiTypography-root MuiTypography-h3 css-8"
+              >
+                landing:guide-section.items.2.title
+              </h3>
+              <p
+                class="MuiTypography-root MuiTypography-body css-9"
+              >
+                landing:guide-section.items.2.description
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 media3 css-25"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 tree css-10"
+              >
+                <div
+                  class="media-card media-card-tree"
+                >
+                  <div
+                    class="image"
+                  >
+                    {"src":"/images/pages/landing/tree.png","alt":"","width":"140","height":"224","placeholder":"empty"}
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
+              />
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
+              >
+                <div
+                  class="media-card"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
+              >
+                <div
+                  class="media-card media-card-last"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

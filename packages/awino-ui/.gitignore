@@ -32,3 +32,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# cypress
+# compiled files for custom nextjs server
+.cypress
+# TODO WIP Open when visual regression tests are part of pipeline or base snapshots should be shared and pushed to repo
+*/cypress/videos
+*/cypress/screenshots

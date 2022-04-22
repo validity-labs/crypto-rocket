@@ -1,3 +1,151 @@
 {
-  "app": "Awino 12"
+  "app": {
+    "name": "Awino",
+    "description": "MISSING DESCRIPTION"
+  },
+  "language": {
+    "choose": "Choose language",
+    "en": "English",
+    "de": "German"
+  },
+  "account": {
+    "connect": "Connect wallet",
+    "connect-your-wallet": "Connect your wallet",
+    "connect-prompt": "Please connect your wallet",
+    "disconnect": "Disconnect wallet"
+  },
+  "connectors": {
+    "metamask": "MetaMask",
+    "coinbase": "Coinbase",
+    "wallet-connect": "Wallet connect"
+  },
+  "common": {
+    "theme-to-light": "Switch to light theme",
+    "theme-to-dark": "Switch to dark theme",
+    "skip-to-main": "Skip to main content",
+    "read-more": "Read more",
+    "no-records": "No records found.",
+    "no-translation": "Content has no translation.",
+    "copy": "Copy to Clipboard",
+    "copied": "Copied!",
+    "search": "Search ...",
+    "navigate-to": "Navigate to \"{{title}}\"",
+    "navigate-to-product": "Navigate to \"{{title}}\" product",
+    "table": {
+      "sort": "Sort",
+      "rows-per-page": "Rows per page",
+      "first-page": "First Page",
+      "previous-page": "Previous Page",
+      "next-page": "Next Page",
+      "last-page": "Last Page",
+      "rows-out-of": "{{from}}-{{to}} of {{count}}"
+    },
+    "video-not-supported": "Sorry, your browser doesn't support embedded videos.",
+    "awi": "AWI",
+    "ftm": "FTM",
+    "geistftm": "GEISTFTM",
+    "apr": "APR",
+    "apr-hint": "MISSING HINT",
+    "back": "Go back",
+    "filter-by-name": "Filter by name",
+    "select-token": "Choose token",
+    "convertion-from-to": "Convert from {{from}} to {{to}}",
+    "close-modal": "Close Modal",
+    "max": "Max",
+    "view-on-etherscan": "View on etherscan"
+  },
+  "format": {
+    "date": "dd-MM-yyyy",
+    "date-pretty": "MMMM d, yyyy",
+    "date-time": "EEEE | LLLL d, yyyy O HH:mm",
+    "abbreviate": {
+      "number": {
+        "m": "M",
+        "k": "k"
+      }
+    }
+  },
+  "header": {
+    "search": "Your search phrase",
+    "toggle-menu": "Toggle Menu",
+    "close-menu": "Close Menu",
+    "contact": "Contact us"
+  },
+  "menu": {
+    "main": {
+      "market": {
+        "title": "Market"
+      },
+      "earn": {
+        "title": "Earn",
+        "deposit": "Deposit",
+        "liquidity-staking": "Liquidity Staking"
+      },
+      "borrow": {
+        "title": "Borrow"
+      },
+      "swap": {
+        "title": "Swap"
+      },
+      "podl": {
+        "title": "Podl"
+      },
+      "more": {
+        "title": "More",
+        "analytics": "Analytics",
+        "docs": "Docs",
+        "launchpad": "Launchpad"
+      }
+    },
+    "settings": {
+      "toggle-label": "Application settings",
+      "profile": {
+        "title": "Profile"
+      },
+      "activity": {
+        "title": "Activity"
+      }
+    },
+    "more": {
+      "toggle-label": "Additional Links",
+      "swap": {
+        "title": "Buy $AWI",
+        "description": "Trade and add liquidity to $AWI pools"
+      },
+      "contracts": {
+        "title": "Contracts",
+        "description": "View contract related information"
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Wiew your staked AWI tokens"
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "View your portfolio of related assets"
+      }
+    },
+    "social": {
+      "docs": {
+        "title": "Docs"
+      },
+      "blog": {
+        "title": "Blog"
+      },
+      "youtube": {
+        "title": "Youtube"
+      },
+      "twitter": {
+        "title": "Twitter"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Created AG. All rights reserved.",
+    "scroll-to-top": "Scroll to Top",
+    "common": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    }
+  }
 }

@@ -1,0 +1,339 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DetailSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-12 css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-3"
+        >
+          <div
+            class="AwiPanel-root MuiBox-root css-4"
+          >
+            <div
+              class="AwiPanel-header header"
+            >
+              <h2
+                class="MuiTypography-root MuiTypography-h6 css-5"
+              >
+                market-details:detail-section.model.title
+              </h2>
+            </div>
+            <div
+              class="AwiPanel-content content"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-h6 css-6"
+              >
+                market-details:detail-section.model.utilization-vs-apy
+              </h3>
+              <div
+                data-test-id="AwiChart-wrapper"
+                style="height: 400px; display: flex; align-items: center; justify-content: center;"
+              >
+                <span
+                  class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-7"
+                  role="progressbar"
+                  style="width: 40px; height: 40px;"
+                >
+                  <svg
+                    class="MuiCircularProgress-svg css-8"
+                    viewBox="22 22 44 44"
+                  >
+                    <circle
+                      class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-9"
+                      cx="44"
+                      cy="44"
+                      fill="none"
+                      r="20.2"
+                      stroke-width="3.6"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-3"
+        >
+          <div
+            class="AwiPanel-root MuiBox-root css-4"
+          >
+            <div
+              class="AwiPanel-header header"
+            >
+              <h2
+                class="MuiTypography-root MuiTypography-h6 css-5"
+              >
+                market-details:detail-section.details.title
+              </h2>
+            </div>
+            <div
+              class="AwiPanel-content content"
+            >
+              <table
+                class="MuiTable-root css-13"
+              >
+                <tbody
+                  class="MuiTableBody-root css-14"
+                >
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.price
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        160.8  USD
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.market-liquidity
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        683,891 DAI
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.n-of-suppliers
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        4,703
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.n-of-borrowers
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        91
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.borrow-cap
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        14.59 m USD
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.interest-paid-day
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        16.11  USD
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.reserves
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        2,210 DAI
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.reserve-factor
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        25 %
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.collateral-factor
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        65 %
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.ctoken-minted
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        33,501,656
+                      </p>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-15"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-16"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-17"
+                      >
+                        market-details:detail-section.details.exchange-rate
+                      </p>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-18"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-19"
+                      >
+                        1 DAI = 49.03451162246615 cDAI
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

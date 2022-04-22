@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TitleSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h3 AwiInfoSection-title css-2"
+      >
+        <img
+          alt=""
+          height="56"
+          src="/images/assets/dai.svg"
+          width="56"
+        />
+        DAI
+      </h1>
+    </div>
+  </section>
+</DocumentFragment>
+`;

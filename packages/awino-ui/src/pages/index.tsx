@@ -1,67 +1,52 @@
 import React from 'react';
 
 import { NextPage } from 'next';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 
-import { Typography } from '@mui/material';
+import { setPageI18nNamespace } from '@/app/state/slices/app';
+import storeWrapper from '@/app/store';
+import Seo from '@/components/layout/Seo/Seo';
+import AssetSection from '@/components/pages/landing/AssetSection/AssetSection';
+import BenefitSection from '@/components/pages/landing/BenefitSection/BenefitSection';
+import FAQSection from '@/components/pages/landing/FAQSection/FAQSection';
+import GuideSection from '@/components/pages/landing/GuideSection/GuideSection';
+import InfoSection from '@/components/pages/landing/InfoSection/InfoSection';
+import StatsSection from '@/components/pages/landing/StatsSection/StatsSection';
+import { StatsData } from '@/types/app';
 
-// import { useTranslation } from 'next-i18next';
-// import Image from 'next/image';
-
-import Button from '@/components/general/Button/Button';
-
-import Counter from '../features/counter/Counter';
-import styles from '../styles/Home.module.css';
+const stats: StatsData = [
+  { value: 89.7, subvalue: 24.72 },
+  { value: 89.7, subvalue: 24.72 },
+  { value: 0.27 },
+  { value: 273.4, subvalue: 52 },
+];
 
 const IndexPage: NextPage = () => {
-  const { t } = useTranslation();
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>{t('app')}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <header className={styles.header}>
-        <Typography>Test</Typography>
-        {/* <Image src="/logo.svg" className={styles.logo} alt="logo" /> */}
-        <Counter />
-        <Button />
-        <p>
-          {t('app')}
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a className={styles.link} href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
-            React
-          </a>
-          <span>, </span>
-          <a className={styles.link} href="https://redux.js.org/" target="_blank" rel="noopener noreferrer">
-            Redux
-          </a>
-          <span>, </span>
-          <a className={styles.link} href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer">
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a className={styles.link} href="https://react-redux.js.org/" target="_blank" rel="noopener noreferrer">
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Seo />
+      <StatsSection items={stats} />
+      <InfoSection />
+      <BenefitSection />
+      <GuideSection />
+      <AssetSection />
+      <FAQSection />
+    </>
   );
 };
 
-export default IndexPage;
+export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale }) => {
+  const ns = 'landing';
+  await store.dispatch(setPageI18nNamespace(ns));
 
-export async function getStaticProps({ locale }) {
+  // console.log(locale, params, 'State on server', store.getState());
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-      // Will be passed to the page component as props
+      ...(await serverSideTranslations(locale, ['common', ns])),
     },
   };
-}
+});
+
+export default IndexPage;

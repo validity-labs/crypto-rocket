@@ -1,0 +1,12 @@
+# This file contains configuration customizations for the development environment. It is based on the file "docker-compose.yml"
+# and needs to be used in conjunction with it.
+version: '3.9'
+services:
+  awino-ui:
+    build:
+      target: development
+    env_file:
+      - ./extra/config/crypto-rocket-ui/.env.development
+    volumes:
+      - ./packages/awino-ui:/src
+      - /src/node_modules

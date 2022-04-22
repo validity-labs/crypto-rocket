@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiBox-root active css-0"
+    href="/"
+  >
+    <span
+      class="MuiBadge-root css-1"
+    >
+      {"src":"test-file-stub","alt":"","placeholder":"empty"}
+      <span
+        class="MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight css-2"
+      >
+        Testnet
+      </span>
+    </span>
+  </a>
+</DocumentFragment>
+`;
