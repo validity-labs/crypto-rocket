@@ -111,4 +111,3 @@ resource "google_cloud_run_domain_mapping" "crypto_rocket_ui" {
     route_name = google_cloud_run_service.crypto_rocket_ui.name
   }
 }
-
