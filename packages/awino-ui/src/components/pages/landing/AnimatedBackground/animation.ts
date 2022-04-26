@@ -1,3 +1,4 @@
+// @ts-nocheck
 export default function main(canvas: HTMLCanvasElement) {
   const containerSelector = '__next';
   const requestAnimationFrame =
