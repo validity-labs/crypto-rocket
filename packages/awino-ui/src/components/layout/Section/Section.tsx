@@ -74,7 +74,7 @@ export default function Section({
     // @ts-ignore: proper type configuration required so Box is used as section so sx props can be passed
     <Root /* background={background} */ component="section" {...restOfProps}>
       {before}
-      <Container className="vl-container" {...containerProps}>
+      <Container className="AwiSection-container" {...containerProps}>
         {children}
       </Container>
     </Root>

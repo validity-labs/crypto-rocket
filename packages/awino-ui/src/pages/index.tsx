@@ -4,11 +4,14 @@ import { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 
+import { GlobalStyles } from '@mui/material';
+
 import { useAppSelector } from '@/app/hooks';
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
 // import AssetSection from '@/components/pages/landing/AssetSection/AssetSection';
+import { AnimatedBackground } from '@/components/pages/landing/AnimatedBackground/AnimatedBackground';
 import BenefitSection from '@/components/pages/landing/BenefitSection/BenefitSection';
 import FAQSection from '@/components/pages/landing/FAQSection/FAQSection';
 import GuideSection from '@/components/pages/landing/GuideSection/GuideSection';
@@ -34,6 +37,7 @@ const IndexPage: NextPage = () => {
   return (
     <>
       <Seo />
+      <AnimatedBackground />
       {connected && <TotalSection items={totalStats} />}
       <StatsSection items={stats} />
       <InfoSection />
