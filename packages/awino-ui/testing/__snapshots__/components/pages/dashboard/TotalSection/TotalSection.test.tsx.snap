@@ -6,7 +6,7 @@ exports[`<TotalSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg vl-container css-1"
+      class="MuiContainer-root MuiContainer-maxWidthLg AwiSection-container css-1"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthMd MuiContainer-disableGutters AwiTotalSection-items css-2"

@@ -96,7 +96,7 @@ export const StatsItem = memo(function StatsItem({ item, formatters, index, glan
 interface Props extends ContainerProps {
   items: StatsData;
   formatters: StatsFormatter[];
-  gridItemProps?: GridProps;
+  gridItemProps?: (index: number) => GridProps;
   i18nKey?: string;
 }
 
@@ -117,7 +117,14 @@ function StatsItems({ items, formatters, gridItemProps, i18nKey = 'stats-section
       <VisibilitySensor active={!glanced} partialVisibility offset={{ bottom: 100 }} onChange={handleVisibilityChange}>
         <Grid container spacing={8}>
           {items.map((item, index) => (
-            <Grid key={index} item xs={12} sm={6} lg={gridItemLG} {...gridItemProps}>
+            <Grid
+              key={index}
+              item
+              xs={12}
+              sm={6}
+              lg={gridItemLG}
+              {...(typeof gridItemProps === 'function' && gridItemProps(index))}
+            >
               <StatsItem glanced={glanced} item={item} index={index} formatters={formatters[index]} i18nKey={i18nKey} />
             </Grid>
           ))}

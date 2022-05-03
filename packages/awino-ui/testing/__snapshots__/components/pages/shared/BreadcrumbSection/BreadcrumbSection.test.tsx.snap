@@ -6,7 +6,7 @@ exports[`<BreadcrumbSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
     >
       <div
         role="presentation"

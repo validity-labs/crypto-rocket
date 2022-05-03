@@ -64,7 +64,7 @@ const Panel = styled(Box)(({ theme }) => ({
     '&:before': {
       content: '""',
       position: 'absolute',
-      top: -1,
+      top: 0,
       left: -5,
       right: -5,
       bottom: -5,
