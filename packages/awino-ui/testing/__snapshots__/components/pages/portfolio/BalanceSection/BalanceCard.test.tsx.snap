@@ -27,7 +27,7 @@ exports[`<BalanceCard /> has valid snapshot 1`] = `
       </div>
     </div>
     <div
-      class="AwiBalanceCard-labelValue MuiBox-root css-3"
+      class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-3"
     >
       <h6
         class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-4"

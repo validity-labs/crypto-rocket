@@ -52,7 +52,7 @@ exports[`<PoolCard /> has valid snapshot 1`] = `
       class="AwiPoolCard-right"
     >
       <div
-        class="AwiPoolCard-labelValue MuiBox-root css-3"
+        class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-3"
       >
         <h6
           class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-4"
@@ -68,7 +68,7 @@ exports[`<PoolCard /> has valid snapshot 1`] = `
         </p>
       </div>
       <div
-        class="AwiPoolCard-labelValue MuiBox-root css-6"
+        class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-6"
       >
         <h6
           class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-4"

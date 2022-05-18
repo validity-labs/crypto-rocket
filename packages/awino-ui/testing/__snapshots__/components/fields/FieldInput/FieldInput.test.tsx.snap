@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FieldInput /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiFormControl-root css-0"
+  >
+    <label
+      class="MuiFormLabel-root MuiFormLabel-colorSecondary Mui-required css-1"
+      for="test"
+    >
+      Input Label
+      <span
+        aria-hidden="true"
+        class="MuiFormLabel-asterisk css-2"
+      >
+         *
+      </span>
+    </label>
+    <div
+      class="MuiInputBase-root MuiInputBase-colorSecondary MuiInputBase-formControl css-3"
+      required=""
+    >
+      <input
+        aria-describedby="testHelper"
+        aria-invalid="false"
+        class="MuiInputBase-input css-4"
+        id="test"
+        name="test"
+        required=""
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

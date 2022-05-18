@@ -710,6 +710,17 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          height: 'auto',
+          '&.Mui-disabled': {
+            color: theme.palette.text.secondary,
+            textFillColor: theme.palette.text.secondary,
+          },
+        },
+      },
+    },
     MuiInputLabel: {
       styleOverrides: {
         root: {
@@ -734,6 +745,17 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        root: {
+          // position: 'relative',
+        },
+        label: {
+          ...theme.typography['body-xs'],
+          fontWeight: 500,
+        },
+      },
+    },
     MuiFormLabel: {
       styleOverrides: {
         root: {
@@ -746,8 +768,15 @@ const themeCreator = (mode: PaletteMode) => {
       styleOverrides: {
         root: {
           ...theme.typography.body,
-          position: 'absolute',
-          bottom: -31,
+          // position: 'absolute',
+          // bottom: -31,
+          display: ['block', '-webkit-box'],
+          maxWidth: '100%',
+          margin: theme.spacing(1),
+          WebkitLineClamp: 1,
+          WebkitBoxOrient: 'vertical',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
         },
       },
     },
@@ -917,6 +946,7 @@ const themeCreator = (mode: PaletteMode) => {
         },
         head: {
           color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.background.light,
         },
       },
     },

@@ -30,7 +30,8 @@ export type I18nPageNamespace =
   | 'analytics'
   | 'contracts'
   | 'dashboard'
-  | 'portfolio';
+  | 'portfolio'
+  | 'infinite';
 
 export interface Breadcrumb {
   key: string;

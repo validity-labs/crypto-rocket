@@ -36,6 +36,7 @@ const config: InitialOptionsTsJest = {
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
   },
   testPathIgnorePatterns: ['<rootDir>/testing/'],
+  timers: 'fake',
 };
 
 export default config;

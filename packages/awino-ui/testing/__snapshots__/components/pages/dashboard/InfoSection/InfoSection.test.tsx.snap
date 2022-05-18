@@ -100,7 +100,7 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
             class="AwiInfoSection-progress"
           >
             <div
-              class="MuiBox-root css-18"
+              class="AwiLabelValue-root MuiBox-root css-18"
             >
               <p
                 class="MuiTypography-root MuiTypography-body-sm AwiLabel-root AwiLabelValue-label label css-19"

@@ -27,6 +27,11 @@ export const mainMenuLinks: MenuItemType[] = [
   },
   {
     type: 'internal',
+    key: 'infinite',
+    url: '/infinite',
+  },
+  {
+    type: 'internal',
     key: 'podl',
     url: '/podl',
   },

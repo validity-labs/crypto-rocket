@@ -61,7 +61,7 @@
     "date-time": "EEEE | LLLL d, yyyy O HH:mm",
     "abbreviate": {
       "number": {
-        "m": "M",
+        "m": "m",
         "k": "k"
       }
     }
@@ -88,6 +88,9 @@
       },
       "swap": {
         "title": "Swap"
+      },
+      "infinite": {
+        "title": "INFINITE"
       },
       "podl": {
         "title": "Podl"

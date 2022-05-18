@@ -49,7 +49,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 </span>
               </h6>
               <div
-                class="label-value MuiBox-root css-7"
+                class="AwiLabelValue-root label-value MuiBox-root css-7"
               >
                 <h6
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -65,7 +65,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 </p>
               </div>
               <div
-                class="label-value MuiBox-root css-7"
+                class="AwiLabelValue-root label-value MuiBox-root css-7"
               >
                 <h6
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -91,7 +91,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-4 css-15"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -111,7 +111,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-4 css-15"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -131,7 +131,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-4 css-15"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -151,7 +151,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-6 css-27"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -175,7 +175,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-4 css-15"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -195,7 +195,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-4 css-15"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -238,7 +238,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-4 css-15"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -281,7 +281,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-18 MuiGrid-grid-md-9 MuiGrid-grid-lg-6 css-27"
                 >
                   <div
-                    class="label-value-column MuiBox-root css-7"
+                    class="AwiLabelValue-root label-value-column MuiBox-root css-7"
                   >
                     <h6
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"

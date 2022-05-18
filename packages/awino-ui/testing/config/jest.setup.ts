@@ -89,3 +89,5 @@ expect.addSnapshotSerializer({
     return output.split('__EMOTION_STYLES_MARKER__')[1];
   },
 });
+
+jest.setSystemTime(new Date(2000, 0, 10, 12, 30));

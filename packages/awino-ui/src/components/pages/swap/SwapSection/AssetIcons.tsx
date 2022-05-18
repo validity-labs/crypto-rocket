@@ -2,6 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { AssetKey } from '@/types/app';
@@ -25,11 +26,16 @@ const AssetIcons = styled(({ ids: assetIds, size, className, ...restOfProps }: P
   const ids = [].concat(assetIds);
 
   return (
-    <span className={clsx(`AwiAssetsIcon-root Awi-n${ids.length}`, className)} role="presenation" {...restOfProps}>
+    <Box
+      component="span"
+      className={clsx(`AwiAssetsIcon-root Awi-n${ids.length}`, className)}
+      role="presenation"
+      {...restOfProps}
+    >
       {ids.map((id) => (
         <img key={id} src={`/images/assets/${id}.svg`} alt="" width={width} height={width} />
       ))}
-    </span>
+    </Box>
   );
 })<{ size: SizeType }>(({ size = 'small', theme }) => ({
   display: 'flex',

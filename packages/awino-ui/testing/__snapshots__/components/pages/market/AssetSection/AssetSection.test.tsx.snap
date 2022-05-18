@@ -23,7 +23,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             class="aside"
           >
             <div
-              class="MuiBox-root css-4"
+              class="AwiLabelValue-root MuiBox-root css-4"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -39,7 +39,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               </p>
             </div>
             <div
-              class="MuiBox-root css-4"
+              class="AwiLabelValue-root MuiBox-root css-4"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
