@@ -18,6 +18,12 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-05-18
+
+### Added
+
+- Added infinite page
+
 ## [0.0.0] - 2022-04-21
 
 ### Added
