@@ -115,7 +115,8 @@ export default function BoastFarmCard({ items }: Props) {
       <div className="AwiBoastFarmCard-distributionHelper">
         <FormControlLabel
           sx={{ ml: 0 }}
-          control={<Switch checked={toggle} setChecked={setToggle} sx={{ mr: 4.5 }} />}
+          control={<Switch checked={toggle} setChecked={setToggle} sx={{ ml: 4.5 }} />}
+          labelPlacement="start"
           label={t(`distribution-helper`) as string}
         />
       </div>
