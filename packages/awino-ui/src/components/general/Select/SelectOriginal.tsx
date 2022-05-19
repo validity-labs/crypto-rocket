@@ -11,19 +11,9 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
   [`& .${selectClasses.standard}`]: {
     display: 'flex',
     alignItems: 'center',
-    // minHeight: '58px !important',
-    minWidth: '160px !important',
-    padding: `${theme.spacing(2, 10, 2.25, 2)} !important`,
-    border: '1px solid #546367',
-    borderRadius: +theme.shape.borderRadius * 3,
+    minHeight: '58px !important',
+    padding: `${theme.spacing(0, 10, 0, 2)} !important`,
     backgroundColor: 'transparent',
-  },
-  '&.Mui-focused': {
-    [`& .${selectClasses.standard}`]: {
-      border: '1px solid #0cbc9a',
-      borderRadius: +theme.shape.borderRadius * 3,
-      backgroundColor: 'transparent',
-    },
   },
   [`& .${selectClasses.icon}`]: {
     fontSize: '32px',
@@ -34,16 +24,21 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
     },
   },
   [`& .${selectClasses.iconOpen}`]: {
-    color: '#0cbc9a',
+    color: theme.palette.text.active,
   },
   '.MuiSelect-value': {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: theme.spacing(0.75, 4),
-    ...theme.typography.menu,
+    padding: theme.spacing(1, 12, 1, 10),
+    ...theme.typography['body-md'],
     color: theme.palette.text.primary,
+    img: {
+      width: 50,
+      height: 50,
+      marginRight: theme.spacing(4),
+    },
   },
 }));
 
@@ -59,13 +54,25 @@ interface MenuItemProps extends MuiMenuItemProps {
 const MenuItem = styled(({ item, selected, ...restOfProps }: MenuItemProps) => {
   return (
     <MuiMenuItem value={item.id} selected={selected} dense {...restOfProps}>
-      <Typography variant="body-sm">{item.label}</Typography>
+      <Typography className="MuiMenuItem-content">
+        <img src={`/images/assets/${item.id}.svg`} alt="" width="24" />
+        {item.label}
+      </Typography>
     </MuiMenuItem>
   );
 })(({ theme }) => ({
-  padding: theme.spacing(1.5, 12, 1.5, 10),
-  '&.Mui-selected p': {
-    color: theme.palette.text.primary,
+  '.MuiMenuItem-content': {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: theme.spacing(1.5, 12, 1.5, 10),
+    ...theme.typography['body-md'],
+    img: {
+      width: 50,
+      height: 50,
+      marginRight: theme.spacing(4),
+    },
   },
 }));
 
@@ -98,14 +105,6 @@ export default function Select({ items, value, setValue, loading = false, disabl
         onChange={handleChange}
         variant="standard"
         displayEmpty
-        fullWidth
-        MenuProps={{
-          PaperProps: {
-            sx: {
-              marginTop: 2,
-            },
-          },
-        }}
         IconComponent={ExpandIcon}
         label={null}
         disabled={loading || disabled}
@@ -115,7 +114,16 @@ export default function Select({ items, value, setValue, loading = false, disabl
               {loading ? (
                 <CircularProgress size={20} />
               ) : (
-                <>{value ? <>{items.get(value).label}</> : <>{t('common.select-token')}</>}</>
+                <>
+                  {value ? (
+                    <>
+                      <img src={`/images/assets/${value}.svg`} alt="" width="24" />
+                      {items.get(value).label}
+                    </>
+                  ) : (
+                    <>{t('common.select-token')}</>
+                  )}
+                </>
               )}
             </Typography>
           );

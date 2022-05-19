@@ -2,7 +2,8 @@ import React, { useCallback, useState } from 'react';
 
 import { useTranslation } from 'next-i18next';
 
-import { Input } from '@mui/material';
+import CloseIcon from '@mui/icons-material/CloseRounded';
+import { IconButton, Input, InputProps } from '@mui/material';
 import { styled, Theme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 
@@ -42,7 +43,7 @@ const SearchInput = styled(Input)(({ theme }) => ({
   },
 }));
 
-interface Props {
+interface Props extends InputProps {
   // term: string;
   // setTerm: SetState<string | null>;
   // eslint-disable-next-line no-unused-vars
@@ -66,13 +67,30 @@ export default function Search({ /* term, setTerm, */ onSearch, ...props }: Prop
     setTerm(event.target.value);
   };
 
+  const handleSearchInputClear = () => {
+    onSearch(null);
+    setTerm('');
+  };
+
   return (
-    <Form noValidate autoComplete="off" onSubmit={handleSearch} data-testid="SearchForm">
+    <Form noValidate autoComplete="off" onSubmit={handleSearch} data-testid="SearchForm" className="AwiSearch-root">
       <SearchInput
         disableUnderline
         value={term}
         onChange={handleChange}
-        endAdornment={<SearchIcon />}
+        endAdornment={
+          // <SearchIcon />
+
+          <IconButton
+            size="small"
+            // title={clearSeachLabel}
+            // aria-label={clearSeachLabel}
+            // disabled={!searchInputValue}
+            onClick={handleSearchInputClear}
+          >
+            {term ? <CloseIcon /> : <SearchIcon />}
+          </IconButton>
+        }
         placeholder={t('common.search')}
         {...props}
       />

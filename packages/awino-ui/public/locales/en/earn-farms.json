@@ -31,11 +31,17 @@
         "winawi": "winAWI"
       }
     },
-    "percent-hint": "This percentage represents the proportion of total AWINO emissions dedicated to this specific farm",
+    "layout": {
+      "title": "Layout arrangement",
+      "value": {
+        "grid": "Grid",
+        "list": "List"
+      }
+    },
+    "proportion-hint": "This percentage represents the proportion of total AWINO emissions dedicated to this specific farm",
     "total-liquidity": "Total liquidity",
     "apr-range": "APR range",
-    "farm-apr": "Farm APR",
-    "lp-apr": "LP APR",
+    "apr-range-hint": "Farm APR: {{v1}}\nLP APR: {{v2}}",
     "apr": "APR",
     "earn": "Earn",
     "deposit-fee": "Deposit fee",
@@ -48,6 +54,18 @@
     "stake": "Stake",
     "details": "Details",
     "lp-price": "LP price",
-    "view-on-scan": "View on XXXScan"
+    "view-on-scan": "View on XXXScan",
+    "asset": "Asset",
+    "emissions": "Emissions",
+    "fields": {
+      "asset": "Asset",
+      "emissions": "Emissions",
+      "total-liquidity": "Total liquidity",
+      "apr-range": "APR range",
+      "apr": "APR",
+      "earn": "Earn",
+      "deposit-fee": "Deposit fee",
+      "details": "Details"
+    }
   }
 }

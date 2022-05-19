@@ -1,36 +1,89 @@
-import { useMemo, useState, useEffect, useCallback } from 'react';
+import { useMemo, useState, useCallback, useEffect } from 'react';
 
-import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
-import { FormControlLabel, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { TableRowsRounded, ViewColumnRounded } from '@mui/icons-material';
+import { FormControlLabel, Grid, Slide, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { GridEventListener, GridEvents, GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
-import { TABLE_ROWS_PER_PAGE, TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
-import loadData from '@/app/data';
-import DataGrid from '@/components/general/DataGrid/DataGrid';
-import GridPagination from '@/components/general/GridPagination/GridPagination';
 import Label from '@/components/general/Label/Label';
+import Loader from '@/components/general/Loader/Loader';
 import Panel from '@/components/general/Panel/Panel';
 import Search from '@/components/general/Search/Search';
 import Select from '@/components/general/Select/Select';
 import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
+import { earnFarmsData } from '@/fixtures/earn';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { AssetKey, RowsState } from '@/types/app';
+import { sleep } from '@/lib/helpers';
+import { AssetKeyPair } from '@/types/app';
 
-// import CollateralModal, { CollateralModalData } from './CollateralModal';
-// import getColumns from './columns';
-// import OperationModal, { OperationModalData } from './OperationModal';
+import ResultCard from './ResultCard';
+import ResultTable from './ResultTable';
 
 const Root = styled(Section)(({ theme }) => ({
+  '.AwiSearch-root': {
+    width: 'auto',
+  },
+  '.AwiResultSection-filters': {
+    margin: theme.spacing(0, 0, 8.5),
+    '.AwiPanel-content': {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+    },
+  },
+  '.AwiPanel-headerAside': {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    flexWrap: 'wrap',
+    gap: theme.spacing(10),
+    '.MuiFormControlLabel-root': {
+      alignItems: 'flex-start',
+      margin: 0,
+    },
+    '.MuiFormControlLabel-label': {
+      margin: theme.spacing(0, 0, 2),
+      fontWeight: 500,
+      textTransform: 'uppercase',
+    },
+  },
+  '.AwiPanel-content': {
+    gap: theme.spacing(10),
+  },
   '.AwiResultSection-toggle': {
-    margin: theme.spacing(4.5, 0, 7.5),
     '.MuiFormControlLabel-label': {
       fontWeight: 500,
     },
   },
-  [theme.breakpoints.up('md')]: {},
+  '.MuiTableContainer-root': {
+    maxHeight: 400,
+    margin: theme.spacing(0, 0, 11),
+  },
+  '.MuiTableHead-root .MuiTableCell-root': {
+    backgroundColor: 'unset',
+  },
+  '.MuiTableBody-root .MuiTableRow-root': {
+    borderTop: `1px solid ${theme.palette.divider} !important`,
+  },
+  '.AwiResultSection-typeGroup': {
+    overflow: 'auto',
+    margin: theme.spacing(0, 0, 10),
+  },
+  [theme.breakpoints.up('sm')]: {
+    '.AwiResultSection-typeGroup': {
+      margin: 0,
+    },
+    '.AwiPanel-headerAside': {
+      justifyContent: 'flex-end',
+      alignItems: 'flex-end',
+    },
+  },
 }));
 
 export interface CollateralInfo {
@@ -39,19 +92,62 @@ export interface CollateralInfo {
 }
 
 type FarmTypeKey = 'all' | 'standard' | 'boosted' | 'winawi';
-const SORT_BY_ITEMS = ['emissions', 'apr', 'earned', 'liquidity', 'fees'];
+type SortByKey = 'emissions' | 'apr' | 'earned' | 'liquidity' | 'fees';
+const SORT_BY_ITEMS: SortByKey[] = ['emissions', 'apr', 'earned', 'liquidity', 'fees'];
+type LayoutKey = 'grid' | 'table';
+
+interface Filters {
+  type: FarmTypeKey;
+  sort: SortByKey;
+  stackedOnly: boolean;
+  inactiveFarms: boolean;
+  search: null | string;
+}
+
+export interface FarmDataItem {
+  id: string;
+  pair: AssetKeyPair;
+  proportion: number;
+  type: Exclude<FarmTypeKey, 'all'>;
+  stacked: boolean;
+  active: boolean;
+  emissions: number;
+  apr: number;
+  aprFarm: number;
+  aprLP: number;
+  earned: number;
+  liquidity: number;
+  fees: number;
+  aprRange: [number, number];
+  depositFee: number;
+  boostFactor: number;
+  lpPrice: number;
+}
 
 export default function ResultSection(/* { total }: Props */) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
-  const router = useRouter();
-  const [collateralInfo, setCollateralInfo] = useState<CollateralInfo>({
-    borrowLimit: [0, 0],
-    borrowLimitUsed: [0, 0],
+  const { t: tRaw } = useTranslation();
+  const [loading, setLoading] = useState(true);
+  const [records, setRecords] = useState<FarmDataItem[]>([]);
+  const [filters, setFilters] = useState<Filters>({
+    type: 'all',
+    sort: 'emissions',
+    stackedOnly: false,
+    inactiveFarms: false,
+    search: null,
   });
-  // const [collateralModal, setCollateralModal] = useState<CollateralModalData | null>(null);
-  // const [operationModal, setOperationModal] = useState<OperationModalData | null>(null);
-  const [toggle, setToggle] = useState(false);
-  const [term, setTerm] = useState<string>('');
+  const [layout, setLayout] = useState<LayoutKey>('table');
+
+  useEffect(() => {
+    (async () => {
+      await sleep(0.1);
+      const farmsRecords = await new Promise<any>((res) => {
+        return res(earnFarmsData);
+      });
+      setRecords(farmsRecords);
+      setLoading(false);
+    })();
+  }, []);
 
   const sortByItems = useMemo(() => {
     return SORT_BY_ITEMS.reduce((ar, r) => {
@@ -59,135 +155,114 @@ export default function ResultSection(/* { total }: Props */) {
       return ar;
     }, new Map());
   }, [t]);
-  console.log(sortByItems);
-  // const columns = useMemo(() => {
-  //   return getColumns(t, {
-  //     collateralCallback: (data: CollateralModalData) => {
-  //       setCollateralModal(data);
-  //     },
-  //   });
-  // }, [t]);
 
-  const [sortModel, setSortModel] = useState<GridSortModel>([
-    /* { field: 'asset', sort: 'asc' } */
-  ]);
-  const [rows, setRows] = useState<GridRowsProp>([]);
-  const [rowCount, setRowCount] = useState<number | undefined>(undefined);
-  // Some api client return undefine while loading
-  // Following lines are here to prevent `rowCountState` from being undefined during the loading
-  const [rowCountState, setRowCountState] = useState(rowCount || 0);
-  useEffect(() => {
-    setRowCountState((prevRowCountState) => (rowCount !== undefined ? rowCount : prevRowCountState));
-  }, [rowCount, setRowCountState]);
-
-  const [rowsState, setRowsState] = useState<RowsState>({
-    page: 0,
-    pageSize: TABLE_ROWS_PER_PAGE,
-  });
-
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const handleSortModelChange = (newModel: GridSortModel) => {
-    setSortModel(newModel);
+  const handleTypeChange = (event: React.MouseEvent<HTMLElement>, newValue: FarmTypeKey) => {
+    setFilters((prevFilters) => ({ ...prevFilters, type: newValue as FarmTypeKey }));
   };
 
-  useEffect(() => {
-    let active = true;
-    setLoading(true);
-    setRowCount(undefined);
-    (async () => {
-      const { total, records } = await loadData('earn-deposit', {
-        page: rowsState.page,
-        pageSize: rowsState.pageSize,
-        sort: sortModel,
-        term,
-      });
-      if (!active) {
-        return;
+  const handleSearchChange = useCallback((newValue: string) => {
+    setFilters((prevFilters) => {
+      if (prevFilters.search !== newValue) {
+        return { ...prevFilters, search: newValue };
       }
-      setRows(records);
-      setRowCount(total);
-      setCollateralInfo({
-        borrowLimit: [1.03, 1.03],
-        borrowLimitUsed: [0, 0],
-      });
-      setLoading(false);
-    })();
-
-    return () => {
-      active = false;
-    };
-  }, [sortModel, rowsState, term /* data */]);
-
-  const handleSearch = useCallback(
-    (newTerm: string) => {
-      if (term !== newTerm) {
-        setTerm(newTerm);
-        setRowsState((prevRowsState) => ({ ...prevRowsState, page: 1 }));
-      }
-    },
-    [term]
-  );
-
-  const handleRowClick: GridEventListener<GridEvents.rowClick> = useCallback((props) => {
-    const { asset, enabled } = props.row;
-    // setOperationModal({ asset, enabled });
+      return prevFilters;
+    });
   }, []);
 
-  const handleCellClick: GridEventListener<GridEvents.cellClick> = useCallback((props, event, details) => {
-    const { field } = props;
-    if (field === 'collateral') {
-      event.stopPropagation();
-    }
-    // router.push(`/earn/deposit/${props.row.asset}`);
+  const handleSortChange = useCallback((newValue: string) => {
+    setFilters((prevFilters) => ({ ...prevFilters, sort: newValue as SortByKey }));
   }, []);
 
-  const handleCollateralToggle = (asset: AssetKey) => {
-    setRows((prevRows) =>
-      prevRows.map((r) => {
-        if (r.asset === asset) {
-          return { ...r, collateral: !r.collateral };
+  const handleStackedOnlyChange = useCallback((newValue: boolean) => {
+    setFilters((prevFilters) => ({ ...prevFilters, stackedOnly: newValue }));
+  }, []);
+
+  const handleInactiveFarmsChange = useCallback((newValue: boolean) => {
+    setFilters((prevFilters) => ({ ...prevFilters, inactiveFarms: newValue }));
+  }, []);
+
+  const handleLayoutChange = (event: React.MouseEvent<HTMLElement>, newValue: LayoutKey) => {
+    setLayout(newValue);
+  };
+
+  const filteredRecords = useMemo(() => {
+    const { type, inactiveFarms, stackedOnly, sort, search } = filters;
+    const searchTerm = search ? search.toLowerCase() : '';
+    return records
+      .filter((record) => {
+        // filtering
+
+        if (type !== 'all' && record.type !== type) {
+          return false;
         }
-        return r;
+
+        if (stackedOnly && !record.stacked) {
+          return false;
+        }
+
+        if (inactiveFarms && record.active) {
+          return false;
+        }
+
+        if (search && record.id.indexOf(searchTerm) === -1) {
+          return false;
+        }
+
+        return true;
       })
-    );
-  };
+      .sort((a, b) => a[sort] - b[sort]);
+  }, [filters, records]);
 
-  const [type, setType] = useState<FarmTypeKey>('all');
+  const handleHarvest = useCallback((pair: AssetKeyPair) => {
+    // TODO implement harvest logic
+    console.log('handleHarvest', pair);
+  }, []);
 
-  const handleType = (event: React.MouseEvent<HTMLElement>, newType: FarmTypeKey) => {
-    setType(newType);
-    // setCanExecute((prev) => !prev);
-  };
+  const handleApprove = useCallback((pair: AssetKeyPair) => {
+    // TODO implement approve logic
+    console.log('handleApprove', pair);
+  }, []);
 
+  const gridProps = useMemo(() => {
+    return layout === 'grid' ? { md: 6, lg: 4 } : {};
+  }, [layout]);
   return (
     <>
       <Root>
         <Panel
+          className="AwiResultSection-filters"
           header={
             <>
-              <Label
-                id="earnDepositTitle"
-                tooltip={t(`asset-section.title-hint`)}
-                variant="h4"
-                component="h2"
-                color="text.active"
-              >
-                {t(`asset-section.title`)}
-              </Label>
-              <div className="aside">
-                <Select items={sortByItems} value="emissions" setValue={() => {}} />
-                <Search onSearch={handleSearch} />
+              <div>
+                <Label id="earnDepositTitle" tooltip={t(`title-hint`)} variant="h4" component="h2" color="text.active">
+                  {t('title')}
+                </Label>
+                <Typography>{t('description')}</Typography>
+              </div>
+              <div className="AwiPanel-headerAside">
+                <FormControlLabel
+                  // sx={{ ml: 0 }}
+
+                  labelPlacement="top"
+                  label={t('sort-by.title') as string}
+                  control={<Select items={sortByItems} value={filters.sort} setValue={handleSortChange} />}
+                />
+                <FormControlLabel
+                  // sx={{ ml: 0 }}
+                  labelPlacement="top"
+                  label={t('search.title') as string}
+                  control={<Search onSearch={handleSearchChange} placeholder={t('search.placeholder')} />}
+                />
               </div>
             </>
           }
         >
           <ToggleButtonGroup
-            value={type}
+            value={filters.type}
             exclusive
-            onChange={handleType}
+            onChange={handleTypeChange}
             aria-label={t(`type.title`)}
-            className="AwiAssetSection-toggle"
+            className="AwiResultSection-typeGroup"
           >
             <ToggleButton value="all">{t('type.value.all')}</ToggleButton>
             <ToggleButton value="standard">{t('type.value.standard')}</ToggleButton>
@@ -196,75 +271,63 @@ export default function ResultSection(/* { total }: Props */) {
           </ToggleButtonGroup>
           <div className="AwiResultSection-toggle">
             <FormControlLabel
-              sx={{ ml: 0 }}
-              control={<Switch checked={toggle} setChecked={setToggle} sx={{ ml: 4.5 }} />}
+              control={<Switch checked={filters.stackedOnly} setChecked={handleStackedOnlyChange} sx={{ ml: 4.5 }} />}
               labelPlacement="start"
               label={t(`staked-only`) as string}
             />
           </div>
           <div className="AwiResultSection-toggle">
             <FormControlLabel
-              sx={{ ml: 0 }}
-              control={<Switch checked={toggle} setChecked={setToggle} sx={{ ml: 4.5 }} />}
+              control={
+                <Switch checked={filters.inactiveFarms} setChecked={handleInactiveFarmsChange} sx={{ ml: 4.5 }} />
+              }
               labelPlacement="start"
               label={t(`inactive-farms`) as string}
             />
           </div>
-          {/* {connected ? ( */}
-          <div className="table-container">
-            {/* <DataGrid
-              loading={loading}
-              // columns={columns}
-              disableColumnMenu
-              disableColumnFilter
-              disableSelectionOnClick
-              disableColumnSelector
-              rowHeight={66}
-              rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
-              // rows
-              rows={rows}
-              rowCount={rowCountState}
-              onRowClick={handleRowClick}
-              onCellClick={handleCellClick}
-              // sorting
-              sortingMode="server"
-              sortModel={sortModel}
-              onSortModelChange={handleSortModelChange}
-              // pagination
-              paginationMode="server"
-              {...rowsState}
-              onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
-              onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
-              components={{
-                Pagination: GridPagination,
-              }}
-              localeText={{
-                columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
-                footerTotalVisibleRows: (visibleCount, totalCount) =>
-                  t('common.table.rows-out-of', {
-                    visibleCount: visibleCount.toLocaleString(),
-                    totalCount: totalCount.toLocaleString() + '1',
-                  }),
-              }}
-            /> */}
-          </div>
-          {/* ) : (
-            <ConnectPanel />
-          )} */}
+          <ToggleButtonGroup
+            value={layout}
+            exclusive
+            size="small"
+            onChange={handleLayoutChange}
+            aria-label={t(`layout.title`)}
+          >
+            <ToggleButton value="grid" size="small" title={t('layout.value.grid')}>
+              <ViewColumnRounded />
+            </ToggleButton>
+            <ToggleButton value="list" title={t('layout.value.list')}>
+              <TableRowsRounded />
+            </ToggleButton>
+          </ToggleButtonGroup>
         </Panel>
+        {loading && <Loader />}
+        {!loading && filteredRecords.length === 0 && (
+          <Typography variant="body-lg" textAlign="center" py={10}>
+            {tRaw('common.no-records')}
+          </Typography>
+        )}
+        {filteredRecords.length > 0 &&
+          (layout === 'grid' ? (
+            <Grid container spacing={8}>
+              {filteredRecords.map((record) => (
+                <Grid key={record.id} item xs={12} {...gridProps}>
+                  <Slide in appear direction="up">
+                    <div>
+                      <ResultCard item={record} onHarvest={handleHarvest} onApprove={handleApprove} />
+                    </div>
+                  </Slide>
+                </Grid>
+              ))}
+            </Grid>
+          ) : (
+            <ResultTable
+              items={filteredRecords}
+              loading={loading}
+              onHarvest={handleHarvest}
+              onApprove={handleApprove}
+            />
+          ))}
       </Root>
-      {/* {!!collateralModal && (
-        <CollateralModal
-          open={!!collateralModal}
-          close={() => setCollateralModal(null)}
-          data={collateralModal}
-          info={collateralInfo}
-          callback={handleCollateralToggle}
-        />
-      )}
-      {!!operationModal && (
-        <OperationModal open={!!operationModal} close={() => setOperationModal(null)} data={operationModal} />
-      )} */}
     </>
   );
 }

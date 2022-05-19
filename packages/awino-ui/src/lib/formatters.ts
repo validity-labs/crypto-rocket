@@ -6,6 +6,7 @@ import { GridValueFormatterParams } from '@mui/x-data-grid';
 
 import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_TIME_FORMAT, DEFAULT_DATE_PRETTY_FORMAT } from '@/app/constants';
 import dateIO from '@/app/dateIO';
+import { AssetKey, AssetKeyPair } from '@/types/app';
 
 /**
  * Format date to specific string format
@@ -190,3 +191,7 @@ export const formatGridUSD = (params: Pick<GridValueFormatterParams, 'value'>) =
 
 export const formatGridDateTime = (params: Pick<GridValueFormatterParams, 'value'>) =>
   formatDateTime(params.value as Date);
+
+export const formatLPPair = (pair: AssetKeyPair) => {
+  return `${pair.map((m) => m.toUpperCase()).join('-')} LP`;
+};

@@ -17,7 +17,7 @@ const Label = styled(({ children, tooltip, className, ...restOfProps }: LabelPro
       {children}
       {tooltip && (
         <Tooltip title={tooltip} placement="right">
-          <span className="help">
+          <span className="AwiLabel-help">
             <InfoIcon />
           </span>
         </Tooltip>
@@ -29,7 +29,7 @@ const Label = styled(({ children, tooltip, className, ...restOfProps }: LabelPro
   alignItems: 'center',
   // ...theme.typography.h7,
   color: theme.palette.text.primary,
-  '.help': {
+  '.AwiLabel-help': {
     // display: 'inline-block',
     lineHeight: 0,
     cursor: 'help',

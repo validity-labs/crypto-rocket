@@ -11,7 +11,7 @@ import { IconButton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatPercent } from '@/lib/formatters';
+import { formatLPPair, formatPercent } from '@/lib/formatters';
 import { BalanceInfo, AssetKey } from '@/types/app';
 
 import AssetIcons from '../../swap/SwapSection/AssetIcons';
@@ -132,7 +132,7 @@ export default function DoughnutChart({ data, i18nKey, colors }: Props) {
 
   const chartData = useMemo<ChartData<'doughnut', number[], string>>(
     () => ({
-      labels: data.map(({ pair }) => `${pair.map((m) => m.toUpperCase()).join('-')} LP`),
+      labels: data.map(({ pair }) => formatLPPair(pair)),
       datasets: [
         {
           label: t(`${i18nKey}.current-weighting`),

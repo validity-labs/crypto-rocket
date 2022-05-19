@@ -286,6 +286,10 @@ const themeCreator = (mode: PaletteMode) => {
           flex-direction: row;
           align-items: center;
         }
+        .Awi-column {
+          display: flex;
+          flex-direction: column;
+        }
       `,
     },
     MuiAppBar: {
@@ -608,7 +612,6 @@ const themeCreator = (mode: PaletteMode) => {
           borderRadius: +theme.shape.borderRadius * 2,
           backgroundColor: theme.palette.background.transparent,
           '.MuiToggleButton-root': {
-            padding: theme.spacing(3, 6),
             border: 0,
             ...theme.typography.body,
             fontSize: '1rem' /* 16px */,
@@ -621,6 +624,9 @@ const themeCreator = (mode: PaletteMode) => {
           },
           '.MuiToggleButtonGroup-grouped:not(:last-of-type), .MuiToggleButtonGroup-grouped:not(:first-of-type)': {
             borderRadius: +theme.shape.borderRadius * 2,
+          },
+          '.MuiToggleButton-sizeMedium': {
+            padding: theme.spacing(3, 6),
           },
         },
       },
@@ -1026,6 +1032,13 @@ const themeCreator = (mode: PaletteMode) => {
             backgroundColor: theme.palette.grey[400],
             borderRadius: '6px',
           },
+        },
+      },
+    },
+    MuiTooltip: {
+      styleOverrides: {
+        popper: {
+          whiteSpace: 'pre-line',
         },
       },
     },

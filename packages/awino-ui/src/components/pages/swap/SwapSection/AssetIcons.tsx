@@ -28,7 +28,7 @@ const AssetIcons = styled(({ ids: assetIds, size, className, ...restOfProps }: P
   return (
     <Box
       component="span"
-      className={clsx(`AwiAssetsIcon-root Awi-n${ids.length}`, className)}
+      className={clsx(`AwiAssetIcons-root Awi-n${ids.length}`, className)}
       role="presenation"
       {...restOfProps}
     >

@@ -70,7 +70,7 @@ export type TokenAsset = 'awi' | 'infinite' | 'wealth';
 export type StableCoinAsset = 'dai' | 'usdc' | 'usdt';
 export type PoolAsset = any;
 export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd' | 'nusd' | 'eth' | 'link';
-
+export type AssetKeyPair = [AssetKey, AssetKey];
 // TODO make sure there is no item that has same asset key on both sides
 export type PairedAssetKey = `${AssetKey}-${AssetKey}`;
 

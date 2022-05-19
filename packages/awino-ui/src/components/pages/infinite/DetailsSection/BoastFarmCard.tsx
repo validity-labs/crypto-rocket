@@ -22,7 +22,7 @@ import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Search from '@/components/general/Search/Search';
 import Switch from '@/components/general/Switch/Switch';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatNumber, formatPercent } from '@/lib/formatters';
+import { formatLPPair, formatNumber, formatPercent } from '@/lib/formatters';
 
 import AssetIcons from '../../swap/SwapSection/AssetIcons';
 
@@ -137,7 +137,7 @@ export default function BoastFarmCard({ items }: Props) {
                   <div className="Awi-row">
                     {/* @ts-expect-error */}
                     <AssetIcons component="div" ids={pair} size="medium" sx={{ display: 'inline-block' }} />
-                    <Typography color="text.primary">{`${pair.map((m) => m.toUpperCase()).join('-')} LP`}</Typography>
+                    <Typography color="text.primary">{formatLPPair(pair)}</Typography>
                   </div>
                 </TableCell>
                 <TableCell>
