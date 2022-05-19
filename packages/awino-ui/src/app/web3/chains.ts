@@ -133,6 +133,12 @@ export const CHAINS: { [chainId: number]: BasicChainInformation | ExtendedChainI
     nativeCurrency: MATIC,
     blockExplorerUrls: ['https://mumbai.polygonscan.com'],
   },
+  31337: {
+    urls: ['http://localhost:8545'],
+    name: 'Localhost',
+    nativeCurrency: 'ETH',
+    blockExplorerUrls: [''],
+  },
 };
 
 export const URLS: { [chainId: number]: string[] } = Object.keys(CHAINS).reduce<{ [chainId: number]: string[] }>(

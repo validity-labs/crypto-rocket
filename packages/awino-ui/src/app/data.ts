@@ -107,6 +107,8 @@ interface LoadDataResponse {
   records: GridRowsProp;
 }
 
+// @TODO @REPLACE replace `records` map with the deployed `cTokens`.
+// Add `address` of the cToken.
 export default function loadData(
   model: RecordKeys,
   { page, pageSize, sort, term = '' }: LoadDataOptions

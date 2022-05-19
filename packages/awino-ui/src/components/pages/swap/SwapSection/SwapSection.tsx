@@ -113,6 +113,7 @@ export default function SwapSection() {
       { id: 'awi-link', assets: ['awi', 'link'], label: 'AWI/LINK', common: false, value: 10 },
     ];
 
+    // @TODO @REPLACE fetch the metadata of the supported tokens
     setTimeout(() => {
       setAssets(new Map(fakeAssets.map((m) => [m.id, m])));
       setAssetPairs(new Map(fakeAssetPairs.map((m) => [m.id, m])));

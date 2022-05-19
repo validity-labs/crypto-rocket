@@ -24,6 +24,7 @@ export interface CollateralInfo {
   borrowLimitUsed: [number, number];
 }
 
+// @TODO lending-protocol -> supply
 export default function AssetSection(/* { total }: Props */) {
   const t = usePageTranslation();
   const router = useRouter();

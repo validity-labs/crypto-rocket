@@ -265,6 +265,9 @@ const SwapPanel = (props: TabPanelProps) => {
     setCanExecute(sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset);
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
+  // @TODO metamask -> approve -> send transaction
+  // @TODO loading state
+  // @TODO check pool's ratio
   const handleExecute = useCallback(() => {
     if (sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset) {
       setExecuting(true);
