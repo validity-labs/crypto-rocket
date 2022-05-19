@@ -136,7 +136,7 @@ export default function ResultSection(/* { total }: Props */) {
     inactiveFarms: false,
     search: null,
   });
-  const [layout, setLayout] = useState<LayoutKey>('table');
+  const [layout, setLayout] = useState<LayoutKey>('grid');
 
   useEffect(() => {
     (async () => {
