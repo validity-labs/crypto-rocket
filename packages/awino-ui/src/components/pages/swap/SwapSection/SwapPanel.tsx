@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useWeb3React } from '@web3-react/core';
 import clsx from 'clsx';
+import { BigNumber, ethers } from 'ethers';
 
 import {
   Button,
@@ -14,7 +16,6 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { useAppDispatch } from '@/app/hooks';
 import Label from '@/components/general/Label/Label';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Loader from '@/components/general/Loader/Loader';
@@ -23,6 +24,12 @@ import ExpandIcon from '@/components/icons/ExpandIcon';
 import GearIcon from '@/components/icons/GearIcon';
 import ReloadIcon from '@/components/icons/ReloadIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { Fetcher, Route, Token, TokenAmount, Trade } from '@/lib/blockchain/awino-swap-sdk';
+import AWINO_ROUTER_ABI from '@/lib/blockchain/awino-swap-sdk/abis/IAwinoRouter.json';
+import { AWINO_ROUTER_MAP, ChainId, TradeType } from '@/lib/blockchain/awino-swap-sdk/constants';
+import { swapTokens } from '@/lib/blockchain/awino-swap-sdk/helpers';
+import * as ERC20Common from '@/lib/blockchain/common/erc20';
+import { erc20AbiJson } from '@/lib/blockchain/common/erc20/abi/erc20';
 import { formatAmount, formatPercent } from '@/lib/formatters';
 import { AssetKey, ID } from '@/types/app';
 
@@ -223,11 +230,12 @@ const SwapPanel = (props: TabPanelProps) => {
   const [targetValue, setTargetValue] = useState(null);
   const [canExecute, setCanExecute] = useState(false);
   const [info, setInfo] = useState(null);
-  const [sourceMaxValue, setSourceMaxValue] = useState(0);
+  const [sourceMaxValue, setSourceMaxValue] = useState('0');
   const [settingsModal, setSettingsModal] = useState<SettingsModalData | null>(null);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
   const [slippageTolerance, setSlippageTolerance] = useState(0);
   const [sourcePriceValue, setSourcePriceValue] = useState(null);
+  const { account, library, chainId, connector } = useWeb3React();
 
   const handleType = (event: React.MouseEvent<HTMLElement>, newType: TypeKeys) => {
     setType(newType);
@@ -238,42 +246,168 @@ const SwapPanel = (props: TabPanelProps) => {
   }, [sourceValue, targetAsset]);
 
   useEffect(() => {
-    setSourceMaxValue(null);
-    if (sourceAsset) {
-      setTimeout(() => {
-        setSourceMaxValue(100.99);
-        setSlippageTolerance(0.2);
-      }, 400);
-    }
-  }, [sourceAsset]);
-
-  useEffect(() => {
-    if (sourceAsset && targetAsset) {
+    if (sourceAsset && targetAsset && sourceValue && sourceValue > 0) {
       setInfo(null);
-      setTimeout(() => {
+      // @DEBUG
+      console.log(
+        JSON.stringify({
+          amount: sourceValue.toString(),
+          slippageTolerance: BigNumber.from(slippageTolerance * 100).toString(),
+        })
+      );
+
+      // Get amountOutMin, path, price impact
+      // @TODO create 'hook'
+      const fetch = async () => {
+        const token1 = new Token(
+          chainId,
+          assets.get(sourceAsset).address,
+          assets.get(sourceAsset).decimals,
+          assets.get(sourceAsset).symbol
+        );
+        const token2 = new Token(
+          chainId,
+          assets.get(targetAsset).address,
+          assets.get(targetAsset).decimals,
+          assets.get(targetAsset).symbol
+        );
+
+        const routerInstance = new ethers.Contract(AWINO_ROUTER_MAP[ChainId.TESTNET], AWINO_ROUTER_ABI, library);
+        const pair = await Fetcher.fetchPairData(token1, token2, library);
+
+        // console.log({ token1, token2 });
+        // console.log(`Calculating 'amountOutMin'`);
+        // console.log(
+        //   `>> amountOutMin: ${await routerInstance.getAmountOut(
+        //     BigNumber.from(sourceValue).mul(BigNumber.from(10).pow(assets.get(sourceAsset).decimals)),
+        //     943466664,
+        //     1108592818
+        //   )}`
+        // );
+
+        const route = await new Route([pair], token2); // a fully specified path from input token to output token
+        const trade = new Trade(
+          route,
+          new TokenAmount(
+            token2,
+            BigNumber.from(sourceValue)
+              .mul(BigNumber.from(10).pow(assets.get(sourceAsset).decimals))
+              .toString()
+          ),
+          TradeType.EXACT_INPUT
+        ); //information necessary to create a swap transaction.
+
+        console.log({ pair, input: trade.inputAmount.toFixed(), output: trade.outputAmount.toFixed() });
+
+        setTargetValue(trade.outputAmount.toFixed());
         setInfo({
-          minimumReceived: 0.9907,
-          priceImpact: '<0.01%',
-          liquidityProviderFee: 0.005991,
-          route: `${sourceAsset} CRE USDC ${targetAsset}`,
+          minimumReceived: trade.outputAmount.toFixed(),
+          priceImpact: '<0.01%', // @TODO
+          liquidityProviderFee: 0.03,
+          route: `${route.path.map((i) => i.symbol).join('-')}`,
         });
-      }, 400);
+
+        setSourceValue(0);
+      };
+
+      fetch();
+
+      // setTimeout(() => {
+      //   setInfo({
+      //     minimumReceived: 0.9907,
+      //     priceImpact: '<0.01%',
+      //     liquidityProviderFee: 0.005991,
+      //     route: `${sourceAsset} CRE USDC ${targetAsset}`,
+      //   });
+      // }, 400);
     }
-  }, [sourceAsset, targetAsset]);
+  }, [sourceAsset, targetAsset, sourceValue, slippageTolerance]);
 
   useEffect(() => {
     setCanExecute(sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset);
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
-  // @TODO metamask -> approve -> send transaction
-  // @TODO loading state
-  // @TODO check pool's ratio
-  const handleExecute = useCallback(() => {
+  // Get 'source' balance and set it to 'sourceMaxValue'
+  useEffect(() => {
+    setSourceMaxValue(null);
+    if (sourceAsset) {
+      const { address, decimals } = assets.get(sourceAsset);
+
+      // @DEBUG
+      console.log({ address, decimals });
+
+      const fetchBalance = async () => {
+        const contract = new ethers.Contract(address, erc20AbiJson, library);
+        const balance = await contract.balanceOf(account);
+        setSourceMaxValue(BigNumber.from(balance).div(BigNumber.from(10).pow(decimals)).toString());
+      };
+
+      fetchBalance();
+      setSlippageTolerance(0.5);
+    }
+  }, [sourceAsset, account]);
+
+  // execute transaction
+  // check if allowance is enough. If it's not, ask for approval
+  const handleExecute = useCallback(async () => {
     if (sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset) {
+      const { address, decimals } = assets.get(sourceAsset);
+
       setExecuting(true);
-      setTimeout(() => {
+
+      // Check allowance. If allowance < 'sourceValue', ask approval
+      console.log(`AwinoRouterContractAddress: ${AWINO_ROUTER_MAP[chainId]}`);
+      const allowance = BigNumber.from(
+        await ERC20Common.allowance(address, account, AWINO_ROUTER_MAP[chainId], library)
+      ).div(BigNumber.from(10).pow(decimals));
+
+      // @DEBUG
+      console.log(
+        JSON.stringify({
+          amount: sourceValue.toString(),
+          allowance: allowance.toString(),
+          slippageTolerance: BigNumber.from(slippageTolerance * 100).toString(),
+        })
+      );
+
+      if (BigNumber.from(allowance).lt(sourceValue)) {
+        console.log(`>> Requesting approval for spending: ${BigNumber.from(sourceValue).sub(allowance)}`);
+
+        try {
+          // Approve
+          await ERC20Common.approve(
+            address,
+            AWINO_ROUTER_MAP[chainId],
+            allowance.add(BigNumber.from(sourceValue).sub(allowance).mul(BigNumber.from(10).pow(decimals))),
+            library
+          );
+        } catch (error) {
+          setExecuting(false);
+        }
+      }
+
+      // Execute
+      try {
+        const source = assets.get(sourceAsset);
+        const target = assets.get(targetAsset);
+
+        console.log({ source, target, slippageTolerance: BigNumber.from(slippageTolerance * 100).toString() });
+
+        // execute swap
+        await swapTokens(
+          chainId,
+          library,
+          source,
+          target,
+          BigNumber.from(sourceValue).mul(BigNumber.from(10).pow(decimals)),
+          (slippageTolerance * 100).toString()
+        );
+
         setExecuting(false);
-      }, 1000);
+      } catch (error) {
+        console.log(error);
+        setExecuting(false);
+      }
     }
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
@@ -303,7 +437,7 @@ const SwapPanel = (props: TabPanelProps) => {
   };
 
   const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
-    setSourceValue(`${(+newPercent / 100) * sourceMaxValue}`);
+    setSourceValue(`${(+newPercent / 100) * parseFloat(sourceMaxValue)}`);
   };
 
   // const handleTargetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -531,9 +665,7 @@ const SwapPanel = (props: TabPanelProps) => {
                   <LabelValue
                     id="minimumReceived"
                     className="AwiSwapPanel-infoLabelValue"
-                    value={formatAmount(info.liquidityProviderFee, {
-                      postfix: assets.get(sourceAsset as AssetKey).label,
-                    })}
+                    value={info.minimumReceived}
                     labelProps={{
                       children: t('swap-section.swap.minimum-received.title'),
                       tooltip: t('swap-section.swap.minimum-received.hint'),

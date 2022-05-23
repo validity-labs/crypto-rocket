@@ -136,7 +136,7 @@ const TokenItem = ({ item, type, callback, ...restOfProps }: TokenItemProps) => 
         <AssetIcons ids={assetIds} size="medium" />
         {label}
       </span>
-      <span>{value}</span>
+      {/* <span>{value}</span> // @TODO @FIXME disabled temporarily as i don't know what the value represents. */}
     </ButtonBase>
   );
 };

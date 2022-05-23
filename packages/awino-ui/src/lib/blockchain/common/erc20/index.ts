@@ -1,0 +1,32 @@
+import { ethers, BigNumber } from 'ethers';
+
+import { erc20AbiJson } from './abi/erc20';
+
+export const allowance = async (
+  contractAddress: string,
+  ownerAddress: string,
+  spenderAddress: string,
+  provider: ethers.providers.Web3Provider
+) => {
+  const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider);
+  let result = await contract.allowance(ownerAddress, spenderAddress);
+  console.log(`Allowance: ${result}`);
+  return result;
+};
+
+export const approve = async (
+  contractAddress: string,
+  spenderAddress: string,
+  amount: BigNumber,
+  provider: ethers.providers.Web3Provider
+) => {
+  const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider.getSigner());
+  let tx = await contract.approve(spenderAddress, amount);
+  // @TODO wait for confirmation
+  console.log(`Contract "Approve" operation successful.`);
+};
+
+export const getBalance = async (contractAddress: string, owner: string, provider): Promise<BigNumber> => {
+  const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider);
+  return await contract.balanceOf(owner);
+};

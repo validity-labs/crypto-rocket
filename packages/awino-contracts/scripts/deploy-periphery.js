@@ -13,10 +13,14 @@ async function deploy() {
   // console.log(`WRO deployed to : ${wcroInstance.address}`);
 
   //Deploy Router passing Factory Address and WCRO Address
-  const router = await ethers.getContractFactory("UniswapV2Router02");
+  const router = await ethers.getContractFactory("AwinoRouter");
   const routerInstance = await router.deploy(
-    "0x5216e93a2Baf9d86fF0ddfb70c9DeA930AbFA743",
-    "0xa6fa4fb5f76172d178d61b04b0ecd319c5d1c0aa"
+    process.env.AWINO_FACTORY_CONTRACT_ADDRESS
+      ? process.env.AWINO_FACTORY_CONTRACT_ADDRESS
+      : "0xbEAea7b8eE6555902C0D8d461D31E6bCf862a4b0",
+    process.env.WCRO_CONTRACT_ADDRESS
+      ? process.env.WCRO_CONTRACT_ADDRESS
+      : "0xEDc0B1d201c5d012F291A159A58BAA430c9a29e3"
   );
   await routerInstance.deployed();
 
@@ -29,7 +33,7 @@ async function deploy() {
 
   console.log(`Multicall deployed to : ${multicallInstance.address}`);
 
-  const awinoERC20 = await ethers.getContractFactory("UniswapV2ERC20");
+  const awinoERC20 = await ethers.getContractFactory("AwinoERC20");
   const awinoERC20Instance = await awinoERC20.deploy();
   await awinoERC20Instance.deployed();
   console.log(`Awino ERC20 deployed to : ${awinoERC20Instance.address}`);

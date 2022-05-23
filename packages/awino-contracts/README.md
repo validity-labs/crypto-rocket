@@ -60,10 +60,22 @@ npx hardhat run ./scripts/deploy-factory.js --network $NETWORK
 If the smart contracts will be deployed on a different network that `ethereum mainnet`:
 
 - Copy the `INIT_CODE_PAIR_HASH` from the output of the `deploy-factory` script.
-- Replace the hex number in `/contracts/exchange/periphery/libraries/UniswapV2Library.sol#37` without the `0x`
+- Replace the hex number in `/contracts/exchange/periphery/libraries/AwinoLibrary.sol#37` without the `0x`
 
 Continue with the deployment of the `Router` & `AWINO` contracts:
 
+Set the address of the factory and WCRO contracts as environment variable:
+
+```bash
+# copy the value from the output of the 'deploy-factory' script
+export AWINO_FACTORY_CONTRACT_ADDRESS=
+
+# value of the deployed contract on the particular network
+export WCRO_CONTRACT_ADDRESS=
 ```
+
 npx hardhat run ./scripts/deploy-periphery.js --network $NETWORK
+
+```
+
 ```

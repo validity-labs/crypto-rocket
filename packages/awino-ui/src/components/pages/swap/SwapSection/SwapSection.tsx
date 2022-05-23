@@ -7,6 +7,7 @@ import SwapIcon from '@/components/icons/SwapIcon';
 import ZapIcon from '@/components/icons/ZapIcon';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { fetchTokens } from '@/lib/blockchain';
 import { tabA11yProps } from '@/lib/helpers';
 import { AssetKey, PairedAssetKey } from '@/types/app';
 
@@ -86,6 +87,8 @@ export interface AssetInfo {
   common: boolean;
   value: number;
   assets?: AssetKey[];
+  address: string;
+  decimals: number;
 }
 
 export type AssetInfoMap = Map<AssetKey | PairedAssetKey, AssetInfo>;
@@ -97,28 +100,53 @@ export default function SwapSection() {
   const [assetPairs, setAssetPairs] = useState<AssetInfoMap>(new Map());
 
   useEffect(() => {
-    const fakeAssets: AssetInfo[] = [
-      { id: 'dai', label: 'DAI', common: true, value: 10 },
-      { id: 'usdt', label: 'USDT', common: true, value: 10 },
-      { id: 'usdc', label: 'USDC', common: true, value: 10 },
-      { id: 'eth', label: 'ETH', common: false, value: 10 },
-      { id: 'link', label: 'LINK', common: false, value: 10 },
-    ];
+    // const fakeAssets: AssetInfo[] = [
+    //   { id: 'dai', label: 'DAI', common: true, value: 10 },
+    //   { id: 'usdt', label: 'USDT', common: true, value: 10 },
+    //   { id: 'usdc', label: 'USDC', common: true, value: 10 },
+    //   { id: 'eth', label: 'ETH', common: false, value: 10 },
+    //   { id: 'link', label: 'LINK', common: false, value: 10 },
+    // ];
 
     const fakeAssetPairs: AssetInfo[] = [
-      { id: 'awi-dai', assets: ['awi', 'dai'], label: 'AWI/DAI', common: true, value: 10 },
-      { id: 'awi-usdt', assets: ['awi', 'usdt'], label: 'AWI/USDT', common: true, value: 10 },
-      { id: 'awi-usdc', assets: ['awi', 'usdc'], label: 'AWI/USDC', common: true, value: 10 },
-      { id: 'awi-eth', assets: ['awi', 'eth'], label: 'AWI/ETH', common: false, value: 10 },
-      { id: 'awi-link', assets: ['awi', 'link'], label: 'AWI/LINK', common: false, value: 10 },
+      { id: 'awi-dai', assets: ['awi', 'dai'], label: 'AWI/DAI', common: true, value: 10, address: '', decimals: 18 },
+      {
+        id: 'awi-usdt',
+        assets: ['awi', 'usdt'],
+        label: 'AWI/USDT',
+        common: true,
+        value: 10,
+        address: '',
+        decimals: 18,
+      },
+      {
+        id: 'awi-usdc',
+        assets: ['awi', 'usdc'],
+        label: 'AWI/USDC',
+        common: true,
+        value: 10,
+        address: '',
+        decimals: 18,
+      },
+      { id: 'awi-eth', assets: ['awi', 'eth'], label: 'AWI/ETH', common: false, value: 10, address: '', decimals: 18 },
+      {
+        id: 'awi-link',
+        assets: ['awi', 'link'],
+        label: 'AWI/LINK',
+        common: false,
+        value: 10,
+        address: '',
+        decimals: 18,
+      },
     ];
 
-    // @TODO @REPLACE fetch the metadata of the supported tokens
-    setTimeout(() => {
-      setAssets(new Map(fakeAssets.map((m) => [m.id, m])));
-      setAssetPairs(new Map(fakeAssetPairs.map((m) => [m.id, m])));
+    const fetch = async () => {
+      const tokens = await fetchTokens();
+      setAssets(new Map(tokens.map((token) => [token.id, token])));
       setLoading(false);
-    }, 2000);
+    };
+
+    fetch();
   }, []);
 
   const [tab, setTab] = React.useState(0);

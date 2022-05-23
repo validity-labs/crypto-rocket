@@ -64,13 +64,13 @@ export interface RowsState {
 export type ID = string;
 
 export type Address = string;
-export type TokenAsset = 'awi' | 'infinite' | 'wealth';
-export type StableCoinAsset = 'dai' | 'usdc' | 'usdt';
+export type TokenAsset = string;
+export type StableCoinAsset = strings;
 export type PoolAsset = any;
-export type AssetKey = TokenAsset | StableCoinAsset | 'ftm' | 'geistftm' | 'usd' | 'nusd' | 'eth' | 'link';
+export type AssetKey = string;
 
 // TODO make sure there is no item that has same asset key on both sides
-export type PairedAssetKey = `${AssetKey}-${AssetKey}`;
+export type PairedAssetKey = string;
 
 export interface ContractInfo {
   key: AssetKey;

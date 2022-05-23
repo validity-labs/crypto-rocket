@@ -15,17 +15,21 @@ import { WalletLinkConnector } from '@web3-react/walletlink-connector';
 const env = {
   RPC_URL_1: 'https://mainnet.infura.io/v3/84842078b09946638c03157f83405213',
   RPC_URL_4: 'https://rinkeby.infura.io/v3/84842078b09946638c03157f83405213',
+  RPC_URL_338: 'https://cronos-testnet-3.crypto.org:8545',
+  RPC_URL_80001: 'https://matic-mumbai.chainstacklabs.com',
 };
 // const POLLING_INTERVAL = 12000;
 const RPC_URLS: { [chainId: number]: string } = {
   1: env.RPC_URL_1 as string,
   4: env.RPC_URL_4 as string,
+  338: env.RPC_URL_338 as string,
+  80001: env.RPC_URL_338 as string,
 };
 
-export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42, 31337] });
+export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42, 31337, 80001, 338] });
 
 export const network = new NetworkConnector({
-  urls: { 1: RPC_URLS[1], 4: RPC_URLS[4] },
+  urls: { 1: RPC_URLS[1], 4: RPC_URLS[4], 338: RPC_URLS[338], 80001: RPC_URLS[80001] },
   defaultChainId: 1,
 });
 
@@ -39,7 +43,7 @@ export const walletconnect = new WalletConnectConnector({
 export const walletlink = new WalletLinkConnector({
   url: RPC_URLS[1],
   appName: 'web3-react example',
-  supportedChainIds: [1, 3, 4, 5, 42, 10, 137, 69, 420, 80001],
+  supportedChainIds: [1, 3, 4, 5, 42, 10, 137, 69, 420, 80001, 338],
 });
 
 // export const ledger = new LedgerConnector({ chainId: 1, url: RPC_URLS[1], pollingInterval: POLLING_INTERVAL });

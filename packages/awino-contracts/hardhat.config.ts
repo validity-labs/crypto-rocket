@@ -53,6 +53,15 @@ const config: HardhatUserConfig = {
           },
         },
       },
+      {
+        version: "0.8.4",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
     ],
   },
   networks: {
@@ -67,7 +76,7 @@ const config: HardhatUserConfig = {
         ? { mnemonic: process.env.MNEMONIC }
         : [process.env.PRIVATE_KEY!].filter(Boolean),
     },
-    cro: {
+    cronosTestnet: {
       url: process.env.CRO_NODE_URL || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],

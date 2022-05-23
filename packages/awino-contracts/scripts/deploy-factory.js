@@ -7,7 +7,7 @@ async function deploy() {
   console.log(`Deploying contracts using ${deployerAddress}`);
 
   //Deploy Factory
-  const factory = await ethers.getContractFactory("UniswapV2Factory");
+  const factory = await ethers.getContractFactory("AwinoFactory");
   const factoryInstance = await factory.deploy(deployerAddress);
   await factoryInstance.deployed();
 
