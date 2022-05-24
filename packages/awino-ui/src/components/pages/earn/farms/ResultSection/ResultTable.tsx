@@ -1,7 +1,5 @@
 import { useMemo } from 'react';
 
-import { useTranslation } from 'next-i18next';
-
 import { styled } from '@mui/material/styles';
 
 import { TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
@@ -19,8 +17,6 @@ const Root = styled('div')(({ theme }) => ({
   height: 888 /* 66 * 10 + 12 * 10 - 12 */,
   width: '100%',
   '.AwiResultTable-pair': {
-    // alignSelf: 'flex-start',
-    // margin: theme.spacing(0, 0, 2.5),
     fontWeight: 500,
     color: theme.palette.text.primary,
     textTransform: 'uppercase',
@@ -32,19 +28,7 @@ const Root = styled('div')(({ theme }) => ({
     fontSize: '14px',
     color: theme.palette.text.active,
   },
-  '.MuiTableContainer-root': {
-    maxHeight: 400,
-    margin: theme.spacing(0, 0, 11),
-  },
-  '.MuiTableHead-root .MuiTableCell-root': {
-    backgroundColor: 'unset',
-  },
-  '.MuiTableBody-root .MuiTableRow-root': {
-    borderTop: `1px solid ${theme.palette.divider} !important`,
-  },
   '.MuiDataGrid-row': {
-    // borderRadius: +theme.shape.borderRadius * 5,
-    // backgroundColor: theme.palette.background.transparent,
     backgroundColor: 'unset',
     '&:not(:last-child)': {
       margin: `0 !important`,
@@ -63,7 +47,6 @@ export default function ResultTable({ loading, onHarvest, onApprove, items }: Pr
   const columns = useMemo(() => {
     return getColumns(t);
   }, [t]);
-  const { t: tRaw } = useTranslation();
   return (
     <Root>
       <DataGrid
@@ -78,15 +61,8 @@ export default function ResultTable({ loading, onHarvest, onApprove, items }: Pr
         // rows
         rows={items}
         rowCount={items.length}
-        // // sorting
-        // sortingMode="server"
-        // sortModel={sortModel}
-        // onSortModelChange={handleSortModelChange}
         // pagination
         paginationMode="client"
-        // {...rowsState}
-        // onPageChange={(page) => setRowsState((prev) => ({ ...prev, page }))}
-        // onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
         components={{
           Pagination: GridPagination,
           Row: GridRow,
@@ -97,14 +73,6 @@ export default function ResultTable({ loading, onHarvest, onApprove, items }: Pr
             onHarvest,
           },
         }}
-        // localeText={{
-        //   columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
-        //   footerTotalVisibleRows: (visibleCount, totalCount) =>
-        //     t('common.table.rows-out-of', {
-        //       visibleCount: visibleCount.toLocaleString(),
-        //       totalCount: totalCount.toLocaleString() + '1',
-        //     }),
-        // }}
       />
     </Root>
   );

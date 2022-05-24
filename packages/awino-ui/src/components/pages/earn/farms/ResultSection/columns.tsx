@@ -1,13 +1,13 @@
 import { TFunction } from 'next-i18next';
 
-import { Box, Button, Tooltip, Typography } from '@mui/material';
+import { Box, Tooltip, Typography } from '@mui/material';
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
 import { SYMBOLS } from '@/app/constants';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import InfoIcon from '@/components/icons/InfoIcon';
 import AssetIcons from '@/components/pages/swap/SwapSection/AssetIcons';
-import { formatGridEmptyString, formatGridPercent, formatGridUSD, formatLPPair, formatPercent } from '@/lib/formatters';
+import { formatGridPercent, formatGridUSD, formatLPPair, formatPercent } from '@/lib/formatters';
 import { AssetKeyPair } from '@/types/app';
 
 const getColumns = (t: TFunction): GridColDef[] => {

@@ -124,7 +124,7 @@ export interface FarmDataItem {
   lpPrice: number;
 }
 
-export default function ResultSection(/* { total }: Props */) {
+export default function ResultSection() {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
   const { t: tRaw } = useTranslation();
   const [loading, setLoading] = useState(true);
@@ -226,6 +226,7 @@ export default function ResultSection(/* { total }: Props */) {
   const gridProps = useMemo(() => {
     return layout === 'grid' ? { md: 6, lg: 4 } : {};
   }, [layout]);
+
   return (
     <>
       <Root>
@@ -234,21 +235,18 @@ export default function ResultSection(/* { total }: Props */) {
           header={
             <>
               <div>
-                <Label id="earnDepositTitle" tooltip={t(`title-hint`)} variant="h4" component="h2" color="text.active">
+                <Label id="earnFarmsTitle" tooltip={t(`title-hint`)} variant="h4" component="h2" color="text.active">
                   {t('title')}
                 </Label>
                 <Typography>{t('description')}</Typography>
               </div>
               <div className="AwiPanel-headerAside">
                 <FormControlLabel
-                  // sx={{ ml: 0 }}
-
                   labelPlacement="top"
                   label={t('sort-by.title') as string}
                   control={<Select items={sortByItems} value={filters.sort} setValue={handleSortChange} />}
                 />
                 <FormControlLabel
-                  // sx={{ ml: 0 }}
                   labelPlacement="top"
                   label={t('search.title') as string}
                   control={<Search onSearch={handleSearchChange} placeholder={t('search.placeholder')} />}

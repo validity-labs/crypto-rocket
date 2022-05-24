@@ -1,7 +1,5 @@
 import { useCallback, useState } from 'react';
 
-import { useTranslation } from 'next-i18next';
-
 import { Box, Button, Collapse, Tooltip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -46,10 +44,6 @@ const Root = styled('div')(({ theme }) => ({
     textTransform: 'uppercase',
   },
   '.AwiResultCard-proportion': {
-    // margin: theme.spacing(0, 0, 2.5),
-    // fontWeight: 600,
-    // color: theme.palette.text.primary,
-    // textTransform: 'uppercase',
     '.AwiLabel-help svg': {
       fontSize: '22px',
     },
@@ -114,7 +108,6 @@ interface Props {
 
 export default function ResultCard({ item, onHarvest, onApprove }: Props) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
-  const { t: tRaw } = useTranslation();
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const handleDetailsToggle = useCallback(
     () => setIsDetailExpanded((prevIsDetailExpanded) => !prevIsDetailExpanded),

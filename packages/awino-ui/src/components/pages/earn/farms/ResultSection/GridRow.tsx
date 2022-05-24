@@ -73,7 +73,6 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
   const t = usePageTranslation({ keyPrefix: 'result-section' });
   // const apiRef = useGridApiContext();
   // const { setEditCellValue, commitCellChange, setCellMode } = apiRef.current;
-  // console.log(props);
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const handleDetailsToggle = useCallback(
     () => {
