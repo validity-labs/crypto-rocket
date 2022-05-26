@@ -142,3 +142,8 @@ export type StatsData = StatsDataItem[];
 
 type FormatterMethod = (a: any) => string;
 export type StatsFormatter = { value: FormatterMethod; subValues?: FormatterMethod[] };
+
+interface Option {
+  label: string;
+  value: string | number;
+}

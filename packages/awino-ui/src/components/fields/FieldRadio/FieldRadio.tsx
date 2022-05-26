@@ -43,6 +43,7 @@ interface Props extends RadioGroupProps {
   marginDense?: 'dense';
   placeholderValue?: string;
   icon?: never;
+  disabled?: boolean;
 }
 
 const FieldRadio = ({
@@ -50,6 +51,7 @@ const FieldRadio = ({
   label,
   options = [],
   required = false,
+  disabled = false,
   controlProps = {},
   labelProps = {},
   placeholder = '',
@@ -76,6 +78,7 @@ const FieldRadio = ({
             key={value}
             value={value}
             labelPlacement="bottom"
+            disabled={disabled}
             control={
               <Radio
                 inputProps={{

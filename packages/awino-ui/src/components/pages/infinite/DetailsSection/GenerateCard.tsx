@@ -20,6 +20,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import useSnack from '@/hooks/useSnack';
 import useYupLocales from '@/hooks/useYupLocales';
 import { formatAWI, formatDate } from '@/lib/formatters';
+import { Option } from '@/types/app';
 
 const Root = styled(Card)(({ theme }) => ({
   display: 'flex',
@@ -61,11 +62,6 @@ const getValidationSchema = (t: TFunction, { awinoBalance }: { awinoBalance: num
     lockUntil: Yup.number().oneOf(LOCK_UNTIL_VALUES).required().label(t('field.lockUntil.name')),
   }) as Yup.SchemaOf<Values>;
 };
-
-interface Option {
-  label: string;
-  value: string | number;
-}
 
 interface Values {
   amount: number;
