@@ -10,6 +10,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { tabA11yProps } from '@/lib/helpers';
 import { AssetKey, PairedAssetKey } from '@/types/app';
 
+import LiquidityPanel from './LiquidityPanel';
 import SwapPanel from './SwapPanel';
 import ZapPanel from './ZapPanel';
 
@@ -19,6 +20,9 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
   '& .MuiTabs-indicator': {
     display: 'none',
   },
+  '& .MuiTabs-flexContainer': {
+    gap: theme.spacing(5.5),
+  },
   '& .MuiTab-root': {
     minHeight: 'auto',
     padding: theme.spacing(5, 12),
@@ -26,7 +30,9 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
     ...theme.typography['body-md'],
     color: theme.palette.text.primary,
     textTransform: 'none',
+    border: `1px solid ${theme.palette.divider}`,
     '&.Mui-selected': {
+      border: '1px solid transparent',
       color: theme.palette.text.active,
       backgroundColor: theme.palette.background.transparent,
     },
@@ -131,10 +137,12 @@ export default function SwapSection() {
       <Tabs value={tab} onChange={handleTabChange} aria-label={t('swap-section.tabs-aria')} variant="scrollable">
         <Tab label={t('swap-section.swap.title')} icon={<SwapIcon />} iconPosition="end" {...tabA11yProps(id, 0)} />
         <Tab label={t('swap-section.zap.title')} icon={<ZapIcon />} iconPosition="end" {...tabA11yProps(id, 1)} />
+        <Tab label={t('swap-section.liquidity.title')} {...tabA11yProps(id, 2)} />
       </Tabs>
       <Panel>
         <SwapPanel id={id} value={tab} index={0} assets={assets} loading={loading} />
         <ZapPanel id={id} value={tab} index={1} sourceAssets={assets} targetAssets={assetPairs} loading={loading} />
+        <LiquidityPanel id={id} value={tab} index={2} assets={assets} loading={loading} />
       </Panel>
     </Section>
   );
