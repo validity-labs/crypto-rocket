@@ -1,12 +1,13 @@
 /* @ts-nocheck */
 import { showMessage } from '@/app/state/slices/app';
+import { BigNumber } from 'ethers';
 
 export const handleTransactionSubmit = () => {
   // TODO PROROTYPE
   let resError = 0;
 
-  return async (balance: number, setStep, dispatch, t, i18nKey) => {
-    if (!(balance > 0)) {
+  return async (balance: string, setStep, dispatch, t, i18nKey) => {
+    if (!BigNumber.from(balance).lt(0)) {
       setStep({ type: 'invalid' });
       return;
     }

@@ -6,6 +6,7 @@ import { GridValueFormatterParams } from '@mui/x-data-grid';
 
 import { DEFAULT_DATE_TIME_FORMAT } from '@/app/constants';
 import dateIO from '@/app/dateIO';
+import { ethers } from 'ethers';
 
 // import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORMAT } from './constants';
 
@@ -111,14 +112,9 @@ var ranges = [
   { divider: 1e3, suffix: 'k' },
 ];
 
-export const abbreviateNumber = (num: BigNumber | number) => {
-  let n = num;
-  if (typeof n === 'number') {
-    n = new BigNumber(num);
-  }
-  // if (n < 0) {
-  //   return '-' + formatNumber(-n);
-  // }
+export const abbreviateNumber = (num: string) => {
+  let n = new BigNumber(num);
+
   for (var i = 0; i < ranges.length; i++) {
     if (n.gte(ranges[i].divider)) {
       const suffix = ranges[i].suffix;
@@ -129,13 +125,13 @@ export const abbreviateNumber = (num: BigNumber | number) => {
   return { num: n, suffix: '' };
 };
 
-export const formatCurrency = (amount: BigNumber | number, currency: string) => {
+export const formatCurrency = (amount: string, currency: string) => {
   const { num, suffix } = abbreviateNumber(amount);
   return formatAmount(num, { /* prefix: '$', */ postfix: [suffix, currency].join(' ') });
 };
-export const formatUSD = (amount: BigNumber | number) => formatCurrency(amount, 'USD');
-export const formatAWI = (amount: BigNumber | number) => formatCurrency(amount, 'AWI');
-export const formatFTM = (amount: BigNumber | number) => formatCurrency(amount, 'FTM');
+export const formatUSD = (amount: BigNumber | number) => formatCurrency(amount.toString(), 'USD');
+export const formatAWI = (amount: string) => formatCurrency(amount, 'AWI');
+export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
 
 /**
  * Format value to have dash as default string if value missing

@@ -306,8 +306,6 @@ const SwapPanel = (props: TabPanelProps) => {
           liquidityProviderFee: 0.03,
           route: `${route.path.map((i) => i.symbol).join('-')}`,
         });
-
-        setSourceValue(0);
       };
 
       fetch();
@@ -404,6 +402,7 @@ const SwapPanel = (props: TabPanelProps) => {
         );
 
         setExecuting(false);
+        setSourceValue(0);
       } catch (error) {
         console.log(error);
         setExecuting(false);

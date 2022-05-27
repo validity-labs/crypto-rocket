@@ -13,6 +13,7 @@ import { etherscan } from '@/lib/helpers';
 
 import { handleTransactionSubmit } from '../../helpers';
 import { useTransaction } from '../../useTransaction';
+import BigNumber from 'bignumber.js';
 
 const Root = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -35,7 +36,7 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 interface Props {
-  balance: number;
+  balance: string;
 }
 
 export default function VestCard({ balance }: Props) {
@@ -50,7 +51,7 @@ export default function VestCard({ balance }: Props) {
     await handleTransaction(balance, setStep, dispatch, t, 'vest-card');
   }, [balance, setStep, dispatch, t, handleTransaction]);
 
-  const isDisabled = balance <= 0;
+  const isDisabled = new BigNumber(0).lte(0);
 
   return (
     <Root>

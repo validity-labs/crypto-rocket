@@ -14,6 +14,12 @@ import { etherscan } from '@/lib/helpers';
 
 import { handleTransactionSubmit } from '../../helpers';
 import { useTransaction } from '../../useTransaction';
+import { BigNumber, ethers } from 'ethers';
+import { AWINO_MASTER_CHEF_ADDRESS_MAP, AWINO_USDT_PAIR_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
+import { ChainId } from '@/lib/blockchain/awino-swap-sdk';
+import { useWeb3React } from '@web3-react/core';
+import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
+import * as ERC20Common from '@/lib/blockchain/common/erc20';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -71,7 +77,7 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 interface Props {
-  balance: number;
+  balance: string;
 }
 
 export default function StakeCard({ balance }: Props) {
@@ -81,6 +87,7 @@ export default function StakeCard({ balance }: Props) {
   const { isProcessing, isCompleted, isError, isValid, address, setStep } = useTransaction();
 
   const dispatch = useAppDispatch();
+  const { account, library, chainId } = useWeb3React();
 
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
@@ -89,7 +96,64 @@ export default function StakeCard({ balance }: Props) {
       setStep({ type: 'invalid' });
       return;
     }
-    await handleTransaction(balance, setStep, dispatch, t, 'stake-card');
+
+    // setExecuting(true);
+    // @TODO review.
+    // await handleTransaction(balance, setStep, dispatch, t, 'stake-card');
+
+    // @TODO @FIXME quick / temporary implementation
+    // Check allowance. If allowance < 'sourceValue', ask approval
+    const allowance = BigNumber.from(
+      await ERC20Common.allowance(
+        AWINO_USDT_PAIR_ADDRESS_MAP[chainId],
+        account,
+        AWINO_MASTER_CHEF_ADDRESS_MAP[chainId],
+        library
+      )
+    ).toString();
+
+    console.log(allowance, assetValue);
+
+    if (BigNumber.from(allowance).lt(ethers.utils.parseUnits(assetValue, 'ether'))) {
+      console.log(`>> Requesting approval for spending: ${ethers.utils.parseUnits(assetValue, 'ether')}`);
+
+      try {
+        // Approve
+        console.log(`approving...`);
+        await ERC20Common.approve(
+          AWINO_USDT_PAIR_ADDRESS_MAP[chainId],
+          AWINO_MASTER_CHEF_ADDRESS_MAP[chainId],
+          ethers.utils.parseUnits(assetValue, 'ether'),
+          library
+        );
+        // setExecuting(false);
+      } catch (error) {
+        console.error(error);
+        // setExecuting(false);
+      }
+    }
+
+    console.log({
+      allowance,
+      masterChef: AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET],
+      signer: (await library.getSigner()).getAddress(),
+    });
+
+    try {
+      // deposit to masterchef
+      let rawTx = await new ethers.Contract(
+        AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET],
+        IAwinoMasterChef,
+        await library.getSigner()
+      ).populateTransaction.deposit(0, ethers.utils.parseUnits(assetValue, 'ether')); // @TODO find a way to store the pid of each pool. @TODO would be possible to fetch the pids from the subgraph or should be a static map?
+
+      let tx = await library.getSigner().sendTransaction(rawTx);
+      await tx.wait(1);
+      // setExecuting(false);
+    } catch (error) {
+      console.error(error);
+    }
+    // await masterChef.populateTransaction()
   }, [assetValue, balance, setStep, dispatch, t, handleTransaction]);
 
   const handleAssetValueMax = () => {

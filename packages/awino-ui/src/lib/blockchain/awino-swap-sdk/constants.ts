@@ -40,6 +40,11 @@ export const AWINO_ROUTER_MAP = {
 
 export const AWINO_TOKEN_MAP = {
   [ChainId.MAINNET]: '',
+  [ChainId.TESTNET]: '0x32910bEe89ED7267E6Da2bbbB0DAC01C8b2186B8',
+};
+
+export const AWINO_ZAP_MAP = {
+  [ChainId.MAINNET]: '',
   [ChainId.TESTNET]: '0x2d059a8aFC6Ea61824A7B06CDf33ec7fd6e35354',
 };
 

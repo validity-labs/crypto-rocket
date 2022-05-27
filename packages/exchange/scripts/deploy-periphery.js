@@ -32,11 +32,6 @@ async function deploy() {
   await multicallInstance.deployed();
 
   console.log(`Multicall deployed to : ${multicallInstance.address}`);
-
-  const awinoERC20 = await ethers.getContractFactory("AwinoERC20");
-  const awinoERC20Instance = await awinoERC20.deploy();
-  await awinoERC20Instance.deployed();
-  console.log(`Awino ERC20 deployed to : ${awinoERC20Instance.address}`);
 }
 
 deploy()

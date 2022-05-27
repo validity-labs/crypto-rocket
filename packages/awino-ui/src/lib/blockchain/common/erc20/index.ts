@@ -22,6 +22,7 @@ export const approve = async (
 ) => {
   const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider.getSigner());
   let tx = await contract.approve(spenderAddress, amount);
+  await tx.wait(1);
   // @TODO wait for confirmation
   console.log(`Contract "Approve" operation successful.`);
 };

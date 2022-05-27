@@ -13,6 +13,11 @@ import { etherscan } from '@/lib/helpers';
 
 import { handleTransactionSubmit } from '../../helpers';
 import { useTransaction } from '../../useTransaction';
+import { BigNumber, ethers } from 'ethers';
+import { AWINO_MASTER_CHEF_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
+import { ChainId } from '@/lib/blockchain/awino-swap-sdk';
+import { useWeb3React } from '@web3-react/core';
+import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 
 const Root = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -35,23 +40,39 @@ const Root = styled(Box)(({ theme }) => ({
 }));
 
 interface Props extends BoxProps {
-  balance: number;
+  balance: string;
 }
 
 export default function UnstakeCard({ balance, ...restOfProps }: Props) {
   const t = usePageTranslation();
   const { isProcessing, isCompleted, isError, isValid, address, setStep } = useTransaction();
+  const { account, library, chainId } = useWeb3React();
 
   const dispatch = useAppDispatch();
+  const isDisabled = BigNumber.from(ethers.utils.parseUnits(balance, 'ether')).lte(0);
 
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
   const handleSubmit = useCallback(async () => {
-    await handleTransaction(balance, setStep, dispatch, t, 'unstake-card');
+    // await handleTransaction(balance, setStep, dispatch, t, 'unstake-card');
+
+    try {
+      // deposit to masterchef
+      let rawTx = await new ethers.Contract(
+        AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET],
+        IAwinoMasterChef,
+        await library.getSigner()
+      ).populateTransaction.withdraw(0, ethers.utils.parseUnits(balance, 'ether')); // @TODO find a way to store the pid of each pool. @TODO would be possible to fetch the pids from the subgraph or should be a static map?
+
+      let tx = await library.getSigner().sendTransaction(rawTx);
+      await tx.wait(1);
+      // setExecuting(false);
+    } catch (error) {
+      console.error(error);
+    }
   }, [balance, setStep, dispatch, t, handleTransaction]);
 
-  const isDisabled = balance <= 0;
-
+  console.log({ isDisabled });
   return (
     <Root {...restOfProps}>
       <div className="AwiUnstakeCard-balance">
