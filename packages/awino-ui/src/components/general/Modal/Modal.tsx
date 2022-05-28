@@ -31,7 +31,7 @@ const Root = styled(MuiModal)(({ theme }) => ({
     justifyContent: 'flex-start',
     width: '100%',
     maxHeight: '100%',
-    paddingBottom: theme.spacing(5),
+    // paddingBottom: theme.spacing(5),
     border: `1px solid ${theme.palette.text.active}`,
     borderRadius: +theme.shape.borderRadius,
     backgroundColor: theme.palette.background.light,
@@ -82,9 +82,9 @@ const Root = styled(MuiModal)(({ theme }) => ({
   },
 }));
 
-interface Props extends Omit<ModalProps, 'children' | 'onClose'> {
+interface Props extends Omit<ModalProps, 'children' | 'onClose' | 'title'> {
   id: string;
-  title: string;
+  title: React.ReactNode;
   titleTooltip?: string;
   children: React.ReactNode;
   close: () => void;

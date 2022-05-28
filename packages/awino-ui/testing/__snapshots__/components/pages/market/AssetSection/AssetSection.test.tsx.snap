@@ -48,7 +48,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 market:asset-section.platform.total-fee
                 <span
                   aria-label="market:asset-section.platform.total-fee-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg

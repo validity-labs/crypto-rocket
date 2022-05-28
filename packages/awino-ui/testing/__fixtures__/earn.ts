@@ -65,6 +65,9 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
   },
   {
     id: 'usdt-awi',
@@ -84,6 +87,9 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
   },
   {
     id: 'nusd-awi',
@@ -103,6 +109,9 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
   },
   {
     id: 'eth-awi',
@@ -122,5 +131,8 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
   },
 ];

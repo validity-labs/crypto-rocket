@@ -26,7 +26,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 borrow-details:asset-section.title
                 <span
                   aria-label="borrow-details:asset-section.title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg

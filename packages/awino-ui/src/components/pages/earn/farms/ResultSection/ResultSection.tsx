@@ -20,6 +20,7 @@ import { AssetKeyPair } from '@/types/app';
 
 import ResultCard from './ResultCard';
 import ResultTable from './ResultTable';
+import StakeModal, { StakeModalData } from './StakeModal';
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiSearch-root': {
@@ -122,6 +123,9 @@ export interface FarmDataItem {
   depositFee: number;
   boostFactor: number;
   lpPrice: number;
+  stakedAmount: number;
+  walletAmount: number;
+  walletAmountUSD: number;
 }
 
 export default function ResultSection() {
@@ -137,6 +141,7 @@ export default function ResultSection() {
     search: null,
   });
   const [layout, setLayout] = useState<LayoutKey>('grid');
+  const [stakeModal, setStakeModal] = useState<StakeModalData | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -218,11 +223,15 @@ export default function ResultSection() {
     console.log('handleHarvest', pair);
   }, []);
 
-  const handleApprove = useCallback((pair: AssetKeyPair) => {
+  const handleStake = useCallback((stakeData: StakeModalData) => {
+    setStakeModal(stakeData);
     // TODO implement approve logic
-    console.log('handleApprove', pair);
+    console.log('handleStake', stakeData);
   }, []);
 
+  const handleUnstake = useCallback((pair: AssetKeyPair) => {
+    console.log('handleUnstake', pair);
+  }, []);
   const gridProps = useMemo(() => {
     return layout === 'grid' ? { md: 6, lg: 4 } : {};
   }, [layout]);
@@ -311,7 +320,12 @@ export default function ResultSection() {
                 <Grid key={record.id} item xs={12} {...gridProps}>
                   <Slide in appear direction="up">
                     <div>
-                      <ResultCard item={record} onHarvest={handleHarvest} onApprove={handleApprove} />
+                      <ResultCard
+                        item={record}
+                        onHarvest={handleHarvest}
+                        onStake={handleStake}
+                        onUnstake={handleUnstake}
+                      />
                     </div>
                   </Slide>
                 </Grid>
@@ -322,10 +336,14 @@ export default function ResultSection() {
               items={filteredRecords}
               loading={loading}
               onHarvest={handleHarvest}
-              onApprove={handleApprove}
+              onStake={handleStake}
+              onUnstake={handleUnstake}
             />
           ))}
       </Root>
+      {!!stakeModal && (
+        <StakeModal open={!!stakeModal} close={() => setStakeModal(null)} data={stakeModal} callback={() => {}} />
+      )}
     </>
   );
 }

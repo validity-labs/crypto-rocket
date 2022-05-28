@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AssetSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+    >
+      <div
+        class="AwiResultSection-filters AwiPanel-root MuiBox-root css-2"
+      >
+        <div
+          class="AwiPanel-header header"
+        >
+          <div>
+            <h2
+              class="MuiTypography-root MuiTypography-h4 AwiLabel-root css-3"
+              id="earnFarmsTitle"
+            >
+              earn-farms:title
+              <span
+                aria-label="earn-farms:title-hint"
+                class="AwiLabel-help"
+                data-mui-internal-clone-element="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                    id="Pfad_2253"
+                  />
+                  <path
+                    d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                  />
+                  <path
+                    d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                  />
+                </svg>
+              </span>
+            </h2>
+            <p
+              class="MuiTypography-root MuiTypography-body css-5"
+            >
+              earn-farms:description
+            </p>
+          </div>
+          <div
+            class="AwiPanel-headerAside"
+          >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementTop css-6"
+            >
+              <div
+                class="MuiFormControl-root MuiBox-root css-7"
+              >
+                <div
+                  aria-label=""
+                  class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-8"
+                >
+                  <div
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby="demo-simple-select"
+                    class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input css-9"
+                    id="demo-simple-select"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body MuiSelect-value css-5"
+                    >
+                      earn-farms:sort-by.value.emissions
+                    </p>
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    class="MuiSelect-nativeInput css-11"
+                    tabindex="-1"
+                    value="emissions"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-12"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-5"
+              >
+                earn-farms:sort-by.title
+              </span>
+            </label>
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementTop css-6"
+            >
+              <form
+                autocomplete="off"
+                class="AwiSearch-root css-15"
+                data-testid="SearchForm"
+                novalidate=""
+              >
+                <div
+                  class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-16"
+                >
+                  <input
+                    class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-17"
+                    placeholder="earn-farms:search.placeholder"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-18"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
+                      />
+                      <path
+                        d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-20"
+                    />
+                  </button>
+                </div>
+              </form>
+              <span
+                class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-5"
+              >
+                earn-farms:search.title
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="AwiPanel-content content"
+        >
+          <div
+            aria-label="earn-farms:type.title"
+            class="MuiToggleButtonGroup-root AwiResultSection-typeGroup css-22"
+            role="group"
+          >
+            <button
+              aria-pressed="true"
+              class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              tabindex="0"
+              type="button"
+              value="all"
+            >
+              earn-farms:type.value.all
+              <span
+                class="MuiTouchRipple-root css-20"
+              />
+            </button>
+            <button
+              aria-pressed="false"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              tabindex="0"
+              type="button"
+              value="standard"
+            >
+              earn-farms:type.value.standard
+              <span
+                class="MuiTouchRipple-root css-20"
+              />
+            </button>
+            <button
+              aria-pressed="false"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              tabindex="0"
+              type="button"
+              value="boosted"
+            >
+              earn-farms:type.value.boosted
+              <span
+                class="MuiTouchRipple-root css-20"
+              />
+            </button>
+            <button
+              aria-pressed="false"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              tabindex="0"
+              type="button"
+              value="winawi"
+            >
+              earn-farms:type.value.winawi
+              <span
+                class="MuiTouchRipple-root css-20"
+              />
+            </button>
+          </div>
+          <div
+            class="AwiResultSection-toggle"
+          >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-31"
+            >
+              <span
+                class="MuiSwitch-root MuiSwitch-sizeMedium css-32"
+              >
+                <span
+                  class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-33"
+                >
+                  <input
+                    aria-label="controlled"
+                    class="MuiSwitch-input PrivateSwitchBase-input css-34"
+                    type="checkbox"
+                  />
+                  <span
+                    class="MuiSwitch-thumb css-35"
+                  />
+                </span>
+                <span
+                  class="MuiSwitch-track css-36"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-5"
+              >
+                earn-farms:staked-only
+              </span>
+            </label>
+          </div>
+          <div
+            class="AwiResultSection-toggle"
+          >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-31"
+            >
+              <span
+                class="MuiSwitch-root MuiSwitch-sizeMedium css-32"
+              >
+                <span
+                  class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-33"
+                >
+                  <input
+                    aria-label="controlled"
+                    class="MuiSwitch-input PrivateSwitchBase-input css-34"
+                    type="checkbox"
+                  />
+                  <span
+                    class="MuiSwitch-thumb css-35"
+                  />
+                </span>
+                <span
+                  class="MuiSwitch-track css-36"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-5"
+              >
+                earn-farms:inactive-farms
+              </span>
+            </label>
+          </div>
+          <div
+            aria-label="earn-farms:layout.title"
+            class="MuiToggleButtonGroup-root css-22"
+            role="group"
+          >
+            <button
+              aria-pressed="true"
+              class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+              tabindex="0"
+              title="earn-farms:layout.value.grid"
+              type="button"
+              value="grid"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
+                data-testid="ViewColumnRoundedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.67 6v12c0 .55-.45 1-1 1h-3.33c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h3.33c.55 0 1 .45 1 1zm2 13H20c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1h-3.33c-.55 0-1 .45-1 1v12c0 .55.44 1 1 1zm-8.34-1V6c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h3.33c.56 0 1-.45 1-1z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-20"
+              />
+            </button>
+            <button
+              aria-pressed="false"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+              tabindex="0"
+              title="earn-farms:layout.value.list"
+              type="button"
+              value="list"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
+                data-testid="TableRowsRoundedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 8H5c-1.1 0-2-.9-2-2s.9-2 2-2h14c1.1 0 2 .9 2 2s-.9 2-2 2zm0 2H5c-1.1 0-2 .9-2 2s.9 2 2 2h14c1.1 0 2-.9 2-2s-.9-2-2-2zm0 6H5c-1.1 0-2 .9-2 2s.9 2 2 2h14c1.1 0 2-.9 2-2s-.9-2-2-2z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-20"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <span
+        class="css-52"
+      >
+        <span
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-53"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg css-54"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-55"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </section>
+</DocumentFragment>
+`;

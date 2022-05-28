@@ -26,7 +26,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 earn-deposit-details:asset-section.title
                 <span
                   aria-label="earn-deposit-details:asset-section.title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -204,7 +204,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       earn-deposit-details:asset-section.maximum-ltv.title
                       <span
                         aria-label="earn-deposit-details:asset-section.maximum-ltv.hint"
-                        class="help"
+                        class="AwiLabel-help"
                         data-mui-internal-clone-element="true"
                       >
                         <svg
@@ -247,7 +247,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       earn-deposit-details:asset-section.threshold.title
                       <span
                         aria-label="earn-deposit-details:asset-section.threshold.hint"
-                        class="help"
+                        class="AwiLabel-help"
                         data-mui-internal-clone-element="true"
                       >
                         <svg
@@ -290,7 +290,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       earn-deposit-details:asset-section.penalty.title
                       <span
                         aria-label="earn-deposit-details:asset-section.penalty.hint"
-                        class="help"
+                        class="AwiLabel-help"
                         data-mui-internal-clone-element="true"
                       >
                         <svg

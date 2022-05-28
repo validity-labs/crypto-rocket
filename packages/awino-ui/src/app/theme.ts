@@ -285,6 +285,9 @@ const themeCreator = (mode: PaletteMode) => {
           display: flex;
           flex-direction: row;
           align-items: center;
+          &.Awi-between {
+            justify-content: space-between;
+          }
         }
         .Awi-column {
           display: flex;
