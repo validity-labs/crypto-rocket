@@ -17,7 +17,7 @@ import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import LoadingText from '@/components/general/LoadingText/LoadingText';
 import NumberInput from '@/components/inputs/NumberInput/NumberInput';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { getBalance } from '@/lib/blockchain/common/erc20';
+import { getBalance } from '@/lib/blockchain/erc20/utils';
 import { formatPercent, formatUSD } from '@/lib/formatters';
 import { etherscan, sleep } from '@/lib/helpers';
 import { AssetKey } from '@/types/app';

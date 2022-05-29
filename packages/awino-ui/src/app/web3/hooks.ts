@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
 
-import { erc20AbiJson } from '@/lib/blockchain/common/erc20/abi/erc20';
+import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 
 import { injected } from './connectors';
 
@@ -74,43 +74,4 @@ export function useInactiveListener(suppress: boolean = false) {
       };
     }
   }, [active, error, suppress, activate]);
-}
-
-export function useBalance(account: string) {
-  const { library } = useWeb3React();
-  const [balance, setBalance] = useState(0);
-
-  console.log(`account`);
-  console.log({ account });
-
-  useEffect(() => {
-    const fetchBalance = async () => {
-      const balance = await library?.getBalance(account);
-      setBalance(balance.toString());
-    };
-
-    fetchBalance();
-  }, [account, library]);
-
-  return balance;
-}
-
-export function useTokenBalance(contractAddress: string, account: string) {
-  const { library } = useWeb3React();
-  const [balance, setBalance] = useState(0);
-
-  console.log(`account`);
-  console.log({ account });
-
-  useEffect(() => {
-    const fetchBalance = async () => {
-      const contract = new ethers.Contract(contractAddress, erc20AbiJson, library);
-      const balance = await contract.balanceOf(account);
-      setBalance(balance.toString());
-    };
-
-    fetchBalance();
-  }, [contractAddress, account, library]);
-
-  return balance;
 }

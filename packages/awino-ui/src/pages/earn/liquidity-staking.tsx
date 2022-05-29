@@ -1,3 +1,11 @@
+import React, { useEffect, useState } from 'react';
+
+import { NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+import { useWeb3React } from '@web3-react/core';
+import { ethers } from 'ethers';
+
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
@@ -9,17 +17,12 @@ import OperationSection, {
   LiquidityStakingOperationBalance as OperationBalance,
 } from '@/components/pages/earn/liquidity-staking/OperationSection/OperationSection';
 import { earnLiquidityStakingDetails, earnLiquidityStakingStats } from '@/fixtures/earn';
-import { ChainId } from '@/lib/blockchain/awino-swap-sdk';
-import { erc20AbiJson } from '@/lib/blockchain/common/erc20/abi/erc20';
+import { ChainId } from '@/lib/blockchain/common';
+import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 import { AWINO_MASTER_CHEF_ADDRESS_MAP, AWINO_USDT_PAIR_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
+import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 import { sleep } from '@/lib/helpers';
 import { StatsData } from '@/types/app';
-import { useWeb3React } from '@web3-react/core';
-import { BigNumber, ethers } from 'ethers';
-import { NextPage } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React, { useEffect, useState } from 'react';
-import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 
 const EarnLiquidityStakingPage: NextPage = () => {
   const { account, library, chainId, connector } = useWeb3React();
@@ -70,7 +73,7 @@ const EarnLiquidityStakingPage: NextPage = () => {
     fetchBalance();
     fetchStakedBalance();
     setLoading(false);
-  }, [account]);
+  }, [account, library]);
 
   console.log({ balance, stakedBalance });
   return (

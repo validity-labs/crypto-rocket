@@ -1,5 +1,8 @@
 import React, { useCallback, useMemo, useReducer, useState } from 'react';
 
+import { useWeb3React } from '@web3-react/core';
+import { BigNumber, ethers } from 'ethers';
+
 import { Button, FormControl, FormHelperText, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -9,17 +12,15 @@ import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import SwappingImage from '@/components/general/SwappingImage/SwappingImage';
 import NumberInput from '@/components/inputs/NumberInput/NumberInput';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { ChainId } from '@/lib/blockchain/common';
+import * as ERC20Common from '@/lib/blockchain/erc20';
+import { AWINO_MASTER_CHEF_ADDRESS_MAP, AWINO_USDT_PAIR_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
+import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 import { formatAWI } from '@/lib/formatters';
 import { etherscan } from '@/lib/helpers';
 
 import { handleTransactionSubmit } from '../../helpers';
 import { useTransaction } from '../../useTransaction';
-import { BigNumber, ethers } from 'ethers';
-import { AWINO_MASTER_CHEF_ADDRESS_MAP, AWINO_USDT_PAIR_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
-import { ChainId } from '@/lib/blockchain/awino-swap-sdk';
-import { useWeb3React } from '@web3-react/core';
-import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
-import * as ERC20Common from '@/lib/blockchain/common/erc20';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',

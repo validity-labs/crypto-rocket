@@ -1,4 +1,4 @@
-import { ChainId } from '../awino-swap-sdk';
+import { ChainId } from '../common/constants';
 
 export const AWINO_USDT_PAIR_ADDRESS_MAP = {
   [ChainId.MAINNET]: '',

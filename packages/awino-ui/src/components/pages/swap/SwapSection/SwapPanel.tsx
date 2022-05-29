@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { useWeb3React } from '@web3-react/core';
+import BigNumber from 'bignumber.js';
 import clsx from 'clsx';
-import { BigNumber, ethers } from 'ethers';
+import { ethers } from 'ethers';
 
 import {
   Button,
@@ -24,12 +25,12 @@ import ExpandIcon from '@/components/icons/ExpandIcon';
 import GearIcon from '@/components/icons/GearIcon';
 import ReloadIcon from '@/components/icons/ReloadIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { Fetcher, Route, Token, TokenAmount, Trade } from '@/lib/blockchain/awino-swap-sdk';
-import AWINO_ROUTER_ABI from '@/lib/blockchain/awino-swap-sdk/abis/IAwinoRouter.json';
-import { AWINO_ROUTER_MAP, ChainId, TradeType } from '@/lib/blockchain/awino-swap-sdk/constants';
-import { swapTokens } from '@/lib/blockchain/awino-swap-sdk/helpers';
-import * as ERC20Common from '@/lib/blockchain/common/erc20';
-import { erc20AbiJson } from '@/lib/blockchain/common/erc20/abi/erc20';
+import { ChainId } from '@/lib/blockchain/common';
+import { useTokenBalance, useAllowance } from '@/lib/blockchain/erc20';
+import * as ERC20Common from '@/lib/blockchain/erc20/utils';
+import { useAmountOut, useSwapInfo } from '@/lib/blockchain/exchange';
+import { AWINO_ROUTER_MAP } from '@/lib/blockchain/exchange';
+import { swapTokens } from '@/lib/blockchain/exchange/helpers';
 import { formatAmount, formatPercent } from '@/lib/formatters';
 import { AssetKey, ID } from '@/types/app';
 
@@ -71,19 +72,19 @@ const Root = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: +theme.shape.borderRadius * 6,
     padding: theme.spacing(11, 8, 12),
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 64,
-      height: 64,
-      background: 'url(/images/icons/swap-icon.svg) no-repeat',
-    },
+
     '&.Awi-active': {
       backgroundColor: 'rgba(0, 255, 186, 0.04)',
     },
+  },
+  '.AwiSwapPanel-switch-button': {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 64,
+    height: 64,
+    background: 'url(/images/icons/swap-icon.svg) no-repeat',
   },
   '.AwiSwapPanel-sourceAmountLabel, .AwiSwapPanel-targetAmountLabel': {
     display: 'flex',
@@ -227,188 +228,104 @@ const SwapPanel = (props: TabPanelProps) => {
   const [sourceAsset, setSourceAsset] = useState<AssetKey | ''>('');
   const [sourceValue, setSourceValue] = useState(null);
   const [targetAsset, setTargetAsset] = useState<AssetKey | ''>('');
-  const [targetValue, setTargetValue] = useState(null);
+
   const [canExecute, setCanExecute] = useState(false);
-  const [info, setInfo] = useState(null);
-  const [sourceMaxValue, setSourceMaxValue] = useState('0');
   const [settingsModal, setSettingsModal] = useState<SettingsModalData | null>(null);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
-  const [slippageTolerance, setSlippageTolerance] = useState(0);
+  const [slippageTolerance, setSlippageTolerance] = useState(0.5);
   const [sourcePriceValue, setSourcePriceValue] = useState(null);
   const { account, library, chainId, connector } = useWeb3React();
+  const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
+  const targetValue = useAmountOut(
+    assets.get(sourceAsset)?.address,
+    assets.get(targetAsset)?.address,
+    sourceValue,
+    AWINO_ROUTER_MAP[ChainId.TESTNET]
+  );
 
+  const allowance = useAllowance(assets.get(sourceAsset)?.address, account, AWINO_ROUTER_MAP[ChainId.TESTNET]);
+  const [hasEnoughAllowance, setHasEnoughAllowance] = useState(false);
+
+  const info = useSwapInfo(
+    assets.get(sourceAsset)?.address,
+    assets.get(targetAsset)?.address,
+    sourceValue,
+    AWINO_ROUTER_MAP[ChainId.TESTNET]
+  );
   const handleType = (event: React.MouseEvent<HTMLElement>, newType: TypeKeys) => {
     setType(newType);
     // setCanExecute((prev) => !prev);
   };
-  useEffect(() => {
-    if (targetAsset) setTargetValue(sourceValue || 0 * 2);
-  }, [sourceValue, targetAsset]);
-
-  useEffect(() => {
-    if (sourceAsset && targetAsset && sourceValue && sourceValue > 0) {
-      setInfo(null);
-      // @DEBUG
-      console.log(
-        JSON.stringify({
-          amount: sourceValue.toString(),
-          slippageTolerance: BigNumber.from(slippageTolerance * 100).toString(),
-        })
-      );
-
-      // Get amountOutMin, path, price impact
-      // @TODO create 'hook'
-      const fetch = async () => {
-        const token1 = new Token(
-          chainId,
-          assets.get(sourceAsset).address,
-          assets.get(sourceAsset).decimals,
-          assets.get(sourceAsset).symbol
-        );
-        const token2 = new Token(
-          chainId,
-          assets.get(targetAsset).address,
-          assets.get(targetAsset).decimals,
-          assets.get(targetAsset).symbol
-        );
-
-        const routerInstance = new ethers.Contract(AWINO_ROUTER_MAP[ChainId.TESTNET], AWINO_ROUTER_ABI, library);
-        const pair = await Fetcher.fetchPairData(token1, token2, library);
-
-        // console.log({ token1, token2 });
-        // console.log(`Calculating 'amountOutMin'`);
-        // console.log(
-        //   `>> amountOutMin: ${await routerInstance.getAmountOut(
-        //     BigNumber.from(sourceValue).mul(BigNumber.from(10).pow(assets.get(sourceAsset).decimals)),
-        //     943466664,
-        //     1108592818
-        //   )}`
-        // );
-
-        const route = await new Route([pair], token2); // a fully specified path from input token to output token
-        const trade = new Trade(
-          route,
-          new TokenAmount(
-            token2,
-            BigNumber.from(sourceValue)
-              .mul(BigNumber.from(10).pow(assets.get(sourceAsset).decimals))
-              .toString()
-          ),
-          TradeType.EXACT_INPUT
-        ); //information necessary to create a swap transaction.
-
-        console.log({ pair, input: trade.inputAmount.toFixed(), output: trade.outputAmount.toFixed() });
-
-        setTargetValue(trade.outputAmount.toFixed());
-        setInfo({
-          minimumReceived: trade.outputAmount.toFixed(),
-          priceImpact: '<0.01%', // @TODO
-          liquidityProviderFee: 0.03,
-          route: `${route.path.map((i) => i.symbol).join('-')}`,
-        });
-      };
-
-      fetch();
-
-      // setTimeout(() => {
-      //   setInfo({
-      //     minimumReceived: 0.9907,
-      //     priceImpact: '<0.01%',
-      //     liquidityProviderFee: 0.005991,
-      //     route: `${sourceAsset} CRE USDC ${targetAsset}`,
-      //   });
-      // }, 400);
-    }
-  }, [sourceAsset, targetAsset, sourceValue, slippageTolerance]);
 
   useEffect(() => {
     setCanExecute(sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset);
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
-  // Get 'source' balance and set it to 'sourceMaxValue'
+  /**
+   * Check if the 'allowance' for the 'Router' contract is enough. Set the flag accordingly.
+   */
   useEffect(() => {
-    setSourceMaxValue(null);
-    if (sourceAsset) {
-      const { address, decimals } = assets.get(sourceAsset);
-
-      // @DEBUG
-      console.log({ address, decimals });
-
-      const fetchBalance = async () => {
-        const contract = new ethers.Contract(address, erc20AbiJson, library);
-        const balance = await contract.balanceOf(account);
-        setSourceMaxValue(BigNumber.from(balance).div(BigNumber.from(10).pow(decimals)).toString());
-      };
-
-      fetchBalance();
-      setSlippageTolerance(0.5);
+    if (allowance && sourceValue && Number(allowance) >= Number(sourceValue)) {
+      setHasEnoughAllowance(true);
+    } else {
+      setHasEnoughAllowance(false);
     }
-  }, [sourceAsset, account]);
+  }, [allowance, sourceValue]);
 
-  // execute transaction
-  // check if allowance is enough. If it's not, ask for approval
+  /**
+   * Checks if the the 'Router' contract has enough permissions to transfer tokens
+   * on behalf of the user. If not, call 'approve', otherwise perform the 'swap'.
+   */
   const handleExecute = useCallback(async () => {
     if (sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset) {
       const { address, decimals } = assets.get(sourceAsset);
-
+      const signer = await library.getSigner();
       setExecuting(true);
 
-      // Check allowance. If allowance < 'sourceValue', ask approval
-      console.log(`AwinoRouterContractAddress: ${AWINO_ROUTER_MAP[chainId]}`);
-      const allowance = BigNumber.from(
-        await ERC20Common.allowance(address, account, AWINO_ROUTER_MAP[chainId], library)
-      ).div(BigNumber.from(10).pow(decimals));
-
-      // @DEBUG
-      console.log(
-        JSON.stringify({
-          amount: sourceValue.toString(),
-          allowance: allowance.toString(),
-          slippageTolerance: BigNumber.from(slippageTolerance * 100).toString(),
-        })
-      );
-
-      if (BigNumber.from(allowance).lt(sourceValue)) {
-        console.log(`>> Requesting approval for spending: ${BigNumber.from(sourceValue).sub(allowance)}`);
+      // Check allowance
+      if (!hasEnoughAllowance) {
+        console.log(`>> Requesting approval for spending: ${ethers.utils.parseUnits(sourceValue, decimals)}`);
 
         try {
           // Approve
           await ERC20Common.approve(
             address,
             AWINO_ROUTER_MAP[chainId],
-            allowance.add(BigNumber.from(sourceValue).sub(allowance).mul(BigNumber.from(10).pow(decimals))),
+            ethers.utils.parseUnits(sourceValue, decimals),
             library
           );
+          setHasEnoughAllowance(true);
         } catch (error) {
-          setExecuting(false);
+          console.error(`Approval from ${account} to ${AWINO_ROUTER_MAP[chainId]} failed.`);
+          console.error(error);
         }
       }
 
-      // Execute
+      // Execute swap
       try {
         const source = assets.get(sourceAsset);
         const target = assets.get(targetAsset);
 
-        console.log({ source, target, slippageTolerance: BigNumber.from(slippageTolerance * 100).toString() });
-
-        // execute swap
+        // @TODO 'slippageTolerance' is not used. Adjust calculations based on
+        // the selected slippageTolerance.
         await swapTokens(
-          chainId,
-          library,
-          source,
-          target,
-          BigNumber.from(sourceValue).mul(BigNumber.from(10).pow(decimals)),
-          (slippageTolerance * 100).toString()
+          assets.get(sourceAsset).address,
+          assets.get(targetAsset).address,
+          sourceValue,
+          AWINO_ROUTER_MAP[ChainId.TESTNET],
+          await signer.getAddress(),
+          signer
         );
 
         setExecuting(false);
+        setCanExecute(false);
         setSourceValue(0);
       } catch (error) {
         console.log(error);
         setExecuting(false);
       }
     }
-  }, [sourceAsset, targetAsset, sourceValue, targetValue]);
+  }, [sourceAsset, targetAsset, sourceValue, targetValue, assets, chainId, hasEnoughAllowance, account, library]);
 
   const validateSourceValue = useCallback(
     (newValue) => {
@@ -481,6 +398,15 @@ const SwapPanel = (props: TabPanelProps) => {
     }
   };
 
+  /**
+   * Switch source / target assets
+   */
+  const handleSwitch = () => {
+    const tSourceAsset = sourceAsset;
+    setSourceAsset(targetAsset);
+    setTargetAsset(tSourceAsset);
+  };
+
   return (
     <>
       <Root
@@ -508,12 +434,14 @@ const SwapPanel = (props: TabPanelProps) => {
               <GearIcon />
             </Button>
             <LoadingButton color="primary" onClick={handleExecute} disabled={!canExecute} loading={executing}>
-              {t('swap-section.swap.execute')}
+              {hasEnoughAllowance ? t('swap-section.swap.execute') : t('swap-section.swap.approve')}
             </LoadingButton>
           </div>
         </div>
         <div>
           <div className="AwiSwapSection-subPanel">
+            <Button variant="outlined" className="AwiSwapPanel-switch-button" onClick={handleSwitch}></Button>
+
             <Grid container>
               <Grid item xs={12} md={6}>
                 <div className="AwiSwapPanel-source">
@@ -544,7 +472,7 @@ const SwapPanel = (props: TabPanelProps) => {
                       {sourceAsset && sourceMaxValue && (
                         <span>
                           {t('swap-section.swap.max-of-asset', {
-                            value: sourceMaxValue,
+                            value: new BigNumber(sourceMaxValue).toFixed(3),
                             asset: assets.get(sourceAsset).label,
                           })}
                         </span>
@@ -597,6 +525,7 @@ const SwapPanel = (props: TabPanelProps) => {
                   )}
                 </div>
               </Grid>
+
               <Grid item xs={12} md={6}>
                 <div className={clsx('AwiSwapPanel-target', { 'Awi-active': canExecute })}>
                   <Button
@@ -664,7 +593,9 @@ const SwapPanel = (props: TabPanelProps) => {
                   <LabelValue
                     id="minimumReceived"
                     className="AwiSwapPanel-infoLabelValue"
-                    value={info.minimumReceived}
+                    value={formatAmount(Number(info.amountOut), {
+                      postfix: assets.get(targetAsset as AssetKey).label,
+                    })}
                     labelProps={{
                       children: t('swap-section.swap.minimum-received.title'),
                       tooltip: t('swap-section.swap.minimum-received.hint'),
@@ -674,7 +605,7 @@ const SwapPanel = (props: TabPanelProps) => {
                     id="priceImpact"
                     className="AwiSwapPanel-infoLabelValue"
                     sx={{ '&.label-value .value': { color: 'success.main' } }}
-                    value={info.priceImpact}
+                    value={`< ${info.priceImpact} %`}
                     labelProps={{
                       children: t('swap-section.swap.price-impact.title'),
                       tooltip: t('swap-section.swap.price-impact.hint'),
@@ -683,9 +614,7 @@ const SwapPanel = (props: TabPanelProps) => {
                   <LabelValue
                     id="liquidityProviderFee"
                     className="AwiSwapPanel-infoLabelValue"
-                    value={formatAmount(info.liquidityProviderFee, {
-                      postfix: assets.get(targetAsset as AssetKey).label,
-                    })}
+                    value={`${info.liquidityProviderFee} %`}
                     labelProps={{
                       children: t('swap-section.swap.liquidity-provider-fee.title'),
                       tooltip: t('swap-section.swap.liquidity-provider-fee.hint'),
@@ -694,7 +623,7 @@ const SwapPanel = (props: TabPanelProps) => {
                   <LabelValue
                     id="route"
                     className="AwiSwapPanel-infoLabelValue"
-                    value={info.route}
+                    value={`${info.route.join(' -> ')}`}
                     labelProps={{
                       children: t('swap-section.swap.route.title'),
                       tooltip: t('swap-section.swap.route.hint'),

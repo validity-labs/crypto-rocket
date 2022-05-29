@@ -68,6 +68,7 @@ export type TokenAsset = string;
 export type StableCoinAsset = strings;
 export type PoolAsset = any;
 export type AssetKey = string;
+export type AssetKeyPair = [string, string];
 
 // TODO make sure there is no item that has same asset key on both sides
 export type PairedAssetKey = string;

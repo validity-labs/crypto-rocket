@@ -112,7 +112,7 @@ var ranges = [
   { divider: 1e3, suffix: 'k' },
 ];
 
-export const abbreviateNumber = (num: string) => {
+export const abbreviateNumber = (num: string | number) => {
   let n = new BigNumber(num);
 
   for (var i = 0; i < ranges.length; i++) {
@@ -125,12 +125,12 @@ export const abbreviateNumber = (num: string) => {
   return { num: n, suffix: '' };
 };
 
-export const formatCurrency = (amount: string, currency: string) => {
+export const formatCurrency = (amount: string | number, currency: string) => {
   const { num, suffix } = abbreviateNumber(amount);
   return formatAmount(num, { /* prefix: '$', */ postfix: [suffix, currency].join(' ') });
 };
 export const formatUSD = (amount: BigNumber | number) => formatCurrency(amount.toString(), 'USD');
-export const formatAWI = (amount: string) => formatCurrency(amount, 'AWI');
+export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
 export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
 
 /**

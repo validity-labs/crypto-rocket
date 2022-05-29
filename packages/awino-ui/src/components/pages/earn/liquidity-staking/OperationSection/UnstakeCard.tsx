@@ -1,5 +1,8 @@
 import React, { useCallback, useMemo } from 'react';
 
+import { useWeb3React } from '@web3-react/core';
+import { BigNumber, ethers } from 'ethers';
+
 import { Box, BoxProps, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -8,16 +11,14 @@ import ExternalLink from '@/components/general/Link/ExternalLink';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import SwappingImage from '@/components/general/SwappingImage/SwappingImage';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { ChainId } from '@/lib/blockchain/common';
+import { AWINO_MASTER_CHEF_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
+import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 import { formatAWI } from '@/lib/formatters';
 import { etherscan } from '@/lib/helpers';
 
 import { handleTransactionSubmit } from '../../helpers';
 import { useTransaction } from '../../useTransaction';
-import { BigNumber, ethers } from 'ethers';
-import { AWINO_MASTER_CHEF_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
-import { ChainId } from '@/lib/blockchain/awino-swap-sdk';
-import { useWeb3React } from '@web3-react/core';
-import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 
 const Root = styled(Box)(({ theme }) => ({
   display: 'flex',

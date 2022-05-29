@@ -1,12 +1,9 @@
 import JSBI from 'jsbi';
 
+import { ChainId } from '../common/constants';
+
 // exports for external consumption
 export type BigintIsh = JSBI | number | string;
-
-export enum ChainId {
-  MAINNET = 25,
-  TESTNET = 338,
-}
 
 export enum TradeType {
   EXACT_INPUT,
@@ -49,6 +46,8 @@ export const AWINO_ZAP_MAP = {
 };
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000);
+
+export const LIQUIDITY_PROVIDER_FEE = 2.5;
 
 // exports for internal consumption
 export const ZERO = JSBI.BigInt(0);

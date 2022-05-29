@@ -12,6 +12,7 @@
       "limit": "Limit",
       "trading-type-hint": "MISSING TEXT",
       "execute": "Execute swap",
+      "approve": "Approve swap",
       "choose-token": "Choose token",
       "you-pay": "You pay",
       "you-receive": "You receive",
