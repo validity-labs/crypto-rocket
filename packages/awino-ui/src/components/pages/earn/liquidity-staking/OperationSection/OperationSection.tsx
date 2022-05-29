@@ -13,8 +13,8 @@ export interface LiquidityStakingOperationBalance {
 }
 interface Props {
   balance: LiquidityStakingOperationBalance;
-  stakedBalance: LiquidityStakingOperationBalance;
-  vestedBalance: LiquidityStakingOperationBalance;
+  stakedBalance?: LiquidityStakingOperationBalance;
+  vestedBalance?: LiquidityStakingOperationBalance;
 }
 
 export default function OperationSection({ balance, stakedBalance, vestedBalance }: Props) {
@@ -25,8 +25,8 @@ export default function OperationSection({ balance, stakedBalance, vestedBalance
           <StakeCard balance={balance.awi} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <UnstakeCard balance={stakedBalance.awi} mb={8} />
-          <VestCard balance={vestedBalance.awi} />
+          <UnstakeCard balance={stakedBalance?.awi} mb={8} />
+          <VestCard balance={vestedBalance?.awi} />
         </Grid>
       </Grid>
     </Section>

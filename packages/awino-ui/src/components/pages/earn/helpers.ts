@@ -6,7 +6,7 @@ export const handleTransactionSubmit = () => {
   // TODO PROROTYPE
   let resError = 0;
 
-  return async (balance: string, setStep, dispatch, t, i18nKey) => {
+  return async (balance: string | number, setStep, dispatch, t, i18nKey) => {
     if (!BigNumber.from(balance).lt(0)) {
       setStep({ type: 'invalid' });
       return;

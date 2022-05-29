@@ -114,7 +114,7 @@ const Root = styled('div')(({ theme }) => ({
 export interface LockData {
   apr: number;
   balance: {
-    geist: number;
+    geist: number | string;
     usd: number;
   };
 }

@@ -89,6 +89,7 @@ export interface AssetInfo {
   assets?: AssetKey[];
   address: string;
   decimals: number;
+  symbol?: string;
 }
 
 export type AssetInfoMap = Map<AssetKey | PairedAssetKey, AssetInfo>;
