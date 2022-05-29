@@ -512,6 +512,9 @@ const themeCreator = (mode: PaletteMode) => {
               borderWidth: 2,
               color: theme.palette.text.secondary,
             },
+            '& .MuiSvgIcon-fontSizeLarge': {
+              fontSize: '30px',
+            },
           },
         },
         {
@@ -824,7 +827,7 @@ const themeCreator = (mode: PaletteMode) => {
           fontSize: '0.875rem', // 14px
           lineHeight: '1.125rem', // 18px
           fontWeight: 700,
-          color: theme.palette.text.contrast,
+          // color: theme.palette.text.contrast,
           // padding: 0,
         },
         labelSmall: {

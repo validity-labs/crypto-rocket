@@ -81,6 +81,11 @@ export const moreMenuLinks: MenuItemLink[] = [
     key: 'portfolio',
     url: '/portfolio',
   },
+  {
+    type: 'internal',
+    key: 'governance',
+    url: '/governance',
+  },
 ];
 
 export const socialLinks: MenuItemLink[] = [

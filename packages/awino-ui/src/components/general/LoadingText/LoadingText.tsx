@@ -10,16 +10,25 @@ interface LoadingTextProps {
 }
 
 const LoadingText = styled(({ loading, text, ...restOfProps }: LoadingTextProps) => (
-  <>{!loading ? text : <span {...restOfProps} />}</>
+  <>
+    {!loading ? (
+      text
+    ) : (
+      <span {...restOfProps}>
+        <span>{text}</span>
+      </span>
+    )}
+  </>
 ))<LoadingTextProps>(({ theme }) => ({
   position: 'relative',
   display: 'inline-block',
-  height: '20px',
-  width: '40px',
+  // height: '20px',
+  // width: '40px',
   verticalAlign: 'middle',
   backgroundColor: theme.palette.divider,
   borderRadius: +theme.shape.borderRadius * 1.5,
   overflow: 'hidden',
+  span: { filter: 'blur(10px)' },
   '&:before': {
     content: '""',
     position: 'absolute',

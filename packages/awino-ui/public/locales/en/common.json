@@ -132,6 +132,10 @@
       "portfolio": {
         "title": "Portfolio",
         "description": "View your portfolio of related assets"
+      },
+      "governance": {
+        "title": "Governance",
+        "description": "MISSING TEXT"
       }
     },
     "social": {

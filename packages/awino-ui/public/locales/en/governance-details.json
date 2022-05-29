@@ -1,0 +1,49 @@
+{
+  "page": {
+    "title": "{{asset}} - MISSING TITLE",
+    "description": "{{asset}} - MISSING DESCRIPTION"
+  },
+  "title-section": {
+    "back": "Back to governance"
+  },
+  "proposal-status": {
+    "undetermined": "Undetermined",
+    "pending": "Pending",
+    "active": "Active",
+    "canceled": "Canceled",
+    "defeated": "Defeated",
+    "succeeded": "Succeeded",
+    "queued": "Queued",
+    "expired": "Expired",
+    "executed": "Executed",
+    "vetoed": "Vetoed"
+  },
+  "detail-section": {
+    "already-voted": "User Already Voted",
+    "vote-success": "Vote Successful!",
+    "proposal-queued": "Proposal Queued!",
+    "proposal-executed": "Proposal Executed!",
+    "voting-starts-at": "Voting starts approximately {{date}}",
+    "voting-ended-at": "Voting ended {{date}}",
+    "quorum-reached": "This proposal has reached quorum",
+    "quorum-failed-to-reach": "This proposal has failed to reach quorum",
+    "quorum-votes": "{{n}} votes",
+    "voting-ends-at": "Voting ends approximately {{date}}",
+    "votes-required": "A total of {{n}} votes are required to reach quorum",
+    "ineligible-vote": "Only Cherub votes that were self delegated or delegated to another address before block {{block}} are eligible for voting.",
+    "vote-for": "Vote for",
+    "vote-against": "Vote against",
+    "vote-abstain": "Abstain",
+    "abstain": "Abstain",
+    "for": "For",
+    "against": "Against",
+    "description": "Description",
+    "proposed-transactions": "Proposed Transactions",
+    "proposer": "Proposer",
+    "at": "at",
+    "queue-proposal": "Queue Proposal",
+    "execute-proposal": "Execute Proposal",
+    "submit-proposal-help": "Ipsum pariatur cupidatat elit laboris veniam aliquip excepteur cupidatat Lorem esse excepteur culpa exercitation adipisicing.",
+    "treasury": "TREASURY Ξ {{n}}"
+  }
+}
