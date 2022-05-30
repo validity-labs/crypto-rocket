@@ -10,19 +10,19 @@ const statusVariant = (status: ProposalState | undefined) => {
     case ProposalState.ACTIVE:
       return '#FFD126';
     case ProposalState.PENDING:
-      return '#F6F6F7';
+      return '#8EDBDE';
     case ProposalState.SUCCEEDED:
-      return '#84E184';
+      return '#9ADE8E';
     case ProposalState.EXECUTED:
       return '#32CD32';
     case ProposalState.DEFEATED:
     case ProposalState.VETOED:
-      return '#ef5350';
+      return '#FF578A';
     case ProposalState.QUEUED:
     case ProposalState.CANCELED:
     case ProposalState.EXPIRED:
     default:
-      return '#80B4FF';
+      return '#C6C6C6';
   }
 };
 
@@ -53,14 +53,13 @@ const statusText = (status: ProposalState | undefined) => {
 
 const ProposalStatus = ({ status }: { status: ProposalState | undefined }) => {
   const t = usePageTranslation({ keyPrefix: 'proposal-status' });
-  console.log(ProposalState.PENDING ? 'text.primary' : 'text.secondary');
   return (
     <Chip
       label={t(statusText(status))}
       size="small"
       sx={{
         backgroundColor: statusVariant(status),
-        color: status === ProposalState.PENDING ? 'text.secondary' : 'text.primary',
+        color: '#12171D',
         '.MuiChip-label': {
           color: 'inherit',
           textTransform: 'uppercase',

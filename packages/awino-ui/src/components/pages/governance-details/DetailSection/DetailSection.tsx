@@ -1,45 +1,22 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
-import BigNumber from 'bignumber.js';
-import AnnotationPlugin from 'chartjs-plugin-annotation';
-import { isAddress } from 'web3-utils';
-
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CircularProgress,
-  Grid,
-  LinearProgress,
-  Link,
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-  Typography,
-} from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { Alert, Button, CircularProgress, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Box } from '@mui/system';
 
-import { AVERAGE_BLOCK_TIME_IN_SECS, TEXT_PLACEHOLDER, TEXT_PLACEHOLDER_HALF } from '@/app/constants';
+import { ProposalState, TEXT_PLACEHOLDER, TEXT_PLACEHOLDER_HALF } from '@/app/constants';
 import dateIO from '@/app/dateIO';
 import LoadingText from '@/components/general/LoadingText/LoadingText';
 import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { useBlockNumber } from '@/hooks/web3/useBlockNumber';
-import { buildEtherscanAddressLink, buildEtherscanTxLink } from '@/lib/etherscan';
-import { formatAmount, formatPercent, formatUSD } from '@/lib/formatters';
-import { AssetKey, MarketInfo, ProposalDetail, ProposalItem } from '@/types/app';
+import { ProposalItem } from '@/types/app';
 
+import { formatDate, formatFunction, linkIfAddress, transactionLink } from './helpers';
 import useProposalDates from './useProposalDates';
-
-export enum Vote {
-  AGAINST = 0,
-  FOR = 1,
-  ABSTAIN = 2,
-}
+import VoteCard, { Vote, VoteCardProps } from './VoteCard';
+import VoteModal from './VoteModal';
 
 const Root = styled(Section)(({ theme }) => ({
   paddingTop: 0,
@@ -47,7 +24,6 @@ const Root = styled(Section)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(4),
-    // margin: theme.spacing(0, 0, 10, 0),
   },
   '.AwiDetailSection-votes': {
     display: 'flex',
@@ -81,8 +57,16 @@ const Root = styled(Section)(({ theme }) => ({
     alignItems: 'center',
     flexWrap: 'wrap',
     color: theme.palette.text.primary,
-    padding: theme.spacing(4, 0),
+    padding: theme.spacing(3, 0),
     gap: theme.spacing(6),
+    p: {
+      color: theme.palette.text.primary,
+      fontWeight: 500,
+    },
+    a: {
+      color: theme.palette.text.active,
+      fontWeight: 500,
+    },
     '&:not(:last-of-type)': {
       borderBottom: `1px solid ${theme.palette.divider} !important`,
     },
@@ -98,100 +82,150 @@ const Root = styled(Section)(({ theme }) => ({
       width: 'auto',
     },
   },
-  // '.MuiTableRow-root': {
-  //   borderBottom: `1px solid ${theme.palette.divider} !important`,
-  //   '&:last-of-type': {
-  //     border: 'none !important',
-  //   },
-  // },
 }));
-
-interface VoteCardProps {
-  type: Vote;
-  value: number;
-  percent: number;
-  i18nKey: string;
-  color: 'success' | 'error' | 'info';
-  votable: boolean;
-  onVote: (type: Vote) => void;
-}
-
-const linkIfAddress = (content: string) => {
-  if (isAddress(content)) {
-    return (
-      <Link href={buildEtherscanAddressLink(content)} target="_blank" rel="noreferrer">
-        {content}
-      </Link>
-    );
-  }
-  return <span>{content}</span>;
-};
-
-const transactionLink = (content: string) => {
-  return (
-    <Link href={buildEtherscanTxLink(content)} target="_blank" rel="noreferrer">
-      {content.substring(0, 7)}
-    </Link>
-  );
-};
-
-const formatFunction = (fn: ProposalDetail) => {
-  const { functionSig, callData } = fn;
-  const params = callData.split(',');
-  const ln = params.length;
-  return (
-    <>
-      {`${functionSig} (`}
-      {params.map((param, paramIndex) => {
-        return (
-          <span key={paramIndex}>
-            {linkIfAddress(param)}
-            {ln - 1 !== paramIndex && ','}
-          </span>
-        );
-      })}
-      {`)`}
-    </>
-  );
-};
-
-const VoteCard = ({ value, percent, type, i18nKey, color, votable, onVote }) => {
-  const t = usePageTranslation({ keyPrefix: 'detail-section' });
-  const handleVote = () => {
-    onVote(type);
-  };
-  return (
-    <Card variant="outlined" className="AwiDetailSection-vote">
-      <CardContent>
-        <Typography className="AwiDetailSection-voteTitle">
-          {t(i18nKey)}
-          <strong>{value}</strong>
-        </Typography>
-        <LinearProgress variant="determinate" value={percent} color={color} className="AwiDetailSection-voteProgress" />
-        {votable && (
-          <Button variant="outlined" fullWidth onClick={handleVote}>
-            {t(`vote-${i18nKey}`)}
-          </Button>
-        )}
-      </CardContent>
-    </Card>
-  );
-};
 
 interface Props {
   proposal: ProposalItem;
   loading: boolean;
 }
 
+const useUserVotesAsOfBlock = (block: number | undefined): number | undefined => 10;
+
 export default function DetailSection({ proposal, loading }: Props) {
   const t = usePageTranslation({ keyPrefix: 'detail-section' });
-  // Get and format date from data
-  const { startDate, endDate, isReady } = useProposalDates(proposal);
 
-  // console.log('DetailSection', proposal, startDate, endDate, isStarted, isEnded);
+  // const proposal = useProposal(id);
+
+  const [vote, setVote] = useState<Vote>();
+
+  const [showVoteModal, setShowVoteModal] = useState<boolean>(false);
+  const [isVotePending, setVotePending] = useState<boolean>(false);
+
+  const [isQueuePending, setQueuePending] = useState<boolean>(false);
+  const [isExecutePending, setExecutePending] = useState<boolean>(false);
+
+  // const dispatch = useAppDispatch();
+  // const setModal = useCallback((modal: AlertModal) => dispatch(setAlertModal(modal)), [dispatch]);
+
+  // const { castVote, castVoteState } = useCastVote();
+  // const { queueProposal, queueProposalState } = useQueueProposal();
+  // const { executeProposal, executeProposalState } = useExecuteProposal();
+
+  // // Only count available votes as of the proposal created block
+  const availableVotes = useUserVotesAsOfBlock(proposal?.createdBlock ?? undefined);
+
+  // Only show voting if user has > 0 votes at proposal created block and proposal is active
+  const showVotingButtons = availableVotes && proposal?.status === ProposalState.ACTIVE;
+
+  const hasSucceeded = proposal?.status === ProposalState.SUCCEEDED;
+  const isAwaitingStateChange = () => {
+    return true;
+    // if (hasSucceeded) {
+    //   return true;
+    // }
+    // if (proposal?.status === ProposalState.QUEUED) {
+    //   return new Date() >= (proposal?.eta ?? Number.MAX_SAFE_INTEGER);
+    // }
+    // return false;
+  };
+
+  const moveStateAction = (() => {
+    if (hasSucceeded) {
+      // return () => queueProposal(proposal?.id);
+    }
+    // return () => executeProposal(proposal?.id);
+    return () => {};
+  })();
+
+  // const onTransactionStateChange = useCallback(
+  //   (
+  //     tx: TransactionStatus,
+  //     successMessage?: string,
+  //     setPending?: (isPending: boolean) => void,
+  //     getErrorMessage?: (error?: string) => string | undefined,
+  //     onFinalState?: () => void,
+  //   ) => {
+  //     switch (tx.status) {
+  //       case 'None':
+  //         setPending?.(false);
+  //         break;
+  //       case 'Mining':
+  //         setPending?.(true);
+  //         break;
+  //       case 'Success':
+  //         setModal({
+  //           title: t('message.success', { ns: 'common' }),
+  //           message: successMessage || t('message.transaction-success', { ns: 'common' }),
+  //           show: true,
+  //         });
+  //         setPending?.(false);
+  //         onFinalState?.();
+  //         break;
+  //       case 'Fail':
+  //         setModal({
+  //           title: t('message.transaction-failed', { ns: 'common' }),
+  //           message: tx?.errorMessage || t('message.try-again', { ns: 'common' }),
+  //           show: true,
+  //         });
+  //         setPending?.(false);
+  //         onFinalState?.();
+  //         break;
+  //       case 'Exception':
+  //         setModal({
+  //           title: t('message.error', { ns: 'common' }),
+  //           message:
+  //             getErrorMessage?.(tx?.errorMessage) || t('message.try-again', { ns: 'common' }),
+  //           show: true,
+  //         });
+  //         setPending?.(false);
+  //         onFinalState?.();
+  //         break;
+  //     }
+  //   },
+  //   [setModal, t],
+  // );
+
+  // useEffect(() => {
+  //   const getVoteErrorMessage = (error: string | undefined) => {
+  //     if (error?.match(/voter already voted/)) {
+  //       return t('vote-section.already-voted');
+  //     }
+  //     return error;
+  //   };
+  //   return onTransactionStateChange(
+  //     castVoteState,
+  //     t('vote-section.vote-success'),
+  //     setVotePending,
+  //     getVoteErrorMessage,
+  //     () => setShowVoteModal(false),
+  //   );
+  // }, [castVoteState, onTransactionStateChange, setModal, t]);
+
+  // useEffect(
+  //   () =>
+  //     onTransactionStateChange(
+  //       queueProposalState,
+  //       t('vote-section.proposal-queued'),
+  //       setQueuePending,
+  //     ),
+  //   [queueProposalState, onTransactionStateChange, setModal, t],
+  // );
+
+  // useEffect(
+  //   () =>
+  //     onTransactionStateChange(
+  //       executeProposalState,
+  //       t('vote-section.proposal-executed'),
+  //       setExecutePending,
+  //     ),
+  //   [executeProposalState, onTransactionStateChange, setModal, t],
+  // );
+
+  // Get and format date from data
+  const { startDate, endDate, isReady: areDatesReady } = useProposalDates(proposal);
 
   const { title, description } = useMemo(() => {
-    if (isReady && proposal) {
+    if (areDatesReady && proposal) {
       const now = new Date();
       const isStarted = !!startDate && dateIO.isBefore(startDate, now);
       const isEnded = !!endDate && dateIO.isBefore(endDate, now);
@@ -199,7 +233,7 @@ export default function DetailSection({ proposal, loading }: Props) {
       if (!isStarted) {
         return {
           title: t('voting-starts-at', {
-            date: dateIO.formatByString(startDate, 'MMMM d, yyyy h:mm aa z'),
+            date: formatDate(startDate),
           }),
           description: null,
         };
@@ -210,7 +244,7 @@ export default function DetailSection({ proposal, loading }: Props) {
 
         return {
           title: t('voting-ended-at', {
-            date: dateIO.formatByString(endDate, 'MMMM d, yyyy h:mm aa z'),
+            date: formatDate(endDate),
           }),
           description: `${t(`quorum-${quorumReached ? 'reached' : 'failed-to-reach'}`)}${
             proposal?.quorumVotes !== undefined &&
@@ -223,7 +257,7 @@ export default function DetailSection({ proposal, loading }: Props) {
 
       return {
         title: t('voting-ends-at', {
-          date: dateIO.formatByString(endDate, 'MMMM d, yyyy h:mm aa z'),
+          date: formatDate(endDate),
         }),
         description:
           proposal?.quorumVotes !== undefined
@@ -238,7 +272,7 @@ export default function DetailSection({ proposal, loading }: Props) {
       title: TEXT_PLACEHOLDER_HALF,
       description: TEXT_PLACEHOLDER,
     };
-  }, [isReady, proposal, startDate, endDate, t]);
+  }, [areDatesReady, proposal, startDate, endDate, t]);
 
   const votesByType = useMemo<Record<Vote, Omit<VoteCardProps, 'votable' | 'onVote'>>>(() => {
     // Get total votes and format percentages for UI
@@ -275,91 +309,110 @@ export default function DetailSection({ proposal, loading }: Props) {
 
   const handleVote = (type: Vote) => {
     console.log(type);
-    // setVote(Vote.FOR);
-    // setShowVoteModal(true);
+    setVote(type);
+    setShowVoteModal(true);
   };
   console.log(votesByType, Object.values(Vote), Object.entries(Vote));
   return (
-    <Root>
-      <Grid container spacing={10}>
-        <Grid item xs={12}>
-          <Panel
-            className="AwiDetailSection-votePanel"
-            header={
-              <div className="Awi-column">
-                <Typography variant="h3" component="h2" mb={2}>
-                  <LoadingText loading={loading || !isReady} text={title} />
+    <>
+      <Root>
+        <Panel
+          className="AwiDetailSection-votePanel"
+          header={
+            <div className="Awi-column">
+              <Typography variant="h4" component="h2" mb={2}>
+                <LoadingText loading={loading || !areDatesReady} text={title} />
+              </Typography>
+              {description && (
+                <Typography>
+                  <LoadingText loading={loading || !areDatesReady} text={description} />
                 </Typography>
-                {description && (
-                  <Typography>
-                    <LoadingText loading={loading || !isReady} text={description} />
-                  </Typography>
+              )}
+              {proposal && proposal.status === ProposalState.ACTIVE && !showVotingButtons && (
+                <Alert severity="warning" sx={{ mt: 4 }}>
+                  {t('ineligible-vote', {
+                    block: proposal.createdBlock,
+                  })}
+                </Alert>
+              )}
+            </div>
+          }
+        >
+          <Grid container spacing={20}>
+            <Grid item xs={12}>
+              <div className="AwiDetailSection-actions">
+                <div className="AwiDetailSection-votes">
+                  {[Vote.FOR, Vote.AGAINST, Vote.ABSTAIN].map((key) => (
+                    <VoteCard key={key} {...votesByType[key]} votable={true} onVote={handleVote} />
+                  ))}
+                </div>
+                {isAwaitingStateChange() && (
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Button
+                      variant="outlined"
+                      onClick={moveStateAction}
+                      disabled={isQueuePending || isExecutePending}
+                      sx={{ mr: 2, whiteSpace: 'nowrap' }}
+                    >
+                      {isQueuePending || isExecutePending ? (
+                        <CircularProgress size="1.5rem" />
+                      ) : (
+                        t(`${hasSucceeded ? 'queue' : 'execute'}-proposal`)
+                      )}
+                    </Button>
+                    <Tooltip title={`${t('submit-proposal-help')}`} arrow>
+                      <IconButton color="primary">
+                        <InfoOutlinedIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </Box>
                 )}
               </div>
-            }
-          >
-            <div className="AwiDetailSection-actions">
-              <div className="AwiDetailSection-votes">
-                {[Vote.FOR, Vote.AGAINST, Vote.ABSTAIN].map((key) => (
-                  <VoteCard key={key} {...votesByType[key]} votable={true} onVote={handleVote} />
-                ))}
-              </div>
-            </div>
-          </Panel>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Panel
-            header={
-              <Typography variant="h4" component="h2">
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body" component="h3" mb={6}>
                 {t('proposed-transactions')}
               </Typography>
-            }
-            sx={{
-              '.AwiPanel-header h2': {
-                color: 'text.primary',
-              },
-            }}
-          >
-            <div className="AwiDetailSection-results">
-              {proposal?.details?.map((detail, detailIndex) => {
-                return (
-                  <div key={detailIndex} className="AwiDetailSection-result">
-                    <Typography>
-                      {`${detailIndex + 1}. `}
-                      {linkIfAddress(detail.target)}
-                    </Typography>
-                    <Typography color="inherit">{formatFunction(detail)}</Typography>
-                  </div>
-                );
-              })}
-            </div>
-          </Panel>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Panel
-            header={
-              <Typography variant="h4" component="h3">
+              <div className="AwiDetailSection-results">
+                {proposal?.details?.map((detail, detailIndex) => {
+                  return (
+                    <div key={detailIndex} className="AwiDetailSection-result">
+                      <Typography>
+                        {`${detailIndex + 1}. `}
+                        {linkIfAddress(detail.target)}
+                      </Typography>
+                      <Typography>{formatFunction(detail)}</Typography>
+                    </div>
+                  );
+                })}
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body" component="h3" mb={6}>
                 {t('proposer')}
               </Typography>
-            }
-            sx={{
-              '.AwiPanel-header h2': {
-                color: 'text.primary',
-              },
-            }}
-          >
-            {proposal?.proposer && proposal?.transactionHash && (
-              <div className="AwiDetailSection-result" /* sx={{ justifyContent: 'flex-start' }} */>
-                <Typography color="inherit">{linkIfAddress(proposal.proposer)}</Typography>
-                <Typography color="inherit">
-                  {t('at')}&nbsp;
-                  {transactionLink(proposal.transactionHash)}
-                </Typography>
-              </div>
-            )}
-          </Panel>
-        </Grid>
-      </Grid>
-    </Root>
+              {proposal?.proposer && proposal?.transactionHash && (
+                <div className="AwiDetailSection-result" /* sx={{ justifyContent: 'flex-start' }} */>
+                  <Typography>{linkIfAddress(proposal.proposer)}</Typography>
+                  <Typography>
+                    {t('at')}&nbsp;
+                    {transactionLink(proposal.transactionHash)}
+                  </Typography>
+                </div>
+              )}
+            </Grid>
+          </Grid>
+        </Panel>
+      </Root>
+      <VoteModal
+        show={showVoteModal}
+        onHide={() => setShowVoteModal(false)}
+        onVote={() => {} /* () => castVote(proposal?.id, vote) */}
+        isLoading={isVotePending}
+        proposalId={`${proposal?.id}`}
+        availableVotes={availableVotes}
+        vote={vote}
+      />
+    </>
   );
 }

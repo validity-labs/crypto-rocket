@@ -342,8 +342,11 @@ const themeCreator = (mode: PaletteMode) => {
       styleOverrides: {
         root: {
           // color: theme.palette.text.primary,
-          '&:hover': {
+          '&:hover, &:focus': {
             color: theme.palette.text.active,
+          },
+          '&:visited': {
+            color: theme.palette.text.primary,
           },
         },
       },

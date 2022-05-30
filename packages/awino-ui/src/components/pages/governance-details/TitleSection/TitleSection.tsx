@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkBreaks from 'remark-breaks';
 
 import { ArrowBackRounded } from '@mui/icons-material';
-import { Button, Chip, Typography } from '@mui/material';
+import { Box, Button, Chip, Typography } from '@mui/material';
 
 import EmptyResult from '@/components/general/EmptyResult/EmptyResult';
 import Link from '@/components/general/Link/Link';
@@ -25,29 +25,29 @@ export default function TitleSection({ proposal, loading }: Props) {
   const { id, title, description, status } = proposal || {};
   return (
     <Section>
-      <Button component={Link} href="/governance" variant="text" startIcon={<ArrowBackRounded />} sx={{ mb: 6 }}>
-        {t('back')}
-      </Button>
-      <Panel className="AwiTitleSection-panel">
+      <Box className="Awi-column" sx={{ alignItems: 'flex-start' }}>
+        <Button component={Link} href="/governance" variant="text" startIcon={<ArrowBackRounded />} sx={{ mb: 6 }}>
+          {t('back')}
+        </Button>
         {loading ? (
           <Loader />
         ) : !proposal ? (
           <EmptyResult />
         ) : (
           <>
-            <div className="Awi-row Awi-center">
+            <ProposalStatus status={status} />
+            <Box className="Awi-row Awi-center" mt={10} mb={4}>
               <Chip variant="outlined" label={id} color="default" size="small" sx={{ mr: 10 }} />
-              <ProposalStatus status={status} />
-            </div>
-            <Typography variant="h3" component="h1" mt={10} mb={4}>
-              {title}
-            </Typography>
+              <Typography variant="h3" component="h1" pt={2}>
+                {title}
+              </Typography>
+            </Box>
             <Typography variant="body-md">
               {description && <ReactMarkdown remarkPlugins={[remarkBreaks]}>{description}</ReactMarkdown>}
             </Typography>
           </>
         )}
-      </Panel>
+      </Box>
     </Section>
   );
 }

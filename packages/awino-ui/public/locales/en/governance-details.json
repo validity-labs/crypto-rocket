@@ -30,7 +30,7 @@
     "quorum-votes": "{{n}} votes",
     "voting-ends-at": "Voting ends approximately {{date}}",
     "votes-required": "A total of {{n}} votes are required to reach quorum",
-    "ineligible-vote": "Only Cherub votes that were self delegated or delegated to another address before block {{block}} are eligible for voting.",
+    "ineligible-vote": "Only AWINO votes that were self delegated or delegated to another address before block {{block}} are eligible for voting.",
     "vote-for": "Vote for",
     "vote-against": "Vote against",
     "vote-abstain": "Abstain",
@@ -45,5 +45,14 @@
     "execute-proposal": "Execute Proposal",
     "submit-proposal-help": "Ipsum pariatur cupidatat elit laboris veniam aliquip excepteur cupidatat Lorem esse excepteur culpa exercitation adipisicing.",
     "treasury": "TREASURY Ξ {{n}}"
+  },
+  "vote-modal": {
+    "available-votes_one": "{{count}} Vote Available",
+    "available-votes_other": "{{count}} Votes Available",
+    "vote": {
+      "1": "Vote For Proposal {{id}}",
+      "0": "Vote Against Proposal {{id}}",
+      "2": "Vote to Abstain on Proposal {{id}}"
+    }
   }
 }

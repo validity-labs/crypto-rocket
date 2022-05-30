@@ -13,7 +13,7 @@ export const governanceProposals: ProposalItem[] = [
     description: 'Aute labore incididunt __minim__ consectetur _aute_ anim et ullamco.',
     startBlock: 110,
     endBlock: 131,
-    status: ProposalState.PENDING,
+    status: ProposalState.QUEUED,
     quorumVotes: 10,
     forCount: 1,
     againstCount: 2,
@@ -21,6 +21,16 @@ export const governanceProposals: ProposalItem[] = [
     createdBlock: 123456,
     // eta?: Date,
     details: [
+      {
+        target: '0xc2b3520b8915ee1e0f94c219f1f047f320e84871',
+        functionSig: 'transfer',
+        callData: '0.02 ETH',
+      },
+      {
+        target: '0xc2b3520b8915ee1e0f94c219f1f047f320e84871',
+        functionSig: 'transfer',
+        callData: '0.02 ETH, 45, 0x123',
+      },
       {
         target: '0xc2b3520b8915ee1e0f94c219f1f047f320e84871',
         functionSig: 'transfer',
