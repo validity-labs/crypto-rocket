@@ -58,6 +58,18 @@ task(
     undefined,
     types.int
   )
+  .addOptionalParam(
+    "tokenADecimals",
+    "Number of decimals for TokenA",
+    18,
+    types.int
+  )
+  .addOptionalParam(
+    "tokenBDecimals",
+    "Number of decimals for TokenB",
+    18,
+    types.int
+  )
   .setAction(async (args, { ethers, run }) => {
     // get router
     let routerFactory = await ethers.getContractFactory("AwinoRouter");
@@ -69,6 +81,18 @@ task(
       ? args.deadline
       : Math.floor(Date.now() / 1000) + 60 * 20; // 20 min
 
+    // ERC20 approve for convenience
+    const erc20 = await ethers.getContractFactory("MockERC20");
+    const tokenA = erc20.attach(args.tokenAAddress);
+    await (
+      await tokenA.approve(args.routerAddress, args.amountADesired)
+    ).wait(1);
+    const tokenB = erc20.attach(args.tokenBAddress);
+    await (
+      await tokenB.approve(args.routerAddress, args.amountBDesired)
+    ).wait(1);
+
+    // send tx
     const tx = await routerInstance.addLiquidity(
       args.tokenAAddress,
       args.tokenBAddress,
@@ -86,6 +110,7 @@ task(
       factoryAddress: await routerInstance.factory(),
       tokenAAddress: args.tokenAAddress,
       tokenBAddress: args.tokenBAddress,
-      // @TODO set token decimals
+      tokenADecimals: args.tokenADecimals,
+      tokenBDecimals: args.tokenBDecimals,
     });
   });
