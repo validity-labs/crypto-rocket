@@ -303,9 +303,6 @@ const SwapPanel = (props: TabPanelProps) => {
 
       // Execute swap
       try {
-        const source = assets.get(sourceAsset);
-        const target = assets.get(targetAsset);
-
         // @TODO 'slippageTolerance' is not used. Adjust calculations based on
         // the selected slippageTolerance.
         await swapTokens(

@@ -62,28 +62,37 @@ export async function getBalanceAndSymbol(accountAddress, address, provider, sig
 //    `accountAddress` - An Ethereum address of the current user's account
 //    `signer` - The current signer
 export async function swapTokens(address1, address2, amount, routerContractAddress, accountAddress, signer) {
-  const tokens = [address1, address2];
-  const time = Math.floor(Date.now() / 1000) + 200000;
-  const deadline = ethers.BigNumber.from(time);
+  try {
+    const tokens = [address1, address2];
+    const time = Math.floor(Date.now() / 1000) + 200000;
+    const deadline = ethers.BigNumber.from(time);
 
-  const token1 = new Contract(address1, ERC20_ABI, signer);
-  const tokenDecimals = await getDecimals(token1);
+    const token1 = new Contract(address1, ERC20_ABI, signer);
+    const tokenDecimals = await getDecimals(token1);
 
-  const amountIn = ethers.utils.parseUnits(amount, tokenDecimals);
+    const amountIn = ethers.utils.parseUnits(amount, tokenDecimals);
 
-  const routerContract = new Contract(routerContractAddress, AWINO_ROUTER_ABI, signer);
-  const amountOut = await routerContract.callStatic.getAmountsOut(amountIn, tokens);
+    const routerContract = new Contract(routerContractAddress, AWINO_ROUTER_ABI, signer);
+    const amountOut = await routerContract.callStatic.getAmountsOut(amountIn, tokens);
 
-  const wethAddress = await routerContract.WETH();
+    const wethAddress = await routerContract.WETH();
 
-  if (address1 === wethAddress) {
-    // Eth -> Token
-    await routerContract.swapExactETHForTokens(amountOut[1], tokens, accountAddress, deadline, { value: amountIn });
-  } else if (address2 === wethAddress) {
-    // Token -> Eth
-    await routerContract.swapExactTokensForETH(amountIn, amountOut[1], tokens, accountAddress, deadline);
-  } else {
-    await routerContract.swapExactTokensForTokens(amountIn, amountOut[1], tokens, accountAddress, deadline);
+    let tx = null;
+    if (address1 === wethAddress) {
+      // Eth -> Token
+      tx = await routerContract.swapExactETHForTokens(amountOut[1], tokens, accountAddress, deadline, {
+        value: amountIn,
+      });
+    } else if (address2 === wethAddress) {
+      // Token -> Eth
+      tx = await routerContract.swapExactTokensForETH(amountIn, amountOut[1], tokens, accountAddress, deadline);
+    } else {
+      tx = await routerContract.swapExactTokensForTokens(amountIn, amountOut[1], tokens, accountAddress, deadline);
+    }
+
+    await tx.wait(1);
+  } catch (error) {
+    console.error(error);
   }
 }
 
