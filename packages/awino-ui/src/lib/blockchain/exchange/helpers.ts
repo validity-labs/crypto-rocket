@@ -3,10 +3,13 @@ import { BigNumber, Contract, ethers } from 'ethers';
 import { AssetInfo } from '@/components/pages/swap/SwapSection/SwapSection';
 
 import ERC20_ABI from './abis/ERC20.json';
+import AWINO_FACTORY_ABI from './abis/IAwinoFactory.json';
 import AWINO_PAIR_ABI from './abis/IAwinoPair.json';
 import AWINO_ROUTER_ABI from './abis/IAwinoRouter.json';
 
-export async function getDecimals(token) {
+// @TODO cleanup this file. Add types.
+
+async function getDecimals(token: Contract) {
   const decimals = await token
     .decimals()
     .then((result) => {
@@ -19,48 +22,6 @@ export async function getDecimals(token) {
   return decimals;
 }
 
-// This function returns an object with 2 fields: `balance` which container's the account's balance in the particular token,
-// and `symbol` which is the abbreviation of the token name. To work correctly it must be provided with 4 arguments:
-//    `accountAddress` - An Ethereum address of the current user's account
-//    `address` - An Ethereum address of the token to check for (either a token or AUT)
-//    `provider` - The current provider
-//    `signer` - The current signer
-export async function getBalanceAndSymbol(accountAddress, address, provider, signer, weth_address, coins) {
-  try {
-    if (address === weth_address) {
-      const balanceRaw = await provider.getBalance(accountAddress);
-
-      return {
-        balance: ethers.utils.formatEther(balanceRaw),
-        symbol: coins[0].abbr,
-      };
-    } else {
-      const token = new Contract(address, ERC20_ABI, signer);
-      const tokenDecimals = await getDecimals(token);
-      const balanceRaw = await token.balanceOf(accountAddress);
-      const symbol = await token.symbol();
-
-      return {
-        balance: balanceRaw * 10 ** -tokenDecimals,
-        symbol: symbol,
-      };
-    }
-  } catch (error) {
-    console.log('The getBalanceAndSymbol function had an error!');
-    console.log(error);
-    return false;
-  }
-}
-
-// This function swaps two particular tokens / AUT, it can handle switching from AUT to ERC20 token, ERC20 token to AUT, and ERC20 token to ERC20 token.
-// No error handling is done, so any issues can be caught with the use of .catch()
-// To work correctly, there needs to be 7 arguments:
-//    `address1` - An Ethereum address of the token to trade from (either a token or AUT)
-//    `address2` - An Ethereum address of the token to trade to (either a token or AUT)
-//    `amount` - A float or similar number representing the value of address1's token to trade
-//    `routerContract` - The router contract to carry out this trade
-//    `accountAddress` - An Ethereum address of the current user's account
-//    `signer` - The current signer
 export async function swapTokens(address1, address2, amount, routerContractAddress, accountAddress, signer) {
   try {
     const tokens = [address1, address2];
@@ -96,14 +57,18 @@ export async function swapTokens(address1, address2, amount, routerContractAddre
   }
 }
 
-//This function returns the conversion rate between two token addresses
-//    `address1` - An Ethereum address of the token to swaped from (either a token or AUT)
-//    `address2` - An Ethereum address of the token to swaped to (either a token or AUT)
-//    `amountIn` - Amount of the token at address 1 to be swaped from
-//    `routerContract` - The router contract to carry out this swap
-export async function getAmountOut(address1, address2, amountIn, routerContractAddress, signer) {
+/**
+ * Returns the conversion rate between between two tokens.
+ *
+ */
+export async function getAmountOut(
+  address1: string,
+  address2: string,
+  amountIn: string,
+  routerContractAddress: string,
+  signer: ethers.providers.BaseProvider
+): Promise<Number> {
   try {
-    console.debug(address1, address2, amountIn, routerContractAddress);
     const token1 = new Contract(address1, ERC20_ABI, signer);
     const token1Decimals = await getDecimals(token1);
 
@@ -121,17 +86,14 @@ export async function getAmountOut(address1, address2, amountIn, routerContractA
     return Number(amount_out);
   } catch (error) {
     console.error(error);
-    return false;
+    throw new Error(error);
   }
 }
 
-// This function calls the pair contract to fetch the reserves stored in a the liquidity pool between the token of address1 and the token
-// of address2. Some extra logic was needed to make sure that the results were returned in the correct order, as
-// `pair.getReserves()` would always return the reserves in the same order regardless of which order the addresses were.
-//    `address1` - An Ethereum address of the token to trade from (either a ERC20 token or AUT)
-//    `address2` - An Ethereum address of the token to trade to (either a ERC20 token or AUT)
-//    `pair` - The pair contract for the two tokens
-export async function fetchReserves(address1, address2, pair, signer) {
+/** Returns the reserves stored in a the liquidity pool between the token of address1 and the token
+ * of address2.
+ */
+export async function fetchReserves(address1: string, address2: string, pair: Contract, signer: ethers.Signer) {
   try {
     // Get decimals for each coin
     const coin1 = new Contract(address1, ERC20_ABI, signer);
@@ -158,30 +120,291 @@ export async function fetchReserves(address1, address2, pair, signer) {
   }
 }
 
-// This function returns the reserves stored in a the liquidity pool between the token of address1 and the token
-// of address2, as well as the liquidity tokens owned by accountAddress for that pair.
-//    `address1` - An Ethereum address of the token to trade from (either a token or AUT)
-//    `address2` - An Ethereum address of the token to trade to (either a token or AUT)
-//    `factory` - The current factory
-//    `signer` - The current signer
-export async function getReserves(address1, address2, factory, signer, accountAddress) {
+/**
+ * Returns the reserves for the given pair.
+ */
+export async function getReserves(
+  address1: string,
+  address2: string,
+  factoryAddress: string,
+  provider: ethers.providers.JsonRpcProvider,
+  accountAddress: string
+): Promise<string[]> {
   try {
+    const factory = new Contract(factoryAddress, AWINO_FACTORY_ABI, await provider.getSigner());
     const pairAddress = await factory.getPair(address1, address2);
-    const pair = new Contract(pairAddress, AWINO_PAIR_ABI, signer);
+    const pair = new Contract(pairAddress, AWINO_PAIR_ABI, await provider.getSigner());
 
     if (pairAddress !== '0x0000000000000000000000000000000000000000') {
-      const reservesRaw = await fetchReserves(address1, address2, pair, signer);
+      const reservesRaw = await fetchReserves(address1, address2, pair, await provider.getSigner());
       const liquidityTokens_BN = await pair.balanceOf(accountAddress);
-      const liquidityTokens = Number(ethers.utils.formatEther(liquidityTokens_BN));
+      const liquidityTokens = ethers.utils.formatEther(liquidityTokens_BN).toString();
 
       return [reservesRaw[0].toPrecision(6), reservesRaw[1].toPrecision(6), liquidityTokens];
     } else {
       console.log('no reserves yet');
-      return [0, 0, 0];
+      return ['0', '0', '0'];
     }
   } catch (err) {
-    console.log('error!');
-    console.log(err);
-    return [0, 0, 0];
+    console.error(err);
+    return ['0', '0', '0'];
   }
+}
+
+/**
+ * Adds liquidity to the a pool.
+ */
+export async function addLiquidity(
+  address1: string,
+  address2: string,
+  amount1: string,
+  amount2: string,
+  amount1min: string,
+  amount2min: string,
+  routerContractAddress: string,
+  account: string,
+  provider: ethers.providers.JsonRpcProvider
+): Promise<void> {
+  console.debug(`>> adding liquidity...`);
+  const signer = await provider.getSigner();
+  const token1 = new Contract(address1, ERC20_ABI, signer);
+  const token2 = new Contract(address2, ERC20_ABI, signer);
+
+  const token1Decimals = await getDecimals(token1);
+  const token2Decimals = await getDecimals(token2);
+
+  const amountIn1 = ethers.utils.parseUnits(amount1, token1Decimals);
+  const amountIn2 = ethers.utils.parseUnits(amount2, token2Decimals);
+
+  const amount1Min = ethers.utils.parseUnits(amount1min, token1Decimals);
+  const amount2Min = ethers.utils.parseUnits(amount2min, token2Decimals);
+
+  const time = Math.floor(Date.now() / 1000) + 200000;
+  const deadline = ethers.BigNumber.from(time);
+
+  const routerContract = new Contract(routerContractAddress, AWINO_ROUTER_ABI, signer);
+
+  console.log(`waiting approval for token1....`);
+  await (await token1.approve(routerContract.address, amountIn1)).wait(1);
+  console.log(`waiting approval for token2....`);
+  await (await token2.approve(routerContract.address, amountIn2)).wait(1);
+
+  const wethAddress = await routerContract.WETH();
+
+  console.log([address1, address2, amountIn1, amountIn2, amount1Min, amount2Min, account, deadline]);
+
+  if (address1 === wethAddress) {
+    // Eth + Token
+    await (
+      await routerContract.addLiquidityETH(address2, amountIn2, amount2Min, amount1Min, account, deadline, {
+        value: amountIn1,
+      })
+    ).wait(1);
+  } else if (address2 === wethAddress) {
+    // Token + Eth
+    await (
+      await routerContract.addLiquidityETH(address1, amountIn1, amount1Min, amount2Min, account, deadline, {
+        value: amountIn2,
+      })
+    ).wait(1);
+  } else {
+    // Token + Token
+    await (
+      await routerContract.addLiquidity(
+        address1,
+        address2,
+        amountIn1,
+        amountIn2,
+        amount1Min,
+        amount2Min,
+        account,
+        deadline
+      )
+    ).wait(1);
+  }
+}
+
+/**
+ * Removes liquidity from a pool.
+ */
+export async function removeLiquidity(
+  address1: string,
+  address2: string,
+  liquidity_tokens: string,
+  amount1min: string,
+  amount2min: string,
+  routerContractAddress: string,
+  account: string,
+  signer: ethers.Signer,
+  factoryContractAddress: string
+) {
+  const token1 = new Contract(address1, ERC20_ABI, signer);
+  const token2 = new Contract(address2, ERC20_ABI, signer);
+
+  const token1Decimals = await getDecimals(token1);
+  const token2Decimals = await getDecimals(token2);
+
+  const Getliquidity = (liquidity_tokens) => {
+    if (liquidity_tokens < 0.001) {
+      return ethers.BigNumber.from(liquidity_tokens * 10 ** 18);
+    }
+    return ethers.utils.parseUnits(String(liquidity_tokens), 18);
+  };
+
+  const liquidity = Getliquidity(liquidity_tokens);
+  console.log('liquidity: ', liquidity);
+
+  const amount1Min = ethers.utils.parseUnits(String(amount1min), token1Decimals);
+  const amount2Min = ethers.utils.parseUnits(String(amount2min), token2Decimals);
+
+  const time = Math.floor(Date.now() / 1000) + 200000;
+  const deadline = ethers.BigNumber.from(time);
+
+  const routerContract = new Contract(routerContractAddress, AWINO_ROUTER_ABI, signer);
+  const wethAddress = await routerContract.WETH();
+
+  const factory = new Contract(factoryContractAddress, AWINO_FACTORY_ABI, signer);
+  const pairAddress = await factory.getPair(address1, address2);
+  const pair = new Contract(pairAddress, AWINO_PAIR_ABI, signer);
+
+  await pair.approve(routerContract.address, liquidity);
+
+  console.log([address1, address2, Number(liquidity), Number(amount1Min), Number(amount2Min), account, deadline]);
+
+  if (address1 === wethAddress) {
+    // Eth + Token
+    await routerContract.removeLiquidityETH(address2, liquidity, amount2Min, amount1Min, account, deadline);
+  } else if (address2 === wethAddress) {
+    // Token + Eth
+    await routerContract.removeLiquidityETH(address1, liquidity, amount1Min, amount2Min, account, deadline);
+  } else {
+    // Token + Token
+    await routerContract.removeLiquidity(address1, address2, liquidity, amount1Min, amount2Min, account, deadline);
+  }
+}
+
+/**
+ * Given some amount of an asset and pair reserves, returns an equivalent amount of the other asset.
+ */
+const quote = (amount1: number, reserve1: number, reserve2: number): number => {
+  const amount2 = amount1 * (reserve2 / reserve1);
+  return amount2;
+};
+
+/**
+ * Returns the quote of the minted liquidity.
+ */
+async function quoteMintLiquidity(
+  address1: string,
+  address2: string,
+  amountA: number,
+  amountB: number,
+  factory: Contract,
+  signer: ethers.Signer
+): Promise<Number> {
+  const MINIMUM_LIQUIDITY = 1000;
+  let _reserveA = 0;
+  let _reserveB = 0;
+  let totalSupply = 0;
+  [_reserveA, _reserveB, totalSupply] = await factory.getPair(address1, address2).then(async (pairAddress) => {
+    if (pairAddress !== '0x0000000000000000000000000000000000000000') {
+      const pair = new Contract(pairAddress, AWINO_PAIR_ABI, signer);
+
+      const reservesRaw = await fetchReserves(address1, address2, pair, signer); // Returns the reserves already formated as ethers
+      const reserveA = reservesRaw[0];
+      const reserveB = reservesRaw[1];
+
+      const _totalSupply = await pair.totalSupply();
+      const totalSupply = Number(ethers.utils.formatEther(_totalSupply));
+      return [reserveA, reserveB, totalSupply];
+    } else {
+      return [0, 0, 0];
+    }
+  });
+
+  const token1 = new Contract(address1, ERC20_ABI, signer);
+  const token2 = new Contract(address2, ERC20_ABI, signer);
+
+  // Need to do all this decimals work to account for 0 decimal numbers
+  const token1Decimals = await getDecimals(token1);
+  const token2Decimals = await getDecimals(token2);
+
+  const valueA = amountA * 10 ** token1Decimals;
+  const valueB = amountB * 10 ** token2Decimals;
+
+  const reserveA = _reserveA * 10 ** token1Decimals;
+  const reserveB = _reserveB * 10 ** token2Decimals;
+
+  if (totalSupply == 0) {
+    return Math.sqrt(valueA * valueB - MINIMUM_LIQUIDITY) * 10 ** -18;
+  }
+
+  return Math.min((valueA * totalSupply) / reserveA, (valueB * totalSupply) / reserveB);
+}
+
+/**
+ * Returns the quote of the liquidity addition.
+ */
+export async function quoteAddLiquidity(address1, address2, amountADesired, amountBDesired, factoryAddress, provider) {
+  const signer = await provider.getSigner();
+
+  const factory = new Contract(factoryAddress, AWINO_FACTORY_ABI, signer);
+  const pairAddress = await factory.getPair(address1, address2);
+  const pair = new Contract(pairAddress, AWINO_PAIR_ABI, signer);
+
+  const reservesRaw = await fetchReserves(address1, address2, pair, signer); // Returns the reserves already formated as ethers
+  const reserveA = reservesRaw[0];
+  const reserveB = reservesRaw[1];
+
+  console.log({ reserveA, reserveB });
+  if (reserveA === 0 && reserveB === 0) {
+    console.log(`reserveA === reserveB === 0`);
+    const amountOut = await quoteMintLiquidity(address1, address2, amountADesired, amountBDesired, factory, signer);
+    return [amountADesired, amountBDesired, amountOut.toPrecision(8)];
+  } else {
+    const amountBOptimal = quote(amountADesired, reserveA, reserveB);
+    if (amountBOptimal <= amountBDesired) {
+      console.log(`amountBOptimal <= amountBDesired`);
+      const amountOut = await quoteMintLiquidity(address1, address2, amountADesired, amountBOptimal, factory, signer);
+      return [amountADesired, amountBOptimal, amountOut.toPrecision(8)];
+    } else {
+      console.log(`amountBOptimal > amountBDesired`);
+      const amountAOptimal = quote(amountBDesired, reserveB, reserveA);
+      const amountOut = await quoteMintLiquidity(address1, address2, amountAOptimal, amountBDesired, factory, signer);
+      return [amountAOptimal, amountBDesired, amountOut.toPrecision(8)];
+    }
+  }
+}
+
+/**
+ * Returns the quote for the removed liquidity.
+ */
+export async function quoteRemoveLiquidity(address1, address2, liquidity, factory, signer) {
+  const pairAddress = await factory.getPair(address1, address2);
+  console.log('pair address', pairAddress);
+  const pair = new Contract(pairAddress, AWINO_PAIR_ABI, signer);
+
+  const reservesRaw = await fetchReserves(address1, address2, pair, signer); // Returns the reserves already formated as ethers
+  const reserveA = reservesRaw[0];
+  const reserveB = reservesRaw[1];
+
+  const feeOn = (await factory.feeTo()) !== 0x0000000000000000000000000000000000000000;
+
+  const _kLast = await pair.kLast();
+  const kLast = Number(ethers.utils.formatEther(_kLast));
+
+  const _totalSupply = await pair.totalSupply();
+  let totalSupply = Number(ethers.utils.formatEther(_totalSupply));
+
+  if (feeOn && kLast > 0) {
+    const feeLiquidity =
+      (totalSupply * (Math.sqrt(reserveA * reserveB) - Math.sqrt(kLast))) /
+      (5 * Math.sqrt(reserveA * reserveB) + Math.sqrt(kLast));
+    totalSupply = totalSupply + feeLiquidity;
+  }
+
+  const Aout = (reserveA * liquidity) / totalSupply;
+  const Bout = (reserveB * liquidity) / totalSupply;
+
+  return [liquidity, Aout, Bout];
 }

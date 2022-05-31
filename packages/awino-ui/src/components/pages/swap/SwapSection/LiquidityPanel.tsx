@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useWeb3React } from '@web3-react/core';
 import clsx from 'clsx';
 
 import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup } from '@mui/material';
@@ -11,6 +12,16 @@ import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import {
+  addLiquidity,
+  AWINO_ROUTER_MAP,
+  ChainId,
+  FACTORY_ADDRESS_MAP,
+  getReserves,
+  quoteAddLiquidity,
+  useAllowance,
+  useTokenBalance,
+} from '@/lib/blockchain';
 import { formatAmount, formatPercent } from '@/lib/formatters';
 import { AssetKey, ID } from '@/types/app';
 
@@ -145,34 +156,128 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const [targetAsset, setTargetAsset] = useState<AssetKey | ''>('');
   const [targetValue, setTargetValue] = useState(null);
   const [canExecute, setCanExecute] = useState(false);
-  const [sourceMaxValue, setSourceMaxValue] = useState(0);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
+
+  const { account, library } = useWeb3React();
+  const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
+  const allowance = useAllowance(assets.get(sourceAsset)?.address, account, AWINO_ROUTER_MAP[ChainId.TESTNET]);
+  const [hasEnoughAllowance, setHasEnoughAllowance] = useState(false);
+
+  // Stores the current reserves in the liquidity pool between coin1 and coin2
+  const [reserves, setReserves] = React.useState(['0.0', '0.0']);
+
+  // Stores the user's balance of liquidity tokens for the current pair
+  const [liquidityTokens, setLiquidityTokens] = React.useState('');
+
+  // Used when getting a quote of liquidity
+  const [liquidityOut, setLiquidityOut] = React.useState([0, 0, 0]);
 
   useEffect(() => {
     if (targetAsset) setTargetValue(sourceValue || 0 * 2);
   }, [sourceValue, targetAsset]);
 
   useEffect(() => {
-    setSourceMaxValue(null);
-    if (sourceAsset) {
-      setTimeout(() => {
-        setSourceMaxValue(100.99);
-      }, 400);
-    }
-  }, [sourceAsset]);
-
-  useEffect(() => {
     setCanExecute(sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset);
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
-  const handleExecute = useCallback(() => {
+  /**
+   * Check if the 'allowance' for the 'Router' contract is enough. Set the flag accordingly.
+   */
+  useEffect(() => {
+    if (allowance && sourceValue && Number(allowance) >= Number(sourceValue)) {
+      setHasEnoughAllowance(true);
+    } else {
+      setHasEnoughAllowance(false);
+    }
+  }, [allowance, sourceValue]);
+
+  /**
+   * sets target value
+   */
+  useEffect(() => {
+    if (sourceValue && sourceValue > 0 && reserves.length > 0) {
+      console.log({ reserves });
+      console.log(`>> TargetValue: ${sourceValue} * (${+reserves[1]} / ${+reserves[0]})}`);
+      setTargetValue(sourceValue * (+reserves[1] / +reserves[0]));
+    }
+  }, [sourceValue, reserves]);
+
+  /**
+   * Set pool reserves and LP tokens
+   */
+  useEffect(() => {
+    console.log(
+      'Trying to get reserves between:\n' + assets.get(sourceAsset)?.address + '\n' + assets.get(targetAsset)?.address
+    );
+
+    if (assets.get(sourceAsset)?.address && assets.get(targetAsset)?.address && account) {
+      getReserves(
+        assets.get(sourceAsset)?.address,
+        assets.get(targetAsset)?.address,
+        FACTORY_ADDRESS_MAP[ChainId.TESTNET],
+        library,
+        account
+      ).then((data) => {
+        console.log(data);
+        setReserves([data[0], data[1]]);
+        setLiquidityTokens(data[2]);
+      });
+    }
+  }, [assets, sourceAsset, targetAsset, library, account]);
+
+  /**
+   * Get liquidity quote.
+   */
+  useEffect(() => {
+    if (canExecute) {
+      console.log('Trying to preview the liquidity deployment');
+
+      quoteAddLiquidity(
+        assets.get(sourceAsset)?.address,
+        assets.get(targetAsset)?.address,
+        sourceValue,
+        targetValue,
+        FACTORY_ADDRESS_MAP[ChainId.TESTNET],
+        library
+      ).then((data) => {
+        console.log(data);
+        console.log('TokenA in: ', data[0]);
+        console.log('TokenB in: ', data[1]);
+        console.log('Liquidity out: ', data[2]);
+
+        setLiquidityOut([data[0], data[1], data[2]]);
+      });
+    }
+  }, [assets, sourceAsset, targetAsset, sourceValue, targetValue, library, canExecute]);
+
+  const handleExecute = useCallback(async () => {
     if (sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset) {
       setExecuting(true);
-      setTimeout(() => {
+
+      try {
+        await addLiquidity(
+          assets.get(sourceAsset)?.address,
+          assets.get(targetAsset)?.address,
+          sourceValue,
+          targetValue,
+          '0',
+          '0',
+          AWINO_ROUTER_MAP[ChainId.TESTNET],
+          account,
+          library
+        );
+
+        // If the transaction was successful, we clear to input to make sure the user doesn't accidental redo the transfer
+        setSourceValue(null);
+        setTargetValue(null);
         setExecuting(false);
-      }, 1000);
+        setCanExecute(false);
+      } catch (error) {
+        setExecuting(false);
+        console.error(error);
+      }
     }
-  }, [sourceAsset, targetAsset, sourceValue, targetValue]);
+  }, [assets, sourceAsset, targetAsset, sourceValue, targetValue, account, library]);
 
   const validateSourceValue = useCallback(
     (newValue) => {
@@ -185,13 +290,13 @@ const LiquidityPanel = (props: TabPanelProps) => {
     setSourceValue(event.target.value);
   };
 
-  const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
-    setSourceValue(`${(+newPercent / 100) * sourceMaxValue}`);
+  const handleTargetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTargetValue(event.target.value);
   };
 
-  // const handleTargetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setTargetValue(event.target.value);
-  // };
+  const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
+    setSourceValue(`${(+newPercent / 100) * parseFloat(sourceMaxValue)}`);
+  };
 
   const handleSourceAssetModalToggle = () => {
     setAssetModal({
@@ -321,14 +426,15 @@ const LiquidityPanel = (props: TabPanelProps) => {
                         : t('common:common.select-token')}
                     </>
                   </Button>
-                  <FormControl variant="standard" fullWidth disabled={true /* loading || !targetAsset */}>
+                  <FormControl variant="standard" fullWidth disabled={true}>
                     <FormLabel htmlFor="targetValue" className="AwiLiquidityPanel-targetAmountLabel">
                       <span>{t(`swap-section.swap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span>
                     </FormLabel>
                     <NumberInput
                       id="targetValue"
                       name="targetValue"
-                      value={targetValue} /* onChange={handleTargetChange} */
+                      value={targetValue}
+                      onChange={handleTargetChange}
                     />
                   </FormControl>
                 </div>
