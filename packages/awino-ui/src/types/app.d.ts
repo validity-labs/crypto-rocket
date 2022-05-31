@@ -23,6 +23,7 @@ export type I18nPageNamespace =
   | 'earn-deposit-details'
   | 'earn-liquidity-staking'
   | 'earn-manage-awino'
+  | 'earn-farms'
   | 'borrow'
   | 'borrow-details'
   | 'swap'
@@ -30,7 +31,8 @@ export type I18nPageNamespace =
   | 'analytics'
   | 'contracts'
   | 'dashboard'
-  | 'portfolio';
+  | 'portfolio'
+  | 'infinite';
 
 export interface Breadcrumb {
   key: string;
@@ -141,3 +143,8 @@ export type StatsData = StatsDataItem[];
 
 type FormatterMethod = (a: any) => string;
 export type StatsFormatter = { value: FormatterMethod; subValues?: FormatterMethod[] };
+
+interface Option {
+  label: string;
+  value: string | number;
+}

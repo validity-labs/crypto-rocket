@@ -57,11 +57,28 @@
     "success": "$t(operation-section.success)"
   },
   "vest-card": {
-    "subtitle": "Vestable",
-    "submit": "Vest",
+    "subtitle": "Lock",
+    "submit": "Lock",
+    "submit-success": "Locked",
     "confirm": "$t(operation-section.confirm)",
     "error": "$t(operation-section.error)",
-    "error-hint": "$t(operation-section.error-hint)",
-    "success": "$t(operation-section.success)"
+    "success": "$t(operation-section.success)",
+    "message": {
+      "submit-failed": "Submission failed.",
+      "submit-succeeded": "Successfully locked."
+    },
+    "field": {
+      "lockPeriod": {
+        "label": "Lock period:",
+        "name": "Lock period",
+        "value": {
+          "month": "{{v}} month",
+          "months": "{{v}} months",
+          "year": "{{v}} year",
+          "years": "{{v}} years",
+          "max": "Max"
+        }
+      }
+    }
   }
 }

@@ -4,45 +4,44 @@ import BigNumber from 'bignumber.js';
 
 import { GridValueFormatterParams } from '@mui/x-data-grid';
 
-import { DEFAULT_DATE_TIME_FORMAT } from '@/app/constants';
+import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORMAT } from '@/app/constants';
 import dateIO from '@/app/dateIO';
-import { ethers } from 'ethers';
+import { AssetKeyPair } from '@/types/app';
 
-// import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORMAT } from './constants';
 
-// /**
-//  * Format date to specific string format
-//  * @param date - Date object or ISO string representation of date
-//  * @returns
-//  */
-// export const formatDate = (date: string | Date): string => {
-//   try {
-//     const formatTo = i18n?.t('format.date', DEFAULT_DATE_FORMAT) || DEFAULT_DATE_FORMAT;
-//     if (typeof date === 'string') {
-//       return dateIO.formatByString(dateIO.parseISO(date), formatTo);
-//     }
-//     return dateIO.formatByString(date, formatTo);
-//   } catch (e) {
-//     return '-';
-//   }
-// };
+/**
+ * Format date to specific string format
+ * @param date - Date object or ISO string representation of date
+ * @returns
+ */
+export const formatDate = (date: string | Date): string => {
+  try {
+    const formatTo = i18n?.t('format.date', DEFAULT_DATE_FORMAT) || DEFAULT_DATE_FORMAT;
+    if (typeof date === 'string') {
+      return dateIO.formatByString(dateIO.parseISO(date), formatTo);
+    }
+    return dateIO.formatByString(date, formatTo);
+  } catch (e) {
+    return '-';
+  }
+};
 
-// /**
-//  * Format date to specific string pretty format
-//  * @param date - Date object or ISO string representation of date
-//  * @returns
-//  */
-// export const formatDatePretty = (date: string | Date): string => {
-//   try {
-//     const formatTo = i18n?.t('format.date-pretty', DEFAULT_DATE_PRETTY_FORMAT) || DEFAULT_DATE_PRETTY_FORMAT;
-//     if (typeof date === 'string') {
-//       return dateIO.formatByString(dateIO.parseISO(date), formatTo);
-//     }
-//     return dateIO.formatByString(date, formatTo);
-//   } catch (e) {
-//     return '-';
-//   }
-// };
+/**
+ * Format date to specific string pretty format
+ * @param date - Date object or ISO string representation of date
+ * @returns
+ */
+export const formatDatePretty = (date: string | Date): string => {
+  try {
+    const formatTo = i18n?.t('format.date-pretty', DEFAULT_DATE_PRETTY_FORMAT) || DEFAULT_DATE_PRETTY_FORMAT;
+    if (typeof date === 'string') {
+      return dateIO.formatByString(dateIO.parseISO(date), formatTo);
+    }
+    return dateIO.formatByString(date, formatTo);
+  } catch (e) {
+    return '-';
+  }
+};
 
 /**
  * Format date and time to specific string format
@@ -91,9 +90,9 @@ interface FormatAmountOptions {
  * @returns - a formatted string
  */
 export const formatAmount = (amount: BigNumber | number, { prefix, postfix }: FormatAmountOptions = {}): string => {
-  let n = amount;
+  let n = typeof amount === 'undefined' ? 0 : amount;
   if (typeof n === 'number') {
-    n = new BigNumber(amount);
+    n = new BigNumber(n);
   }
   const outputPrefix = prefix ? `${prefix} ` : '';
   const outputPostfix = postfix ? ` ${postfix}` : '';
@@ -188,3 +187,7 @@ export const formatGridUSD = (params: Pick<GridValueFormatterParams, 'value'>) =
 
 export const formatGridDateTime = (params: Pick<GridValueFormatterParams, 'value'>) =>
   formatDateTime(params.value as Date);
+
+export const formatLPPair = (pair: AssetKeyPair) => {
+  return `${pair.map((m) => m.toUpperCase()).join('-')} LP`;
+};

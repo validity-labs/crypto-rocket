@@ -1,0 +1,72 @@
+{
+  "page": {
+    "title": "Farms",
+    "description": "MISSING DESCRIPTION"
+  },
+  "result-section": {
+    "title": "Farms",
+    "title-hint": "MISSING TEXT",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+    "sort-by": {
+      "title": "Sort by",
+      "value": {
+        "emissions": "Emissions",
+        "apr": "APR",
+        "earned": "Earned",
+        "liquidity": "Liquidity",
+        "fees": "Fees"
+      }
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search farms"
+    },
+    "staked-only": "Staked only",
+    "inactive-farms": "Inactive farms",
+    "type": {
+      "title": "Farm type",
+      "value": {
+        "all": "All",
+        "standard": "Standard",
+        "boosted": "Boosted",
+        "winawi": "winAWI"
+      }
+    },
+    "layout": {
+      "title": "Layout arrangement",
+      "value": {
+        "grid": "Grid",
+        "list": "List"
+      }
+    },
+    "proportion-hint": "This percentage represents the proportion of total AWINO emissions dedicated to this specific farm",
+    "total-liquidity": "Total liquidity",
+    "apr-range": "APR range",
+    "apr-range-hint": "Farm APR: {{v1}}\nLP APR: {{v2}}",
+    "apr": "APR",
+    "earn": "Earn",
+    "deposit-fee": "Deposit fee",
+    "your-boost-factor": "Your boost factor",
+    "your-boost-factor-hint": "Can be from 1X - 2.5X",
+    "harvest": "Harvest",
+    "approve": "Approve",
+    "earned": "AWINO earned",
+    "staked": "Staked",
+    "stake": "Stake",
+    "details": "Details",
+    "lp-price": "LP price",
+    "view-on-scan": "View on XXXScan",
+    "asset": "Asset",
+    "emissions": "Emissions",
+    "fields": {
+      "asset": "Asset",
+      "emissions": "Emissions",
+      "total-liquidity": "Total liquidity",
+      "apr-range": "APR range",
+      "apr": "APR",
+      "earn": "Earn",
+      "deposit-fee": "Deposit fee",
+      "details": "Details"
+    }
+  }
+}

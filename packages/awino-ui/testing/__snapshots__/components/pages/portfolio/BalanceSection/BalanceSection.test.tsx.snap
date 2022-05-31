@@ -67,7 +67,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="AwiBalanceCard-labelValue MuiBox-root css-13"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-13"
                         >
                           <h6
                             class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -112,7 +112,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="AwiBalanceCard-labelValue MuiBox-root css-20"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-20"
                         >
                           <h6
                             class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -157,7 +157,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="AwiBalanceCard-labelValue MuiBox-root css-27"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-27"
                         >
                           <h6
                             class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -327,7 +327,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           class="AwiPoolCard-right"
                         >
                           <div
-                            class="AwiPoolCard-labelValue MuiBox-root css-47"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-47"
                           >
                             <h6
                               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -343,7 +343,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                             </p>
                           </div>
                           <div
-                            class="AwiPoolCard-labelValue MuiBox-root css-50"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-50"
                           >
                             <h6
                               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -483,7 +483,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           class="AwiPoolCard-right"
                         >
                           <div
-                            class="AwiPoolCard-labelValue MuiBox-root css-47"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-47"
                           >
                             <h6
                               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -499,7 +499,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                             </p>
                           </div>
                           <div
-                            class="AwiPoolCard-labelValue MuiBox-root css-50"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-50"
                           >
                             <h6
                               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -627,7 +627,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="AwiBalanceCard-labelValue MuiBox-root css-86"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-86"
                         >
                           <h6
                             class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -672,7 +672,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="AwiBalanceCard-labelValue MuiBox-root css-93"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-93"
                         >
                           <h6
                             class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
@@ -717,7 +717,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="AwiBalanceCard-labelValue MuiBox-root css-100"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-100"
                         >
                           <h6
                             class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"

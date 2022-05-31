@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-1om0hkc"
+   focusable="false"
+   viewBox="0 0 24 24"
+   aria-hidden="true"
+   data-testid="AccountBoxIcon"
+   version="1.1"
+   id="svg4"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <g
+     id="Icon_feather-plus-circle"
+     data-name="Icon feather-plus-circle"
+     transform="matrix(0,-0.3822469,0.3822469,0,2.4678556,21.520189)">
+    <path
+       id="Pfad_2348"
+       data-name="Pfad 2348"
+       d="M 46.843,24.921 A 21.921,21.921 0 1 1 24.921,3 21.921,21.921 0 0 1 46.843,24.921 Z"
+       fill="none"
+       stroke="#00ffeb"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="3" />
+    <path
+       id="Pfad_2349"
+       data-name="Pfad 2349"
+       d="M 18,12 V 29.537"
+       transform="translate(6.921,4.153)"
+       fill="none"
+       stroke="#00ffeb"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="3" />
+    <path
+       id="Pfad_2350"
+       data-name="Pfad 2350"
+       d="M 12,18 H 29.537"
+       transform="translate(4.153,6.921)"
+       fill="none"
+       stroke="#00ffeb"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="3" />
+  </g>
+</svg>

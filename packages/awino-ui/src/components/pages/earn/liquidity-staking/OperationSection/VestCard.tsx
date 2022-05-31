@@ -1,19 +1,21 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+
+import { TFunction, useTranslation } from 'next-i18next';
+
+import BigNumber from 'bignumber.js';
+import { Form, Formik, FormikHelpers } from 'formik';
+import * as Yup from 'yup';
 
 import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { useAppDispatch } from '@/app/hooks';
-import ExternalLink from '@/components/general/Link/ExternalLink';
+import FieldRadio from '@/components/fields/FieldRadio/FieldRadio';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import SwappingImage from '@/components/general/SwappingImage/SwappingImage';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import useSnack from '@/hooks/useSnack';
+import useYupLocales from '@/hooks/useYupLocales';
 import { formatAWI } from '@/lib/formatters';
-import { etherscan } from '@/lib/helpers';
-
-import { handleTransactionSubmit } from '../../helpers';
-import { useTransaction } from '../../useTransaction';
-import BigNumber from 'bignumber.js';
 
 const Root = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -30,10 +32,34 @@ const Root = styled('div')(({ theme }) => ({
     ...theme.typography.h5,
     color: theme.palette.text.primary,
   },
+  '.AwiLoadingButton-root': {
+    margin: theme.spacing(10, 'auto', 0),
+  },
   [theme.breakpoints.up('md')]: {
     padding: theme.spacing(10, 20),
   },
 }));
+
+const LOCK_PERIOD_OPTIONS = [
+  { value: 1, i18nKey: 'month' },
+  { value: 3, i18nKey: 'months' },
+  { value: 6, i18nKey: 'months' },
+  { value: 12, i18nKey: 'year' },
+  { value: 24, i18nKey: 'years' },
+  { value: 36, i18nKey: 'max' },
+];
+
+const LOCK_PERIOD_VALUES = LOCK_PERIOD_OPTIONS.map((m) => m.value);
+
+const getValidationSchema = (t: TFunction) => {
+  return Yup.object({
+    lockPeriod: Yup.number().oneOf(LOCK_PERIOD_VALUES).required().label(t('vest-card.field.lockPeriod.name')),
+  }) as Yup.SchemaOf<Values>;
+};
+
+interface Values {
+  lockPeriod: number;
+}
 
 interface Props {
   balance: string;
@@ -41,17 +67,56 @@ interface Props {
 
 export default function VestCard({ balance }: Props) {
   const t = usePageTranslation();
-  const { isProcessing, isCompleted, isError, isValid, address, setStep } = useTransaction();
+  const {
+    t: tRaw,
+    i18n: { language },
+  } = useTranslation();
+  const snack = useSnack();
 
-  const dispatch = useAppDispatch();
+  const [isCompleted, setIsCompleted] = useState(false);
+  useYupLocales();
 
-  // TODO mocked shared submit logic
-  const handleTransaction = useMemo(handleTransactionSubmit, []);
-  const handleSubmit = useCallback(async () => {
-    await handleTransaction(balance, setStep, dispatch, t, 'vest-card');
-  }, [balance, setStep, dispatch, t, handleTransaction]);
+  const validationSchema = useMemo<Yup.SchemaOf<Values>>(
+    () => getValidationSchema(t),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [t, language]
+  );
 
-  const isDisabled = new BigNumber(0).lte(0);
+  const handleSubmit = useCallback(
+    async (values: Values, formikBag: FormikHelpers<Values>) => {
+      try {
+        const res = await new Promise<{ error: boolean; result: Record<string, any> }>((res) =>
+          // TODO PROTOTYPE
+          setTimeout(() => {
+            res({ error: false, result: {} });
+          }, 4000)
+        );
+        if (res.error) {
+          snack(t('vest-card.message.submit-failed'), 'error');
+        } else {
+          snack(t('vest-card.message.submit-succeeded'));
+          formikBag.resetForm();
+          setIsCompleted(true);
+        }
+      } catch (error) {
+        snack(t('vest-card.message.submit-failed'), 'error');
+      } finally {
+        // setLoading(false);
+        formikBag.setSubmitting(false);
+      }
+    },
+    [t, snack]
+  );
+
+  const { lockPeriodOptions } = useMemo(() => {
+    return {
+      lockPeriodOptions: LOCK_PERIOD_OPTIONS.map(({ value, i18nKey }) => ({
+        value,
+        label: t(`vest-card.field.lockPeriod.value.${i18nKey}`, { v: value < 12 ? value : value / 12 }),
+      })) as Option[],
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language, t]);
 
   return (
     <Root>
@@ -62,25 +127,43 @@ export default function VestCard({ balance }: Props) {
       <Typography variant="body-sm" mb={8}>
         {t('vest-card.subtitle')}
       </Typography>
-      <LoadingButton
-        once
-        loading={isProcessing}
-        done={isCompleted}
-        disabled={!isValid || isDisabled}
-        size="small"
-        onClick={handleSubmit}
-        variant="outlined"
+      <Formik
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          lockPeriod: null,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
       >
-        {t('vest-card.submit')}
-      </LoadingButton>
-      {isCompleted && (
-        <ExternalLink variant="body-sm" href={etherscan(address)} text={t(`common:common.view-on-etherscan`)} mt={8} />
-      )}
-      {isError && (
-        <Typography color="error" mt={8}>
-          {t(`vest-card.error-hint`)}
-        </Typography>
-      )}
+        {({ isSubmitting, values, /* touched, errors, */ setFieldValue }) => {
+          const isDisabled = new BigNumber(balance).lte(0) || isSubmitting || isCompleted;
+
+          return (
+            <Form autoComplete="off" noValidate style={{ width: '100%' }}>
+              <FieldRadio
+                name="lockPeriod"
+                required
+                fullWidth
+                options={lockPeriodOptions}
+                label={t('vest-card.field.lockPeriod.label')}
+                disabled={isDisabled}
+              />
+              <LoadingButton
+                once
+                type="submit"
+                disabled={isDisabled}
+                loading={isSubmitting}
+                done={isCompleted}
+                size="small"
+                variant="outlined"
+              >
+                {t(isCompleted ? 'vest-card.submit-success' : 'vest-card.submit')}
+              </LoadingButton>
+            </Form>
+          );
+        }}
+      </Formik>
     </Root>
   );
 }

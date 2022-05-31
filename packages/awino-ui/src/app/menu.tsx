@@ -13,6 +13,7 @@ export const mainMenuLinks: MenuItemType[] = [
       { type: 'internal', key: 'deposit', url: '/earn/deposit' },
       { type: 'internal', key: 'liquidity-staking', url: '/earn/liquidity-staking' },
       { type: 'internal', key: 'manage-awino', url: '/earn/manage-awino' },
+      { type: 'internal', key: 'farms', url: '/earn/farms' },
     ],
   },
   {
@@ -24,6 +25,11 @@ export const mainMenuLinks: MenuItemType[] = [
     type: 'internal',
     key: 'swap',
     url: '/swap',
+  },
+  {
+    type: 'internal',
+    key: 'infinite',
+    url: '/infinite',
   },
   {
     type: 'internal',

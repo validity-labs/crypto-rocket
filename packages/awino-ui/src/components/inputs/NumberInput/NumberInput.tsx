@@ -12,7 +12,10 @@ interface CustomProps {
   name: string;
 }
 
-const NumberFormatCustom = React.forwardRef<NumberFormat<any>, CustomProps>(function NumberFormatCustom(props, ref) {
+export const NumberFormatCustom = React.forwardRef<NumberFormat<any>, CustomProps>(function NumberFormatCustom(
+  props,
+  ref
+) {
   const { onChange, /* isAllowed, */ ...other } = props;
 
   return (

@@ -25,14 +25,13 @@ const Root = styled('canvas')(({ theme }) => ({
 export const AnimatedBackground = () => {
   const canvasRef = useRef(null);
   const isReducedMotion = useMediaQuery('@media (prefers-reduced-motion)', { noSsr: true });
-  console.log(isReducedMotion);
+
   useEffect(() => {
     if (isReducedMotion || navigator.userAgent.toLowerCase().indexOf('firefox') !== -1) {
       return;
     }
     const destroy = startAnimation(canvasRef.current);
     return () => {
-      console.log('destroy');
       destroy();
     };
   }, [isReducedMotion]);

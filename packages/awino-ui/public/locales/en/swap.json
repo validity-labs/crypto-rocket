@@ -49,6 +49,34 @@
       "choose-token": "Choose token",
       "choose-lp-token": "Choose a lp token",
       "execute": "Execute zap"
+    },
+    "liquidity": {
+      "title": "Add Liquidity",
+      "prompt": "Add liquidity to receive liquidity provider (LP) tokens",
+      "execute": "Supply",
+      "choose-token": "Choose token",
+      "you-pay": "You pay",
+      "you-receive": "You receive",
+      "you-receive-estimated": "You receive (estimated)",
+      "max-of-asset": "Max. {{value}} {{asset}}",
+      "price": "Price",
+      "ratio-per": "{{value}} {{target}} per {{source}}",
+      "minimum-received": {
+        "title": "Minimum received",
+        "hint": "MISSING TEXT"
+      },
+      "price-impact": {
+        "title": "Price impact",
+        "hint": "MISSING TEXT"
+      },
+      "liquidity-provider-fee": {
+        "title": "Liquidity provider fee",
+        "hint": "MISSING TEXT"
+      },
+      "route": {
+        "title": "Route",
+        "hint": "MISSING TEXT"
+      }
     }
   },
   "settings-modal": {
