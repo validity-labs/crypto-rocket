@@ -1,6 +1,4 @@
-import { BigNumber, Contract, ethers } from 'ethers';
-
-import { AssetInfo } from '@/components/pages/swap/SwapSection/SwapSection';
+import { Contract, ethers } from 'ethers';
 
 import ERC20_ABI from './abis/ERC20.json';
 import AWINO_FACTORY_ABI from './abis/IAwinoFactory.json';

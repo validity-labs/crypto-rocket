@@ -7,7 +7,6 @@ import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup }
 import { styled } from '@mui/material/styles';
 
 import Label from '@/components/general/Label/Label';
-import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import ExpandIcon from '@/components/icons/ExpandIcon';
@@ -22,8 +21,10 @@ import {
   useAllowance,
   useTokenBalance,
 } from '@/lib/blockchain';
-import { formatAmount, formatPercent } from '@/lib/formatters';
+import { formatPercent } from '@/lib/formatters';
 import { AssetKey, ID } from '@/types/app';
+
+
 
 import AssetIcons from './AssetIcons';
 import AssetModal, { AssetModalData, AssetModalUpdateCallback } from './AssetModal';
