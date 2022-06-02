@@ -372,7 +372,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
         })
       );
     }
-  }, [/* asset, */ t, dispatch, operationType /* , callback */]);
+  }, [/* asset, */ t, dispatch, operationType /* , callback */, chainId, account, library]);
 
   const handleOperationTypeChange = (event: React.MouseEvent<HTMLElement>) => {
     // @ts-ignore

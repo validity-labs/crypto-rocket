@@ -8,7 +8,6 @@ import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORM
 import dateIO from '@/app/dateIO';
 import { AssetKeyPair } from '@/types/app';
 
-
 /**
  * Format date to specific string format
  * @param date - Date object or ISO string representation of date

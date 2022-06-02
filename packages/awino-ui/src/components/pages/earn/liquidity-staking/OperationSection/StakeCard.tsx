@@ -155,7 +155,7 @@ export default function StakeCard({ balance }: Props) {
       console.error(error);
     }
     // await masterChef.populateTransaction()
-  }, [assetValue, balance, setStep, dispatch, t, handleTransaction]);
+  }, [assetValue, balance, setStep, account, chainId, library]);
 
   const handleAssetValueMax = () => {
     setAssetValue(`${balance}`);

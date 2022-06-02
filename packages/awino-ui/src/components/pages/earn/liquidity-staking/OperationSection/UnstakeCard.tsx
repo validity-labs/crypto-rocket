@@ -71,7 +71,7 @@ export default function UnstakeCard({ balance, ...restOfProps }: Props) {
     } catch (error) {
       console.error(error);
     }
-  }, [balance, setStep, dispatch, t, handleTransaction]);
+  }, [balance, library]);
 
   console.log({ isDisabled });
   return (
