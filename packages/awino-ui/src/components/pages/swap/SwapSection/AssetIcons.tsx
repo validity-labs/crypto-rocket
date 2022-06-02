@@ -33,7 +33,7 @@ const AssetIcons = styled(({ ids: assetIds, size, className, ...restOfProps }: P
       {...restOfProps}
     >
       {ids.map((id) => (
-        <img key={id} src={`/images/assets/${id}.svg`} alt="" width={width} height={width} />
+        <img key={id} src={`/images/assets/${id.toLowerCase()}.svg`} alt="" width={width} height={width} />
       ))}
     </Box>
   );
