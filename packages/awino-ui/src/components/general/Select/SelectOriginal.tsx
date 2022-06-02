@@ -1,8 +1,8 @@
 import { useTranslation } from 'next-i18next';
 
-import { Box, FormControl, BoxProps, Typography, CircularProgress } from '@mui/material';
+import { Box, FormControl, BoxProps, Typography, CircularProgress, FormLabel } from '@mui/material';
 import MuiMenuItem, { MenuItemProps as MuiMenuItemProps } from '@mui/material/MenuItem';
-import MuiSelect, { SelectChangeEvent, selectClasses } from '@mui/material/Select';
+import MuiSelect, { SelectChangeEvent, selectClasses, SelectProps } from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 
 import ExpandIcon from '@/components/icons/ExpandIcon';
@@ -12,13 +12,19 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     minHeight: '58px !important',
-    padding: `${theme.spacing(0, 10, 0, 2)} !important`,
-    backgroundColor: 'transparent',
+    padding: `${theme.spacing(1, 7, 1, 7)} !important`,
+
+    borderRadius: +theme.shape.borderRadius * 2,
+    backgroundColor: theme.palette.background.transparent,
+    ...theme.typography.body,
+    color: theme.palette.text.primary,
+    lineHeight: 2,
+    overflow: 'hidden',
   },
   [`& .${selectClasses.icon}`]: {
     fontSize: '32px',
     color: theme.palette.text.secondary,
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(4),
     path: {
       fill: 'currentColor !important',
     },
@@ -31,12 +37,11 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: theme.spacing(1, 12, 1, 10),
     ...theme.typography['body-md'],
     color: theme.palette.text.primary,
     img: {
-      width: 50,
-      height: 50,
+      width: 32,
+      height: 32,
       marginRight: theme.spacing(4),
     },
   },
@@ -66,11 +71,12 @@ const MenuItem = styled(({ item, selected, ...restOfProps }: MenuItemProps) => {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: theme.spacing(1.5, 12, 1.5, 10),
+    padding: theme.spacing(1.5, 4, 1.5, 4),
     ...theme.typography['body-md'],
+    color: theme.palette.text.primary,
     img: {
-      width: 50,
-      height: 50,
+      width: 32,
+      height: 32,
       marginRight: theme.spacing(4),
     },
   },
@@ -81,14 +87,24 @@ interface SelectItem {
   label: string;
 }
 
-interface Props extends BoxProps {
+interface Props extends SelectProps {
   items: Map<string, SelectItem>;
   value: string;
   setValue: SetState<string>;
   loading?: boolean;
   disabled?: boolean;
+  // label: React.ReactNode;
 }
-export default function Select({ items, value, setValue, loading = false, disabled = false, ...restOfProps }: Props) {
+export default function Select({
+  id,
+  label,
+  items,
+  value,
+  setValue,
+  loading = false,
+  disabled = false,
+  ...restOfProps
+}: Props) {
   const { t } = useTranslation();
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -96,7 +112,8 @@ export default function Select({ items, value, setValue, loading = false, disabl
   };
 
   return (
-    <Box component={FormControl} {...restOfProps}>
+    <FormControl>
+      {label && <FormLabel htmlFor={id}>{label}</FormLabel>}
       <StyledSelect
         disableUnderline
         aria-label=""
@@ -104,9 +121,19 @@ export default function Select({ items, value, setValue, loading = false, disabl
         value={value}
         onChange={handleChange}
         variant="standard"
+        label="TESTSET"
         displayEmpty
+        MenuProps={{
+          PaperProps: {
+            sx: {
+              border: 0,
+              borderRadius: 0,
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+            },
+          },
+        }}
         IconComponent={ExpandIcon}
-        label={null}
         disabled={loading || disabled}
         renderValue={() => {
           return (
@@ -128,11 +155,12 @@ export default function Select({ items, value, setValue, loading = false, disabl
             </Typography>
           );
         }}
+        {...restOfProps}
       >
         {Array.from(items).map(([id, item]) => (
           <MenuItem key={id} item={item} value={id} selected={value === id} />
         ))}
       </StyledSelect>
-    </Box>
+    </FormControl>
   );
 }
