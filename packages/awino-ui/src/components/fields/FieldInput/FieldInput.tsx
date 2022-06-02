@@ -14,12 +14,12 @@ import { styled } from '@mui/material/styles';
 
 import FieldError from '../FieldError/FieldError';
 
-const FormControl = styled(MuiFormControl)(({ theme }) => ({
+export const FormControlInput = styled(MuiFormControl)(({ theme }) => ({
   '.MuiFormLabel-root': {
     marginBottom: theme.spacing(3.5),
     ...theme.typography['body-sm'],
     fontWeight: 700,
-    color: theme.palette.text.contrast,
+    color: theme.palette.text.primary,
   },
   '.MuiInputBase-root': {
     borderRadius: +theme.shape.borderRadius * 2,
@@ -95,7 +95,7 @@ const FieldInput = ({
   const inputId = id || field.name;
   const hasError = !!meta.error;
   return (
-    <FormControl
+    <FormControlInput
       color="secondary"
       error={hasError}
       required={required}
@@ -117,7 +117,7 @@ const FieldInput = ({
         {...props}
       />
       {hasError && <FieldError id={`${inputId}Helper`} message={meta.error} /* field={label} */ />}
-    </FormControl>
+    </FormControlInput>
   );
 };
 

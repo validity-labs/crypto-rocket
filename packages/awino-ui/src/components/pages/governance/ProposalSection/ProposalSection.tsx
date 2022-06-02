@@ -13,6 +13,7 @@ import DataGrid from '@/components/general/DataGrid/DataGrid';
 import GridPagination from '@/components/general/GridPagination/GridPagination';
 import Label from '@/components/general/Label/Label';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
+import Link from '@/components/general/Link/Link';
 import Panel from '@/components/general/Panel/Panel';
 import InfoIcon from '@/components/icons/InfoIcon';
 import Section from '@/components/layout/Section/Section';
@@ -122,7 +123,13 @@ export default function ProposalSection(/* { info, loading }: Props */) {
             <Label component="h2" id="proposalSectionTitle">
               {t('title')}
             </Label>
-            <Button variant="outlined" endIcon={<AddCircleOutlineRoundedIcon fontSize="large" />}>
+            <Button
+              variant="outlined"
+              size="small"
+              component={Link}
+              href="/governance/create-proposal"
+              endIcon={<AddCircleOutlineRoundedIcon fontSize="large" />}
+            >
               {t('create-proposal')}
             </Button>
           </>
@@ -147,41 +154,16 @@ export default function ProposalSection(/* { info, loading }: Props */) {
             components={{
               Pagination: GridPagination,
             }}
-            componentsProps={{
-              cell: {
-                currentBlock,
-              },
-              row: {
-                currentBlock,
-              },
-            }}
+            // componentsProps={{
+            //   cell: {
+            //     currentBlock,
+            //   },
+            //   row: {
+            //     currentBlock,
+            //   },
+            // }}
           />
         </div>
-        {/* <Typography variant="h3" component="h1" mb={7}>
-          {t('title')}
-        </Typography> */}
-        {/* <Typography variant="body" color="text.primary" mb={18}>
-          {t('description')}
-        </Typography>
-        <div className="AwiInfoSection-statsWrapper">
-          <div className="AwiInfoSection-stats">
-            <LabelValue
-              id="infoSectionTreasury"
-              value={formatAmount(info.treasuryAmount)}
-              labelProps={{ children: t('treasury') }}
-            />
-            <LabelValue
-              id="infoSectionValueInUSD"
-              value={formatUSD(info.treasuryAmountUSD)}
-              labelProps={{ children: t('value-in-usd') }}
-            />
-          </div>
-          <Tooltip title={t('treasury-hint')} placement="right">
-            <span>
-              <InfoIcon color="primary" fontSize="small" />
-            </span>
-          </Tooltip>
-        </div> */}
       </Panel>
     </Root>
   );

@@ -36,7 +36,8 @@ export type I18nPageNamespace =
   | 'portfolio'
   | 'infinite'
   | 'governance'
-  | 'governance-details';
+  | 'governance-details'
+  | 'create-proposal';
 
 export interface Breadcrumb {
   key: string;
