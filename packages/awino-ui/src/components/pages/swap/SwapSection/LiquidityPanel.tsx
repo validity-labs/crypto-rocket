@@ -24,8 +24,6 @@ import {
 import { formatPercent } from '@/lib/formatters';
 import { AssetKey, ID } from '@/types/app';
 
-
-
 import AssetIcons from './AssetIcons';
 import AssetModal, { AssetModalData, AssetModalUpdateCallback } from './AssetModal';
 import NumberInput from './NumberInput';
@@ -273,6 +271,9 @@ const LiquidityPanel = (props: TabPanelProps) => {
         setTargetValue(null);
         setExecuting(false);
         setCanExecute(false);
+
+        // Force balance update
+        setSourceAsset(sourceAsset);
       } catch (error) {
         setExecuting(false);
         console.error(error);
