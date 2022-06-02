@@ -16,6 +16,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import useSnack from '@/hooks/useSnack';
 import useYupLocales from '@/hooks/useYupLocales';
 import { formatAWI } from '@/lib/formatters';
+import { Option } from '@/types/app';
 
 const Root = styled('div')(({ theme }) => ({
   display: 'flex',
