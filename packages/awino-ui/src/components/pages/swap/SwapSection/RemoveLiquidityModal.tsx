@@ -88,16 +88,16 @@ const Root = styled(Modal)(({ theme }) => ({
       },
     },
   },
-  '.MuiFormLabel-root': {
-    marginBottom: theme.spacing(1),
-    ...theme.typography.body,
-    color: theme.palette.text.secondary,
-  },
-  '.MuiFormControlLabel-label': {
-    ...theme.typography['body-ms'],
-    fontWeight: 500,
-    color: theme.palette.text.secondary,
-  },
+  // '.MuiFormLabel-root': {
+  //   marginBottom: theme.spacing(1),
+  //   ...theme.typography.body,
+  //   color: theme.palette.text.secondary,
+  // },
+  // '.MuiFormControlLabel-label': {
+  //   ...theme.typography['body-ms'],
+  //   fontWeight: 500,
+  //   color: theme.palette.text.secondary,
+  // },
   [theme.breakpoints.up('sm')]: {
     '.AwiLabelValue-root': {
       flexDirection: 'row',

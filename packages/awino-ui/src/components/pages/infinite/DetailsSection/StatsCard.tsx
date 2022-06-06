@@ -1,35 +1,16 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 
-import { TFunction, useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 
-import { Form, Formik, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
-
-import { Button, InputAdornment, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import dateIO from '@/app/dateIO';
-import FieldInput from '@/components/fields/FieldInput/FieldInput';
-import FieldRadio from '@/components/fields/FieldRadio/FieldRadio';
 import Card from '@/components/general/Card/Card';
 import Label from '@/components/general/Label/Label';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
-import Input from '@/components/inputs/Input/Input';
-import { NumberFormatCustom } from '@/components/inputs/NumberInput/NumberInput';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import useSnack from '@/hooks/useSnack';
-import useYupLocales from '@/hooks/useYupLocales';
-import {
-  formatAmount,
-  formatAWI,
-  formatDate,
-  formatDatePretty,
-  formatEmptyString,
-  formatNumber,
-  formatPercent,
-  formatUSD,
-} from '@/lib/formatters';
+import { formatAmount, formatAWI, formatDatePretty, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
 
 const Root = styled(Card)(({ theme }) => ({
   display: 'flex',

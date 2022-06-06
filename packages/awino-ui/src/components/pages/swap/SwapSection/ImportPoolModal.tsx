@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from 'react';
+import React, { memo, useMemo, useState } from 'react';
 
 import { styled } from '@mui/material/styles';
 
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
-import Select from '@/components/general/Select/SelectBase';
+import Select, { SelectOptionComponentFC, SelectValueComponentFC } from '@/components/general/Select/Select';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { AssetKey } from '@/types/app';
 
@@ -19,6 +19,17 @@ const Root = styled(Modal)(({ theme }) => ({
     alignSelf: 'center',
   },
 }));
+
+const SelectTokenValueAndOption: SelectValueComponentFC = memo(function SelectTokenValueAndOption({
+  item: { id, label },
+}) {
+  return (
+    <>
+      <img src={`/images/assets/${id}.svg`} alt="" width="24" />
+      {label}
+    </>
+  );
+});
 
 export interface ImportPoolModalData {
   assets: AssetInfoMap;
@@ -69,6 +80,9 @@ export default function ImportPoolModal({ open, close, data, callback, i18nKey }
         value={firstToken}
         setValue={setFirstToken}
         label={t('token')}
+        placeholder={t('select-token')}
+        ValueComponent={SelectTokenValueAndOption}
+        OptionComponent={SelectTokenValueAndOption}
       />
       <Select
         id="importPoolModalSecondToken"
@@ -76,6 +90,9 @@ export default function ImportPoolModal({ open, close, data, callback, i18nKey }
         value={secondToken}
         setValue={setSecondToken}
         label={t('token')}
+        placeholder={t('select-token')}
+        ValueComponent={SelectTokenValueAndOption}
+        OptionComponent={SelectTokenValueAndOption}
       />
       <LoadingButton
         variant="outlined"

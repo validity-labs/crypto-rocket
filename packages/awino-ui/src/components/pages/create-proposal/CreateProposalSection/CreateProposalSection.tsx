@@ -1,9 +1,3 @@
-// import ReactMarkdown from 'react-markdown';
-
-// import remarkBreaks from 'remark-breaks';
-// import EmptyResult from '@/components/general/EmptyResult/EmptyResult';
-// import Loader from '@/components/general/Loader/Loader';
-// import { ProposalItem } from '@/types/app';
 import { useCallback, useEffect, useState } from 'react';
 
 import { useTranslation } from 'next-i18next';

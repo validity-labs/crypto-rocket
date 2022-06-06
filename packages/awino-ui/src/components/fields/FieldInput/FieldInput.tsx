@@ -15,12 +15,12 @@ import { styled } from '@mui/material/styles';
 import FieldError from '../FieldError/FieldError';
 
 export const FormControlInput = styled(MuiFormControl)(({ theme }) => ({
-  '.MuiFormLabel-root': {
-    marginBottom: theme.spacing(3.5),
-    ...theme.typography['body-sm'],
-    fontWeight: 700,
-    color: theme.palette.text.primary,
-  },
+  // '.MuiFormLabel-root': {
+  // marginBottom: theme.spacing(3.5),
+  // ...theme.typography['body-sm'],
+  // fontWeight: 700,
+  // color: theme.palette.text.primary,
+  // },
   '.MuiInputBase-root': {
     borderRadius: +theme.shape.borderRadius * 2,
     padding: theme.spacing(3, 3.5, 3, 7),

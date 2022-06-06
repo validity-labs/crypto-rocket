@@ -758,21 +758,40 @@ const themeCreator = (mode: PaletteMode) => {
     MuiInputBase: {
       styleOverrides: {
         input: {
+          minWidth: 60,
           height: 'auto',
+          padding: 0,
           '&.Mui-disabled': {
             color: theme.palette.text.secondary,
             textFillColor: theme.palette.text.secondary,
           },
+          '&::placeholder': {
+            transition: '200ms ease-in',
+            color: theme.palette.text.secondary,
+          },
+        },
+
+        root: {
+          padding: theme.spacing(3, 3.5, 3, 7),
+          borderRadius: +theme.shape.borderRadius * 2,
+          backgroundColor: theme.palette.background.transparent,
+          '&.Mui-focused, &:focus, &:hover, &[aria-expanded="true"]': {
+            boxShadow: `0px 0 3px 1px ${theme.palette.primary.main}`,
+          },
+        },
+        sizeSmall: {
+          padding: theme.spacing(1.5, 3.5, 1.5, 7),
+          ...theme.typography['body-sm'],
         },
       },
     },
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          fontSize: '1rem',
-          fontWeight: 600,
-          color: '#939393',
-          marginBottom: sp(4.5),
+          // fontSize: '1rem',
+          // fontWeight: 600,
+          // color: '#939393',
+          // marginBottom: sp(4.5),
           // paddingLeft: sp(8),
         },
         // input: {
@@ -787,6 +806,14 @@ const themeCreator = (mode: PaletteMode) => {
       styleOverrides: {
         root: {
           position: 'relative',
+          // '& .MuiFormLabel-root': {
+          //   ...theme.typography.body,
+          //   fontWeight: 500,
+          //   color: theme.palette.text.secondary,
+          //   '&.Mui-focused': {
+          //     color: theme.palette.text.primary,
+          //   },
+          // },
         },
       },
     },
@@ -796,16 +823,26 @@ const themeCreator = (mode: PaletteMode) => {
           // position: 'relative',
         },
         label: {
-          ...theme.typography['body-xs'],
+          marginBottom: theme.spacing(1),
+          ...theme.typography.body,
           fontWeight: 500,
+          color: theme.palette.text.secondary,
+          '&.Mui-focused': {
+            color: theme.palette.text.primary,
+          },
         },
       },
     },
     MuiFormLabel: {
       styleOverrides: {
         root: {
+          marginBottom: theme.spacing(1),
           ...theme.typography.body,
           fontWeight: 500,
+          color: theme.palette.text.secondary,
+          '&.Mui-focused': {
+            color: theme.palette.text.primary,
+          },
         },
       },
     },
@@ -1101,6 +1138,35 @@ const themeCreator = (mode: PaletteMode) => {
         },
         standardInfo: {
           backgroundColor: alpha(theme.palette.primary.main, 0.1),
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        standard: {
+          display: 'flex',
+          alignItems: 'center',
+          paddingTop: `${theme.spacing(4.5)} !important`,
+          paddingRight: `${theme.spacing(15.5)} !important`,
+          paddingBottom: theme.spacing(4.5),
+          paddingLeft: theme.spacing(9),
+          // margin: 0,
+          '.MuiSelect-value': {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+          },
+          '&.MuiInputBase-inputSizeSmall': {
+            paddingTop: `${theme.spacing(3)} !important`,
+            paddingRight: `${theme.spacing(13.5)} !important`,
+            paddingBottom: theme.spacing(3),
+            paddingLeft: theme.spacing(7),
+            '.MuiSelect-value': {
+              ...theme.typography['body-sm'],
+            },
+          },
+          // padding: theme.spacing(1, 7),
         },
       },
     },

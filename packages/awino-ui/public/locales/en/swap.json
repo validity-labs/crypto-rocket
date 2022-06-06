@@ -138,7 +138,8 @@
     "common-bases-hint": "MISSING TEXT",
     "tokens": "Token name",
     "import": "Import",
-    "token": "Token"
+    "token": "Token",
+    "select-token": "Select a token"
   },
   "remove-liquidity-modal": {
     "title": "Remove liquidity",

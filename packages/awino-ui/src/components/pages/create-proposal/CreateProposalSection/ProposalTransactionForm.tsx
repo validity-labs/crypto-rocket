@@ -1,24 +1,19 @@
 import { useRef, useState } from 'react';
 
-import { useTranslation } from 'react-i18next';
-import { Step, StepProgressBar, useStepProgress, withStepProgress } from 'react-stepz';
+import { Step, useStepProgress } from 'react-stepz';
 
 import BigNumber from 'bignumber.js';
 import clsx from 'clsx';
+import { toWei } from 'web3-utils';
 import { isAddress } from 'web3-utils';
 
-import { ArrowBackRounded, ArrowForwardRounded } from '@mui/icons-material';
 import {
   Box,
   Button,
-  Checkbox,
   Chip,
-  CircularProgress,
-  FormControlLabel,
   FormGroup,
   FormLabel,
   InputBase,
-  Select,
   Table,
   TableBody,
   TableCell,
@@ -29,25 +24,16 @@ import {
 import { styled } from '@mui/material/styles';
 
 import { FormControlInput } from '@/components/fields/FieldInput/FieldInput';
-import { FormControlSelect, MenuItemSelect } from '@/components/fields/FieldSelect/FieldSelect';
 import InfoTooltip from '@/components/general/InfoTooltip/InfoTooltip';
-import Modal from '@/components/general/Modal/Modal';
-import DropdownArrowIcon from '@/components/icons/DropdownArrowIcon';
-import ExpandIcon from '@/components/icons/ExpandIcon';
+import Select, { SelectValueAndOptionDefault } from '@/components/general/Select/Select';
 import UploadIcon from '@/components/icons/UploadIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { buildEtherscanAddressLink } from '@/lib/etherscan';
 
 import { ProposalTransaction } from './CreateProposalSection';
 import StepProgress from './StepProgress';
-// import { Vote } from './VoteCard';
 
 const Root = styled(Box)(({ theme }) => ({
-  '.MuiFormControl-root': {
-    '.MuiFormLabel-root': {
-      marginBottom: theme.spacing(1),
-    },
-  },
   '.AwiFormControlInput-typeFile': {
     '.AwiFormControlInput-typeFileLabel': {
       display: 'flex',
@@ -55,21 +41,14 @@ const Root = styled(Box)(({ theme }) => ({
       marginBottom: theme.spacing(1),
       ...theme.typography['body-sm'],
       fontWeight: 700,
-      color: theme.palette.text.primary,
+      color: theme.palette.text.secondary,
     },
-
-    // '.MuiInputBase-input': {
-    //   minWidth: 60,
-    //   // padding: theme.spacing(5, 8, 4.5),
-    //   padding: theme.spacing(1, 2),
-    //   boxSizing: 'border-box',
-    // },
     '.AwiFormControlInput-typeFileOutput': {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: theme.spacing(4.5, 6, 4),
+      padding: theme.spacing(3.5, 6, 3),
       ...theme.typography['body-xl'],
       lineHeight: 2,
       // color: '#37505C',
@@ -91,29 +70,6 @@ const Root = styled(Box)(({ theme }) => ({
         transition: 'color 200ms ease-in',
         color: theme.palette.text.secondary,
       },
-      // '&.MuiInputBase-adornedStart > svg:first-of-type': {
-      //   pointerEvents: 'none',
-      //   padding: theme.spacing(5, 4, 5, 4.5),
-      //   borderRight: '1px solid #262F40',
-      //   fontSize: '34px',
-      //   color: '#313b4e',
-      //   boxSizing: 'content-box',
-      // },
-      // '&.Mui-focused.MuiInputBase-adornedStart > svg:first-of-type': {
-      //   color: theme.palette.background.lighter,
-      // },
-
-      // '& .MuiInputAdornment-positionEnd button': {
-      //   padding: theme.spacing(1, 3),
-      //   border: `1px solid ${theme.palette.text.secondary}`,
-      //   ...theme.typography['body-sm'],
-      //   color: theme.palette.text.secondary,
-      //   '&:hover': {
-      //     borderWidth: 1,
-      //     color: theme.palette.text.primary,
-      //   },
-      // },
-
       '&.Mui-error': {
         '.AwiFormControlInput-typeFileOutput': {
           boxShadow: `0px 0 3px 1px ${theme.palette.error.main}`,
@@ -143,20 +99,13 @@ const Root = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {},
 }));
 
-// interface VoteModalProps {
-//   show: boolean;
-//   onHide: () => void;
-//   onVote: () => void;
-//   isLoading: boolean;
-//   proposalId: string | undefined;
-//   availableVotes: number | undefined;
-//   vote: Vote | undefined;
-// }
 export const CURRENCY: string = process.env.REACT_APP_CURRENCY ?? 'ETH';
 
-interface ProposalTransactionFormProps {}
+interface ProposalTransactionFormProps {
+  onCreate: (transaction: ProposalTransaction) => void;
+}
 
-const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
+const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => {
   const t = usePageTranslation({ keyPrefix: 'proposal-transaction-form' });
 
   // const { t } = useTranslation();
@@ -265,13 +214,16 @@ const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
     if (currentStep !== steps.length - 1) {
       return stepForward();
     }
-    // onProposalTransactionAdded({
-    //   address,
-    //   value: value ? utils.parseEther(value).toString() : '0',
-    //   signature: func,
-    //   calldata: (func && abi?._encodeParams(abi?.functions[func]?.inputs, args)) || '0x',
-    // });
-    // clearState();
+
+    onCreate({
+      address,
+      value: value ? toWei(value) : '0',
+      signature: func,
+      /* TODO encode params */
+      // calldata: (func && abi?._encodeParams(abi?.functions[func]?.inputs, args)) || '0x',
+      calldata: 'todo',
+    });
+    clearState();
   };
 
   const steps = [
@@ -302,31 +254,22 @@ const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
 
   const { stepForward, stepBackwards, currentStep } = useStepProgress({
     steps,
-    startingStep: 3,
+    startingStep: 0,
   });
 
-  // const clearState = () => {
-  //   setAddress('');
-  //   setABI(undefined);
-  //   setValue('');
-  //   setFunction('');
-  //   setArguments([]);
-  //   setABIUploadValid(undefined);
-  //   setABIFileName(undefined);
+  const clearState = () => {
+    setAddress('');
+    setABI(undefined);
+    setValue('');
+    setFunction('');
+    setArguments([]);
+    setABIUploadValid(undefined);
+    setABIFileName(undefined);
 
-  //   for (let i = currentStep; i > 0; i--) {
-  //     stepBackwards();
-  //   }
-  // };
-
-  // const handleClose = () => {
-  //   onHide();
-  //   clearState();
-  // };
-
-  // const none = t('common.none');
-
-  // const title = t(`vote.${vote}`, { id: proposalId });
+    for (let i = currentStep; i > 0; i--) {
+      stepBackwards();
+    }
+  };
 
   const uploadRef = useRef<HTMLLabelElement>();
   const handleUploadToggle = (event) => {
@@ -336,7 +279,11 @@ const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
     }
   };
 
-  const options = Object.keys(abi?.functions || {});
+  const options = Object.keys(abi?.functions || {}).reduce((ar, r) => {
+    ar.set(r, { id: r, label: r });
+    return ar;
+  }, new Map());
+
   const inputs = abi?.functions[func]?.inputs || [];
   const none = t('none');
   return (
@@ -377,81 +324,28 @@ const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
           </FormControlInput>
         </Step>
         <Step step={2}>
-          <FormControlSelect fullWidth sx={{ mb: 10 }}>
-            <FormLabel htmlFor="awiProposalTransactionFormFunction">
-              {t('field.function')}
-              <InfoTooltip text={t('field.function-help')} />
-            </FormLabel>
-            <Select
-              id="awiProposalTransactionFormFunction"
-              // id={inputId}
-              // error={hasError}
-              // // labelId
-              // variant="filled"
-              disableUnderline
-              // aria-describedby={`${inputId}Helper`}
-              // // required={required}
-              placeholder={t('field.function-default')}
-              // // margin="dense"
-              fullWidth
-              displayEmpty
-              IconComponent={ExpandIcon}
-              MenuProps={{
-                sx: {},
-                PaperProps: {
-                  sx: {
-                    py: 4,
-                    marginTop: 2,
-                    backgroundColor: '#112333',
-                    borderColor: 'text.active',
-                    borderWidth: 1,
-                    borderStyle: 'solid',
-                    borderRadius: 3,
-                  },
-                },
-                MenuListProps: {
-                  disablePadding: true,
-                },
-                // getContentAnchorEl: null,
-                anchorOrigin: {
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                },
-                transformOrigin: {
-                  vertical: 'top',
-                  horizontal: 'left',
-                },
-              }}
-              value={func}
-              onChange={(e) => setFunction(e.target.value)}
-              renderValue={(value) => {
-                return (
-                  <Typography className="MuiSelect-value">
-                    {/* {loading ? (
-                      <CircularProgress size={20} />
-                    ) : ( */}
-                    <>{value ? <>{value}</> : <>{t('field.function-default')}</>}</>
-                    {/* )} */}
-                  </Typography>
-                );
-              }}
-              // startAdornment={
-              //   Icon && <InputAdornment position="start">{/* <Icon style={{ fontSize: 20 }} /> */}</InputAdornment>
-              // }
-              // {...field}
-              // {...props}
-            >
-              <MenuItemSelect /* disabled */ value="">
-                <span className="placeholder">{t('field.function-default')}</span>
-              </MenuItemSelect>
-              {abi &&
-                options.map((option, optionIndex) => (
-                  <MenuItemSelect key={optionIndex} value={option}>
-                    {option}
-                  </MenuItemSelect>
-                ))}
-            </Select>
-          </FormControlSelect>
+          {/* <FormControlSelect fullWidth sx={FormControlSelect{ mb: 10 }}> */}
+
+          <Select
+            id="awiProposalTransactionFormFunction"
+            items={options}
+            value={func}
+            setValue={setFunction}
+            label={
+              <>
+                {t('field.function')}
+                <InfoTooltip text={t('field.function-help')} />
+              </>
+            }
+            placeholder={t('field.function-default')}
+            ValueComponent={SelectValueAndOptionDefault}
+            OptionComponent={SelectValueAndOptionDefault}
+            formControlProps={{
+              fullWidth: true,
+              sx: { mb: 10 },
+            }}
+          />
+          {/* </FormControlSelect> */}
           <FormControlInput
             fullWidth
             error={!isABIUploadValid}
@@ -485,17 +379,6 @@ const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => validateAndSetABI(e.target.files?.[0])}
             />
           </FormControlInput>
-          {/*
-          <Form.Group controlId="import-abi">
-            <Form.Label></Form.Label>
-            <Form.Control
-              type="file"
-              accept="application/JSON"
-              isValid={isABIUploadValid}
-              isInvalid={isABIUploadValid === false}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => validateAndSetABI(e.target.files?.[0])}
-            />
-          </Form.Group> */}
         </Step>
         <Step step={3}>
           {/* @ts-expect-error */}
@@ -514,56 +397,19 @@ const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
                     startAdornment={<Chip size="small" variant="outlined" label={type} color="default" sx={{ p: 2 }} />}
                     value={args?.[inputIndex] ?? ''}
                     onChange={(e) => setArgument(inputIndex, e.target.value)}
-                    // value={value}
-                    // onChange={(e) => setValue(e.target.value)}
                   />
                 </FormControlInput>
               ))}
               <Typography>{!inputs.length && t('no-argument-required')}</Typography>
             </FormGroup>
           </FormControlInput>
-          {/* <Box>
-
-          </Box>
-          {abi?.functions[func]?.inputs?.length ? (
-            <FormGroup as={Row}>
-              {abi?.functions[func]?.inputs.map((input, i) => (
-                <>
-                  <FormLabel column sm="3">
-                    {input.name}
-                  </FormLabel>
-                  <Col sm="9">
-                    <InputGroup className="mb-2">
-                      <InputGroup.Text>{input.type}</InputGroup.Text>
-                      <FormControl value={args[i] ?? ''} onChange={(e) => setArgument(i, e.target.value)} />
-                    </InputGroup>
-                  </Col>
-                </>
-              ))}
-            </FormGroup>
-          ) : (
-            t('no-argument-required')
-          )} */}
         </Step>
         <Step step={4}>
           <Typography variant="body-sm" color="text.primary" fontWeight={700}>
             {t('field.summary')}
             <InfoTooltip text={t('field.summary-help')} />
           </Typography>
-          <TableContainer
-            sx={
-              {
-                // border: '1px solid rgba(24, 37, 44, 0.04)',
-                // borderRadius: 2,
-                // mb: 10,
-                // '& td, & th': { border: 0 },
-                // '& th': { fontWeight: 700 },
-                // '& tr:nth-of-type(even)': {
-                //   backgroundColor: 'rgba(0, 104, 255, 0.04)',
-                // },
-              }
-            }
-          >
+          <TableContainer>
             <Table aria-label={t('csummary-aria-label')}>
               <TableBody>
                 <TableRow>

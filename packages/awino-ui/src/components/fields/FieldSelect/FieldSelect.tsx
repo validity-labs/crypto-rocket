@@ -19,12 +19,12 @@ import DropdownArrowIcon from '@/components/icons/DropdownArrowIcon';
 import FieldError from '../FieldError/FieldError';
 
 export const FormControlSelect = styled(MuiFormControl)(({ theme }) => ({
-  '.MuiFormLabel-root': {
-    marginBottom: theme.spacing(3.5),
-    ...theme.typography['body-sm'],
-    fontWeight: 700,
-    color: theme.palette.text.primary,
-  },
+  // '.MuiFormLabel-root': {
+  //   marginBottom: theme.spacing(3.5),
+  //   ...theme.typography['body-sm'],
+  //   fontWeight: 700,
+  //   color: theme.palette.text.primary,
+  // },
   '.MuiSelect-root': {
     borderRadius: +theme.shape.borderRadius * 3,
     margin: 0,

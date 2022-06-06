@@ -10,7 +10,7 @@ import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import Panel from '@/components/general/Panel/Panel';
 import Search from '@/components/general/Search/Search';
-import Select from '@/components/general/Select/Select';
+import Select, { SelectValueAndOptionDefault } from '@/components/general/Select/Select';
 import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
 import { earnFarmsData } from '@/fixtures/earn';
@@ -75,6 +75,19 @@ const Root = styled(Section)(({ theme }) => ({
   '.AwiResultSection-typeGroup': {
     overflow: 'auto',
     margin: theme.spacing(0, 0, 10),
+  },
+  '.AwiResultSection-sort': {
+    label: {
+      textTransform: 'uppercase',
+    },
+    '.MuiInput-root': {
+      // padding: '0 !important',
+      // margin: '0 !important',
+      // borderRadius: +theme.shape.borderRadius * 2,
+      // backgroundColor: theme.palette.background.transparent,
+      // padding: `${theme.spacing(2, 10, 2.25, 2)} !important`,
+      // border: '1px solid #546367',
+    },
   },
   [theme.breakpoints.up('sm')]: {
     '.AwiResultSection-typeGroup': {
@@ -250,15 +263,23 @@ export default function ResultSection() {
                 <Typography>{t('description')}</Typography>
               </div>
               <div className="AwiPanel-headerAside">
-                <FormControlLabel
-                  labelPlacement="top"
+                <Select
                   label={t('sort-by.title') as string}
-                  control={<Select items={sortByItems} value={filters.sort} setValue={handleSortChange} />}
+                  items={sortByItems}
+                  value={filters.sort}
+                  setValue={handleSortChange}
+                  ValueComponent={SelectValueAndOptionDefault}
+                  OptionComponent={SelectValueAndOptionDefault}
+                  formControlProps={{
+                    fullWidth: false,
+                    className: 'AwiResultSection-sort',
+                  }}
+                  size="small"
                 />
                 <FormControlLabel
                   labelPlacement="top"
                   label={t('search.title') as string}
-                  control={<Search onSearch={handleSearchChange} placeholder={t('search.placeholder')} />}
+                  control={<Search onSearch={handleSearchChange} placeholder={t('search.placeholder')} size="small" />}
                 />
               </div>
             </>

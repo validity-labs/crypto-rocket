@@ -15,21 +15,15 @@ import { styled } from '@mui/material/styles';
 import FieldInput from '@/components/fields/FieldInput/FieldInput';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import usePageTranslation from '@/hooks/usePageTranslation';
-// import useSnack from '@/hooks/useSnack';
 import useYupLocales from '@/hooks/useYupLocales';
 
 const Root = styled('div')(({ theme }) => ({
   '.AwiProposalEditor-preview': {
     minHeight: 182,
     padding: theme.spacing(7, 3.5, 3, 7),
-    borderRadius: +theme.shape.borderRadius * 9,
+    borderRadius: +theme.shape.borderRadius * 2,
     backgroundColor: theme.palette.background.transparent,
   },
-  '.MuiInputBase-root': {
-    borderRadius: +theme.shape.borderRadius * 9,
-  },
-
-  [theme.breakpoints.up('md')]: {},
 }));
 
 const getValidationSchema = (t: TFunction) => {
