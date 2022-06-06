@@ -54,9 +54,11 @@ export default function LanguageMenu({ onClose }: Props) {
           <ArrowForwardIosRoundedIcon />
         </>
       }
-      toggleProps={{
-        disableRipple: true,
-      }}
+      // toggleProps={
+      //   {
+      //     disableRipple: true,
+      //   }
+      // }
       toggleComponent={ButtonUnstyled}
       popperProps={{
         placement: 'right-start',

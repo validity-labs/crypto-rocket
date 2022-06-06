@@ -18,12 +18,12 @@ import DropdownArrowIcon from '@/components/icons/DropdownArrowIcon';
 
 import FieldError from '../FieldError/FieldError';
 
-const FormControl = styled(MuiFormControl)(({ theme }) => ({
+export const FormControlSelect = styled(MuiFormControl)(({ theme }) => ({
   '.MuiFormLabel-root': {
     marginBottom: theme.spacing(3.5),
     ...theme.typography['body-sm'],
     fontWeight: 700,
-    color: theme.palette.text.contrast,
+    color: theme.palette.text.primary,
   },
   '.MuiSelect-root': {
     borderRadius: +theme.shape.borderRadius * 3,
@@ -37,7 +37,7 @@ const FormControl = styled(MuiFormControl)(({ theme }) => ({
   },
 }));
 
-const MenuItem = styled(MuiMenuItem)(({ theme }) => ({
+export const MenuItemSelect = styled(MuiMenuItem)(({ theme }) => ({
   padding: theme.spacing(2, 8),
   ...theme.typography.body,
   color: theme.palette.text.contrast,
@@ -88,7 +88,7 @@ const FieldSelect = ({
   //  };
 
   return (
-    <FormControl error={hasError} required={required} fullWidth={fullWidth} {...controlProps}>
+    <FormControlSelect error={hasError} required={required} fullWidth={fullWidth} {...controlProps}>
       {label && (
         <FormLabel htmlFor={inputId} {...labelProps}>
           {label}
@@ -147,18 +147,18 @@ const FieldSelect = ({
         {...props}
       >
         {placeholder && (
-          <MenuItem value={placeholderValue} disabled style={{ display: 'none' }}>
+          <MenuItemSelect value={placeholderValue} disabled style={{ display: 'none' }}>
             <span className="placeholder">{placeholder}</span>
-          </MenuItem>
+          </MenuItemSelect>
         )}
         {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+          <MenuItemSelect key={option.value} value={option.value}>
             {option.label}
-          </MenuItem>
+          </MenuItemSelect>
         ))}
       </Select>
       {hasError && <FieldError id={inputId} message={meta.error} /* field={helpFieldName} */ />}
-    </FormControl>
+    </FormControlSelect>
   );
 };
 

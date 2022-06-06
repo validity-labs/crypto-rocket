@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CloseIcon from '@mui/icons-material/CloseRounded';
-import { Modal as MuiModal, Typography, Container, IconButton, ModalProps } from '@mui/material';
+import { Modal as MuiModal, Typography, Container, IconButton, ModalProps, ContainerProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import usePageTranslation from '@/hooks/usePageTranslation';
@@ -84,33 +84,44 @@ const Root = styled(MuiModal)(({ theme }) => ({
 
 interface Props extends Omit<ModalProps, 'children' | 'onClose' | 'title'> {
   id: string;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   titleTooltip?: string;
   children: React.ReactNode;
+  maxWidth?: ContainerProps['maxWidth'];
   close: () => void;
 }
 
-export default function Modal({ id: idPrefix, title, titleTooltip, close, children, ...restOfProps }: Props) {
+export default function Modal({
+  id: idPrefix,
+  title,
+  titleTooltip,
+  close,
+  maxWidth = 'sm',
+  children,
+  ...restOfProps
+}: Props) {
   const t = usePageTranslation();
   const id = `${idPrefix}ModalTitle`;
   return (
     <Root onClose={close} aria-labelledby={id} {...restOfProps}>
-      <Container maxWidth="sm" className="AwiModal-container">
+      <Container maxWidth={maxWidth} className="AwiModal-container">
         <div className="AwiModal-paper">
-          <div className="AwiModal-header">
-            <Label variant="body" component="h2" color="text.active" fontWeight={500} id={id} tooltip={titleTooltip}>
-              {title}
-            </Label>
-            <IconButton
-              size="small"
-              title={t('common:common.close-modal')}
-              aria-label={t('common:common.close-modal')}
-              className="AwiModal-close"
-              onClick={close}
-            >
-              <CloseIcon />
-            </IconButton>
-          </div>
+          {title && (
+            <div className="AwiModal-header">
+              <Label variant="body" component="h2" color="text.active" fontWeight={500} id={id} tooltip={titleTooltip}>
+                {title}
+              </Label>
+              <IconButton
+                size="small"
+                title={t('common:common.close-modal')}
+                aria-label={t('common:common.close-modal')}
+                className="AwiModal-close"
+                onClick={close}
+              >
+                <CloseIcon />
+              </IconButton>
+            </div>
+          )}
           <div className="AwiModal-content">{children}</div>
         </div>
       </Container>

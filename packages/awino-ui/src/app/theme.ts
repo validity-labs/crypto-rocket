@@ -297,6 +297,11 @@ const themeCreator = (mode: PaletteMode) => {
           display: flex;
           flex-direction: column;
         }
+        .Awi-divider {
+          width: 100%;
+          margin: 62px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
       `,
     },
     MuiAppBar: {
@@ -346,9 +351,12 @@ const themeCreator = (mode: PaletteMode) => {
       styleOverrides: {
         root: {
           // color: theme.palette.text.primary,
-          '&:hover': {
-            color: theme.palette.text.active,
-          },
+          // '&:hover, &:focus': {
+          //   color: theme.palette.text.active,
+          // },
+          // '&:visited': {
+          //   color: theme.palette.text.primary,
+          // },
         },
       },
     },
@@ -524,6 +532,9 @@ const themeCreator = (mode: PaletteMode) => {
               borderWidth: 2,
               color: theme.palette.text.secondary,
             },
+            '& .MuiSvgIcon-fontSizeLarge': {
+              fontSize: '30px',
+            },
           },
         },
         {
@@ -598,9 +609,22 @@ const themeCreator = (mode: PaletteMode) => {
             fontSize: '2rem', // 32px
           },
         },
+        iconSizeLarge: {
+          '& svg': {
+            fontSize: '2rem', // 32px
+          },
+        },
+        endIcon: {
+          '> *:nth-of-type(1)': {
+            '&.MuiSvgIcon-fontSizeLarge': {
+              fontSize: '1.875rem', // 30px
+            },
+          },
+        },
         sizeSmall: {
           padding: sp(3, 5),
-          fontSize: '0.9375rem', // 15px
+          fontSize: '0.75rem', // 12px
+          // fontSize: '0.9375rem', // 15px
         },
         sizeMedium: {
           padding: sp(4.5, 7, 5),
@@ -836,7 +860,7 @@ const themeCreator = (mode: PaletteMode) => {
           fontSize: '0.875rem', // 14px
           lineHeight: '1.125rem', // 18px
           fontWeight: 700,
-          color: theme.palette.text.contrast,
+          // color: theme.palette.text.contrast,
           // padding: 0,
         },
         labelSmall: {
@@ -1054,6 +1078,29 @@ const themeCreator = (mode: PaletteMode) => {
       styleOverrides: {
         popper: {
           whiteSpace: 'pre-line',
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          padding: theme.spacing(4, 8),
+          borderRadius: +theme.shape.borderRadius * 7,
+          boxShadow: '0px 3px 6px #00000029',
+          // backgroundColor: theme.palette.background.transparent,
+        },
+        icon: {
+          marginRight: theme.spacing(7),
+        },
+        message: {
+          ...theme.typography.body,
+          fontWeight: 500,
+        },
+        standardError: {
+          backgroundColor: alpha(theme.palette.error.main, 0.1),
+        },
+        standardInfo: {
+          backgroundColor: alpha(theme.palette.primary.main, 0.1),
         },
       },
     },
