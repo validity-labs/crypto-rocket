@@ -10,7 +10,6 @@ import AssetIcons from '@/components/pages/swap/SwapSection/AssetIcons';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAmount, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
 import { stopPropagation } from '@/lib/helpers';
-import { AssetKeyPair } from '@/types/app';
 
 import { LiquidityItem } from './LiquidityPanel';
 
@@ -34,7 +33,7 @@ const Root = styled('div')(({ theme }) => ({
     padding: theme.spacing(3, 0, 8, 3.5),
   },
   '.AwiLiquidityCard-pair': {
-    fontWeight: 600,
+    fontWeight: 500,
     color: theme.palette.text.primary,
     textTransform: 'uppercase',
   },
@@ -46,13 +45,13 @@ const Root = styled('div')(({ theme }) => ({
   '.AwiLabelValue-label': {
     flex: 1,
     margin: theme.spacing(0, 4, 0, 0),
-    ...theme.typography.body,
+    ...theme.typography['body-ms'],
     fontWeight: 500,
     color: theme.palette.text.secondary,
   },
   '.AwiLabelValue-value': {
     flex: 1,
-    ...theme.typography.body,
+    ...theme.typography['body-ms'],
     fontWeight: 500,
     img: {
       marginLeft: theme.spacing(2),
@@ -97,7 +96,10 @@ export default function LiquidityCard({ item, onRemove /* ,onHarvest, onStake, o
         <div className="Awi-row">
           {/* @ts-expect-error */}
           <AssetIcons ids={item.pair} size="medium" component="div" sx={{ display: 'inline-block' }} />
-          <Typography className="AwiLiquidityCard-pair">{`${item.pair[0]}/${item.pair[1]}`}</Typography>
+          <Typography
+            variant="body-ms"
+            className="AwiLiquidityCard-pair"
+          >{`${item.pair[0]}/${item.pair[1]}`}</Typography>
         </div>
         <IconButton color="primary" onClick={stopPropagation(handleDetailsToggle)}>
           {<ExpandIcon fontSize="medium" sx={{ transform: `rotate(${isDetailExpanded ? 180 : 0}deg)` }} />}
@@ -131,8 +133,8 @@ export default function LiquidityCard({ item, onRemove /* ,onHarvest, onStake, o
             />
             <LabelValue id="poolShare" value={formatPercent(item.percent)} labelProps={{ children: t('pool-share') }} />
           </Box>
-          <Box sx={{ alignSelf: 'flex-end' }}>
-            <IconButton color="error" title={t('remove-pool')} onClick={stopPropagation(handleRemove)}>
+          <Box sx={{ alignSelf: 'flex-start' }}>
+            <IconButton color="primary" title={t('remove-pool')} onClick={stopPropagation(handleRemove)}>
               {<RemoveCircleOutlineRoundedIcon />}
             </IconButton>
           </Box>

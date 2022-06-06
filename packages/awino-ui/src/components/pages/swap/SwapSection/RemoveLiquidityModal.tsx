@@ -1,4 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
+
+import { TFunction } from 'next-i18next';
 
 import {
   FormControl,
@@ -15,12 +17,9 @@ import AssetIcons from '@/components/general/AssetIcons/AssetIcons';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
-import Panel from '@/components/general/Panel/Panel';
-import Select from '@/components/general/Select/SelectOriginal';
 import Switch from '@/components/general/Switch/Switch';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAmount, formatPercent } from '@/lib/formatters';
-import { AssetKey } from '@/types/app';
 
 import { LiquidityItem } from './LiquidityPanel';
 import { AssetInfoMap } from './SwapSection';
@@ -39,7 +38,7 @@ const Root = styled(Modal)(({ theme }) => ({
     flexDirection: 'column',
     gap: theme.spacing(6),
     padding: theme.spacing(6),
-    borderRadius: +theme.shape.borderRadius * 5,
+    borderRadius: +theme.shape.borderRadius * 2,
     backgroundColor: theme.palette.background.transparent,
   },
   '.AwiLabelValue-root': {
@@ -48,22 +47,21 @@ const Root = styled(Modal)(({ theme }) => ({
   '.AwiLabelValue-label': {
     flex: 1,
     margin: theme.spacing(0, 4, 0, 0),
-    ...theme.typography.body,
+    ...theme.typography['body-ms'],
     fontWeight: 500,
     color: theme.palette.text.secondary,
   },
   '.AwiLabelValue-value': {
-    flex: 'auto',
-    ...theme.typography.body,
+    flexGrow: 0,
+    ...theme.typography['body-ms'],
     fontWeight: 500,
-    textAlign: 'right',
-    alignSelf: 'flex-end',
     img: {
       marginLeft: theme.spacing(2),
     },
   },
   '.AwiRemoveLiquidityModal-toggle': {
     margin: theme.spacing(4.5, 0, 7.5),
+    padding: theme.spacing(0, 6),
     '.MuiFormControlLabel-root': {
       display: 'flex',
       justifyContent: 'space-between',
@@ -91,8 +89,13 @@ const Root = styled(Modal)(({ theme }) => ({
     },
   },
   '.MuiFormLabel-root': {
-    marginBottom: theme.spacing(3.5),
+    marginBottom: theme.spacing(1),
     ...theme.typography.body,
+    color: theme.palette.text.secondary,
+  },
+  '.MuiFormControlLabel-label': {
+    ...theme.typography['body-ms'],
+    fontWeight: 500,
     color: theme.palette.text.secondary,
   },
   [theme.breakpoints.up('sm')]: {
@@ -102,6 +105,23 @@ const Root = styled(Modal)(({ theme }) => ({
     },
   },
 }));
+
+interface PercentShortcutsProps {
+  onChange: (event: React.MouseEvent<HTMLElement>, newPercent: number) => void;
+  t: TFunction;
+}
+
+const PercentShortcuts = memo(function PercentShortcuts({ onChange, t }: PercentShortcutsProps) {
+  return (
+    <ToggleButtonGroup size="small" exclusive onChange={onChange} aria-label={t(`percent-toggle-hint`)}>
+      {percentageList.map((percent) => (
+        <ToggleButton size="small" key={percent} value={percent}>
+          {percent !== 100 ? formatPercent(percent) : t('max')}
+        </ToggleButton>
+      ))}
+    </ToggleButtonGroup>
+  );
+});
 
 export interface RemoveLiquidityModalData {
   assets: AssetInfoMap;
@@ -128,46 +148,48 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
     close();
   };
 
-  const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
-    setPercent(newPercent);
-  };
+  const handlePercentClick = useCallback(
+    (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
+      setPercent(newPercent);
+    },
+    [setPercent]
+  );
+
+  const handlePercentChange = useCallback(
+    (event: Event, value: number | number[], activeThumb: number): void => {
+      setPercent(value as number);
+    },
+    [setPercent]
+  );
 
   return (
     <Root id="removeLiquidityModal" title={t('title')} titleTooltip={t('title-hint')} open={open} close={close}>
       <div className="Awi-row">
         {/* @ts-expect-error */}
         <AssetIcons ids={item.pair} size="medium" component="div" sx={{ display: 'inline-block' }} />
-        <Typography className="AwiRemoveLiquidityModal-pair">{`${item.pair[0]}/${item.pair[1]}`}</Typography>
+        <Typography
+          variant="body-ms"
+          className="AwiRemoveLiquidityModal-pair"
+        >{`${item.pair[0]}/${item.pair[1]}`}</Typography>
       </div>
       <FormControl fullWidth>
-        <FormLabel>{t('amount')}</FormLabel>
+        <FormLabel id="awiRemoveLiquidityModalPercentLabel">{t('amount')}</FormLabel>
         <div className="AwiRemoveLiquidityModal-subPanel">
           <div className="Awi-row Awi-between">
-            <Typography variant="h2" component="p">
+            <Typography variant="h2" component="p" sx={{ color: percent === 0 ? 'text.secondary' : 'text.primary' }}>
               {formatPercent(percent)}
             </Typography>
             <div className="AwiRemoveLiquidityModal-percentage">
-              <ToggleButtonGroup
-                size="small"
-                exclusive
-                onChange={handlePercentClick}
-                aria-label={t(`swap-section.swap.trading-type-hint`)}
-              >
-                {percentageList.map((percent) => (
-                  <ToggleButton size="small" key={percent} value={percent}>
-                    {formatPercent(percent)}
-                  </ToggleButton>
-                ))}
-              </ToggleButtonGroup>
+              <PercentShortcuts onChange={handlePercentClick} t={t} />
             </div>
           </div>
           <Slider
-            size="small"
+            aria-labelledby="awiRemoveLiquidityModalPercentLabel"
+            size="medium"
             value={percent}
             min={0}
             max={100}
-            onChange={(event, value) => setPercent(value as number)}
-            aria-label="Small"
+            onChange={handlePercentChange}
             valueLabelDisplay="auto"
           />
         </div>
@@ -211,6 +233,7 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
       </div>
       <LoadingButton
         variant="outlined"
+        color="error"
         size="small"
         once
         className="AwiRemoveLiquidityModal-submit"

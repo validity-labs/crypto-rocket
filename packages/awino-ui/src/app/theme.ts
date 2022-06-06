@@ -138,6 +138,10 @@ const themeCreator = (mode: PaletteMode) => {
         fontSize: '0.9375rem', // 15px
         lineHeight: 1.66,
       },
+      'body-ms': {
+        fontSize: '0.875rem', // 14px
+        lineHeight: 1.66,
+      },
       'body-sm': {
         fontSize: '0.8125rem', // 13px
         lineHeight: 1.66,
@@ -356,6 +360,7 @@ const themeCreator = (mode: PaletteMode) => {
           'body-lg': 'p',
           'body-md': 'p',
           body: 'p',
+          'body-ms': 'p',
           'body-sm': 'p',
           'body-xs': 'p',
           h7: 'h6',
@@ -386,6 +391,13 @@ const themeCreator = (mode: PaletteMode) => {
             '&.MuiTypography-gutterBottom': {
               marginBottom: sp(7.5), // 30px
             },
+          },
+        },
+        {
+          props: { variant: 'body-ms' },
+          style: {
+            color: theme.palette.text.secondary,
+            fontWeight: 400,
           },
         },
         {
@@ -955,7 +967,7 @@ const themeCreator = (mode: PaletteMode) => {
         },
         head: {
           color: theme.palette.text.secondary,
-          backgroundColor: theme.palette.background.light,
+          backgroundColor: 'transparent', // theme.palette.background.light,
         },
       },
     },

@@ -35,12 +35,13 @@ declare module '@mui/material/styles/createPalette' {
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
-    'body-xl': React.CSSProperties;
-    'body-lg': React.CSSProperties;
-    'body-md': React.CSSProperties;
-    body: React.CSSProperties;
-    'body-sm': React.CSSProperties;
-    'body-xs': React.CSSProperties;
+    'body-xl': React.CSSProperties; // extra large
+    'body-lg': React.CSSProperties; // large
+    'body-md': React.CSSProperties; // medium
+    body: React.CSSProperties; // normal, base
+    'body-ms': React.CSSProperties; // medium small
+    'body-sm': React.CSSProperties; // small
+    'body-xs': React.CSSProperties; // extra small
     menu: React.CSSProperties;
     h7: React.CSSProperties;
   }
@@ -51,6 +52,7 @@ declare module '@mui/material/styles' {
     'body-lg'?: React.CSSProperties;
     'body-md'?: React.CSSProperties;
     body?: React.CSSProperties;
+    'body-ms'?: React.CSSProperties;
     'body-sm'?: React.CSSProperties;
     'body-xs'?: React.CSSProperties;
     menu?: React.CSSProperties;
@@ -65,6 +67,7 @@ declare module '@mui/material/Typography' {
     'body-lg': true;
     'body-md': true;
     body: true;
+    'body-ms': true;
     'body-sm': true;
     'body-xs': true;
     menu: true;

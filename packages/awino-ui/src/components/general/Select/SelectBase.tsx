@@ -7,7 +7,11 @@ import { styled } from '@mui/material/styles';
 
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import { SetState } from '@/types/app';
-const StyledSelect = styled(MuiSelect)(({ theme }) => ({
+
+const Root = styled(FormControl)(({ theme }) => ({
+  '.MuiInput-root': {
+    marginTop: theme.spacing(1),
+  },
   [`& .${selectClasses.standard}`]: {
     display: 'flex',
     alignItems: 'center',
@@ -20,6 +24,9 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
     color: theme.palette.text.primary,
     lineHeight: 2,
     overflow: 'hidden',
+    '.Mui-focused': {
+      borderRadius: +theme.shape.borderRadius * 2,
+    },
   },
   [`& .${selectClasses.icon}`]: {
     fontSize: '32px',
@@ -37,7 +44,7 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    ...theme.typography['body-md'],
+    fontWeight: 500,
     color: theme.palette.text.primary,
     img: {
       width: 32,
@@ -72,7 +79,8 @@ const MenuItem = styled(({ item, selected, ...restOfProps }: MenuItemProps) => {
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: theme.spacing(1.5, 4, 1.5, 4),
-    ...theme.typography['body-md'],
+    ...theme.typography['body-ms'],
+    fontWeight: 500,
     color: theme.palette.text.primary,
     img: {
       width: 32,
@@ -95,7 +103,7 @@ interface Props extends SelectProps {
   disabled?: boolean;
   // label: React.ReactNode;
 }
-export default function Select({
+export default function SelectBase({
   id,
   label,
   items,
@@ -112,17 +120,21 @@ export default function Select({
   };
 
   return (
-    <FormControl>
-      {label && <FormLabel htmlFor={id}>{label}</FormLabel>}
-      <StyledSelect
+    <Root>
+      {label && (
+        <FormLabel id={`${id}Label`} htmlFor={id}>
+          {label}
+        </FormLabel>
+      )}
+      <MuiSelect
+        id={id}
+        labelId={`${id}Label`}
         disableUnderline
-        aria-label=""
-        id="demo-simple-select"
+        variant="standard"
+        displayEmpty
         value={value}
         onChange={handleChange}
-        variant="standard"
-        label="TESTSET"
-        displayEmpty
+        disabled={loading || disabled}
         MenuProps={{
           PaperProps: {
             sx: {
@@ -134,10 +146,9 @@ export default function Select({
           },
         }}
         IconComponent={ExpandIcon}
-        disabled={loading || disabled}
         renderValue={() => {
           return (
-            <Typography className="MuiSelect-value">
+            <Typography variant="body-ms" className="MuiSelect-value">
               {loading ? (
                 <CircularProgress size={20} />
               ) : (
@@ -148,7 +159,9 @@ export default function Select({
                       {items.get(value).label}
                     </>
                   ) : (
-                    <>{t('common.select-token')}</>
+                    <Typography variant="inherit" color="text.secondary">
+                      {t('common.select-token')}
+                    </Typography>
                   )}
                 </>
               )}
@@ -160,7 +173,7 @@ export default function Select({
         {Array.from(items).map(([id, item]) => (
           <MenuItem key={id} item={item} value={id} selected={value === id} />
         ))}
-      </StyledSelect>
-    </FormControl>
+      </MuiSelect>
+    </Root>
   );
 }

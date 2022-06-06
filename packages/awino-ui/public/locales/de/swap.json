@@ -143,6 +143,7 @@
   "remove-liquidity-modal": {
     "title": "Remove liquidity",
     "title-hint": "MISSING TEXT",
+    "percent-toggle-hint": "MISSING TEXT",
     "max": "Max",
     "amount": "Amount",
     "pooled": "Pooled {{v}}",

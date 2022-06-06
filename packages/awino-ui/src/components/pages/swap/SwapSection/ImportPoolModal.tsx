@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
-import Select from '@/components/general/Select/SelectOriginal';
+import Select from '@/components/general/Select/SelectBase';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { AssetKey } from '@/types/app';
 

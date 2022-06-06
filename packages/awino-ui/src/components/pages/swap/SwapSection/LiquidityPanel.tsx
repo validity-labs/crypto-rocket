@@ -6,14 +6,13 @@ import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup, 
 import { styled } from '@mui/material/styles';
 
 import Label from '@/components/general/Label/Label';
-import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
 import ExpandIcon from '@/components/icons/ExpandIcon';
-import { swapLiquidityData } from '@/fixtures/earn';
+// import { swapLiquidityData } from '@/fixtures/earn';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount, formatPercent } from '@/lib/formatters';
+import { formatPercent } from '@/lib/formatters';
 import { AssetKey, AssetKeyPair, ID } from '@/types/app';
 
 import AssetIcons from './AssetIcons';
@@ -165,7 +164,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
   const [importPoolModal, setImportPoolModal] = useState<ImportPoolModalData | null>(null);
   const [removeLiquidityModal, setRemoveLiquidityModal] = useState<LiquidityItem | null>(null);
-  const [allLiquidity, setAllLiquidity] = useState<LiquidityItem[]>(swapLiquidityData);
+  const [allLiquidity, setAllLiquidity] = useState<LiquidityItem[]>([]); // TODO create fetcher, for testing use swapLiquidityData
 
   useEffect(() => {
     if (targetAsset) setTargetValue(sourceValue || 0 * 2);
@@ -394,7 +393,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
               <Grid item xs={12}>
                 {allLiquidity.length > 0 ? (
                   <>
-                    <Typography sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
+                    <Typography variant="body-ms" sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
                       {t('swap-section.liquidity.pool-pair')}
                     </Typography>
                     {allLiquidity.map((liquidity) => (
