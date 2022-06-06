@@ -137,6 +137,9 @@ const Root = styled(Box)(({ theme }) => ({
 
     // },
   },
+  '.MuiTableBody-root .MuiTableRow-root:last-of-type': {
+    borderTop: '0 !important',
+  },
   [theme.breakpoints.up('md')]: {},
 }));
 
@@ -591,7 +594,7 @@ const ProposalTransactionForm = ({}: ProposalTransactionFormProps) => {
                   </TableCell>
                   <TableCell align="right">{abi?.functions[func]?.inputs?.length ? '' : none}</TableCell>
                 </TableRow>
-                {abi?.functions[func]?.inputs.map((input, i) => (
+                {(abi?.functions[func]?.inputs || []).map((input, i) => (
                   <TableRow key={i}>
                     <TableCell variant="head" component="th" scope="row">
                       {`${i + 1}. ${input.name}`}
