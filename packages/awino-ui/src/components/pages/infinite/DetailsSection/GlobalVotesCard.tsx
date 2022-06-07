@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { CHART_COLORS } from '@/app/constants';
@@ -16,6 +16,7 @@ import { GlobalVoteItem } from './DetailsSection';
 import DoughnutChart from './DoughnutChart';
 
 const Root = styled(Card)(({ theme }) => ({
+  height: '100%',
   backgroundColor: '#082938',
   '&:before': {
     content: 'none',
@@ -75,43 +76,50 @@ export default function GlobalVotesCard({ items }: Props) {
 
   return (
     <Root>
-      <div className="AwiGlobalVotesCard-header">
-        <Label className="AwiDetailsSection-cardTitle">{t(`title`)}</Label>
-        <Search onSearch={handleSearch} />
-      </div>
-      <TableContainer>
-        <Table stickyHeader>
-          <TableHead>
-            <TableRow>
-              <TableCell width="40%">{t('field.boosted')}</TableCell>
-              <TableCell width="30%">{t('field.votes')}</TableCell>
-              <TableCell width="30%">{t('field.percentage')}</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {items.map(({ pair, votes, percent }, mdi) => (
-              <TableRow key={pair.join('-')}>
-                <TableCell>
-                  <div className="Awi-row">
-                    {/* @ts-expect-error */}
-                    <AssetIcons component="div" ids={pair} size="medium" sx={{ display: 'inline-block' }} />
-                    <Typography color="text.primary">{formatLPPair(pair)}</Typography>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <Typography color="text.primary">{formatNumber(votes)}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography color="text.primary">{formatPercent(percent)}</Typography>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <div className="Awi-divider" />
-      <Label className="AwiDetailsSection-cardTitle">{t(`current-weighting`)}</Label>
-      <DoughnutChart data={items} colors={CHART_COLORS} i18nKey="global-votes-card" />
+      <Grid container spacing={10}>
+        <Grid item xs={12} md={8}>
+          <div className="AwiGlobalVotesCard-header">
+            <Label className="AwiDetailsSection-cardTitle">{t(`title`)}</Label>
+            <Search onSearch={handleSearch} size="small" />
+          </div>
+          <TableContainer>
+            <Table stickyHeader>
+              <TableHead>
+                <TableRow>
+                  <TableCell width="40%">{t('field.boosted')}</TableCell>
+                  <TableCell width="30%">{t('field.votes')}</TableCell>
+                  <TableCell width="30%">{t('field.percentage')}</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {items.map(({ pair, votes, percent }, mdi) => (
+                  <TableRow key={pair.join('-')}>
+                    <TableCell>
+                      <div className="Awi-row">
+                        {/* @ts-expect-error */}
+                        <AssetIcons component="div" ids={pair} size="medium" sx={{ display: 'inline-block' }} />
+                        <Typography color="text.primary">{formatLPPair(pair)}</Typography>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Typography color="text.primary">{formatNumber(votes)}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography color="text.primary">{formatPercent(percent)}</Typography>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Label className="AwiDetailsSection-cardTitle">{t(`current-weighting`)}</Label>
+          <DoughnutChart data={items} colors={CHART_COLORS} i18nKey="global-votes-card" />
+        </Grid>
+      </Grid>
+
+      {/* <div className="Awi-divider" /> */}
     </Root>
   );
 }

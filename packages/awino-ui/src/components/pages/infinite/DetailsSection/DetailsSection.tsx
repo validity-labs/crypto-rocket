@@ -71,19 +71,19 @@ export default function DetailsSection({ data, loading }: Props) {
   return (
     <Root>
       <Grid container spacing={12}>
-        <Grid item xs={12} lg={6}>
+        <Grid item xs={12} lg={4}>
           <GenerateCard awinoBalance={data.awinoBalance} />
         </Grid>
-        <Grid item xs={12} lg={6}>
+        <Grid item xs={12} lg={8}>
           <GlobalVotesCard items={data.globalVotes} />
         </Grid>
-        <Grid item xs={12} lg={6}>
+        <Grid item xs={12} lg={4}>
           <StatsCard data={data.stats} />
         </Grid>
-        <Grid item xs={12} lg={6}>
+        <Grid item xs={12} lg={8}>
           <BoastFarmCard items={data.globalVotes} />
         </Grid>
-        <Grid item xs={12} lg={6}>
+        <Grid item xs={12} lg={12}>
           <NextDistributionCard endDate={data.nextDistributionBlockDate} />
         </Grid>
       </Grid>

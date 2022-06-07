@@ -24,6 +24,7 @@ import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import GearIcon from '@/components/icons/GearIcon';
 import ReloadIcon from '@/components/icons/ReloadIcon';
+import SwapIcon from '@/components/icons/SwapIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { ChainId } from '@/lib/blockchain/common';
 import { useTokenBalance, useAllowance } from '@/lib/blockchain/erc20';
@@ -77,14 +78,15 @@ const Root = styled('div')(({ theme }) => ({
       backgroundColor: 'rgba(0, 255, 186, 0.04)',
     },
   },
-  '.AwiSwapPanel-switch-button': {
+  '.AwiSwapPanel-switch': {
     position: 'absolute',
-    top: '50%',
+    top: 0,
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 64,
-    height: 64,
-    background: 'url(/images/icons/swap-icon.svg) no-repeat',
+    zIndex: 1,
+    svg: {
+      fontSize: 62,
+    },
   },
   '.AwiSwapPanel-sourceAmountLabel, .AwiSwapPanel-targetAmountLabel': {
     display: 'flex',
@@ -196,11 +198,11 @@ const Root = styled('div')(({ theme }) => ({
     },
     '.AwiSwapPanel-target': {
       padding: theme.spacing(11, 8, 12, 22),
-      '&:before': {
-        position: 'absolute',
-        top: '50%',
-        left: 0,
-      },
+    },
+    '.AwiSwapPanel-switch': {
+      top: '50%',
+      left: 0,
+      transform: 'translate(-50%, -50%)',
     },
   },
 }));
@@ -437,8 +439,6 @@ const SwapPanel = (props: TabPanelProps) => {
         </div>
         <div>
           <div className="AwiSwapSection-subPanel">
-            <Button variant="outlined" className="AwiSwapPanel-switch-button" onClick={handleSwitch}></Button>
-
             <Grid container>
               <Grid item xs={12} md={6}>
                 <div className="AwiSwapPanel-source">
@@ -449,7 +449,7 @@ const SwapPanel = (props: TabPanelProps) => {
                       loading ? (
                         <Loader progressProps={{ size: 20 }} />
                       ) : (
-                        sourceAsset && <AssetIcons ids={sourceAsset} size="small" />
+                        sourceAsset && <AssetIcons ids={sourceAsset} size="large" />
                       )
                     }
                     disabled={executing}
@@ -522,9 +522,11 @@ const SwapPanel = (props: TabPanelProps) => {
                   )}
                 </div>
               </Grid>
-
               <Grid item xs={12} md={6}>
                 <div className={clsx('AwiSwapPanel-target', { 'Awi-active': canExecute })}>
+                  <IconButton color="primary" size="small" className="AwiSwapPanel-switch" onClick={handleSwitch}>
+                    <SwapIcon />
+                  </IconButton>
                   <Button
                     variant="text"
                     className="AwiSwapPanel-assetToggle"

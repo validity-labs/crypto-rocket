@@ -4,8 +4,8 @@
     "description": "MISSING DESCRIPTION"
   },
   "purchase-section": {
-    "title": "Protocol owned DEX liquidity module",
-    "description": "Sell {{to}} LP tokens directly to the protocol for a 10% premium.\n\n 50% of the {{from}} treasury rewards (earned from borrowing fees) are redirected to purchasenthese LP tokens which are locked forever, ensuring healthy ongoing liquidity for the protocol.",
+    "title": "Protocol owned liquidity module",
+    "description": "Sell {{to}} LP tokens directly to the protocol for a 12% premium.\n\n 50% of the {{from}} treasury rewards (earned from borrowing fees) are redirected to purchasenthese LP tokens which are locked forever, ensuring healthy ongoing liquidity for the protocol.",
     "buyable": "Buyable {{from}}",
     "info": {
       "title": "Buy {{from}} with {{to}} LP tokens",

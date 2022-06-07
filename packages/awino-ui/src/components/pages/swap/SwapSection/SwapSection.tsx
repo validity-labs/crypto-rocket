@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Tab, Tabs as MuiTabs } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import LiquidityIcon from '@/components/icons/LiquidityIcon';
 import SwapIcon from '@/components/icons/SwapIcon';
 import ZapIcon from '@/components/icons/ZapIcon';
 import Section from '@/components/layout/Section/Section';
@@ -127,7 +128,12 @@ export default function SwapSection() {
       <Tabs value={tab} onChange={handleTabChange} aria-label={t('swap-section.tabs-aria')} variant="scrollable">
         <Tab label={t('swap-section.swap.title')} icon={<SwapIcon />} iconPosition="end" {...tabA11yProps(id, 0)} />
         <Tab label={t('swap-section.zap.title')} icon={<ZapIcon />} iconPosition="end" {...tabA11yProps(id, 1)} />
-        <Tab label={t('swap-section.liquidity.title')} {...tabA11yProps(id, 2)} />
+        <Tab
+          label={t('swap-section.liquidity.title')}
+          icon={<LiquidityIcon />}
+          iconPosition="end"
+          {...tabA11yProps(id, 2)}
+        />
       </Tabs>
       <Panel>
         <SwapPanel id={id} value={tab} index={0} assets={assets} loading={loading} />

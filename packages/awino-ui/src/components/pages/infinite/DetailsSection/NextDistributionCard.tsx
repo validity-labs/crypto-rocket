@@ -13,7 +13,7 @@ const Root = styled(Card)(({ theme }) => ({
   '.AwiTimeLeft-root': {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     flexWrap: 'wrap',
     gap: theme.spacing(2),
     width: '100%',
