@@ -5,7 +5,7 @@ import { TFunction, useTranslation } from 'next-i18next';
 import { Form, Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
-import { Button, InputAdornment, Typography } from '@mui/material';
+import { Button, InputAdornment, Typography, InputBase as Input } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import dateIO from '@/app/dateIO';
@@ -14,7 +14,6 @@ import FieldRadio from '@/components/fields/FieldRadio/FieldRadio';
 import Card from '@/components/general/Card/Card';
 import Label from '@/components/general/Label/Label';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
-import Input from '@/components/inputs/Input/Input';
 import { NumberFormatCustom } from '@/components/inputs/NumberInput/NumberInput';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import useSnack from '@/hooks/useSnack';

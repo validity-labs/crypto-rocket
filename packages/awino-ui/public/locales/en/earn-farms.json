@@ -53,6 +53,7 @@
     "earned": "AWINO earned",
     "staked": "Staked",
     "stake": "Stake",
+    "unstake": "Unstake",
     "details": "Details",
     "lp-price": "LP price",
     "view-on-scan": "View on XXXScan",
@@ -67,6 +68,19 @@
       "earn": "Earn",
       "deposit-fee": "Deposit fee",
       "details": "Details"
+    }
+  },
+  "stake-modal": {
+    "title": "Stake AWI",
+    "max": "Max",
+    "amount-hint": "Enter your amount to stake your AWI tokens.",
+    "wallet-balance": "Wallet balance",
+    "submit": "Stake",
+    "submit-done": "Staked",
+    "message": {
+      "confirm-transaction": "Please confirm the transaction. ☝",
+      "error": "Transaction failed.",
+      "success": "Transaction broadcast."
     }
   }
 }

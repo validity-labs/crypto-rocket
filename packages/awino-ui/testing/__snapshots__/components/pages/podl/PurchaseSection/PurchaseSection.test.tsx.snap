@@ -43,7 +43,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                     podl:purchase-section.info.title
                     <span
                       aria-label="podl:purchase-section.info.title-hint"
-                      class="help"
+                      class="AwiLabel-help"
                       data-mui-internal-clone-element="true"
                     >
                       <svg
@@ -170,7 +170,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                     podl:purchase-section.purchase.title
                     <span
                       aria-label="podl:purchase-section.purchase.title-hint"
-                      class="help"
+                      class="AwiLabel-help"
                       data-mui-internal-clone-element="true"
                     >
                       <svg
@@ -502,7 +502,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                       podl:purchase-section.treasury.total-share
                                       <span
                                         aria-label="podl:purchase-section.treasury.total-share-hint"
-                                        class="help"
+                                        class="AwiLabel-help"
                                         data-mui-internal-clone-element="true"
                                       >
                                         <svg

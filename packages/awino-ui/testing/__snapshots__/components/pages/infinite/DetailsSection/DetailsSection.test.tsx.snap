@@ -23,7 +23,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:title
               <span
                 aria-label="infinite:title-hint"
-                class="help"
+                class="AwiLabel-help"
                 data-mui-internal-clone-element="true"
               >
                 <svg
@@ -461,7 +461,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <form
                 autocomplete="off"
-                class="css-73"
+                class="AwiSearch-root css-73"
                 data-testid="SearchForm"
                 novalidate=""
               >
@@ -474,50 +474,59 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                     type="text"
                     value=""
                   />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-76"
+                    tabindex="0"
+                    type="button"
                   >
-                    <path
-                      d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
+                      />
+                      <path
+                        d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-12"
                     />
-                    <path
-                      d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
-                    />
-                  </svg>
+                  </button>
                 </div>
               </form>
             </div>
             <div
-              class="MuiTableContainer-root css-77"
+              class="MuiTableContainer-root css-79"
             >
               <table
-                class="MuiTable-root MuiTable-stickyHeader css-78"
+                class="MuiTable-root MuiTable-stickyHeader css-80"
               >
                 <thead
-                  class="MuiTableHead-root css-79"
+                  class="MuiTableHead-root css-81"
                 >
                   <tr
-                    class="MuiTableRow-root MuiTableRow-head css-80"
+                    class="MuiTableRow-root MuiTableRow-head css-82"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-83"
                       scope="col"
                       width="40%"
                     >
                       infinite:field.boosted
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-83"
                       scope="col"
                       width="30%"
                     >
                       infinite:field.votes
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-83"
                       scope="col"
                       width="30%"
                     >
@@ -526,19 +535,19 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   </tr>
                 </thead>
                 <tbody
-                  class="MuiTableBody-root css-84"
+                  class="MuiTableBody-root css-86"
                 >
                   <tr
-                    class="MuiTableRow-root css-80"
+                    class="MuiTableRow-root css-82"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <div
                         class="Awi-row"
                       >
                         <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
+                          class="AwiAssetIcons-root Awi-n2 MuiBox-root css-89"
                           role="presenation"
                         >
                           <img
@@ -555,42 +564,42 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                           />
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-88"
+                          class="MuiTypography-root MuiTypography-body css-90"
                         >
                           NUSD-AWI LP
                         </p>
                       </div>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         12,345
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         3.66 %
                       </p>
                     </td>
                   </tr>
                   <tr
-                    class="MuiTableRow-root css-80"
+                    class="MuiTableRow-root css-82"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <div
                         class="Awi-row"
                       >
                         <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
+                          class="AwiAssetIcons-root Awi-n2 MuiBox-root css-89"
                           role="presenation"
                         >
                           <img
@@ -607,42 +616,42 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                           />
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-88"
+                          class="MuiTypography-root MuiTypography-body css-90"
                         >
                           USDC-AWI LP
                         </p>
                       </div>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         23,456
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         5 %
                       </p>
                     </td>
                   </tr>
                   <tr
-                    class="MuiTableRow-root css-80"
+                    class="MuiTableRow-root css-82"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <div
                         class="Awi-row"
                       >
                         <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
+                          class="AwiAssetIcons-root Awi-n2 MuiBox-root css-89"
                           role="presenation"
                         >
                           <img
@@ -659,26 +668,26 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                           />
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-88"
+                          class="MuiTypography-root MuiTypography-body css-90"
                         >
                           USDT-AWI LP
                         </p>
                       </div>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         34,567
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         13 %
                       </p>
@@ -696,7 +705,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:current-weighting
             </h6>
             <div
-              class="AwiChartDoughnut-wrapper css-110"
+              class="AwiChartDoughnut-wrapper css-112"
               data-test-id="AwiChart-wrapper"
             >
               <div
@@ -705,12 +714,12 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                 <ul>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-113"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
+                        class="AwiAssetIcons-root Awi-n2 MuiBox-root css-114"
                         role="presenation"
                       >
                         <img
@@ -730,12 +739,12 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-113"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
+                        class="AwiAssetIcons-root Awi-n2 MuiBox-root css-114"
                         role="presenation"
                       >
                         <img
@@ -755,12 +764,12 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-113"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
+                        class="AwiAssetIcons-root Awi-n2 MuiBox-root css-114"
                         role="presenation"
                       >
                         <img
@@ -792,7 +801,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
         >
           <div
-            class="css-118"
+            class="css-120"
           >
             <h6
               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
@@ -800,7 +809,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:title
             </h6>
             <div
-              class="AwiLabelValue-root AwiStatsCard-labelValueHighlighted MuiBox-root css-120"
+              class="AwiLabelValue-root AwiStatsCard-labelValueHighlighted MuiBox-root css-122"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -810,13 +819,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="totalAwiLocked"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 1.23 m AWI
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-122"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -826,13 +835,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="totalAwiLockedValue"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 123.46 k USD
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-122"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -842,13 +851,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="averageUnlockTime"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 1,234
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-122"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -858,7 +867,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="nextDistribution"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 January 13, 2000
               </p>
@@ -872,7 +881,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:last-week-stats
             </h6>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-122"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -882,13 +891,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="distribution"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 1.23 m AWI
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-122"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -898,13 +907,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="distributionValue"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 123.46 k USD
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-122"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -914,13 +923,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="awiPerInfinity"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 0.391
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-142"
+              class="AwiLabelValue-root MuiBox-root css-144"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -930,7 +939,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="apr"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-124"
               >
                 34 %
               </p>
@@ -960,7 +969,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
         >
           <div
-            class="css-148"
+            class="css-150"
           >
             <div
               class="AwiBoastFarmCard-header"
@@ -971,7 +980,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                 infinite:title
                 <span
                   aria-label="infinite:title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -995,7 +1004,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <form
                 autocomplete="off"
-                class="css-73"
+                class="AwiSearch-root css-73"
                 data-testid="SearchForm"
                 novalidate=""
               >
@@ -1008,24 +1017,33 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                     type="text"
                     value=""
                   />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-76"
+                    tabindex="0"
+                    type="button"
                   >
-                    <path
-                      d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
+                      />
+                      <path
+                        d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-12"
                     />
-                    <path
-                      d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
-                    />
-                  </svg>
+                  </button>
                 </div>
               </form>
             </div>
             <p
-              class="MuiTypography-root MuiTypography-body-xs AwiBoastFarmCard-note css-155"
+              class="MuiTypography-root MuiTypography-body-xs AwiBoastFarmCard-note css-159"
             >
               infinite:note
             </p>
@@ -1033,13 +1051,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               class="AwiBoastFarmCard-distributionHelper"
             >
               <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-156"
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-160"
               >
                 <span
-                  class="MuiSwitch-root MuiSwitch-sizeMedium css-157"
+                  class="MuiSwitch-root MuiSwitch-sizeMedium css-161"
                 >
                   <span
-                    class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-158"
+                    class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-162"
                   >
                     <input
                       aria-label="controlled"
@@ -1047,11 +1065,11 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       type="checkbox"
                     />
                     <span
-                      class="MuiSwitch-thumb css-160"
+                      class="MuiSwitch-thumb css-164"
                     />
                   </span>
                   <span
-                    class="MuiSwitch-track css-161"
+                    class="MuiSwitch-track css-165"
                   />
                 </span>
                 <span
@@ -1062,33 +1080,33 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </label>
             </div>
             <div
-              class="MuiTableContainer-root css-77"
+              class="MuiTableContainer-root css-79"
             >
               <table
-                class="MuiTable-root MuiTable-stickyHeader css-78"
+                class="MuiTable-root MuiTable-stickyHeader css-80"
               >
                 <thead
-                  class="MuiTableHead-root css-79"
+                  class="MuiTableHead-root css-81"
                 >
                   <tr
-                    class="MuiTableRow-root MuiTableRow-head css-80"
+                    class="MuiTableRow-root MuiTableRow-head css-82"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-83"
                       scope="col"
                       width="40%"
                     >
                       infinite:field.boosted
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-83"
                       scope="col"
                       width="30%"
                     >
                       infinite:field.votes
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-83"
                       scope="col"
                       width="30%"
                     >
@@ -1097,19 +1115,19 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   </tr>
                 </thead>
                 <tbody
-                  class="MuiTableBody-root css-84"
+                  class="MuiTableBody-root css-86"
                 >
                   <tr
-                    class="MuiTableRow-root css-80"
+                    class="MuiTableRow-root css-82"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <div
                         class="Awi-row"
                       >
                         <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
+                          class="AwiAssetIcons-root Awi-n2 MuiBox-root css-89"
                           role="presenation"
                         >
                           <img
@@ -1126,42 +1144,42 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                           />
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-88"
+                          class="MuiTypography-root MuiTypography-body css-90"
                         >
                           NUSD-AWI LP
                         </p>
                       </div>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         12,345
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         3.66 %
                       </p>
                     </td>
                   </tr>
                   <tr
-                    class="MuiTableRow-root css-80"
+                    class="MuiTableRow-root css-82"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <div
                         class="Awi-row"
                       >
                         <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
+                          class="AwiAssetIcons-root Awi-n2 MuiBox-root css-89"
                           role="presenation"
                         >
                           <img
@@ -1178,42 +1196,42 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                           />
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-88"
+                          class="MuiTypography-root MuiTypography-body css-90"
                         >
                           USDC-AWI LP
                         </p>
                       </div>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         23,456
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         5 %
                       </p>
                     </td>
                   </tr>
                   <tr
-                    class="MuiTableRow-root css-80"
+                    class="MuiTableRow-root css-82"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <div
                         class="Awi-row"
                       >
                         <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
+                          class="AwiAssetIcons-root Awi-n2 MuiBox-root css-89"
                           role="presenation"
                         >
                           <img
@@ -1230,26 +1248,26 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                           />
                         </div>
                         <p
-                          class="MuiTypography-root MuiTypography-body css-88"
+                          class="MuiTypography-root MuiTypography-body css-90"
                         >
                           USDT-AWI LP
                         </p>
                       </div>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         34,567
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-88"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body css-88"
+                        class="MuiTypography-root MuiTypography-body css-90"
                       >
                         13 %
                       </p>
@@ -1267,7 +1285,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:vote-weight-total
             </button>
             <p
-              class="MuiTypography-root MuiTypography-body-xs css-196"
+              class="MuiTypography-root MuiTypography-body-xs css-200"
             >
               infinite:new-vote-weighting 0 %
             </p>
@@ -1280,7 +1298,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:current-weighting
             </h6>
             <div
-              class="AwiChartDoughnut-wrapper css-110"
+              class="AwiChartDoughnut-wrapper css-112"
               data-test-id="AwiChart-wrapper"
             >
               <div
@@ -1289,12 +1307,12 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                 <ul>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-113"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
+                        class="AwiAssetIcons-root Awi-n2 MuiBox-root css-114"
                         role="presenation"
                       >
                         <img
@@ -1314,12 +1332,12 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-113"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
+                        class="AwiAssetIcons-root Awi-n2 MuiBox-root css-114"
                         role="presenation"
                       >
                         <img
@@ -1339,12 +1357,12 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   </li>
                   <li>
                     <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-113"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
+                        class="AwiAssetIcons-root Awi-n2 MuiBox-root css-114"
                         role="presenation"
                       >
                         <img
@@ -1376,7 +1394,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
         >
           <div
-            class="css-206"
+            class="css-210"
           >
             <h6
               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
@@ -1393,18 +1411,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-212"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulseAlt css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulseAlt css-212"
                   >
                     3
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-214"
                 >
                   infinite:days
                 </p>
@@ -1416,18 +1434,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-212"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-212"
                   >
                     0
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-214"
                 >
                   infinite:hours
                 </p>
@@ -1439,18 +1457,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-212"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-212"
                   >
                     0
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-214"
                 >
                   infinite:minutes
                 </p>
@@ -1462,18 +1480,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-212"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-212"
                   >
                     0
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-214"
                 >
                   infinite:seconds
                 </p>

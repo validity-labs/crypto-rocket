@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AssetIcons /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="AwiAssetIcons-root Awi-n2 MuiBox-root css-0"
+    role="presenation"
+  >
+    <img
+      alt=""
+      height="24"
+      src="/images/assets/awi.svg"
+      width="24"
+    />
+    <img
+      alt=""
+      height="24"
+      src="/images/assets/usdt.svg"
+      width="24"
+    />
+  </span>
+</DocumentFragment>
+`;

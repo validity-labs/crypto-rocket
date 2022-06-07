@@ -9,8 +9,8 @@ const useSnack = () => {
   const dispatch = useAppDispatch();
 
   const show = useMemo(
-    () => (message: React.ReactNode, severity?: AlertColor) =>
-      dispatch(showMessage({ message, alertProps: { severity } })),
+    () => (message: React.ReactNode, severity?: AlertColor, permanent?: boolean) =>
+      dispatch(showMessage({ message, alertProps: { severity }, permanent })),
     [dispatch]
   );
 

@@ -49,7 +49,7 @@
     "apr-hint": "MISSING HINT",
     "back": "Go back",
     "filter-by-name": "Filter by name",
-    "select-token": "Choose token",
+    "select-token": "Select a token",
     "convertion-from-to": "Convert from {{from}} to {{to}}",
     "close-modal": "Close Modal",
     "max": "Max",
@@ -132,6 +132,10 @@
       "portfolio": {
         "title": "Portfolio",
         "description": "View your portfolio of related assets"
+      },
+      "governance": {
+        "title": "Governance",
+        "description": "MISSING TEXT"
       }
     },
     "social": {

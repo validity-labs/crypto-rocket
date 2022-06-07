@@ -3,6 +3,7 @@ import { LiquidityStakingDetailsData } from '@/components/pages/earn/liquidity-s
 import { ClaimData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
 import { LockData } from '@/components/pages/earn/manage-awino/OperationSection/LockCard';
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
+import { LiquidityItem } from '@/components/pages/swap/SwapSection/LiquidityPanel';
 import { StatsData } from '@/types/app';
 
 export const earnLiquidityStakingStats: StatsData = [{ value: 89.7 }, { value: 0.27 }, { value: 89.7 }];
@@ -65,6 +66,9 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
   },
   {
     id: 'usdt-awi',
@@ -84,6 +88,9 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
   },
   {
     id: 'nusd-awi',
@@ -103,6 +110,9 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
   },
   {
     id: 'eth-awi',
@@ -122,5 +132,25 @@ export const earnFarmsData: FarmDataItem[] = [
     depositFee: 0,
     boostFactor: 1.0,
     lpPrice: 123.45,
+    stakedAmount: 123,
+    walletAmount: 234,
+    walletAmountUSD: 345,
+  },
+];
+
+export const swapLiquidityData: LiquidityItem[] = [
+  {
+    id: 'awi-usdt',
+    pair: ['awi', 'usdt'],
+    tokens: 0.000023,
+    pool: [3443.31, 9.323233],
+    share: 0,
+  },
+  {
+    id: 'awi-dai',
+    pair: ['awi', 'dai'],
+    tokens: 0.000023,
+    pool: [3443.31, 9.323233],
+    share: 0,
   },
 ];

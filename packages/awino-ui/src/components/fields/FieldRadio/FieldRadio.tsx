@@ -17,12 +17,12 @@ import { styled } from '@mui/material/styles';
 import FieldError from '../FieldError/FieldError';
 
 const FormControl = styled(MuiFormControl)(({ theme }) => ({
-  '.MuiFormLabel-root': {
-    marginBottom: theme.spacing(3.5),
-    ...theme.typography['body-sm'],
-    fontWeight: 700,
-    color: theme.palette.text.primary,
-  },
+  // '.MuiFormLabel-root': {
+  //   marginBottom: theme.spacing(3.5),
+  //   ...theme.typography['body-sm'],
+  //   fontWeight: 700,
+  //   color: theme.palette.text.primary,
+  // },
   '.MuiFormGroup-root': {
     justifyContent: 'space-between',
   },

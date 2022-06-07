@@ -10,7 +10,7 @@ import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import Panel from '@/components/general/Panel/Panel';
 import Search from '@/components/general/Search/Search';
-import Select from '@/components/general/Select/Select';
+import Select, { SelectValueAndOptionDefault } from '@/components/general/Select/Select';
 import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
 import { earnFarmsData } from '@/fixtures/earn';
@@ -20,6 +20,7 @@ import { AssetKeyPair } from '@/types/app';
 
 import ResultCard from './ResultCard';
 import ResultTable from './ResultTable';
+import StakeModal, { StakeModalData } from './StakeModal';
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiSearch-root': {
@@ -75,6 +76,19 @@ const Root = styled(Section)(({ theme }) => ({
     overflow: 'auto',
     margin: theme.spacing(0, 0, 10),
   },
+  '.AwiResultSection-sort': {
+    label: {
+      textTransform: 'uppercase',
+    },
+    '.MuiInput-root': {
+      // padding: '0 !important',
+      // margin: '0 !important',
+      // borderRadius: +theme.shape.borderRadius * 2,
+      // backgroundColor: theme.palette.background.transparent,
+      // padding: `${theme.spacing(2, 10, 2.25, 2)} !important`,
+      // border: '1px solid #546367',
+    },
+  },
   [theme.breakpoints.up('sm')]: {
     '.AwiResultSection-typeGroup': {
       margin: 0,
@@ -122,6 +136,9 @@ export interface FarmDataItem {
   depositFee: number;
   boostFactor: number;
   lpPrice: number;
+  stakedAmount: number;
+  walletAmount: number;
+  walletAmountUSD: number;
 }
 
 export default function ResultSection() {
@@ -137,6 +154,7 @@ export default function ResultSection() {
     search: null,
   });
   const [layout, setLayout] = useState<LayoutKey>('grid');
+  const [stakeModal, setStakeModal] = useState<StakeModalData | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -218,11 +236,15 @@ export default function ResultSection() {
     console.log('handleHarvest', pair);
   }, []);
 
-  const handleApprove = useCallback((pair: AssetKeyPair) => {
+  const handleStake = useCallback((stakeData: StakeModalData) => {
+    setStakeModal(stakeData);
     // TODO implement approve logic
-    console.log('handleApprove', pair);
+    console.log('handleStake', stakeData);
   }, []);
 
+  const handleUnstake = useCallback((pair: AssetKeyPair) => {
+    console.log('handleUnstake', pair);
+  }, []);
   const gridProps = useMemo(() => {
     return layout === 'grid' ? { md: 6, lg: 4 } : {};
   }, [layout]);
@@ -241,15 +263,23 @@ export default function ResultSection() {
                 <Typography>{t('description')}</Typography>
               </div>
               <div className="AwiPanel-headerAside">
-                <FormControlLabel
-                  labelPlacement="top"
+                <Select
                   label={t('sort-by.title') as string}
-                  control={<Select items={sortByItems} value={filters.sort} setValue={handleSortChange} />}
+                  items={sortByItems}
+                  value={filters.sort}
+                  setValue={handleSortChange}
+                  ValueComponent={SelectValueAndOptionDefault}
+                  OptionComponent={SelectValueAndOptionDefault}
+                  formControlProps={{
+                    fullWidth: false,
+                    className: 'AwiResultSection-sort',
+                  }}
+                  size="small"
                 />
                 <FormControlLabel
                   labelPlacement="top"
                   label={t('search.title') as string}
-                  control={<Search onSearch={handleSearchChange} placeholder={t('search.placeholder')} />}
+                  control={<Search onSearch={handleSearchChange} placeholder={t('search.placeholder')} size="small" />}
                 />
               </div>
             </>
@@ -311,7 +341,12 @@ export default function ResultSection() {
                 <Grid key={record.id} item xs={12} {...gridProps}>
                   <Slide in appear direction="up">
                     <div>
-                      <ResultCard item={record} onHarvest={handleHarvest} onApprove={handleApprove} />
+                      <ResultCard
+                        item={record}
+                        onHarvest={handleHarvest}
+                        onStake={handleStake}
+                        onUnstake={handleUnstake}
+                      />
                     </div>
                   </Slide>
                 </Grid>
@@ -322,10 +357,14 @@ export default function ResultSection() {
               items={filteredRecords}
               loading={loading}
               onHarvest={handleHarvest}
-              onApprove={handleApprove}
+              onStake={handleStake}
+              onUnstake={handleUnstake}
             />
           ))}
       </Root>
+      {!!stakeModal && (
+        <StakeModal open={!!stakeModal} close={() => setStakeModal(null)} data={stakeModal} callback={() => {}} />
+      )}
     </>
   );
 }

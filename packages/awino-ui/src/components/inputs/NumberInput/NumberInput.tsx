@@ -42,6 +42,9 @@ const SourceInput = styled(InputBase)(({ theme }) => ({
   padding: theme.spacing(3, 3.5, 3, 7),
   borderRadius: +theme.shape.borderRadius * 2,
   backgroundColor: theme.palette.background.transparent,
+  '&.Mui-error': {
+    boxShadow: `0px 0 3px 1px ${theme.palette.error.main}`,
+  },
   input: {
     minWidth: 60,
   },

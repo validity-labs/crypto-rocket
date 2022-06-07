@@ -170,16 +170,338 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
             >
               earn-liquidity-staking:vest-card.subtitle
             </p>
-            <button
-              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiLoadingButton-root css-21"
-              tabindex="0"
-              type="button"
+            <form
+              action="#"
+              autocomplete="off"
+              novalidate=""
+              style="width: 100%;"
             >
-              earn-liquidity-staking:vest-card.submit
-              <span
-                class="MuiTouchRipple-root css-12"
-              />
-            </button>
+              <div
+                class="MuiFormControl-root MuiFormControl-fullWidth css-27"
+              >
+                <label
+                  class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-required css-28"
+                  id="lockPeriodLabel"
+                >
+                  earn-liquidity-staking:vest-card.field.lockPeriod.label
+                  <span
+                    aria-hidden="true"
+                    class="MuiFormLabel-asterisk css-29"
+                  >
+                     *
+                  </span>
+                </label>
+                <div
+                  class="MuiFormGroup-root MuiFormGroup-row css-30"
+                  role="radiogroup"
+                >
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom css-31"
+                  >
+                    <span
+                      class="MuiRadio-root MuiRadio-colorPrimary MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root css-32"
+                    >
+                      <input
+                        aria-labelledby="lockPeriodLabel"
+                        class="PrivateSwitchBase-input css-33"
+                        name="lockPeriod"
+                        type="radio"
+                        value="1"
+                      />
+                      <span
+                        class="css-34"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-35"
+                          data-testid="RadioButtonUncheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-36"
+                          data-testid="RadioButtonCheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-12"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-13"
+                    >
+                      earn-liquidity-staking:vest-card.field.lockPeriod.value.month
+                    </span>
+                  </label>
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom css-31"
+                  >
+                    <span
+                      class="MuiRadio-root MuiRadio-colorPrimary MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root css-32"
+                    >
+                      <input
+                        aria-labelledby="lockPeriodLabel"
+                        class="PrivateSwitchBase-input css-33"
+                        name="lockPeriod"
+                        type="radio"
+                        value="3"
+                      />
+                      <span
+                        class="css-34"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-35"
+                          data-testid="RadioButtonUncheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-36"
+                          data-testid="RadioButtonCheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-12"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-13"
+                    >
+                      earn-liquidity-staking:vest-card.field.lockPeriod.value.months
+                    </span>
+                  </label>
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom css-31"
+                  >
+                    <span
+                      class="MuiRadio-root MuiRadio-colorPrimary MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root css-32"
+                    >
+                      <input
+                        aria-labelledby="lockPeriodLabel"
+                        class="PrivateSwitchBase-input css-33"
+                        name="lockPeriod"
+                        type="radio"
+                        value="6"
+                      />
+                      <span
+                        class="css-34"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-35"
+                          data-testid="RadioButtonUncheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-36"
+                          data-testid="RadioButtonCheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-12"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-13"
+                    >
+                      earn-liquidity-staking:vest-card.field.lockPeriod.value.months
+                    </span>
+                  </label>
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom css-31"
+                  >
+                    <span
+                      class="MuiRadio-root MuiRadio-colorPrimary MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root css-32"
+                    >
+                      <input
+                        aria-labelledby="lockPeriodLabel"
+                        class="PrivateSwitchBase-input css-33"
+                        name="lockPeriod"
+                        type="radio"
+                        value="12"
+                      />
+                      <span
+                        class="css-34"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-35"
+                          data-testid="RadioButtonUncheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-36"
+                          data-testid="RadioButtonCheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-12"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-13"
+                    >
+                      earn-liquidity-staking:vest-card.field.lockPeriod.value.year
+                    </span>
+                  </label>
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom css-31"
+                  >
+                    <span
+                      class="MuiRadio-root MuiRadio-colorPrimary MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root css-32"
+                    >
+                      <input
+                        aria-labelledby="lockPeriodLabel"
+                        class="PrivateSwitchBase-input css-33"
+                        name="lockPeriod"
+                        type="radio"
+                        value="24"
+                      />
+                      <span
+                        class="css-34"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-35"
+                          data-testid="RadioButtonUncheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-36"
+                          data-testid="RadioButtonCheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-12"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-13"
+                    >
+                      earn-liquidity-staking:vest-card.field.lockPeriod.value.years
+                    </span>
+                  </label>
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementBottom css-31"
+                  >
+                    <span
+                      class="MuiRadio-root MuiRadio-colorPrimary MuiButtonBase-root MuiRadio-root MuiRadio-colorPrimary PrivateSwitchBase-root css-32"
+                    >
+                      <input
+                        aria-labelledby="lockPeriodLabel"
+                        class="PrivateSwitchBase-input css-33"
+                        name="lockPeriod"
+                        type="radio"
+                        value="36"
+                      />
+                      <span
+                        class="css-34"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-35"
+                          data-testid="RadioButtonUncheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                          />
+                        </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-36"
+                          data-testid="RadioButtonCheckedIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-12"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-13"
+                    >
+                      earn-liquidity-staking:vest-card.field.lockPeriod.value.max
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <button
+                class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiLoadingButton-root css-21"
+                tabindex="0"
+                type="submit"
+              >
+                earn-liquidity-staking:vest-card.submit
+                <span
+                  class="MuiTouchRipple-root css-12"
+                />
+              </button>
+            </form>
           </div>
         </div>
       </div>

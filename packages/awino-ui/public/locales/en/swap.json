@@ -51,7 +51,7 @@
       "execute": "Execute zap"
     },
     "liquidity": {
-      "title": "Add Liquidity",
+      "title": "Liquidity",
       "prompt": "Add liquidity to receive liquidity provider (LP) tokens",
       "execute": "Supply",
       "choose-token": "Choose token",
@@ -76,7 +76,16 @@
       "route": {
         "title": "Route",
         "hint": "MISSING TEXT"
-      }
+      },
+      "your-liquidity": "Your liquidity",
+      "your-liquidity-help": "MISSING TEXT",
+      "import-pool": "Import pool",
+      "pool-pair": "Pool pair",
+      "no-liquidity-found": "No liquidity found",
+      "your-pool-tokens": "Your pool tokens",
+      "pooled": "Pooled {{v}}",
+      "pool-share": "Pool share",
+      "remove-pool": "Remove pool pair"
     }
   },
   "settings-modal": {
@@ -121,5 +130,28 @@
     "common-bases": "Common bases",
     "common-bases-hint": "MISSING TEXT",
     "tokens": "AWI token name"
+  },
+  "import-pool-modal": {
+    "title": "Import pool",
+    "title-hint": "MISSING TEXT",
+    "search": "Search name",
+    "common-bases": "Common bases",
+    "common-bases-hint": "MISSING TEXT",
+    "tokens": "Token name",
+    "import": "Import",
+    "token": "Token",
+    "select-token": "Select a token"
+  },
+  "remove-liquidity-modal": {
+    "title": "Remove liquidity",
+    "title-hint": "MISSING TEXT",
+    "percent-toggle-hint": "MISSING TEXT",
+    "max": "Max",
+    "amount": "Amount",
+    "pooled": "Pooled {{v}}",
+    "collect-as-weth": "Collect as WETH",
+    "submit-prompt": "Enter a percent",
+    "submit": "Remove",
+    "token": "Token"
   }
 }

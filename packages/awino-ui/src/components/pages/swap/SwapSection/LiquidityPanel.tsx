@@ -3,13 +3,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import clsx from 'clsx';
 
-import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
+import Panel from '@/components/general/Panel/Panel';
 import ExpandIcon from '@/components/icons/ExpandIcon';
+// import { swapLiquidityData } from '@/fixtures/earn';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import {
   addLiquidity,
@@ -22,11 +24,14 @@ import {
   useTokenBalance,
 } from '@/lib/blockchain';
 import { formatPercent } from '@/lib/formatters';
-import { AssetKey, ID } from '@/types/app';
+import { AssetKey, AssetKeyPair, ID } from '@/types/app';
 
 import AssetIcons from './AssetIcons';
 import AssetModal, { AssetModalData, AssetModalUpdateCallback } from './AssetModal';
+import ImportPoolModal, { ImportPoolModalData, ImportPoolModalUpdateCallback } from './ImportPoolModal';
+import LiquidityCard from './LiquidityCard';
 import NumberInput from './NumberInput';
+import RemoveLiquidityModal, { RemoveLiquidityModalUpdateCallback } from './RemoveLiquidityModal';
 import { AssetInfoMap } from './SwapSection';
 
 const Root = styled('div')(({ theme }) => ({
@@ -117,6 +122,9 @@ const Root = styled('div')(({ theme }) => ({
       outlineOffset: -2,
     },
   },
+  '.AwiLiquidityPanel-liquidity': {
+    margin: theme.spacing(18, 0),
+  },
   [theme.breakpoints.up('md')]: {
     '.AwiLiquidityPanel-source': {
       padding: theme.spacing(11, 22, 12, 8),
@@ -144,6 +152,14 @@ interface TabPanelProps {
   assets: AssetInfoMap;
 }
 
+export interface LiquidityItem {
+  id: string;
+  pair: AssetKeyPair;
+  tokens: number;
+  pool: [number, number];
+  share: number;
+}
+
 const LiquidityPanel = (props: TabPanelProps) => {
   const t = usePageTranslation();
   // const dispatch = useAppDispatch();
@@ -156,6 +172,9 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const [targetValue, setTargetValue] = useState(null);
   const [canExecute, setCanExecute] = useState(false);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
+  const [importPoolModal, setImportPoolModal] = useState<ImportPoolModalData | null>(null);
+  const [removeLiquidityModal, setRemoveLiquidityModal] = useState<LiquidityItem | null>(null);
+  const [allLiquidity, setAllLiquidity] = useState<LiquidityItem[]>([]); // TODO create fetcher, for testing use swapLiquidityData
 
   const { account, library } = useWeb3React();
   const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
@@ -324,6 +343,25 @@ const LiquidityPanel = (props: TabPanelProps) => {
     }
   };
 
+  const handleImportPoolModalToggle = () => {
+    setImportPoolModal({
+      assets,
+    });
+  };
+
+  const handleImportPoolModalUpdate: ImportPoolModalUpdateCallback = (payload) => {
+    setAllLiquidity((prevAllLiquidity) => [payload, ...prevAllLiquidity]);
+  };
+
+  const handleRemoveLiquidityModalToggle = (item: LiquidityItem) => {
+    setRemoveLiquidityModal(item);
+  };
+
+  const handleRemoveLiquidityModalUpdate: RemoveLiquidityModalUpdateCallback = (payload) => {
+    /* TODO */
+    setAllLiquidity((prevAllLiquidity) => prevAllLiquidity.filter((f) => f.id !== payload));
+  };
+
   return (
     <>
       <Root
@@ -443,6 +481,44 @@ const LiquidityPanel = (props: TabPanelProps) => {
               </Grid>
             </Grid>
           </div>
+          <div className="AwiLiquidityPanel-liquidity">
+            <Grid container spacing={10}>
+              <Grid item xs={12}>
+                <div className="Awi-row Awi-between">
+                  <Label
+                    variant="body-md"
+                    component="h2"
+                    color="text.active"
+                    id="awiLiquidity"
+                    tooltip={t('swap-section.liquidity.your-liquidity-help')}
+                  >
+                    {t('swap-section.liquidity.your-liquidity')}
+                  </Label>
+                  <Button variant="outlined" onClick={handleImportPoolModalToggle}>
+                    {t('swap-section.liquidity.import-pool')}
+                  </Button>
+                </div>
+              </Grid>
+              <Grid item xs={12}>
+                {allLiquidity.length > 0 ? (
+                  <>
+                    <Typography variant="body-ms" sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
+                      {t('swap-section.liquidity.pool-pair')}
+                    </Typography>
+                    {allLiquidity.map((liquidity) => (
+                      <LiquidityCard key={liquidity.id} item={liquidity} onRemove={handleRemoveLiquidityModalToggle} />
+                    ))}
+                  </>
+                ) : (
+                  <Panel>
+                    <Typography mx="auto" textAlign="center">
+                      {t('swap-section.liquidity.no-liquidity-found')}
+                    </Typography>
+                  </Panel>
+                )}
+              </Grid>
+            </Grid>
+          </div>
         </div>
       </Root>
       {!!assetModal && (
@@ -452,6 +528,24 @@ const LiquidityPanel = (props: TabPanelProps) => {
           data={assetModal}
           callback={handleAssetModalUpdate}
           i18nKey="asset-swap-modal"
+        />
+      )}
+      {!!importPoolModal && (
+        <ImportPoolModal
+          open={!!importPoolModal}
+          close={() => setImportPoolModal(null)}
+          data={importPoolModal}
+          callback={handleImportPoolModalUpdate}
+          i18nKey="import-pool-modal"
+        />
+      )}
+      {!!removeLiquidityModal && (
+        <RemoveLiquidityModal
+          open={!!removeLiquidityModal}
+          close={() => setRemoveLiquidityModal(null)}
+          data={removeLiquidityModal}
+          callback={handleRemoveLiquidityModalUpdate}
+          i18nKey="remove-liquidity-modal"
         />
       )}
     </>

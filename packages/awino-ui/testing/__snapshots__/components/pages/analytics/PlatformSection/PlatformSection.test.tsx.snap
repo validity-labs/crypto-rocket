@@ -27,7 +27,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 analytics:platform-section.daily-fees.title
                 <span
                   aria-label="analytics:platform-section.daily-fees.title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -410,7 +410,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 analytics:platform-section.stats.title
                 <span
                   aria-label="analytics:platform-section.stats.title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -478,7 +478,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   analytics:platform-section.stats.health-ratio
                   <span
                     aria-label="analytics:platform-section.stats.health-ratio-hint"
-                    class="help"
+                    class="AwiLabel-help"
                     data-mui-internal-clone-element="true"
                   >
                     <svg
@@ -517,7 +517,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   analytics:platform-section.stats.total-fees
                   <span
                     aria-label="analytics:platform-section.stats.total-fees-hint"
-                    class="help"
+                    class="AwiLabel-help"
                     data-mui-internal-clone-element="true"
                   >
                     <svg

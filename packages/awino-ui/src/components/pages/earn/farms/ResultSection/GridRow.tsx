@@ -14,6 +14,8 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatLPPair, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
 import { AssetKeyPair } from '@/types/app';
 
+import { StakeModalData } from './StakeModal';
+
 const Root = styled('div')(({ theme }) => ({
   cursor: 'pointer',
   overflow: 'auto',
@@ -67,7 +69,8 @@ const Root = styled('div')(({ theme }) => ({
 
 interface Props {
   onHarvest: (pair: AssetKeyPair) => void;
-  onApprove: (pair: AssetKeyPair) => void;
+  onStake: (stakeData: StakeModalData) => void;
+  onUnstake: (pair: AssetKeyPair) => void;
 }
 export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & GridRowProps & Props) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
@@ -91,15 +94,25 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
     ]
   );
 
-  const { onHarvest, onApprove, row } = props;
+  const { onHarvest, onStake, onUnstake, row } = props;
 
   const handleHarvest = useCallback(() => {
     onHarvest(row.pair);
   }, [row, onHarvest]);
 
-  const handleApprove = useCallback(() => {
-    onApprove(row.pair);
-  }, [row, onApprove]);
+  const handleStake = useCallback(() => {
+    onStake({
+      pair: row.pair,
+      proportion: row.proportion,
+      stakedAmount: row.stakedAmount,
+      walletAmount: row.walletAmount,
+      walletAmountUSD: row.walletAmountUSD,
+    });
+  }, [row, onStake]);
+
+  const handleUnstake = useCallback(() => {
+    onUnstake(row.pair);
+  }, [row, onUnstake]);
 
   const { connected } = useAppSelector((state) => state.account);
 
@@ -145,7 +158,20 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
                 variant: 'body',
               }}
             />
-            {connected ? <Button onClick={handleApprove}>{t('approve')}</Button> : <ConnectButton />}
+            <Box component="div" className="Awi-row" sx={{ gap: 6 }}>
+              {connected ? (
+                <>
+                  <Button variant="outlined" onClick={handleStake}>
+                    {t('stake')}
+                  </Button>
+                  <Button onClick={handleUnstake} disabled={true || !(row.stakedAmount > 0)}>
+                    {t('unstake')}
+                  </Button>
+                </>
+              ) : (
+                <ConnectButton />
+              )}
+            </Box>
             <LabelValue
               id="stake"
               value={

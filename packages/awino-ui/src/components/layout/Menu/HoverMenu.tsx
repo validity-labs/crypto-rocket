@@ -132,6 +132,7 @@ export default function HoverMenu({
         onClick={handleOpen}
         onMouseEnter={handleOpen}
         className="AwiHoverMenu-toggle"
+        // disableRipple
         {...toggleProps}
       >
         {toggle}

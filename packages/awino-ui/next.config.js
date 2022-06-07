@@ -17,6 +17,7 @@ module.exports = async (/* phase, { defaultConfig } */) => {
     },
     publicRuntimeConfig: {
       baseDomain: process.env.NEXT_PUBLIC_BASE_DOMAIN,
+      etherscanApiKey: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY,
     },
   }
 
