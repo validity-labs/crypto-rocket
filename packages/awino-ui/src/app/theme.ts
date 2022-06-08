@@ -1,7 +1,6 @@
 // import { red } from '@mui/material/colors';
 import { PaletteMode } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { CSSProperties } from '@mui/material/styles/createMixins';
 import { alpha, createBreakpoints, createSpacing } from '@mui/system';
 
 const shapeBorderRadiusBase = 5;
@@ -953,34 +952,6 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
-    // MuiPaginationItem: {
-    //   styleOverrides: {
-    //     root: {},
-    //     text: {
-    //       borderRadius: 0,
-    //       fontSize: '25px', // 14px
-    //       color: theme.palette.common.black,
-    //       margin: theme.spacing(0, 5),
-    //       '&.Mui-selected, &.Mui-selected:hover': {
-    //         position: 'relative',
-    //         backgroundColor: 'transparent',
-    //         '&:after': {
-    //           content: '""',
-    //           position: 'absolute',
-    //           bottom: 0,
-    //           width: '100%',
-    //           height: '4px',
-    //           borderRadius: '4px',
-    //           // backgroundColor: theme.palette.background.orange,
-    //         },
-    //       },
-    //       '&:hover': {
-    //         // color: theme.palette.background.orange,
-    //         backgroundColor: 'transparent',
-    //       },
-    //     },
-    //   },
-    // },
     MuiTablePagination: {
       styleOverrides: {
         menuItem: {
@@ -1050,53 +1021,6 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
-    // MuiMenuItem: {
-    //   defaultProps: {
-    //     disableGutters: true,
-    //     divider: true,
-    //   },
-    //   styleOverrides: {
-    //     root: {
-    //       padding: 0,
-    //       '.MuiMenuItem-content': {
-    //         padding: theme.spacing(4, 8),
-    //         width: '100%',
-    //         ...theme.typography.menu,
-    //         color: theme.palette.text.menu,
-    //         transition: 'color 200ms ease-in-out',
-    //       },
-    //       '&.active': {
-    //         '.MuiMenuItem-content': {
-    //           color: theme.palette.text.active,
-    //           transition: 'color 200ms ease-in-out',
-    //         },
-    //       },
-    //       '&:hover': {
-    //         '.MuiMenuItem-content': {
-    //           color: theme.palette.text.primary,
-    //           transition: 'color 200ms ease-in-out',
-    //         },
-    //       },
-    //       '&.Mui-selected': {
-    //         backgroundColor: 'transparent',
-    //         '.MuiMenuItem-content, .MuiMenuItem-content:hover': {
-    //           color: theme.palette.text.active,
-    //         },
-    //       },
-    //     },
-    //     dense: {
-    //       '.MuiMenuItem-content': {
-    //         padding: theme.spacing(2.5, 8),
-    //       },
-    //     },
-    //     divider: {
-    //       borderBottom: `2px solid ${theme.palette.mode === 'dark' ? '#217471' : theme.palette.divider}`,
-    //       '&:last-of-type': {
-    //         // borderBottom: 0,
-    //       },
-    //     },
-    //   },
-    // },
     MuiModal: {
       styleOverrides: {
         root: {
@@ -1170,11 +1094,30 @@ const themeCreator = (mode: PaletteMode) => {
         },
       },
     },
-    // MuiSvgIcon: {
-    //   defaultProps: {
-    //     color: 'primary',
-    //   }
-    // }
+    MuiStepper: {
+      styleOverrides: {
+        root: {
+          maxWidth: '100%',
+          overflow: 'auto',
+        },
+      },
+    },
+    MuiStep: {
+      styleOverrides: {
+        root: {
+          minWidth: 120,
+        },
+      },
+    },
+    MuiStepLabel: {
+      styleOverrides: {
+        label: {
+          ...theme.typography['body'],
+          fontWeight: 600,
+          color: theme.palette.text.primary,
+        },
+      },
+    },
   };
 
   return theme;

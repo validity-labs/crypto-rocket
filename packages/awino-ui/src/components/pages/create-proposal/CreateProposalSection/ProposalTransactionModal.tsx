@@ -1,5 +1,3 @@
-import { StepProgress } from 'react-stepz';
-
 import Modal from '@/components/general/Modal/Modal';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
@@ -17,9 +15,7 @@ const ProposalTransactionModal = ({ show, onHide, onProposalTransactionAdded }: 
 
   return (
     <Modal id="proposalTransactionModal" open={show} close={onHide} title={t('title')} maxWidth="md">
-      <StepProgress>
-        <ProposalTransactionForm onCreate={onProposalTransactionAdded} />
-      </StepProgress>
+      <ProposalTransactionForm onCreate={onProposalTransactionAdded} />
     </Modal>
   );
 };

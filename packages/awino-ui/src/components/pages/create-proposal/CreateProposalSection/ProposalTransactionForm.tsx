@@ -1,7 +1,5 @@
 import { useRef, useState } from 'react';
 
-import { Step, useStepProgress } from 'react-stepz';
-
 import BigNumber from 'bignumber.js';
 import clsx from 'clsx';
 import { toWei } from 'web3-utils';
@@ -20,6 +18,10 @@ import {
   TableContainer,
   TableRow,
   Typography,
+  Step as MuiStep,
+  StepLabel,
+  Stepper,
+  Collapse,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -31,7 +33,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { buildEtherscanAddressLink } from '@/lib/etherscan';
 
 import { ProposalTransaction } from './CreateProposalSection';
-import StepProgress from './StepProgress';
+import { StepConnector, StepIconComponent } from './Stepper';
 
 const Root = styled(Box)(({ theme }) => ({
   '.AwiFormControlInput-typeFile': {
@@ -51,13 +53,9 @@ const Root = styled(Box)(({ theme }) => ({
       padding: theme.spacing(3.5, 6, 3),
       ...theme.typography['body-xl'],
       lineHeight: 2,
-      // color: '#37505C',
       color: theme.palette.text.secondary,
-      // flexWrap: "wrap",
       backgroundColor: theme.palette.background.transparent,
       borderRadius: +theme.shape.borderRadius * 2,
-      // padding: theme.spacing(3, 3.5, 3, 7),
-
       '&:focus, &:focus-visible, &:hover': {
         cursor: 'pointer',
         boxShadow: `0px 0 3px 1px ${theme.palette.primary.main}`,
@@ -89,9 +87,6 @@ const Root = styled(Box)(({ theme }) => ({
   '.MuiFormGroup-root': {
     gap: theme.spacing(6),
     marginLeft: theme.spacing(4),
-    // '.MuiFormControl-root': {
-
-    // },
   },
   '.MuiTableBody-root .MuiTableRow-root:last-of-type': {
     borderTop: '0 !important',
@@ -108,7 +103,6 @@ interface ProposalTransactionFormProps {
 const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => {
   const t = usePageTranslation({ keyPrefix: 'proposal-transaction-form' });
 
-  // const { t } = useTranslation();
   const [address, setAddress] = useState('');
   const [abi, setABI] = useState({ functions: { call: {}, getBalance: {} } }); /* Interface */
   const [value, setValue] = useState('');
@@ -117,6 +111,9 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
 
   const [isABIUploadValid, setABIUploadValid] = useState<boolean>();
   const [abiFileName, setABIFileName] = useState<string | undefined>('');
+
+  const [activeStep, setActiveStep] = useState(0);
+  const [stepHasError, setStepHasError] = useState(false);
 
   const addressValidator = (s: string) => {
     if (!isAddress(s)) {
@@ -211,19 +208,26 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
   };
 
   const stepForwardOrCallback = () => {
-    if (currentStep !== steps.length - 1) {
-      return stepForward();
+    if (activeStep !== steps.length - 1) {
+      const isValid = typeof steps[activeStep]?.validator !== 'undefined' ? steps[activeStep]?.validator() : true;
+      console.log(isValid, steps, activeStep);
+      if (isValid) {
+        setStepHasError(false);
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      } else {
+        setStepHasError(true);
+      }
+    } else {
+      onCreate({
+        address,
+        value: value ? toWei(value) : '0',
+        signature: func,
+        /* TODO encode params */
+        // calldata: (func && abi?._encodeParams(abi?.functions[func]?.inputs, args)) || '0x',
+        calldata: 'todo',
+      });
+      clearState();
     }
-
-    onCreate({
-      address,
-      value: value ? toWei(value) : '0',
-      signature: func,
-      /* TODO encode params */
-      // calldata: (func && abi?._encodeParams(abi?.functions[func]?.inputs, args)) || '0x',
-      calldata: 'todo',
-    });
-    clearState();
   };
 
   const steps = [
@@ -252,11 +256,6 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
     },
   ];
 
-  const { stepForward, stepBackwards, currentStep } = useStepProgress({
-    steps,
-    startingStep: 0,
-  });
-
   const clearState = () => {
     setAddress('');
     setABI(undefined);
@@ -265,10 +264,7 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
     setArguments([]);
     setABIUploadValid(undefined);
     setABIFileName(undefined);
-
-    for (let i = currentStep; i > 0; i--) {
-      stepBackwards();
-    }
+    setActiveStep(0);
   };
 
   const uploadRef = useRef<HTMLLabelElement>();
@@ -279,6 +275,10 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
     }
   };
 
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
   const options = Object.keys(abi?.functions || {}).reduce((ar, r) => {
     ar.set(r, { id: r, label: r });
     return ar;
@@ -286,11 +286,20 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
 
   const inputs = abi?.functions[func]?.inputs || [];
   const none = t('none');
+
   return (
     <Root>
-      <StepProgress steps={steps} />
+      <Stepper activeStep={activeStep} alternativeLabel connector={<StepConnector />}>
+        {steps.map((step, stepIndex) => (
+          <MuiStep key={stepIndex}>
+            <StepLabel error={stepIndex === activeStep && stepHasError} StepIconComponent={StepIconComponent}>
+              {step.label}
+            </StepLabel>
+          </MuiStep>
+        ))}
+      </Stepper>
       <Box sx={{ my: 15, px: 10 }}>
-        <Step step={0}>
+        <Collapse in={activeStep === 0} appear>
           <FormControlInput fullWidth required>
             <FormLabel htmlFor="awiProposalTransactionFormAddress">
               {t('field.address')}
@@ -304,8 +313,8 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
               onChange={(e) => setAddress(e.target.value)}
             />
           </FormControlInput>
-        </Step>
-        <Step step={1}>
+        </Collapse>
+        <Collapse in={activeStep === 1} appear>
           <FormControlInput fullWidth>
             <FormLabel htmlFor="awiProposalTransactionFormValue">
               {t('field.value')}
@@ -322,10 +331,8 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
               }}
             />
           </FormControlInput>
-        </Step>
-        <Step step={2}>
-          {/* <FormControlSelect fullWidth sx={FormControlSelect{ mb: 10 }}> */}
-
+        </Collapse>
+        <Collapse in={activeStep === 2} appear>
           <Select
             id="awiProposalTransactionFormFunction"
             items={options}
@@ -345,7 +352,6 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
               sx: { mb: 10 },
             }}
           />
-          {/* </FormControlSelect> */}
           <FormControlInput
             fullWidth
             error={!isABIUploadValid}
@@ -379,8 +385,8 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => validateAndSetABI(e.target.files?.[0])}
             />
           </FormControlInput>
-        </Step>
-        <Step step={3}>
+        </Collapse>
+        <Collapse in={activeStep === 3} appear>
           {/* @ts-expect-error */}
           <FormControlInput fullWidth component="fieldset">
             <FormLabel htmlFor="awiProposalTransactionFormValue" component="legend">
@@ -403,8 +409,8 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
               <Typography>{!inputs.length && t('no-argument-required')}</Typography>
             </FormGroup>
           </FormControlInput>
-        </Step>
-        <Step step={4}>
+        </Collapse>
+        <Collapse in={activeStep === 4} appear>
           <Typography variant="body-sm" color="text.primary" fontWeight={700}>
             {t('field.summary')}
             <InfoTooltip text={t('field.summary-help')} />
@@ -451,14 +457,14 @@ const ProposalTransactionForm = ({ onCreate }: ProposalTransactionFormProps) => 
               </TableBody>
             </Table>
           </TableContainer>
-        </Step>
+        </Collapse>
       </Box>
       <Box className="Awi-row Awi-between" px={10}>
-        <Button variant="outlined" disabled={currentStep === 0} onClick={stepBackwards}>
+        <Button variant="outlined" disabled={activeStep === 0} onClick={handleBack}>
           {t('back')}
         </Button>
         <Button variant="outlined" onClick={stepForwardOrCallback}>
-          {currentStep !== steps.length - 1 ? t('next') : t('add-transaction')}
+          {activeStep !== steps.length - 1 ? t('next') : t('add-transaction')}
         </Button>
       </Box>
     </Root>

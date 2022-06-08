@@ -102,6 +102,7 @@ export default function CreateProposalSection(/* { proposal, loading }: Props */
       setShowTransactionFormModal(false);
       setShowTransactionSuccessModal(true);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [proposalTransactions]
   );
 

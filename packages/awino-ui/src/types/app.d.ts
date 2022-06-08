@@ -80,6 +80,13 @@ export type AssetKeyPair = [string, string];
 // TODO make sure there is no item that has same asset key on both sides
 export type PairedAssetKey = string;
 
+export interface StaticImageData {
+  src: string;
+  height: number;
+  width: number;
+  blurDataURL?: string;
+}
+
 export interface ContractInfo {
   key: AssetKey;
   address: string;
