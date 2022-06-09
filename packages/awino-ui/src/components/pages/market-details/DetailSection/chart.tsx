@@ -1,4 +1,5 @@
 import { ChartDataset, ChartOptions, Plugin } from 'chart.js';
+import Chart from 'chart.js/auto';
 import { random, round } from 'lodash';
 
 import { SHORT_DATE_FORMAT } from '@/app/constants';

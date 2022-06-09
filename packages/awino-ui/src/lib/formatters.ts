@@ -129,7 +129,7 @@ export const formatCurrency = (amount: string | number, currency: string) => {
 };
 export const formatUSD = (amount: BigNumber | number) => formatCurrency(amount.toString(), 'USD');
 export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
-export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
+// export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
 
 /**
  * Format value to have dash as default string if value missing

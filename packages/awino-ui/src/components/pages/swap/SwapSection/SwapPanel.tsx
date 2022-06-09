@@ -200,9 +200,9 @@ const Root = styled('div')(({ theme }) => ({
       padding: theme.spacing(11, 8, 12, 22),
     },
     '.AwiSwapPanel-switch': {
-      top: '50%',
+      top: '110px',
       left: 0,
-      transform: 'translate(-50%, -50%)',
+      transform: 'translate(-50%, 0)',
     },
   },
 }));

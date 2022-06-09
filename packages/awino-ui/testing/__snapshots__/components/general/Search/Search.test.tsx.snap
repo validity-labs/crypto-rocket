@@ -9,10 +9,10 @@ exports[`<Switch /> has valid snapshot 1`] = `
     novalidate=""
   >
     <div
-      class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1"
+      class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1"
     >
       <input
-        class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-2"
+        class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-2"
         placeholder="common.search"
         type="text"
         value=""

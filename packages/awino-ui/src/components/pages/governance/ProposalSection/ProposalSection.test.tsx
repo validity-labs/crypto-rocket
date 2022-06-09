@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { dashboardInfo } from '@/fixtures/dashboard';
-import { governanceProposals } from '@/fixtures/governance';
+import { governanceInfo } from '@/fixtures/governance';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import DetailSection from './DetailSection';
+import ProposalSection from './ProposalSection';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -18,13 +18,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<DetailSection />', () => {
+describe('<ProposalSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(
-      <DetailSection loading={false} proposal={governanceProposals[0]} />,
-      {},
-      'governance-details'
-    );
+    const { asFragment } = render(<ProposalSection />, {}, 'governance');
     expect(asFragment()).toMatchSnapshot();
   });
 });

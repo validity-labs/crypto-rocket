@@ -21,7 +21,7 @@ afterEach(cleanup);
 describe('<AssetAmount />', () => {
   it('has valid snapshot', () => {
     const { asFragment } = render(
-      <AssetAmount asset="ftm" value={new BigNumber(1234567.89)} altAsset="usd" altValue={new BigNumber(9876543.21)} />
+      <AssetAmount asset="awi" value={new BigNumber(1234567.89)} altAsset="usd" altValue={new BigNumber(9876543.21)} />
     );
     expect(asFragment()).toMatchSnapshot();
   });
