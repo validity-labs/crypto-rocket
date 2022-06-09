@@ -37,7 +37,7 @@ WORKDIR /src
 
 COPY ./$APPLICATION_PATH/package*.json /src/
 
-RUN npm install
+RUN npm ci
 
 # -- PRODUCTION BUILD STAGE ------------------------
 FROM base AS production-build
