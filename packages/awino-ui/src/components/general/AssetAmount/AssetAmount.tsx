@@ -74,8 +74,8 @@ export default function AssetAmount({
   return (
     <Root size={size} {...restOfProps}>
       <div className="icon">
-        <img src={`/images/icons/${asset}.svg`} alt="" className={clsx('source', { pair: match })} />
-        {match && <img src={`/images/icons/${match}.svg`} alt="" className="target" />}
+        <img src={`/images/assets/${asset}.svg`} alt="" className={clsx('source', { pair: match })} />
+        {match && <img src={`/images/assets/${match}.svg`} alt="" className="target" />}
       </div>
       <div className="values">
         <Typography className="value">{formatAmount(value, { postfix: asset.toUpperCase() })}</Typography>

@@ -143,21 +143,20 @@ export default function PurchasePanel({ data }: Props) {
             onChange={handleSourceChange}
             endAdornment={
               <div className="adornment">
-                <img src={`/images/icons/${source}.svg`} alt="" />
-                <span>{t(`common.${source}`, { ns: 'common' })}</span>
+                <img src={`/images/assets/${source}.svg`} alt="" />
+                <span>{t(`asset.${source}`, { ns: 'common' })}</span>
               </div>
             }
           />
-          <FormHelperText className="helper-text" variant="standard" />
         </FormControl>
         <Typography className="equal">=</Typography>
         <div className="output">
           <Typography variant="body-md" color="text.primary">
             {formatAmount(targetValue)}
           </Typography>
-          <SwappingImage source={source} target={target} />
+          <SwappingImage source={source} target={target} path="assets" size="medium" />
           <Typography variant="body-md" color="text.primary">
-            {t(`common.${target}`, { ns: 'common' })}
+            {t(`asset.${target}`, { ns: 'common' })}
           </Typography>
         </div>
       </div>

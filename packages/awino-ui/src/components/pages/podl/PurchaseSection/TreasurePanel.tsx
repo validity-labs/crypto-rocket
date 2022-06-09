@@ -119,9 +119,15 @@ export default function TreasurePanel({ data, treasury }: Props) {
           <Typography variant="body-md" color="text.primary" className="AwiTreasurePanel-summaryAmount">
             {formatAmount(treasury.amount)}
           </Typography>
-          <SwappingImage source={source} target={target} className="AwiTreasurePanel-summaryImages" />
+          <SwappingImage
+            source={source}
+            target={target}
+            className="AwiTreasurePanel-summaryImages"
+            path="assets"
+            size="medium"
+          />
           <Typography variant="body-md" color="text.primary">
-            {t(`common.${target}`, { ns: 'common' })}
+            {t(`asset.${target}`, { ns: 'common' })}
           </Typography>
         </div>
         {<ExpandIcon sx={{ fontSize: '32px', transform: `rotate(${expanded ? 180 : 0}deg)` }} />}
