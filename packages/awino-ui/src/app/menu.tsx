@@ -41,7 +41,7 @@ export const mainMenuLinks: MenuItemType[] = [
     key: 'more',
     items: [
       { type: 'internal', key: 'analytics', url: '/analytics' },
-      { type: 'internal', key: 'docs', url: '#' },
+      { type: 'internal', key: 'docs', url: 'https://app.gitbook.com/s/epRC3Tf5qPuOqDRuDbvw/' },
       { type: 'internal', key: 'launchpad', url: '#' },
     ],
   },
@@ -92,7 +92,7 @@ export const socialLinks: MenuItemLink[] = [
   {
     type: 'external',
     key: 'docs',
-    url: 'https://todo',
+    url: 'https://app.gitbook.com/s/epRC3Tf5qPuOqDRuDbvw/',
   },
   {
     type: 'external',
