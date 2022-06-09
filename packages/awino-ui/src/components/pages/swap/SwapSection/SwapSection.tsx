@@ -16,7 +16,7 @@ import LiquidityPanel from './LiquidityPanel';
 import SwapPanel from './SwapPanel';
 import ZapPanel from './ZapPanel';
 
-const Tabs = styled(MuiTabs)(({ theme }) => ({
+export const Tabs = styled(MuiTabs)(({ theme }) => ({
   position: 'relative',
   margin: theme.spacing(0, 0, 9),
   '& .MuiTabs-indicator': {
