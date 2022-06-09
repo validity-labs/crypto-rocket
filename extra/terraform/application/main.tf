@@ -76,6 +76,13 @@ resource "google_cloud_run_service" "crypto_rocket_ui" {
             value = env.value
           }
         }
+        
+        # @TODO: Replace key with a real one (currently only dummy because implementation is insecure), store key in a secret and pass it as secret env to the cloud run instance.
+        # (https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_run_service#example-usage---cloud-run-service-secret-environment-variables)
+        env {
+          name = "NEXT_PUBLIC_ETHERSCAN_API_KEY"
+          value = "foo"
+        }
 
         resources {
           limits = {

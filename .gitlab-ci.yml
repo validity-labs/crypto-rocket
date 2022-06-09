@@ -61,7 +61,7 @@ variables:
 .set-terraform-vars: &set-terraform-vars
   - export TF_VAR_gcp_project=$GCP_PROJECT
   - export TF_VAR_crypto_rocket_ui_image="${CRYPTO_ROCKET_UI_IMAGE}:${CI_COMMIT_SHA}"
-  - export TF_VAR_crypto_rocket_ui_dotenv_file="${CI_PROJECT_DIR}/extra/config/crypto-rocket-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}"
+  - export TF_VAR_crypto_rocket_ui_dotenv_file="${CI_PROJECT_DIR}/extra/config/awino-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}"
 
 # Export terraform environment variables and store them in the job artifacts
 # so that they can be easily accessed for debugging purposes.
@@ -70,7 +70,7 @@ variables:
 .export-terraform-vars: &export-terraform-vars
   - export "TF_VAR_gcp_project=$GCP_PROJECT" >> terraform-vars.env
   - export "TF_VAR_crypto_rocket_ui_image=${CRYPTO_ROCKET_UI_IMAGE}:${CI_COMMIT_SHA}" >> terraform-vars.env
-  - export "TF_VAR_crypto_rocket_ui_dotenv_file=${CI_PROJECT_DIR}/extra/config/crypto-rocket-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}" >> terraform-vars.env
+  - export "TF_VAR_crypto_rocket_ui_dotenv_file=${CI_PROJECT_DIR}/extra/config/awino-ui/.env.${CONFIG_FILE_ENVIRONMENT_NAME}" >> terraform-vars.env
 
 # Initialize terraform
 #
