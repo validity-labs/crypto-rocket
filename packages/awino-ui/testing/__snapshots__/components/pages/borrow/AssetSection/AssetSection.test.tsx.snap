@@ -73,10 +73,10 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               novalidate=""
             >
               <div
-                class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-11"
+                class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-11"
               >
                 <input
-                  class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-12"
+                  class="MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-12"
                   placeholder="common.search"
                   type="text"
                   value=""

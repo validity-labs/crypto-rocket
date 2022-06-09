@@ -53,75 +53,70 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
           <div
             class="AwiPanel-headerAside"
           >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementTop css-6"
+            <div
+              class="MuiFormControl-root AwiResultSection-sort css-6"
             >
-              <div
-                class="MuiFormControl-root MuiBox-root css-7"
-              >
-                <div
-                  aria-label=""
-                  class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-8"
-                >
-                  <div
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-labelledby="demo-simple-select"
-                    class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input css-9"
-                    id="demo-simple-select"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <p
-                      class="MuiTypography-root MuiTypography-body MuiSelect-value css-5"
-                    >
-                      earn-farms:sort-by.value.emissions
-                    </p>
-                  </div>
-                  <input
-                    aria-hidden="true"
-                    class="MuiSelect-nativeInput css-11"
-                    tabindex="-1"
-                    value="emissions"
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-12"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <span
-                class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-5"
+              <label
+                class="MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-7"
+                id="undefinedLabel"
               >
                 earn-farms:sort-by.title
-              </span>
-            </label>
+              </label>
+              <div
+                class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall  css-8"
+              >
+                <div
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-labelledby="undefinedLabel"
+                  class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input MuiInputBase-inputSizeSmall css-9"
+                  role="button"
+                  tabindex="0"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body-ms MuiSelect-value css-10"
+                  >
+                    earn-farms:sort-by.value.emissions
+                  </p>
+                </div>
+                <input
+                  aria-hidden="true"
+                  class="MuiSelect-nativeInput css-11"
+                  tabindex="-1"
+                  value="emissions"
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-12"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                  />
+                </svg>
+              </div>
+            </div>
             <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementTop css-6"
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementTop css-13"
             >
               <form
                 autocomplete="off"
-                class="AwiSearch-root css-15"
+                class="AwiSearch-root css-14"
                 data-testid="SearchForm"
                 novalidate=""
               >
                 <div
-                  class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-16"
+                  class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-15"
                 >
                   <input
-                    class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-17"
+                    class="MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-16"
                     placeholder="earn-farms:search.placeholder"
                     type="text"
                     value=""
                   />
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-18"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-17"
                     tabindex="0"
                     type="button"
                   >
@@ -139,7 +134,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root css-20"
+                      class="MuiTouchRipple-root css-19"
                     />
                   </button>
                 </div>
@@ -157,55 +152,55 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
         >
           <div
             aria-label="earn-farms:type.title"
-            class="MuiToggleButtonGroup-root AwiResultSection-typeGroup css-22"
+            class="MuiToggleButtonGroup-root AwiResultSection-typeGroup css-21"
             role="group"
           >
             <button
               aria-pressed="true"
-              class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-22"
               tabindex="0"
               type="button"
               value="all"
             >
               earn-farms:type.value.all
               <span
-                class="MuiTouchRipple-root css-20"
+                class="MuiTouchRipple-root css-19"
               />
             </button>
             <button
               aria-pressed="false"
-              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-22"
               tabindex="0"
               type="button"
               value="standard"
             >
               earn-farms:type.value.standard
               <span
-                class="MuiTouchRipple-root css-20"
+                class="MuiTouchRipple-root css-19"
               />
             </button>
             <button
               aria-pressed="false"
-              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-22"
               tabindex="0"
               type="button"
               value="boosted"
             >
               earn-farms:type.value.boosted
               <span
-                class="MuiTouchRipple-root css-20"
+                class="MuiTouchRipple-root css-19"
               />
             </button>
             <button
               aria-pressed="false"
-              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-23"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-22"
               tabindex="0"
               type="button"
               value="winawi"
             >
               earn-farms:type.value.winawi
               <span
-                class="MuiTouchRipple-root css-20"
+                class="MuiTouchRipple-root css-19"
               />
             </button>
           </div>
@@ -213,25 +208,25 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             class="AwiResultSection-toggle"
           >
             <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-31"
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-30"
             >
               <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium css-32"
+                class="MuiSwitch-root MuiSwitch-sizeMedium css-31"
               >
                 <span
-                  class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-33"
+                  class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-32"
                 >
                   <input
                     aria-label="controlled"
-                    class="MuiSwitch-input PrivateSwitchBase-input css-34"
+                    class="MuiSwitch-input PrivateSwitchBase-input css-33"
                     type="checkbox"
                   />
                   <span
-                    class="MuiSwitch-thumb css-35"
+                    class="MuiSwitch-thumb css-34"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-36"
+                  class="MuiSwitch-track css-35"
                 />
               </span>
               <span
@@ -245,25 +240,25 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             class="AwiResultSection-toggle"
           >
             <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-31"
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-30"
             >
               <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium css-32"
+                class="MuiSwitch-root MuiSwitch-sizeMedium css-31"
               >
                 <span
-                  class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-33"
+                  class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-32"
                 >
                   <input
                     aria-label="controlled"
-                    class="MuiSwitch-input PrivateSwitchBase-input css-34"
+                    class="MuiSwitch-input PrivateSwitchBase-input css-33"
                     type="checkbox"
                   />
                   <span
-                    class="MuiSwitch-thumb css-35"
+                    class="MuiSwitch-thumb css-34"
                   />
                 </span>
                 <span
-                  class="MuiSwitch-track css-36"
+                  class="MuiSwitch-track css-35"
                 />
               </span>
               <span
@@ -275,12 +270,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
           </div>
           <div
             aria-label="earn-farms:layout.title"
-            class="MuiToggleButtonGroup-root css-22"
+            class="MuiToggleButtonGroup-root css-21"
             role="group"
           >
             <button
               aria-pressed="true"
-              class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+              class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-45"
               tabindex="0"
               title="earn-farms:layout.value.grid"
               type="button"
@@ -298,12 +293,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 />
               </svg>
               <span
-                class="MuiTouchRipple-root css-20"
+                class="MuiTouchRipple-root css-19"
               />
             </button>
             <button
               aria-pressed="false"
-              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+              class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-45"
               tabindex="0"
               title="earn-farms:layout.value.list"
               type="button"
@@ -321,26 +316,26 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 />
               </svg>
               <span
-                class="MuiTouchRipple-root css-20"
+                class="MuiTouchRipple-root css-19"
               />
             </button>
           </div>
         </div>
       </div>
       <span
-        class="css-52"
+        class="css-51"
       >
         <span
-          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-53"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-52"
           role="progressbar"
           style="width: 40px; height: 40px;"
         >
           <svg
-            class="MuiCircularProgress-svg css-54"
+            class="MuiCircularProgress-svg css-53"
             viewBox="22 22 44 44"
           >
             <circle
-              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-55"
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-54"
               cx="44"
               cy="44"
               fill="none"

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { dashboardInfo } from '@/fixtures/dashboard';
+import { governanceInfo } from '@/fixtures/governance';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
@@ -19,7 +20,7 @@ afterEach(cleanup);
 
 describe('<InfoSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<InfoSection loading={false} info={dashboardInfo} />, {}, 'dashboard');
+    const { asFragment } = render(<InfoSection loading={false} info={governanceInfo} />, {}, 'governance');
     expect(asFragment()).toMatchSnapshot();
   });
 });
