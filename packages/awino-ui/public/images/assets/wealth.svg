@@ -11,6 +11,93 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs8">
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rechteck_1170"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <filter
+       id="filter0_i"
+       x="0.859375"
+       y="0.592313"
+       width="94.4298"
+       height="94.6595"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood927" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         result="shape"
+         id="feBlend929" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         result="hardAlpha"
+         id="feColorMatrix931" />
+      <feOffset
+         dy="-0.689125"
+         id="feOffset933" />
+      <feGaussianBlur
+         stdDeviation="0.114854"
+         id="feGaussianBlur935" />
+      <feComposite
+         in2="hardAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         id="feComposite937" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0.0699479 0 0 0 0 0.9875 0 0 0 0 0.717887 0 0 0 1 0"
+         id="feColorMatrix939" />
+      <feBlend
+         mode="normal"
+         in2="shape"
+         result="effect1_innerShadow"
+         id="feBlend941" />
+    </filter>
+    <linearGradient
+       id="paint0_linear"
+       x1="48.0745"
+       y1="4.34131"
+       x2="48.0745"
+       y2="91.7325"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#141E27"
+         id="stop944" />
+      <stop
+         offset="1"
+         stop-color="#141E27"
+         id="stop946" />
+    </linearGradient>
+    <clipPath
+       id="clip0">
+      <rect
+         width="96"
+         height="96"
+         fill="white"
+         id="rect949" />
+    </clipPath>
+    <clipPath
+       id="clip-path-1">
+      <rect
+         id="Rechteck_1170-5"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
     <linearGradient
        id="linear-gradient"
        x1="6.82"
@@ -68,9 +155,72 @@
          id="stop979" />
     </linearGradient>
     <clipPath
-       id="clip-path">
+       id="clip-path-7">
       <rect
-         id="Rechteck_1170"
+         id="Rechteck_1170-6"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <filter
+       id="filter0_i-6"
+       x="0.859375"
+       y="0.592313"
+       width="94.4298"
+       height="94.6595"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood927-5" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         result="shape"
+         id="feBlend929-6" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         result="hardAlpha"
+         id="feColorMatrix931-3" />
+      <feOffset
+         dy="-0.689125"
+         id="feOffset933-9" />
+      <feGaussianBlur
+         stdDeviation="0.114854"
+         id="feGaussianBlur935-4" />
+      <feComposite
+         in2="hardAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         id="feComposite937-8" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0.0699479 0 0 0 0 0.9875 0 0 0 0 0.717887 0 0 0 1 0"
+         id="feColorMatrix939-1" />
+      <feBlend
+         mode="normal"
+         in2="shape"
+         result="effect1_innerShadow"
+         id="feBlend941-2" />
+    </filter>
+    <clipPath
+       id="clip0-0">
+      <rect
+         width="96"
+         height="96"
+         fill="white"
+         id="rect949-8" />
+    </clipPath>
+    <clipPath
+       id="clip-path-4">
+      <rect
+         id="Rechteck_1170-8"
          data-name="Rechteck 1170"
          width="15.312"
          height="10.564"
@@ -86,10 +236,46 @@
          fill="#fff" />
     </clipPath>
   </defs>
+  <style
+     type="text/css"
+     id="style1288">
+	.st0{fill:#F5AC37;}
+	.st1{fill:#FEFEFD;}
+</style>
+  <style
+     type="text/css"
+     id="style1427">
+	.st0{fill:#343434;}
+	.st1{fill:#8C8C8C;}
+	.st2{fill:#3C3C3B;}
+	.st3{fill:#141414;}
+	.st4{fill:#393939;}
+</style>
+  <style
+     type="text/css"
+     id="style1952">
+	.st0{fill:#343434;}
+	.st1{fill:#8C8C8C;}
+	.st2{fill:#3C3C3B;}
+	.st3{fill:#141414;}
+	.st4{fill:#393939;}
+</style>
+  <style
+     type="text/css"
+     id="style2511">
+	.st0{fill:#2775CA;}
+	.st1{fill:#FFFFFF;}
+</style>
+  <style
+     type="text/css"
+     id="style2685">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#50AF95;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>
   <g
      id="Gruppe_4163"
      data-name="Gruppe 4163"
-     transform="matrix(0.73516667,0,0,0.73516667,3.178,3.178)">
+     transform="matrix(0.75,0,0,0.75,3,3)">
     <circle
        id="Ellipse_2-9"
        data-name="Ellipse 2"
