@@ -28,22 +28,22 @@ export const earnManageAwinoStats: StatsData = [
 export const earnManageAwinoStake: StakeData = {
   apr: 39.17,
   balance: {
-    geist: 99.99,
+    awi: 99.99,
     usd: 199.0,
   },
 };
 export const earnManageAwinoLock: LockData = {
   apr: 39.17,
   balance: {
-    geist: 99.99,
+    awi: 99.99,
     usd: 199.0,
   },
 };
 export const earnManageAwinoClaim: ClaimData = {
-  unlockedAWI: { geist: 100, claimable: true },
-  vestingAWI: { geist: 100, claimable: false },
-  claimAll: { geist: 50, awi: 100.99, claimable: true },
-  expiredLockedAWI: { geist: 100, claimable: true },
+  unlockedAWI: { awi: 100, claimable: true },
+  vestingAWI: { awi: 100, claimable: false },
+  claimAll: { awi: 50, awi: 100.99, claimable: true },
+  expiredLockedAWI: { awi: 100, claimable: true },
 };
 
 export const earnFarmsData: FarmDataItem[] = [
