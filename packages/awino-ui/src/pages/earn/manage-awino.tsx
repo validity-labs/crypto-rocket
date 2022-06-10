@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { useWeb3React } from '@web3-react/core';
+import { ethers } from 'ethers';
 
 import { Grid } from '@mui/material';
 
@@ -19,6 +20,7 @@ import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection
 import StatsSection from '@/components/pages/shared/FormattedStatsSection/StatsSection';
 import { earnManageAwinoClaim, earnManageAwinoLock, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
 import { AWINO_TOKEN_MAP, ChainId, useTokenBalance } from '@/lib/blockchain';
+import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 import { formatAWI, formatUSD } from '@/lib/formatters';
 import { sleep } from '@/lib/helpers';
 import { StatsData, StatsFormatter } from '@/types/app';
@@ -59,12 +61,19 @@ const EarnManageAwinoPage: NextPage = () => {
   const [lockData, setLockData] = useState(initialLockData);
   const [claimData, setClaimData] = useState(initialClaimData);
 
-  const { account } = useWeb3React();
-  const balance = useTokenBalance(AWINO_TOKEN_MAP[ChainId.TESTNET], 18, account);
-  console.log({ balance });
+  const { account, library, chainId } = useWeb3React();
+  const [balance, setBalance] = useState<string>('0');
+
+  const updateBalance = async (account: string, library: any) => {
+    const contract = new ethers.Contract(AWINO_TOKEN_MAP[ChainId.TESTNET], erc20AbiJson, library);
+    const balance = await contract.balanceOf(account);
+    setBalance(ethers.utils.formatEther(balance.toString()));
+  };
+
   useEffect(() => {
     (async () => {
-      await sleep(2);
+      await updateBalance(account, library);
+
       const newStatsData = await new Promise<StatsData>((res) => {
         return res(earnManageAwinoStats);
       });
@@ -73,7 +82,7 @@ const EarnManageAwinoPage: NextPage = () => {
       const newStakeData = await new Promise<StakeData>((res) => {
         return res(earnManageAwinoStake);
       });
-      setStakeData({ apr: 0, balance: { awi: balance, usd: balance } });
+      setStakeData({ apr: 7.32, balance: { awi: balance, usd: balance } });
 
       const newLockData = await new Promise<LockData>((res) => {
         return res(earnManageAwinoLock);
@@ -87,13 +96,19 @@ const EarnManageAwinoPage: NextPage = () => {
 
       setLoading(false);
     })();
-  }, [balance]);
+  }, [balance, chainId, account]);
 
   return (
     <>
       <Seo />
       <IntroSection />
-      <OperationSection statItems={statsData} statFormatters={statsFormatters} stake={stakeData} lock={lockData} />
+      <OperationSection
+        statItems={statsData}
+        statFormatters={statsFormatters}
+        stake={stakeData}
+        lock={lockData}
+        updateBalance={updateBalance}
+      />
       <ClaimSection data={claimData} />
     </>
   );

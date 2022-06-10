@@ -14,6 +14,7 @@ interface Props {
   statFormatters: StatsFormatter[];
   stake: StakeData;
   lock: LockData;
+  updateBalance: (account: string, library: any) => void;
 }
 
 const gridItemPropsCallbackCreator =
@@ -31,7 +32,7 @@ const gridItemPropsCallbackCreator =
     };
   };
 
-export default function OperationSection({ statItems, statFormatters, stake, lock }: Props) {
+export default function OperationSection({ statItems, statFormatters, stake, lock, updateBalance }: Props) {
   const gridItemPropsCallback = useMemo(() => gridItemPropsCallbackCreator(statItems.length), [statItems]);
   return (
     <Section>
@@ -45,7 +46,7 @@ export default function OperationSection({ statItems, statFormatters, stake, loc
           />
         </Grid>
         <Grid item xs={10} md={3}>
-          <StakeCard data={stake} />
+          <StakeCard data={stake} updateBalance={updateBalance} />
         </Grid>
         <Grid item xs={10} md={3}>
           <LockCard data={lock} />
