@@ -34,7 +34,7 @@ const Root = styled(Section)(({ theme }) => ({
   },
 }));
 
-export type ClaimData = Record<string, { awi: number; awi?: number; claimable: boolean }>;
+export type ClaimData = Record<string, { awi: number; claimable: boolean }>;
 
 interface Props {
   data: ClaimData;
