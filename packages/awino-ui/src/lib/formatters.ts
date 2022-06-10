@@ -97,7 +97,7 @@ export const formatAmount = (amount: BigNumber | number, { prefix, postfix }: Fo
   const outputPostfix = postfix ? ` ${postfix}` : '';
 
   return `${outputPrefix}${
-    n.toFormat(/* { groupSize: 3, decimalSeparator: '.', groupSeparator: ',' } */)
+    n.toFixed(3) // n.toFormat(/* { groupSize: 3, decimalSeparator: '.', groupSeparator: ',' } */)
   }${outputPostfix}`;
 };
 

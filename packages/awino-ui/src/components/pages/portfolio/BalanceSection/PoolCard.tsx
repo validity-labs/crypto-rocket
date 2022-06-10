@@ -19,11 +19,10 @@ const PoolCard = styled(({ item, className, ...restOfProps }: PoolCardProps) => 
   return (
     <Box className={clsx(className, 'AwiPoolCard-root')} {...restOfProps}>
       <div className="AwiPoolCard-left">
-        <img src={`/images/assets/${key}.svg`} alt="" className="AwiPoolCard-icon" />
         <div>
-          <Typography color="text.primary">{t(`balance-section.assets.${key}.title`)}</Typography>
+          <Typography color="text.primary">{key.toUpperCase()}</Typography>
           <Typography variant="body-sm" mb={2}>
-            {t(`balance-section.assets.${key}.description`)}
+            {/* {t(`balance-section.assets.${key}.description`)} */}
           </Typography>
           <div className="AwiPoolCard-assets">
             {assets.map((asset, assetIndex) => (

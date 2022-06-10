@@ -27,7 +27,18 @@ export const approve = async (
   console.log(`Contract "Approve" operation successful.`);
 };
 
-export const getBalance = async (contractAddress: string, owner: string, provider): Promise<BigNumber> => {
+export const getBalance = async (contractAddress: string, owner: string, provider: any): Promise<BigNumber> => {
   const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider);
   return await contract.balanceOf(owner);
+};
+
+export const getBalanceFormatted = async (
+  contractAddress: string,
+  owner: string,
+  provider: any,
+  decimals: number
+): Promise<string> => {
+  const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider);
+  const balance = await contract.balanceOf(owner);
+  return ethers.utils.formatUnits(balance, decimals);
 };

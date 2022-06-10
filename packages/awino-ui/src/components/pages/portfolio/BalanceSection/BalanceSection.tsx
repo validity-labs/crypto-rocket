@@ -9,6 +9,7 @@ import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Loader from '@/components/general/Loader/Loader';
 import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
+import { balanceGroupedList } from '@/fixtures/portfolio';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAmount } from '@/lib/formatters';
 import { BalanceGrouped } from '@/types/app';
@@ -16,6 +17,7 @@ import { BalanceGrouped } from '@/types/app';
 import BalanceCard from './BalanceCard';
 import DoughnutChart from './DoughnutChart';
 import PoolCard from './PoolCard';
+// @TODO use real data for DoughnutCharts
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiBalanceSection-title': {
@@ -108,35 +110,9 @@ export default function BalanceSection({ items, loading }: Props) {
               </Panel>
             </Grid>
             <Grid item xs={12} md={5}>
-              <DoughnutChart data={tokens} i18nKey="tokens" colors={assetColorMap.tokens} />
+              <DoughnutChart data={balanceGroupedList.tokens} i18nKey="tokens" colors={assetColorMap.tokens} />
             </Grid>
             {}
-            <Grid item xs={12}>
-              <Typography variant="h2" className="AwiBalanceSection-groupTitle">
-                {t('balance-section.group-pool')}
-              </Typography>
-              <Grid container spacing={6.5} alignItems="center">
-                {pool.map((item, itemIndex) => (
-                  <Fragment key={itemIndex}>
-                    <Grid item xs={12} md={7}>
-                      <Panel className="AwiBalanceSection-subPanel">
-                        <PoolCard item={item} />
-                      </Panel>
-                    </Grid>
-                    <Grid item xs={12} md={5}>
-                      <DoughnutChart
-                        data={[
-                          { key: 'total', total: item.total },
-                          { key: 'staked', total: item.staked },
-                        ]}
-                        i18nKey="pool"
-                        colors={assetColorMap.pool}
-                      />
-                    </Grid>
-                  </Fragment>
-                ))}
-              </Grid>
-            </Grid>
             <Grid item xs={12} md={7}>
               <Typography variant="h2" className="AwiBalanceSection-groupTitle">
                 {t('balance-section.group-stable-coins')}
@@ -160,7 +136,43 @@ export default function BalanceSection({ items, loading }: Props) {
               </Panel>
             </Grid>
             <Grid item xs={12} md={5}>
-              <DoughnutChart data={stableCoins} i18nKey="stable-coins" colors={assetColorMap.stableCoins} />
+              <DoughnutChart
+                data={balanceGroupedList.stableCoins}
+                i18nKey="stable-coins"
+                colors={assetColorMap.stableCoins}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h2" className="AwiBalanceSection-groupTitle">
+                {t('balance-section.group-pool')}
+              </Typography>
+              <Grid container spacing={6.5} alignItems="center">
+                {pool.map((item, itemIndex) => (
+                  <Fragment key={itemIndex}>
+                    <Grid item xs={12} md={7}>
+                      <Panel className="AwiBalanceSection-subPanel">
+                        <PoolCard item={item} />
+                      </Panel>
+                    </Grid>
+                    <Grid item xs={12} md={5}>
+                      <DoughnutChart
+                        data={[
+                          {
+                            key: 'total',
+                            total: balanceGroupedList.pool.find((value) => value.key === item.key).total,
+                          },
+                          {
+                            key: 'staked',
+                            total: balanceGroupedList.pool.find((value) => value.key === item.key).staked,
+                          },
+                        ]}
+                        i18nKey="pool"
+                        colors={assetColorMap.pool}
+                      />
+                    </Grid>
+                  </Fragment>
+                ))}
+              </Grid>
             </Grid>
           </Grid>
         )}

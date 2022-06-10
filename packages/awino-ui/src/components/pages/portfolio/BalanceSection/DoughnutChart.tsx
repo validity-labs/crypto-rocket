@@ -123,7 +123,7 @@ export default function DoughnutChart({ data, i18nKey, colors }: Props) {
 
   const chartData = useMemo<ChartData<'doughnut', number[], string>>(
     () => ({
-      labels: data.map(({ key }) => t(`balance-section.assets.${key}.title`)),
+      labels: data.map(({ key }) => key.toUpperCase()),
       datasets: [
         {
           label: t(`balance-section.chart.${i18nKey}.title`),

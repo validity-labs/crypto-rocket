@@ -92,6 +92,11 @@ export interface ContractsGrouped {
     address: Address;
     decimals: number;
   }[];
+  pools?: {
+    key: StableCoinAsset;
+    address: Address;
+    decimals: number;
+  }[];
 }
 
 export interface BalanceInfo<T = AssetKey> {

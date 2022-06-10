@@ -31,16 +31,22 @@ export const balanceGroupedList: BalanceGrouped = {
   ],
   pool: [
     {
-      key: 'nusd',
+      key: 'awi/dai',
       total: 34.55,
       staked: 45.6,
-      assets: ['dai', 'usdc', 'usdt'],
+      assets: ['awi', 'dai'],
     },
     {
-      key: 'xusd',
+      key: 'awi/weth',
       total: 10,
       staked: 60,
-      assets: ['awi', 'infinite', 'wealth'],
+      assets: ['awi', 'weth'],
+    },
+    {
+      key: 'dai/weth',
+      total: 10,
+      staked: 60,
+      assets: ['dai', 'weth'],
     },
   ],
 };
