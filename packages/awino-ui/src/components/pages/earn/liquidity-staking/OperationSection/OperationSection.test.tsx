@@ -19,7 +19,11 @@ afterEach(cleanup);
 
 describe('<OperationSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<OperationSection balance={{ awi: '99.99' }} />, {}, 'earn-liquidity-staking');
+    const { asFragment } = render(
+      <OperationSection balance={{ awi: '99.99' }} updateBalance={() => {}} />,
+      {},
+      'earn-liquidity-staking'
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

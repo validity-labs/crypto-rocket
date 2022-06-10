@@ -42,7 +42,7 @@ export const earnManageAwinoLock: LockData = {
 export const earnManageAwinoClaim: ClaimData = {
   unlockedAWI: { awi: 100, claimable: true },
   vestingAWI: { awi: 100, claimable: false },
-  claimAll: { awi: 50, awi: 100.99, claimable: true },
+  claimAll: { awi: 50, claimable: true },
   expiredLockedAWI: { awi: 100, claimable: true },
 };
 

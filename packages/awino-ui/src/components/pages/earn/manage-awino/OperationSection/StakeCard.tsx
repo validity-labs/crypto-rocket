@@ -1,5 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
+import { useWeb3React } from '@web3-react/core';
+
 import { Button, FormControl, FormHelperText, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -114,8 +116,8 @@ const Root = styled('div')(({ theme }) => ({
 export interface StakeData {
   apr: number;
   balance: {
-    awi: number;
-    usd: number;
+    awi: number | string;
+    usd: number | string;
   };
 }
 interface Props {
@@ -176,7 +178,7 @@ export default function StakeCard({ data }: Props) {
               {formatCurrency(balance.awi, 'AWI')}
             </Typography>
             <Typography variant="body-sm" component="span">
-              {formatUSD(balance.usd)}
+              {formatUSD(Number(balance.usd))}
             </Typography>
           </Typography>
         </div>

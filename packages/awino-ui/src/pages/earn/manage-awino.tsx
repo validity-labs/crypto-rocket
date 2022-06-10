@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import { useWeb3React } from '@web3-react/core';
+
 import { Grid } from '@mui/material';
 
 import { setPageI18nNamespace } from '@/app/state/slices/app';
@@ -16,6 +18,7 @@ import OperationSection from '@/components/pages/earn/manage-awino/OperationSect
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
 import StatsSection from '@/components/pages/shared/FormattedStatsSection/StatsSection';
 import { earnManageAwinoClaim, earnManageAwinoLock, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
+import { AWINO_TOKEN_MAP, ChainId, useTokenBalance } from '@/lib/blockchain';
 import { formatAWI, formatUSD } from '@/lib/formatters';
 import { sleep } from '@/lib/helpers';
 import { StatsData, StatsFormatter } from '@/types/app';
@@ -56,6 +59,9 @@ const EarnManageAwinoPage: NextPage = () => {
   const [lockData, setLockData] = useState(initialLockData);
   const [claimData, setClaimData] = useState(initialClaimData);
 
+  const { account } = useWeb3React();
+  const balance = useTokenBalance(AWINO_TOKEN_MAP[ChainId.TESTNET], 18, account);
+  console.log({ balance });
   useEffect(() => {
     (async () => {
       await sleep(2);
@@ -67,7 +73,7 @@ const EarnManageAwinoPage: NextPage = () => {
       const newStakeData = await new Promise<StakeData>((res) => {
         return res(earnManageAwinoStake);
       });
-      setStakeData(newStakeData);
+      setStakeData({ apr: 0, balance: { awi: balance, usd: balance } });
 
       const newLockData = await new Promise<LockData>((res) => {
         return res(earnManageAwinoLock);
@@ -81,7 +87,7 @@ const EarnManageAwinoPage: NextPage = () => {
 
       setLoading(false);
     })();
-  }, []);
+  }, [balance]);
 
   return (
     <>
