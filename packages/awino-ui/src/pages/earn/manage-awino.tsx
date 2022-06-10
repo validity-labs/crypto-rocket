@@ -45,7 +45,7 @@ const initialLockData: LockData = { apr: 0, balance: { awi: 0, usd: 0 } };
 const initialClaimData: ClaimData = {
   unlockedAWI: { awi: 0, claimable: true },
   vestingAWI: { awi: 0, claimable: false },
-  claimAll: { awi: 0, awi: 0, claimable: true },
+  claimAll: { awi: 0, claimable: true },
   expiredLockedAWI: { awi: 0, claimable: true },
 };
 
