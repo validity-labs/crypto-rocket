@@ -9,7 +9,7 @@ export const contractGroupedList: ContractsGrouped = {
     },
     {
       key: 'infinite',
-      address: '0xBCFb67f886a87551c8ef0E511d498b6b43042020',
+      address: '0x661fB1B0774Ae54B2f4460C71b66052bC6C05eB2',
       decimals: 18,
     },
     {

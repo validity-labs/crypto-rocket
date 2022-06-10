@@ -127,9 +127,10 @@ export interface StakeData {
 }
 interface Props {
   data: StakeData;
+  updateBalance: (account: string, library: any) => void;
 }
 
-export default function StakeCard({ data }: Props) {
+export default function StakeCard({ data, updateBalance }: Props) {
   const t = usePageTranslation();
   const [assetValue, setAssetValue] = useState(null);
 
@@ -217,12 +218,13 @@ export default function StakeCard({ data }: Props) {
       await tx.wait(1);
       // setExecuting(false);
       setLoading(false);
+      updateBalance(account, library);
     } catch (error) {
       console.error(error);
       setLoading(false);
     }
     // await masterChef.populateTransaction()
-  }, [assetValue, balance, setStep, account, library]);
+  }, [assetValue, balance, setStep, account, library, updateBalance]);
 
   const handleAssetValueMax = () => {
     setAssetValue(`${balance.awi}`);
