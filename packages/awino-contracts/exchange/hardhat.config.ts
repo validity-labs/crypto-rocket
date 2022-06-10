@@ -82,6 +82,18 @@ const config: HardhatUserConfig = {
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    cronosMainnet: {
+      url: "https://evm.cronos.org",
+      accounts:
+        process.env.CRONOS_MAINNET_PRIVATE_KEY !== undefined
+          ? [process.env.CRONOS_MAINNET_PRIVATE_KEY]
+          : [],
+    },
+    bsc: {
+      url: "https://bsc-dataseed1.ninicoin.io",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
     hardhat: {
       // uncomment fork mainnet
       //   forking: {
