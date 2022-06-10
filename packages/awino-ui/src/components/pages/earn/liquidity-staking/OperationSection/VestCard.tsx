@@ -122,7 +122,7 @@ export default function VestCard({ balance }: Props) {
   return (
     <Root>
       <div className="AwiVestCard-balance">
-        <SwappingImage source="awi" target="usdt" path="assets" />
+        <SwappingImage source="awi" target="dai" path="assets" />
         <Typography>{formatAWI(balance)}</Typography>
       </div>
       <Typography variant="body-sm" mb={8}>

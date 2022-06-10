@@ -19,7 +19,7 @@ import OperationSection, {
 import { earnLiquidityStakingDetails, earnLiquidityStakingStats } from '@/fixtures/earn';
 import { ChainId } from '@/lib/blockchain/common';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
-import { AWINO_MASTER_CHEF_ADDRESS_MAP, AWINO_USDT_PAIR_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
+import { AWINO_MASTER_CHEF_ADDRESS_MAP, AWINO_DAI_PAIR_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
 import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 import { sleep } from '@/lib/helpers';
 import { StatsData } from '@/types/app';
@@ -54,17 +54,16 @@ const EarnLiquidityStakingPage: NextPage = () => {
     })();
   }, []);
 
-  // Set balance
-  useEffect(() => {
+  const updateBalance = async (acount: string, library: any, chainId: number) => {
     const fetchBalance = async () => {
-      const contract = new ethers.Contract(AWINO_USDT_PAIR_ADDRESS_MAP[ChainId.TESTNET], erc20AbiJson, library);
+      const contract = new ethers.Contract(AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET], erc20AbiJson, library);
       const balance = await contract.balanceOf(account);
       setBalance({ awi: ethers.utils.formatEther(balance.toString()) });
     };
 
     const fetchStakedBalance = async () => {
       const contract = new ethers.Contract(AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET], IAwinoMasterChef, library);
-      const balance = await contract.userInfo(0, account);
+      const balance = await contract.userInfo(1, account);
       console.log({ account, balance });
       setStakedBalance({ awi: ethers.utils.formatEther(balance.amount.toString()) });
     };
@@ -73,7 +72,11 @@ const EarnLiquidityStakingPage: NextPage = () => {
     fetchBalance();
     fetchStakedBalance();
     setLoading(false);
-  }, [account, library]);
+  };
+  // Set balance
+  useEffect(() => {
+    updateBalance(account, library, chainId);
+  }, [account, library, chainId]);
 
   console.log({ balance, stakedBalance });
   return (
@@ -81,7 +84,12 @@ const EarnLiquidityStakingPage: NextPage = () => {
       <Seo />
       <BriefSection items={briefData} />
       <DetailsSection data={detailsData} loading={loading} />
-      <OperationSection balance={balance} stakedBalance={stakedBalance} vestedBalance={{ awi: '0' }} />
+      <OperationSection
+        balance={balance}
+        stakedBalance={stakedBalance}
+        vestedBalance={{ awi: '0' }}
+        updateBalance={updateBalance}
+      />
     </>
   );
 };

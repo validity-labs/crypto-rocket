@@ -42,6 +42,7 @@
     "description": "Provide AWI liquidity and stake the LP token here to earn more AWI.",
     "available-to-stake": "Available to stake",
     "stake": "Stake",
+    "approve": "Approve",
     "invalid-input": "Invalid amount specified.",
     "confirm": "$t(operation-section.confirm)",
     "error": "$t(operation-section.error)",

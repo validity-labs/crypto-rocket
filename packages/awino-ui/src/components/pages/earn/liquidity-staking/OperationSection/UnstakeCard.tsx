@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { useWeb3React } from '@web3-react/core';
 import { BigNumber, ethers } from 'ethers';
@@ -42,15 +42,17 @@ const Root = styled(Box)(({ theme }) => ({
 
 interface Props extends BoxProps {
   balance: string;
+  updateBalance: (account: string, library: any, chainId: number) => void;
 }
 
-export default function UnstakeCard({ balance, ...restOfProps }: Props) {
+export default function UnstakeCard({ balance, updateBalance, ...restOfProps }: Props) {
   const t = usePageTranslation();
   const { isProcessing, isCompleted, isError, isValid, address, setStep } = useTransaction();
   const { account, library, chainId } = useWeb3React();
 
   const dispatch = useAppDispatch();
   const isDisabled = BigNumber.from(ethers.utils.parseUnits(balance, 'ether')).lte(0);
+  const [loading, setLoading] = useState(false);
 
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
@@ -58,26 +60,29 @@ export default function UnstakeCard({ balance, ...restOfProps }: Props) {
     // await handleTransaction(balance, setStep, dispatch, t, 'unstake-card');
 
     try {
+      setLoading(true);
       // deposit to masterchef
       let rawTx = await new ethers.Contract(
         AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET],
         IAwinoMasterChef,
         await library.getSigner()
-      ).populateTransaction.withdraw(0, ethers.utils.parseUnits(balance, 'ether')); // @TODO find a way to store the pid of each pool. @TODO would be possible to fetch the pids from the subgraph or should be a static map?
+      ).populateTransaction.withdraw(1, ethers.utils.parseUnits(balance, 'ether')); // @TODO find a way to store the pid of each pool. @TODO would be possible to fetch the pids from the subgraph or should be a static map?
 
       let tx = await library.getSigner().sendTransaction(rawTx);
       await tx.wait(1);
+      setLoading(false);
+      updateBalance(account, library, chainId);
       // setExecuting(false);
     } catch (error) {
       console.error(error);
     }
-  }, [balance, library]);
+  }, [balance, library, account, chainId, updateBalance]);
 
   console.log({ isDisabled });
   return (
     <Root {...restOfProps}>
       <div className="AwiUnstakeCard-balance">
-        <SwappingImage source="awi" target="usdt" path="assets" />
+        <SwappingImage source="awi" target="dai" path="assets" />
         <Typography>{formatAWI(balance)}</Typography>
       </div>
       <Typography variant="body-sm" mb={8}>
@@ -85,7 +90,7 @@ export default function UnstakeCard({ balance, ...restOfProps }: Props) {
       </Typography>
       <LoadingButton
         once
-        loading={isProcessing}
+        loading={loading}
         done={isCompleted}
         disabled={!isValid || isDisabled}
         size="small"
