@@ -11,10 +11,7 @@
     "items": [
       {
         "title": "Locked & Staked",
-        "sub-values": [
-          "Locked: {{v}}",
-          "Staked: {{v}}"
-        ]
+        "sub-values": ["Locked: {{v}}", "Staked: {{v}}"]
       },
       {
         "title": "Your daily revenue"
@@ -27,10 +24,7 @@
       },
       {
         "title": "Your weekly revenue",
-        "sub-values": [
-          "{{v}} / month",
-          "{{v}} / year"
-        ]
+        "sub-values": ["{{v}} / month", "{{v}} / year"]
       }
     ]
   },
@@ -45,6 +39,7 @@
     "description": "Stake AWI and earn platform fees with no lockup period.",
     "wallet-balance": "Wallet balance",
     "submit": "Stake",
+    "approve": "Approve",
     "invalid-input": "Invalid amount specified.",
     "confirm": "$t(operation-section.confirm)",
     "error": "$t(operation-section.error)",

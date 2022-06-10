@@ -19,12 +19,10 @@ import { BalanceGrouped } from '@/types/app';
 const PortfolioPage: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState<BalanceGrouped>({ tokens: [], stableCoins: [], pool: [] });
-  const { account, library } = useWeb3React();
+  const { account, library, chainId } = useWeb3React();
 
   useEffect(() => {
     (async () => {
-      await sleep(2);
-
       // @TODO refactor.
       // 1. fetch pools dynamically (subgraph ?)
       // 2. batch requests
@@ -85,7 +83,7 @@ const PortfolioPage: NextPage = () => {
       setItems(itemsNew);
       setLoading(false);
     })();
-  }, []);
+  }, [account, library, chainId]);
 
   return (
     <>

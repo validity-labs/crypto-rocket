@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { useWeb3React } from '@web3-react/core';
+import { ethers, BigNumber } from 'ethers';
 
 import { Button, FormControl, FormHelperText, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -10,6 +11,10 @@ import ExternalLink from '@/components/general/Link/ExternalLink';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import NumberInput from '@/components/inputs/NumberInput/NumberInput';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { AWINO_BAR_ADDRESS_MAP, AWINO_TOKEN_MAP } from '@/lib/blockchain';
+import { ChainId } from '@/lib/blockchain/common';
+import * as ERC20Common from '@/lib/blockchain/erc20';
+import IAwinoBar from '@/lib/blockchain/farm-pools/abis/IAwinoBar.json';
 import { formatPercent, formatCurrency, formatUSD } from '@/lib/formatters';
 import { etherscan } from '@/lib/helpers';
 
@@ -133,16 +138,91 @@ export default function StakeCard({ data }: Props) {
   const dispatch = useAppDispatch();
 
   const { apr, balance } = data;
-
+  const { account, library } = useWeb3React();
+  const [loading, setLoading] = useState(false);
+  const [approve, setApprove] = useState(false);
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
+
   const handleSubmit = useCallback(async () => {
-    if (!(assetValue > 0 && assetValue <= balance.awi)) {
+    if (!(assetValue > 0 && assetValue <= balance)) {
       setStep({ type: 'invalid' });
       return;
     }
-    await handleTransaction(balance.awi, setStep, dispatch, t, 'stake-card');
-  }, [assetValue, balance, setStep, dispatch, t, handleTransaction]);
+
+    // setExecuting(true);
+    // @TODO review.
+    // await handleTransaction(balance, setStep, dispatch, t, 'stake-card');
+
+    // @TODO @FIXME quick / temporary implementation
+    // Check allowance. If allowance < 'sourceValue', ask approval
+    setLoading(true);
+    const allowance = BigNumber.from(
+      await ERC20Common.allowance(
+        AWINO_TOKEN_MAP[ChainId.TESTNET],
+        account,
+        AWINO_BAR_ADDRESS_MAP[ChainId.TESTNET],
+        library
+      )
+    ).toString();
+
+    console.log(allowance, assetValue);
+
+    if (BigNumber.from(allowance).lt(ethers.utils.parseUnits(assetValue, 'ether'))) {
+      console.log(`>> Requesting approval for spending: ${ethers.utils.parseUnits(assetValue, 'ether')}`);
+
+      try {
+        setApprove(true);
+        // Approve
+        console.log(`approving...`);
+        await ERC20Common.approve(
+          AWINO_TOKEN_MAP[ChainId.TESTNET],
+          AWINO_BAR_ADDRESS_MAP[ChainId.TESTNET],
+          ethers.utils.parseUnits(assetValue, 'ether'),
+          library
+        );
+        setApprove(false);
+        setLoading(false);
+
+        // setExecuting(false);
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+        setApprove(false);
+
+        // setExecuting(false);
+      }
+    } else {
+      setLoading(false);
+    }
+
+    console.log({
+      assetValue,
+      allowance: ethers.utils.formatEther(allowance).toString(),
+      bar: AWINO_BAR_ADDRESS_MAP[ChainId.TESTNET],
+      signer: (await library.getSigner()).getAddress(),
+    });
+
+    try {
+      setLoading(true);
+
+      // deposit to bar
+      let rawTx = await new ethers.Contract(
+        AWINO_BAR_ADDRESS_MAP[ChainId.TESTNET],
+        IAwinoBar,
+        await library.getSigner()
+      ).populateTransaction.enter(ethers.utils.parseUnits(assetValue, 'ether')); // @TODO find a way to store the pid of each pool. @TODO would be possible to fetch the pids from the subgraph or should be a static map?
+
+      let tx = await library.getSigner().sendTransaction(rawTx);
+      await tx.wait(1);
+      // setExecuting(false);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+    // await masterChef.populateTransaction()
+  }, [assetValue, balance, setStep, account, library]);
 
   const handleAssetValueMax = () => {
     setAssetValue(`${balance.awi}`);
@@ -206,12 +286,12 @@ export default function StakeCard({ data }: Props) {
         <LoadingButton
           variant="outlined"
           fullWidth
-          loading={isProcessing}
+          loading={loading}
           done={isCompleted}
           className="AwiStakeCard-submit"
           onClick={handleSubmit}
         >
-          {t('stake-card.submit')}
+          {t(approve ? 'stake-card.approve' : 'stake-card.submit')}
         </LoadingButton>
         {isCompleted && (
           <ExternalLink
