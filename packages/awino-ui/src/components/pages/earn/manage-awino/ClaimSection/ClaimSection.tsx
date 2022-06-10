@@ -42,7 +42,7 @@ const Root = styled(Section)(({ theme }) => ({
       borderTopWidth: 0,
     },
   },
-  '.AwiClaimSection-geist': {
+  '.AwiClaimSection-awi': {
     position: 'relative',
     top: -2,
   },
@@ -56,7 +56,7 @@ const Root = styled(Section)(({ theme }) => ({
   },
 }));
 
-export type ClaimData = Record<string, { geist: number; awi?: number; claimable: boolean }>;
+export type ClaimData = Record<string, { awi: number; claimable: boolean }>;
 
 interface Props {
   data: ClaimData;
@@ -151,14 +151,14 @@ export default function ClaimSection({ data }: Props) {
                     <TableCell width="20%">
                       <div className="Awi-row">
                         <img
-                          src={`/images/assets/geist.svg`}
+                          src={`/images/assets/awi.svg`}
                           alt=""
                           width="30"
                           height="30"
-                          className="AwiClaimSection-geist"
+                          className="AwiClaimSection-awi"
                         />
                         <Typography fontWeight={500} ml={3} color="text.primary">
-                          {formatCurrency(data[prop].geist, 'GEIST')}
+                          {formatCurrency(data[prop].awi, 'AWI')}
                         </Typography>
                       </div>
                     </TableCell>

@@ -90,15 +90,24 @@ export interface StaticImageData {
 export interface ContractInfo {
   key: AssetKey;
   address: string;
+  decimals: number;
+  image?: string;
 }
 export interface ContractsGrouped {
   tokens: {
     key: TokenAsset;
     address: Address;
+    decimals: number;
   }[];
   stableCoins: {
     key: StableCoinAsset;
     address: Address;
+    decimals: number;
+  }[];
+  pools?: {
+    key: StableCoinAsset;
+    address: Address;
+    decimals: number;
   }[];
 }
 

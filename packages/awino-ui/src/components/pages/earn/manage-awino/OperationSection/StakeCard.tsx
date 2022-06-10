@@ -114,7 +114,7 @@ const Root = styled('div')(({ theme }) => ({
 export interface StakeData {
   apr: number;
   balance: {
-    geist: number;
+    awi: number;
     usd: number;
   };
 }
@@ -135,15 +135,15 @@ export default function StakeCard({ data }: Props) {
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
   const handleSubmit = useCallback(async () => {
-    if (!(assetValue > 0 && assetValue <= balance.geist)) {
+    if (!(assetValue > 0 && assetValue <= balance.awi)) {
       setStep({ type: 'invalid' });
       return;
     }
-    await handleTransaction(balance.geist, setStep, dispatch, t, 'stake-card');
+    await handleTransaction(balance.awi, setStep, dispatch, t, 'stake-card');
   }, [assetValue, balance, setStep, dispatch, t, handleTransaction]);
 
   const handleAssetValueMax = () => {
-    setAssetValue(`${balance.geist}`);
+    setAssetValue(`${balance.awi}`);
   };
 
   const handleAssetValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,7 +173,7 @@ export default function StakeCard({ data }: Props) {
           </Typography>
           <Typography className="AwiStakeCard-walletBalanceValue">
             <Typography component="span" fontWeight={500} color="text.primary">
-              {formatCurrency(balance.geist, 'GEIST')}
+              {formatCurrency(balance.awi, 'AWI')}
             </Typography>
             <Typography variant="body-sm" component="span">
               {formatUSD(balance.usd)}
@@ -188,7 +188,7 @@ export default function StakeCard({ data }: Props) {
             value={assetValue}
             onChange={handleAssetValueChange}
             aria-describedby="assetValueHelperText"
-            startAdornment={<img src={`/images/assets/geist.svg`} alt="" width={30} height={30} />}
+            startAdornment={<img src={`/images/assets/awi.svg`} alt="" width={30} height={30} />}
             endAdornment={
               <Button variant="outlined" onClick={handleAssetValueMax} className="AwiStakeCard-max">
                 {t('common:common.max')}

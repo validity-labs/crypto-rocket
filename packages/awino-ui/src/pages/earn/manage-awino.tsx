@@ -38,15 +38,15 @@ const initialStatsData: StatsData = [
   { value: 0, subValues: [0, 0] },
 ];
 
-const initialStakeData: StakeData = { apr: 0, balance: { geist: 0, usd: 0 } };
+const initialStakeData: StakeData = { apr: 0, balance: { awi: 0, usd: 0 } };
 
-const initialLockData: LockData = { apr: 0, balance: { geist: 0, usd: 0 } };
+const initialLockData: LockData = { apr: 0, balance: { awi: 0, usd: 0 } };
 
 const initialClaimData: ClaimData = {
-  unlockedAWI: { geist: 0, claimable: true },
-  vestingAWI: { geist: 0, claimable: false },
-  claimAll: { geist: 0, awi: 0, claimable: true },
-  expiredLockedAWI: { geist: 0, claimable: true },
+  unlockedAWI: { awi: 0, claimable: true },
+  vestingAWI: { awi: 0, claimable: false },
+  claimAll: { awi: 0, awi: 0, claimable: true },
+  expiredLockedAWI: { awi: 0, claimable: true },
 };
 
 const EarnManageAwinoPage: NextPage = () => {

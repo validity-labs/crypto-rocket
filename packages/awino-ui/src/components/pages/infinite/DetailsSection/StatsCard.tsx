@@ -133,7 +133,7 @@ export default function StatsCard({ data }: Props) {
       >
         {t('claim')}&nbsp;
         {formatAWI(data.claimAmount)}&nbsp;
-        <img src={`/images/assets/geist.svg`} alt="" width={30} height={30} />
+        <img src={`/images/assets/awi.svg`} alt="" width={30} height={30} />
       </LoadingButton>
     </Root>
   );

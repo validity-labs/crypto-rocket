@@ -158,7 +158,7 @@ export default function GenerateCard({ awinoBalance }: Props) {
                   aria-label={t('field.amount.label')}
                   placeholder={t('field.amount.placeholder')}
                   inputComponent={NumberFormatCustom as any}
-                  startAdornment={<img src={`/images/assets/geist.svg`} alt="" width={30} height={30} />}
+                  startAdornment={<img src={`/images/assets/awi.svg`} alt="" width={30} height={30} />}
                   endAdornment={
                     <InputAdornment position="end">
                       <Button

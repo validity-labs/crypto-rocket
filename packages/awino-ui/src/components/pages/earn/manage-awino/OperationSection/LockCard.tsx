@@ -114,7 +114,7 @@ const Root = styled('div')(({ theme }) => ({
 export interface LockData {
   apr: number;
   balance: {
-    geist: number | string;
+    awi: number | string;
     usd: number;
   };
 }
@@ -135,15 +135,15 @@ export default function LockCard({ data }: Props) {
   // TODO mocked shared submit logic
   const handleTransaction = useMemo(handleTransactionSubmit, []);
   const handleSubmit = useCallback(async () => {
-    if (!(assetValue > 0 && assetValue <= balance.geist)) {
+    if (!(assetValue > 0 && assetValue <= balance.awi)) {
       setStep({ type: 'invalid' });
       return;
     }
-    await handleTransaction(balance.geist, setStep, dispatch, t, 'lock-card');
+    await handleTransaction(balance.awi, setStep, dispatch, t, 'lock-card');
   }, [assetValue, balance, setStep, dispatch, t, handleTransaction]);
 
   const handleAssetValueMax = () => {
-    setAssetValue(`${balance.geist}`);
+    setAssetValue(`${balance.awi}`);
   };
 
   const handleAssetValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,7 +173,7 @@ export default function LockCard({ data }: Props) {
           </Typography>
           <Typography className="AwiLockCard-walletBalanceValue">
             <Typography component="span" fontWeight={500} color="text.primary">
-              {formatCurrency(balance.geist, 'GEIST')}
+              {formatCurrency(balance.awi, 'AWI')}
             </Typography>
             <Typography variant="body-sm" component="span">
               {formatUSD(balance.usd)}
@@ -188,7 +188,7 @@ export default function LockCard({ data }: Props) {
             value={assetValue}
             onChange={handleAssetValueChange}
             aria-describedby="assetValueHelperText"
-            startAdornment={<img src={`/images/assets/geist.svg`} alt="" width={30} height={30} />}
+            startAdornment={<img src={`/images/assets/awi.svg`} alt="" width={30} height={30} />}
             endAdornment={
               <Button variant="outlined" onClick={handleAssetValueMax} className="AwiLockCard-max">
                 {t('common:common.max')}
