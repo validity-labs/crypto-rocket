@@ -18,8 +18,20 @@ const ContractCard = styled(
     const { key, address } = item;
     const t = usePageTranslation();
 
-    const handleAdd = () => {
-      console.log('AwiContactCard/handleAdd');
+    const handleAdd = async () => {
+      console.log(item)
+       await (window as any).ethereum.request({
+        method: 'wallet_watchAsset',
+        params: {
+          type: 'ERC20', // Initially only supports ERC20, but eventually more!
+          options: {
+            address: item.address, // The address that the token is at.
+            symbol: item.key, // A ticker symbol or shorthand, up to 5 chars.
+            decimals: item.decimals, // The number of decimals in the token
+            // image: tokenImage, // A string url of the token logo
+          },
+        },
+      });
     };
     return (
       <Box className={clsx(className, 'AwiContactCard-root')} {...restOfProps}>
