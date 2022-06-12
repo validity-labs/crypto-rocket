@@ -188,6 +188,9 @@ export const getChartOptions = ({ annotation, tooltip }: GetChartOptionsProps): 
         },
       },
     },
+    legend: {
+      display: false,
+    },
   },
   interaction: {
     intersect: false,
