@@ -146,6 +146,9 @@ export const getChartOptions = ({ tooltip }: GetChartOptionsProps): ChartOptions
         },
       },
     },
+    legend: {
+      display: false,
+    },
   },
   interaction: {
     intersect: false,
