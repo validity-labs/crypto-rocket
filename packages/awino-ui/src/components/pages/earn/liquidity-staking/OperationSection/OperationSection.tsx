@@ -17,7 +17,7 @@ interface Props {
   vestedBalance?: LiquidityStakingOperationBalance;
 }
 
-export default function OperationSection({ balance, stakedBalance, vestedBalance }: Props) {
+export default function wOperationSection({ balance, stakedBalance, vestedBalance }: Props) {
   return (
     <Section>
       <Grid container spacing={8}>

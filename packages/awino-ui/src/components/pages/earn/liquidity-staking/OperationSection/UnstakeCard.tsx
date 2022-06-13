@@ -73,7 +73,7 @@ export default function UnstakeCard({ balance, ...restOfProps }: Props) {
     }
   }, [balance, library]);
 
-  console.log({ isDisabled });
+  // console.log({ isDisabled });
   return (
     <Root {...restOfProps}>
       <div className="AwiUnstakeCard-balance">

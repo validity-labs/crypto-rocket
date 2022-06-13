@@ -91,3 +91,19 @@ expect.addSnapshotSerializer({
 });
 
 jest.setSystemTime(new Date(2000, 0, 10, 12, 30));
+
+// Mock react-markdown
+jest.mock('react-markdown', () => ({
+  __esModule: true,
+  default: (props: any) => {
+    return props.children; //  <img { ...props } />
+  },
+}));
+
+// Mock react-markdown
+jest.mock('remark-breaks', () => ({
+  __esModule: true,
+  default: () => {
+    return; //  <img { ...props } />
+  },
+}));
