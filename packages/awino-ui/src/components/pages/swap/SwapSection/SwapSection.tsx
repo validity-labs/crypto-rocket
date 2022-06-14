@@ -38,6 +38,10 @@ export const Tabs = styled(MuiTabs)(({ theme }) => ({
       color: theme.palette.text.active,
       backgroundColor: theme.palette.background.transparent,
     },
+    '&:hover, &.Mui-focusVisible': {
+      border: '1px solid transparent',
+      backgroundColor: theme.palette.background.transparent,
+    },
     '.MuiSvgIcon-root': {
       fontSize: '26px',
       color: theme.palette.text.active,
