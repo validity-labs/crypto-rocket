@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmptyResult /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="css-0"
+  >
+    common.no-records
+  </span>
+</DocumentFragment>
+`;

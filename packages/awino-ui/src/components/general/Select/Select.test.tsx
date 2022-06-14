@@ -3,7 +3,7 @@ import React from 'react';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import Select from './Select';
+import Select, { SelectValueAndOptionDefault } from './Select';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -22,7 +22,16 @@ describe('<Select />', () => {
       ['1', { id: '1', label: 'First' }],
       ['2', { id: '2', label: 'Second' }],
     ]);
-    const { asFragment } = render(<Select items={items} value="1" setValue={() => {}} />);
+    const { asFragment } = render(
+      <Select
+        id="select"
+        items={items}
+        value="1"
+        setValue={() => {}}
+        ValueComponent={SelectValueAndOptionDefault}
+        OptionComponent={SelectValueAndOptionDefault}
+      />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

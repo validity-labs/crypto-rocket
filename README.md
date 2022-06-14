@@ -25,8 +25,6 @@ You have option to commit as usual, in this case `husky` `commit-msg` will trigg
   nvm use
    # from root directory
   npm install
-  # from packages/awino-ui directory; --legacy-peer-deps is required for cypress-image-snapshot package
-  npm install --legacy-peer-deps
 
 ```
 

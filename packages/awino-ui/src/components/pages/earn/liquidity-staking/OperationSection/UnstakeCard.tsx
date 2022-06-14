@@ -78,7 +78,7 @@ export default function UnstakeCard({ balance, updateBalance, ...restOfProps }: 
     }
   }, [balance, library, account, chainId, updateBalance]);
 
-  console.log({ isDisabled });
+  // console.log({ isDisabled });
   return (
     <Root {...restOfProps}>
       <div className="AwiUnstakeCard-balance">

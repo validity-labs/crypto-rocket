@@ -3,7 +3,7 @@ import React from 'react';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import Loader from './Loader';
+import EmptyResult from './EmptyResult';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -16,9 +16,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<Loader />', () => {
+describe('<EmptyResult />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<Loader />);
+    const { asFragment } = render(<EmptyResult />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

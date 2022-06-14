@@ -34,12 +34,12 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body css-8"
                     >
-                      earn-manage-awino:claim-section.unlocked-awi.title
+                      earn-manage-awino:unlocked-awi.title
                     </p>
                     <p
                       class="MuiTypography-root MuiTypography-body-sm css-9"
                     >
-                      claim-section.unlocked-awi.description
+                      unlocked-awi.description
                     </p>
                   </td>
                   <td
@@ -68,11 +68,11 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     width="20%"
                   >
                     <button
-                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiClaimSection css-13"
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-13"
                       tabindex="0"
                       type="button"
                     >
-                      earn-manage-awino:claim-section.claim-awi
+                      earn-manage-awino:claim-awi
                       <span
                         class="MuiTouchRipple-root css-14"
                       />
@@ -89,12 +89,12 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body css-8"
                     >
-                      earn-manage-awino:claim-section.vesting-awi.title
+                      earn-manage-awino:vesting-awi.title
                     </p>
                     <p
                       class="MuiTypography-root MuiTypography-body-sm css-9"
                     >
-                      claim-section.vesting-awi.description
+                      vesting-awi.description
                     </p>
                   </td>
                   <td
@@ -133,12 +133,12 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body css-8"
                     >
-                      earn-manage-awino:claim-section.claim-all.title
+                      earn-manage-awino:claim-all.title
                     </p>
                     <p
                       class="MuiTypography-root MuiTypography-body-sm css-9"
                     >
-                      claim-section.claim-all.description - {"v":"100.99  AWI"}
+                      claim-all.description - {"v":"100.99  AWI"}
                     </p>
                   </td>
                   <td
@@ -167,11 +167,11 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     width="20%"
                   >
                     <button
-                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiClaimSection css-13"
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-13"
                       tabindex="0"
                       type="button"
                     >
-                      earn-manage-awino:claim-section.claim-awi
+                      earn-manage-awino:claim-awi
                       <span
                         class="MuiTouchRipple-root css-14"
                       />
@@ -188,12 +188,12 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body css-8"
                     >
-                      earn-manage-awino:claim-section.expired-locked-awi.title
+                      earn-manage-awino:expired-locked-awi.title
                     </p>
                     <p
                       class="MuiTypography-root MuiTypography-body-sm css-9"
                     >
-                      claim-section.expired-locked-awi.description
+                      expired-locked-awi.description
                     </p>
                   </td>
                   <td
@@ -222,11 +222,11 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     width="20%"
                   >
                     <button
-                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root AwiClaimSection css-13"
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-13"
                       tabindex="0"
                       type="button"
                     >
-                      earn-manage-awino:claim-section.claim-awi
+                      earn-manage-awino:claim-awi
                       <span
                         class="MuiTouchRipple-root css-14"
                       />
@@ -235,6 +235,270 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root css-40"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-41"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-42"
+          >
+            <div
+              class="MuiTabs-root css-43"
+            >
+              <div
+                class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-44"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-45"
+                style="margin-bottom: 0px;"
+              >
+                <div
+                  aria-label="earn-manage-awino:fee-type-hint"
+                  class="MuiTabs-flexContainer css-46"
+                  role="tablist"
+                >
+                  <button
+                    aria-controls="tabpanel-awiClaimSectionFeeTypeClaimable"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-47"
+                    id="tab-awiClaimSectionFeeTypeClaimable"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
+                  >
+                    earn-manage-awino:fee-type.claimable
+                    <span
+                      class="MuiTouchRipple-root css-14"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-awiClaimSectionFeeTypeClaimed"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-47"
+                    id="tab-awiClaimSectionFeeTypeClaimed"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    earn-manage-awino:fee-type.claimed
+                    <span
+                      class="MuiTouchRipple-root css-14"
+                    />
+                  </button>
+                </div>
+                <span
+                  class="MuiTabs-indicator css-51"
+                  style="left: 0px; width: 0px;"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-42"
+          >
+            <div
+              aria-labelledby="tab-awiClaimSectionFeeTypeClaimable"
+              id="tabpanel-awiClaimSectionFeeTypeClaimable"
+              role="tabpanel"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-53"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-54"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-55"
+                  >
+                    earn-manage-awino:field.asset
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-56"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-57"
+                  >
+                    earn-manage-awino:field.amount
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-58"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-59"
+                  >
+                    earn-manage-awino:field.actions
+                  </p>
+                </div>
+              </div>
+              <div
+                class="AwiClaimSection-panel"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-container css-60"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-54"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-57"
+                    >
+                      AWI
+                    </p>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-56"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-57"
+                    >
+                      100
+                    </p>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-58"
+                  >
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-13"
+                      tabindex="0"
+                      type="button"
+                    >
+                      earn-manage-awino:claim-all-button
+                      <span
+                        class="MuiTouchRipple-root css-14"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab-awiClaimSectionFeeTypeClaimed"
+              hidden=""
+              id="tabpanel-awiClaimSectionFeeTypeClaimed"
+              role="tabpanel"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-53"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-54"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-55"
+                  >
+                    earn-manage-awino:field.asset
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-56"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-57"
+                  >
+                    earn-manage-awino:field.amount
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-58"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-57"
+                  >
+                    earn-manage-awino:field.timestamp
+                  </p>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6 css-75"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-42"
+                >
+                  <div
+                    class="AwiClaimSection-panel"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-container css-60"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-54"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-57"
+                        >
+                          AWI
+                        </p>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-56"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-57"
+                        >
+                          100
+                        </p>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-58"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-57"
+                        >
+                          123456
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-42"
+                >
+                  <div
+                    class="AwiClaimSection-panel"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-container css-60"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-54"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-57"
+                        >
+                          AWI
+                        </p>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-56"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-57"
+                        >
+                          100
+                        </p>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-58"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body css-57"
+                        >
+                          123457
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
