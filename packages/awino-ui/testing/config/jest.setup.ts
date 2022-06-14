@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createSerializer } from '@emotion/jest';
 
 import { I18nPageNamespace } from '@/types/app';
