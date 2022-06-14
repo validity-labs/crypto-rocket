@@ -312,7 +312,7 @@ export default function DetailSection({ proposal, loading }: Props) {
     setVote(type);
     setShowVoteModal(true);
   };
-  console.log(votesByType, Object.values(Vote), Object.entries(Vote));
+  // console.log(votesByType, Object.values(Vote), Object.entries(Vote));
   return (
     <>
       <Root>
