@@ -31,7 +31,7 @@ describe('<CollateralModal />', () => {
     const { asFragment } = render(
       <CollateralModal open={true} close={fn} info={collateralInfo} data={collateralData} callback={fn} />,
       {},
-      'dashboard'
+      'portfolio'
     );
     expect(asFragment()).toMatchSnapshot();
   });

@@ -72,5 +72,5 @@ When navigation (not reloading) to a page that is protected, if connect modal sh
 
 ```tsx
 // src/app/constants.ts
-export const PROTECTED_ROUTES = ['/new-route', '/dashboard', '/portfolio'];
+export const PROTECTED_ROUTES = ['/new-route', '/portfolio'];
 ```

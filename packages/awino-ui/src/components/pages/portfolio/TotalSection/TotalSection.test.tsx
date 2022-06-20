@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { dashboardInfo } from '@/fixtures/dashboard';
+import { dashboardTotalStats } from '@/fixtures/portfolio';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import InfoSection from './InfoSection';
+import TotalSection from './TotalSection';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -17,9 +17,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<InfoSection />', () => {
+describe('<TotalSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<InfoSection loading={false} info={dashboardInfo} />, {}, 'dashboard');
+    const { asFragment } = render(<TotalSection items={dashboardTotalStats} />, {}, 'portfolio');
     expect(asFragment()).toMatchSnapshot();
   });
 });

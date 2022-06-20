@@ -14,19 +14,14 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
         <div
           class="AwiPanel-content content"
         >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 AwiBalanceSection-title css-3"
-          >
-            contracts:balance-section.title
-          </h1>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6.5 css-4"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6.5 css-3"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-5"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-4"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 AwiBalanceSection-groupTitle Awi-first css-6"
+                class="MuiTypography-root MuiTypography-h2 AwiBalanceSection-groupTitle Awi-first css-5"
               >
                 contracts:balance-section.group-tokens
               </h2>
@@ -37,13 +32,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                   class="AwiPanel-content content"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container css-8"
+                    class="MuiGrid-root MuiGrid-container css-7"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-8"
                     >
                       <div
-                        class="AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-9"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -55,29 +50,29 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.awi.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-12"
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
                             >
                               contracts:balance-section.assets.awi.description
                             </p>
                           </div>
                         </div>
                         <div
-                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-13"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-12"
                         >
                           <h6
-                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                             id="balanceCard-awi"
                           >
                             contracts:balance-section.total-balance
                           </h6>
                           <p
                             aria-describedby="balanceCard-awi"
-                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
                             23.45
                           </p>
@@ -85,10 +80,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-8"
                     >
                       <div
-                        class="AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-9"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -100,29 +95,29 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.infinite.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-12"
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
                             >
                               contracts:balance-section.assets.infinite.description
                             </p>
                           </div>
                         </div>
                         <div
-                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-20"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-19"
                         >
                           <h6
-                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                             id="balanceCard-infinite"
                           >
                             contracts:balance-section.total-balance
                           </h6>
                           <p
                             aria-describedby="balanceCard-infinite"
-                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
                             93.45
                           </p>
@@ -130,10 +125,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
                     >
                       <div
-                        class="AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-9"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -145,29 +140,29 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.wealth.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-12"
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
                             >
                               contracts:balance-section.assets.wealth.description
                             </p>
                           </div>
                         </div>
                         <div
-                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-27"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-26"
                         >
                           <h6
-                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                             id="balanceCard-wealth"
                           >
                             contracts:balance-section.total-balance
                           </h6>
                           <p
                             aria-describedby="balanceCard-wealth"
-                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
                             123.45
                           </p>
@@ -179,10 +174,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-30"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-29"
             >
               <div
-                class="AwiChartDoughnut-wrapper css-31"
+                class="AwiChartDoughnut-wrapper css-30"
                 data-test-id="AwiChart-wrapper"
               >
                 <div
@@ -191,7 +186,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                   <ul>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                         tabindex="0"
                         type="button"
                       >
@@ -203,13 +198,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           width="30"
                         />
                         <span
-                          class="MuiTouchRipple-root css-33"
+                          class="MuiTouchRipple-root css-32"
                         />
                       </button>
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                         tabindex="0"
                         type="button"
                       >
@@ -221,13 +216,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           width="30"
                         />
                         <span
-                          class="MuiTouchRipple-root css-33"
+                          class="MuiTouchRipple-root css-32"
                         />
                       </button>
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                         tabindex="0"
                         type="button"
                       >
@@ -239,13 +234,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           width="30"
                         />
                         <span
-                          class="MuiTouchRipple-root css-33"
+                          class="MuiTouchRipple-root css-32"
                         />
                       </button>
                     </li>
                   </ul>
                   <p
-                    class="MuiTypography-root MuiTypography-body css-38"
+                    class="MuiTypography-root MuiTypography-body css-37"
                   >
                     contracts:balance-section.chart.tokens.title
                   </p>
@@ -258,18 +253,18 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-9"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 AwiBalanceSection-groupTitle css-6"
+                class="MuiTypography-root MuiTypography-h2 AwiBalanceSection-groupTitle css-5"
               >
                 contracts:balance-section.group-pool
               </h2>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6.5 css-4"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6.5 css-3"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-5"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-4"
                 >
                   <div
                     class="AwiBalanceSection-subPanel AwiPanel-root MuiBox-root css-2"
@@ -278,7 +273,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       class="AwiPanel-content content"
                     >
                       <div
-                        class="AwiPoolCard-root MuiBox-root css-44"
+                        class="AwiPoolCard-root MuiBox-root css-43"
                       >
                         <div
                           class="AwiPoolCard-left"
@@ -290,12 +285,12 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.nusd.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-46"
+                              class="MuiTypography-root MuiTypography-body-sm css-45"
                             >
                               contracts:balance-section.assets.nusd.description
                             </p>
@@ -327,33 +322,33 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           class="AwiPoolCard-right"
                         >
                           <div
-                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-47"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-46"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                               id="poolCard-nusd"
                             >
                               contracts:balance-section.total-balance
                             </h6>
                             <p
                               aria-describedby="poolCard-nusd"
-                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                             >
                               34.55
                             </p>
                           </div>
                           <div
-                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-50"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-49"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                               id="poolCard-nusd"
                             >
                               contracts:balance-section.staked-balance
                             </h6>
                             <p
                               aria-describedby="poolCard-nusd"
-                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                             >
                               45.6
                             </p>
@@ -364,10 +359,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-30"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-29"
                 >
                   <div
-                    class="AwiChartDoughnut-wrapper css-31"
+                    class="AwiChartDoughnut-wrapper css-30"
                     data-test-id="AwiChart-wrapper"
                   >
                     <div
@@ -376,7 +371,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       <ul>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                             tabindex="0"
                             type="button"
                           >
@@ -388,13 +383,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                               width="30"
                             />
                             <span
-                              class="MuiTouchRipple-root css-33"
+                              class="MuiTouchRipple-root css-32"
                             />
                           </button>
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                             tabindex="0"
                             type="button"
                           >
@@ -406,13 +401,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                               width="30"
                             />
                             <span
-                              class="MuiTouchRipple-root css-33"
+                              class="MuiTouchRipple-root css-32"
                             />
                           </button>
                         </li>
                       </ul>
                       <p
-                        class="MuiTypography-root MuiTypography-body css-38"
+                        class="MuiTypography-root MuiTypography-body css-37"
                       >
                         contracts:balance-section.chart.pool.title
                       </p>
@@ -425,7 +420,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-5"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-4"
                 >
                   <div
                     class="AwiBalanceSection-subPanel AwiPanel-root MuiBox-root css-2"
@@ -434,7 +429,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       class="AwiPanel-content content"
                     >
                       <div
-                        class="AwiPoolCard-root MuiBox-root css-44"
+                        class="AwiPoolCard-root MuiBox-root css-43"
                       >
                         <div
                           class="AwiPoolCard-left"
@@ -446,12 +441,12 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.xusd.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-46"
+                              class="MuiTypography-root MuiTypography-body-sm css-45"
                             >
                               contracts:balance-section.assets.xusd.description
                             </p>
@@ -483,33 +478,33 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           class="AwiPoolCard-right"
                         >
                           <div
-                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-47"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-46"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                               id="poolCard-xusd"
                             >
                               contracts:balance-section.total-balance
                             </h6>
                             <p
                               aria-describedby="poolCard-xusd"
-                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                             >
                               10
                             </p>
                           </div>
                           <div
-                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-50"
+                            class="AwiLabelValue-root AwiPoolCard-labelValue MuiBox-root css-49"
                           >
                             <h6
-                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                               id="poolCard-xusd"
                             >
                               contracts:balance-section.staked-balance
                             </h6>
                             <p
                               aria-describedby="poolCard-xusd"
-                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                              class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                             >
                               60
                             </p>
@@ -520,10 +515,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-30"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-29"
                 >
                   <div
-                    class="AwiChartDoughnut-wrapper css-31"
+                    class="AwiChartDoughnut-wrapper css-30"
                     data-test-id="AwiChart-wrapper"
                   >
                     <div
@@ -532,7 +527,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       <ul>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                             tabindex="0"
                             type="button"
                           >
@@ -544,13 +539,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                               width="30"
                             />
                             <span
-                              class="MuiTouchRipple-root css-33"
+                              class="MuiTouchRipple-root css-32"
                             />
                           </button>
                         </li>
                         <li>
                           <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                             tabindex="0"
                             type="button"
                           >
@@ -562,13 +557,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                               width="30"
                             />
                             <span
-                              class="MuiTouchRipple-root css-33"
+                              class="MuiTouchRipple-root css-32"
                             />
                           </button>
                         </li>
                       </ul>
                       <p
-                        class="MuiTypography-root MuiTypography-body css-38"
+                        class="MuiTypography-root MuiTypography-body css-37"
                       >
                         contracts:balance-section.chart.pool.title
                       </p>
@@ -583,10 +578,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-5"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-4"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 AwiBalanceSection-groupTitle css-6"
+                class="MuiTypography-root MuiTypography-h2 AwiBalanceSection-groupTitle css-5"
               >
                 contracts:balance-section.group-stable-coins
               </h2>
@@ -597,13 +592,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                   class="AwiPanel-content content"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container css-8"
+                    class="MuiGrid-root MuiGrid-container css-7"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-8"
                     >
                       <div
-                        class="AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-9"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -615,29 +610,29 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.dai.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-12"
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
                             >
                               contracts:balance-section.assets.dai.description
                             </p>
                           </div>
                         </div>
                         <div
-                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-86"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-85"
                         >
                           <h6
-                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                             id="balanceCard-dai"
                           >
                             contracts:balance-section.total-balance
                           </h6>
                           <p
                             aria-describedby="balanceCard-dai"
-                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
                             123.45
                           </p>
@@ -645,10 +640,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 Awi-divider css-8"
                     >
                       <div
-                        class="AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-9"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -660,29 +655,29 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.usdc.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-12"
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
                             >
                               contracts:balance-section.assets.usdc.description
                             </p>
                           </div>
                         </div>
                         <div
-                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-93"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-92"
                         >
                           <h6
-                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                             id="balanceCard-usdc"
                           >
                             contracts:balance-section.total-balance
                           </h6>
                           <p
                             aria-describedby="balanceCard-usdc"
-                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
                             123.45
                           </p>
@@ -690,10 +685,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-9"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-8"
                     >
                       <div
-                        class="AwiBalanceCard-root MuiBox-root css-10"
+                        class="AwiBalanceCard-root MuiBox-root css-9"
                       >
                         <div
                           class="AwiBalanceCard-left"
@@ -705,29 +700,29 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           />
                           <div>
                             <p
-                              class="MuiTypography-root MuiTypography-body css-11"
+                              class="MuiTypography-root MuiTypography-body css-10"
                             >
                               contracts:balance-section.assets.usdt.title
                             </p>
                             <p
-                              class="MuiTypography-root MuiTypography-body-sm css-12"
+                              class="MuiTypography-root MuiTypography-body-sm css-11"
                             >
                               contracts:balance-section.assets.usdt.description
                             </p>
                           </div>
                         </div>
                         <div
-                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-100"
+                          class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-99"
                         >
                           <h6
-                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-14"
+                            class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-13"
                             id="balanceCard-usdt"
                           >
                             contracts:balance-section.total-balance
                           </h6>
                           <p
                             aria-describedby="balanceCard-usdt"
-                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-15"
+                            class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-14"
                           >
                             123.45
                           </p>
@@ -739,10 +734,10 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-30"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-29"
             >
               <div
-                class="AwiChartDoughnut-wrapper css-31"
+                class="AwiChartDoughnut-wrapper css-30"
                 data-test-id="AwiChart-wrapper"
               >
                 <div
@@ -751,7 +746,7 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                   <ul>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                         tabindex="0"
                         type="button"
                       >
@@ -763,13 +758,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           width="30"
                         />
                         <span
-                          class="MuiTouchRipple-root css-33"
+                          class="MuiTouchRipple-root css-32"
                         />
                       </button>
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                         tabindex="0"
                         type="button"
                       >
@@ -781,13 +776,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           width="30"
                         />
                         <span
-                          class="MuiTouchRipple-root css-33"
+                          class="MuiTouchRipple-root css-32"
                         />
                       </button>
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-32"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-31"
                         tabindex="0"
                         type="button"
                       >
@@ -799,13 +794,13 @@ exports[`<BalanceSection /> has valid snapshot 1`] = `
                           width="30"
                         />
                         <span
-                          class="MuiTouchRipple-root css-33"
+                          class="MuiTouchRipple-root css-32"
                         />
                       </button>
                     </li>
                   </ul>
                   <p
-                    class="MuiTypography-root MuiTypography-body css-38"
+                    class="MuiTypography-root MuiTypography-body css-37"
                   >
                     contracts:balance-section.chart.stable-coins.title
                   </p>

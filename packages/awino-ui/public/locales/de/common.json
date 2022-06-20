@@ -130,10 +130,6 @@
         "title": "Contracts",
         "description": "View contract related information"
       },
-      "dashboard": {
-        "title": "Dashboard",
-        "description": "View your staked AWI tokens"
-      },
       "portfolio": {
         "title": "Portfolio",
         "description": "View your portfolio of related assets"

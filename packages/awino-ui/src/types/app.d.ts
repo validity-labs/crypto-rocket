@@ -32,7 +32,6 @@ export type I18nPageNamespace =
   | 'podl'
   | 'analytics'
   | 'contracts'
-  | 'dashboard'
   | 'portfolio'
   | 'infinite'
   | 'governance'

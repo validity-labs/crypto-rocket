@@ -18,7 +18,7 @@ afterEach(cleanup);
 
 describe('<AssetSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<AssetSection />, {}, 'dashboard');
+    const { asFragment } = render(<AssetSection />, {}, 'portfolio');
     expect(asFragment()).toMatchSnapshot();
   });
 });

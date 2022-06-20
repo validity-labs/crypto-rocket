@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+    >
+      <div
+        class="AwiInfoSection-panel AwiPanel-root MuiBox-root css-2"
+      >
+        <div
+          class="AwiPanel-content content"
+        >
+          <h1
+            class="MuiTypography-root MuiTypography-h1 AwiInfoSection-title css-3"
+          >
+            portfolio:title
+          </h1>
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthMd MuiContainer-disableGutters AwiInfoSection-stats css-4"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-5"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-9"
+                    >
+                      portfolio:items.0.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-9"
+                    >
+                      portfolio:items.1.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-6"
+              >
+                <div
+                  class="AwiStatsCard-root css-7"
+                  data-test-id="AwiStatsItems-card"
+                >
+                  <h2>
+                    <span
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-8"
+                    >
+                      <span>
+                         
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-9"
+                    >
+                      portfolio:items.2.title
+                    </span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="AwiInfoSection-progress"
+          >
+            <div
+              class="AwiLabelValue-root MuiBox-root css-18"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body-sm AwiLabel-root AwiLabelValue-label label css-19"
+                id="infoSectionBorrowLimit"
+              >
+                portfolio:borrow-limit
+              </p>
+              <p
+                aria-describedby="infoSectionBorrowLimit"
+                class="MuiTypography-root MuiTypography-body-sm AwiLabelValue-value value css-20"
+              >
+                10.3 %
+              </p>
+            </div>
+            <span
+              aria-valuemax="100"
+              aria-valuemin="0"
+              aria-valuenow="10"
+              class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-21"
+              role="progressbar"
+            >
+              <span
+                class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-22"
+                style="transform: translateX(-89.7%);"
+              />
+            </span>
+            <p
+              class="MuiTypography-root MuiTypography-body-sm AwiInfoSection-progressAmount css-23"
+            >
+              254  USD
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

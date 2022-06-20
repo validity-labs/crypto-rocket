@@ -114,13 +114,13 @@
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
     "items": [
       {
-        "title": "Connect your Wallet",
+        "title": "Connect your wallet",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
         "metamask": "MetaMask",
         "wallet-connect": "WalletConnect"
       },
       {
-        "title": "Visit your Dashboard",
+        "title": "Visit your dashboard",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       },
       {
