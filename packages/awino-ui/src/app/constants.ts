@@ -37,7 +37,7 @@ export const ETHERSCAN_API_KEY = etherscanApiKey ?? '';
 // TODO WIP Read from env variable
 export const CHAIN_ID = +'4';
 
-export const PROTECTED_ROUTES = ['/dashboard', '/portfolio'];
+export const PROTECTED_ROUTES = ['/portfolio'];
 
 export const CHART_COLORS = ['#00EC62', '#9A6400', '#00F6B1', '#F5AC37', '#26A17B', '#C49949', '#2775CA', '#694603'];
 

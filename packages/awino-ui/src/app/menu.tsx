@@ -48,11 +48,11 @@ export const mainMenuLinks: MenuItemType[] = [
 ];
 
 export const settingMenuLinks: MenuItemLink[] = [
-  {
-    type: 'internal',
-    key: 'profile',
-    url: '/dashboard',
-  },
+  // {
+  //   type: 'internal',
+  //   key: 'profile',
+  //   url: '/dashboard',
+  // },
   {
     type: 'internal',
     key: 'activity',
@@ -70,11 +70,6 @@ export const moreMenuLinks: MenuItemLink[] = [
     type: 'internal',
     key: 'contracts',
     url: '/contracts',
-  },
-  {
-    type: 'internal',
-    key: 'dashboard',
-    url: '/dashboard',
   },
   {
     type: 'internal',

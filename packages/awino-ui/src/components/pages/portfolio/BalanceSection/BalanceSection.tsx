@@ -80,9 +80,6 @@ export default function BalanceSection({ items, loading }: Props) {
   return (
     <Root>
       <Panel className="AwiBalanceSection-panel">
-        <Typography variant="h1" color="text.active" className="AwiBalanceSection-title">
-          {t('balance-section.title')}
-        </Typography>
         {loading ? (
           <Loader />
         ) : (

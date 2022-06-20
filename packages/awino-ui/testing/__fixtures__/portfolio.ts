@@ -1,4 +1,6 @@
+import { DashboardInfoData } from '@/components/pages/portfolio/InfoSection/InfoSection';
 import { BalanceGrouped } from '@/types/app';
+import { StatsData } from '@/types/app';
 
 export const balanceGroupedList: BalanceGrouped = {
   tokens: [
@@ -49,4 +51,15 @@ export const balanceGroupedList: BalanceGrouped = {
       assets: ['dai', 'weth'],
     },
   ],
+};
+
+export const dashboardTotalStats: StatsData = [{ value: 493230 }, { value: 93430 }, { value: 1433.44 }];
+
+export const dashboardInfo: DashboardInfoData = {
+  borrowLimit: {
+    percent: 10.3,
+    amount: 254,
+  },
+  // depositBalance / netAPY / borrowBalance
+  stats: [{ value: 32 }, { value: 0.4 }, { value: 234.3 }],
 };

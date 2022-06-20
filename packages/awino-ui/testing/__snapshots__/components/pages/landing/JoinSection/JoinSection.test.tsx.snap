@@ -33,11 +33,16 @@ exports[`<JoinSection /> has valid snapshot 1`] = `
             join-section.description
           </p>
           <button
-            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root css-5"
+            class="MuiButtonBase-root css-5"
             tabindex="0"
             type="button"
+            variant="text"
           >
-            account.connect
+            <span
+              class="LabConnectButton-content"
+            >
+              account.connect
+            </span>
             <span
               class="MuiTouchRipple-root css-6"
             />
