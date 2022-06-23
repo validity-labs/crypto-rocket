@@ -45,7 +45,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   <img
                     alt=""
                     class="target AwiSwappingImage-target"
-                    src="/images/assets/usdt.svg"
+                    src="/images/assets/dai.svg"
                   />
                 </div>
                 <input
@@ -77,7 +77,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                 earn-liquidity-staking:stake-card.available-to-stake
               </span>
               <span>
-                99.99  AWI
+                99.990  AWI
               </span>
             </p>
             <button
@@ -113,13 +113,13 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                 <img
                   alt=""
                   class="target AwiSwappingImage-target"
-                  src="/images/assets/usdt.svg"
+                  src="/images/assets/dai.svg"
                 />
               </div>
               <p
                 class="MuiTypography-root MuiTypography-body css-13"
               >
-                99.99  AWI
+                99.990  AWI
               </p>
             </div>
             <p
@@ -156,13 +156,13 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                 <img
                   alt=""
                   class="target AwiSwappingImage-target"
-                  src="/images/assets/usdt.svg"
+                  src="/images/assets/dai.svg"
                 />
               </div>
               <p
                 class="MuiTypography-root MuiTypography-body css-13"
               >
-                0  AWI
+                0.000  AWI
               </p>
             </div>
             <p

@@ -64,7 +64,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="stakingAPR"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      0.54  USD
+                      0.540  USD
                     </p>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="lpTokenPrice"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      456  USD
+                      456.000  USD
                     </p>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="totalLPTokensStaked"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      120  USD
+                      120.000  USD
                     </p>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="totalRewardsPerDay"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      12 k USD
+                      12.000 k USD
                     </p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="totalRewardsPerWeek"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      99.99 k USD
+                      99.990 k USD
                     </p>
                   </div>
                 </div>

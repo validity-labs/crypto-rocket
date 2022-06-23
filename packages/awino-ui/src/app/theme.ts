@@ -301,6 +301,9 @@ const themeCreator = (mode: PaletteMode) => {
           margin: 62px 0;
           border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
+        .Awi-fill {
+          flex: 1;
+        }
       `,
     },
     MuiAppBar: {
@@ -977,6 +980,13 @@ const themeCreator = (mode: PaletteMode) => {
           background: 'none',
           boxShadow: 'none',
           // padding: theme.spacing(9, 4, 7.5) },
+        },
+      },
+    },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          borderCollapse: 'collapse',
         },
       },
     },

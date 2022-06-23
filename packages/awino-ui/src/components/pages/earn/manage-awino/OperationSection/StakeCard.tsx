@@ -25,9 +25,10 @@ const Root = styled('div')(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
+  height: '100%',
   borderRadius: +theme.shape.borderRadius * 6,
   boxShadow: '0px 3px 6px #00000029',
-  margin: theme.spacing(0, 0, 13),
+  // margin: theme.spacing(0, 0, 13),
   backgroundColor: theme.palette.background.darker,
   '&:before': {
     content: '""',
@@ -52,6 +53,7 @@ const Root = styled('div')(({ theme }) => ({
     flexWrap: 'wrap',
   },
   '.AwiStakeCard-content': {
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     padding: theme.spacing(6, 6, 11),
@@ -285,6 +287,7 @@ export default function StakeCard({ data, updateBalance }: Props) {
             </FormHelperText>
           )}
         </FormControl>
+        <div className="Awi-fill" />
         <LoadingButton
           variant="outlined"
           fullWidth

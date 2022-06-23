@@ -59,7 +59,7 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
                   aria-describedby="infoSectionValueInUSD"
                   class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-7"
                 >
-                  43.89 m USD
+                  43.890 m USD
                 </p>
               </div>
             </div>

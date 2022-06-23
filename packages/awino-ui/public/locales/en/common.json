@@ -100,25 +100,13 @@
       },
       "podl": {
         "title": "Podl"
-      },
-      "more": {
-        "title": "More",
-        "analytics": "Analytics",
-        "docs": "Docs",
-        "launchpad": "Launchpad"
       }
     },
     "language": {
       "toggle-label": "Change language"
     },
     "settings": {
-      "toggle-label": "Application settings",
-      "profile": {
-        "title": "Profile"
-      },
-      "activity": {
-        "title": "Activity"
-      }
+      "toggle-label": "Application settings"
     },
     "more": {
       "toggle-label": "Additional Links",
@@ -137,29 +125,33 @@
       "governance": {
         "title": "Governance",
         "description": "MISSING TEXT"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "MISSING TEXT"
+      },
+      "social": {
+        "docs": {
+          "title": "Docs"
+        },
+        "blog": {
+          "title": "Blog"
+        },
+        "youtube": {
+          "title": "Youtube"
+        },
+        "twitter": {
+          "title": "Twitter"
+        }
       }
     },
-    "social": {
-      "docs": {
-        "title": "Docs"
-      },
-      "blog": {
-        "title": "Blog"
-      },
-      "youtube": {
-        "title": "Youtube"
-      },
-      "twitter": {
-        "title": "Twitter"
+    "footer": {
+      "copyright": "© {{year}} Created AG. All rights reserved.",
+      "scroll-to-top": "Scroll to Top",
+      "common": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms & Conditions"
       }
-    }
-  },
-  "footer": {
-    "copyright": "© {{year}} Created AG. All rights reserved.",
-    "scroll-to-top": "Scroll to Top",
-    "common": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms & Conditions"
     }
   }
 }

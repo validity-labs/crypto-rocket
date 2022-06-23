@@ -58,17 +58,17 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
-                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f21"
+                            title="0x02D1a756733F2C63DF89bCcB780C0C7A22D4E8a2"
                           >
                             <span
                               class="AwiAddress-prefix"
                             >
-                              0x0f2d719407fdbeff09d87557abb7232601fd
+                              0x02D1a756733F2C63DF89bCcB780C0C7A22D4
                             </span>
                             <span
                               class="AwiAddress-postfix"
                             >
-                              9f21
+                              E8a2
                             </span>
                           </p>
                           <button
@@ -151,17 +151,17 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
-                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f22"
+                            title="0x661fB1B0774Ae54B2f4460C71b66052bC6C05eB2"
                           >
                             <span
                               class="AwiAddress-prefix"
                             >
-                              0x0f2d719407fdbeff09d87557abb7232601fd
+                              0x661fB1B0774Ae54B2f4460C71b66052bC6C0
                             </span>
                             <span
                               class="AwiAddress-postfix"
                             >
-                              9f22
+                              5eB2
                             </span>
                           </p>
                           <button
@@ -244,17 +244,15 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
-                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f23"
+                            title="0x"
                           >
                             <span
                               class="AwiAddress-prefix"
-                            >
-                              0x0f2d719407fdbeff09d87557abb7232601fd
-                            </span>
+                            />
                             <span
                               class="AwiAddress-postfix"
                             >
-                              9f23
+                              0x
                             </span>
                           </p>
                           <button
@@ -354,17 +352,17 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
-                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f24"
+                            title="0x8aBE5006Ac9f44f814621cB3BaE36E4b49393c69"
                           >
                             <span
                               class="AwiAddress-prefix"
                             >
-                              0x0f2d719407fdbeff09d87557abb7232601fd
+                              0x8aBE5006Ac9f44f814621cB3BaE36E4b4939
                             </span>
                             <span
                               class="AwiAddress-postfix"
                             >
-                              9f24
+                              3c69
                             </span>
                           </p>
                           <button
@@ -447,17 +445,17 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
-                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f25"
+                            title="0xd3eef5aace2b9915736F0f493cc47Ea53e90185e"
                           >
                             <span
                               class="AwiAddress-prefix"
                             >
-                              0x0f2d719407fdbeff09d87557abb7232601fd
+                              0xd3eef5aace2b9915736F0f493cc47Ea53e90
                             </span>
                             <span
                               class="AwiAddress-postfix"
                             >
-                              9f25
+                              185e
                             </span>
                           </p>
                           <button
@@ -540,17 +538,17 @@ exports[`<ContractSection /> has valid snapshot 1`] = `
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-11"
-                            title="0x0f2d719407fdbeff09d87557abb7232601fd9f26"
+                            title="0xeb5b2B71b34B49bA88E18d37E58B26cD56D44870"
                           >
                             <span
                               class="AwiAddress-prefix"
                             >
-                              0x0f2d719407fdbeff09d87557abb7232601fd
+                              0xeb5b2B71b34B49bA88E18d37E58B26cD56D4
                             </span>
                             <span
                               class="AwiAddress-postfix"
                             >
-                              9f26
+                              4870
                             </span>
                           </p>
                           <button
