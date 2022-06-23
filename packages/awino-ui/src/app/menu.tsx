@@ -36,29 +36,29 @@ export const mainMenuLinks: MenuItemType[] = [
     key: 'podl',
     url: '/podl',
   },
-  {
-    type: 'group',
-    key: 'more',
-    items: [
-      { type: 'internal', key: 'analytics', url: '/analytics' },
-      { type: 'internal', key: 'docs', url: 'https://app.gitbook.com/s/epRC3Tf5qPuOqDRuDbvw/' },
-      { type: 'internal', key: 'launchpad', url: '#' },
-    ],
-  },
+  // {
+  //   type: 'group',
+  //   key: 'more',
+  //   items: [
+  //     { type: 'internal', key: 'analytics', url: '/analytics' },
+  //     { type: 'internal', key: 'docs', url: 'https://app.gitbook.com/s/epRC3Tf5qPuOqDRuDbvw/' },
+  //     { type: 'internal', key: 'launchpad', url: '#' },
+  //   ],
+  // },
 ];
 
-export const settingMenuLinks: MenuItemLink[] = [
-  // {
-  //   type: 'internal',
-  //   key: 'profile',
-  //   url: '/dashboard',
-  // },
-  {
-    type: 'internal',
-    key: 'activity',
-    url: '#',
-  },
-];
+// export const settingMenuLinks: MenuItemLink[] = [
+//   // {
+//   //   type: 'internal',
+//   //   key: 'profile',
+//   //   url: '/dashboard',
+//   // },
+//   {
+//     type: 'internal',
+//     key: 'activity',
+//     url: '#',
+//   },
+// ];
 
 export const moreMenuLinks: MenuItemLink[] = [
   {
@@ -80,6 +80,11 @@ export const moreMenuLinks: MenuItemLink[] = [
     type: 'internal',
     key: 'governance',
     url: '/governance',
+  },
+  {
+    type: 'internal',
+    key: 'analytics',
+    url: '/analytics',
   },
 ];
 

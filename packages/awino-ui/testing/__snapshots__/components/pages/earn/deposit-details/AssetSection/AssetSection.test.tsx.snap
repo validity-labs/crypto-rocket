@@ -123,7 +123,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="availableLiquidity"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
-                      53.42 m AWI
+                      53.420 m AWI
                     </p>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="depositAPY"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
-                      1.47  USD
+                      1.470  USD
                     </p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="assetPrice"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
-                      1.47  USD
+                      1.470  USD
                     </p>
                   </div>
                 </div>

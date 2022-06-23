@@ -111,7 +111,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
                           >
-                            1.21  USD
+                            1.210  USD
                           </td>
                         </tr>
                         <tr
@@ -128,12 +128,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                             <span
                               class="MuiTypography-root MuiTypography-body css-24"
                             >
-                              1.31  USD
+                              1.310  USD
                             </span>
                             <span
                               class="MuiTypography-root MuiTypography-body css-25"
                             >
-                              + 0.1  USD
+                              + 0.100  USD
                               <svg
                                 aria-hidden="true"
                                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
@@ -249,7 +249,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-37"
                       >
-                        0
+                        0.000
                       </p>
                       <div
                         class="MuiBox-root css-38"
@@ -340,12 +340,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body value css-31"
                       >
-                        99.5 CRO
+                        99.500 CRO
                       </p>
                       <p
                         class="MuiTypography-root MuiTypography-body alt css-31"
                       >
-                        199.5 USD
+                        199.500 USD
                       </p>
                     </div>
                   </div>
@@ -405,7 +405,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md AwiTreasurePanel-summaryAmount css-37"
                       >
-                        1.31
+                        1.310
                       </p>
                       <div
                         class="AwiTreasurePanel-summaryImages MuiBox-root css-38"
@@ -570,12 +570,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 AWICRO
+                                          83.423 AWICRO
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.300 USD
                                         </p>
                                       </div>
                                     </div>
@@ -614,12 +614,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 AWICRO
+                                          83.423 AWICRO
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.300 USD
                                         </p>
                                       </div>
                                     </div>
@@ -641,12 +641,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 CRO
+                                          83.423 CRO
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.300 USD
                                         </p>
                                       </div>
                                     </div>
@@ -685,12 +685,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 CRO
+                                          83.423 CRO
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.300 USD
                                         </p>
                                       </div>
                                     </div>

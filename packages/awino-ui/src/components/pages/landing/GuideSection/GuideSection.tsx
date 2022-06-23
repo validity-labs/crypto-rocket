@@ -162,7 +162,7 @@ const Root = styled(Section)(({ theme }) => ({
   },
 }));
 
-const items = [1, 2, 3];
+const items = [{ xs: 20, md: 56 }, { xs: 20, md: 56, lg: 86 }, {}];
 
 export default function GuideSection() {
   const t = usePageTranslation();
@@ -203,19 +203,19 @@ export default function GuideSection() {
       <Root>
         <Header title={t('guide-section.title')} description={t('guide-section.description')} />
         <Container maxWidth="lg">
-          {items.map((id, index) => (
-            <Grid key={index} container spacing={17} mb={index !== items.length - 1 ? [10, 10, 56] : 0}>
+          {items.map((marginBottom, index) => (
+            <Grid key={index} container spacing={17} mb={marginBottom}>
               <Grid item xs={12} md={6} order={[0, 0, index % 2 !== 0 ? 1 : 0]}>
                 <div className="card">
                   <Typography className="step" variant="body-xs">
-                    {id}
+                    {index + 1}
                   </Typography>
                   <Typography variant="h3">{t(`guide-section.items.${index}.title`)}</Typography>
                   <Typography>{t(`guide-section.items.${index}.description`)}</Typography>
                 </div>
               </Grid>
               <Grid key={index} item xs={12} md={6}>
-                {itemsMedia[id]}
+                {itemsMedia[index + 1]}
               </Grid>
             </Grid>
           ))}

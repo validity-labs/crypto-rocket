@@ -83,7 +83,7 @@ exports[`<GuideSection /> has valid snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-17 css-5"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-17 css-13"
         >
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-14"

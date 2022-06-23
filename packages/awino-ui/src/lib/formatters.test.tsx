@@ -69,9 +69,9 @@ describe('formatNumber', () => {
 
 describe('formatAmount', () => {
   it('should return formatted amount and currency', () => {
-    expect(formatAmount(1000.99, { prefix: 'CHF' })).toBe('CHF 1,000.99');
-    expect(formatAmount(10, { postfix: 'USD' })).toBe('10 USD');
-    expect(formatAmount(10, { prefix: '$', postfix: 'USD' })).toBe('$ 10 USD');
+    expect(formatAmount(1000.99, { prefix: 'CHF' })).toBe('CHF 1000.990');
+    expect(formatAmount(10, { postfix: 'USD' })).toBe('10.000 USD');
+    expect(formatAmount(10, { prefix: '$', postfix: 'USD' })).toBe('$ 10.000 USD');
   });
 });
 
@@ -107,6 +107,6 @@ describe('formatGridEmptyString', () => {
 
 describe('formatGridUSD', () => {
   it('should return formatted amount and currency', () => {
-    expect(formatGridUSD({ value: 1000.99 })).toBe('1 k USD');
+    expect(formatGridUSD({ value: 1000.99 })).toBe('1.000 k USD');
   });
 });

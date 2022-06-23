@@ -207,12 +207,12 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   <span
                     class="MuiTypography-root MuiTypography-body css-37"
                   >
-                    99.99  GEIST
+                    99.990  AWI
                   </span>
                   <span
                     class="MuiTypography-root MuiTypography-body-sm css-38"
                   >
-                    199  USD
+                    199.000  USD
                   </span>
                 </p>
               </div>
@@ -225,7 +225,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   <img
                     alt=""
                     height="30"
-                    src="/images/assets/geist.svg"
+                    src="/images/assets/awi.svg"
                     width="30"
                   />
                   <input
@@ -250,6 +250,9 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   </button>
                 </div>
               </div>
+              <div
+                class="Awi-fill"
+              />
               <button
                 class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root AwiStakeCard-submit AwiLoadingButton-root css-44"
                 tabindex="0"
@@ -312,12 +315,12 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   <span
                     class="MuiTypography-root MuiTypography-body css-37"
                   >
-                    99.99  GEIST
+                    99.990  AWI
                   </span>
                   <span
                     class="MuiTypography-root MuiTypography-body-sm css-38"
                   >
-                    199  USD
+                    199.000  USD
                   </span>
                 </p>
               </div>
@@ -330,7 +333,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   <img
                     alt=""
                     height="30"
-                    src="/images/assets/geist.svg"
+                    src="/images/assets/awi.svg"
                     width="30"
                   />
                   <input
@@ -355,6 +358,9 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   </button>
                 </div>
               </div>
+              <div
+                class="Awi-fill"
+              />
               <button
                 class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root AwiLockCard-submit AwiLoadingButton-root css-44"
                 tabindex="0"

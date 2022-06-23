@@ -36,7 +36,7 @@ const Root = styled(Box)(({ theme }) => ({
     color: theme.palette.text.primary,
   },
   [theme.breakpoints.up('md')]: {
-    padding: theme.spacing(10, 20),
+    padding: theme.spacing(10, 11),
   },
 }));
 

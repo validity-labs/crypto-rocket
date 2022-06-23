@@ -62,7 +62,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   <img
                     alt=""
                     height="30"
-                    src="/images/assets/geist.svg"
+                    src="/images/assets/awi.svg"
                     width="30"
                   />
                   <input
@@ -100,7 +100,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   infinite:awino-balance
                 </span>
                 <span>
-                  10  AWI
+                  10.000  AWI
                 </span>
               </p>
               <div
@@ -830,7 +830,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                 aria-describedby="totalAwiLocked"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                1.23 m AWI
+                1.230 m AWI
               </p>
             </div>
             <div
@@ -846,7 +846,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                 aria-describedby="totalAwiLockedValue"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                123.46 k USD
+                123.460 k USD
               </p>
             </div>
             <div
@@ -902,7 +902,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                 aria-describedby="distribution"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                1.23 m AWI
+                1.230 m AWI
               </p>
             </div>
             <div
@@ -918,7 +918,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                 aria-describedby="distributionValue"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                123.46 k USD
+                123.460 k USD
               </p>
             </div>
             <div
@@ -961,11 +961,11 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               tabindex="0"
               type="submit"
             >
-              infinite:claim 10  AWI 
+              infinite:claim 10.000  AWI 
               <img
                 alt=""
                 height="30"
-                src="/images/assets/geist.svg"
+                src="/images/assets/awi.svg"
                 width="30"
               />
               <span
