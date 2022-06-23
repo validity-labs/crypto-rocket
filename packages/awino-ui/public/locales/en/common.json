@@ -129,29 +129,29 @@
       "analytics": {
         "title": "Analytics",
         "description": "MISSING TEXT"
-      },
-      "social": {
-        "docs": {
-          "title": "Docs"
-        },
-        "blog": {
-          "title": "Blog"
-        },
-        "youtube": {
-          "title": "Youtube"
-        },
-        "twitter": {
-          "title": "Twitter"
-        }
       }
     },
-    "footer": {
-      "copyright": "© {{year}} Created AG. All rights reserved.",
-      "scroll-to-top": "Scroll to Top",
-      "common": {
-        "privacy": "Privacy Policy",
-        "terms": "Terms & Conditions"
+    "social": {
+      "docs": {
+        "title": "Docs"
+      },
+      "blog": {
+        "title": "Blog"
+      },
+      "youtube": {
+        "title": "Youtube"
+      },
+      "twitter": {
+        "title": "Twitter"
       }
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Created AG. All rights reserved.",
+    "scroll-to-top": "Scroll to Top",
+    "common": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
     }
   }
 }
