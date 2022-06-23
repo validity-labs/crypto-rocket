@@ -46,8 +46,7 @@
     "asset-type-hint": "MISSING TEXT",
     "title": {
       "deposit": "Your deposits",
-      "borrow": "Your borrows",
-      "reward": "Your rewards"
+      "borrow": "Your borrows"
     },
     "fields": {
       "asset": "Asset",
