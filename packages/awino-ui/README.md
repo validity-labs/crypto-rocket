@@ -71,6 +71,6 @@ export const getServerSideProps = storeWrapper.getServerSideProps((store) => asy
 When navigation (not reloading) to a page that is protected, if connect modal should appear automatically add the page route to `PROTECTED_ROUTES` array.
 
 ```tsx
-// src/app/constants.ts
+//  src/app/constants.ts
 export const PROTECTED_ROUTES = ['/new-route', '/portfolio'];
 ```
