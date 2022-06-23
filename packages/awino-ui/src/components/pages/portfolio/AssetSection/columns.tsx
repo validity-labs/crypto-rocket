@@ -8,6 +8,7 @@ import DataGridSwitch from '@/components/grid/DataGridSwitch/DataGridSwitch';
 import { formatGridEmptyString, formatGridPercent } from '@/lib/formatters';
 import { AssetKey } from '@/types/app';
 
+import { PortfolioAssetTypeKey } from './AssetSection';
 import { CollateralModalData } from './CollateralModal';
 
 type CollateralCallback = (data: CollateralModalData) => void;
@@ -15,7 +16,11 @@ interface GetColumnsOptions {
   collateralCallback: CollateralCallback;
 }
 
-const getColumns = (t: TFunction, { collateralCallback }: GetColumnsOptions): GridColDef[] => {
+const getColumns = (
+  t: TFunction,
+  type: PortfolioAssetTypeKey,
+  { collateralCallback }: GetColumnsOptions
+): GridColDef[] => {
   return [
     {
       field: 'asset',
@@ -38,17 +43,21 @@ const getColumns = (t: TFunction, { collateralCallback }: GetColumnsOptions): Gr
       sortable: true,
       valueFormatter: formatGridPercent,
     },
-    {
-      field: 'collateral',
-      sortable: true,
-      renderCell: (params: GridRenderCellParams) => {
-        const handleCallback = (newValue: boolean) => {
-          collateralCallback({ asset: params.row.asset as AssetKey, stage: newValue ? 'enable' : 'disable' });
-        };
+    ...(type === 'deposit'
+      ? [
+          {
+            field: 'collateral',
+            sortable: true,
+            renderCell: (params: GridRenderCellParams) => {
+              const handleCallback = (newValue: boolean) => {
+                collateralCallback({ asset: params.row.asset as AssetKey, stage: newValue ? 'enable' : 'disable' });
+              };
 
-        return <DataGridSwitch value={params.value} callback={handleCallback} />;
-      },
-    },
+              return <DataGridSwitch value={params.value} callback={handleCallback} />;
+            },
+          },
+        ]
+      : []),
   ].map(({ i18nKey, ...restOfFields }) => ({
     ...restOfFields,
     flex: 1,

@@ -38,14 +38,14 @@ export interface CollateralInfo {
   borrowLimitUsed: [number, number];
 }
 
-type AssetTypeKey = 'deposit' | 'borrow' | 'reward';
+export type PortfolioAssetTypeKey = 'deposit' | 'borrow' /*  | 'reward' */;
 
 export default function AssetSection(/* { total }: Props */) {
   const t = usePageTranslation({ keyPrefix: 'asset-section' });
   const router = useRouter();
-  const [type, setType] = useState<AssetTypeKey>('deposit');
+  const [type, setType] = useState<PortfolioAssetTypeKey>('deposit');
 
-  const handleType = (event: React.MouseEvent<HTMLElement>, newType: AssetTypeKey) => {
+  const handleType = (event: React.MouseEvent<HTMLElement>, newType: PortfolioAssetTypeKey) => {
     setType(newType);
     // setCanExecute((prev) => !prev);
   };
@@ -56,12 +56,12 @@ export default function AssetSection(/* { total }: Props */) {
   const [collateralModal, setCollateralModal] = useState<CollateralModalData | null>(null);
   const [operationModal, setOperationModal] = useState<OperationModalData | null>(null);
   const columns = useMemo(() => {
-    return getColumns(t, {
+    return getColumns(t, type, {
       collateralCallback: (data: CollateralModalData) => {
         setCollateralModal(data);
       },
     });
-  }, [t]);
+  }, [t, type]);
 
   const [sortModel, setSortModel] = useState<GridSortModel>([
     /* { field: 'asset', sort: 'asc' } */
@@ -149,7 +149,6 @@ export default function AssetSection(/* { total }: Props */) {
         >
           <ToggleButton value="deposit">{t('title.deposit')}</ToggleButton>
           <ToggleButton value="borrow">{t('title.borrow')}</ToggleButton>
-          <ToggleButton value="reward">{t('title.reward')}</ToggleButton>
         </ToggleButtonGroup>
         <Panel
           header={
