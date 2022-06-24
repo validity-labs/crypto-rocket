@@ -12,7 +12,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-12 css-2"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-3"
         >
           <div
             class="css-4"
@@ -23,7 +23,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:title
               <span
                 aria-label="infinite:title-hint"
-                class="help"
+                class="AwiLabel-help"
                 data-mui-internal-clone-element="true"
               >
                 <svg
@@ -62,7 +62,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   <img
                     alt=""
                     height="30"
-                    src="/images/assets/geist.svg"
+                    src="/images/assets/awi.svg"
                     width="30"
                   />
                   <input
@@ -100,7 +100,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   infinite:awino-balance
                 </span>
                 <span>
-                  10  AWI
+                  10.000  AWI
                 </span>
               </p>
               <div
@@ -446,353 +446,371 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-70"
         >
           <div
             class="css-71"
           >
             <div
-              class="AwiGlobalVotesCard-header"
-            >
-              <h6
-                class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
-              >
-                infinite:title
-              </h6>
-              <form
-                autocomplete="off"
-                class="css-73"
-                data-testid="SearchForm"
-                novalidate=""
-              >
-                <div
-                  class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-74"
-                >
-                  <input
-                    class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-75"
-                    placeholder="common.search"
-                    type="text"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
-                    />
-                    <path
-                      d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
-                    />
-                  </svg>
-                </div>
-              </form>
-            </div>
-            <div
-              class="MuiTableContainer-root css-77"
-            >
-              <table
-                class="MuiTable-root MuiTable-stickyHeader css-78"
-              >
-                <thead
-                  class="MuiTableHead-root css-79"
-                >
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-head css-80"
-                  >
-                    <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
-                      scope="col"
-                      width="40%"
-                    >
-                      infinite:field.boosted
-                    </th>
-                    <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
-                      scope="col"
-                      width="30%"
-                    >
-                      infinite:field.votes
-                    </th>
-                    <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
-                      scope="col"
-                      width="30%"
-                    >
-                      infinite:field.percentage
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="MuiTableBody-root css-84"
-                >
-                  <tr
-                    class="MuiTableRow-root css-80"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <div
-                        class="Awi-row"
-                      >
-                        <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
-                          role="presenation"
-                        >
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/nusd.svg"
-                            width="30"
-                          />
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/awi.svg"
-                            width="30"
-                          />
-                        </div>
-                        <p
-                          class="MuiTypography-root MuiTypography-body css-88"
-                        >
-                          NUSD-AWI LP
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        12,345
-                      </p>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        3.66 %
-                      </p>
-                    </td>
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root css-80"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <div
-                        class="Awi-row"
-                      >
-                        <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
-                          role="presenation"
-                        >
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/usdc.svg"
-                            width="30"
-                          />
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/awi.svg"
-                            width="30"
-                          />
-                        </div>
-                        <p
-                          class="MuiTypography-root MuiTypography-body css-88"
-                        >
-                          USDC-AWI LP
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        23,456
-                      </p>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        5 %
-                      </p>
-                    </td>
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root css-80"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <div
-                        class="Awi-row"
-                      >
-                        <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
-                          role="presenation"
-                        >
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/usdt.svg"
-                            width="30"
-                          />
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/awi.svg"
-                            width="30"
-                          />
-                        </div>
-                        <p
-                          class="MuiTypography-root MuiTypography-body css-88"
-                        >
-                          USDT-AWI LP
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        34,567
-                      </p>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        13 %
-                      </p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div
-              class="Awi-divider"
-            />
-            <h6
-              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
-            >
-              infinite:current-weighting
-            </h6>
-            <div
-              class="AwiChartDoughnut-wrapper css-110"
-              data-test-id="AwiChart-wrapper"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-72"
             >
               <div
-                class="AwiChartDoughnut-legend"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-73"
               >
-                <ul>
-                  <li>
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
-                      tabindex="0"
-                      type="button"
+                <div
+                  class="AwiGlobalVotesCard-header"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
+                  >
+                    infinite:title
+                  </h6>
+                  <form
+                    autocomplete="off"
+                    class="AwiSearch-root css-75"
+                    data-testid="SearchForm"
+                    novalidate=""
+                  >
+                    <div
+                      class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-76"
                     >
-                      <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
-                        role="presenation"
+                      <input
+                        class="MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-77"
+                        placeholder="common.search"
+                        type="text"
+                        value=""
+                      />
+                      <button
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-78"
+                        tabindex="0"
+                        type="button"
                       >
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/nusd.svg"
-                          width="24"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
+                          />
+                          <path
+                            d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-12"
                         />
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/awi.svg"
-                          width="24"
-                        />
-                      </span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
-                      tabindex="0"
-                      type="button"
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div
+                  class="MuiTableContainer-root css-81"
+                >
+                  <table
+                    class="MuiTable-root MuiTable-stickyHeader css-82"
+                  >
+                    <thead
+                      class="MuiTableHead-root css-83"
                     >
-                      <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
-                        role="presenation"
+                      <tr
+                        class="MuiTableRow-root MuiTableRow-head css-84"
                       >
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/usdc.svg"
-                          width="24"
-                        />
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/awi.svg"
-                          width="24"
-                        />
-                      </span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
-                      tabindex="0"
-                      type="button"
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-85"
+                          scope="col"
+                          width="40%"
+                        >
+                          infinite:field.boosted
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-85"
+                          scope="col"
+                          width="30%"
+                        >
+                          infinite:field.votes
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-85"
+                          scope="col"
+                          width="30%"
+                        >
+                          infinite:field.percentage
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="MuiTableBody-root css-88"
                     >
-                      <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
-                        role="presenation"
+                      <tr
+                        class="MuiTableRow-root css-84"
                       >
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/usdt.svg"
-                          width="24"
-                        />
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/awi.svg"
-                          width="24"
-                        />
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <div
+                            class="Awi-row"
+                          >
+                            <div
+                              class="AwiAssetIcons-root Awi-n2 MuiBox-root css-91"
+                              role="presenation"
+                            >
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/nusd.svg"
+                                width="30"
+                              />
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/awi.svg"
+                                width="30"
+                              />
+                            </div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-92"
+                            >
+                              NUSD-AWI LP
+                            </p>
+                          </div>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            12,345
+                          </p>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            3.66 %
+                          </p>
+                        </td>
+                      </tr>
+                      <tr
+                        class="MuiTableRow-root css-84"
+                      >
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <div
+                            class="Awi-row"
+                          >
+                            <div
+                              class="AwiAssetIcons-root Awi-n2 MuiBox-root css-91"
+                              role="presenation"
+                            >
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/usdc.svg"
+                                width="30"
+                              />
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/awi.svg"
+                                width="30"
+                              />
+                            </div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-92"
+                            >
+                              USDC-AWI LP
+                            </p>
+                          </div>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            23,456
+                          </p>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            5 %
+                          </p>
+                        </td>
+                      </tr>
+                      <tr
+                        class="MuiTableRow-root css-84"
+                      >
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <div
+                            class="Awi-row"
+                          >
+                            <div
+                              class="AwiAssetIcons-root Awi-n2 MuiBox-root css-91"
+                              role="presenation"
+                            >
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/usdt.svg"
+                                width="30"
+                              />
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/awi.svg"
+                                width="30"
+                              />
+                            </div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-92"
+                            >
+                              USDT-AWI LP
+                            </p>
+                          </div>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            34,567
+                          </p>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            13 %
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <canvas
-                height="150"
-                role="img"
-                width="300"
-              />
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-113"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
+                >
+                  infinite:current-weighting
+                </h6>
+                <div
+                  class="AwiChartDoughnut-wrapper css-115"
+                  data-test-id="AwiChart-wrapper"
+                >
+                  <div
+                    class="AwiChartDoughnut-legend"
+                  >
+                    <ul>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-116"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="AwiAssetIcons-root Awi-n2 MuiBox-root css-117"
+                            role="presenation"
+                          >
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/nusd.svg"
+                              width="24"
+                            />
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/awi.svg"
+                              width="24"
+                            />
+                          </span>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-116"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="AwiAssetIcons-root Awi-n2 MuiBox-root css-117"
+                            role="presenation"
+                          >
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/usdc.svg"
+                              width="24"
+                            />
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/awi.svg"
+                              width="24"
+                            />
+                          </span>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-116"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="AwiAssetIcons-root Awi-n2 MuiBox-root css-117"
+                            role="presenation"
+                          >
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/usdt.svg"
+                              width="24"
+                            />
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/awi.svg"
+                              width="24"
+                            />
+                          </span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <canvas
+                    height="150"
+                    role="img"
+                    width="300"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-3"
         >
           <div
-            class="css-118"
+            class="css-123"
           >
             <h6
               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
@@ -800,7 +818,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:title
             </h6>
             <div
-              class="AwiLabelValue-root AwiStatsCard-labelValueHighlighted MuiBox-root css-120"
+              class="AwiLabelValue-root AwiStatsCard-labelValueHighlighted MuiBox-root css-125"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -810,13 +828,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="totalAwiLocked"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                1.23 m AWI
+                1.230 m AWI
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-125"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -826,13 +844,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="totalAwiLockedValue"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                123.46 k USD
+                123.460 k USD
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-125"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -842,13 +860,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="averageUnlockTime"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
                 1,234
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-125"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -858,7 +876,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="nextDistribution"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
                 January 13, 2000
               </p>
@@ -872,7 +890,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               infinite:last-week-stats
             </h6>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-125"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -882,13 +900,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="distribution"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                1.23 m AWI
+                1.230 m AWI
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-125"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -898,13 +916,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="distributionValue"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
-                123.46 k USD
+                123.460 k USD
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-120"
+              class="AwiLabelValue-root MuiBox-root css-125"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -914,13 +932,13 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="awiPerInfinity"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
                 0.391
               </p>
             </div>
             <div
-              class="AwiLabelValue-root MuiBox-root css-142"
+              class="AwiLabelValue-root MuiBox-root css-147"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -930,7 +948,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               </h6>
               <p
                 aria-describedby="apr"
-                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-122"
+                class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-127"
               >
                 34 %
               </p>
@@ -943,11 +961,11 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
               tabindex="0"
               type="submit"
             >
-              infinite:claim 10  AWI 
+              infinite:claim 10.000  AWI 
               <img
                 alt=""
                 height="30"
-                src="/images/assets/geist.svg"
+                src="/images/assets/awi.svg"
                 width="30"
               />
               <span
@@ -957,426 +975,444 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-70"
         >
           <div
-            class="css-148"
+            class="css-153"
           >
             <div
-              class="AwiBoastFarmCard-header"
-            >
-              <h6
-                class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
-              >
-                infinite:title
-                <span
-                  aria-label="infinite:title-hint"
-                  class="help"
-                  data-mui-internal-clone-element="true"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
-                      id="Pfad_2253"
-                    />
-                    <path
-                      d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
-                    />
-                    <path
-                      d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
-                    />
-                  </svg>
-                </span>
-              </h6>
-              <form
-                autocomplete="off"
-                class="css-73"
-                data-testid="SearchForm"
-                novalidate=""
-              >
-                <div
-                  class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-74"
-                >
-                  <input
-                    class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-75"
-                    placeholder="common.search"
-                    type="text"
-                    value=""
-                  />
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
-                    />
-                    <path
-                      d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
-                    />
-                  </svg>
-                </div>
-              </form>
-            </div>
-            <p
-              class="MuiTypography-root MuiTypography-body-xs AwiBoastFarmCard-note css-155"
-            >
-              infinite:note
-            </p>
-            <div
-              class="AwiBoastFarmCard-distributionHelper"
-            >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-156"
-              >
-                <span
-                  class="MuiSwitch-root MuiSwitch-sizeMedium css-157"
-                >
-                  <span
-                    class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-158"
-                  >
-                    <input
-                      aria-label="controlled"
-                      class="MuiSwitch-input PrivateSwitchBase-input css-20"
-                      type="checkbox"
-                    />
-                    <span
-                      class="MuiSwitch-thumb css-160"
-                    />
-                  </span>
-                  <span
-                    class="MuiSwitch-track css-161"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-25"
-                >
-                  infinite:distribution-helper
-                </span>
-              </label>
-            </div>
-            <div
-              class="MuiTableContainer-root css-77"
-            >
-              <table
-                class="MuiTable-root MuiTable-stickyHeader css-78"
-              >
-                <thead
-                  class="MuiTableHead-root css-79"
-                >
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-head css-80"
-                  >
-                    <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
-                      scope="col"
-                      width="40%"
-                    >
-                      infinite:field.boosted
-                    </th>
-                    <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
-                      scope="col"
-                      width="30%"
-                    >
-                      infinite:field.votes
-                    </th>
-                    <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-81"
-                      scope="col"
-                      width="30%"
-                    >
-                      infinite:field.percentage
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="MuiTableBody-root css-84"
-                >
-                  <tr
-                    class="MuiTableRow-root css-80"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <div
-                        class="Awi-row"
-                      >
-                        <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
-                          role="presenation"
-                        >
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/nusd.svg"
-                            width="30"
-                          />
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/awi.svg"
-                            width="30"
-                          />
-                        </div>
-                        <p
-                          class="MuiTypography-root MuiTypography-body css-88"
-                        >
-                          NUSD-AWI LP
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        12,345
-                      </p>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        3.66 %
-                      </p>
-                    </td>
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root css-80"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <div
-                        class="Awi-row"
-                      >
-                        <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
-                          role="presenation"
-                        >
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/usdc.svg"
-                            width="30"
-                          />
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/awi.svg"
-                            width="30"
-                          />
-                        </div>
-                        <p
-                          class="MuiTypography-root MuiTypography-body css-88"
-                        >
-                          USDC-AWI LP
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        23,456
-                      </p>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        5 %
-                      </p>
-                    </td>
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root css-80"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <div
-                        class="Awi-row"
-                      >
-                        <div
-                          class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-87"
-                          role="presenation"
-                        >
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/usdt.svg"
-                            width="30"
-                          />
-                          <img
-                            alt=""
-                            height="30"
-                            src="/images/assets/awi.svg"
-                            width="30"
-                          />
-                        </div>
-                        <p
-                          class="MuiTypography-root MuiTypography-body css-88"
-                        >
-                          USDT-AWI LP
-                        </p>
-                      </div>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        34,567
-                      </p>
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-86"
-                    >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-88"
-                      >
-                        13 %
-                      </p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root Mui-disabled AwiLoadingButton-root css-68"
-              disabled=""
-              tabindex="-1"
-              type="submit"
-            >
-              infinite:vote-weight-total
-            </button>
-            <p
-              class="MuiTypography-root MuiTypography-body-xs css-196"
-            >
-              infinite:new-vote-weighting 0 %
-            </p>
-            <div
-              class="Awi-divider"
-            />
-            <h6
-              class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
-            >
-              infinite:current-weighting
-            </h6>
-            <div
-              class="AwiChartDoughnut-wrapper css-110"
-              data-test-id="AwiChart-wrapper"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-72"
             >
               <div
-                class="AwiChartDoughnut-legend"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-73"
               >
-                <ul>
-                  <li>
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
-                      tabindex="0"
-                      type="button"
+                <div
+                  class="AwiBoastFarmCard-header"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
+                  >
+                    infinite:title
+                    <span
+                      aria-label="infinite:title-hint"
+                      class="AwiLabel-help"
+                      data-mui-internal-clone-element="true"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                          id="Pfad_2253"
+                        />
+                        <path
+                          d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                        />
+                        <path
+                          d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                        />
+                      </svg>
+                    </span>
+                  </h6>
+                  <form
+                    autocomplete="off"
+                    class="AwiSearch-root css-75"
+                    data-testid="SearchForm"
+                    novalidate=""
+                  >
+                    <div
+                      class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-76"
+                    >
+                      <input
+                        class="MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-77"
+                        placeholder="common.search"
+                        type="text"
+                        value=""
+                      />
+                      <button
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-78"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M 11.068359,3.046875 C 7.5096706,3.0463548 4.7972584,5.217908 3.640625,8.0097656 2.4839916,10.801623 2.866904,14.255208 5.3828125,16.771484 c 2.5159085,2.516277 5.9696925,2.900366 8.7617185,1.744141 2.791494,-1.156004 4.962062,-3.870047 4.962891,-7.427734 0,-6.79e-4 0,-0.0013 0,-0.002 a 0.54760978,0.54760978 0 0 0 0.002,0 c 0,-4.4340507 -3.606965,-8.0390628 -8.041016,-8.039063 z m 0,1.0957031 c 3.84221,2e-7 6.945313,3.10115 6.945313,6.9433599 0,3.117364 -1.865512,5.414335 -4.289063,6.417968 C 11.301059,18.507539 8.3601062,18.202225 6.15625,15.998047 3.9523938,13.793868 3.6483564,10.851138 4.6523437,8.4277344 5.6563311,6.0043307 7.9509953,4.1421224 11.068359,4.1425781 Z"
+                          />
+                          <path
+                            d="m 16.365234,15.835938 a 0.54755503,0.54755503 0 0 0 -0.386718,0.160156 0.54755503,0.54755503 0 0 0 0,0.773437 l 4.072265,4.074219 a 0.54755503,0.54755503 0 0 0 0.775391,0 0.54755503,0.54755503 0 0 0 0,-0.773438 l -4.074219,-4.074218 a 0.54755503,0.54755503 0 0 0 -0.386719,-0.160156 z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-12"
+                        />
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body-xs AwiBoastFarmCard-note css-164"
+                >
+                  infinite:note
+                </p>
+                <div
+                  class="AwiBoastFarmCard-distributionHelper"
+                >
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart css-165"
+                  >
+                    <span
+                      class="MuiSwitch-root MuiSwitch-sizeMedium css-166"
                     >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
-                        role="presenation"
+                        class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-167"
                       >
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/nusd.svg"
-                          width="24"
+                        <input
+                          aria-label="controlled"
+                          class="MuiSwitch-input PrivateSwitchBase-input css-20"
+                          type="checkbox"
                         />
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/awi.svg"
-                          width="24"
+                        <span
+                          class="MuiSwitch-thumb css-169"
                         />
                       </span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
-                      tabindex="0"
-                      type="button"
-                    >
                       <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
-                        role="presenation"
-                      >
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/usdc.svg"
-                          width="24"
-                        />
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/awi.svg"
-                          width="24"
-                        />
-                      </span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-111"
-                      tabindex="0"
-                      type="button"
+                        class="MuiSwitch-track css-170"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiTypography-body MuiFormControlLabel-label css-25"
                     >
-                      <span
-                        class="AwiAssetsIcon-root Awi-n2 MuiBox-root css-112"
-                        role="presenation"
+                      infinite:distribution-helper
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="MuiTableContainer-root css-81"
+                >
+                  <table
+                    class="MuiTable-root MuiTable-stickyHeader css-82"
+                  >
+                    <thead
+                      class="MuiTableHead-root css-83"
+                    >
+                      <tr
+                        class="MuiTableRow-root MuiTableRow-head css-84"
                       >
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/usdt.svg"
-                          width="24"
-                        />
-                        <img
-                          alt=""
-                          height="24"
-                          src="/images/assets/awi.svg"
-                          width="24"
-                        />
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-85"
+                          scope="col"
+                          width="40%"
+                        >
+                          infinite:field.boosted
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-85"
+                          scope="col"
+                          width="30%"
+                        >
+                          infinite:field.votes
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-sizeMedium css-85"
+                          scope="col"
+                          width="30%"
+                        >
+                          infinite:field.percentage
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="MuiTableBody-root css-88"
+                    >
+                      <tr
+                        class="MuiTableRow-root css-84"
+                      >
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <div
+                            class="Awi-row"
+                          >
+                            <div
+                              class="AwiAssetIcons-root Awi-n2 MuiBox-root css-91"
+                              role="presenation"
+                            >
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/nusd.svg"
+                                width="30"
+                              />
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/awi.svg"
+                                width="30"
+                              />
+                            </div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-92"
+                            >
+                              NUSD-AWI LP
+                            </p>
+                          </div>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            12,345
+                          </p>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            3.66 %
+                          </p>
+                        </td>
+                      </tr>
+                      <tr
+                        class="MuiTableRow-root css-84"
+                      >
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <div
+                            class="Awi-row"
+                          >
+                            <div
+                              class="AwiAssetIcons-root Awi-n2 MuiBox-root css-91"
+                              role="presenation"
+                            >
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/usdc.svg"
+                                width="30"
+                              />
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/awi.svg"
+                                width="30"
+                              />
+                            </div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-92"
+                            >
+                              USDC-AWI LP
+                            </p>
+                          </div>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            23,456
+                          </p>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            5 %
+                          </p>
+                        </td>
+                      </tr>
+                      <tr
+                        class="MuiTableRow-root css-84"
+                      >
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <div
+                            class="Awi-row"
+                          >
+                            <div
+                              class="AwiAssetIcons-root Awi-n2 MuiBox-root css-91"
+                              role="presenation"
+                            >
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/usdt.svg"
+                                width="30"
+                              />
+                              <img
+                                alt=""
+                                height="30"
+                                src="/images/assets/awi.svg"
+                                width="30"
+                              />
+                            </div>
+                            <p
+                              class="MuiTypography-root MuiTypography-body css-92"
+                            >
+                              USDT-AWI LP
+                            </p>
+                          </div>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            34,567
+                          </p>
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-90"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body css-92"
+                          >
+                            13 %
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <button
+                  class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root Mui-disabled AwiLoadingButton-root css-68"
+                  disabled=""
+                  tabindex="-1"
+                  type="submit"
+                >
+                  infinite:vote-weight-total
+                </button>
+                <p
+                  class="MuiTypography-root MuiTypography-body-xs css-205"
+                >
+                  infinite:new-vote-weighting 0 %
+                </p>
               </div>
-              <canvas
-                height="150"
-                role="img"
-                width="300"
-              />
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-113"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
+                >
+                  infinite:current-weighting
+                </h6>
+                <div
+                  class="AwiChartDoughnut-wrapper css-115"
+                  data-test-id="AwiChart-wrapper"
+                >
+                  <div
+                    class="AwiChartDoughnut-legend"
+                  >
+                    <ul>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-116"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="AwiAssetIcons-root Awi-n2 MuiBox-root css-117"
+                            role="presenation"
+                          >
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/nusd.svg"
+                              width="24"
+                            />
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/awi.svg"
+                              width="24"
+                            />
+                          </span>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-116"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="AwiAssetIcons-root Awi-n2 MuiBox-root css-117"
+                            role="presenation"
+                          >
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/usdc.svg"
+                              width="24"
+                            />
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/awi.svg"
+                              width="24"
+                            />
+                          </span>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-116"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="AwiAssetIcons-root Awi-n2 MuiBox-root css-117"
+                            role="presenation"
+                          >
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/usdt.svg"
+                              width="24"
+                            />
+                            <img
+                              alt=""
+                              height="24"
+                              src="/images/assets/awi.svg"
+                              width="24"
+                            />
+                          </span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <canvas
+                    height="150"
+                    role="img"
+                    width="300"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6 css-3"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-215"
         >
           <div
-            class="css-206"
+            class="css-216"
           >
             <h6
               class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiDetailsSection-cardTitle css-5"
@@ -1393,18 +1429,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-218"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulseAlt css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulseAlt css-218"
                   >
                     3
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-220"
                 >
                   infinite:days
                 </p>
@@ -1416,18 +1452,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-218"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-218"
                   >
                     0
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-220"
                 >
                   infinite:hours
                 </p>
@@ -1439,18 +1475,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-218"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-218"
                   >
                     0
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-220"
                 >
                   infinite:minutes
                 </p>
@@ -1462,18 +1498,18 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="AwiTimeLeft-top"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-218"
                   >
                     0
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-body-md pulse css-208"
+                    class="MuiTypography-root MuiTypography-body-md pulse css-218"
                   >
                     0
                   </p>
                 </div>
                 <p
-                  class="MuiTypography-root MuiTypography-body-md css-210"
+                  class="MuiTypography-root MuiTypography-body-md css-220"
                 >
                   infinite:seconds
                 </p>

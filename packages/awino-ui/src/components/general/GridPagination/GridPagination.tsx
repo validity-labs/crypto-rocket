@@ -24,6 +24,12 @@ const GridPaginationRoot = styled(TablePagination)(({ theme }) => ({
       display: 'inline-flex',
     },
   },
+  '.MuiInputBase-root': {
+    padding: '0 !important',
+  },
+  [`& .${tablePaginationClasses.select}`]: {
+    padding: `${theme.spacing(2, 7)} !important`,
+  },
 }));
 
 const GridPagination = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function GridPagination(

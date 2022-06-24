@@ -17,6 +17,7 @@ const Root = styled('ul')(({ theme }) => ({
   borderRadius: +theme.shape.borderRadius * 2,
   background: theme.palette.background.transparent,
   padding: theme.spacing(0, 2),
+  zIndex: theme.zIndex.appBar,
   '.AwiMainMenu-item, .AwiHoverMenu-toggle': {
     display: 'block',
     padding: theme.spacing(5, 4),

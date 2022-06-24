@@ -59,6 +59,7 @@
   },
   "claim-section": {
     "claim-awi": "Claim AWI",
+    "claim-all-button": "Claim All",
     "unlocked-awi": {
       "title": "Unlocked AWI",
       "description": "Staked AWI and experienced AWI vests"
@@ -74,6 +75,17 @@
     "expired-locked-awi": {
       "title": "Expired locked AWI",
       "description": "AWI locks that have exceeded the 3 month lock period and are now withdrawal."
+    },
+    "fee-type-hint": "MISSING TEXT",
+    "fee-type": {
+      "claimable": "Claimable fees",
+      "claimed": "Claimed fees"
+    },
+    "field": {
+      "asset": "Token",
+      "amount": "Amount",
+      "timestamp": "Timestamp/Blocknumber",
+      "actions": "Actions"
     }
   },
   "claim-modal": {

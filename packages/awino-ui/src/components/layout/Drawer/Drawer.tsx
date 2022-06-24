@@ -9,7 +9,7 @@ import { styled } from '@mui/material/styles';
 
 import { SUPPORTED_LANGUAGES } from '@/app/constants';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import { mainMenuLinks, moreMenuLinks, settingMenuLinks, socialLinks } from '@/app/menu';
+import { mainMenuLinks, moreMenuLinks, /* settingMenuLinks, */ socialLinks } from '@/app/menu';
 import { toggleDrawer } from '@/app/state/slices/app';
 import ConnectButton from '@/components/buttons/ConnectButton';
 import Link from '@/components/general/Link/Link';
@@ -177,7 +177,7 @@ export default function Drawer() {
             ))}
           </List>
         </List>
-        <LinkList items={settingMenuLinks as MenuItemType[]} menu="settings" closeDrawer={handleDrawerClose} />
+        {/* <LinkList items={settingMenuLinks as MenuItemType[]} menu="settings" closeDrawer={handleDrawerClose} /> */}
         <IconDivider icon={MoreIcon} />
         <LinkList items={moreMenuLinks as MenuItemType[]} menu="more" closeDrawer={handleDrawerClose} />
         <LinkList items={socialLinks as MenuItemType[]} menu="social" closeDrawer={handleDrawerClose} icon />

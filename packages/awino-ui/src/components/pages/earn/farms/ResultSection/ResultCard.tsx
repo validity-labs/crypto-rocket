@@ -18,6 +18,7 @@ import { formatLPPair, formatNumber, formatPercent, formatUSD } from '@/lib/form
 import { AssetKeyPair } from '@/types/app';
 
 import { FarmDataItem } from './ResultSection';
+import { StakeModalData } from './StakeModal';
 
 const Root = styled('div')(({ theme }) => ({
   padding: theme.spacing(8.5, 8, 7),
@@ -103,10 +104,11 @@ const Root = styled('div')(({ theme }) => ({
 interface Props {
   item: FarmDataItem;
   onHarvest: (pair: AssetKeyPair) => void;
-  onApprove: (pair: AssetKeyPair) => void;
+  onStake: (stakeData: StakeModalData) => void;
+  onUnstake: (pair: AssetKeyPair) => void;
 }
 
-export default function ResultCard({ item, onHarvest, onApprove }: Props) {
+export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Props) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const handleDetailsToggle = useCallback(
@@ -118,9 +120,19 @@ export default function ResultCard({ item, onHarvest, onApprove }: Props) {
     onHarvest(item.pair);
   }, [item, onHarvest]);
 
-  const handleApprove = useCallback(() => {
-    onApprove(item.pair);
-  }, [item, onApprove]);
+  const handleStake = useCallback(() => {
+    onStake({
+      pair: item.pair,
+      proportion: item.proportion,
+      stakedAmount: item.stakedAmount,
+      walletAmount: item.walletAmount,
+      walletAmountUSD: item.walletAmountUSD,
+    });
+  }, [item, onStake]);
+
+  const handleUnstake = useCallback(() => {
+    onUnstake(item.pair);
+  }, [item, onUnstake]);
 
   const { connected } = useAppSelector((state) => state.account);
 
@@ -228,11 +240,24 @@ export default function ResultCard({ item, onHarvest, onApprove }: Props) {
         <div className="AwiResultCard-actions">
           <div>
             <Typography className="AwiResultCard-pair">{formatLPPair(item.pair)}</Typography>
-            {connected ? <Button onClick={handleApprove}>{t('approve')}</Button> : <ConnectButton />}
+            <Box component="div" className="Awi-row" sx={{ gap: 6 }}>
+              {connected ? (
+                <>
+                  <Button variant="outlined" onClick={handleStake}>
+                    {t('stake')}
+                  </Button>
+                  <Button onClick={handleUnstake} disabled={true || !(item.stakedAmount > 0)}>
+                    {t('unstake')}
+                  </Button>
+                </>
+              ) : (
+                <ConnectButton />
+              )}
+            </Box>
           </div>
 
           <Button variant="text" size="small" onClick={handleDetailsToggle}>
-            {t('details')}{' '}
+            {t('details')}
             {<ExpandIcon fontSize="small" sx={{ transform: `rotate(${isDetailExpanded ? 180 : 0}deg)` }} />}
           </Button>
         </div>

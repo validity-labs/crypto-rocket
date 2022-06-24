@@ -26,7 +26,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 borrow-details:asset-section.title
                 <span
                   aria-label="borrow-details:asset-section.title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -139,7 +139,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="availableLiquidity"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
-                      53.42 m AWI
+                      53.420 m AWI
                     </p>
                   </div>
                 </div>
@@ -159,7 +159,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       aria-describedby="assetPrice"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-9"
                     >
-                      1.47  USD
+                      1.470  USD
                     </p>
                   </div>
                 </div>
@@ -223,11 +223,16 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 />
               </a>
               <button
-                class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root css-39"
+                class="MuiButtonBase-root css-39"
                 tabindex="0"
                 type="button"
+                variant="text"
               >
-                account.connect
+                <span
+                  class="LabConnectButton-content"
+                >
+                  account.connect
+                </span>
                 <span
                   class="MuiTouchRipple-root css-38"
                 />

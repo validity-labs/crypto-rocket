@@ -36,7 +36,7 @@ const Root = styled(Box)(({ theme }) => ({
     color: theme.palette.text.primary,
   },
   [theme.breakpoints.up('md')]: {
-    padding: theme.spacing(10, 20),
+    padding: theme.spacing(10, 11),
   },
 }));
 
@@ -78,7 +78,7 @@ export default function UnstakeCard({ balance, updateBalance, ...restOfProps }: 
     }
   }, [balance, library, account, chainId, updateBalance]);
 
-  console.log({ isDisabled });
+  // console.log({ isDisabled });
   return (
     <Root {...restOfProps}>
       <div className="AwiUnstakeCard-balance">

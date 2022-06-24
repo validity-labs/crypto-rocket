@@ -1,6 +1,7 @@
 /* @ts-nocheck */
-import { showMessage } from '@/app/state/slices/app';
 import { BigNumber } from 'ethers';
+
+import { showMessage } from '@/app/state/slices/app';
 
 export const handleTransactionSubmit = () => {
   // TODO PROROTYPE

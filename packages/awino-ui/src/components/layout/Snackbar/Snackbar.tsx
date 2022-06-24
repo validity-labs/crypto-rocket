@@ -13,7 +13,7 @@ function TransitionUp(props: TransitionProps) {
 
 const Snackbar = () => {
   const snackbar = useAppSelector((state) => state.app.snackbar);
-  const { message = null, alertProps = {} } = snackbar || {};
+  const { message = null, alertProps = {}, permanent = false } = snackbar || {};
   const dispatch = useAppDispatch();
   const [open, setOpen] = React.useState(false);
 
@@ -36,7 +36,7 @@ const Snackbar = () => {
   return (
     <MuiSnackbar
       open={open}
-      autoHideDuration={6000}
+      autoHideDuration={permanent ? null : 6000}
       onClose={handleClose}
       TransitionComponent={TransitionUp}
       color="primary"

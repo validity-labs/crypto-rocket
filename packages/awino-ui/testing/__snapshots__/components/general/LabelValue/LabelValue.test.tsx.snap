@@ -12,7 +12,7 @@ exports[`<LabelValue /> has valid snapshot 1`] = `
       Text
       <span
         aria-label="Tooltip"
-        class="help"
+        class="AwiLabel-help"
         data-mui-internal-clone-element="true"
       >
         <svg

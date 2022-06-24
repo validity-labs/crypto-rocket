@@ -6,10 +6,12 @@ import BigNumber from 'bignumber.js';
 
 import { PaletteMode, SvgIconProps } from '@mui/material';
 
+import { ProposalState } from '@/app/constants';
 export interface NextAppConfig extends NextConfig {
   serverRuntimeConfig?: {};
   publicRuntimeConfig: {
     baseDomain: string;
+    etherscanApiKey: string;
   };
 }
 
@@ -30,9 +32,11 @@ export type I18nPageNamespace =
   | 'podl'
   | 'analytics'
   | 'contracts'
-  | 'dashboard'
   | 'portfolio'
-  | 'infinite';
+  | 'infinite'
+  | 'governance'
+  | 'governance-details'
+  | 'create-proposal';
 
 export interface Breadcrumb {
   key: string;
@@ -74,6 +78,13 @@ export type AssetKeyPair = [string, string];
 
 // TODO make sure there is no item that has same asset key on both sides
 export type PairedAssetKey = string;
+
+export interface StaticImageData {
+  src: string;
+  height: number;
+  width: number;
+  blurDataURL?: string;
+}
 
 export interface ContractInfo {
   key: AssetKey;
@@ -156,4 +167,44 @@ export type StatsFormatter = { value: FormatterMethod; subValues?: FormatterMeth
 export interface Option {
   label: string;
   value: string | number;
+}
+
+export interface GovernanceInfo {
+  treasuryAmount: number;
+  treasuryAmountUSD: number;
+}
+interface ProposalDetail {
+  target: string;
+  functionSig: string;
+  callData: string;
+}
+
+export interface ProposalItem {
+  id: number;
+  title: string;
+  description: string;
+  startBlock: number;
+  endBlock?: number;
+  status: ProposalState;
+  forCount: number;
+  againstCount: number;
+  abstainCount: number;
+  createdBlock?: number;
+  quorumVotes: number;
+  eta?: Date;
+  // id: string | undefined;
+  // title: string;
+  // status: ProposalState;
+  // forCount: number;
+  // againstCount: number;
+  // abstainCount: number;
+  // createdBlock: number;
+  // startBlock: number;
+  // endBlock: number;
+  // eta: Date | undefined;
+  proposer: string | undefined;
+  // proposalThreshold: number;
+  // quorumVotes: number;
+  details: ProposalDetail[];
+  transactionHash: string;
 }

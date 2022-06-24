@@ -37,7 +37,7 @@ const Root = styled('div')(({ theme }) => ({
     margin: theme.spacing(10, 'auto', 0),
   },
   [theme.breakpoints.up('md')]: {
-    padding: theme.spacing(10, 20),
+    padding: theme.spacing(10, 11),
   },
 }));
 

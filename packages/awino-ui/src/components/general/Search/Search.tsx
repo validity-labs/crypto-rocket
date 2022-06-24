@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 
 import CloseIcon from '@mui/icons-material/CloseRounded';
-import { IconButton, Input, InputProps } from '@mui/material';
+import { IconButton, InputBase, InputProps } from '@mui/material';
 import { styled, Theme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 
@@ -13,35 +13,6 @@ import SearchIcon from '@/components/icons/SearchIcon';
 const Form = styled('form')({
   width: '100%',
 });
-
-const SearchInput = styled(Input)(({ theme }) => ({
-  padding: theme.spacing(0.75, 4),
-  border: '1px solid #546367',
-  borderRadius: +theme.shape.borderRadius * 3,
-  transition: '200ms ease-in',
-  input: {
-    padding: 0,
-    ...theme.typography.menu,
-    color: theme.palette.text.primary,
-    '&::placeholder': {
-      transition: '200ms ease-in',
-      color: theme.palette.text.secondary,
-    },
-  },
-  '&.Mui-focused': {
-    transition: '200ms ease-in',
-    border: '1px solid #0cbc9a',
-    input: {
-      '&::placeholder': {
-        color: theme.palette.text.primary,
-      },
-    },
-  },
-  '&.MuiInputBase-adornedEnd svg': {
-    color: '#0cbc9a',
-    fontSize: '24px',
-  },
-}));
 
 interface Props extends InputProps {
   // term: string;
@@ -74,7 +45,7 @@ export default function Search({ /* term, setTerm, */ onSearch, ...props }: Prop
 
   return (
     <Form noValidate autoComplete="off" onSubmit={handleSearch} data-testid="SearchForm" className="AwiSearch-root">
-      <SearchInput
+      <InputBase
         disableUnderline
         value={term}
         onChange={handleChange}

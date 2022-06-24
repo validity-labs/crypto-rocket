@@ -1,4 +1,5 @@
 import { ChartDataset, ChartOptions, Plugin } from 'chart.js';
+import Chart from 'chart.js/auto';
 import { random, round } from 'lodash';
 
 import { SHORT_DATE_FORMAT } from '@/app/constants';
@@ -186,6 +187,9 @@ export const getChartOptions = ({ annotation, tooltip }: GetChartOptionsProps): 
           return chartColorsMap[datasetIndex];
         },
       },
+    },
+    legend: {
+      display: false,
     },
   },
   interaction: {

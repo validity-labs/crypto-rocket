@@ -14,7 +14,9 @@ import Link from '@/components/general/Link/Link';
 import HoverMenu from './HoverMenu';
 import HoverMenuItem from './HoverMenuItem';
 
-const Root = styled(HoverMenu)(({ theme }) => ({}));
+const Root = styled(HoverMenu)(({ theme }) => ({
+  zIndex: theme.zIndex.appBar,
+}));
 interface Props {
   parentKey: string;
   i18nKey: string;

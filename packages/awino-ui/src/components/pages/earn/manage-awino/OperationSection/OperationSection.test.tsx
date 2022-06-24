@@ -26,6 +26,7 @@ describe('<OperationSection />', () => {
         stake={earnManageAwinoStake}
         lock={earnManageAwinoLock}
         statFormatters={statsFormatters}
+        updateBalance={() => {}}
       />,
       {},
       'earn-manage-awino'

@@ -8,7 +8,7 @@ exports[`<Label /> has valid snapshot 1`] = `
     Text
     <span
       aria-label="Hint"
-      class="help"
+      class="AwiLabel-help"
       data-mui-internal-clone-element="true"
     >
       <svg

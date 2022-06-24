@@ -113,7 +113,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
                   aria-describedby="timelineSectionInfo-total"
                   class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-12"
                 >
-                  3,661.92 m USD
+                  3661.920 m USD
                 </p>
               </div>
             </div>

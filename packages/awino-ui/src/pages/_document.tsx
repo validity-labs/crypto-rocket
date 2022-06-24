@@ -9,7 +9,7 @@ import createEmotionCache from '@/app/createEmotionCache';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang={this.props.__NEXT_DATA__.locale || 'en'}>
         <Head>
           {/* PWA primary color */}
           {/* <meta name="theme-color" content={theme.palette.primary.main} /> */}

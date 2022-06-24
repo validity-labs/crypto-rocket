@@ -151,7 +151,7 @@ export default function AssetSection(/* { total }: Props */) {
                   sx={{ mr: 4.5 }}
                   title={t(`asset-section.toggle-hint`)}
                 />
-                <Search onSearch={handleSearch} />
+                <Search onSearch={handleSearch} size="small" />
               </div>
             </>
           }

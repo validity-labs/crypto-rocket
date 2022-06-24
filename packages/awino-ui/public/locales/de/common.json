@@ -49,11 +49,16 @@
     "apr-hint": "MISSING HINT",
     "back": "Go back",
     "filter-by-name": "Filter by name",
-    "select-token": "Choose token",
+    "select-token": "Select a token",
     "convertion-from-to": "Convert from {{from}} to {{to}}",
     "close-modal": "Close Modal",
     "max": "Max",
     "view-on-etherscan": "View on etherscan"
+  },
+  "asset": {
+    "awi": "AWI",
+    "cro": "CRO",
+    "awicro": "AWICRO"
   },
   "format": {
     "date": "dd-MM-yyyy",
@@ -95,25 +100,13 @@
       },
       "podl": {
         "title": "Podl"
-      },
-      "more": {
-        "title": "More",
-        "analytics": "Analytics",
-        "docs": "Docs",
-        "launchpad": "Launchpad"
       }
     },
     "language": {
       "toggle-label": "Change language"
     },
     "settings": {
-      "toggle-label": "Application settings",
-      "profile": {
-        "title": "Profile"
-      },
-      "activity": {
-        "title": "Activity"
-      }
+      "toggle-label": "Application settings"
     },
     "more": {
       "toggle-label": "Additional Links",
@@ -125,13 +118,17 @@
         "title": "Contracts",
         "description": "View contract related information"
       },
-      "dashboard": {
-        "title": "Dashboard",
-        "description": "View your staked AWI tokens"
-      },
       "portfolio": {
         "title": "Portfolio",
         "description": "View your portfolio of related assets"
+      },
+      "governance": {
+        "title": "Governance",
+        "description": "MISSING TEXT"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "MISSING TEXT"
       }
     },
     "social": {

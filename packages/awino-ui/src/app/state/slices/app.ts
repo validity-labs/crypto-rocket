@@ -12,6 +12,7 @@ import { I18nPageNamespace, ThemeMode } from '@/types/app';
 interface SnackbarState {
   message: React.ReactNode;
   alertProps?: Pick<AlertProps, 'severity'>;
+  permanent?: boolean;
 }
 
 interface AppState {

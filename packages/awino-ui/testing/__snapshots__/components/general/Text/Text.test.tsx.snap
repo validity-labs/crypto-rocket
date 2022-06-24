@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <p
+    class="MuiTypography-root MuiTypography-body AwiText-root AwiText-highlighted css-0"
+  >
+    Text
+  </p>
+</DocumentFragment>
+`;

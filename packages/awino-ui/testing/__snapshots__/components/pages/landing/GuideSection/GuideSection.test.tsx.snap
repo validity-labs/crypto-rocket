@@ -83,7 +83,7 @@ exports[`<GuideSection /> has valid snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-17 css-5"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-17 css-13"
         >
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-14"
@@ -117,7 +117,7 @@ exports[`<GuideSection /> has valid snapshot 1`] = `
               <div
                 class="image"
               >
-                {"src":"/images/pages/landing/dashboard.png","alt":"","width":"834","height":"490","placeholder":"empty"}
+                {"src":"/images/pages/landing/guide1.png","alt":"","width":"834","height":"490","placeholder":"empty"}
               </div>
             </div>
           </div>
@@ -152,37 +152,12 @@ exports[`<GuideSection /> has valid snapshot 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
           >
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 media3 css-25"
+              class="media3"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 tree css-10"
+                class="image"
               >
-                <div
-                  class="media-card media-card-tree"
-                >
-                  <div
-                    class="image"
-                  >
-                    {"src":"/images/pages/landing/tree.png","alt":"","width":"140","height":"224","placeholder":"empty"}
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
-              />
-              <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
-              >
-                <div
-                  class="media-card"
-                />
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10"
-              >
-                <div
-                  class="media-card media-card-last"
-                />
+                {"src":"/images/pages/landing/guide2.png","alt":"","width":"834","height":"490","placeholder":"empty"}
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 analytics:platform-section.daily-fees.title
                 <span
                   aria-label="analytics:platform-section.daily-fees.title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -410,7 +410,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 analytics:platform-section.stats.title
                 <span
                   aria-label="analytics:platform-section.stats.title-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -449,7 +449,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   aria-describedby="totalDeposits"
                   class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
                 >
-                  1.23 m USD
+                  1.230 m USD
                 </p>
               </div>
               <div
@@ -465,7 +465,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   aria-describedby="totalBorrow"
                   class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
                 >
-                  438.4 k USD
+                  438.400 k USD
                 </p>
               </div>
               <div
@@ -478,7 +478,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   analytics:platform-section.stats.health-ratio
                   <span
                     aria-label="analytics:platform-section.stats.health-ratio-hint"
-                    class="help"
+                    class="AwiLabel-help"
                     data-mui-internal-clone-element="true"
                   >
                     <svg
@@ -517,7 +517,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   analytics:platform-section.stats.total-fees
                   <span
                     aria-label="analytics:platform-section.stats.total-fees-hint"
-                    class="help"
+                    class="AwiLabel-help"
                     data-mui-internal-clone-element="true"
                   >
                     <svg
@@ -543,7 +543,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   aria-describedby="totalPlatformFee"
                   class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
                 >
-                  3.43 m USD
+                  3.430 m USD
                 </p>
               </div>
             </div>

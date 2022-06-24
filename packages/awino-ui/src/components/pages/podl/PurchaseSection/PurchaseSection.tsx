@@ -23,7 +23,7 @@ export interface PodlPurchaseData {
 }
 
 const data: PodlPurchaseData = {
-  source: 'ftm',
+  source: 'cro',
   target: 'awicro',
   rate: new BigNumber(1.31),
   oldRate: new BigNumber(1.21),
@@ -42,7 +42,7 @@ const treasury = {
   totalShare: 3.39,
   inTreasury: {
     asset: 'awicro',
-    match: 'ftm',
+    match: 'cro',
     value: 83.4233,
     assetInUSD: 123.3,
   },
@@ -53,13 +53,13 @@ const treasury = {
       assetInUSD: 123.3,
     },
     {
-      asset: 'ftm',
+      asset: 'cro',
       value: 83.4233,
       assetInUSD: 123.3,
     },
   ],
   totalSold: {
-    asset: 'ftm',
+    asset: 'cro',
     value: 83.4233,
     assetInUSD: 123.3,
   },

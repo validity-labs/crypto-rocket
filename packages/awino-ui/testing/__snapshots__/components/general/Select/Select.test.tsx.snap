@@ -3,29 +3,23 @@
 exports[`<Select /> has valid snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiFormControl-root MuiBox-root css-0"
+    class="MuiFormControl-root MuiFormControl-fullWidth css-0"
   >
     <div
-      aria-label=""
-      class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1"
+      class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1"
     >
       <div
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-labelledby="demo-simple-select"
+        aria-labelledby="selectLabel select"
         class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input css-2"
-        id="demo-simple-select"
+        id="select"
         role="button"
         tabindex="0"
       >
         <p
-          class="MuiTypography-root MuiTypography-body MuiSelect-value css-3"
+          class="MuiTypography-root MuiTypography-body-ms MuiSelect-value css-3"
         >
-          <img
-            alt=""
-            src="/images/assets/1.svg"
-            width="24"
-          />
           First
         </p>
       </div>

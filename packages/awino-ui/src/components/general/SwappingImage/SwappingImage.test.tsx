@@ -18,7 +18,7 @@ afterEach(cleanup);
 
 describe('<SwappingImage />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<SwappingImage source="ftm" target="awi" />);
+    const { asFragment } = render(<SwappingImage source="awi" target="cro" />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

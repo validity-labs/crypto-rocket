@@ -3,8 +3,59 @@
     "title": "Portfolio",
     "description": "MISSING DESCRIPTION"
   },
+  "common": {
+    "portfolio": "Portfolio",
+    "charts-view": "Charts view",
+    "tabs-aria": "Switch between portfolio and charts view"
+  },
+  "total-section": {
+    "items": [
+      {
+        "title": "Market cap",
+        "value": "{{v}}"
+      },
+      {
+        "title": "Total valued locked",
+        "value": "{{v}}"
+      },
+      {
+        "title": "Total valued staked",
+        "value": "{{v}}"
+      }
+    ]
+  },
+  "info-section": {
+    "title": "Dashboard",
+    "borrow-limit": "Borrow limit",
+    "items": [
+      {
+        "title": "Deposit balance",
+        "value": "{{v}}"
+      },
+      {
+        "title": "NET APY",
+        "value": "{{v}}"
+      },
+      {
+        "title": "Borrow balance",
+        "value": "{{v}}"
+      }
+    ]
+  },
+  "asset-section": {
+    "asset-type-hint": "MISSING TEXT",
+    "title": {
+      "deposit": "Your deposits",
+      "borrow": "Your borrows"
+    },
+    "fields": {
+      "asset": "Asset",
+      "wallet-balance": "Your wallet balance",
+      "apy": "APY",
+      "collateral": "Collateral"
+    }
+  },
   "balance-section": {
-    "title": "My portfolio",
     "group-tokens": "Token balances",
     "group-pool": "Pool balances",
     "group-stable-coins": "Stable balances",
