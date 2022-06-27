@@ -79,7 +79,7 @@ interface Props {
 
 export default function PurchasePanel({ data }: Props) {
   const t = usePageTranslation();
-  const { source, sourceLabel, maxSource, target, targetLabel, rate } = data;
+  const { source: from, maxSource, target: to, rate } = data;
 
   const [sourceValue, setSourceValue] = useState('0');
   const [error, setError] = useState(false);
@@ -119,18 +119,14 @@ export default function PurchasePanel({ data }: Props) {
     <Root
       header={
         <Label id="purchaseTitle" className="label" component="h2" tooltip={t(`purchase-section.purchase.title-hint`)}>
-          {t(`purchase-section.purchase.title`, { from: sourceLabel, to: targetLabel })}
+          {t(`purchase-section.purchase.title`, { from, to })}
         </Label>
       }
     >
-      <Typography className="minimum">
-        {t(`purchase-section.purchase.info`, { from: sourceLabel, to: targetLabel, price: rate })}
-      </Typography>
+      <Typography className="minimum">{t(`purchase-section.purchase.info`, { from, to, price: rate })}</Typography>
       <div className="convertor">
         <FormControl variant="standard" fullWidth error={error} /* disabled={loading || executing || !sourceAsset} */>
-          <FormLabel htmlFor="sourceValue">
-            {t('purchase-section.purchase.source-label', { from: sourceLabel })}
-          </FormLabel>
+          <FormLabel htmlFor="sourceValue">{t('purchase-section.purchase.source-label', { from })}</FormLabel>
           <NumberInput
             id="sourceValue"
             name="sourceValue"
@@ -143,8 +139,8 @@ export default function PurchasePanel({ data }: Props) {
             onChange={handleSourceChange}
             endAdornment={
               <div className="adornment">
-                <img src={`/images/assets/${source}.svg`} alt="" />
-                <span>{t(`asset.${source}`, { ns: 'common' })}</span>
+                <img src={`/images/assets/${from}.svg`} alt="" />
+                <span>{t(`asset.${from}`, { ns: 'common' })}</span>
               </div>
             }
           />
@@ -154,9 +150,9 @@ export default function PurchasePanel({ data }: Props) {
           <Typography variant="body-md" color="text.primary">
             {formatAmount(targetValue)}
           </Typography>
-          <SwappingImage source={source} target={target} path="assets" size="medium" />
+          <SwappingImage source={from} target={to} path="assets" size="medium" />
           <Typography variant="body-md" color="text.primary">
-            {t(`asset.${target}`, { ns: 'common' })}
+            {t(`asset.${to}`, { ns: 'common' })}
           </Typography>
         </div>
       </div>

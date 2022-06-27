@@ -29,7 +29,7 @@ export default function InfoPanel({ data }: Props) {
     <Panel
       header={
         <Label id="infoTitle" className="label" component="h2" tooltip={t(`purchase-section.info.title-hint`)}>
-          {t(`purchase-section.info.title`, { from: from.toUpperCase(), to: to.toUpperCase() })}
+          {t(`purchase-section.info.title`, { from, to })}
         </Label>
       }
     >
@@ -48,7 +48,7 @@ export default function InfoPanel({ data }: Props) {
             </TableRow>
 
             <TableRow>
-              <TableCell>{t('purchase-section.info.offered-price', { to: to.toUpperCase() })}</TableCell>
+              <TableCell>{t('purchase-section.info.offered-price', { to })}</TableCell>
               <TableCell sx={{ display: 'flex', flexWrap: 'wrap' }}>
                 <Typography component="span" color="text.primary" fontWeight={500} mr={5}>
                   {formatUSD(offeredPrice)}

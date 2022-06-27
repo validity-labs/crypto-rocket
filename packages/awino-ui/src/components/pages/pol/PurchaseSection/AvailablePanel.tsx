@@ -25,11 +25,11 @@ interface Props {
 
 export default function AvailablePanel({ data }: Props) {
   const t = usePageTranslation();
-  const { source, sourceLabel, maxSource, maxSourceInUSD } = data;
+  const { source, maxSource, maxSourceInUSD } = data;
 
   return (
     <Root>
-      <Label component="h2">{t(`purchase-section.buyable`, { from: sourceLabel })}</Label>
+      <Label component="h2">{t(`purchase-section.buyable`, { from: source })}</Label>
       <AssetAmount
         asset={source}
         value={maxSource}
