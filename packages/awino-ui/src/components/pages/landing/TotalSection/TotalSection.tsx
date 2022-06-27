@@ -39,12 +39,12 @@ export default function TotalSection({ items }: Props) {
   return (
     <Root containerProps={{ maxWidth: 'lg' }}>
       <Grid container alignItems="center" spacing={10}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={3}>
           <Typography variant="h3" component="h1" color="text.active" fontWeight={700}>
             {t('total-section.title')}
           </Typography>
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={9}>
           <StatsItems
             items={items}
             maxWidth="lg"
