@@ -59,7 +59,7 @@ export const StatsItem = memo(function StatsItem({ item, formatters, index, glan
           className="AwiStatsItem-value"
         >
           {glanced ? (
-            <CountUp delay={0} end={value} duration={2} decimals={2} formattingFn={formatter}>
+            <CountUp delay={0} end={value} duration={2} decimals={3} formattingFn={formatter}>
               {({ countUpRef }) => <span ref={countUpRef} />}
             </CountUp>
           ) : (

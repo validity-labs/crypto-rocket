@@ -29,7 +29,7 @@ export type I18nPageNamespace =
   | 'borrow'
   | 'borrow-details'
   | 'swap'
-  | 'podl'
+  | 'pol'
   | 'analytics'
   | 'contracts'
   | 'portfolio'

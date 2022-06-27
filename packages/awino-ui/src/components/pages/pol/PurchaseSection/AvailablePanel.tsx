@@ -8,7 +8,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 
 import Panel from '../../../general/Panel/Panel';
 
-import { PodlPurchaseData } from './PurchaseSection';
+import { PolPurchaseData } from './PurchaseSection';
 
 const Root = styled(Panel)(({ theme }) => ({
   '.AwiPanel-content': {
@@ -20,16 +20,16 @@ const Root = styled(Panel)(({ theme }) => ({
 }));
 
 interface Props {
-  data: PodlPurchaseData;
+  data: PolPurchaseData;
 }
 
 export default function AvailablePanel({ data }: Props) {
   const t = usePageTranslation();
-  const { source, sourceLabel, maxSource, maxSourceInUSD } = data;
+  const { source, maxSource, maxSourceInUSD } = data;
 
   return (
     <Root>
-      <Label component="h2">{t(`purchase-section.buyable`, { from: sourceLabel })}</Label>
+      <Label component="h2">{t(`purchase-section.buyable`, { from: source })}</Label>
       <AssetAmount
         asset={source}
         value={maxSource}

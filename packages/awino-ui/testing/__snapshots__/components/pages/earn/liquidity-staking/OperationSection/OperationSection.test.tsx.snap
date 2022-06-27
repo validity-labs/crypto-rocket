@@ -45,7 +45,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                   <img
                     alt=""
                     class="target AwiSwappingImage-target"
-                    src="/images/assets/dai.svg"
+                    src="/images/assets/usdt.svg"
                   />
                 </div>
                 <input
@@ -113,7 +113,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                 <img
                   alt=""
                   class="target AwiSwappingImage-target"
-                  src="/images/assets/dai.svg"
+                  src="/images/assets/usdt.svg"
                 />
               </div>
               <p
@@ -156,7 +156,7 @@ exports[`<OperationSection /> has valid snapshot 1`] = `
                 <img
                   alt=""
                   class="target AwiSwappingImage-target"
-                  src="/images/assets/dai.svg"
+                  src="/images/assets/usdt.svg"
                 />
               </div>
               <p

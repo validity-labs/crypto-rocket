@@ -96,9 +96,12 @@ export const formatAmount = (amount: BigNumber | number, { prefix, postfix }: Fo
   const outputPrefix = prefix ? `${prefix} ` : '';
   const outputPostfix = postfix ? ` ${postfix}` : '';
 
-  return `${outputPrefix}${
-    n.toFixed(3) // n.toFormat(/* { groupSize: 3, decimalSeparator: '.', groupSeparator: ',' } */)
-  }${outputPostfix}`;
+  // .toFixed(3)
+  return `${outputPrefix}${n.toFormat(3, {
+    groupSize: 3,
+    decimalSeparator: '.',
+    groupSeparator: ',',
+  })}${outputPostfix}`;
 };
 
 var ranges = [
@@ -128,6 +131,7 @@ export const formatCurrency = (amount: string | number, currency: string) => {
   return formatAmount(num, { /* prefix: '$', */ postfix: [suffix, currency].join(' ') });
 };
 export const formatUSD = (amount: BigNumber | number) => formatCurrency(amount.toString(), 'USD');
+export const formatUSDFull = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'USD' });
 export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
 // export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
 

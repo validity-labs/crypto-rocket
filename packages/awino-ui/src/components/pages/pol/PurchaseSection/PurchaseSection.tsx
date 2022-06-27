@@ -11,55 +11,55 @@ import InfoPanel from './InfoPanel';
 import PurchasePanel from './PurchasePanel';
 import TreasurePanel from './TreasurePanel';
 
-export interface PodlPurchaseData {
+export interface PolPurchaseData {
   source: AssetKey;
   target: AssetKey;
   rate: BigNumber;
   oldRate: BigNumber;
   maxSource: BigNumber;
   maxSourceInUSD: BigNumber;
-  get sourceLabel(): string;
-  get targetLabel(): string;
+  // get sourceLabel(): string;
+  // get targetLabel(): string;
 }
 
-const data: PodlPurchaseData = {
-  source: 'cro',
-  target: 'awicro',
+const data: PolPurchaseData = {
+  source: 'usdt',
+  target: 'awiusdt',
   rate: new BigNumber(1.31),
   oldRate: new BigNumber(1.21),
   maxSource: new BigNumber(99.5),
   maxSourceInUSD: new BigNumber(199.5),
-  get sourceLabel() {
-    return this.source.toUpperCase();
-  },
-  get targetLabel() {
-    return this.target.toUpperCase();
-  },
+  // get sourceLabel() {
+  //   return this.source.toUpperCase();
+  // },
+  // get targetLabel() {
+  //   return this.target.toUpperCase();
+  // },
 };
 
 const treasury = {
   amount: 1.31,
   totalShare: 3.39,
   inTreasury: {
-    asset: 'awicro',
-    match: 'cro',
+    asset: 'awiusdt',
+    match: 'usdt',
     value: 83.4233,
     assetInUSD: 123.3,
   },
   breakdown: [
     {
-      asset: 'awicro',
+      asset: 'awiusdt',
       value: 83.4233,
       assetInUSD: 123.3,
     },
     {
-      asset: 'cro',
+      asset: 'usdt',
       value: 83.4233,
       assetInUSD: 123.3,
     },
   ],
   totalSold: {
-    asset: 'cro',
+    asset: 'usdt',
     value: 83.4233,
     assetInUSD: 123.3,
   },
@@ -74,7 +74,7 @@ export default function PurchaseSection() {
         {t('purchase-section.title')}
       </Typography>
       <Typography variant="body" color="text.primary" mb={16}>
-        {t('purchase-section.description', { from: data.source.toUpperCase(), to: data.target.toUpperCase() })}
+        {t('purchase-section.description', { from: data.source, to: data.target })}
       </Typography>
       <Grid container columnSpacing={9} rowSpacing={15}>
         <Grid item xs={12} md={7}>

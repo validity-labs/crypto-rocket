@@ -1,0 +1,37 @@
+{
+  "page": {
+    "title": "Pol",
+    "description": "MISSING DESCRIPTION"
+  },
+  "purchase-section": {
+    "title": "Protocol owned liquidity module",
+    "description": "Sell $t(common:asset.{{to}}) LP tokens directly to the protocol for a 12% premium.\n\n 50% of the $t(common:asset.{{from}}) treasury rewards (earned from borrowing fees) are redirected to purchase these LP tokens which are locked forever, ensuring healthy ongoing liquidity for the protocol.",
+    "buyable": "Buyable $t(common:asset.{{from}})",
+    "info": {
+      "title": "Buy $t(common:asset.{{from}}) with $t(common:asset.{{to}}) LP tokens",
+      "title-hint": "MISSING TEXT",
+      "description": "Description",
+      "token-price": "Token price",
+      "current-price": "Current LP token price",
+      "offered-price": "The price $t(common:asset.{{to}}) finance is offering per LP token"
+    },
+    "purchase": {
+      "title": "Buy $t(common:asset.{{from}}) with $t(common:asset.{{to}}) LP tokens",
+      "title-hint": "MISSING TEXT",
+      "info": "The minimum buy amount is 1 $t(common:asset.{{from}}). This is currently {{price}} $t(common:asset.{{to}}).",
+      "source-label": "How much $t(common:asset.{{from}}) do you want to buy?",
+      "approve": "Approve",
+      "create-proposal": "Create Proposal"
+    },
+    "treasury": {
+      "title": "Treasury",
+      "info": "Treasury information",
+      "view-contract": "View smart contract",
+      "total-share": "Total share in Treasury",
+      "total-share-hint": "MISSING TEXT",
+      "in-treasure": "In Treasure",
+      "breakdown": "Breakdown",
+      "total-source-sold": "Total $t(common:asset.{{from}}) sold"
+    }
+  }
+}
