@@ -7,6 +7,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import useSWR from 'swr';
+
 import { CacheProvider, EmotionCache } from '@emotion/react';
 
 import { PROTECTED_ROUTES } from '@/app/constants';
@@ -19,6 +21,8 @@ import Web3Provider from '@/app/providers/Web3Provider';
 import { toggleConnector } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Layout from '@/components/layout/Layout/Layout';
+import { ExampleAPIFetchResponse, EXAMPLE_API_QUERY } from '@/lib/graphql/api/farm';
+import { fetcher } from '@/lib/graphql/helpers';
 import { I18nPageNamespace, Language } from '@/types/app';
 
 // import { UserRejectedRequestError as UserRejec
@@ -67,6 +71,9 @@ function MyApp(props: MyAppProps) {
       }
     }
   }, [isAppInitialized, isAccountConnected, dispatch, isPageProtected]);
+
+  const { data, error } = useSWR<ExampleAPIFetchResponse>([EXAMPLE_API_QUERY], fetcher);
+  console.log(data, error);
 
   /*
     intercept page navigation (internal link click) to trigger showing connect
