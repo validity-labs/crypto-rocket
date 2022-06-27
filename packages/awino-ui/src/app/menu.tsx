@@ -33,8 +33,8 @@ export const mainMenuLinks: MenuItemType[] = [
   },
   {
     type: 'internal',
-    key: 'podl',
-    url: '/podl',
+    key: 'pol',
+    url: '/pol',
   },
   // {
   //   type: 'group',

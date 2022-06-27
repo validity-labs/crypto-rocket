@@ -11,7 +11,7 @@ import InfoPanel from './InfoPanel';
 import PurchasePanel from './PurchasePanel';
 import TreasurePanel from './TreasurePanel';
 
-export interface PodlPurchaseData {
+export interface PolPurchaseData {
   source: AssetKey;
   target: AssetKey;
   rate: BigNumber;
@@ -22,7 +22,7 @@ export interface PodlPurchaseData {
   get targetLabel(): string;
 }
 
-const data: PodlPurchaseData = {
+const data: PolPurchaseData = {
   source: 'cro',
   target: 'awicro',
   rate: new BigNumber(1.31),

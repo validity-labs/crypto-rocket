@@ -13,7 +13,7 @@ import { formatAmount } from '@/lib/formatters';
 import Panel from '../../../general/Panel/Panel';
 import NumberInput from '../../swap/SwapSection/NumberInput';
 
-import { PodlPurchaseData } from './PurchaseSection';
+import { PolPurchaseData } from './PurchaseSection';
 
 const Root = styled(Panel)(({ theme }) => ({
   '.minimum': {
@@ -74,7 +74,7 @@ const Root = styled(Panel)(({ theme }) => ({
   },
 }));
 interface Props {
-  data: PodlPurchaseData;
+  data: PolPurchaseData;
 }
 
 export default function PurchasePanel({ data }: Props) {

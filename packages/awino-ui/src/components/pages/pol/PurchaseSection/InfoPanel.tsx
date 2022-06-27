@@ -16,10 +16,10 @@ import { formatUSD } from '@/lib/formatters';
 
 import Panel from '../../../general/Panel/Panel';
 
-import { PodlPurchaseData } from './PurchaseSection';
+import { PolPurchaseData } from './PurchaseSection';
 
 interface Props {
-  data: PodlPurchaseData;
+  data: PolPurchaseData;
 }
 export default function InfoPanel({ data }: Props) {
   const t = usePageTranslation();

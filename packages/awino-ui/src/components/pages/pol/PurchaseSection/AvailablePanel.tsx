@@ -8,7 +8,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 
 import Panel from '../../../general/Panel/Panel';
 
-import { PodlPurchaseData } from './PurchaseSection';
+import { PolPurchaseData } from './PurchaseSection';
 
 const Root = styled(Panel)(({ theme }) => ({
   '.AwiPanel-content': {
@@ -20,7 +20,7 @@ const Root = styled(Panel)(({ theme }) => ({
 }));
 
 interface Props {
-  data: PodlPurchaseData;
+  data: PolPurchaseData;
 }
 
 export default function AvailablePanel({ data }: Props) {

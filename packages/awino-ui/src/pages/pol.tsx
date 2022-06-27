@@ -6,9 +6,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
-import PurchaseSection from '@/components/pages/podl/PurchaseSection/PurchaseSection';
+import PurchaseSection from '@/components/pages/pol/PurchaseSection/PurchaseSection';
 
-const PodlPage: NextPage = () => {
+const PolPage: NextPage = () => {
   return (
     <>
       <Seo />
@@ -18,7 +18,7 @@ const PodlPage: NextPage = () => {
 };
 
 export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale }) => {
-  const ns = 'podl';
+  const ns = 'pol';
   await store.dispatch(setPageI18nNamespace(ns));
 
   return {
@@ -28,4 +28,4 @@ export const getServerSideProps = storeWrapper.getServerSideProps((store) => asy
   };
 });
 
-export default PodlPage;
+export default PolPage;
