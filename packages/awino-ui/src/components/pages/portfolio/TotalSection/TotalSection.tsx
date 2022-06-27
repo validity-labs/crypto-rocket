@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 
 import Section from '@/components/layout/Section/Section';
-import { formatUSD } from '@/lib/formatters';
+import { formatUSDFull } from '@/lib/formatters';
 import { StatsData, StatsFormatter } from '@/types/app';
 
 import StatsItems from '../../shared/FormattedStatsItems/StatsItems';
@@ -29,7 +29,11 @@ interface Props {
   items: StatsData;
 }
 
-export const statsFormatters: StatsFormatter[] = [{ value: formatUSD }, { value: formatUSD }, { value: formatUSD }];
+export const statsFormatters: StatsFormatter[] = [
+  { value: formatUSDFull },
+  { value: formatUSDFull },
+  { value: formatUSDFull },
+];
 
 export default function TotalSection({ items }: Props) {
   return (

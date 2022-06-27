@@ -47,7 +47,7 @@ export const balanceGroupedList: BalanceGrouped = {
   ],
 };
 
-export const dashboardTotalStats: StatsData = [{ value: 493230 }, { value: 93430 }, { value: 1433.44 }];
+export const dashboardTotalStats: StatsData = [{ value: 493230.123 }, { value: 93430.123 }, { value: 1433.44 }];
 
 export const dashboardInfo: DashboardInfoData = {
   borrowLimit: {
