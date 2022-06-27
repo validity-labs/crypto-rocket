@@ -184,6 +184,11 @@ export default function AssetSection(/* { total }: Props */) {
               components={{
                 Pagination: GridPagination,
               }}
+              componentsProps={{
+                row: {
+                  className: 'Awi-selectable',
+                },
+              }}
               localeText={{
                 columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),
                 footerTotalVisibleRows: (visibleCount, totalCount) =>

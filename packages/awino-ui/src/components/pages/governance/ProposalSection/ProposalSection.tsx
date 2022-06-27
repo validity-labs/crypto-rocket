@@ -105,6 +105,11 @@ export default function ProposalSection({}: /* info, loading */ Props) {
             components={{
               Pagination: GridPagination,
             }}
+            componentsProps={{
+              row: {
+                className: 'Awi-selectable',
+              },
+            }}
           />
         </div>
       </Panel>
