@@ -1,6 +1,10 @@
-import React, { useCallback, useReducer, useState } from 'react';
+import React, { useCallback, useReducer, useState, useEffect } from 'react';
 
 import { useTranslation } from 'next-i18next';
+
+import { useWeb3React } from '@web3-react/core';
+import BigNumber from 'bignumber.js';
+import { ethers } from 'ethers';
 
 import { Typography, Button, FormControl, FormHelperText } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -12,6 +16,10 @@ import Text from '@/components/general/Text/Text';
 import NumberInput from '@/components/inputs/NumberInput/NumberInput';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import useSnack from '@/hooks/useSnack';
+import { ChainId } from '@/lib/blockchain';
+import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
+import { AWINO_MASTER_CHEF_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
+import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 import { formatAWI, formatLPPair, formatPercent, formatUSD } from '@/lib/formatters';
 import { AssetKey, AssetKeyPair } from '@/types/app';
 
@@ -53,9 +61,9 @@ const Root = styled(Modal)(({ theme }) => ({
 export interface StakeModalData {
   pair: AssetKeyPair;
   proportion: number;
-  walletAmount: number;
-  walletAmountUSD: number;
-  stakedAmount: number;
+  walletAmount: string;
+  walletAmountUSD: string;
+  stakedAmount: string;
 }
 
 interface Props {
@@ -64,6 +72,8 @@ interface Props {
   data: StakeModalData;
   // info: CollateralInfo;
   callback: (asset: AssetKey) => void;
+  poolAddress: string;
+  pid: number;
 }
 
 // TODO PROROTYPE
@@ -111,16 +121,54 @@ function reducer(_state: StepState, actionType: Step) {
   }
 }
 
-export default function StakeModal({ open, close, data, callback }: Props) {
+export default function StakeModal({ open, close, data, callback, poolAddress, pid }: Props) {
   const t = usePageTranslation({ keyPrefix: 'stake-modal' });
   const { t: tRaw } = useTranslation();
   // const [transactionAddress, setTransactionAddress] = useState<string | null>(null);
   const [{ /* step, */ isProcessing, isCompleted, isError }, setStep] = useReducer(reducer, defaultStepState);
   const { pair, proportion, walletAmount, walletAmountUSD } = data;
-  const [amount, setAmount] = useState<number | undefined>();
+  const [amount, setAmount] = useState<string | undefined>();
   const snack = useSnack();
+
+  const { account, library, chainId, connector } = useWeb3React();
+  const [loading, setLoading] = useState(true);
+  const [balance, setBalance] = useState<string>('0');
+  const [stakedBalance, setStakedBalance] = useState<string>('0');
+  const [approve, setApprove] = useState(false);
+
+  const amountBN = new BigNumber(amount);
+  const isValid = amountBN.isGreaterThan(0) && amountBN.isLessThan(walletAmount);
+
+  const updateBalance = useCallback(
+    async (acount: string, library: any, chainId: number) => {
+      const fetchBalance = async () => {
+        const contract = new ethers.Contract(poolAddress, erc20AbiJson, library);
+        const balance = await contract.balanceOf(account);
+        setBalance(ethers.utils.formatEther(balance.toString()));
+      };
+
+      const fetchStakedBalance = async () => {
+        const contract = new ethers.Contract(AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET], IAwinoMasterChef, library);
+        const balance = await contract.userInfo(pid, account);
+        console.log({ account, balance });
+        setStakedBalance(ethers.utils.formatEther(balance.amount.toString()));
+      };
+
+      setLoading(true);
+      fetchBalance();
+      fetchStakedBalance();
+      setLoading(false);
+    },
+    [account, pid, poolAddress]
+  );
+
+  // Set balance
+  useEffect(() => {
+    updateBalance(account, library, chainId);
+  }, [account, library, chainId, updateBalance]);
+
   const handleSubmit = useCallback(async () => {
-    if (!(amount > 0 && amount <= walletAmount)) {
+    if (!(amountBN.isGreaterThan(0) && amountBN.isLessThan(walletAmount))) {
       return;
     }
     setStep('confirmation');
@@ -144,18 +192,17 @@ export default function StakeModal({ open, close, data, callback }: Props) {
       snack(t('message.success'), 'success');
       close();
     }
-  }, [t, snack, close, amount, walletAmount]);
+  }, [t, snack, close, amountBN, walletAmount]);
 
   const handleAmountMaxClick = () => {
-    setAmount(walletAmount);
+    setAmount(balance);
   };
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = +event.target.value;
+    const newValue = event.target.value;
     setAmount(newValue);
   };
 
-  const isValid = amount > 0 && amount <= walletAmount;
   return (
     <Root
       id="stakeModal"
@@ -208,7 +255,7 @@ export default function StakeModal({ open, close, data, callback }: Props) {
                 {formatAWI(walletAmount)}
               </Typography>
               <Typography variant="body-xs" fontWeight="medium">
-                {formatUSD(walletAmountUSD)}
+                {formatUSD(new BigNumber(walletAmountUSD))}
               </Typography>
             </div>
           </div>

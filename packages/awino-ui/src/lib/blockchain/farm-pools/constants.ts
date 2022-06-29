@@ -10,6 +10,11 @@ export const AWINO_DAI_PAIR_ADDRESS_MAP = {
   [ChainId.TESTNET]: '0x458a4bEb8C8020131591549440eDdE6d2d1c8212',
 };
 
+export const AWINO_WETH_PAIR_ADDRESS_MAP = {
+  [ChainId.MAINNET]: '',
+  [ChainId.TESTNET]: '0x05Ec7ac6c5E47b23D1CD9E86a4561eC5a8c90BDA',
+};
+
 export const AWINO_MASTER_CHEF_ADDRESS_MAP = {
   [ChainId.MAINNET]: '',
   [ChainId.TESTNET]: '0x05E2469A991772DC29E00C3E2616ab08A0A99f1B',
@@ -24,3 +29,33 @@ export const AWINO_MAKER_ADDRESS_MAP = {
   [ChainId.MAINNET]: '',
   [ChainId.TESTNET]: '0x377eBC8b468b3cb18207522d43f413641dda4d65',
 };
+
+export interface FarmPool {
+  pid: number;
+  tokens: string[];
+  lpTokenAddress: string;
+}
+
+export const farms: Map<ChainId, FarmPool[]> = new Map([
+  [
+    ChainId.TESTNET,
+    [
+      {
+        pid: 0,
+        tokens: ['AWI', 'USDT'],
+        lpTokenAddress: '',
+      },
+      {
+        pid: 1,
+        tokens: ['AWI', 'DAI'],
+        lpTokenAddress: '0x458a4bEb8C8020131591549440eDdE6d2d1c8212',
+      },
+      {
+        pid: 2,
+        tokens: ['AWI', 'WETH'],
+
+        lpTokenAddress: '0x05Ec7ac6c5E47b23D1CD9E86a4561eC5a8c90BDA',
+      },
+    ],
+  ],
+]);
