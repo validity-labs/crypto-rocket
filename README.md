@@ -71,6 +71,13 @@ _Enviroment variables are in `extra/config/awino-ui/.env.development`_
 
 ## Run the `graph-node` 
 
+## Prerequisites
+Before diving into setting up a Graph Node, you need to have the following installed on your system:
+
+Docker
+Docker Compose
+JQ
+
 1. 
   ```bash
     cd ./graph-node/docker
@@ -89,6 +96,12 @@ TheGraph exposes a GraphQL endpoint to query the events and entities within the 
 
 Currently, there are multiple subgraphs, but additional subgraphs can be added to this repository, following the current architecture.
 
+>Before deploying a subgraph for first time, you need to create it: 
+
+  ```bash
+    graph create --node http://localhost:8020 awino/<<SUBGRAPH_NAME>>
+  ```
+  
 ## Subgraphs 
 
 1. **[Exchange](#)**: Tracks all Awino Exchange data with price, volume, liquidity, ...
