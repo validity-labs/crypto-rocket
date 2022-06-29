@@ -1,5 +1,8 @@
 import { useCallback, useState } from 'react';
 
+import { useWeb3React } from '@web3-react/core';
+import { ethers } from 'ethers';
+
 import { Box, Button, Collapse, Tooltip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -14,6 +17,9 @@ import InfoIcon from '@/components/icons/InfoIcon';
 import LinkIcon from '@/components/icons/LinkIcon';
 import AssetIcons from '@/components/pages/swap/SwapSection/AssetIcons';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_MASTER_CHEF_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
+import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
+import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 import { formatLPPair, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
 import { AssetKeyPair } from '@/types/app';
 
@@ -115,6 +121,31 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
     () => setIsDetailExpanded((prevIsDetailExpanded) => !prevIsDetailExpanded),
     []
   );
+
+  const { account, library, chainId } = useWeb3React();
+  const [loading, setLoading] = useState(true);
+  const [balance, setBalance] = useState<string>('0');
+  const [stakedBalance, setStakedBalance] = useState<string>('0');
+
+  const updateBalance = async (acount: string, library: any, chainId: number) => {
+    const fetchBalance = async () => {
+      const contract = new ethers.Contract(AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET], erc20AbiJson, library);
+      const balance = await contract.balanceOf(account);
+      setBalance(ethers.utils.formatEther(balance.toString()));
+    };
+
+    const fetchStakedBalance = async () => {
+      const contract = new ethers.Contract(AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET], IAwinoMasterChef, library);
+      const balance = await contract.userInfo(1, account);
+      console.log({ account, balance });
+      setStakedBalance(ethers.utils.formatEther(balance.amount.toString()));
+    };
+
+    setLoading(true);
+    fetchBalance();
+    fetchStakedBalance();
+    setLoading(false);
+  };
 
   const handleHarvest = useCallback(() => {
     onHarvest(item.pair);

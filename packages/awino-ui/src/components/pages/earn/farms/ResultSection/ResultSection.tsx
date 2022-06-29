@@ -15,6 +15,7 @@ import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
 import { earnFarmsData } from '@/fixtures/earn';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_WETH_PAIR_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { sleep } from '@/lib/helpers';
 import { AssetKeyPair } from '@/types/app';
 
@@ -125,20 +126,21 @@ export interface FarmDataItem {
   type: Exclude<FarmTypeKey, 'all'>;
   stacked: boolean;
   active: boolean;
-  emissions: number;
-  apr: number;
-  aprFarm: number;
-  aprLP: number;
-  earned: number;
-  liquidity: number;
-  fees: number;
-  aprRange: [number, number];
-  depositFee: number;
-  boostFactor: number;
-  lpPrice: number;
-  stakedAmount: number;
-  walletAmount: number;
-  walletAmountUSD: number;
+  emissions: string;
+  apr: string;
+  aprFarm: string;
+  aprLP: string;
+  earned: string;
+  liquidity: string;
+  fees: string;
+  aprRange: [string, string];
+  depositFee: string;
+  boostFactor: string;
+  lpPrice: string;
+  stakedAmount: string;
+  walletAmount: string;
+  walletAmountUSD: string;
+  contract: string;
 }
 
 export default function ResultSection() {
@@ -155,7 +157,16 @@ export default function ResultSection() {
   });
   const [layout, setLayout] = useState<LayoutKey>('grid');
   const [stakeModal, setStakeModal] = useState<StakeModalData | null>(null);
-
+  const pools = {
+    'awi-dai': {
+      address: AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET],
+      pid: 1,
+    },
+    'awi-weth': {
+      address: AWINO_WETH_PAIR_ADDRESS_MAP[ChainId.TESTNET],
+      pid: 2,
+    },
+  };
   useEffect(() => {
     (async () => {
       await sleep(0.1);
@@ -363,7 +374,14 @@ export default function ResultSection() {
           ))}
       </Root>
       {!!stakeModal && (
-        <StakeModal open={!!stakeModal} close={() => setStakeModal(null)} data={stakeModal} callback={() => {}} />
+        <StakeModal
+          open={!!stakeModal}
+          close={() => setStakeModal(null)}
+          data={stakeModal}
+          callback={() => {}}
+          poolAddress={pools[stakeModal.pair.join('-')].address}
+          pid={pools[stakeModal.pair.join('-')].pid}
+        />
       )}
     </>
   );
