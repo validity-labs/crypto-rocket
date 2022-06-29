@@ -113,11 +113,11 @@ For any of the subgraph:
 
 1. Run the `cd subgraphs/[subgraph]` command to move to the subgraph directory.
 
-2. Run the `npm run codegen` command to prepare the TypeScript sources for the GraphQL (generated/*).
+2. Run `npm install`
 
-3. Run the `npm run build` command to build the subgraph, and check compilation errors before deploying.
+3. Run the `npm run codegen` command to prepare the TypeScript sources for the GraphQL (generated/*).
 
-4. Run `graph auth --product hosted-service '<ACCESS_TOKEN>'`
+4. Run the `npm run build` command to build the subgraph, and check compilation errors before deploying.
 
 5. Deploy via `npm run deploy`.
 
