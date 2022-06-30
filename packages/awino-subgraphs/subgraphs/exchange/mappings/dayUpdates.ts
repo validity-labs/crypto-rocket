@@ -15,13 +15,13 @@ export function updateAwinoDayData(event: ethereum.Event): AwinoDayData {
     awinoDayData = new AwinoDayData(dayID.toString());
     awinoDayData.date = dayStartTimestamp;
     awinoDayData.dailyVolumeUSD = ZERO_BD;
-    awinoDayData.dailyVolumeBNB = ZERO_BD;
+    awinoDayData.dailyVolumeCRO = ZERO_BD;
     awinoDayData.totalVolumeUSD = ZERO_BD;
-    awinoDayData.totalVolumeBNB = ZERO_BD;
+    awinoDayData.totalVolumeCRO = ZERO_BD;
     awinoDayData.dailyVolumeUntracked = ZERO_BD;
   }
   awinoDayData.totalLiquidityUSD = awino.totalLiquidityUSD;
-  awinoDayData.totalLiquidityBNB = awino.totalLiquidityBNB;
+  awinoDayData.totalLiquidityCRO = awino.totalLiquidityCRO;
   awinoDayData.totalTransactions = awino.totalTransactions;
   awinoDayData.save();
 
@@ -94,17 +94,17 @@ export function updateTokenDayData(token: Token, event: ethereum.Event): TokenDa
     tokenDayData = new TokenDayData(tokenDayID);
     tokenDayData.date = dayStartTimestamp;
     tokenDayData.token = token.id;
-    tokenDayData.priceUSD = token.derivedBNB.times(bundle.bnbPrice);
+    tokenDayData.priceUSD = token.derivedCRO.times(bundle.croPrice);
     tokenDayData.dailyVolumeToken = ZERO_BD;
-    tokenDayData.dailyVolumeBNB = ZERO_BD;
+    tokenDayData.dailyVolumeCRO = ZERO_BD;
     tokenDayData.dailyVolumeUSD = ZERO_BD;
     tokenDayData.dailyTxns = ZERO_BI;
     tokenDayData.totalLiquidityUSD = ZERO_BD;
   }
-  tokenDayData.priceUSD = token.derivedBNB.times(bundle.bnbPrice);
+  tokenDayData.priceUSD = token.derivedCRO.times(bundle.croPrice);
   tokenDayData.totalLiquidityToken = token.totalLiquidity;
-  tokenDayData.totalLiquidityBNB = token.totalLiquidity.times(token.derivedBNB as BigDecimal);
-  tokenDayData.totalLiquidityUSD = tokenDayData.totalLiquidityBNB.times(bundle.bnbPrice);
+  tokenDayData.totalLiquidityCRO = token.totalLiquidity.times(token.derivedCRO as BigDecimal);
+  tokenDayData.totalLiquidityUSD = tokenDayData.totalLiquidityCRO.times(bundle.croPrice);
   tokenDayData.dailyTxns = tokenDayData.dailyTxns.plus(ONE_BI);
   tokenDayData.save();
 

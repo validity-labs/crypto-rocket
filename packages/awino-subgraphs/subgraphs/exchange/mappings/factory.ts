@@ -18,14 +18,14 @@ export function handlePairCreated(event: PairCreated): void {
     factory = new AwinoFactory(FACTORY_ADDRESS);
     factory.totalPairs = ZERO_BI;
     factory.totalTransactions = ZERO_BI;
-    factory.totalVolumeBNB = ZERO_BD;
-    factory.totalLiquidityBNB = ZERO_BD;
+    factory.totalVolumeCRO = ZERO_BD;
+    factory.totalLiquidityCRO = ZERO_BD;
     factory.totalVolumeUSD = ZERO_BD;
     factory.untrackedVolumeUSD = ZERO_BD;
     factory.totalLiquidityUSD = ZERO_BD;
 
     let bundle = new Bundle("1");
-    bundle.bnbPrice = ZERO_BD;
+    bundle.croPrice = ZERO_BD;
     bundle.save();
   }
   factory.totalPairs = factory.totalPairs.plus(ONE_BI);
@@ -41,7 +41,7 @@ export function handlePairCreated(event: PairCreated): void {
       return;
     }
     token0.decimals = decimals;
-    token0.derivedBNB = ZERO_BD;
+    token0.derivedCRO = ZERO_BD;
     token0.derivedUSD = ZERO_BD;
     token0.tradeVolume = ZERO_BD;
     token0.tradeVolumeUSD = ZERO_BD;
@@ -61,7 +61,7 @@ export function handlePairCreated(event: PairCreated): void {
       return;
     }
     token1.decimals = decimals;
-    token1.derivedBNB = ZERO_BD;
+    token1.derivedCRO = ZERO_BD;
     token1.derivedUSD = ZERO_BD;
     token1.tradeVolume = ZERO_BD;
     token1.tradeVolumeUSD = ZERO_BD;
@@ -78,8 +78,8 @@ export function handlePairCreated(event: PairCreated): void {
   pair.totalTransactions = ZERO_BI;
   pair.reserve0 = ZERO_BD;
   pair.reserve1 = ZERO_BD;
-  pair.trackedReserveBNB = ZERO_BD;
-  pair.reserveBNB = ZERO_BD;
+  pair.trackedReserveCRO = ZERO_BD;
+  pair.reserveCRO = ZERO_BD;
   pair.reserveUSD = ZERO_BD;
   pair.totalSupply = ZERO_BD;
   pair.volumeToken0 = ZERO_BD;

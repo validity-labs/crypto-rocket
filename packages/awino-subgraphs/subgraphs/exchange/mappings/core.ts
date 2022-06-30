@@ -12,7 +12,7 @@ import {
 } from "../generated/schema";
 import { Mint, Burn, Swap, Transfer, Sync } from "../generated/templates/Pair/Pair";
 import { updatePairDayData, updateTokenDayData, updateAwinoDayData, updatePairHourData } from "./dayUpdates";
-import { getBnbPriceInUSD, findBnbPerToken, getTrackedVolumeUSD, getTrackedLiquidityUSD } from "./pricing";
+import { getWcroPriceInUSD, findWcroPerToken, getTrackedVolumeUSD, getTrackedLiquidityUSD } from "./pricing";
 import { convertTokenToDecimal, ADDRESS_ZERO, FACTORY_ADDRESS, ONE_BI, ZERO_BD, BI_18 } from "./utils";
 
 function isCompleteMint(mintId: string): boolean {
@@ -70,7 +70,7 @@ export function handleTransfer(event: Transfer): void {
     }
   }
 
-  // case where direct send first on BNB withdrawals
+  // case where direct send first on CRO withdrawals
   if (event.params.to.toHex() == pair.id) {
     let burns = transaction.burns;
     let burn = new BurnEvent(
@@ -168,7 +168,7 @@ export function handleSync(event: Sync): void {
   let awino = AwinoFactory.load(FACTORY_ADDRESS);
 
   // reset factory liquidity by subtracting only tracked liquidity
-  awino.totalLiquidityBNB = awino.totalLiquidityBNB.minus(pair.trackedReserveBNB as BigDecimal);
+  awino.totalLiquidityCRO = awino.totalLiquidityCRO.minus(pair.trackedReserveCRO as BigDecimal);
 
   // reset token total liquidity amounts
   token0.totalLiquidity = token0.totalLiquidity.minus(pair.reserve0);
@@ -183,43 +183,43 @@ export function handleSync(event: Sync): void {
   else pair.token1Price = ZERO_BD;
 
   let bundle = Bundle.load("1");
-  bundle.bnbPrice = getBnbPriceInUSD();
+  bundle.croPrice = getWcroPriceInUSD();
   bundle.save();
 
-  let t0DerivedBNB = findBnbPerToken(token0 as Token);
-  token0.derivedBNB = t0DerivedBNB;
-  token0.derivedUSD = t0DerivedBNB.times(bundle.bnbPrice);
+  let t0DerivedCRO = findWcroPerToken(token0 as Token);
+  token0.derivedCRO = t0DerivedCRO;
+  token0.derivedUSD = t0DerivedCRO.times(bundle.croPrice);
   token0.save();
 
-  let t1DerivedBNB = findBnbPerToken(token1 as Token);
-  token1.derivedBNB = t1DerivedBNB;
-  token1.derivedUSD = t1DerivedBNB.times(bundle.bnbPrice);
+  let t1DerivedCRO = findWcroPerToken(token1 as Token);
+  token1.derivedCRO = t1DerivedCRO;
+  token1.derivedUSD = t1DerivedCRO.times(bundle.croPrice);
   token1.save();
 
   // get tracked liquidity - will be 0 if neither is in whitelist
-  let trackedLiquidityBNB: BigDecimal;
-  if (bundle.bnbPrice.notEqual(ZERO_BD)) {
-    trackedLiquidityBNB = getTrackedLiquidityUSD(
+  let trackedLiquidityCRO: BigDecimal;
+  if (bundle.croPrice.notEqual(ZERO_BD)) {
+    trackedLiquidityCRO = getTrackedLiquidityUSD(
       bundle as Bundle,
       pair.reserve0,
       token0 as Token,
       pair.reserve1,
       token1 as Token
-    ).div(bundle.bnbPrice);
+    ).div(bundle.croPrice);
   } else {
-    trackedLiquidityBNB = ZERO_BD;
+    trackedLiquidityCRO = ZERO_BD;
   }
 
   // use derived amounts within pair
-  pair.trackedReserveBNB = trackedLiquidityBNB;
-  pair.reserveBNB = pair.reserve0
-    .times(token0.derivedBNB as BigDecimal)
-    .plus(pair.reserve1.times(token1.derivedBNB as BigDecimal));
-  pair.reserveUSD = pair.reserveBNB.times(bundle.bnbPrice);
+  pair.trackedReserveCRO = trackedLiquidityCRO;
+  pair.reserveCRO = pair.reserve0
+    .times(token0.derivedCRO as BigDecimal)
+    .plus(pair.reserve1.times(token1.derivedCRO as BigDecimal));
+  pair.reserveUSD = pair.reserveCRO.times(bundle.croPrice);
 
   // use tracked amounts globally
-  awino.totalLiquidityBNB = awino.totalLiquidityBNB.plus(trackedLiquidityBNB);
-  awino.totalLiquidityUSD = awino.totalLiquidityBNB.times(bundle.bnbPrice);
+  awino.totalLiquidityCRO = awino.totalLiquidityCRO.plus(trackedLiquidityCRO);
+  awino.totalLiquidityUSD = awino.totalLiquidityCRO.times(bundle.croPrice);
 
   // now correctly set liquidity amounts for each token
   token0.totalLiquidity = token0.totalLiquidity.plus(pair.reserve0);
@@ -251,12 +251,12 @@ export function handleMint(event: Mint): void {
   token0.totalTransactions = token0.totalTransactions.plus(ONE_BI);
   token1.totalTransactions = token1.totalTransactions.plus(ONE_BI);
 
-  // get new amounts of USD and BNB for tracking
+  // get new amounts of USD and CRO for tracking
   let bundle = Bundle.load("1");
-  let amountTotalUSD = token1.derivedBNB
+  let amountTotalUSD = token1.derivedCRO
     .times(token1Amount)
-    .plus(token0.derivedBNB.times(token0Amount))
-    .times(bundle.bnbPrice);
+    .plus(token0.derivedCRO.times(token0Amount))
+    .times(bundle.croPrice);
 
   // update txn counts
   pair.totalTransactions = pair.totalTransactions.plus(ONE_BI);
@@ -304,12 +304,12 @@ export function handleBurn(event: Burn): void {
   token0.totalTransactions = token0.totalTransactions.plus(ONE_BI);
   token1.totalTransactions = token1.totalTransactions.plus(ONE_BI);
 
-  // get new amounts of USD and BNB for tracking
+  // get new amounts of USD and CRO for tracking
   let bundle = Bundle.load("1");
-  let amountTotalUSD = token1.derivedBNB
+  let amountTotalUSD = token1.derivedCRO
     .times(token1Amount)
-    .plus(token0.derivedBNB.times(token0Amount))
-    .times(bundle.bnbPrice);
+    .plus(token0.derivedCRO.times(token0Amount))
+    .times(bundle.croPrice);
 
   // update txn counts
   awino.totalTransactions = awino.totalTransactions.plus(ONE_BI);
@@ -350,15 +350,15 @@ export function handleSwap(event: Swap): void {
   let amount0Total = amount0Out.plus(amount0In);
   let amount1Total = amount1Out.plus(amount1In);
 
-  // BNB/USD prices
+  // CRO/USD prices
   let bundle = Bundle.load("1");
 
-  // get total amounts of derived USD and BNB for tracking
-  let derivedAmountBNB = token1.derivedBNB
+  // get total amounts of derived USD and CRO for tracking
+  let derivedAmountCRO = token1.derivedCRO
     .times(amount1Total)
-    .plus(token0.derivedBNB.times(amount0Total))
+    .plus(token0.derivedCRO.times(amount0Total))
     .div(BigDecimal.fromString("2"));
-  let derivedAmountUSD = derivedAmountBNB.times(bundle.bnbPrice);
+  let derivedAmountUSD = derivedAmountCRO.times(bundle.croPrice);
 
   // only accounts for volume through white listed tokens
   let trackedAmountUSD = getTrackedVolumeUSD(
@@ -369,11 +369,11 @@ export function handleSwap(event: Swap): void {
     token1 as Token
   );
 
-  let trackedAmountBNB: BigDecimal;
-  if (bundle.bnbPrice.equals(ZERO_BD)) {
-    trackedAmountBNB = ZERO_BD;
+  let trackedAmountCRO: BigDecimal;
+  if (bundle.croPrice.equals(ZERO_BD)) {
+    trackedAmountCRO = ZERO_BD;
   } else {
-    trackedAmountBNB = trackedAmountUSD.div(bundle.bnbPrice);
+    trackedAmountCRO = trackedAmountUSD.div(bundle.croPrice);
   }
 
   // update token0 global volume and token liquidity stats
@@ -401,7 +401,7 @@ export function handleSwap(event: Swap): void {
   // update global values, only used tracked amounts for volume
   let awino = AwinoFactory.load(FACTORY_ADDRESS);
   awino.totalVolumeUSD = awino.totalVolumeUSD.plus(trackedAmountUSD);
-  awino.totalVolumeBNB = awino.totalVolumeBNB.plus(trackedAmountBNB);
+  awino.totalVolumeCRO = awino.totalVolumeCRO.plus(trackedAmountCRO);
   awino.untrackedVolumeUSD = awino.untrackedVolumeUSD.plus(derivedAmountUSD);
   awino.totalTransactions = awino.totalTransactions.plus(ONE_BI);
 
@@ -457,7 +457,7 @@ export function handleSwap(event: Swap): void {
 
   // swap specific updating
   awinoDayData.dailyVolumeUSD = awinoDayData.dailyVolumeUSD.plus(trackedAmountUSD);
-  awinoDayData.dailyVolumeBNB = awinoDayData.dailyVolumeBNB.plus(trackedAmountBNB);
+  awinoDayData.dailyVolumeCRO = awinoDayData.dailyVolumeCRO.plus(trackedAmountCRO);
   awinoDayData.dailyVolumeUntracked = awinoDayData.dailyVolumeUntracked.plus(derivedAmountUSD);
   awinoDayData.save();
 
@@ -475,17 +475,17 @@ export function handleSwap(event: Swap): void {
 
   // swap specific updating for token0
   token0DayData.dailyVolumeToken = token0DayData.dailyVolumeToken.plus(amount0Total);
-  token0DayData.dailyVolumeBNB = token0DayData.dailyVolumeBNB.plus(amount0Total.times(token0.derivedBNB as BigDecimal));
+  token0DayData.dailyVolumeCRO = token0DayData.dailyVolumeCRO.plus(amount0Total.times(token0.derivedCRO as BigDecimal));
   token0DayData.dailyVolumeUSD = token0DayData.dailyVolumeUSD.plus(
-    amount0Total.times(token0.derivedBNB as BigDecimal).times(bundle.bnbPrice)
+    amount0Total.times(token0.derivedCRO as BigDecimal).times(bundle.croPrice)
   );
   token0DayData.save();
 
   // swap specific updating
   token1DayData.dailyVolumeToken = token1DayData.dailyVolumeToken.plus(amount1Total);
-  token1DayData.dailyVolumeBNB = token1DayData.dailyVolumeBNB.plus(amount1Total.times(token1.derivedBNB as BigDecimal));
+  token1DayData.dailyVolumeCRO = token1DayData.dailyVolumeCRO.plus(amount1Total.times(token1.derivedCRO as BigDecimal));
   token1DayData.dailyVolumeUSD = token1DayData.dailyVolumeUSD.plus(
-    amount1Total.times(token1.derivedBNB as BigDecimal).times(bundle.bnbPrice)
+    amount1Total.times(token1.derivedCRO as BigDecimal).times(bundle.croPrice)
   );
   token1DayData.save();
 }
