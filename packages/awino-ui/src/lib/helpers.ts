@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ethers } from 'ethers';
+
 import { ID } from '@/types/app';
 
 export function tabA11yProps(id: ID, index: number) {
@@ -37,3 +39,7 @@ export const etherscan = (address) => `https://etherscan.io/address/${address}`;
 export const sleep = (s: number) => {
   return new Promise((resolve) => setTimeout(resolve, s * 1000));
 };
+
+export const percentageFor = (value: ethers.BigNumber, total: ethers.BigNumber) => value.mul(100).div(total);
+
+export const percentOf = (value: ethers.BigNumber, percent: number) => value.mul(percent).div(100);

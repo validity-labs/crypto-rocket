@@ -25,6 +25,11 @@ const AssetIcons = styled(({ ids: assetIds, size, className, ...restOfProps }: P
   const width = widthMap[size];
   const ids = [].concat(assetIds);
 
+  const handleError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    /* @ts-ignore */
+    event.target.src = '/images/assets/default.svg';
+  };
+
   return (
     <Box
       component="span"
@@ -33,7 +38,14 @@ const AssetIcons = styled(({ ids: assetIds, size, className, ...restOfProps }: P
       {...restOfProps}
     >
       {ids.map((id) => (
-        <img key={id} src={`/images/assets/${id.toLowerCase()}.svg`} alt="" width={width} height={width} />
+        <img
+          key={id}
+          src={`/images/assets/${id.toLowerCase()}.svg`}
+          alt=""
+          width={width}
+          height={width}
+          onError={handleError}
+        />
       ))}
     </Box>
   );

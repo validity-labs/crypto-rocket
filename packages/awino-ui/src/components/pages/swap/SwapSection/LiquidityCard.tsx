@@ -1,17 +1,25 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+import { useWeb3React } from '@web3-react/core';
+import { ethers, BigNumber } from 'ethers';
 
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
-import { Box, Collapse, IconButton, Tooltip, Typography } from '@mui/material';
+import { Box, Collapse, IconButton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { useAppDispatch } from '@/app/hooks';
+import { extendLiquidity } from '@/app/state/slices/exchange';
+import AssetIcon from '@/components/general/AssetIcon/AssetIcon';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
+import LoadingText from '@/components/general/LoadingText/LoadingText';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import AssetIcons from '@/components/pages/swap/SwapSection/AssetIcons';
+import { Liquidity, LiquidityExtended, TokenExtended } from '@/hooks/subgraphs/exchange/useUserMintPairs';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
-import { stopPropagation } from '@/lib/helpers';
-
-import { LiquidityItem } from './LiquidityPanel';
+import { getBalance } from '@/lib/blockchain';
+import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
+import { formatPercent, formatUnits } from '@/lib/formatters';
+import { percentageFor, stopPropagation } from '@/lib/helpers';
 
 const Root = styled('div')(({ theme }) => ({
   borderRadius: theme.spacing(8),
@@ -39,7 +47,7 @@ const Root = styled('div')(({ theme }) => ({
   },
   '.AwiLabelValue-root': {
     width: '100%',
-    maxWidth: 400,
+    maxWidth: 600,
     gap: theme.spacing(4),
   },
   '.AwiLabelValue-label': {
@@ -74,32 +82,75 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 interface Props {
-  item: any;
-  onRemove: (item: LiquidityItem) => void;
+  item: Liquidity;
+  onRemove: (item: Liquidity) => void;
 }
 
 export default function LiquidityCard({ item, onRemove /* ,onHarvest, onStake, onUnstake */ }: Props) {
   const t = usePageTranslation({ keyPrefix: 'swap-section.liquidity' });
+  const { account, library } = useWeb3React();
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const handleDetailsToggle = useCallback(
     () => setIsDetailExpanded((prevIsDetailExpanded) => !prevIsDetailExpanded),
     []
   );
 
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const prepareInfo = async () => {
+      console.log('fetch additional pair info', item, isDetailExpanded);
+
+      const { pairId, token0, token1, balance } = item;
+
+      const contract = new ethers.Contract(pairId, erc20AbiJson, library);
+      const totalSupply = await contract.totalSupply();
+      const token0Balance = await getBalance(token0.id, account, library);
+      const token1Balance = await getBalance(token1.id, account, library);
+
+      dispatch(
+        extendLiquidity({
+          id: item.id,
+          data: {
+            token0: {
+              balance: token0Balance.toString(),
+              balanceFormatted: formatUnits(token0Balance, token0.decimals),
+            },
+            token1: {
+              balance: token1Balance.toString(),
+              balanceFormatted: formatUnits(token1Balance, token1.decimals),
+            },
+            share: percentageFor(BigNumber.from(balance), totalSupply).toString(),
+          },
+        })
+      );
+    };
+
+    if (isDetailExpanded && !item.extended) {
+      prepareInfo();
+    }
+  }, [isDetailExpanded, item, dispatch, library]);
+
   const handleRemove = () => {
     onRemove(item);
   };
 
+  const { token0, token1 } = item;
   return (
     <Root>
       <div className="AwiLiquidityCard-summary" onClick={handleDetailsToggle}>
         <div className="Awi-row">
-          {/* @ts-expect-error */}
-          <AssetIcons ids={item.pair} size="medium" component="div" sx={{ display: 'inline-block' }} />
+          <AssetIcons
+            ids={[token0.symbol, token1.symbol]}
+            size="medium"
+            // @ts-expect-error
+            component="div"
+            sx={{ display: 'inline-block' }}
+          />
           <Typography
             variant="body-ms"
             className="AwiLiquidityCard-pair"
-          >{`${item.pair[0]}/${item.pair[1]}`}</Typography>
+          >{`${token0.symbol}/${token1.symbol}`}</Typography>
         </div>
         <IconButton color="primary" onClick={stopPropagation(handleDetailsToggle)}>
           {<ExpandIcon fontSize="medium" sx={{ transform: `rotate(${isDetailExpanded ? 180 : 0}deg)` }} />}
@@ -108,33 +159,40 @@ export default function LiquidityCard({ item, onRemove /* ,onHarvest, onStake, o
       <Collapse in={isDetailExpanded}>
         <div className="AwiLiquidityCard-details">
           <Box className="Awi-column" sx={{ flex: 1, gap: 5 }}>
-            <LabelValue
-              id="tokens"
-              value={formatAmount(item.tokens)}
-              labelProps={{ children: t('your-pool-tokens') }}
-            />
+            <LabelValue id="tokens" value={item.balanceFormatted} labelProps={{ children: t('your-pool-tokens') }} />
             <LabelValue
               id="pooledA"
               value={
-                <span className="Awi-row">
-                  {formatAmount(item.pool[0])} {<img src={`/images/assets/${item.pair[0]}.svg`} alt="" width="24" />}
+                <span className="Awi-row Awi-vStart">
+                  <LoadingText loading={!item.extended} text={(token0 as TokenExtended).balanceFormatted} />
+                  <AssetIcon symbol={token0.symbol} size="small" />
                 </span>
               }
-              labelProps={{ children: t('pooled', { v: item.pair[0].toUpperCase() }) }}
+              labelProps={{ children: t('pooled', { v: token0.symbol }) }}
             />
             <LabelValue
               id="pooledB"
               value={
-                <span className="Awi-row">
-                  {formatAmount(item.pool[1])} <img src={`/images/assets/${item.pair[1]}.svg`} alt="" width="24" />
+                <span className="Awi-row Awi-vStart">
+                  <LoadingText loading={!item.extended} text={(token1 as TokenExtended).balanceFormatted} />
+                  <AssetIcon symbol={token1.symbol} size="small" />
                 </span>
               }
-              labelProps={{ children: t('pooled', { v: item.pair[1].toUpperCase() }) }}
+              labelProps={{ children: t('pooled', { v: token1.symbol }) }}
             />
-            <LabelValue id="poolShare" value={formatPercent(item.percent)} labelProps={{ children: t('pool-share') }} />
+            <LabelValue
+              id="poolShare"
+              value={<LoadingText loading={!item.extended} text={formatPercent((item as LiquidityExtended).share)} />}
+              labelProps={{ children: t('pool-share') }}
+            />
           </Box>
           <Box sx={{ alignSelf: 'flex-start' }}>
-            <IconButton color="primary" title={t('remove-pool')} onClick={stopPropagation(handleRemove)}>
+            <IconButton
+              disabled={!item.extended}
+              color="primary"
+              title={t('remove-pool')}
+              onClick={stopPropagation(handleRemove)}
+            >
               {<RemoveCircleOutlineRoundedIcon />}
             </IconButton>
           </Box>

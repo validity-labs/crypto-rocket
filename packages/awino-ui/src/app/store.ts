@@ -4,10 +4,15 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 import accountReducer from './state/slices/account';
 import appReducer from './state/slices/app';
+import exchangeReducer from './state/slices/exchange';
 
 export const makeStore = () =>
   configureStore({
-    reducer: { app: appReducer, account: accountReducer },
+    reducer: {
+      app: appReducer,
+      account: accountReducer,
+      exchange: exchangeReducer,
+    },
     // devTools: true,
   });
 

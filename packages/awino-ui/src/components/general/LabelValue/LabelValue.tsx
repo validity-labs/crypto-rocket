@@ -45,8 +45,9 @@ const LabelValue = styled(({ id, value, className, labelProps, valueProps, ...re
   },
   '.value': {
     flex: 1,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     overflow: 'auto',
+    wordBreak: 'break-word',
   },
   [theme.breakpoints.up('md')]: {
     flexDirection: 'row',

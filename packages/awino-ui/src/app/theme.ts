@@ -291,6 +291,12 @@ const themeCreator = (mode: PaletteMode) => {
           &.Awi-between {
             justify-content: space-between;
           }
+          &.Awi-vStart {
+            align-items: flex-start;
+          }
+          &.Awi-end {
+            justify-content: flex-end;
+          }
         }
         .Awi-column {
           display: flex;

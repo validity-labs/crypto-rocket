@@ -19,6 +19,17 @@ module.exports = async (/* phase, { defaultConfig } */) => {
       etherscanApiKey: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY,
       chainId: process.env.NEXT_CHAIN_ID,
     },
+    async rewrites() {
+      console.log('rewriates called');
+      return [
+        {
+          source: '/api/subgraph/:path*',
+          destination: `${process.env.NEXT_PRIVATE_SUBGRAPH_URL}/:path*`
+        },
+      ]
+    }
+
+
   };
 
   return nextConfig;
