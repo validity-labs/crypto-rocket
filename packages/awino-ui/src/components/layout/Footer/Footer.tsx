@@ -90,7 +90,7 @@ export default function Footer(): ReactElement {
           <Typography variant="menu" color="inherit" className="rate">
             {t('common.awi')}
             <img src="/images/assets/awi.svg" alt="" />
-            {formatAmount(awiRate, { prefix: '$' })}
+            {formatAmount(awiRate, { prefix: 'USD' })}
           </Typography>
         </div>
         <Divider className="divider" />
