@@ -99,7 +99,7 @@ function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Awino</title>
+        <title>AWINO</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <Web3Provider>

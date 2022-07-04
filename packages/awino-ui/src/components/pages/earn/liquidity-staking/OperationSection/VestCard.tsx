@@ -36,6 +36,10 @@ const Root = styled('div')(({ theme }) => ({
   '.AwiLoadingButton-root': {
     margin: theme.spacing(10, 'auto', 0),
   },
+  '.AwiVestCard-lockPeriod': {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+  },
   [theme.breakpoints.up('md')]: {
     padding: theme.spacing(10, 11),
   },
@@ -144,6 +148,7 @@ export default function VestCard({ balance }: Props) {
             <Form autoComplete="off" noValidate style={{ width: '100%' }}>
               <FieldRadio
                 name="lockPeriod"
+                className="AwiVestCard-lockPeriod"
                 required
                 fullWidth
                 options={lockPeriodOptions}
