@@ -57,7 +57,7 @@ const Root = styled(Section)(({ theme }) => ({
     position: 'relative',
     paddingTop: theme.spacing(50),
   },
-  '.AwiPanel-content': {
+  '.AwiPanel-root .AwiPanel-content': {
     padding: theme.spacing(11, 6, 10),
   },
   '.AwiInfoSection-image': {
@@ -73,7 +73,7 @@ const Root = styled(Section)(({ theme }) => ({
     },
   },
   [theme.breakpoints.up('md')]: {
-    '.AwiPanel-content': {
+    '.AwiPanel-root .AwiPanel-content': {
       padding: theme.spacing(26, 22.5, 25),
     },
     '> .MuiContainer-root': {
