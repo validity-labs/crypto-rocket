@@ -53,7 +53,7 @@
         "submit-succeeded": "Successfully locked."
       },
       "awino-balance": "Your AWINO balance",
-      "lock-awino": "Lock Awino",
+      "lock-awino": "Lock AWINO",
       "invalid-input": "Invalid amount specified.",
       "error-hint": "Transaction failed. Try again later."
     },

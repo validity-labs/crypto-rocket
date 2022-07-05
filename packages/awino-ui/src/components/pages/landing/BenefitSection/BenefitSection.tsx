@@ -15,12 +15,7 @@ import Header from '@/components/general/Header/Header';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
-const StyledSection = styled(Section)(({ theme }) => ({
-  paddingTop: 0,
-  '> .MuiContainer-root': {
-    position: 'relative',
-    paddingTop: theme.spacing(50),
-  },
+const Root = styled(Section)(({ theme }) => ({
   '.MuiTypography-root': {
     whiteSpace: 'pre-line',
   },
@@ -91,44 +86,6 @@ const StyledSection = styled(Section)(({ theme }) => ({
       color: theme.palette.text.disabled,
     },
   },
-  '.AwiBenefitSection-image': {
-    pointerEvents: 'none',
-    position: 'absolute',
-    top: -60,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: '100%',
-    maxWidth: 240,
-    img: {
-      maxWidth: '100%',
-    },
-    zIndex: -1,
-  },
-  [theme.breakpoints.up('md')]: {
-    '> .MuiContainer-root': {
-      paddingTop: theme.spacing(70),
-    },
-    '.AwiBenefitSection-image': {
-      top: -160,
-      left: 30,
-      maxWidth: 440,
-      transform: 'none',
-    },
-  },
-  [theme.breakpoints.up('lg')]: {
-    '.AwiBenefitSection-image': {
-      top: -160,
-      left: -80,
-      maxWidth: 540,
-    },
-  },
-  [theme.breakpoints.up('xl')]: {
-    '.AwiBenefitSection-image': {
-      top: -170,
-      left: 0,
-      maxWidth: 606,
-    },
-  },
 }));
 
 interface BenefitSlideProps {
@@ -156,10 +113,7 @@ export default function BenefitSection() {
   const t = usePageTranslation();
 
   return (
-    <StyledSection /* containerProps={{ maxWidth: 'lg' }} */>
-      <div className="AwiBenefitSection-image">
-        <img src="/images/pages/landing/benefit.svg" alt="" />
-      </div>
+    <Root /* containerProps={{ maxWidth: 'lg' }} */>
       <Header title={t('benefit-section.title')} description={t('benefit-section.description')} />
       <SwiperReact
         modules={[Navigation, A11y]}
@@ -192,6 +146,6 @@ export default function BenefitSection() {
           <ArrowForwardOutlined />
         </IconButton>
       </div>
-    </StyledSection>
+    </Root>
   );
 }

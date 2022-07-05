@@ -51,7 +51,7 @@ const Root = styled(Section)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     h1: {
       fontSize: '5rem' /* 80px */,
-      lineHeight: '8rem' /* 128px */,
+      lineHeight: '7rem' /* 112px */,
       '.Awi-small': {
         fontSize: '3.75rem' /* 60px */,
         lineHeight: '6.125rem' /* 98px */,

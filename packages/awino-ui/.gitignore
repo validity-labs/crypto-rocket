@@ -39,3 +39,13 @@ yarn-error.log*
 # TODO WIP Open when visual regression tests are part of pipeline or base snapshots should be shared and pushed to repo
 */cypress/videos
 */cypress/screenshots
+
+.screenshots/expected/*
+!.screenshots/expected/.gitkeep
+.screenshots/actual/*
+!.screenshots/actual/.gitkeep
+.screenshots/diff/*
+!.screenshots/diff/.gitkeep
+.screenshots/reports/*
+!.screenshots/reports/.gitkeep
+.screenshots/reg.json

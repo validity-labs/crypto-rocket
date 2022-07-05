@@ -71,7 +71,7 @@ describe('formatAmount', () => {
   it('should return formatted amount and currency', () => {
     expect(formatAmount(1000.99, { prefix: 'CHF' })).toBe('CHF 1000.990');
     expect(formatAmount(10, { postfix: 'USD' })).toBe('10.000 USD');
-    expect(formatAmount(10, { prefix: '$', postfix: 'USD' })).toBe('$ 10.000 USD');
+    expect(formatAmount(10, { prefix: '', postfix: 'USD' })).toBe('10.000 USD');
   });
 });
 

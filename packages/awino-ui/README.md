@@ -1,4 +1,4 @@
-# Awino Website (Crypto Rocket)
+# AWINO Website (Crypto Rocket)
 
 @see https://keepachangelog.com/en/1.1.0/
 

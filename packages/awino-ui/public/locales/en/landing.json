@@ -1,6 +1,6 @@
 {
   "page": {
-    "title": "Awino",
+    "title": "AWINO",
     "description": "MISSING DESCRIPTION"
   },
   "total-section": {
@@ -34,16 +34,16 @@
       {
         "title": "AWINO locked",
         "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "subvalue": "{{v}} M USD"
       },
       {
         "title": "AWINO staked",
         "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "subvalue": "{{v}} M USD"
       },
       {
         "title": "AWINO price",
-        "value": "$ {{v}}"
+        "value": "{{v}} USD"
       },
       {
         "title": "Circulating supply",
@@ -105,7 +105,7 @@
       },
       {
         "title": "Interoperability",
-        "description": "Awino has multiple bridges, connecting to other blockchains such as Terra (LUNA), Avalanche (AVAX) and BSC (BNB), with the intention to further expand on other blockchains in the future. AWINO will later migrate to its own L1 block chain."
+        "description": "AWINO has multiple bridges, connecting to other blockchains such as Terra (LUNA), Avalanche (AVAX) and BSC (BNB), with the intention to further expand on other blockchains in the future. AWINO will later migrate to its own L1 block chain."
       }
     ]
   },
@@ -145,7 +145,7 @@
   },
   "faq-section": {
     "title": "FAQs",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "description": "Below are our high-level FAQs. For more details on AWINO ecosystem we refer to our documentation.",
     "items": [
       {
         "title": "What is AWINO about?",

@@ -1,7 +1,7 @@
 {
   "name": "@awino/ui",
   "version": "0.0.0",
-  "description": "Awino web application based on Next.js",
+  "description": "AWINO web application based on Next.js",
   "private": true,
   "scripts": {
     "dev": "next",
