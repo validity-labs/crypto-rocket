@@ -7,16 +7,13 @@
     "title": "Smart\n overview",
     "items": [
       {
-        "title": "Total deposits",
-        "value": "{{v}}"
+        "title": "Total deposits"
       },
       {
-        "title": "Total rewards",
-        "value": "{{v}}"
+        "title": "Total rewards"
       },
       {
-        "title": "To collect from 3 farms",
-        "value": "{{v}}"
+        "title": "To collect from 3 farms"
       }
     ]
   },
@@ -32,23 +29,19 @@
     ],
     "items": [
       {
-        "title": "AWINO locked",
-        "value": "{{v}} M",
-        "subvalue": "{{v}} M USD"
+        "title": "AWINO locked"
       },
       {
-        "title": "AWINO staked",
-        "value": "{{v}} M",
-        "subvalue": "{{v}} M USD"
+        "title": "AWINO staked"
       },
       {
-        "title": "AWINO price",
-        "value": "{{v}} USD"
+        "title": "AWINO price"
       },
       {
         "title": "Circulating supply",
-        "value": "{{v}} M",
-        "subvalue": "{{v}}% locked"
+        "sub-values": [
+          "{{v}} locked"
+        ]
       }
     ]
   },

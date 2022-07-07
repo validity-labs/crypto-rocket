@@ -556,7 +556,7 @@ const SwapPanel = (props: TabPanelProps) => {
                         <span>
                           {t('swap-section.swap.max-of-asset', {
                             value: new BigNumber(targetMaxValue).toFixed(3),
-                            asset: assets.get(sourceAsset).label,
+                            asset: assets.get(targetAsset).label,
                           })}
                         </span>
                       )}

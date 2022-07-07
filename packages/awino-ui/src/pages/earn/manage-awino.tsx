@@ -17,7 +17,7 @@ import IntroSection from '@/components/pages/earn/manage-awino/IntroSection/Intr
 import { LockData } from '@/components/pages/earn/manage-awino/OperationSection/LockCard';
 import OperationSection from '@/components/pages/earn/manage-awino/OperationSection/OperationSection';
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
-import StatsSection from '@/components/pages/shared/FormattedStatsSection/StatsSection';
+import StatsSection from '@/components/pages/shared/StatsSection/StatsSection';
 import { earnManageAwinoClaim, earnManageAwinoLock, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
 import { AWINO_TOKEN_MAP, ChainId, useTokenBalance } from '@/lib/blockchain';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
@@ -25,14 +25,13 @@ import { formatAWI, formatUSD } from '@/lib/formatters';
 import { sleep } from '@/lib/helpers';
 import { StatsData, StatsFormatter } from '@/types/app';
 // import AssetSection from '@/components/pages/market/AssetSection/AssetSection';
-// import StatsSection from '@/components/pages/market/StatsSection/StatsSection';
 
 export const statsFormatters: StatsFormatter[] = [
-  { value: formatUSD, subValues: [formatAWI, formatAWI] },
-  { value: formatUSD },
-  { value: formatUSD },
-  { value: formatUSD },
-  { value: formatUSD, subValues: [formatUSD, formatUSD] },
+  { value: 'usd', subValues: ['awi', 'awi'] },
+  { value: 'usd' },
+  { value: 'usd' },
+  { value: 'usd' },
+  { value: 'usd', subValues: ['usd', 'usd'] },
 ];
 
 const initialStatsData: StatsData = [

@@ -58,10 +58,10 @@
   "asset": {
     "awi": "AWI",
     "cro": "CRO",
-    "awicro": "AWICRO",
     "usd": "USD",
-    "usdt": "USDT",
-    "awiusdt": "AWINO/USDT"
+    "awicro": "AWICRO",
+    "usdc": "USDC",
+    "awiusdc": "AWINO/USDC"
   },
   "format": {
     "date": "dd-MM-yyyy",
@@ -102,7 +102,7 @@
         "title": "INFINITE"
       },
       "pol": {
-        "title": "Pol"
+        "title": "POL"
       }
     },
     "language": {

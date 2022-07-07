@@ -20,10 +20,10 @@ import TotalSection from '@/components/pages/landing/TotalSection/TotalSection';
 import { StatsData } from '@/types/app';
 
 const stats: StatsData = [
-  { value: 89.7, subvalue: 24.72 },
-  { value: 89.7, subvalue: 24.72 },
+  { value: 89.7, subValues: [24.72] },
+  { value: 89.7, subValues: [24.72] },
   { value: 0.27 },
-  { value: 273.4, subvalue: 52 },
+  { value: 273.4, subValues: [52] },
 ];
 
 const totalStats: StatsData = [{ value: 493230 }, { value: 93430 }, { value: 1433.44 }];

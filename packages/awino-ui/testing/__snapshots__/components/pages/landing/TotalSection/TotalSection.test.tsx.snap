@@ -12,7 +12,7 @@ exports[`<TotalSection /> has valid snapshot 1`] = `
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-2"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-3"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-3"
         >
           <h1
             class="MuiTypography-root MuiTypography-h3 css-4"
@@ -21,7 +21,7 @@ exports[`<TotalSection /> has valid snapshot 1`] = `
           </h1>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-5"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-9 css-5"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters AwiTotalSection-items css-6"

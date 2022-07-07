@@ -111,7 +111,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                           <td
                             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
                           >
-                            1.21  USD
+                            1.21 USD
                           </td>
                         </tr>
                         <tr
@@ -128,12 +128,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                             <span
                               class="MuiTypography-root MuiTypography-body css-24"
                             >
-                              1.31  USD
+                              1.31 USD
                             </span>
                             <span
                               class="MuiTypography-root MuiTypography-body css-25"
                             >
-                              + 0.1  USD
+                              + 0.10 USD
                               <svg
                                 aria-hidden="true"
                                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
@@ -230,10 +230,10 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         >
                           <img
                             alt=""
-                            src="/images/assets/cro.svg"
+                            src="/images/assets/usdc.svg"
                           />
                           <span>
-                            pol:asset.cro
+                            pol:asset.usdc
                           </span>
                         </div>
                       </div>
@@ -249,7 +249,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-37"
                       >
-                        0
+                        0.00
                       </p>
                       <div
                         class="MuiBox-root css-38"
@@ -258,18 +258,18 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         <img
                           alt=""
                           class="source AwiSwappingImage-source"
-                          src="/images/assets/cro.svg"
+                          src="/images/assets/usdc.svg"
                         />
                         <img
                           alt=""
                           class="target AwiSwappingImage-target"
-                          src="/images/assets/awicro.svg"
+                          src="/images/assets/awiusdc.svg"
                         />
                       </div>
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-37"
                       >
-                        pol:asset.awicro
+                        pol:asset.awiusdc
                       </p>
                     </div>
                   </div>
@@ -331,7 +331,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       <img
                         alt=""
                         class="source"
-                        src="/images/assets/cro.svg"
+                        src="/images/assets/usdc.svg"
                       />
                     </div>
                     <div
@@ -340,12 +340,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body value css-31"
                       >
-                        99.5 CRO
+                        99.50 common:asset.usdc
                       </p>
                       <p
                         class="MuiTypography-root MuiTypography-body alt css-31"
                       >
-                        199.5 USD
+                        199.50 common:asset.usd
                       </p>
                     </div>
                   </div>
@@ -414,18 +414,18 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         <img
                           alt=""
                           class="source AwiSwappingImage-source"
-                          src="/images/assets/cro.svg"
+                          src="/images/assets/usdc.svg"
                         />
                         <img
                           alt=""
                           class="target AwiSwappingImage-target"
-                          src="/images/assets/awicro.svg"
+                          src="/images/assets/awiusdc.svg"
                         />
                       </div>
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-37"
                       >
-                        pol:asset.awicro
+                        pol:asset.awiusdc
                       </p>
                     </div>
                     <svg
@@ -556,12 +556,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <img
                                           alt=""
                                           class="source pair"
-                                          src="/images/assets/awicro.svg"
+                                          src="/images/assets/awiusdc.svg"
                                         />
                                         <img
                                           alt=""
                                           class="target"
-                                          src="/images/assets/cro.svg"
+                                          src="/images/assets/usdc.svg"
                                         />
                                       </div>
                                       <div
@@ -570,12 +570,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 AWICRO
+                                          83.42 common:asset.awiusdc
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.30 common:asset.usd
                                         </p>
                                       </div>
                                     </div>
@@ -605,7 +605,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <img
                                           alt=""
                                           class="source"
-                                          src="/images/assets/awicro.svg"
+                                          src="/images/assets/awiusdc.svg"
                                         />
                                       </div>
                                       <div
@@ -614,12 +614,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 AWICRO
+                                          83.42 common:asset.awiusdc
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.30 common:asset.usd
                                         </p>
                                       </div>
                                     </div>
@@ -632,7 +632,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <img
                                           alt=""
                                           class="source"
-                                          src="/images/assets/cro.svg"
+                                          src="/images/assets/usdc.svg"
                                         />
                                       </div>
                                       <div
@@ -641,12 +641,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 CRO
+                                          83.42 common:asset.usdc
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.30 common:asset.usd
                                         </p>
                                       </div>
                                     </div>
@@ -676,7 +676,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <img
                                           alt=""
                                           class="source"
-                                          src="/images/assets/cro.svg"
+                                          src="/images/assets/usdc.svg"
                                         />
                                       </div>
                                       <div
@@ -685,12 +685,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         <p
                                           class="MuiTypography-root MuiTypography-body value css-31"
                                         >
-                                          83.4233 CRO
+                                          83.42 common:asset.usdc
                                         </p>
                                         <p
                                           class="MuiTypography-root MuiTypography-body alt css-31"
                                         >
-                                          123.3 USD
+                                          123.30 common:asset.usd
                                         </p>
                                       </div>
                                     </div>

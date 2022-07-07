@@ -3,11 +3,18 @@ import { Grid, Typography } from '@mui/material';
 import Section from '@/components/layout/Section/Section';
 import StatsItems from '@/components/pages/shared/StatsItems/StatsItems';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { StatsData } from '@/types/app';
+import { StatsData, StatsFormatter } from '@/types/app';
 
 interface Props {
   items: StatsData;
 }
+
+export const statsFormatters: StatsFormatter[] = [
+  { value: 'amount' },
+  { value: 'amount' },
+  { value: 'amount' },
+  { value: 'amount' },
+];
 
 export default function BriefSection({ items }: Props) {
   const t = usePageTranslation();
@@ -20,7 +27,7 @@ export default function BriefSection({ items }: Props) {
           </Typography>
         </Grid>
         <Grid item xs={12} md={9}>
-          <StatsItems items={items} />
+          <StatsItems items={items} formatters={statsFormatters} />
         </Grid>
       </Grid>
     </Section>
