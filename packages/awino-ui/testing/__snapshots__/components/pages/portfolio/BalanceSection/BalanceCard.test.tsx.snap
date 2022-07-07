@@ -39,7 +39,7 @@ exports[`<BalanceCard /> has valid snapshot 1`] = `
         aria-describedby="balanceCard-awi"
         class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-5"
       >
-        23.450
+        23.45
       </p>
     </div>
   </div>

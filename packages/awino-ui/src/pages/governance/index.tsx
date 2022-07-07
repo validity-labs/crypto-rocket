@@ -12,13 +12,12 @@ import { governanceInfo } from '@/fixtures/governance';
 import { sleep } from '@/lib/helpers';
 import { GovernanceInfo } from '@/types/app';
 // import AssetSection from '@/components/pages/market/AssetSection/AssetSection';
-// import StatsSection from '@/components/pages/shared/StatsSection/StatsSection';
 
 // const stats = [
-//   { value: 89.7, subvalue: 24.72 },
-//   { value: 89.7, subvalue: 24.72 },
-//   { value: 0.27, subvalue: 24.72 },
-//   { value: 273.4, subvalue: 52 },
+//   { value: 89.7, subValues: [24.72] },
+//   { value: 89.7, subValues: [24.72] },
+//   { value: 0.27, subValues: [24.72] },
+//   { value: 273.4, subValues: [52] },
 //   { value: 47.4 },
 // ];
 

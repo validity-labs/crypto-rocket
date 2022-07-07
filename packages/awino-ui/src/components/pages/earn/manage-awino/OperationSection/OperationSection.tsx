@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { Grid, GridProps } from '@mui/material';
 
 import Section from '@/components/layout/Section/Section';
-import StatsItems from '@/components/pages/shared/FormattedStatsItems/StatsItems';
+import StatsItems from '@/components/pages/shared/StatsItems/StatsItems';
 import { StatsData, StatsFormatter } from '@/types/app';
 
 import LockCard, { LockData } from './LockCard';

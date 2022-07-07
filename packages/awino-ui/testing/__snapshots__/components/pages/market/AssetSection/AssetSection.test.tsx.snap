@@ -35,7 +35,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 aria-describedby="marketTotalSize"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-6"
               >
-                12.350 m USD
+                12,345,678.00 USD
               </p>
             </div>
             <div
@@ -74,7 +74,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 aria-describedby="platformTotalFee"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-6"
               >
-                1.230 m USD
+                1,234,567.89 USD
               </p>
             </div>
           </div>

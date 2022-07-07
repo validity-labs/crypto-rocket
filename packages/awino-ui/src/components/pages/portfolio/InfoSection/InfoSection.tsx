@@ -8,7 +8,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatPercent, formatUSD } from '@/lib/formatters';
 import { StatsData, StatsFormatter } from '@/types/app';
 
-import StatsItems from '../../shared/FormattedStatsItems/StatsItems';
+import StatsItems from '../../shared/StatsItems/StatsItems';
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiInfoSection-title': {
@@ -85,7 +85,7 @@ interface Props {
   loading: boolean;
 }
 
-export const statsFormatters: StatsFormatter[] = [{ value: formatUSD }, { value: formatPercent }, { value: formatUSD }];
+export const statsFormatters: StatsFormatter[] = [{ value: 'usd' }, { value: 'percent' }, { value: 'usd' }];
 
 export default function InfoSection({ info, loading }: Props) {
   const t = usePageTranslation({ keyPrefix: 'info-section' });

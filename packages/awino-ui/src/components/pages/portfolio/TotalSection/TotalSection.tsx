@@ -1,10 +1,9 @@
 import { styled } from '@mui/material/styles';
 
 import Section from '@/components/layout/Section/Section';
-import { formatUSDFull } from '@/lib/formatters';
 import { StatsData, StatsFormatter } from '@/types/app';
 
-import StatsItems from '../../shared/FormattedStatsItems/StatsItems';
+import StatsItems from '../../shared/StatsItems/StatsItems';
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiStatsItem-title': {
@@ -29,11 +28,7 @@ interface Props {
   items: StatsData;
 }
 
-export const statsFormatters: StatsFormatter[] = [
-  { value: formatUSDFull },
-  { value: formatUSDFull },
-  { value: formatUSDFull },
-];
+export const statsFormatters: StatsFormatter[] = [{ value: 'usd' }, { value: 'usd' }, { value: 'usd' }];
 
 export default function TotalSection({ items }: Props) {
   return (

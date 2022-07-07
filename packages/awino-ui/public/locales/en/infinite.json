@@ -9,20 +9,16 @@
   "stats-section": {
     "items": [
       {
-        "title": "AWINO balance",
-        "value": "{{v}}"
+        "title": "AWINO balance"
       },
       {
-        "title": "INFINITE balance",
-        "value": "{{v}}"
+        "title": "INFINITE balance"
       },
       {
-        "title": "Total AWINO locked",
-        "value": "{{v}}"
+        "title": "Total AWINO locked"
       },
       {
-        "title": "Circulating AWINO",
-        "value": "{{v}}"
+        "title": "Circulating AWINO"
       }
     ]
   },

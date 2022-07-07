@@ -51,15 +51,15 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     >
                       <img
                         alt=""
-                        class="AwiClaimSection-awi"
+                        class="AwiClaimSection-geist"
                         height="30"
-                        src="/images/assets/awi.svg"
+                        src="/images/assets/geist.svg"
                         width="30"
                       />
                       <p
                         class="MuiTypography-root MuiTypography-body css-11"
                       >
-                        100.000  AWI
+                        100.00 GEIST
                       </p>
                     </div>
                   </td>
@@ -106,15 +106,15 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     >
                       <img
                         alt=""
-                        class="AwiClaimSection-awi"
+                        class="AwiClaimSection-geist"
                         height="30"
-                        src="/images/assets/awi.svg"
+                        src="/images/assets/geist.svg"
                         width="30"
                       />
                       <p
                         class="MuiTypography-root MuiTypography-body css-11"
                       >
-                        100.000  AWI
+                        100.00 GEIST
                       </p>
                     </div>
                   </td>
@@ -138,7 +138,7 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body-sm css-9"
                     >
-                      claim-all.description - {"v":"50.000  AWI"}
+                      claim-all.description - {"v":"100.99 AWI"}
                     </p>
                   </td>
                   <td
@@ -150,15 +150,15 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     >
                       <img
                         alt=""
-                        class="AwiClaimSection-awi"
+                        class="AwiClaimSection-geist"
                         height="30"
-                        src="/images/assets/awi.svg"
+                        src="/images/assets/geist.svg"
                         width="30"
                       />
                       <p
                         class="MuiTypography-root MuiTypography-body css-11"
                       >
-                        50.000  AWI
+                        50.00 GEIST
                       </p>
                     </div>
                   </td>
@@ -205,15 +205,15 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     >
                       <img
                         alt=""
-                        class="AwiClaimSection-awi"
+                        class="AwiClaimSection-geist"
                         height="30"
-                        src="/images/assets/awi.svg"
+                        src="/images/assets/geist.svg"
                         width="30"
                       />
                       <p
                         class="MuiTypography-root MuiTypography-body css-11"
                       >
-                        100.000  AWI
+                        100.00 GEIST
                       </p>
                     </div>
                   </td>
@@ -359,7 +359,7 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body css-57"
                     >
-                      100.000
+                      100.00
                     </p>
                   </div>
                   <div
@@ -443,7 +443,7 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                         <p
                           class="MuiTypography-root MuiTypography-body css-57"
                         >
-                          100.000
+                          100.00
                         </p>
                       </div>
                       <div
@@ -482,7 +482,7 @@ exports[`<ClaimSection /> has valid snapshot 1`] = `
                         <p
                           class="MuiTypography-root MuiTypography-body css-57"
                         >
-                          100.000
+                          100.00
                         </p>
                       </div>
                       <div

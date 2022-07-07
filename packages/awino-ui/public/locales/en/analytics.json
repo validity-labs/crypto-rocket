@@ -6,28 +6,22 @@
   "stats-section": {
     "items": [
       {
-        "title": "AWINO locked",
-        "value": "{{v}} M",
-        "subvalue": "{{v}} M USD"
+        "title": "AWINO locked"
       },
       {
-        "title": "AWINO staked",
-        "value": "{{v}} M",
-        "subvalue": "{{v}} M USD"
+        "title": "AWINO staked"
       },
       {
-        "title": "AWINO price",
-        "value": "{{v}} USD"
+        "title": "AWINO price"
       },
       {
         "title": "Circulating supply",
-        "value": "{{v}} M",
-        "subvalue": "{{v}}% locked"
+        "sub-values": [
+          "{{v}} locked"
+        ]
       },
       {
-        "title": "Market cap",
-        "value": "{{v}} M",
-        "subvalue": "{{v}} M USD"
+        "title": "Market cap"
       }
     ]
   },
