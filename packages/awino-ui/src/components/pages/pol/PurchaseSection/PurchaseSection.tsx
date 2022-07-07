@@ -23,8 +23,8 @@ export interface PolPurchaseData {
 }
 
 const data: PolPurchaseData = {
-  source: 'usdt',
-  target: 'awiusdt',
+  source: 'usdc',
+  target: 'awiusdc',
   rate: new BigNumber(1.31),
   oldRate: new BigNumber(1.21),
   maxSource: new BigNumber(99.5),
@@ -41,25 +41,25 @@ const treasury = {
   amount: 1.31,
   totalShare: 3.39,
   inTreasury: {
-    asset: 'awiusdt',
-    match: 'usdt',
+    asset: 'awiusdc',
+    match: 'usdc',
     value: 83.4233,
     assetInUSD: 123.3,
   },
   breakdown: [
     {
-      asset: 'awiusdt',
+      asset: 'awiusdc',
       value: 83.4233,
       assetInUSD: 123.3,
     },
     {
-      asset: 'usdt',
+      asset: 'usdc',
       value: 83.4233,
       assetInUSD: 123.3,
     },
   ],
   totalSold: {
-    asset: 'usdt',
+    asset: 'usdc',
     value: 83.4233,
     assetInUSD: 123.3,
   },
