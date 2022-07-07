@@ -473,7 +473,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
                       {targetAsset && targetMaxValue && (
                         <span>
                           {t('swap-section.swap.max-of-asset', {
-                            value: sourceMaxValue,
+                            value: targetMaxValue,
                             asset: assets.get(targetAsset).label,
                           })}
                         </span>
