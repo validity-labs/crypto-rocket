@@ -28,8 +28,6 @@ module.exports = async (/* phase, { defaultConfig } */) => {
         },
       ]
     }
-
-
   };
 
   return nextConfig;
