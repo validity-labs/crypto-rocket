@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Liquidity, LiquidityExtended } from '@/hooks/subgraphs/exchange/useUserMintPairs';
+import { PAGINATION_PAGE_SIZE } from '@/app/constants';
+import { LiquidityPair, LiquidityExtended } from '@/hooks/subgraphs/exchange/useUserLiquidityPairs';
 import { Address } from '@/types/app';
 
 interface LiquidityContent {
   ids: Address[];
-  entities: Record<Address, Liquidity>;
+  entities: Record<Address, LiquidityPair>;
   loading: boolean;
-  // touched: boolean;
+  more: boolean;
+  touched: boolean;
 }
 
 interface ExchangeState {
@@ -15,14 +17,16 @@ interface ExchangeState {
 }
 
 export interface LiquidityExtendedData {
-  token0: {
-    balance: string;
-    balanceFormatted: string;
-  };
-  token1: {
-    balance: string;
-    balanceFormatted: string;
-  };
+  // token0: {
+  //   reserve: string;
+  //   // balance: string;
+  //   // balanceFormatted: string;
+  // };
+  // token1: {
+  //   reserve: string;
+  //   // balance: string;
+  //   // balanceFormatted: string;
+  // };
   share: string;
 }
 
@@ -31,6 +35,8 @@ const initialState: ExchangeState = {
     ids: [],
     entities: {},
     loading: false,
+    more: true,
+    touched: false,
   },
 };
 
@@ -38,12 +44,12 @@ export const exchangeSlice = createSlice({
   name: 'exchange',
   initialState,
   reducers: {
-    initiateSetLiquidity: (state) => {
-      state.liquidity.loading = true;
+    toggleLiquidityLoad: (state, action: PayloadAction<boolean>) => {
+      state.liquidity.loading = action.payload;
     },
-    setLiquidity: (state, action: PayloadAction<Liquidity[]>) => {
-      const items = action.payload;
-
+    addLiquidity: (state, action: PayloadAction<{ items: LiquidityPair[]; more: boolean }>) => {
+      const { items, more } = action.payload;
+      console.log(items);
       const { ids, entities } = items.reduce(
         (ar, r) => {
           ar.ids.push(r.id);
@@ -55,15 +61,39 @@ export const exchangeSlice = createSlice({
       );
 
       state.liquidity = {
-        ids,
-        entities,
+        ids: [...state.liquidity.ids, ...ids],
+        entities: {
+          ...state.liquidity.entities,
+          ...entities,
+        },
+        touched: true,
         loading: false,
+        more,
       };
     },
+    // setLiquidity: (state, action: PayloadAction<Liquidity[]>) => {
+    //   const items = action.payload;
+
+    //   const { ids, entities } = items.reduce(
+    //     (ar, r) => {
+    //       ar.ids.push(r.id);
+    //       ar.entities[r.id] = r;
+
+    //       return ar;
+    //     },
+    //     { ids: [], entities: {} }
+    //   );
+
+    //   state.liquidity = {
+    //     ids,
+    //     entities,
+    //     loading: false,
+    //   };
+    // },
     extendLiquidity: (state, action: PayloadAction<{ id: Address; data: LiquidityExtendedData }>) => {
       const {
         id,
-        data: { share, token0, token1 },
+        data: { share /* , token0, token1 */ },
       } = action.payload;
 
       const entity = state.liquidity.entities[id];
@@ -71,14 +101,14 @@ export const exchangeSlice = createSlice({
       state.liquidity.entities[id] = {
         ...entity,
         extended: true,
-        token0: {
-          ...entity.token0,
-          ...token0,
-        },
-        token1: {
-          ...entity.token1,
-          ...token1,
-        },
+        // token0: {
+        //   ...entity.token0,
+        //   ...token0,
+        // },
+        // token1: {
+        //   ...entity.token1,
+        //   ...token1,
+        // },
         share,
       } as LiquidityExtended;
     },
@@ -87,9 +117,24 @@ export const exchangeSlice = createSlice({
       state.liquidity.ids = state.liquidity.ids.filter((f) => f !== id);
       delete state.liquidity.entities[id];
     },
+    resetLiquidity: (state) => {
+      state.liquidity = {
+        ids: [],
+        entities: {},
+        loading: false,
+        more: true,
+        touched: false,
+      };
+    },
   },
 });
 
-export const { initiateSetLiquidity, setLiquidity, extendLiquidity, removeLiquidity } = exchangeSlice.actions;
+export const {
+  toggleLiquidityLoad,
+  resetLiquidity,
+  addLiquidity,
+  /* setLiquidity, */ extendLiquidity,
+  removeLiquidity,
+} = exchangeSlice.actions;
 
 export default exchangeSlice.reducer;

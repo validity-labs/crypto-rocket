@@ -14,7 +14,7 @@ import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 // import { swapLiquidityData } from '@/fixtures/earn';
-import { Liquidity, useUserMintPairs } from '@/hooks/subgraphs/exchange/useUserMintPairs';
+import { LiquidityPair, useUserLiquidityPairs } from '@/hooks/subgraphs/exchange/useUserLiquidityPairs';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import {
   addLiquidity,
@@ -128,6 +128,9 @@ const Root = styled('div')(({ theme }) => ({
   '.AwiLiquidityPanel-liquidity': {
     margin: theme.spacing(18, 0),
   },
+  '.AwiLiquidityPanel-liquidityLoadMore': {
+    margin: theme.spacing(10, 'auto'),
+  },
   [theme.breakpoints.up('md')]: {
     '.AwiLiquidityPanel-source': {
       padding: theme.spacing(11, 22, 12, 8),
@@ -168,7 +171,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const [canExecute, setCanExecute] = useState(false);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
   const [importPoolModal, setImportPoolModal] = useState<ImportPoolModalData | null>(null);
-  const [removeLiquidityModal, setRemoveLiquidityModal] = useState<Liquidity | null>(null);
+  const [removeLiquidityModal, setRemoveLiquidityModal] = useState<LiquidityPair | null>(null);
 
   const { account, library } = useWeb3React();
   const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
@@ -177,8 +180,10 @@ const LiquidityPanel = (props: TabPanelProps) => {
     ids: userLiquidityIds,
     entities: userLiquidityEntities,
     loading: isLiquidityLoading,
-  } = useUserMintPairs({
-    to: account,
+    more: hasMoreLiquidity,
+    onLoadMore: onLiquidityLoadMore,
+  } = useUserLiquidityPairs({
+    to: account, // '0xbf6562db3526d4be1d3a2b71718e132fb8003e32',
   });
 
   const allowance = useAllowance(assets.get(sourceAsset)?.address, account, AWINO_ROUTER_MAP[ChainId.TESTNET]);
@@ -357,7 +362,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
     // setAllLiquidity((prevAllLiquidity) => [payload, ...prevAllLiquidity]);
   };
 
-  const handleRemoveLiquidityModalToggle = (item: Liquidity) => {
+  const handleRemoveLiquidityModalToggle = (item: LiquidityPair) => {
     setRemoveLiquidityModal(item);
   };
 
@@ -504,9 +509,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
                 </div>
               </Grid>
               <Grid item xs={12}>
-                {isLiquidityLoading ? (
-                  <Loader />
-                ) : userLiquidityIds.length > 0 ? (
+                {userLiquidityIds.length > 0 ? (
                   <>
                     <Typography variant="body-ms" sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
                       {t('swap-section.liquidity.pool-pair')}
@@ -520,11 +523,26 @@ const LiquidityPanel = (props: TabPanelProps) => {
                     ))}
                   </>
                 ) : (
-                  <Panel>
-                    <Typography mx="auto" textAlign="center">
-                      {t('swap-section.liquidity.no-liquidity-found')}
-                    </Typography>
-                  </Panel>
+                  <>
+                    {!isLiquidityLoading && (
+                      <Panel>
+                        <Typography mx="auto" textAlign="center">
+                          {t('swap-section.liquidity.no-liquidity-found')}
+                        </Typography>
+                      </Panel>
+                    )}
+                  </>
+                )}
+                {hasMoreLiquidity && (
+                  <LoadingButton
+                    variant="outlined"
+                    color="primary"
+                    loading={isLiquidityLoading}
+                    className="AwiLiquidityPanel-liquidityLoadMore"
+                    onClick={onLiquidityLoadMore}
+                  >
+                    {t('common:common.load-more')}
+                  </LoadingButton>
                 )}
               </Grid>
             </Grid>

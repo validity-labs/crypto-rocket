@@ -21,7 +21,7 @@ import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
 import Switch from '@/components/general/Switch/Switch';
-import { Liquidity, TokenExtended } from '@/hooks/subgraphs/exchange/useUserMintPairs';
+import { LiquidityPair, TokenExtended } from '@/hooks/subgraphs/exchange/useUserLiquidityPairs';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatPercent, formatUnits } from '@/lib/formatters';
 import { percentOf } from '@/lib/helpers';
@@ -141,7 +141,7 @@ export type RemoveLiquidityModalUpdateCallback<T = void> = (payload: {
 interface Props {
   open: boolean;
   close: () => void;
-  data: Liquidity;
+  data: LiquidityPair;
   callback: RemoveLiquidityModalUpdateCallback;
   i18nKey: string;
 }

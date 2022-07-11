@@ -23,6 +23,7 @@ export const getServerSideProps = storeWrapper.getServerSideProps((store) => asy
 
   return {
     props: {
+      protected: true,
       ...(await serverSideTranslations(locale, ['common', ns])),
     },
   };

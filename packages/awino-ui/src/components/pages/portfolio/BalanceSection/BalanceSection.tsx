@@ -10,6 +10,7 @@ import Loader from '@/components/general/Loader/Loader';
 import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import { balanceGroupedList } from '@/fixtures/portfolio';
+import { useUserPools } from '@/hooks/subgraphs/masterchef/useUserPools';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatAmount } from '@/lib/formatters';
 import { BalanceGrouped } from '@/types/app';
@@ -77,6 +78,7 @@ export default function BalanceSection({ items, loading }: Props) {
   const t = usePageTranslation();
   const { tokens, stableCoins, pool } = items;
 
+  const data = useUserPools({ to: '0xbf6562db3526d4be1d3a2b71718e132fb8003e32' });
   return (
     <Root>
       <Panel className="AwiBalanceSection-panel">

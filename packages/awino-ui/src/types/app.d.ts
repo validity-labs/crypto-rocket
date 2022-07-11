@@ -10,6 +10,7 @@ import { ProposalState } from '@/app/constants';
 export interface NextAppConfig extends NextConfig {
   serverRuntimeConfig?: {};
   publicRuntimeConfig: {
+    chainId: number;
     baseDomain: string;
     etherscanApiKey: string;
   };

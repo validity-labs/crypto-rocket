@@ -1,5 +1,9 @@
 import { string } from 'yup';
 
+import { erc20AbiJson } from '../erc20/abi/erc20';
+
+import multicall from './multicall';
+
 export interface TokenInfo {
   id: string;
   name: string;
@@ -121,4 +125,23 @@ export const fetchTokens = (): Promise<TokenInfo[]> => {
   ];
 
   return Promise.resolve(tokens);
+};
+
+/**
+ * @param account Account address
+ * @param tokens Array with token addresses
+ */
+export const fetchUserBalances = async (account: string, tokens: string[], provider: any) => {
+  const calls = tokens.map((token) => ({
+    address: token,
+    name: 'balanceOf',
+    params: [account],
+  }));
+  console.log('fetchUserBalances', calls, tokens);
+  const tokenBalancesRaw = await multicall(erc20AbiJson, calls, provider);
+  return tokenBalancesRaw;
+  // TODO transform raw balances as needed
+  // const tokenBalances = tokens.reduce((acc, token, index) => ({  [token]: tokenBalancesRaw[index] }), {})
+
+  // return tokenBalancesRaw;
 };

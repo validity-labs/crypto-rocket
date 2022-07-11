@@ -1,6 +1,6 @@
 import { request } from 'graphql-request';
 
-type SUBGRAPH_KEY = 'exchange';
+type SUBGRAPH_KEY = 'exchange' | 'masterchef';
 type ResponseNormalaizer = (data: any) => any;
 
 export const createFetcher =

@@ -5,6 +5,7 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import accountReducer from './state/slices/account';
 import appReducer from './state/slices/app';
 import exchangeReducer from './state/slices/exchange';
+import masterchefReducer from './state/slices/masterchef';
 
 export const makeStore = () =>
   configureStore({
@@ -12,6 +13,7 @@ export const makeStore = () =>
       app: appReducer,
       account: accountReducer,
       exchange: exchangeReducer,
+      masterchef: masterchefReducer,
     },
     // devTools: true,
   });
