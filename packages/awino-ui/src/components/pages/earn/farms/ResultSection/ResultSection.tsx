@@ -2,21 +2,25 @@ import { useMemo, useState, useCallback, useEffect } from 'react';
 
 import { useTranslation } from 'next-i18next';
 
+import { createSelector } from '@reduxjs/toolkit';
+
 import { TableRowsRounded, ViewColumnRounded } from '@mui/icons-material';
-import { FormControlLabel, Grid, Slide, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { Box, FormControlLabel, Grid, Slide, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { useWeb3 } from '@/app/providers/Web3Provider';
+import { fetchEarnFarmsPoolPairs } from '@/app/state/actions/pages/earn-farms';
+import { AppState } from '@/app/store';
 import Label from '@/components/general/Label/Label';
-import Loader from '@/components/general/Loader/Loader';
+import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
 import Search from '@/components/general/Search/Search';
 import Select, { SelectValueAndOptionDefault } from '@/components/general/Select/Select';
 import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
-import { earnFarmsData } from '@/fixtures/earn';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_WETH_PAIR_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
-import { sleep } from '@/lib/helpers';
 import { AssetKeyPair } from '@/types/app';
 
 import ResultCard from './ResultCard';
@@ -143,11 +147,83 @@ export interface FarmDataItem {
   contract: string;
 }
 
+const pools = {
+  'awi-dai': {
+    address: AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET],
+    pid: 1,
+  },
+  'awi-weth': {
+    address: AWINO_WETH_PAIR_ADDRESS_MAP[ChainId.TESTNET],
+    pid: 2,
+  },
+};
+
+const itemsSelector = createSelector(
+  (state: AppState) => state.exchange.liquidityPairs.entities,
+  (state: AppState) => state.masterchef.farmPairs,
+  (state: AppState) => state.pageEarnFarms.poolPairs.ids,
+  (liquidityPairs, { pairIdToFarmId, entities: farmPairs }, pairIds) => {
+    return pairIds.map((id) => {
+      const pair = liquidityPairs[id];
+      const farmId = pairIdToFarmId[id];
+      const { isRegular = false } = farmPairs[farmId] || {};
+      return {
+        ...pair,
+        pair: [pair.token0.symbol, pair.token1.symbol],
+        farmId,
+        isRegular,
+        proportion: 12.3,
+        type: 'boosted',
+        staked: false,
+        active: false,
+        emissions: '234.56',
+        apr: '1.23',
+        aprFarm: '1.23',
+        aprLP: '1.23',
+        earned: '456.78',
+        liquidity: '567.89',
+        fees: '678.9',
+        aprRange: ['1.23', '7.89'],
+        depositFee: '0',
+        boostFactor: '1.0',
+        lpPrice: '123.45',
+        stakedAmount: '123',
+        walletAmount: '234',
+        walletAmountUSD: '345',
+        contract: '0x00',
+        // contract: AWINO_WETH_PAIR_ADD,
+      };
+    });
+  }
+);
+
 export default function ResultSection() {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
   const { t: tRaw } = useTranslation();
-  const [loading, setLoading] = useState(true);
-  const [records, setRecords] = useState<FarmDataItem[]>([]);
+
+  const { account, library } = useWeb3();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      fetchEarnFarmsPoolPairs({
+        variables: { account },
+        provider: library,
+        options: { more: false },
+      })
+    );
+  }, [account, dispatch, library]);
+
+  const {
+    ids: poolPairIds,
+    loading: isPoolPairLoading,
+    more: hasMorePoolPairs,
+  } = useAppSelector((state) => state.pageEarnFarms.poolPairs);
+  /* TODO update selector return type */
+  const records = useAppSelector(itemsSelector) as unknown as FarmDataItem[];
+  const handlePoolPairsLoadMore = () => {
+    dispatch(fetchEarnFarmsPoolPairs({ variables: { account }, provider: library }));
+  };
   const [filters, setFilters] = useState<Filters>({
     type: 'all',
     sort: 'emissions',
@@ -155,28 +231,20 @@ export default function ResultSection() {
     inactiveFarms: false,
     search: null,
   });
+
   const [layout, setLayout] = useState<LayoutKey>('grid');
   const [stakeModal, setStakeModal] = useState<StakeModalData | null>(null);
-  const pools = {
-    'awi-dai': {
-      address: AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET],
-      pid: 1,
-    },
-    'awi-weth': {
-      address: AWINO_WETH_PAIR_ADDRESS_MAP[ChainId.TESTNET],
-      pid: 2,
-    },
-  };
-  useEffect(() => {
-    (async () => {
-      await sleep(0.1);
-      const farmsRecords = await new Promise<any>((res) => {
-        return res(earnFarmsData);
-      });
-      setRecords(farmsRecords);
-      setLoading(false);
-    })();
-  }, []);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     await sleep(0.1);
+  //     const farmsRecords = await new Promise<any>((res) => {
+  //       return res(earnFarmsData);
+  //     });
+  //     setRecords(farmsRecords);
+  //     setLoading(false);
+  //   })();
+  // }, []);
 
   const sortByItems = useMemo(() => {
     return SORT_BY_ITEMS.reduce((ar, r) => {
@@ -242,7 +310,7 @@ export default function ResultSection() {
       .sort((a, b) => +a[sort] - +b[sort]);
   }, [filters, records]);
 
-  const handleHarvest = useCallback((pair: AssetKeyPair) => {
+  const handleHarvest = useCallback((pair: any) => {
     // TODO implement harvest logic
     console.log('handleHarvest', pair);
   }, []);
@@ -253,7 +321,7 @@ export default function ResultSection() {
     console.log('handleStake', stakeData);
   }, []);
 
-  const handleUnstake = useCallback((pair: AssetKeyPair) => {
+  const handleUnstake = useCallback((pair: any) => {
     console.log('handleUnstake', pair);
   }, []);
   const gridProps = useMemo(() => {
@@ -339,39 +407,67 @@ export default function ResultSection() {
             </ToggleButton>
           </ToggleButtonGroup>
         </Panel>
-        {loading && <Loader />}
+
+        {poolPairIds.length > 0 ? (
+          <>
+            {filteredRecords.length > 0 &&
+              (layout === 'grid' ? (
+                <Grid container spacing={8}>
+                  {filteredRecords.map((record) => (
+                    <Grid key={record.id} item xs={12} {...gridProps}>
+                      <Slide in appear direction="up">
+                        <div>
+                          <ResultCard
+                            item={record}
+                            onHarvest={handleHarvest}
+                            onStake={handleStake}
+                            onUnstake={handleUnstake}
+                          />
+                        </div>
+                      </Slide>
+                    </Grid>
+                  ))}
+                </Grid>
+              ) : (
+                <ResultTable
+                  items={filteredRecords}
+                  loading={isPoolPairLoading}
+                  onHarvest={handleHarvest}
+                  onStake={handleStake}
+                  onUnstake={handleUnstake}
+                />
+              ))}
+          </>
+        ) : (
+          <>
+            {!isPoolPairLoading && (
+              <Panel>
+                <Typography mx="auto" textAlign="center">
+                  {t('common.no-records')}
+                </Typography>
+              </Panel>
+            )}
+          </>
+        )}
+        {hasMorePoolPairs && (
+          <Box className="Awi-row" sx={{ justifyContent: 'center', my: 10 }}>
+            <LoadingButton
+              variant="outlined"
+              color="primary"
+              loading={isPoolPairLoading}
+              onClick={handlePoolPairsLoadMore}
+            >
+              {tRaw('common.load-more')}
+            </LoadingButton>
+          </Box>
+        )}
+
+        {/* {loading && <Loader />}
         {!loading && filteredRecords.length === 0 && (
           <Typography variant="body-lg" textAlign="center" py={10}>
             {tRaw('common.no-records')}
           </Typography>
-        )}
-        {filteredRecords.length > 0 &&
-          (layout === 'grid' ? (
-            <Grid container spacing={8}>
-              {filteredRecords.map((record) => (
-                <Grid key={record.id} item xs={12} {...gridProps}>
-                  <Slide in appear direction="up">
-                    <div>
-                      <ResultCard
-                        item={record}
-                        onHarvest={handleHarvest}
-                        onStake={handleStake}
-                        onUnstake={handleUnstake}
-                      />
-                    </div>
-                  </Slide>
-                </Grid>
-              ))}
-            </Grid>
-          ) : (
-            <ResultTable
-              items={filteredRecords}
-              loading={loading}
-              onHarvest={handleHarvest}
-              onStake={handleStake}
-              onUnstake={handleUnstake}
-            />
-          ))}
+        )} */}
       </Root>
       {!!stakeModal && (
         <StakeModal

@@ -5,6 +5,7 @@ import { Address } from '@/types/app';
 export interface FarmPair {
   id: string;
   pairId: Address;
+  isRegular?: boolean;
 }
 
 export interface PartialUserFarmPair {

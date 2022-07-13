@@ -102,6 +102,7 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
 
   const handleStake = useCallback(() => {
     onStake({
+      // ...row,
       pair: row.pair,
       proportion: row.proportion,
       stakedAmount: row.stakedAmount,

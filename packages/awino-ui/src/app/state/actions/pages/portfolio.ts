@@ -30,7 +30,7 @@ export const fetchPortfolioPoolPairs = createAsyncThunk<any, any, { state: AppSt
   'pagePortfolio/fetchPortfolioLiquidity',
   async ({ variables, provider, options = {} }, { getState, dispatch }) => {
     // TODO only for testing purposes
-    variables.account = '0xbf6562db3526d4be1d3a2b71718e132fb8003e32';
+    // variables.account = '0xbf6562db3526d4be1d3a2b71718e132fb8003e32';
     const { account } = variables;
     // pagination logic
     const { more = true, pageSize = PAGINATION_PAGE_SIZE } = options;

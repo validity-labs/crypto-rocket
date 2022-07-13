@@ -38,6 +38,27 @@ type MasterchefUserPoolsResponse = {
   items: MasterchefUserPoolRaw[];
 };
 
+// query ($ids: [ID!], $first: Int, $skip: Int) {
+//   items: pairs(where: { id_not_in: $ids }, first: $first, skip: $skip, orderBy: "timestamp", orderDirection: "desc") {
+const MASTERCHEF_PAGINATED_POOL_PAIRS_QUERY = gql`
+  query ($first: Int, $skip: Int) {
+    items: pools(first: $first, skip: $skip, orderBy: "timestamp", orderDirection: "desc") {
+      id
+      pairId: pair
+      isRegular
+    }
+  }
+`;
+
+export interface MasterchefPoolRaw {
+  id: string;
+  pairId: Address;
+}
+
+type MasterchefPoolsResponse = {
+  items: MasterchefPoolRaw[];
+};
+
 // const queries = {
 //   paginatedUserPoolPairs: MASTERCHEF_PAGINATED_USER_POOL_PAIRS_QUERY,
 // };
@@ -50,6 +71,7 @@ type MasterchefUserPoolsResponse = {
 
 const keyToQueryMap = {
   'masterchef-paginated-user-pool-pairs': MASTERCHEF_PAGINATED_USER_POOL_PAIRS_QUERY,
+  'masterchef-paginated-pool-pairs': MASTERCHEF_PAGINATED_POOL_PAIRS_QUERY,
 };
 
 export default keyToQueryMap;

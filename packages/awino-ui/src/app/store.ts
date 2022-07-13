@@ -6,6 +6,7 @@ import accountReducer from './state/slices/account';
 import appReducer from './state/slices/app';
 import exchangeReducer from './state/slices/exchange';
 import masterchefReducer from './state/slices/masterchef';
+import pageEarnFarmsReducer from './state/slices/pages/earn-farms';
 import pagePortfolioReducer from './state/slices/pages/portfolio';
 import pageSwapReducer from './state/slices/pages/swap';
 
@@ -18,6 +19,7 @@ export const makeStore = () =>
       masterchef: masterchefReducer,
       pageSwap: pageSwapReducer,
       pagePortfolio: pagePortfolioReducer,
+      pageEarnFarms: pageEarnFarmsReducer,
     },
     // devTools: true,
   });

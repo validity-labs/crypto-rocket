@@ -9,13 +9,13 @@ import { styled } from '@mui/material/styles';
 import { SYMBOLS } from '@/app/constants';
 import { useAppSelector } from '@/app/hooks';
 import ConnectButton from '@/components/buttons/ConnectButton';
+import AssetIcons from '@/components/general/AssetIcons/AssetIcons';
 import Label from '@/components/general/Label/Label';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Link from '@/components/general/Link/Link';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import InfoIcon from '@/components/icons/InfoIcon';
 import LinkIcon from '@/components/icons/LinkIcon';
-import AssetIcons from '@/components/pages/swap/SwapSection/AssetIcons';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_MASTER_CHEF_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
@@ -167,13 +167,14 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
 
   const { connected } = useAppSelector((state) => state.account);
 
+  const label = formatLPPair(item.pair);
   return (
     <Root className="AwiResultCard-card">
       <div className="AwiResultCard-header">
         {/* @ts-expect-error */}
         <AssetIcons ids={item.pair} size="large" component="div" sx={{ display: 'inline-block' }} />
         <div className="AwiResultCard-title">
-          <Typography className="AwiResultCard-pair">{formatLPPair(item.pair)}</Typography>
+          <Typography className="AwiResultCard-pair">{label}</Typography>
           <Label
             variant="body-xs"
             tooltip={t('proportion-hint')}
@@ -270,7 +271,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
         />
         <div className="AwiResultCard-actions">
           <div>
-            <Typography className="AwiResultCard-pair">{formatLPPair(item.pair)}</Typography>
+            <Typography className="AwiResultCard-pair">{label}</Typography>
             <Box component="div" className="Awi-row" sx={{ gap: 6 }}>
               {connected ? (
                 <>
@@ -300,7 +301,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
             value={
               <Box component="span" display="flex" justifyContent="flex-end" alignItems="center">
                 <Typography component="span" color="inherit">
-                  {formatLPPair(item.pair)}
+                  {label}
                 </Typography>
                 <Link href="/todo" ml={2}>
                   <LinkIcon />
