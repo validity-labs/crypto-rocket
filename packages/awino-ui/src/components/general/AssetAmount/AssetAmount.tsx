@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { useTranslation } from 'next-i18next';
+
 import BigNumber from 'bignumber.js';
 import clsx from 'clsx';
 
@@ -71,6 +73,7 @@ export default function AssetAmount({
   size = 'medium',
   ...restOfProps
 }: Props) {
+  const { t } = useTranslation();
   return (
     <Root size={size} {...restOfProps}>
       <div className="icon">
@@ -78,8 +81,8 @@ export default function AssetAmount({
         {match && <img src={`/images/assets/${match}.svg`} alt="" className="target" />}
       </div>
       <div className="values">
-        <Typography className="value">{formatAmount(value, { postfix: asset.toUpperCase() })}</Typography>
-        <Typography className="alt">{formatAmount(altValue, { postfix: altAsset.toUpperCase() })}</Typography>
+        <Typography className="value">{formatAmount(value, { postfix: t(`common:asset.${asset}`) })}</Typography>
+        <Typography className="alt">{formatAmount(altValue, { postfix: t(`common:asset.${altAsset}`) })}</Typography>
       </div>
     </Root>
   );

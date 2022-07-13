@@ -1,22 +1,19 @@
 {
   "page": {
-    "title": "Awino",
+    "title": "AWINO",
     "description": "MISSING DESCRIPTION"
   },
   "total-section": {
     "title": "Smart\n overview",
     "items": [
       {
-        "title": "Total deposits",
-        "value": "{{v}}"
+        "title": "Total deposits"
       },
       {
-        "title": "Total rewards",
-        "value": "{{v}}"
+        "title": "Total rewards"
       },
       {
-        "title": "To collect from 3 farms",
-        "value": "{{v}}"
+        "title": "To collect from 3 farms"
       }
     ]
   },
@@ -32,23 +29,19 @@
     ],
     "items": [
       {
-        "title": "AWINO locked",
-        "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "title": "AWINO locked"
       },
       {
-        "title": "AWINO staked",
-        "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "title": "AWINO staked"
       },
       {
-        "title": "AWINO price",
-        "value": "$ {{v}}"
+        "title": "AWINO price"
       },
       {
         "title": "Circulating supply",
-        "value": "{{v}} M",
-        "subvalue": "{{v}}% locked"
+        "sub-values": [
+          "{{v}} locked"
+        ]
       }
     ]
   },
@@ -105,7 +98,7 @@
       },
       {
         "title": "Interoperability",
-        "description": "Awino has multiple bridges, connecting to other blockchains such as Terra (LUNA), Avalanche (AVAX) and BSC (BNB), with the intention to further expand on other blockchains in the future. AWINO will later migrate to its own L1 block chain."
+        "description": "AWINO has multiple bridges, connecting to other blockchains such as Terra (LUNA), Avalanche (AVAX) and BSC (BNB), with the intention to further expand on other blockchains in the future. AWINO will later migrate to its own L1 block chain."
       }
     ]
   },

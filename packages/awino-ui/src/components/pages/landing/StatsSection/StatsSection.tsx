@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 // import Link from '@/components/general/Link/Link';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { StatsData } from '@/types/app';
+import { StatsData, StatsFormatter } from '@/types/app';
 
 import StatsItems from '../../shared/StatsItems/StatsItems';
 
@@ -51,7 +51,7 @@ const Root = styled(Section)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     h1: {
       fontSize: '5rem' /* 80px */,
-      lineHeight: '8rem' /* 128px */,
+      lineHeight: '7rem' /* 112px */,
       '.Awi-small': {
         fontSize: '3.75rem' /* 60px */,
         lineHeight: '6.125rem' /* 98px */,
@@ -65,6 +65,14 @@ const Root = styled(Section)(({ theme }) => ({
 interface Props {
   items: StatsData;
 }
+
+export const statsFormatters: StatsFormatter[] = [
+  { value: 'amount', subValues: ['usd'] },
+  { value: 'amount', subValues: ['usd'] },
+  { value: 'usd' },
+  { value: 'amount', subValues: ['percent'] },
+];
+
 export default function StatsSection({ items }: Props) {
   const t = usePageTranslation();
   // const { connected } = useAppSelector((state) => ({
@@ -99,7 +107,7 @@ export default function StatsSection({ items }: Props) {
             </Button>
           </Box>
         )} */}
-        <StatsItems items={items} maxWidth="lg" />
+        <StatsItems items={items} formatters={statsFormatters} maxWidth="lg" />
       </Root>
     </>
   );

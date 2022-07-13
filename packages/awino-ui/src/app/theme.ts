@@ -310,6 +310,9 @@ const themeCreator = (mode: PaletteMode) => {
         .Awi-fill {
           flex: 1;
         }
+        .Awi-selectable {
+          cursor: pointer;
+        }
       `,
     },
     MuiAppBar: {

@@ -11,16 +11,13 @@
   "total-section": {
     "items": [
       {
-        "title": "Market cap",
-        "value": "{{v}}"
+        "title": "Market cap"
       },
       {
-        "title": "Total valued locked",
-        "value": "{{v}}"
+        "title": "Total valued locked"
       },
       {
-        "title": "Total valued staked",
-        "value": "{{v}}"
+        "title": "Total valued staked"
       }
     ]
   },
@@ -29,16 +26,13 @@
     "borrow-limit": "Borrow limit",
     "items": [
       {
-        "title": "Deposit balance",
-        "value": "{{v}}"
+        "title": "Deposit balance"
       },
       {
-        "title": "NET APY",
-        "value": "{{v}}"
+        "title": "NET APY"
       },
       {
-        "title": "Borrow balance",
-        "value": "{{v}}"
+        "title": "Borrow balance"
       }
     ]
   },

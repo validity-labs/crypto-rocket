@@ -18,7 +18,7 @@ afterEach(cleanup);
 
 describe('<PurchaseSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<PurchaseSection />, {}, 'podl');
+    const { asFragment } = render(<PurchaseSection />, {}, 'pol');
     expect(asFragment()).toMatchSnapshot();
   });
 });

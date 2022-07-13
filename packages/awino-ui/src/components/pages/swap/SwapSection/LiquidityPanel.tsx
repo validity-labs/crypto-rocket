@@ -190,6 +190,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
     more: hasMoreLiquidity,
   } = useAppSelector((state) => state.pageSwap.liquidity);
 
+  const targetMaxValue = useTokenBalance(assets.get(targetAsset)?.address, assets.get(targetAsset)?.decimals, account);
   const allowance = useAllowance(assets.get(sourceAsset)?.address, account, AWINO_ROUTER_MAP[ChainId.TESTNET]);
   const [hasEnoughAllowance, setHasEnoughAllowance] = useState(false);
 
@@ -426,7 +427,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
                   </Button>
                   <FormControl variant="standard" fullWidth disabled={loading || executing || !sourceAsset}>
                     <FormLabel htmlFor="sourceValue" className="AwiLiquidityPanel-sourceAmountLabel">
-                      <span>{t('swap-section.swap.you-pay')}</span>
+                      {/* <span>{t('swap-section.swap.you-pay')}</span> */}
                       {sourceAsset && sourceMaxValue && (
                         <span>
                           {t('swap-section.swap.max-of-asset', {
@@ -487,7 +488,15 @@ const LiquidityPanel = (props: TabPanelProps) => {
                   </Button>
                   <FormControl variant="standard" fullWidth disabled={true}>
                     <FormLabel htmlFor="targetValue" className="AwiLiquidityPanel-targetAmountLabel">
-                      <span>{t(`swap-section.swap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span>
+                      {/* <span>{t(`swap-section.swap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span> */}
+                      {targetAsset && targetMaxValue && (
+                        <span>
+                          {t('swap-section.swap.max-of-asset', {
+                            value: targetMaxValue,
+                            asset: assets.get(targetAsset).label,
+                          })}
+                        </span>
+                      )}
                     </FormLabel>
                     <NumberInput
                       id="targetValue"

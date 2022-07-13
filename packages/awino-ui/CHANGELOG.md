@@ -123,7 +123,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 
-- Added podl page and purchase section
+- Added pol page and purchase section
 - Added BigNumber package to work with nubmers
 - Added SwappingImage, AssetAmount components
 
@@ -131,7 +131,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 
-- Added podl page and purchase section (wip)
+- Added pol page and purchase section (wip)
 
 ### Changed
 

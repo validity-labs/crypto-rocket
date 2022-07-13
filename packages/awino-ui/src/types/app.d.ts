@@ -30,7 +30,7 @@ export type I18nPageNamespace =
   | 'borrow'
   | 'borrow-details'
   | 'swap'
-  | 'podl'
+  | 'pol'
   | 'analytics'
   | 'contracts'
   | 'portfolio'
@@ -156,14 +156,14 @@ export type MarketTypeInfo = Record<
 
 export interface StatsDataItem {
   value: number;
-  subvalue?: number;
   subValues?: number[];
 }
 
 export type StatsData = StatsDataItem[];
 
-type FormatterMethod = (a: any) => string;
-export type StatsFormatter = { value: FormatterMethod; subValues?: FormatterMethod[] };
+export type FormatterMethod = (a: any) => string;
+export type FormatterMethodKey = 'amount' | 'percent' | 'usd' | 'awi';
+export type StatsFormatter = { value: FormatterMethodKey; subValues?: FormatterMethodKey[] };
 
 export interface Option {
   label: string;

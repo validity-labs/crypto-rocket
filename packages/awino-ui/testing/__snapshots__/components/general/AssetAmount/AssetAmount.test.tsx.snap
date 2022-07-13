@@ -20,12 +20,12 @@ exports[`<AssetAmount /> has valid snapshot 1`] = `
       <p
         class="MuiTypography-root MuiTypography-body value css-1"
       >
-        1234567.890 AWI
+        1,234,567.89 common:asset.awi
       </p>
       <p
         class="MuiTypography-root MuiTypography-body alt css-1"
       >
-        9876543.210 USD
+        9,876,543.21 common:asset.usd
       </p>
     </div>
   </div>

@@ -201,7 +201,7 @@ export default function GuideSection() {
   return (
     <>
       <Root>
-        <Header title={t('guide-section.title')} description={t('guide-section.description')} />
+        <Header title={t('guide-section.title')} /* description={t('guide-section.description')} */ />
         <Container maxWidth="lg">
           {items.map((marginBottom, index) => (
             <Grid key={index} container spacing={17} mb={marginBottom}>

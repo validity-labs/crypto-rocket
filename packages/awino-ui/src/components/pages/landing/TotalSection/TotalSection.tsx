@@ -3,10 +3,9 @@ import { styled } from '@mui/material/styles';
 
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatUSD } from '@/lib/formatters';
 import { StatsData, StatsFormatter } from '@/types/app';
 
-import StatsItems from '../../shared/FormattedStatsItems/StatsItems';
+import StatsItems from '../../shared/StatsItems/StatsItems';
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiStatsItem-title': {
@@ -31,7 +30,7 @@ interface Props {
   items: StatsData;
 }
 
-export const statsFormatters: StatsFormatter[] = [{ value: formatUSD }, { value: formatUSD }, { value: formatUSD }];
+export const statsFormatters: StatsFormatter[] = [{ value: 'usd' }, { value: 'usd' }, { value: 'usd' }];
 
 export default function TotalSection({ items }: Props) {
   const t = usePageTranslation();
@@ -39,12 +38,12 @@ export default function TotalSection({ items }: Props) {
   return (
     <Root containerProps={{ maxWidth: 'lg' }}>
       <Grid container alignItems="center" spacing={10}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={3}>
           <Typography variant="h3" component="h1" color="text.active" fontWeight={700}>
             {t('total-section.title')}
           </Typography>
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={9}>
           <StatsItems
             items={items}
             maxWidth="lg"

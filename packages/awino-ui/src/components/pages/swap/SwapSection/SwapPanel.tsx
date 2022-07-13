@@ -234,10 +234,11 @@ const SwapPanel = (props: TabPanelProps) => {
   const [canExecute, setCanExecute] = useState(false);
   const [settingsModal, setSettingsModal] = useState<SettingsModalData | null>(null);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
-  const [slippageTolerance, setSlippageTolerance] = useState(0.5);
+  const [slippageTolerance, setSlippageTolerance] = useState(0.3);
   const [sourcePriceValue, setSourcePriceValue] = useState(null);
   const { account, library, chainId, connector } = useWeb3React();
   const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
+  const targetMaxValue = useTokenBalance(assets.get(targetAsset)?.address, assets.get(targetAsset)?.decimals, account);
   const targetValue = useAmountOut(
     assets.get(sourceAsset)?.address,
     assets.get(targetAsset)?.address,
@@ -551,6 +552,14 @@ const SwapPanel = (props: TabPanelProps) => {
                   <FormControl variant="standard" fullWidth disabled={true /* loading || !targetAsset */}>
                     <FormLabel htmlFor="targetValue" className="AwiSwapPanel-targetAmountLabel">
                       <span>{t(`swap-section.swap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span>
+                      {targetAsset && targetMaxValue && (
+                        <span>
+                          {t('swap-section.swap.max-of-asset', {
+                            value: new BigNumber(targetMaxValue).toFixed(3),
+                            asset: assets.get(targetAsset).label,
+                          })}
+                        </span>
+                      )}
                     </FormLabel>
                     <NumberInput
                       id="targetValue"

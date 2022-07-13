@@ -9,20 +9,16 @@
   "stats-section": {
     "items": [
       {
-        "title": "AWINO balance",
-        "value": "{{v}}"
+        "title": "AWINO balance"
       },
       {
-        "title": "INFINITE balance",
-        "value": "{{v}}"
+        "title": "INFINITE balance"
       },
       {
-        "title": "Total AWINO locked",
-        "value": "{{v}}"
+        "title": "Total AWINO locked"
       },
       {
-        "title": "Circulating AWINO",
-        "value": "{{v}}"
+        "title": "Circulating AWINO"
       }
     ]
   },
@@ -53,7 +49,7 @@
         "submit-succeeded": "Successfully locked."
       },
       "awino-balance": "Your AWINO balance",
-      "lock-awino": "Lock Awino",
+      "lock-awino": "Lock AWINO",
       "invalid-input": "Invalid amount specified.",
       "error-hint": "Transaction failed. Try again later."
     },

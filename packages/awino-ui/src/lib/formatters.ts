@@ -117,24 +117,26 @@ var ranges = [
   { divider: 1e3, suffix: 'k' },
 ];
 
-export const abbreviateNumber = (num: string | number) => {
-  let n = new BigNumber(num);
+// export const abbreviateNumber = (num: string | number) => {
+//   let n = new BigNumber(num);
 
-  for (var i = 0; i < ranges.length; i++) {
-    if (n.gte(ranges[i].divider)) {
-      const suffix = ranges[i].suffix;
-      BigNumber.set({ DECIMAL_PLACES: 2 });
-      return { num: n.div(ranges[i].divider), suffix: i18n?.t(`format.abbreviate.number.${suffix}`) || suffix };
-    }
-  }
-  return { num: n, suffix: '' };
-};
+//   for (var i = 0; i < ranges.length; i++) {
+//     if (n.gte(ranges[i].divider)) {
+//       const suffix = ranges[i].suffix;
+//       BigNumber.set({ DECIMAL_PLACES: 2 });
+//       return { num: n.div(ranges[i].divider), suffix: i18n?.t(`format.abbreviate.number.${suffix}`) || suffix };
+//     }
+//   }
+//   return { num: n, suffix: '' };
+// };
 
 export const formatCurrency = (amount: string | number, currency: string) => {
-  const { num, suffix } = abbreviateNumber(amount);
-  return formatAmount(num, { /* prefix: '$', */ postfix: [suffix, currency].join(' ') });
+  // const { num, suffix } = abbreviateNumber(amount);
+  return formatAmount(amount, { /* prefix: '$', */ postfix: currency });
 };
-export const formatUSD = (amount: BigNumber | number | string) => formatCurrency(amount.toString(), 'USD');
+
+export const formatUSD = (amount: BigNumber | number | string) => formatAmount(amount, { postfix: 'USD' });
+// export const formatUSDFull = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'USD' });
 export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
 // export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
 

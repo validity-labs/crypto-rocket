@@ -43,6 +43,10 @@ const Root = styled(Card)(({ theme }) => ({
     padding: theme.spacing(0, 2, 0),
     margin: theme.spacing(2, 0, 11),
   },
+  '.AwiGenerateCard-lockUntil': {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+  },
 }));
 
 const LOCK_UNTIL_OPTIONS = [
@@ -177,6 +181,7 @@ export default function GenerateCard({ awinoBalance }: Props) {
                 </Typography>
                 <FieldRadio
                   name="lockUntil"
+                  className="AwiGenerateCard-lockUntil"
                   required
                   fullWidth
                   options={lockUntilOptions}

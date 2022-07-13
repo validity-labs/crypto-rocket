@@ -130,7 +130,7 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
             <p
               class="MuiTypography-root MuiTypography-body-sm AwiInfoSection-progressAmount css-23"
             >
-              254.000  USD
+              254.00 USD
             </p>
           </div>
         </div>
