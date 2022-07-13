@@ -64,7 +64,6 @@ const EarnLiquidityStakingPage: NextPage = () => {
     const fetchStakedBalance = async () => {
       const contract = new ethers.Contract(AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET], IAwinoMasterChef, library);
       const balance = await contract.userInfo(1, account);
-      console.log({ account, balance });
       setStakedBalance({ awi: ethers.utils.formatEther(balance.amount.toString()) });
     };
 
@@ -78,7 +77,6 @@ const EarnLiquidityStakingPage: NextPage = () => {
     updateBalance(account, library, chainId);
   }, [account, library, chainId]);
 
-  console.log({ balance, stakedBalance });
   return (
     <>
       <Seo />

@@ -114,7 +114,7 @@ type LayoutKey = 'grid' | 'table';
 interface Filters {
   type: FarmTypeKey;
   sort: SortByKey;
-  stackedOnly: boolean;
+  stakedOnly: boolean;
   inactiveFarms: boolean;
   search: null | string;
 }
@@ -124,7 +124,7 @@ export interface FarmDataItem {
   pair: AssetKeyPair;
   proportion: number;
   type: Exclude<FarmTypeKey, 'all'>;
-  stacked: boolean;
+  staked: boolean;
   active: boolean;
   emissions: string;
   apr: string;
@@ -151,7 +151,7 @@ export default function ResultSection() {
   const [filters, setFilters] = useState<Filters>({
     type: 'all',
     sort: 'emissions',
-    stackedOnly: false,
+    stakedOnly: false,
     inactiveFarms: false,
     search: null,
   });
@@ -203,7 +203,7 @@ export default function ResultSection() {
   }, []);
 
   const handleStackedOnlyChange = useCallback((newValue: boolean) => {
-    setFilters((prevFilters) => ({ ...prevFilters, stackedOnly: newValue }));
+    setFilters((prevFilters) => ({ ...prevFilters, stakedOnly: newValue }));
   }, []);
 
   const handleInactiveFarmsChange = useCallback((newValue: boolean) => {
@@ -215,7 +215,7 @@ export default function ResultSection() {
   };
 
   const filteredRecords = useMemo(() => {
-    const { type, inactiveFarms, stackedOnly, sort, search } = filters;
+    const { type, inactiveFarms, stakedOnly, sort, search } = filters;
     const searchTerm = search ? search.toLowerCase() : '';
     return records
       .filter((record) => {
@@ -225,7 +225,7 @@ export default function ResultSection() {
           return false;
         }
 
-        if (stackedOnly && !record.stacked) {
+        if (stakedOnly && !record.staked) {
           return false;
         }
 
@@ -239,7 +239,7 @@ export default function ResultSection() {
 
         return true;
       })
-      .sort((a, b) => a[sort] - b[sort]);
+      .sort((a, b) => +a[sort] - +b[sort]);
   }, [filters, records]);
 
   const handleHarvest = useCallback((pair: AssetKeyPair) => {
@@ -310,7 +310,7 @@ export default function ResultSection() {
           </ToggleButtonGroup>
           <div className="AwiResultSection-toggle">
             <FormControlLabel
-              control={<Switch checked={filters.stackedOnly} setChecked={handleStackedOnlyChange} sx={{ ml: 4.5 }} />}
+              control={<Switch checked={filters.stakedOnly} setChecked={handleStackedOnlyChange} sx={{ ml: 4.5 }} />}
               labelPlacement="start"
               label={t(`staked-only`) as string}
             />

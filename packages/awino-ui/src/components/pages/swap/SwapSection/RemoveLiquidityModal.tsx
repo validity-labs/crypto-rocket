@@ -15,13 +15,13 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { LiquidityPair, UserLiquidityPair } from '@/app/state/slices/exchange';
 import AssetIcon from '@/components/general/AssetIcon/AssetIcon';
 import AssetIcons from '@/components/general/AssetIcons/AssetIcons';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
 import Switch from '@/components/general/Switch/Switch';
-import { LiquidityPair, TokenExtended } from '@/hooks/subgraphs/exchange/useUserLiquidityPairs';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { formatPercent, formatUnits } from '@/lib/formatters';
 import { percentOf } from '@/lib/helpers';
@@ -171,8 +171,8 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
     [setPercent]
   );
 
-  const token0 = item.token0 as TokenExtended;
-  const token1 = item.token1 as TokenExtended;
+  const token0 = (item as UserLiquidityPair).token0;
+  const token1 = (item as UserLiquidityPair).token1;
   return (
     <Root id="removeLiquidityModal" title={t('title')} titleTooltip={t('title-hint')} open={open} close={close}>
       <div className="Awi-row">
@@ -215,7 +215,7 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
           id="pooledA"
           value={
             <span className="Awi-row Awi-end">
-              {formatUnits(percentOf(BigNumber.from(token0.balance), percent), token0.decimals)}
+              {formatUnits(percentOf(BigNumber.from(token0.reserve), percent), token0.decimals)}
               <AssetIcon symbol={token0.symbol} />
             </span>
           }
@@ -225,7 +225,7 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
           id="pooledB"
           value={
             <span className="Awi-row Awi-end">
-              {formatUnits(percentOf(BigNumber.from(token1.balance), percent), token1.decimals)}
+              {formatUnits(percentOf(BigNumber.from(token1.reserve), percent), 18)}
               <AssetIcon symbol={token1.symbol} />
             </span>
           }

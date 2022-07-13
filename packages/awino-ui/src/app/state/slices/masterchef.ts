@@ -1,57 +1,36 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// import {} from '@/hooks/subgraphs/masterchef/userUserPools';
 import { Address } from '@/types/app';
 
-interface Tmp {}
-
-interface UserFarmsContent {
-  ids: string[];
-  entities: Record<string, Tmp>;
-  loading: boolean;
-  more: boolean;
-  touched: boolean;
+export interface FarmPair {
+  id: string;
+  pairId: Address;
 }
 
-interface FarmsContent {
-  ids: string[];
-  entities: Record<string, Tmp>;
-  loading: boolean;
-  more: boolean;
-  touched: boolean;
+export interface PartialUserFarmPair {
+  id: string;
+  pairId: Address;
+  staked: string;
+  stakedFormatted: string;
 }
 
 interface MasterchefState {
-  userFarms: FarmsContent;
-  farms: FarmsContent;
+  farmPairs: {
+    entities: Record<string, FarmPair>;
+    pairIdToFarmId: Record<string, Address>;
+  };
+  userFarmPairs: {
+    entities: Record<string, PartialUserFarmPair>;
+  };
 }
 
-// export interface LiquidityExtendedData {
-//   token0: {
-//     balance: string;
-//     balanceFormatted: string;
-//   };
-//   token1: {
-//     balance: string;
-//     balanceFormatted: string;
-//   };
-//   share: string;
-// }
-
 const initialState: MasterchefState = {
-  userFarms: {
-    ids: [],
+  farmPairs: {
     entities: {},
-    loading: false,
-    more: true,
-    touched: false,
+    pairIdToFarmId: {},
   },
-  farms: {
-    ids: [],
+  userFarmPairs: {
     entities: {},
-    loading: false,
-    more: true,
-    touched: false,
   },
 };
 
@@ -59,63 +38,40 @@ export const masterchefSlice = createSlice({
   name: 'masterchef',
   initialState,
   reducers: {
-    toggleUserFarmsLoad: (state, action: PayloadAction<boolean>) => {
-      state.userFarms.loading = action.payload;
+    addFarmPairs: (state, action: PayloadAction<FarmPair[]>) => {
+      const items = action.payload;
+      items.map((r) => {
+        state.farmPairs.entities[r.id] = r;
+        state.farmPairs.pairIdToFarmId[r.pairId] = r.id;
+      });
     },
-    addUserFarms: (state, action: PayloadAction<{ items: any[]; more: boolean }>) => {
-      const { items, more } = action.payload;
+    updateFarmPair: (state, action: PayloadAction<{ id: Address; data: Partial<Omit<FarmPair, 'id'>> }>) => {
+      const { id, data } = action.payload;
 
-      // const { ids, entities } = items.reduce(
-      //   (ar, r) => {
-      //     ar.ids.push(r.id);
-      //     ar.entities[r.id] = r;
-
-      //     return ar;
-      //   },
-      //   { ids: [], entities: {} }
-      // );
-
-      // state.liquidity = {
-      //   ids: [...state.liquidity.ids, ...ids],
-      //   entities: {
-      //     ...state.liquidity.entities,
-      //     ...entities,
-      //   },
-      //   touched: true,
-      //   loading: false,
-      //   more,
-      // };
+      Object.assign(state.farmPairs.entities[id], data);
     },
-    // extendLiquidity: (state, action: PayloadAction<{ id: Address; data: LiquidityExtendedData }>) => {
-    //   const {
-    //     id,
-    //     data: { share, token0, token1 },
-    //   } = action.payload;
 
-    //   const entity = state.liquidity.entities[id];
-
-    //   state.liquidity.entities[id] = {
-    //     ...entity,
-    //     extended: true,
-    //     token0: {
-    //       ...entity.token0,
-    //       ...token0,
-    //     },
-    //     token1: {
-    //       ...entity.token1,
-    //       ...token1,
-    //     },
-    //     share,
-    //   } as LiquidityExtended;
-    // },
-    // removeLiquidity: (state, action: PayloadAction<string>) => {
-    //   const id = action.payload;
-    //   state.liquidity.ids = state.liquidity.ids.filter((f) => f !== id);
-    //   delete state.liquidity.entities[id];
-    // },
+    addUserFarmPairs: (state, action: PayloadAction<PartialUserFarmPair[]>) => {
+      const items = action.payload;
+      items.map((r) => {
+        state.userFarmPairs.entities[r.id] = {
+          id: r.id,
+          pairId: r.pairId,
+          staked: r.staked,
+          stakedFormatted: r.stakedFormatted,
+        };
+      });
+    },
+    updateUserFarmPair: (
+      state,
+      action: PayloadAction<{ id: Address; data: Partial<Omit<PartialUserFarmPair, 'id'>> }>
+    ) => {
+      const { id, data } = action.payload;
+      Object.assign(state.userFarmPairs.entities[id], data);
+    },
   },
 });
 
-export const { toggleUserFarmsLoad, addUserFarms } = masterchefSlice.actions;
+export const { addFarmPairs, addUserFarmPairs, updateFarmPair, updateUserFarmPair } = masterchefSlice.actions;
 
 export default masterchefSlice.reducer;

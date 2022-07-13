@@ -16,7 +16,7 @@ export interface FarmPoolData {
   tokens: string[];
   proportion: string;
   type: Exclude<FarmTypeKey, 'all'>;
-  stacked: boolean;
+  staked: boolean;
   active: boolean;
   emissions: string;
   apr: string;

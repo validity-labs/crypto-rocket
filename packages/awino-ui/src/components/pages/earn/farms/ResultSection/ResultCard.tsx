@@ -20,7 +20,7 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_MASTER_CHEF_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
-import { formatLPPair, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
+import { formatAmount, formatLPPair, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
 import { AssetKeyPair } from '@/types/app';
 
 import { FarmDataItem } from './ResultSection';
@@ -261,7 +261,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
                   {t('earned')}
                 </Typography>
                 <Typography variant="body-lg" component="span">
-                  {formatNumber(item.earned)}
+                  {formatAmount(item.earned)}
                 </Typography>
               </>
             ),
@@ -277,7 +277,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
                   <Button variant="outlined" onClick={handleStake}>
                     {t('stake')}
                   </Button>
-                  <Button onClick={handleUnstake} disabled={true || !(item.stakedAmount > 0)}>
+                  <Button onClick={handleUnstake} disabled={true || !(+item.stakedAmount > 0)}>
                     {t('unstake')}
                   </Button>
                 </>

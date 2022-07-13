@@ -1,25 +1,30 @@
-import { useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 
+import { createSelector } from '@reduxjs/toolkit';
 import { useWeb3React } from '@web3-react/core';
-import { ethers, BigNumber } from 'ethers';
+import { BigNumber } from 'ethers';
 
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
 import { Box, Collapse, Fade, IconButton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { useAppDispatch } from '@/app/hooks';
-import { extendLiquidity } from '@/app/state/slices/exchange';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import {
+  LiquidityPair,
+  updateLiquidityPair,
+  updateUserLiquidityPair,
+  UserLiquidityPair,
+} from '@/app/state/slices/exchange';
 import AssetIcon from '@/components/general/AssetIcon/AssetIcon';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingText from '@/components/general/LoadingText/LoadingText';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import AssetIcons from '@/components/pages/swap/SwapSection/AssetIcons';
-import { LiquidityPair, LiquidityExtended, TokenExtended } from '@/hooks/subgraphs/exchange/useUserLiquidityPairs';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { getBalance, getTotalSupply } from '@/lib/blockchain';
-import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
-import { formatPercent, formatUnits } from '@/lib/formatters';
+import { getTotalSupply } from '@/lib/blockchain';
+import { formatPercent } from '@/lib/formatters';
 import { percentageFor, stopPropagation } from '@/lib/helpers';
+import { Address } from '@/types/app';
 
 const Root = styled('div')(({ theme }) => ({
   borderRadius: theme.spacing(8),
@@ -82,66 +87,76 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 interface Props {
-  item: LiquidityPair;
+  id: Address;
   onRemove: (item: LiquidityPair) => void;
 }
 
-export default function LiquidityCard({ item, onRemove /* ,onHarvest, onStake, onUnstake */ }: Props) {
+const selectLiquidityPair = (id) =>
+  createSelector(
+    (state) => state.exchange.liquidityPairs.entities[id],
+    (state) => state.exchange.userLiquidityPairs.entities[id],
+    (liquidityPair, userLiquidityPair) => ({
+      ...liquidityPair,
+      ...userLiquidityPair,
+    })
+  );
+
+function LiquidityCard({ id, onRemove /* ,onHarvest, onStake, onUnstake */ }: Props) {
   const t = usePageTranslation({ keyPrefix: 'swap-section.liquidity' });
+
   const { account, library } = useWeb3React();
+
+  const dispatch = useAppDispatch();
+  const itemSelector = useMemo(() => selectLiquidityPair(id), [id]);
+  const item: UserLiquidityPair = useAppSelector(itemSelector);
+
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const handleDetailsToggle = useCallback(
     () => setIsDetailExpanded((prevIsDetailExpanded) => !prevIsDetailExpanded),
     []
   );
 
-  const dispatch = useAppDispatch();
+  const handleRemove = useCallback(() => {
+    onRemove(item);
+  }, [item, onRemove]);
 
   useEffect(() => {
     const prepareInfo = async () => {
-      console.log('fetch additional pair info', item, isDetailExpanded);
-
-      const { id: pairId, token0, token1, balance } = item;
-
-      const totalSupply = await getTotalSupply(pairId, account, library);
-
-      // const contract = new ethers.Contract(pairId, erc20AbiJson, library);
-      // const totalSupply = await contract.totalSupply();
-      // const token0Balance = await getBalance(token0.id, account, library);
-      // const token1Balance = await getBalance(token1.id, account, library);
+      const totalSupply = await getTotalSupply(id, account, library);
 
       dispatch(
-        extendLiquidity({
-          id: item.id,
+        updateLiquidityPair({
+          id,
           data: {
-            // token0: {
-            //   reserve: reserve0,
-            //   // balance: token0Balance.toString(),
-            //   // balanceFormatted: formatUnits(token0Balance, token0.decimals),
-            // },
-            // token1: {
-            //   reserve: reserve1,
-            //   // balance: token1Balance.toString(),
-            //   // balanceFormatted: formatUnits(token1Balance, token1.decimals),
-            // },
-            share: percentageFor(BigNumber.from(balance), totalSupply).toString(),
+            totalSupply: totalSupply.toString(),
+          },
+        })
+      );
+      dispatch(
+        updateUserLiquidityPair({
+          id,
+          data: {
+            share: percentageFor(BigNumber.from(item.balance), totalSupply).toString(),
           },
         })
       );
     };
 
-    if (isDetailExpanded && !item.extended) {
+    if (isDetailExpanded && item && !item.share) {
       prepareInfo();
     }
-  }, [isDetailExpanded, item, dispatch, library, account]);
-
-  const handleRemove = () => {
-    onRemove(item);
-  };
+  }, [isDetailExpanded, item, id, dispatch, library, account]);
 
   const { token0, token1 } = item;
+  const isExtended = item && item.share;
+
+  // useEffect(() => {
+  //   console.log('LiquidityCard mount');
+  // }, []);
+  // console.log('LiquidityCard render', id);
+
   return (
-    <Fade in appear>
+    <Fade in={!!item} appear>
       <Root>
         <div className="AwiLiquidityCard-summary" onClick={handleDetailsToggle}>
           <div className="Awi-row">
@@ -187,13 +202,13 @@ export default function LiquidityCard({ item, onRemove /* ,onHarvest, onStake, o
               />
               <LabelValue
                 id="poolShare"
-                value={<LoadingText loading={!item.extended} text={formatPercent((item as LiquidityExtended).share)} />}
+                value={<LoadingText loading={!isExtended} text={formatPercent(item.share)} />}
                 labelProps={{ children: t('pool-share') }}
               />
             </Box>
             <Box sx={{ alignSelf: 'flex-start' }}>
               <IconButton
-                disabled={!item.extended}
+                disabled={!isExtended}
                 color="primary"
                 title={t('remove-pool')}
                 onClick={stopPropagation(handleRemove)}
@@ -207,3 +222,5 @@ export default function LiquidityCard({ item, onRemove /* ,onHarvest, onStake, o
     </Fade>
   );
 }
+
+export default memo(LiquidityCard);

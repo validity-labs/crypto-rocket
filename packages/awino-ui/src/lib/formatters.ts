@@ -89,16 +89,23 @@ interface FormatAmountOptions {
  *  * @param {FormatAmountOptions} [options]
  * @returns - a formatted string
  */
-export const formatAmount = (amount: BigNumber | number, { prefix, postfix }: FormatAmountOptions = {}): string => {
+export const formatAmount = (
+  amount: BigNumber | string | number,
+  { prefix, postfix }: FormatAmountOptions = {}
+): string => {
   let n = typeof amount === 'undefined' ? 0 : amount;
-  if (typeof n === 'number') {
+  if (typeof n === 'number' || typeof n === 'string') {
     n = new BigNumber(n);
   }
   const outputPrefix = prefix ? `${prefix} ` : '';
   const outputPostfix = postfix ? ` ${postfix}` : '';
 
-  // n.toFixed(3)
-  return `${outputPrefix}${n.toFormat({ groupSize: 3, decimalSeparator: '.', groupSeparator: ',' })}${outputPostfix}`;
+  // .toFixed(3)
+  return `${outputPrefix}${n.toFormat(2, {
+    groupSize: 3,
+    decimalSeparator: '.',
+    groupSeparator: ',',
+  })}${outputPostfix}`;
 };
 
 var ranges = [
@@ -127,7 +134,7 @@ export const formatCurrency = (amount: string | number, currency: string) => {
   const { num, suffix } = abbreviateNumber(amount);
   return formatAmount(num, { /* prefix: '$', */ postfix: [suffix, currency].join(' ') });
 };
-export const formatUSD = (amount: BigNumber | number) => formatCurrency(amount.toString(), 'USD');
+export const formatUSD = (amount: BigNumber | number | string) => formatCurrency(amount.toString(), 'USD');
 export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
 // export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
 
@@ -191,5 +198,5 @@ export const formatLPPair = (pair: AssetKeyPair) => {
   return `${pair.map((m) => m.toUpperCase()).join('-')} LP`;
 };
 
-export const formatUnits = (amount: ethers.BigNumber, decimals: ethers.BigNumberish) =>
+export const formatUnits = (amount: ethers.BigNumberish, decimals: ethers.BigNumberish) =>
   ethers.utils.commify(ethers.utils.formatUnits(amount, decimals));

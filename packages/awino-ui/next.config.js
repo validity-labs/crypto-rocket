@@ -20,7 +20,6 @@ module.exports = async (/* phase, { defaultConfig } */) => {
       chainId: process.env.NEXT_CHAIN_ID,
     },
     async rewrites() {
-      console.log('rewriates called');
       return [
         {
           source: '/api/subgraph/:path*',

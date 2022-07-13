@@ -137,11 +137,10 @@ export const fetchUserBalances = async (account: string, tokens: string[], provi
     name: 'balanceOf',
     params: [account],
   }));
-  console.log('fetchUserBalances', calls, tokens);
   const tokenBalancesRaw = await multicall(erc20AbiJson, calls, provider);
-  return tokenBalancesRaw;
+
   // TODO transform raw balances as needed
   // const tokenBalances = tokens.reduce((acc, token, index) => ({  [token]: tokenBalancesRaw[index] }), {})
 
-  // return tokenBalancesRaw;
+  return tokenBalancesRaw;
 };

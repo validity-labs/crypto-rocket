@@ -50,6 +50,10 @@ interface Props {
   children: ReactNode;
 }
 
+export const useWeb3 = () => {
+  return useWeb3React<EthersProjectWeb3Provider>();
+};
+
 const Web3Provider = ({ children }: Props) => {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>

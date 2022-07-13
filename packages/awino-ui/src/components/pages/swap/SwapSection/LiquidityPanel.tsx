@@ -6,15 +6,14 @@ import clsx from 'clsx';
 import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { useAppDispatch } from '@/app/hooks';
-import { removeLiquidity } from '@/app/state/slices/exchange';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { fetchSwapLiquidity } from '@/app/state/actions/pages/swap';
+import { LiquidityPair } from '@/app/state/slices/exchange';
 import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
 import ExpandIcon from '@/components/icons/ExpandIcon';
-// import { swapLiquidityData } from '@/fixtures/earn';
-import { LiquidityPair, useUserLiquidityPairs } from '@/hooks/subgraphs/exchange/useUserLiquidityPairs';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import {
   addLiquidity,
@@ -162,7 +161,6 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const t = usePageTranslation();
   const dispatch = useAppDispatch();
   const { id, value, index, assets, loading, ...other } = props;
-
   const [executing, setExecuting] = useState(false);
   const [sourceAsset, setSourceAsset] = useState<AssetKey | ''>('');
   const [sourceValue, setSourceValue] = useState(null);
@@ -176,15 +174,21 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const { account, library } = useWeb3React();
   const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
 
+  useEffect(() => {
+    dispatch(
+      fetchSwapLiquidity({
+        variables: { account },
+        provider: library,
+        options: { more: false },
+      })
+    );
+  }, [account, dispatch, library]);
+
   const {
-    ids: userLiquidityIds,
-    entities: userLiquidityEntities,
+    ids: liquidityIds,
     loading: isLiquidityLoading,
     more: hasMoreLiquidity,
-    onLoadMore: onLiquidityLoadMore,
-  } = useUserLiquidityPairs({
-    to: account, // '0xbf6562db3526d4be1d3a2b71718e132fb8003e32',
-  });
+  } = useAppSelector((state) => state.pageSwap.liquidity);
 
   const allowance = useAllowance(assets.get(sourceAsset)?.address, account, AWINO_ROUTER_MAP[ChainId.TESTNET]);
   const [hasEnoughAllowance, setHasEnoughAllowance] = useState(false);
@@ -362,13 +366,19 @@ const LiquidityPanel = (props: TabPanelProps) => {
     // setAllLiquidity((prevAllLiquidity) => [payload, ...prevAllLiquidity]);
   };
 
-  const handleRemoveLiquidityModalToggle = (item: LiquidityPair) => {
-    setRemoveLiquidityModal(item);
-  };
+  const handleRemoveLiquidityModalToggle = useCallback(
+    (item: LiquidityPair) => {
+      setRemoveLiquidityModal(item);
+    },
+    [setRemoveLiquidityModal]
+  );
 
   const handleRemoveLiquidityModalUpdate: RemoveLiquidityModalUpdateCallback = ({ id, collectAs, percent }) => {
-    dispatch(removeLiquidity(id));
     console.error('TODO: implement handleRemoveLiquidityModalUpdate logic');
+  };
+
+  const handleLiquidityLoadMore = () => {
+    dispatch(fetchSwapLiquidity({ variables: { account }, provider: library }));
   };
 
   return (
@@ -509,17 +519,13 @@ const LiquidityPanel = (props: TabPanelProps) => {
                 </div>
               </Grid>
               <Grid item xs={12}>
-                {userLiquidityIds.length > 0 ? (
+                {liquidityIds.length > 0 ? (
                   <>
                     <Typography variant="body-ms" sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
                       {t('swap-section.liquidity.pool-pair')}
                     </Typography>
-                    {userLiquidityIds.map((liquidityId) => (
-                      <LiquidityCard
-                        key={liquidityId}
-                        item={userLiquidityEntities[liquidityId]}
-                        onRemove={handleRemoveLiquidityModalToggle}
-                      />
+                    {liquidityIds.map((liquidityId) => (
+                      <LiquidityCard key={liquidityId} id={liquidityId} onRemove={handleRemoveLiquidityModalToggle} />
                     ))}
                   </>
                 ) : (
@@ -539,7 +545,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
                     color="primary"
                     loading={isLiquidityLoading}
                     className="AwiLiquidityPanel-liquidityLoadMore"
-                    onClick={onLiquidityLoadMore}
+                    onClick={handleLiquidityLoadMore}
                   >
                     {t('common:common.load-more')}
                   </LoadingButton>

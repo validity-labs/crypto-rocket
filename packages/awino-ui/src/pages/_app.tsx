@@ -7,6 +7,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { createSelector } from '@reduxjs/toolkit';
+
 import { CacheProvider, EmotionCache } from '@emotion/react';
 
 import { PROTECTED_ROUTES } from '@/app/constants';
@@ -34,6 +36,11 @@ interface MyAppProps extends AppProps {
   };
 }
 
+const appStateSelector = createSelector(
+  [(state) => state.app.initializing, (state) => state.account.connected],
+  (isAppInitilized, isAccountConnected) => [!isAppInitilized, isAccountConnected]
+);
+
 function MyApp(props: MyAppProps) {
   const {
     Component,
@@ -46,10 +53,10 @@ function MyApp(props: MyAppProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const [isAppInitialized, isAccountConnected] = useAppSelector((state) => [
-    !state.app.initializing,
-    state.account.connected,
-  ]);
+  const [isAppInitialized, isAccountConnected] = useAppSelector(appStateSelector); /* useAppSelector((state) => {
+    console.log('app selector changed');
+    return [!state.app.initializing, state.account.connected];
+  }); */
 
   // rerender tree so on language change date-io locale is applied properly
   const [, setDateLocale] = useState<Language | undefined>();
