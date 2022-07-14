@@ -23,7 +23,7 @@ module.exports = async (/* phase, { defaultConfig } */) => {
       return [
         {
           source: '/api/subgraph/:path*',
-          destination: `${process.env.NEXT_PRIVATE_SUBGRAPH_URL}/:path*`
+          destination: `http://116.202.221.56:8000/subgraphs/name/awino/:path*`
         },
       ]
     }
