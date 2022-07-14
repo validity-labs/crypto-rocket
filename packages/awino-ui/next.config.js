@@ -17,7 +17,7 @@ module.exports = async (/* phase, { defaultConfig } */) => {
     publicRuntimeConfig: {
       baseDomain: process.env.NEXT_PUBLIC_BASE_DOMAIN,
       etherscanApiKey: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY,
-      chainId: process.env.NEXT_CHAIN_ID,
+      chainId: 338 // process.env.NEXT_CHAIN_ID,
     },
     async rewrites() {
       return [
