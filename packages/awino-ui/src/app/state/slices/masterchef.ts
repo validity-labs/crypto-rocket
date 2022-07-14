@@ -1,11 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { MasterchefMasterchefRaw } from '@/lib/graphql/api/masterchef';
 import { Address } from '@/types/app';
 
 export interface FarmPair {
   id: string;
   pairId: Address;
   isRegular?: boolean;
+  computations?: {
+    multiplier: string;
+  };
 }
 
 export interface PartialUserFarmPair {
@@ -15,7 +19,13 @@ export interface PartialUserFarmPair {
   stakedFormatted: string;
 }
 
+type MasterchefGeneral = {
+  address: Address;
+  totalRegularAllocPoint: string;
+};
+
 interface MasterchefState {
+  general: MasterchefGeneral | null;
   farmPairs: {
     entities: Record<string, FarmPair>;
     pairIdToFarmId: Record<string, Address>;
@@ -26,6 +36,7 @@ interface MasterchefState {
 }
 
 const initialState: MasterchefState = {
+  general: null,
   farmPairs: {
     entities: {},
     pairIdToFarmId: {},
@@ -39,6 +50,12 @@ export const masterchefSlice = createSlice({
   name: 'masterchef',
   initialState,
   reducers: {
+    addMasterchefs: (state, action: PayloadAction<MasterchefMasterchefRaw[]>) => {
+      const items = action.payload;
+      if (items.length === 1) {
+        state.general = items[0];
+      }
+    },
     addFarmPairs: (state, action: PayloadAction<FarmPair[]>) => {
       const items = action.payload;
       items.map((r) => {
@@ -73,6 +90,7 @@ export const masterchefSlice = createSlice({
   },
 });
 
-export const { addFarmPairs, addUserFarmPairs, updateFarmPair, updateUserFarmPair } = masterchefSlice.actions;
+export const { addMasterchefs, addFarmPairs, addUserFarmPairs, updateFarmPair, updateUserFarmPair } =
+  masterchefSlice.actions;
 
 export default masterchefSlice.reducer;

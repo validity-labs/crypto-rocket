@@ -15,19 +15,21 @@ import { extendLiquidityPairs } from './helpers';
 
 const transformStakedPair = (item: any): any => {
   const {
-    pool: { id, pair: pairId },
+    pool: { id, pair: pairId, isRegular, allocPoint },
     staked,
   } = item;
   return {
     id,
     pairId,
+    isRegular,
+    allocPoint,
     staked,
     stakedFormatted: formatUnits(staked, 18),
   };
 };
 
 export const fetchPortfolioPoolPairs = createAsyncThunk<any, any, { state: AppState }>(
-  'pagePortfolio/fetchPortfolioLiquidity',
+  'pagePortfolio/fetchPortfolioPoolPairs',
   async ({ variables, provider, options = {} }, { getState, dispatch }) => {
     // TODO only for testing purposes
     // variables.account = '0xbf6562db3526d4be1d3a2b71718e132fb8003e32';

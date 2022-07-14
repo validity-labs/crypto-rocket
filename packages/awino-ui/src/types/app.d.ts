@@ -219,5 +219,6 @@ export interface PaginatedState<T extends string> {
   loading: boolean;
   more: boolean;
   touched: boolean;
+  error?: boolean;
   params: PaginationParams;
 }

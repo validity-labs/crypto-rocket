@@ -15,6 +15,7 @@ const initialState: PageEarnFarmsState = {
     loading: false,
     more: true,
     touched: false,
+    error: false,
     params: {
       size: PAGINATION_PAGE_SIZE,
       cursor: 0,
@@ -49,7 +50,9 @@ export const pageEarnFarmsSlice = createSlice({
         });
       })
       .addCase(fetchEarnFarmsPoolPairs.rejected, (state) => {
+        state.poolPairs.error = true;
         state.poolPairs.loading = false;
+        state.poolPairs.more = false;
       });
   },
 });

@@ -191,7 +191,7 @@ export default function BalanceSection({ items, loading }: Props) {
                   {!isPoolPairLoading && (
                     <Panel>
                       <Typography mx="auto" textAlign="center">
-                        {t('common.no-records')}
+                        {t('common:common.no-records')}
                       </Typography>
                     </Panel>
                   )}

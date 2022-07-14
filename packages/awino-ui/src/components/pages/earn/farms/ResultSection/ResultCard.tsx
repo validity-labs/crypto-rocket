@@ -177,12 +177,12 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
           <Typography className="AwiResultCard-pair">{label}</Typography>
           <Label
             variant="body-xs"
-            tooltip={t('proportion-hint')}
+            tooltip={t('multiplier-hint')}
             id="AwiResultCardCardProportion"
             className="AwiResultCard-proportion"
           >
             <Typography component="span" className="AwiResultCard-valueHighlighted">
-              {formatPercent(item.proportion)}
+              {item.multiplier}
             </Typography>
           </Label>
         </div>

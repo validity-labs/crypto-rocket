@@ -166,12 +166,14 @@ const itemsSelector = createSelector(
     return pairIds.map((id) => {
       const pair = liquidityPairs[id];
       const farmId = pairIdToFarmId[id];
-      const { isRegular = false } = farmPairs[farmId] || {};
+      const { id: _farmId, pairId: _pairId, isRegular = false, computations } = farmPairs[farmId] || {};
       return {
         ...pair,
         pair: [pair.token0.symbol, pair.token1.symbol],
         farmId,
+        ...computations,
         isRegular,
+        depositFee: '0',
         proportion: 12.3,
         type: 'boosted',
         staked: false,
@@ -184,7 +186,6 @@ const itemsSelector = createSelector(
         liquidity: '567.89',
         fees: '678.9',
         aprRange: ['1.23', '7.89'],
-        depositFee: '0',
         boostFactor: '1.0',
         lpPrice: '123.45',
         stakedAmount: '123',
@@ -443,7 +444,7 @@ export default function ResultSection() {
             {!isPoolPairLoading && (
               <Panel>
                 <Typography mx="auto" textAlign="center">
-                  {t('common.no-records')}
+                  {tRaw('common.no-records')}
                 </Typography>
               </Panel>
             )}
