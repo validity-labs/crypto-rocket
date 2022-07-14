@@ -55,6 +55,7 @@
     "group-stable-coins": "Stable balances",
     "total-balance": "Total balance",
     "staked-balance": "Staked balance",
+    "lp-balance": "LP balance",
     "chart": {
       "tokens": {
         "title": "AWINO balances"
@@ -101,6 +102,9 @@
       },
       "total": {
         "title": "Total"
+      },
+      "lp": {
+        "title": "LP"
       },
       "staked": {
         "title": "Staked"

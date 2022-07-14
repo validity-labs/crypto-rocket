@@ -34,6 +34,6 @@ export function useAllowance(contract: string, owner: string, spender: string) {
     }
   }, [contract, owner, spender, library]);
 
-  console.debug(`Allowance(${contract}, ${owner}, ${spender} => ${balance})`);
+  // console.debug(`Allowance(${contract}, ${owner}, ${spender} => ${balance})`);
   return balance;
 }

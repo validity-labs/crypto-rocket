@@ -18,7 +18,7 @@ import BalanceSection from '@/components/pages/portfolio/BalanceSection/BalanceS
 import InfoSection, { DashboardInfoData } from '@/components/pages/portfolio/InfoSection/InfoSection';
 import TotalSection from '@/components/pages/portfolio/TotalSection/TotalSection';
 import { contractGroupedList } from '@/fixtures/contracts';
-import { balanceGroupedList, dashboardInfo, dashboardTotalStats } from '@/fixtures/portfolio';
+import { dashboardInfo, dashboardTotalStats } from '@/fixtures/portfolio';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { getBalanceFormatted } from '@/lib/blockchain';
 import { sleep, tabA11yProps } from '@/lib/helpers';

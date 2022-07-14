@@ -1,6 +1,7 @@
 import { i18n } from 'next-i18next';
 
 import BigNumber from 'bignumber.js';
+import { ethers } from 'ethers';
 
 import { GridValueFormatterParams } from '@mui/x-data-grid';
 
@@ -133,7 +134,8 @@ export const formatCurrency = (amount: string | number, currency: string) => {
   // const { num, suffix } = abbreviateNumber(amount);
   return formatAmount(amount, { /* prefix: '$', */ postfix: currency });
 };
-export const formatUSD = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'USD' });
+
+export const formatUSD = (amount: BigNumber | number | string) => formatAmount(amount, { postfix: 'USD' });
 // export const formatUSDFull = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'USD' });
 export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
 // export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
@@ -158,7 +160,7 @@ export const formatEmptyString = (value: any): string => (value ? `${value}` : '
  * formatPercent({ value: undefined });
  * @returns - a formatted string
  */
-export const formatPercent = (value?: number) => `${value || 0} %`;
+export const formatPercent = (value?: number | string) => `${value || 0} %`;
 
 /*
  * DataGrid cell formatters
@@ -197,3 +199,6 @@ export const formatGridDateTime = (params: Pick<GridValueFormatterParams, 'value
 export const formatLPPair = (pair: AssetKeyPair) => {
   return `${pair.map((m) => m.toUpperCase()).join('-')} LP`;
 };
+
+export const formatUnits = (amount: ethers.BigNumberish, decimals: ethers.BigNumberish) =>
+  ethers.utils.commify(ethers.utils.formatUnits(amount, decimals));

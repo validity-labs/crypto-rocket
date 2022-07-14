@@ -46,7 +46,7 @@ export default function Search({ /* term, setTerm, */ onSearch, ...props }: Prop
   return (
     <Form noValidate autoComplete="off" onSubmit={handleSearch} data-testid="SearchForm" className="AwiSearch-root">
       <InputBase
-        disableUnderline
+        // disableUnderline
         value={term}
         onChange={handleChange}
         endAdornment={

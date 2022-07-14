@@ -28,7 +28,11 @@ const LoadingText = styled(({ loading, text, ...restOfProps }: LoadingTextProps)
   backgroundColor: theme.palette.divider,
   borderRadius: +theme.shape.borderRadius * 1.5,
   overflow: 'hidden',
-  span: { filter: 'blur(10px)' },
+  span: {
+    display: 'inline-block',
+    minWidth: 20,
+    filter: 'blur(10px)',
+  },
   '&:before': {
     content: '""',
     position: 'absolute',

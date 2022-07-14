@@ -1,4 +1,4 @@
-import { ethers, BigNumber } from 'ethers';
+import { ethers, BigNumber, BigNumberish } from 'ethers';
 
 import { erc20AbiJson } from './abi/erc20';
 
@@ -32,6 +32,17 @@ export const getBalance = async (contractAddress: string, owner: string, provide
   return await contract.balanceOf(owner);
 };
 
+export const getBalanceWithDecimals = async (
+  contractAddress: string,
+  owner: string,
+  provider: any
+): Promise<{ balance: BigNumber; decimals: number }> => {
+  const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider);
+  const balance = await contract.balanceOf(owner);
+  const decimals = await contract.decimals();
+  return { balance, decimals };
+};
+
 export const getBalanceFormatted = async (
   contractAddress: string,
   owner: string,
@@ -41,4 +52,9 @@ export const getBalanceFormatted = async (
   const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider);
   const balance = await contract.balanceOf(owner);
   return ethers.utils.formatUnits(balance, decimals);
+};
+
+export const getTotalSupply = async (contractAddress: string, owner: string, provider: any): Promise<BigNumber> => {
+  const contract = new ethers.Contract(contractAddress, erc20AbiJson, provider);
+  return await contract.totalSupply();
 };

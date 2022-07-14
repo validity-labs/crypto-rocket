@@ -78,7 +78,7 @@ export default function ConnectButton(props) {
   const handleOpen = useCallback(() => {
     dispatch(toggleConnector(true));
   }, [dispatch]);
-  console.log(connected);
+  // console.log(connected);
   return (
     <>
       <Root active={connected} variant="text" onClick={handleOpen} {...props}>

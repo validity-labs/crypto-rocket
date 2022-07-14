@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 
 import { Doughnut } from 'react-chartjs-2';
 
-import { Chart as ChartJS, ChartData, ArcElement, Tooltip, Legend, ChartOptions } from 'chart.js';
+import { Chart as ChartJS, ChartData, ArcElement, Tooltip, Legend, ChartOptions, TooltipItem } from 'chart.js';
 import clsx from 'clsx';
 
 import { IconButton, Typography } from '@mui/material';
@@ -109,13 +109,18 @@ const LegendItem = ({ item, index, onHover, active }: LegendItemProps) => {
   );
 };
 
+export type CustomDoughnutChartData = BalanceInfo<AssetKey | 'total' | 'staked'> & {
+  tooltipValue?: string;
+};
+
 interface Props {
-  data: BalanceInfo<AssetKey | 'total' | 'staked'>[];
+  data: CustomDoughnutChartData[];
   i18nKey: string;
   colors: string[];
+  customLabel?: (item: TooltipItem<'doughnut'>) => string;
 }
 
-export default function DoughnutChart({ data, i18nKey, colors }: Props) {
+export default function DoughnutChart({ data, i18nKey, colors, customLabel }: Props) {
   const t = usePageTranslation();
 
   const chartRef = useRef();
@@ -127,7 +132,8 @@ export default function DoughnutChart({ data, i18nKey, colors }: Props) {
       datasets: [
         {
           label: t(`balance-section.chart.${i18nKey}.title`),
-          data: data.map(({ total }) => total),
+          /* @ts-ignore */
+          data,
           backgroundColor: colors,
           borderWidth: 0,
           hoverOffset: 20,
@@ -174,11 +180,15 @@ export default function DoughnutChart({ data, i18nKey, colors }: Props) {
       cutout: '80%',
       radius: '100%',
       onHover: handleChartHover,
+      parsing: {
+        key: 'total',
+      },
       plugins: {
         legend: {
           display: false,
         },
         tooltip: {
+          display: false,
           cornerRadius: 10,
           padding: 10,
           bodyAlign: 'center',
@@ -190,10 +200,15 @@ export default function DoughnutChart({ data, i18nKey, colors }: Props) {
             size: 14,
           },
           displayColors: false,
+          ...(customLabel && {
+            callbacks: {
+              label: customLabel,
+            },
+          }),
         },
       },
     }),
-    [handleChartHover]
+    [handleChartHover, customLabel]
   );
 
   return (

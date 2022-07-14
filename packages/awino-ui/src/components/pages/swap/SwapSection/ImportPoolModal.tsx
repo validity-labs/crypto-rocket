@@ -2,13 +2,13 @@ import React, { memo, useMemo, useState } from 'react';
 
 import { styled } from '@mui/material/styles';
 
+import { LiquidityPair } from '@/app/state/slices/exchange';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
 import Select, { SelectOptionComponentFC, SelectValueComponentFC } from '@/components/general/Select/Select';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { AssetKey } from '@/types/app';
 
-import { LiquidityItem } from './LiquidityPanel';
 import { AssetInfoMap } from './SwapSection';
 
 const Root = styled(Modal)(({ theme }) => ({
@@ -35,7 +35,7 @@ export interface ImportPoolModalData {
   assets: AssetInfoMap;
 }
 
-export type ImportPoolModalUpdateCallback<T = void> = (payload: LiquidityItem) => T;
+export type ImportPoolModalUpdateCallback<T = void> = (payload: any) => T;
 
 interface Props {
   open: boolean;

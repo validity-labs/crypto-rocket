@@ -19,8 +19,7 @@ const ContractCard = styled(
     const t = usePageTranslation();
 
     const handleAdd = async () => {
-      console.log(item)
-       await (window as any).ethereum.request({
+      await (window as any).ethereum.request({
         method: 'wallet_watchAsset',
         params: {
           type: 'ERC20', // Initially only supports ERC20, but eventually more!

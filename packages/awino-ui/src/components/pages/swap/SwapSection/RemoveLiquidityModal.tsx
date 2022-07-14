@@ -2,6 +2,8 @@ import React, { memo, useCallback, useMemo, useState } from 'react';
 
 import { TFunction } from 'next-i18next';
 
+import { BigNumber } from 'ethers';
+
 import {
   FormControl,
   FormControlLabel,
@@ -13,15 +15,18 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { LiquidityPair, UserLiquidityPair } from '@/app/state/slices/exchange';
+import AssetIcon from '@/components/general/AssetIcon/AssetIcon';
 import AssetIcons from '@/components/general/AssetIcons/AssetIcons';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
 import Switch from '@/components/general/Switch/Switch';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount, formatPercent } from '@/lib/formatters';
+import { formatPercent, formatUnits } from '@/lib/formatters';
+import { percentOf } from '@/lib/helpers';
+import { Address } from '@/types/app';
 
-import { LiquidityItem } from './LiquidityPanel';
 import { AssetInfoMap } from './SwapSection';
 
 const Root = styled(Modal)(({ theme }) => ({
@@ -45,14 +50,14 @@ const Root = styled(Modal)(({ theme }) => ({
     gap: theme.spacing(4),
   },
   '.AwiLabelValue-label': {
-    flex: 1,
     margin: theme.spacing(0, 4, 0, 0),
     ...theme.typography['body-ms'],
     fontWeight: 500,
     color: theme.palette.text.secondary,
   },
   '.AwiLabelValue-value': {
-    flexGrow: 0,
+    // flex: 1,
+    // flexGrow: 0,
     ...theme.typography['body-ms'],
     fontWeight: 500,
     img: {
@@ -127,24 +132,28 @@ export interface RemoveLiquidityModalData {
   assets: AssetInfoMap;
 }
 
-export type RemoveLiquidityModalUpdateCallback<T = void> = (payload: string) => T;
+export type RemoveLiquidityModalUpdateCallback<T = void> = (payload: {
+  id: Address;
+  collectAs: boolean;
+  percent: number;
+}) => T;
 
 interface Props {
   open: boolean;
   close: () => void;
-  data: LiquidityItem;
+  data: LiquidityPair;
   callback: RemoveLiquidityModalUpdateCallback;
   i18nKey: string;
 }
 const percentageList = [25, 50, 75, 100];
 export default function RemoveLiquidityModal({ open, close, data: item, callback, i18nKey }: Props) {
   const t = usePageTranslation({ keyPrefix: i18nKey });
-  const [collectAsWeth, setCollectAsWeth] = useState(false);
+  const [collectAs, setCollectAs] = useState(false);
   const [percent, setPercent] = useState(0);
 
   const handleSubmit = () => {
     //   // fetch pool pair data, or set to initial one
-    callback(item.id);
+    callback({ id: item.id, collectAs, percent });
     close();
   };
 
@@ -162,15 +171,22 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
     [setPercent]
   );
 
+  const token0 = (item as UserLiquidityPair).token0;
+  const token1 = (item as UserLiquidityPair).token1;
   return (
     <Root id="removeLiquidityModal" title={t('title')} titleTooltip={t('title-hint')} open={open} close={close}>
       <div className="Awi-row">
-        {/* @ts-expect-error */}
-        <AssetIcons ids={item.pair} size="medium" component="div" sx={{ display: 'inline-block' }} />
+        <AssetIcons
+          ids={[token0.symbol, token1.symbol]}
+          size="medium"
+          // @ts-expect-error
+          component="div"
+          sx={{ display: 'inline-block' }}
+        />
         <Typography
           variant="body-ms"
           className="AwiRemoveLiquidityModal-pair"
-        >{`${item.pair[0]}/${item.pair[1]}`}</Typography>
+        >{`${token0.symbol}/${token1.symbol}`}</Typography>
       </div>
       <FormControl fullWidth>
         <FormLabel id="awiRemoveLiquidityModalPercentLabel">{t('amount')}</FormLabel>
@@ -198,34 +214,29 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
         <LabelValue
           id="pooledA"
           value={
-            <span className="Awi-row">
-              {formatAmount((item.pool[0] * percent) / 100)}{' '}
-              {<img src={`/images/assets/${item.pair[0]}.svg`} alt="" width="24" />}
+            <span className="Awi-row Awi-end">
+              {formatUnits(percentOf(BigNumber.from(token0.reserve), percent), token0.decimals)}
+              <AssetIcon symbol={token0.symbol} />
             </span>
           }
-          labelProps={{ children: t('pooled', { v: item.pair[0].toUpperCase() }) }}
+          labelProps={{ children: t('pooled', { v: token0.symbol }) }}
         />
         <LabelValue
           id="pooledB"
           value={
-            <span className="Awi-row">
-              {formatAmount((item.pool[1] * percent) / 100)}{' '}
-              <img src={`/images/assets/${item.pair[1]}.svg`} alt="" width="24" />
+            <span className="Awi-row Awi-end">
+              {formatUnits(percentOf(BigNumber.from(token1.reserve), percent), 18)}
+              <AssetIcon symbol={token1.symbol} />
             </span>
           }
-          labelProps={{ children: t('pooled', { v: item.pair[1].toUpperCase() }) }}
+          labelProps={{ children: t('pooled', { v: token0.symbol }) }}
         />
       </div>
       <div className="AwiRemoveLiquidityModal-toggle">
         <FormControlLabel
           // sx={{ ml: 0 }}
           control={
-            <Switch
-              checked={collectAsWeth}
-              setChecked={setCollectAsWeth}
-              sx={{ mr: 4.5 }}
-              title={t('collect-as-weth')}
-            />
+            <Switch checked={collectAs} setChecked={setCollectAs} sx={{ mr: 4.5 }} title={t('collect-as-weth')} />
           }
           labelPlacement="start"
           label={t(`collect-as-weth`) as string}

@@ -10,3 +10,5 @@ services:
     volumes:
       - ./packages/awino-ui:/src
       - /src/node_modules
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

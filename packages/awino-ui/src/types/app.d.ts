@@ -10,6 +10,7 @@ import { ProposalState } from '@/app/constants';
 export interface NextAppConfig extends NextConfig {
   serverRuntimeConfig?: {};
   publicRuntimeConfig: {
+    chainId: number;
     baseDomain: string;
     etherscanApiKey: string;
   };
@@ -207,4 +208,16 @@ export interface ProposalItem {
   // quorumVotes: number;
   details: ProposalDetail[];
   transactionHash: string;
+}
+
+export interface PaginationParams {
+  size: number;
+  cursor: number;
+}
+export interface PaginatedState<T extends string> {
+  ids: T[];
+  loading: boolean;
+  more: boolean;
+  touched: boolean;
+  params: PaginationParams;
 }

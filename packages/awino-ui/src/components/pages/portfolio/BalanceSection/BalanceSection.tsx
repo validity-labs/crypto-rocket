@@ -1,22 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 
 import clsx from 'clsx';
 
-import { CircularProgress, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import LabelValue from '@/components/general/LabelValue/LabelValue';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { useWeb3 } from '@/app/providers/Web3Provider';
+import { fetchPortfolioPoolPairs } from '@/app/state/actions/pages/portfolio';
 import Loader from '@/components/general/Loader/Loader';
+import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import { balanceGroupedList } from '@/fixtures/portfolio';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatAmount } from '@/lib/formatters';
 import { BalanceGrouped } from '@/types/app';
 
 import BalanceCard from './BalanceCard';
 import DoughnutChart from './DoughnutChart';
-import PoolCard from './PoolCard';
+import PoolPairCard from './PoolPairCard';
 // @TODO use real data for DoughnutCharts
 
 const Root = styled(Section)(({ theme }) => ({
@@ -48,9 +50,10 @@ const Root = styled(Section)(({ theme }) => ({
       lineHeight: '1.5rem' /* 24px match card title */,
       color: theme.palette.text.secondary,
     },
-    '.label': {
-      marginRight: theme.spacing(1),
-    },
+    '.label': {},
+  },
+  '.AwiBalanceSection-poolPairsLoadMore': {
+    margin: theme.spacing(10, 'auto'),
   },
   [theme.breakpoints.up('md')]: {
     '.AwiBalanceSection-panel > .AwiPanel-content': {
@@ -75,8 +78,30 @@ interface Props {
 
 export default function BalanceSection({ items, loading }: Props) {
   const t = usePageTranslation();
-  const { tokens, stableCoins, pool } = items;
+  const { tokens, stableCoins /* , pool */ } = items;
+  const { account, library } = useWeb3();
 
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      fetchPortfolioPoolPairs({
+        variables: { account },
+        provider: library,
+        options: { more: false },
+      })
+    );
+  }, [account, dispatch, library]);
+
+  const {
+    ids: poolPairIds,
+    loading: isPoolPairLoading,
+    more: hasMorePoolPairs,
+  } = useAppSelector((state) => state.pagePortfolio.poolPairs);
+
+  const handlePoolPairsLoadMore = () => {
+    dispatch(fetchPortfolioPoolPairs({ variables: { account }, provider: library }));
+  };
   return (
     <Root>
       <Panel className="AwiBalanceSection-panel">
@@ -143,33 +168,47 @@ export default function BalanceSection({ items, loading }: Props) {
               <Typography variant="h2" className="AwiBalanceSection-groupTitle">
                 {t('balance-section.group-pool')}
               </Typography>
-              <Grid container spacing={6.5} alignItems="center">
-                {pool.map((item, itemIndex) => (
-                  <Fragment key={itemIndex}>
-                    <Grid item xs={12} md={7}>
-                      <Panel className="AwiBalanceSection-subPanel">
-                        <PoolCard item={item} />
-                      </Panel>
-                    </Grid>
-                    <Grid item xs={12} md={5}>
-                      <DoughnutChart
-                        data={[
-                          {
-                            key: 'total',
-                            total: balanceGroupedList.pool.find((value) => value.key === item.key).total,
-                          },
-                          {
-                            key: 'staked',
-                            total: balanceGroupedList.pool.find((value) => value.key === item.key).staked,
-                          },
-                        ]}
-                        i18nKey="pool"
-                        colors={assetColorMap.pool}
-                      />
-                    </Grid>
-                  </Fragment>
-                ))}
-              </Grid>
+              {/* <Grid container spacing={6.5} alignItems="center"> */}
+              {poolPairIds.length > 0 ? (
+                <>
+                  {/* <Typography variant="body-ms" sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
+                      {t('swap-section.liquidity.pool-pair')}
+                    </Typography> */}
+                  {/* {userFarmsIds.map((farmId) => (
+                      <>{farmId}</>
+                      // <LiquidityCard
+                      //   key={liquidityId}
+                      //   item={userLiquidityEntities[liquidityId]}
+                      //   onRemove={handleRemoveLiquidityModalToggle}
+                      // />
+                    ))} */}
+                  {poolPairIds.map((poolPairId, itemIndex) => (
+                    <PoolPairCard key={poolPairId} id={poolPairId} />
+                  ))}
+                </>
+              ) : (
+                <>
+                  {!isPoolPairLoading && (
+                    <Panel>
+                      <Typography mx="auto" textAlign="center">
+                        {t('common.no-records')}
+                      </Typography>
+                    </Panel>
+                  )}
+                </>
+              )}
+              {hasMorePoolPairs && (
+                <LoadingButton
+                  variant="outlined"
+                  color="primary"
+                  loading={isPoolPairLoading}
+                  className="AwiBalanceSection-poolPairsLoadMore"
+                  onClick={handlePoolPairsLoadMore}
+                >
+                  {t('common:common.load-more')}
+                </LoadingButton>
+              )}
+              {/* </Grid> */}
             </Grid>
           </Grid>
         )}

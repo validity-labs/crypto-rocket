@@ -4,7 +4,7 @@ import getConfig from './env';
 
 const {
   // serverRuntimeConfig,
-  publicRuntimeConfig: { baseDomain, etherscanApiKey },
+  publicRuntimeConfig: { chainId, baseDomain, etherscanApiKey },
 } = getConfig();
 
 export const SUPPORTED_LANGUAGES: Language[] = ['en', 'de'];
@@ -35,9 +35,9 @@ export const BASE_DOMAIN = baseDomain;
 export const ETHERSCAN_API_KEY = etherscanApiKey ?? '';
 
 // TODO WIP Read from env variable
-export const CHAIN_ID = +'4';
+export const CHAIN_ID = chainId;
 
-export const PROTECTED_ROUTES = ['/portfolio'];
+export const PROTECTED_ROUTES = ['/portfolio', '/swap'];
 
 export const CHART_COLORS = ['#00EC62', '#9A6400', '#00F6B1', '#F5AC37', '#26A17B', '#C49949', '#2775CA', '#694603'];
 
@@ -62,3 +62,5 @@ export const AVERAGE_BLOCK_TIME_IN_SECS = 13;
 
 export const TEXT_PLACEHOLDER_HALF = 'The quick brown fox';
 export const TEXT_PLACEHOLDER = 'The quick brown fox jumps over the lazy dog';
+
+export const PAGINATION_PAGE_SIZE = 2;

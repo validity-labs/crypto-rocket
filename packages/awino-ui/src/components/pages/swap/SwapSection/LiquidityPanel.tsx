@@ -6,12 +6,14 @@ import clsx from 'clsx';
 import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { fetchSwapLiquidity } from '@/app/state/actions/pages/swap';
+import { LiquidityPair } from '@/app/state/slices/exchange';
 import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
 import ExpandIcon from '@/components/icons/ExpandIcon';
-// import { swapLiquidityData } from '@/fixtures/earn';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import {
   addLiquidity,
@@ -125,6 +127,9 @@ const Root = styled('div')(({ theme }) => ({
   '.AwiLiquidityPanel-liquidity': {
     margin: theme.spacing(18, 0),
   },
+  '.AwiLiquidityPanel-liquidityLoadMore': {
+    margin: theme.spacing(10, 'auto'),
+  },
   [theme.breakpoints.up('md')]: {
     '.AwiLiquidityPanel-source': {
       padding: theme.spacing(11, 22, 12, 8),
@@ -152,19 +157,10 @@ interface TabPanelProps {
   assets: AssetInfoMap;
 }
 
-export interface LiquidityItem {
-  id: string;
-  pair: AssetKeyPair;
-  tokens: number;
-  pool: [number, number];
-  share: number;
-}
-
 const LiquidityPanel = (props: TabPanelProps) => {
   const t = usePageTranslation();
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const { id, value, index, assets, loading, ...other } = props;
-
   const [executing, setExecuting] = useState(false);
   const [sourceAsset, setSourceAsset] = useState<AssetKey | ''>('');
   const [sourceValue, setSourceValue] = useState(null);
@@ -173,11 +169,27 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const [canExecute, setCanExecute] = useState(false);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
   const [importPoolModal, setImportPoolModal] = useState<ImportPoolModalData | null>(null);
-  const [removeLiquidityModal, setRemoveLiquidityModal] = useState<LiquidityItem | null>(null);
-  const [allLiquidity, setAllLiquidity] = useState<LiquidityItem[]>([]); // TODO create fetcher, for testing use swapLiquidityData
+  const [removeLiquidityModal, setRemoveLiquidityModal] = useState<LiquidityPair | null>(null);
 
   const { account, library } = useWeb3React();
   const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
+
+  useEffect(() => {
+    dispatch(
+      fetchSwapLiquidity({
+        variables: { account },
+        provider: library,
+        options: { more: false },
+      })
+    );
+  }, [account, dispatch, library]);
+
+  const {
+    ids: liquidityIds,
+    loading: isLiquidityLoading,
+    more: hasMoreLiquidity,
+  } = useAppSelector((state) => state.pageSwap.liquidity);
+
   const targetMaxValue = useTokenBalance(assets.get(targetAsset)?.address, assets.get(targetAsset)?.decimals, account);
   const allowance = useAllowance(assets.get(sourceAsset)?.address, account, AWINO_ROUTER_MAP[ChainId.TESTNET]);
   const [hasEnoughAllowance, setHasEnoughAllowance] = useState(false);
@@ -215,8 +227,8 @@ const LiquidityPanel = (props: TabPanelProps) => {
    */
   useEffect(() => {
     if (sourceValue && sourceValue > 0 && reserves.length > 0) {
-      console.log({ reserves });
-      console.log(`>> TargetValue: ${sourceValue} * (${+reserves[1]} / ${+reserves[0]})}`);
+      // console.log({ reserves });
+      // console.log(`>> TargetValue: ${sourceValue} * (${+reserves[1]} / ${+reserves[0]})}`);
       setTargetValue(sourceValue * (+reserves[1] / +reserves[0]));
     }
   }, [sourceValue, reserves]);
@@ -225,9 +237,9 @@ const LiquidityPanel = (props: TabPanelProps) => {
    * Set pool reserves and LP tokens
    */
   useEffect(() => {
-    console.log(
-      'Trying to get reserves between:\n' + assets.get(sourceAsset)?.address + '\n' + assets.get(targetAsset)?.address
-    );
+    // console.log(
+    //   'Trying to get reserves between:\n' + assets.get(sourceAsset)?.address + '\n' + assets.get(targetAsset)?.address
+    // );
 
     if (assets.get(sourceAsset)?.address && assets.get(targetAsset)?.address && account) {
       getReserves(
@@ -237,7 +249,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
         library,
         account
       ).then((data) => {
-        console.log(data);
+        // console.log(data);
         setReserves([data[0], data[1]]);
         setLiquidityTokens(data[2]);
       });
@@ -249,7 +261,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
    */
   useEffect(() => {
     if (canExecute) {
-      console.log('Trying to preview the liquidity deployment');
+      // console.log('Trying to preview the liquidity deployment');
 
       quoteAddLiquidity(
         assets.get(sourceAsset)?.address,
@@ -259,10 +271,10 @@ const LiquidityPanel = (props: TabPanelProps) => {
         FACTORY_ADDRESS_MAP[ChainId.TESTNET],
         library
       ).then((data) => {
-        console.log(data);
-        console.log('TokenA in: ', data[0]);
-        console.log('TokenB in: ', data[1]);
-        console.log('Liquidity out: ', data[2]);
+        // console.log(data);
+        // console.log('TokenA in: ', data[0]);
+        // console.log('TokenB in: ', data[1]);
+        // console.log('Liquidity out: ', data[2]);
 
         setLiquidityOut([data[0], data[1], data[2]]);
       });
@@ -351,16 +363,23 @@ const LiquidityPanel = (props: TabPanelProps) => {
   };
 
   const handleImportPoolModalUpdate: ImportPoolModalUpdateCallback = (payload) => {
-    setAllLiquidity((prevAllLiquidity) => [payload, ...prevAllLiquidity]);
+    console.error('TODO: implement handleImportPoolModalUpdate logic');
+    // setAllLiquidity((prevAllLiquidity) => [payload, ...prevAllLiquidity]);
   };
 
-  const handleRemoveLiquidityModalToggle = (item: LiquidityItem) => {
-    setRemoveLiquidityModal(item);
+  const handleRemoveLiquidityModalToggle = useCallback(
+    (item: LiquidityPair) => {
+      setRemoveLiquidityModal(item);
+    },
+    [setRemoveLiquidityModal]
+  );
+
+  const handleRemoveLiquidityModalUpdate: RemoveLiquidityModalUpdateCallback = ({ id, collectAs, percent }) => {
+    console.error('TODO: implement handleRemoveLiquidityModalUpdate logic');
   };
 
-  const handleRemoveLiquidityModalUpdate: RemoveLiquidityModalUpdateCallback = (payload) => {
-    /* TODO */
-    setAllLiquidity((prevAllLiquidity) => prevAllLiquidity.filter((f) => f.id !== payload));
+  const handleLiquidityLoadMore = () => {
+    dispatch(fetchSwapLiquidity({ variables: { account }, provider: library }));
   };
 
   return (
@@ -509,21 +528,36 @@ const LiquidityPanel = (props: TabPanelProps) => {
                 </div>
               </Grid>
               <Grid item xs={12}>
-                {allLiquidity.length > 0 ? (
+                {liquidityIds.length > 0 ? (
                   <>
                     <Typography variant="body-ms" sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
                       {t('swap-section.liquidity.pool-pair')}
                     </Typography>
-                    {allLiquidity.map((liquidity) => (
-                      <LiquidityCard key={liquidity.id} item={liquidity} onRemove={handleRemoveLiquidityModalToggle} />
+                    {liquidityIds.map((liquidityId) => (
+                      <LiquidityCard key={liquidityId} id={liquidityId} onRemove={handleRemoveLiquidityModalToggle} />
                     ))}
                   </>
                 ) : (
-                  <Panel>
-                    <Typography mx="auto" textAlign="center">
-                      {t('swap-section.liquidity.no-liquidity-found')}
-                    </Typography>
-                  </Panel>
+                  <>
+                    {!isLiquidityLoading && (
+                      <Panel>
+                        <Typography mx="auto" textAlign="center">
+                          {t('swap-section.liquidity.no-liquidity-found')}
+                        </Typography>
+                      </Panel>
+                    )}
+                  </>
+                )}
+                {hasMoreLiquidity && (
+                  <LoadingButton
+                    variant="outlined"
+                    color="primary"
+                    loading={isLiquidityLoading}
+                    className="AwiLiquidityPanel-liquidityLoadMore"
+                    onClick={handleLiquidityLoadMore}
+                  >
+                    {t('common:common.load-more')}
+                  </LoadingButton>
                 )}
               </Grid>
             </Grid>
