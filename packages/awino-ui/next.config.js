@@ -17,7 +17,7 @@ module.exports = async (/* phase, { defaultConfig } */) => {
     publicRuntimeConfig: {
       baseDomain: process.env.NEXT_PUBLIC_BASE_DOMAIN,
       etherscanApiKey: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY,
-      chainId: process.env.NEXT_CHAIN_ID,
+      chainId: +process.env.NEXT_PUBLIC_CHAIN_ID,
     },
     async rewrites() {
       return [
@@ -26,7 +26,9 @@ module.exports = async (/* phase, { defaultConfig } */) => {
           destination: `${process.env.NEXT_PRIVATE_SUBGRAPH_URL}/:path*`
         },
       ]
-    }
+    },
+    /*  */
+    productionBrowserSourceMaps: process.env.NEXT_PRIVATE_SOURCE_MAP === 'true',
   };
 
   return nextConfig;
