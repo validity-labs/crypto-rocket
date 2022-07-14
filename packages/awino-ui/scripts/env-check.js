@@ -48,7 +48,7 @@ const envValidator = {
     const keyValidatorMap = {
       NEXT_PUBLIC_BASE_DOMAIN: yup.string().customUrl().required(),
       NEXT_PUBLIC_ETHERSCAN_API_KEY: yup.string().required(),
-      NEXT_PUBLIC_CHAIN_ID: yup.number().required(),
+      // NEXT_PUBLIC_CHAIN_ID: yup.number().required(),
     };
 
     const defaultValidator = yup.string().required();
