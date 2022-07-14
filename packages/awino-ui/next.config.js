@@ -26,7 +26,8 @@ module.exports = async (/* phase, { defaultConfig } */) => {
           destination: `http://116.202.221.56:8000/subgraphs/name/awino/:path*`
         },
       ]
-    }
+    },
+    productionBrowserSourceMaps: true,
   };
 
   return nextConfig;
