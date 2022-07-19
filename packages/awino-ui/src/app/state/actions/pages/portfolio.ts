@@ -3,30 +3,14 @@ import { has } from 'lodash';
 
 import { PAGINATION_PAGE_SIZE } from '@/app/constants';
 import { AppState } from '@/app/store';
-import { formatUnits } from '@/lib/formatters';
 import fetchQuery from '@/lib/graphql/api';
 import { ExchangePairRaw } from '@/lib/graphql/api/exchange';
 import { MasterchefUserPoolRaw } from '@/lib/graphql/api/masterchef';
 
 import { addFarmPairs, addUserFarmPairs } from '../../slices/masterchef';
 import { changeCursorByTypeForPoolPairs } from '../../slices/pages/portfolio';
-
-import { extendLiquidityPairs } from './helpers';
-
-const transformStakedPair = (item: any): any => {
-  const {
-    pool: { id, pair: pairId, isRegular, allocPoint },
-    staked,
-  } = item;
-  return {
-    id,
-    pairId,
-    isRegular,
-    allocPoint,
-    staked,
-    stakedFormatted: formatUnits(staked, 18),
-  };
-};
+import { extendLiquidityPairs } from '../helpers/extendLiquidityPairs';
+import { transformUserFarmPair } from '../helpers/transforms';
 
 export const fetchPortfolioPoolPairs = createAsyncThunk<any, any, { state: AppState }>(
   'pagePortfolio/fetchPortfolioPoolPairs',
@@ -52,7 +36,7 @@ export const fetchPortfolioPoolPairs = createAsyncThunk<any, any, { state: AppSt
       // fetch farm pool pairs
       const stakedPairs = (
         await fetchQuery<MasterchefUserPoolRaw[]>('masterchef-paginated-user-pool-pairs', { ...variables, ...params })
-      ).map(transformStakedPair);
+      ).map(transformUserFarmPair);
 
       const stakedPairIds = stakedPairs.map((m) => m.pairId);
       const stakedPairsLength = stakedPairs.length;

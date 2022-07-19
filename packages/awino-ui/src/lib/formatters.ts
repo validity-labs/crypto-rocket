@@ -136,6 +136,7 @@ export const formatCurrency = (amount: string | number, currency: string) => {
 };
 
 export const formatUSD = (amount: BigNumber | number | string) => formatAmount(amount, { postfix: 'USD' });
+export const withUSD = (amount: BigNumber | number | string) => `${amount} USD`;
 // export const formatUSDFull = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'USD' });
 export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
 // export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
@@ -161,6 +162,18 @@ export const formatEmptyString = (value: any): string => (value ? `${value}` : '
  * @returns - a formatted string
  */
 export const formatPercent = (value?: number | string) => `${value || 0} %`;
+
+/**
+ * Format value as a multiplier string
+ *  * @param {number} value
+ * @example
+ * // returns 1 x
+ * formatMultiplier({ value: 1 });
+ * // returns 0 x
+ * formatMultiplier({ value: undefined });
+ * @returns - a formatted string
+ */
+export const formatMultiplier = (value?: number | string) => `${value || 0} x`;
 
 /*
  * DataGrid cell formatters

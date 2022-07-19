@@ -18,6 +18,11 @@ module.exports = async (/* phase, { defaultConfig } */) => {
       baseDomain: process.env.NEXT_PUBLIC_BASE_DOMAIN,
       etherscanApiKey: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY,
       chainId: +process.env.NEXT_PUBLIC_CHAIN_ID,
+      blockchainExplorerUrl: process.env.NEXT_PUBLIC_BLOCKCHAIN_EXPLORER,
+      dataMiner: {
+        url: process.env.NEXT_PUBLIC_DATA_MINER_URL,
+        key: process.env.NEXT_PUBLIC_DATA_MINER_KEY,
+      },
     },
     async rewrites() {
       return [

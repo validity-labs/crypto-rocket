@@ -23,7 +23,7 @@ import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
 import Switch from '@/components/general/Switch/Switch';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatPercent, formatUnits } from '@/lib/formatters';
+import { formatAmount, formatPercent } from '@/lib/formatters';
 import { percentOf } from '@/lib/helpers';
 import { Address } from '@/types/app';
 
@@ -215,7 +215,7 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
           id="pooledA"
           value={
             <span className="Awi-row Awi-end">
-              {formatUnits(percentOf(BigNumber.from(token0.reserve), percent), token0.decimals)}
+              {formatAmount(percentOf(token0.reserve, percent))}
               <AssetIcon symbol={token0.symbol} />
             </span>
           }
@@ -225,7 +225,7 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
           id="pooledB"
           value={
             <span className="Awi-row Awi-end">
-              {formatUnits(percentOf(BigNumber.from(token1.reserve), percent), 18)}
+              {formatAmount(percentOf(token1.reserve, percent))}
               <AssetIcon symbol={token1.symbol} />
             </span>
           }

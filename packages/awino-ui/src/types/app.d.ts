@@ -13,6 +13,11 @@ export interface NextAppConfig extends NextConfig {
     chainId: number;
     baseDomain: string;
     etherscanApiKey: string;
+    blockchainExplorerUrl: string;
+    dataMiner: {
+      url: string;
+      key: string;
+    };
   };
 }
 

@@ -51,6 +51,9 @@ const envValidator = {
       NEXT_PUBLIC_CHAIN_ID: yup.number().required(),
       NEXT_PRIVATE_SOURCE_MAP: yup.boolean().required(),
       NEXT_PRIVATE_SUBGRAPH_URL: yup.string().customUrl().required(),
+      NEXT_PUBLIC_BLOCKCHAIN_EXPLORER: yup.string().customUrl().required(),
+      NEXT_PUBLIC_DATA_MINER_URL: yup.string().customUrl().required(),
+      NEXT_PUBLIC_DATA_MINER_KEY: yup.string().required(),
     };
 
     const defaultValidator = yup.string().required();

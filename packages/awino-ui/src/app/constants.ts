@@ -4,7 +4,7 @@ import getConfig from './env';
 
 const {
   // serverRuntimeConfig,
-  publicRuntimeConfig: { chainId, baseDomain, etherscanApiKey },
+  publicRuntimeConfig: { chainId, baseDomain, etherscanApiKey, blockchainExplorerUrl, dataMiner },
 } = getConfig();
 
 export const SUPPORTED_LANGUAGES: Language[] = ['en', 'de'];
@@ -43,6 +43,7 @@ export const CHART_COLORS = ['#00EC62', '#9A6400', '#00F6B1', '#F5AC37', '#26A17
 
 export const SYMBOLS = {
   AWINO: 'AWINO',
+  USD: 'USD',
 };
 
 export const enum ProposalState {
@@ -64,3 +65,14 @@ export const TEXT_PLACEHOLDER_HALF = 'The quick brown fox';
 export const TEXT_PLACEHOLDER = 'The quick brown fox jumps over the lazy dog';
 
 export const PAGINATION_PAGE_SIZE = 2;
+
+export const ECR20_TOKEN_DECIMALS = 18;
+
+export const BLOCKCHAIN_EXPLORER_URL = blockchainExplorerUrl;
+
+export const BLOCKS_PER_YEAR = 2104400;
+
+export const DATA_MINER = {
+  URL: dataMiner.url,
+  KEY: dataMiner.key,
+};

@@ -11,7 +11,6 @@ import { AssetKeyPair } from '@/types/app';
 import getColumns from './columns';
 import GridRow from './GridRow';
 import { FarmDataItem } from './ResultSection';
-import { StakeModalData } from './StakeModal';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -41,7 +40,7 @@ interface Props {
   loading: boolean;
   items: FarmDataItem[];
   onHarvest: (pair: AssetKeyPair) => void;
-  onStake: (stakeData: StakeModalData) => void;
+  onStake: (stakeData: FarmDataItem) => void;
   onUnstake: (pair: AssetKeyPair) => void;
 }
 export default function ResultTable({ loading, onHarvest, onStake, onUnstake, items }: Props) {

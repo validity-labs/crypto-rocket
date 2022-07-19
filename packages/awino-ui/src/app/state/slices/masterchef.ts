@@ -8,7 +8,15 @@ export interface FarmPair {
   pairId: Address;
   isRegular?: boolean;
   computations?: {
+    apr: string;
     multiplier: string;
+    lpTokenValueUSD: string;
+    totalValueOfLiquidityPoolUSD: string;
+    /* not used */
+    token0AmountTotal: string;
+    token1AmountTotal: string;
+    token1AmountMC: string;
+    lpTotalInQuoteToken: string;
   };
 }
 
@@ -17,11 +25,15 @@ export interface PartialUserFarmPair {
   pairId: Address;
   staked: string;
   stakedFormatted: string;
+  reward: string;
+  rewardFormatted: string;
+  boostMultiplier: string;
 }
 
-type MasterchefGeneral = {
+export type MasterchefGeneral = {
   address: Address;
   totalRegularAllocPoint: string;
+  cakeRateToRegularFarm: string;
 };
 
 interface MasterchefState {
@@ -77,6 +89,9 @@ export const masterchefSlice = createSlice({
           pairId: r.pairId,
           staked: r.staked,
           stakedFormatted: r.stakedFormatted,
+          reward: r.reward,
+          rewardFormatted: r.rewardFormatted,
+          boostMultiplier: r.boostMultiplier,
         };
       });
     },

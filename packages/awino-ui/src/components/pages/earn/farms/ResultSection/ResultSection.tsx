@@ -3,6 +3,8 @@ import { useMemo, useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 
 import { createSelector } from '@reduxjs/toolkit';
+import { formatUnits } from 'ethers/lib/utils';
+import { pick } from 'lodash';
 
 import { TableRowsRounded, ViewColumnRounded } from '@mui/icons-material';
 import { Box, FormControlLabel, Grid, Slide, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
@@ -25,7 +27,7 @@ import { AssetKeyPair } from '@/types/app';
 
 import ResultCard from './ResultCard';
 import ResultTable from './ResultTable';
-import StakeModal, { StakeModalData } from './StakeModal';
+import StakeModal from './StakeModal';
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiSearch-root': {
@@ -124,73 +126,96 @@ interface Filters {
 }
 
 export interface FarmDataItem {
+  // liquidity pair data
   id: string;
+  // ...liquidity-pair
   pair: AssetKeyPair;
-  proportion: number;
+
+  // farm pair data
+  farmId: string;
+  isRegular: boolean;
+  apr: string;
+  multiplier: string;
+  totalValueOfLiquidityPoolUSD: string;
+  lpTokenValueUSD: string;
+
+  // user farm related
+  boostFactor: string;
+  stakedFormatted: string;
+  reward: string;
+  rewardFormatted: string;
+
+  // proportion: number;
   type: Exclude<FarmTypeKey, 'all'>;
   staked: boolean;
   active: boolean;
   emissions: string;
-  apr: string;
   aprFarm: string;
   aprLP: string;
   earned: string;
   liquidity: string;
   fees: string;
   aprRange: [string, string];
-  depositFee: string;
-  boostFactor: string;
-  lpPrice: string;
+  // depositFee: string;
   stakedAmount: string;
   walletAmount: string;
   walletAmountUSD: string;
   contract: string;
 }
 
-const pools = {
-  'awi-dai': {
-    address: AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET],
-    pid: 1,
-  },
-  'awi-weth': {
-    address: AWINO_WETH_PAIR_ADDRESS_MAP[ChainId.TESTNET],
-    pid: 2,
-  },
-};
-
 const itemsSelector = createSelector(
   (state: AppState) => state.exchange.liquidityPairs.entities,
   (state: AppState) => state.masterchef.farmPairs,
+  (state: AppState) => state.masterchef.userFarmPairs.entities,
   (state: AppState) => state.pageEarnFarms.poolPairs.ids,
-  (liquidityPairs, { pairIdToFarmId, entities: farmPairs }, pairIds) => {
+  (liquidityPairs, { pairIdToFarmId, entities: farmPairs }, userFarmPairs, pairIds) => {
     return pairIds.map((id) => {
       const pair = liquidityPairs[id];
       const farmId = pairIdToFarmId[id];
+
+      const {
+        // staked = '0',
+        reward = '0',
+        stakedFormatted = '0.0',
+        rewardFormatted = '0.0',
+        boostMultiplier = 0,
+      } = userFarmPairs[farmId] || {};
+
       const { id: _farmId, pairId: _pairId, isRegular = false, computations } = farmPairs[farmId] || {};
       return {
         ...pair,
         pair: [pair.token0.symbol, pair.token1.symbol],
+
+        // farm related
         farmId,
-        ...computations,
         isRegular,
-        depositFee: '0',
-        proportion: 12.3,
+        // computations
+        ...pick(computations, ['apr', 'multiplier', 'lpTokenValueUSD', 'totalValueOfLiquidityPoolUSD']),
+
+        // user farm related
+        boostFactor: formatUnits(boostMultiplier, 10),
+        // staked,
+        stakedFormatted,
+        reward,
+        rewardFormatted,
+
+        // MOCKED DATA
+        // depositFee: '0',
+        // proportion: 12.3,
         type: 'boosted',
         staked: false,
         active: false,
-        emissions: '234.56',
-        apr: '1.23',
-        aprFarm: '1.23',
-        aprLP: '1.23',
-        earned: '456.78',
-        liquidity: '567.89',
-        fees: '678.9',
-        aprRange: ['1.23', '7.89'],
-        boostFactor: '1.0',
-        lpPrice: '123.45',
-        stakedAmount: '123',
-        walletAmount: '234',
-        walletAmountUSD: '345',
+        emissions: '0',
+        // apr: '1.23',
+        aprFarm: '0',
+        aprLP: '0',
+        // earned: '456.78',
+        // liquidity: '567.89',
+        fees: '0',
+        aprRange: ['0', '0'],
+        stakedAmount: '0',
+        walletAmount: '0',
+        walletAmountUSD: '0',
         contract: '0x00',
         // contract: AWINO_WETH_PAIR_ADD,
       };
@@ -234,7 +259,7 @@ export default function ResultSection() {
   });
 
   const [layout, setLayout] = useState<LayoutKey>('grid');
-  const [stakeModal, setStakeModal] = useState<StakeModalData | null>(null);
+  const [stakeModal, setStakeModal] = useState<FarmDataItem | null>(null);
 
   // useEffect(() => {
   //   (async () => {
@@ -316,7 +341,7 @@ export default function ResultSection() {
     console.log('handleHarvest', pair);
   }, []);
 
-  const handleStake = useCallback((stakeData: StakeModalData) => {
+  const handleStake = useCallback((stakeData: FarmDataItem) => {
     setStakeModal(stakeData);
     // TODO implement approve logic
     console.log('handleStake', stakeData);
@@ -471,14 +496,7 @@ export default function ResultSection() {
         )} */}
       </Root>
       {!!stakeModal && (
-        <StakeModal
-          open={!!stakeModal}
-          close={() => setStakeModal(null)}
-          data={stakeModal}
-          callback={() => {}}
-          poolAddress={pools[stakeModal.pair.join('-')].address}
-          pid={pools[stakeModal.pair.join('-')].pid}
-        />
+        <StakeModal open={!!stakeModal} close={() => setStakeModal(null)} data={stakeModal} callback={() => {}} />
       )}
     </>
   );

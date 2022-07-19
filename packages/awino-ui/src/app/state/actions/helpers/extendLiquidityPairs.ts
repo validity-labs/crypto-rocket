@@ -1,39 +1,16 @@
 import { Web3Provider } from '@ethersproject/providers';
 import { Dispatch } from '@reduxjs/toolkit';
-import { BigNumber, utils } from 'ethers';
+import { BigNumber } from 'ethers';
 
 import { fetchUserBalances } from '@/lib/blockchain';
-import { formatUnits } from '@/lib/formatters';
 import { ExchangePairRaw } from '@/lib/graphql/api/exchange';
 import { Address } from '@/types/app';
 
 import { addLiquidityPairs, addUserLiquidityPairs, LiquidityPair } from '../../slices/exchange';
-const transformLiquidityPair = (item: any): any => {
-  const { id, token0, token1, reserve0, reserve1 } = item;
-  return {
-    id,
-    token0: {
-      ...token0,
-      reserve: reserve0,
-    },
-    token1: {
-      ...token1,
-      reserve: reserve1,
-    },
-    totalSupply: null,
-  };
-};
 
-export const transformUserLiquidityPair = (item: any, balance: BigNumber): any => {
-  return {
-    ...item,
-    balance: balance.toString(),
-    balanceFormatted: formatUnits(balance, 18),
-    share: null,
-  };
-};
+import { transformLiquidityPair, transformUserLiquidityPair } from './transforms';
 
-interface Extra {
+interface LiquidityPairsExtra {
   account: string;
   provider: Web3Provider;
   dispatch: Dispatch;
@@ -46,9 +23,18 @@ interface ExtendLiquidityPairsReturnType {
   userLiquidityPairsLength: number;
 }
 
+/**
+ * Extend exchange state with:
+ *   extended liquidity pairs data including balance
+ *   extended user liquidity pairs data filtered by positive balance and
+ * transformed
+ * @param rawPairs
+ * @param extra
+ * @returns
+ */
 export const extendLiquidityPairs = async (
   rawPairs: ExchangePairRaw[],
-  extra: Extra
+  extra: LiquidityPairsExtra
 ): Promise<ExtendLiquidityPairsReturnType> => {
   const { account, provider, dispatch } = extra;
   // transform liquidity pair

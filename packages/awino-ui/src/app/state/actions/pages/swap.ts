@@ -6,8 +6,7 @@ import fetchQuery from '@/lib/graphql/api';
 import { ExchangePairRaw } from '@/lib/graphql/api/exchange';
 
 import { changeCursorForUserLiquidityPairs } from '../../slices/pages/swap';
-
-import { extendLiquidityPairs } from './helpers';
+import { extendLiquidityPairs } from '../helpers/extendLiquidityPairs';
 
 export const fetchSwapLiquidity = createAsyncThunk<any, any, { state: AppState }>(
   'pageSwap/fetchSwapLiquidity',
