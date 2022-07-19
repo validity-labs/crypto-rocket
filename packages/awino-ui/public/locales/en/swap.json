@@ -148,6 +148,7 @@
     "percent-toggle-hint": "MISSING TEXT",
     "max": "Max",
     "amount": "Amount",
+    "pool-tokens": "Pool tokens",
     "pooled": "Pooled {{v}}",
     "collect-as-weth": "Collect as WETH",
     "submit-prompt": "Enter a percent",

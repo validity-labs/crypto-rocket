@@ -41,18 +41,19 @@ export const extendLiquidityPairs = async (
   const pairs = rawPairs.map(transformLiquidityPair);
   const pairsLength = pairs.length;
   const pairIds = pairs.map((m) => m.id);
+
   // fetch user balances for each pair
   const allBalances: [BigNumber][] = await fetchUserBalances(account, pairIds, provider);
 
   // user pairs is only concerned about ones that have balance > 0
-  const userPairs = pairs
-    .filter((_item, itemIndex) => {
-      return allBalances[itemIndex][0].gt(0);
-    })
-    .map((item, itemIndex) => {
+  const userPairs = pairs.reduce((ar, r, ri) => {
+    const balance = allBalances[ri][0];
+    if (balance.gt(0)) {
       // extend user pairs with balance and optional fields
-      return transformUserLiquidityPair(item, allBalances[itemIndex][0]);
-    });
+      ar.push(transformUserLiquidityPair(r, balance));
+    }
+    return ar;
+  }, []);
 
   dispatch(addLiquidityPairs(pairs));
   dispatch(addUserLiquidityPairs(userPairs));
