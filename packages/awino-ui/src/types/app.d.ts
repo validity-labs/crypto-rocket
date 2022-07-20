@@ -227,3 +227,7 @@ export interface PaginatedState<T extends string> {
   error?: boolean;
   params: PaginationParams;
 }
+
+export type RecursivePartial<T> = {
+  [P in keyof T]?: RecursivePartial<T[P]>;
+};

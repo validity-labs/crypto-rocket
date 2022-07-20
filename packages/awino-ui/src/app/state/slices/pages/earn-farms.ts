@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { merge } from 'lodash';
 
 import { PAGINATION_PAGE_SIZE } from '@/app/constants';
 import { Address, PaginatedState, PaginationParams } from '@/types/app';
@@ -38,7 +39,7 @@ export const pageEarnFarmsSlice = createSlice({
       })
       .addCase(fetchEarnFarmsPoolPairs.fulfilled, (state, action: PayloadAction<{ ids: Address[]; more: boolean }>) => {
         const { ids, more } = action.payload;
-        Object.assign(state.poolPairs, {
+        merge(state.poolPairs, {
           ids: [...state.poolPairs.ids, ...ids],
           touched: true,
           loading: false,

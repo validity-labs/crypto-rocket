@@ -162,11 +162,7 @@ export interface RemoveLiquidityModalData {
   assets: AssetInfoMap;
 }
 
-export type RemoveLiquidityModalUpdateCallback<T = void> = (payload: {
-  id: Address;
-  // collectAs: boolean;
-  percent: number;
-}) => T;
+export type RemoveLiquidityModalUpdateCallback<T = void> = (id: Address) => T;
 
 interface Props {
   open: boolean;
@@ -180,6 +176,12 @@ const percentageList = [25, 50, 75, 100];
 interface Values {
   amount: BigNumberJS;
   percent: number;
+}
+
+interface NumberInputChangeInfo {
+  info: {
+    source: string;
+  };
 }
 
 export default function RemoveLiquidityModal({ open, close, data: item, callback, i18nKey }: Props) {
@@ -207,7 +209,7 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
     [chainId]
   );
 
-  const { token0, token1 } = useMemo(() => ({ token0: item.token0, token1: item.token1 }), [item]);
+  const { id, token0, token1 } = useMemo(() => ({ id: item.id, token0: item.token0, token1: item.token1 }), [item]);
 
   useEffect(() => {
     let active = true;
@@ -257,13 +259,12 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
     }
 
     setIsSubmitting(false);
-    if (hasError) {
-      /* TODO trigger pair data refresh using callback */
+    if (!hasError) {
       // callback({ id: item.id, /* collectAs, */ percent });
+      callback(id);
       close();
     }
   };
-
   const balance = useMemo(() => {
     return toBigNum(formatUnits(item.balance, ECR20_TOKEN_DECIMALS).toString());
   }, [item.balance]);
@@ -271,7 +272,7 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
   const handleValuesDebounce = useRef(
     debounce((newValues: Values) => {
       setValues(newValues);
-    }, 50)
+    }, 100)
   ).current;
 
   const handlePercentInputChange = useCallback(
@@ -289,8 +290,12 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
   );
 
   const handleAmountInputChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newValue = toBigNum(+event.target.value);
+    (event: React.ChangeEvent<HTMLInputElement> & NumberInputChangeInfo) => {
+      /* skip all that are not direct input change */
+      if (event.info.source === 'prop') {
+        return;
+      }
+      const newValue = toBigNum(event.target.value);
       const newValues = { amount: newValue, percent: newValue.times(100).div(balance).toNumber() };
       setQuoteLoading(true);
       setInputs(newValues);
@@ -353,7 +358,11 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
           aria-describedby="stakeAmountHelper"
           // disabled={isProcessing}
           inputProps={{
-            isAllowed: ({ floatValue }) => floatValue > 0 && toBigNum(floatValue).lte(balance),
+            isNumericString: true,
+            isAllowed: ({ value }) => {
+              const n = toBigNum(value);
+              return n.gt(0) && n.lte(balance);
+            },
           }}
           placeholder="0"
           value={inputs.amount.toString()}

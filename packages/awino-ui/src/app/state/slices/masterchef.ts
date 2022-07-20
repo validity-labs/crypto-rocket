@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { merge } from 'lodash';
 
 import { MasterchefMasterchefRaw } from '@/lib/graphql/api/masterchef';
 import { Address } from '@/types/app';
@@ -78,7 +79,7 @@ export const masterchefSlice = createSlice({
     updateFarmPair: (state, action: PayloadAction<{ id: Address; data: Partial<Omit<FarmPair, 'id'>> }>) => {
       const { id, data } = action.payload;
 
-      Object.assign(state.farmPairs.entities[id], data);
+      merge(state.farmPairs.entities[id], data);
     },
 
     addUserFarmPairs: (state, action: PayloadAction<PartialUserFarmPair[]>) => {
@@ -100,7 +101,7 @@ export const masterchefSlice = createSlice({
       action: PayloadAction<{ id: Address; data: Partial<Omit<PartialUserFarmPair, 'id'>> }>
     ) => {
       const { id, data } = action.payload;
-      Object.assign(state.userFarmPairs.entities[id], data);
+      merge(state.userFarmPairs.entities[id], data);
     },
   },
 });

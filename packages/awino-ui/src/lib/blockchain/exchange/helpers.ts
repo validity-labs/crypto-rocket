@@ -419,7 +419,7 @@ export async function quoteRemoveLiquidity(
   const factory = new Contract(factoryAddress, AWINO_FACTORY_ABI, provider);
 
   const pairAddress = await factory.getPair(address1, address2);
-  console.log('pair address', pairAddress);
+  // console.log('pair address', pairAddress);
   const pair = new Contract(pairAddress, AWINO_PAIR_ABI, provider);
 
   const reservesRaw = await fetchReserves(address1, address2, pair, provider as unknown as ethers.Signer, true); // Returns the reserves already formated as ethers

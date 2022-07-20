@@ -1,18 +1,22 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { BigNumber } from 'ethers';
 
-import { PAGINATION_PAGE_SIZE } from '@/app/constants';
+import { ECR20_TOKEN_DECIMALS, PAGINATION_PAGE_SIZE } from '@/app/constants';
 import { AppState } from '@/app/store';
+import { getBalance, getTotalSupply } from '@/lib/blockchain';
+import { formatUnits } from '@/lib/formatters';
 import fetchQuery from '@/lib/graphql/api';
 import { ExchangePairRaw } from '@/lib/graphql/api/exchange';
+import { percentageFor, sleep } from '@/lib/helpers';
 
+import { showMessage } from '../../slices/app';
+import { removeUserLiquidityPair, updateLiquidityPair, updateUserLiquidityPair } from '../../slices/exchange';
 import { changeCursorForUserLiquidityPairs } from '../../slices/pages/swap';
 import { extendLiquidityPairs } from '../helpers/extendLiquidityPairs';
 
 export const fetchSwapLiquidity = createAsyncThunk<any, any, { state: AppState }>(
   'pageSwap/fetchSwapLiquidity',
   async ({ variables, provider, options = {} }, { getState, dispatch }) => {
-    // TODO only for testing purposes
-    // variables.account = '0xbf6562db3526d4be1d3a2b71718e132fb8003e32';
     const account = variables.account;
     // pagination logic
     const { more = true, pageSize = PAGINATION_PAGE_SIZE } = options;
@@ -58,5 +62,59 @@ export const fetchSwapLiquidity = createAsyncThunk<any, any, { state: AppState }
     }
 
     return { ids: userLiquidityPairIds, more: hasMore };
+  }
+);
+
+export const refetchLiquidityPair = createAsyncThunk<any, any, { state: AppState }>(
+  'pageSwap/refetchLiquidityPair',
+  async ({ variables, provider, options = {} }, { getState, dispatch }) => {
+    const { account, id } = variables;
+    await sleep(5);
+    // fetch liquidity pair
+    const rawLiquidityPairs = await fetchQuery<ExchangePairRaw[]>('exchange-pairs-by-ids', { ids: [id] });
+
+    if (rawLiquidityPairs.length !== 1) {
+      dispatch(
+        showMessage({ message: 'Failed to update liquidity pair information.', alertProps: { severity: 'error' } })
+      );
+      throw new Error('Liquidity not found.');
+    }
+    const pair = rawLiquidityPairs[0];
+
+    const totalSupply = await getTotalSupply(id, account, provider);
+
+    dispatch(
+      updateLiquidityPair({
+        id,
+        data: {
+          token0: {
+            reserve: pair.reserve0,
+          },
+          token1: {
+            reserve: pair.reserve1,
+          },
+          totalSupply: totalSupply.toString(),
+        },
+      })
+    );
+
+    const balance = await getBalance(id, account, provider);
+
+    if (balance.gt(0)) {
+      dispatch(
+        updateUserLiquidityPair({
+          id,
+          data: {
+            balance: balance.toString(),
+            balanceFormatted: formatUnits(balance, ECR20_TOKEN_DECIMALS),
+            share: percentageFor(BigNumber.from(balance), totalSupply).toString(),
+          },
+        })
+      );
+      return { id, operation: 'update' };
+    } else {
+      dispatch(removeUserLiquidityPair(id));
+      return { id, operation: 'remove' };
+    }
   }
 );
