@@ -46,9 +46,11 @@
       "you-pay": "You pay",
       "you-receive": "You receive",
       "you-receive-estimated": "You receive (estimated)",
+      "max-of-asset": "Max. {{value}} {{asset}}",
       "choose-token": "Choose token",
       "choose-lp-token": "Choose a lp token",
-      "execute": "Execute zap"
+      "execute": "Execute zap",
+      "approve": "Approve zap"
     },
     "liquidity": {
       "title": "Liquidity",

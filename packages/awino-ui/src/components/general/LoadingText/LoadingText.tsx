@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 
 interface LoadingTextProps {
   loading: boolean;
-  text: string | number | undefined;
+  text: React.ReactNode;
 }
 
 const LoadingText = styled(({ loading, text, ...restOfProps }: LoadingTextProps) => (
