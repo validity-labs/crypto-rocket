@@ -19,6 +19,7 @@ const Root = styled(HoverMenu)(({ theme }) => ({
     padding: theme.spacing(2),
     border: '2px solid #00FFEB',
     borderRadius: +theme.shape.borderRadius * 2,
+    backgroundColor: theme.palette.background.main,
     '& svg': {
       fontSize: '30px',
     },

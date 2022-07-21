@@ -5,14 +5,24 @@ import { styled } from '@mui/material/styles';
 
 // import { useAppSelector } from '@/app/hooks';
 // import Link from '@/components/general/Link/Link';
+import { useAppSelector } from '@/app/hooks';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { StatsData, StatsFormatter } from '@/types/app';
 
 import StatsItems from '../../shared/StatsItems/StatsItems';
 
-const Root = styled(Section)(({ theme }) => ({
+const Root = styled(Section, {
+  shouldForwardProp: (prop) => prop !== 'decorated',
+})<{ decorated: boolean }>(({ theme, decorated }) => ({
   textAlign: 'center',
+  ...(decorated && {
+    paddingTop: 0,
+    '> .MuiContainer-root': {
+      position: 'relative',
+      paddingTop: theme.spacing(20),
+    },
+  }),
   h1: {
     marginBottom: theme.spacing(21),
     fontFamily: '"Baloo Bhai 2", cursive',
@@ -29,6 +39,18 @@ const Root = styled(Section)(({ theme }) => ({
       ],
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
+    },
+  },
+  '.AwiInfoSection-image': {
+    pointerEvents: 'none',
+    position: 'absolute',
+    top: -100,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: '100%',
+    maxWidth: 220,
+    img: {
+      maxWidth: '100%',
     },
   },
   // '.badges': {
@@ -49,6 +71,18 @@ const Root = styled(Section)(({ theme }) => ({
   //   },
   // },
   [theme.breakpoints.up('md')]: {
+    ...(decorated && {
+      '> .MuiContainer-root': {
+        padding: theme.spacing(30, 30, 0),
+      },
+    }),
+    '.AwiInfoSection-image': {
+      top: -180,
+      right: 40,
+      left: 'unset',
+      maxWidth: 440,
+      transform: 'none',
+    },
     h1: {
       fontSize: '5rem' /* 80px */,
       lineHeight: '7rem' /* 112px */,
@@ -56,6 +90,17 @@ const Root = styled(Section)(({ theme }) => ({
         fontSize: '3.75rem' /* 60px */,
         lineHeight: '6.125rem' /* 98px */,
       },
+    },
+  },
+  [theme.breakpoints.up('lg')]: {
+    ...(decorated && {
+      '> .MuiContainer-root': {
+        padding: theme.spacing(30, 30, 0),
+      },
+    }),
+    '.AwiInfoSection-image': {
+      top: -260,
+      maxWidth: 540,
     },
   },
 }));
@@ -75,12 +120,12 @@ export const statsFormatters: StatsFormatter[] = [
 
 export default function StatsSection({ items }: Props) {
   const t = usePageTranslation();
-  // const { connected } = useAppSelector((state) => ({
-  //   connected: state.account.connected,
-  // }));
+  const { connected } = useAppSelector((state) => ({
+    connected: state.account.connected,
+  }));
   return (
     <>
-      <Root>
+      <Root decorated={!connected}>
         {/* {!connected && (
           <ul className="badges">
             {badgeList.map((filename, index) => (
@@ -90,6 +135,11 @@ export default function StatsSection({ items }: Props) {
             ))}
           </ul>
         )} */}
+        {!connected && (
+          <div className="AwiInfoSection-image">
+            <img src="/images/pages/landing/eagle.svg" alt="" />
+          </div>
+        )}
         <Typography variant="h1">
           <Trans
             i18nKey={'stats-section.title'}

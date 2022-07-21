@@ -44,16 +44,16 @@ const Root = styled(Section)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     '.AwiJoinSection-image': {
       top: '-15%',
-      width: 360,
+      width: 460,
     },
     '.AwiJoinSection-card': {
       padding: theme.spacing(26, 22.5, 25),
     },
   },
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up('xl')]: {
     '.AwiJoinSection-image': {
       width: 540,
-      left: '5%',
+      left: '10%',
     },
   },
 }));
@@ -65,7 +65,7 @@ export default function JoinSection() {
       <div className="AwiJoinSection-image">
         <img src="/images/pages/landing/join.svg" alt="" />
       </div>
-      <Container maxWidth="lg">
+      <Container maxWidth="md">
         <div className="AwiJoinSection-card">
           <Typography variant="h1" component="h2" mb={12} fontWeight={400}>
             {t('join-section.title')}
