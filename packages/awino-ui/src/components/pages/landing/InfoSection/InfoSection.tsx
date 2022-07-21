@@ -49,57 +49,13 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
 }));
 
 const Root = styled(Section)(({ theme }) => ({
-  // position: 'relative',
-  // paddingTop: theme.spacing(40),
-  // overflow: 'hidden',
-  paddingTop: 0,
-  '> .MuiContainer-root': {
-    position: 'relative',
-    paddingTop: theme.spacing(50),
-  },
+  paddingTop: theme.spacing(40),
   '.AwiPanel-root .AwiPanel-content': {
     padding: theme.spacing(11, 6, 10),
-  },
-  '.AwiInfoSection-image': {
-    pointerEvents: 'none',
-    position: 'absolute',
-    top: -40,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: '100%',
-    maxWidth: 240,
-    img: {
-      maxWidth: '100%',
-    },
   },
   [theme.breakpoints.up('md')]: {
     '.AwiPanel-root .AwiPanel-content': {
       padding: theme.spacing(26, 22.5, 25),
-    },
-    '> .MuiContainer-root': {
-      padding: theme.spacing(80, 20, 0),
-    },
-    '.AwiInfoSection-image': {
-      top: -40,
-      right: 0,
-      left: 'unset',
-      maxWidth: 440,
-      transform: 'none',
-    },
-  },
-  [theme.breakpoints.up('lg')]: {
-    '> .MuiContainer-root': {
-      padding: theme.spacing(80, 30, 0),
-    },
-    '.AwiInfoSection-image': {
-      top: -100,
-      maxWidth: 540,
-    },
-  },
-  [theme.breakpoints.up('xl')]: {
-    '.AwiInfoSection-image': {
-      top: -140,
-      maxWidth: 606,
     },
   },
 }));
@@ -116,10 +72,7 @@ export default function InfoSection() {
   };
 
   return (
-    <Root /* containerProps={{ maxWidth: 'lg' }} */>
-      <div className="AwiInfoSection-image">
-        <img src="/images/pages/landing/info.svg" alt="" />
-      </div>
+    <Root>
       <Panel>
         <Grid container rowSpacing={15} columnSpacing={26}>
           <Grid item xs={12} md={6}>
