@@ -31,6 +31,16 @@ const Root = styled(Section)(({ theme }) => ({
       textAlign: 'end',
     },
   },
+  h2: {
+    background: [
+      '#FFE4B2',
+      '-webkit-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
+      '-moz-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
+      'linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
+    ],
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+  },
   [theme.breakpoints.up('md')]: {
     '.AwiJoinSection-image': {
       top: '-15%',
