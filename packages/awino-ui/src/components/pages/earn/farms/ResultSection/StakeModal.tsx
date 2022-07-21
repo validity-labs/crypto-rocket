@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useState, useEffect } from 'react';
+import React, { useCallback, useReducer, useState, useEffect, useMemo } from 'react';
 
 import { useTranslation } from 'next-i18next';
 
@@ -22,6 +22,8 @@ import { AWINO_MASTER_CHEF_ADDRESS_MAP } from '@/lib/blockchain/farm-pools';
 import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
 import { formatAWI, formatLPPair, formatPercent, formatUSD } from '@/lib/formatters';
 import { AssetKey, AssetKeyPair } from '@/types/app';
+
+import { FarmDataItem } from './ResultSection';
 
 const Root = styled(Modal)(({ theme }) => ({
   '.AwiStackModal-row': {
@@ -58,22 +60,20 @@ const Root = styled(Modal)(({ theme }) => ({
   },
 }));
 
-export interface StakeModalData {
-  pair: AssetKeyPair;
-  proportion: number;
-  walletAmount: string;
-  walletAmountUSD: string;
-  stakedAmount: string;
-}
+// export interface StakeModalData {
+//   pair: AssetKeyPair;
+//   // proportion: number;
+//   walletAmount: string;
+//   walletAmountUSD: string;
+//   stakedAmount: string;
+// }
 
 interface Props {
   open: boolean;
   close: () => void;
-  data: StakeModalData;
+  data: FarmDataItem;
   // info: CollateralInfo;
   callback: (asset: AssetKey) => void;
-  poolAddress: string;
-  pid: number;
 }
 
 // TODO PROROTYPE
@@ -121,12 +121,12 @@ function reducer(_state: StepState, actionType: Step) {
   }
 }
 
-export default function StakeModal({ open, close, data, callback, poolAddress, pid }: Props) {
+export default function StakeModal({ open, close, data, callback }: Props) {
   const t = usePageTranslation({ keyPrefix: 'stake-modal' });
   const { t: tRaw } = useTranslation();
   // const [transactionAddress, setTransactionAddress] = useState<string | null>(null);
   const [{ /* step, */ isProcessing, isCompleted, isError }, setStep] = useReducer(reducer, defaultStepState);
-  const { pair, proportion, walletAmount, walletAmountUSD } = data;
+  const { id: poolAddress, farmId, pair, /* proportion, */ walletAmount, walletAmountUSD } = data;
   const [amount, setAmount] = useState<string | undefined>();
   const snack = useSnack();
 
@@ -136,7 +136,7 @@ export default function StakeModal({ open, close, data, callback, poolAddress, p
   const [stakedBalance, setStakedBalance] = useState<string>('0');
   const [approve, setApprove] = useState(false);
 
-  const amountBN = new BigNumber(amount);
+  const amountBN = useMemo(() => new BigNumber(amount), [amount]);
   const isValid = amountBN.isGreaterThan(0) && amountBN.isLessThan(walletAmount);
 
   const updateBalance = useCallback(
@@ -149,7 +149,7 @@ export default function StakeModal({ open, close, data, callback, poolAddress, p
 
       const fetchStakedBalance = async () => {
         const contract = new ethers.Contract(AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET], IAwinoMasterChef, library);
-        const balance = await contract.userInfo(pid, account);
+        const balance = await contract.userInfo(farmId, account);
         console.log({ account, balance });
         setStakedBalance(ethers.utils.formatEther(balance.amount.toString()));
       };
@@ -159,7 +159,7 @@ export default function StakeModal({ open, close, data, callback, poolAddress, p
       fetchStakedBalance();
       setLoading(false);
     },
-    [account, pid, poolAddress]
+    [account, farmId, poolAddress]
   );
 
   // Set balance
@@ -209,7 +209,7 @@ export default function StakeModal({ open, close, data, callback, poolAddress, p
       title={
         <>
           {t('title')}
-          <Text variant="body-xs" highlighted value={formatPercent(proportion)} sx={{ ml: 4.5 }} />
+          {/* <Text variant="body-xs" highlighted value={formatPercent(proportion)} sx={{ ml: 4.5 }} /> */}
         </>
       }
       open={open}

@@ -25,7 +25,7 @@ const keyToMetaMap: Record<FetchKey, [SubgraphKey, string]> = {
   ...prepareKeyToMetaMap(masterchef),
 };
 
-const fetchQuery = <T>(key: FetchKey, variables) => {
+const fetchQuery = <T>(key: FetchKey, variables = {}) => {
   // console.log('fetchQuery', key, variables, keyToMetaMap[key]);
   const [fetcherKey, query] = keyToMetaMap[key];
   const fetcher = fetchers[fetcherKey];

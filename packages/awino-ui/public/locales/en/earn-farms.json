@@ -39,7 +39,7 @@
         "list": "List"
       }
     },
-    "proportion-hint": "This percentage represents the proportion of total AWINO emissions dedicated to this specific farm",
+    "multiplier-hint": "The Multiplier represents the proportion of AWI rewards each farm receives, as a proportion of the AWI produced each block.\n\n For example, if a 1x farm received 1 AWI per block, a 40x farm would receive 40 AWI per block. \n\nThis amount is already included in all APR calculations for the farm.",
     "total-liquidity": "Total liquidity",
     "apr-range": "APR range",
     "apr-range-hint": "Farm APR: {{v1}}\nLP APR: {{v2}}",

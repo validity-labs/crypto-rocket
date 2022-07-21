@@ -5,7 +5,7 @@ import { useWeb3React } from '@web3-react/core';
 import { BigNumber } from 'ethers';
 
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
-import { Box, Collapse, Fade, IconButton, Typography } from '@mui/material';
+import { Box, Collapse, Fade, IconButton, LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
@@ -27,11 +27,13 @@ import { percentageFor, stopPropagation } from '@/lib/helpers';
 import { Address } from '@/types/app';
 
 const Root = styled('div')(({ theme }) => ({
+  position: 'relative',
   borderRadius: theme.spacing(8),
   boxShadow: '0px 3px 6px #00000029',
   padding: theme.spacing(0, 8),
   backgroundColor: theme.palette.background.transparent,
   margin: theme.spacing(0, 0, 6),
+  overflow: 'hidden',
   '.AwiLiquidityCard-summary': {
     padding: theme.spacing(3.5, 0, 3),
     display: 'flex',
@@ -70,6 +72,13 @@ const Root = styled('div')(({ theme }) => ({
       marginLeft: theme.spacing(2),
     },
   },
+  '.MuiLinearProgress-root': {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: '100%',
+  },
   [theme.breakpoints.up('sm')]: {
     '.AwiLabelValue-root': {
       flexDirection: 'row',
@@ -88,7 +97,7 @@ const Root = styled('div')(({ theme }) => ({
 
 interface Props {
   id: Address;
-  onRemove: (item: LiquidityPair) => void;
+  onRemove: (item: UserLiquidityPair) => void;
 }
 
 const selectLiquidityPair = (id) =>
@@ -101,14 +110,26 @@ const selectLiquidityPair = (id) =>
     })
   );
 
+const selectRefetchState = (id) =>
+  createSelector(
+    (state) => state.pageSwap.loading.liquidityId,
+    (liquidityId) => liquidityId === id
+  );
+
 function LiquidityCard({ id, onRemove /* ,onHarvest, onStake, onUnstake */ }: Props) {
   const t = usePageTranslation({ keyPrefix: 'swap-section.liquidity' });
 
   const { account, library } = useWeb3React();
 
   const dispatch = useAppDispatch();
-  const itemSelector = useMemo(() => selectLiquidityPair(id), [id]);
+  const { itemSelector, refetchStateSelector } = useMemo(() => {
+    return {
+      itemSelector: selectLiquidityPair(id),
+      refetchStateSelector: selectRefetchState(id),
+    };
+  }, [id]);
   const item: UserLiquidityPair = useAppSelector(itemSelector);
+  const isRefetching = useAppSelector(refetchStateSelector);
 
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const handleDetailsToggle = useCallback(
@@ -158,6 +179,7 @@ function LiquidityCard({ id, onRemove /* ,onHarvest, onStake, onUnstake */ }: Pr
   return (
     <Fade in={!!item} appear>
       <Root>
+        {isRefetching && <LinearProgress color="warning" />}
         <div className="AwiLiquidityCard-summary" onClick={handleDetailsToggle}>
           <div className="Awi-row">
             <AssetIcons

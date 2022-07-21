@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { merge } from 'lodash';
 
 import { PAGINATION_PAGE_SIZE } from '@/app/constants';
 import { Address, PaginatedState, PaginationParams } from '@/types/app';
@@ -54,7 +55,7 @@ export const pagePortfolioSlice = createSlice({
             ids,
             more: { farms, liquidity },
           } = action.payload;
-          Object.assign(state.poolPairs, {
+          merge(state.poolPairs, {
             ids: [...state.poolPairs.ids, ...ids],
             touched: true,
             loading: false,

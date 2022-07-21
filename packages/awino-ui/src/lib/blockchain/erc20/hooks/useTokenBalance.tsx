@@ -23,3 +23,28 @@ export function useTokenBalance(contractAddress: string, decimals: number, accou
   }, [contractAddress, decimals, account, library]);
   return balance;
 }
+
+export function useTokenBalanceDynamic(
+  contractAddress: string,
+  decimals: number,
+  account: string,
+  defaultBalance: undefined | null | string = null
+) {
+  const { library } = useWeb3React();
+  const [balance, setBalance] = useState(defaultBalance);
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const contract = new ethers.Contract(contractAddress, erc20AbiJson, library);
+      const balance = await contract.balanceOf(account);
+
+      setBalance(utils.formatUnits(balance.toString(), decimals).toString());
+    };
+
+    if (contractAddress) {
+      setBalance(defaultBalance);
+      fetchBalance();
+    }
+  }, [contractAddress, decimals, account, library, setBalance, defaultBalance]);
+  return balance;
+}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
@@ -20,11 +20,11 @@ import usePageTranslation from '@/hooks/usePageTranslation';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_MASTER_CHEF_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
-import { formatAmount, formatLPPair, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
+import { formatLPPair, formatPercent, formatMultiplier, formatUSD, formatUnits } from '@/lib/formatters';
+import { blockchainExplorerUrl } from '@/lib/helpers';
 import { AssetKeyPair } from '@/types/app';
 
 import { FarmDataItem } from './ResultSection';
-import { StakeModalData } from './StakeModal';
 
 const Root = styled('div')(({ theme }) => ({
   padding: theme.spacing(8.5, 8, 7),
@@ -110,7 +110,7 @@ const Root = styled('div')(({ theme }) => ({
 interface Props {
   item: FarmDataItem;
   onHarvest: (pair: AssetKeyPair) => void;
-  onStake: (stakeData: StakeModalData) => void;
+  onStake: (stakeData: FarmDataItem) => void;
   onUnstake: (pair: AssetKeyPair) => void;
 }
 
@@ -152,13 +152,14 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
   }, [item, onHarvest]);
 
   const handleStake = useCallback(() => {
-    onStake({
-      pair: item.pair,
-      proportion: item.proportion,
-      stakedAmount: item.stakedAmount,
-      walletAmount: item.walletAmount,
-      walletAmountUSD: item.walletAmountUSD,
-    });
+    onStake(
+      item
+      // pair: item.pair,
+      // // proportion: item.proportion,
+      // stakedAmount: item.stakedAmount,
+      // walletAmount: item.walletAmount,
+      // walletAmountUSD: item.walletAmountUSD,
+    );
   }, [item, onStake]);
 
   const handleUnstake = useCallback(() => {
@@ -168,6 +169,10 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
   const { connected } = useAppSelector((state) => state.account);
 
   const label = formatLPPair(item.pair);
+  console.log(item);
+
+  const explorerLink = useMemo(() => blockchainExplorerUrl(item.id), [item.id]);
+
   return (
     <Root className="AwiResultCard-card">
       <div className="AwiResultCard-header">
@@ -177,12 +182,12 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
           <Typography className="AwiResultCard-pair">{label}</Typography>
           <Label
             variant="body-xs"
-            tooltip={t('proportion-hint')}
+            tooltip={t('multiplier-hint')}
             id="AwiResultCardCardProportion"
             className="AwiResultCard-proportion"
           >
             <Typography component="span" className="AwiResultCard-valueHighlighted">
-              {formatPercent(item.proportion)}
+              {item.multiplier}
             </Typography>
           </Label>
         </div>
@@ -190,7 +195,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
       <div className="AwiResultCard-content">
         <LabelValue
           id="totalLiquidity"
-          value={formatUSD(item.liquidity)}
+          value={formatUSD(item.totalValueOfLiquidityPoolUSD)}
           labelProps={{ children: t('total-liquidity'), variant: 'body' }}
           valueProps={{ color: 'text.active' }}
         />
@@ -229,7 +234,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
         />
         <LabelValue
           id="depositFee"
-          value={formatPercent(item.depositFee)}
+          value={formatPercent(0)}
           labelProps={{ children: t('deposit-fee'), variant: 'body' }}
           valueProps={{ color: 'text.secondary' }}
         />
@@ -237,7 +242,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
           id="boostFactor"
           value={
             <Typography component="span" className="AwiResultCard-valueHighlighted">
-              {formatPercent(item.boostFactor)}
+              {formatMultiplier(item.boostFactor)}
             </Typography>
           }
           labelProps={{
@@ -262,7 +267,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
                   {t('earned')}
                 </Typography>
                 <Typography variant="body-lg" component="span">
-                  {formatAmount(item.earned)}
+                  {item.rewardFormatted}
                 </Typography>
               </>
             ),
@@ -303,7 +308,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
                 <Typography component="span" color="inherit">
                   {label}
                 </Typography>
-                <Link href="/todo" ml={2}>
+                <Link href={explorerLink} ml={2}>
                   <LinkIcon />
                 </Link>
               </Box>
@@ -312,13 +317,13 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
             valueProps={{ color: 'text.primary' }}
           />
           <LabelValue
-            id="lpPrice"
+            id="lpTokenValueUSD"
             mb={4.5}
-            value={`~${formatUSD(item.lpPrice)}`}
+            value={`~${formatUSD(item.lpTokenValueUSD)}`}
             labelProps={{ children: t('lp-price'), variant: 'body', color: 'text.secondary' }}
             valueProps={{ color: 'text.primary' }}
           />
-          <Link href="/todo">{t('view-on-scan')}</Link>
+          {/* <Link href="/todo">{t('view-on-scan')}</Link> */}
         </div>
       </Collapse>
     </Root>

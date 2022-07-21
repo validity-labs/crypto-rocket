@@ -14,7 +14,7 @@ export type FarmTypeKey = 'all' | 'standard' | 'boosted' | 'winawi';
 export interface FarmPoolData {
   pid: string;
   tokens: string[];
-  proportion: string;
+  multiplier: string;
   type: Exclude<FarmTypeKey, 'all'>;
   staked: boolean;
   active: boolean;
@@ -26,9 +26,8 @@ export interface FarmPoolData {
   liquidity: string;
   fees: string;
   aprRange: [string, string];
-  depositFee: string;
+  // depositFee: string;
   boostFactor: string;
-  lpPrice: string;
 }
 
 export interface UserFarmPoolData {

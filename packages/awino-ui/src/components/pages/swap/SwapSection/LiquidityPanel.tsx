@@ -7,8 +7,8 @@ import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup, 
 import { styled } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import { fetchSwapLiquidity } from '@/app/state/actions/pages/swap';
-import { LiquidityPair } from '@/app/state/slices/exchange';
+import { fetchSwapLiquidity, refetchLiquidityPair } from '@/app/state/actions/pages/swap';
+import { UserLiquidityPair } from '@/app/state/slices/exchange';
 import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
@@ -169,7 +169,7 @@ const LiquidityPanel = (props: TabPanelProps) => {
   const [canExecute, setCanExecute] = useState(false);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
   const [importPoolModal, setImportPoolModal] = useState<ImportPoolModalData | null>(null);
-  const [removeLiquidityModal, setRemoveLiquidityModal] = useState<LiquidityPair | null>(null);
+  const [removeLiquidityModal, setRemoveLiquidityModal] = useState<UserLiquidityPair | null>(null);
 
   const { account, library } = useWeb3React();
   const sourceMaxValue = useTokenBalance(assets.get(sourceAsset)?.address, assets.get(sourceAsset)?.decimals, account);
@@ -368,14 +368,14 @@ const LiquidityPanel = (props: TabPanelProps) => {
   };
 
   const handleRemoveLiquidityModalToggle = useCallback(
-    (item: LiquidityPair) => {
+    (item: UserLiquidityPair) => {
       setRemoveLiquidityModal(item);
     },
     [setRemoveLiquidityModal]
   );
 
-  const handleRemoveLiquidityModalUpdate: RemoveLiquidityModalUpdateCallback = ({ id, collectAs, percent }) => {
-    console.error('TODO: implement handleRemoveLiquidityModalUpdate logic');
+  const handleRemoveLiquidityModalUpdate: RemoveLiquidityModalUpdateCallback = (id) => {
+    dispatch(refetchLiquidityPair({ variables: { account, id }, provider: library }));
   };
 
   const handleLiquidityLoadMore = () => {

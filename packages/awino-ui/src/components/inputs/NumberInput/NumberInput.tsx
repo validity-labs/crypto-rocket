@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 
 interface CustomProps {
   // eslint-disable-next-line no-unused-vars
-  onChange: (event: { target: { name: string; value: string } }) => void;
+  onChange: (event: { info: { source: string }; target: { name: string; value: string } }) => void;
   // isAllowed?: (value: any) => boolean;
   name: string;
 }
@@ -23,8 +23,9 @@ export const NumberFormatCustom = React.forwardRef<NumberFormat<any>, CustomProp
       {...other}
       getInputRef={ref}
       allowLeadingZeros
-      onValueChange={(values) => {
+      onValueChange={(values, sourceInfo) => {
         onChange({
+          info: sourceInfo,
           target: {
             name: props.name,
             value: values.value,

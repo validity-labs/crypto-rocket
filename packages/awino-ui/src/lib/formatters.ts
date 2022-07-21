@@ -2,12 +2,15 @@ import { i18n } from 'next-i18next';
 
 import BigNumber from 'bignumber.js';
 import { ethers } from 'ethers';
+import { trimEnd } from 'lodash';
 
 import { GridValueFormatterParams } from '@mui/x-data-grid';
 
 import { DEFAULT_DATE_FORMAT, DEFAULT_DATE_PRETTY_FORMAT, DEFAULT_DATE_TIME_FORMAT } from '@/app/constants';
 import dateIO from '@/app/dateIO';
 import { AssetKeyPair } from '@/types/app';
+
+import { toBigNum } from './helpers';
 
 /**
  * Format date to specific string format
@@ -82,6 +85,7 @@ export const formatNumber = (n: number, fractionDigits: number | undefined = 0):
 interface FormatAmountOptions {
   prefix?: string;
   postfix?: string;
+  decimalPlaces?: number;
 }
 /**
  * Format amount and currency
@@ -91,7 +95,7 @@ interface FormatAmountOptions {
  */
 export const formatAmount = (
   amount: BigNumber | string | number,
-  { prefix, postfix }: FormatAmountOptions = {}
+  { prefix, postfix, decimalPlaces = 2 }: FormatAmountOptions = {}
 ): string => {
   let n = typeof amount === 'undefined' ? 0 : amount;
   if (typeof n === 'number' || typeof n === 'string') {
@@ -101,7 +105,7 @@ export const formatAmount = (
   const outputPostfix = postfix ? ` ${postfix}` : '';
 
   // .toFixed(3)
-  return `${outputPrefix}${n.toFormat(2, {
+  return `${outputPrefix}${n.toFormat(decimalPlaces, {
     groupSize: 3,
     decimalSeparator: '.',
     groupSeparator: ',',
@@ -136,6 +140,7 @@ export const formatCurrency = (amount: string | number, currency: string) => {
 };
 
 export const formatUSD = (amount: BigNumber | number | string) => formatAmount(amount, { postfix: 'USD' });
+export const withUSD = (amount: BigNumber | number | string) => `${amount} USD`;
 // export const formatUSDFull = (amount: BigNumber | number) => formatAmount(amount, { postfix: 'USD' });
 export const formatAWI = (amount: string | number) => formatCurrency(amount, 'AWI');
 // export const formatFTM = (amount: string) => formatCurrency(amount, 'FTM');
@@ -160,7 +165,23 @@ export const formatEmptyString = (value: any): string => (value ? `${value}` : '
  * formatPercent({ value: undefined });
  * @returns - a formatted string
  */
-export const formatPercent = (value?: number | string) => `${value || 0} %`;
+export const formatPercent = (value?: number | string) => {
+  const percent = trimEnd(trimEnd(toBigNum(value).toFixed(2).toString(), '0'), '.');
+
+  return `${percent || 0} %`;
+};
+
+/**
+ * Format value as a multiplier string
+ *  * @param {number} value
+ * @example
+ * // returns 1 x
+ * formatMultiplier({ value: 1 });
+ * // returns 0 x
+ * formatMultiplier({ value: undefined });
+ * @returns - a formatted string
+ */
+export const formatMultiplier = (value?: number | string) => `${value || 0} x`;
 
 /*
  * DataGrid cell formatters

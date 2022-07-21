@@ -1,5 +1,7 @@
 import { string } from 'yup';
 
+import { DATA_MINER } from '@/app/constants';
+
 import { erc20AbiJson } from '../erc20/abi/erc20';
 
 import multicall from './multicall';
@@ -143,4 +145,25 @@ export const fetchUserBalances = async (account: string, tokens: string[], provi
   // const tokenBalances = tokens.reduce((acc, token, index) => ({  [token]: tokenBalancesRaw[index] }), {})
 
   return tokenBalancesRaw;
+};
+
+const dataMinerQuotesPath = 'markets/cryptocurrency/quotes/latest?ids=';
+
+const getDataMinerSymbolsQuotesPath = (symbols: string[]) =>
+  `${DATA_MINER.URL}/${dataMinerQuotesPath}${symbols.join(',')}&api_key=${DATA_MINER.KEY}`;
+
+export const getSymbolsQuotesLatest = async (symbols: string[], fiatCurrency = 'USD'): Promise<any> => {
+  try {
+    const response = await fetch(encodeURI(getDataMinerSymbolsQuotesPath(symbols)));
+    const json = await response.json();
+    const fiatData = json[fiatCurrency];
+
+    return symbols.reduce((ar, symbol) => {
+      ar[symbol] = fiatData[symbol]?.price || NaN;
+      return ar;
+    }, {});
+  } catch (error) {
+    console.error(error);
+    return symbols.map((symbol) => NaN);
+  }
 };

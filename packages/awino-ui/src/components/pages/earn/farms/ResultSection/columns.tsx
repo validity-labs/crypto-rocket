@@ -42,33 +42,32 @@ const getColumns = (t: TFunction): GridColDef[] => {
       valueFormatter: () => SYMBOLS.AWINO,
     },
     {
-      field: 'proportion',
+      field: 'multiplier',
       i18nKey: 'emissions',
-      valueFormatter: formatGridPercent,
     },
     {
-      field: 'liquidity',
+      field: 'totalValueOfLiquidityPoolUSD',
       i18nKey: 'total-liquidity',
       valueFormatter: formatGridUSD,
     },
-    {
-      field: 'aprRange',
-      i18nKey: 'apr-range',
-      renderCell: (params: GridRenderCellParams) => (
-        <Box component="span" display="flex" justifyContent="flex-end" alignItems="center">
-          {`${formatPercent(params.value.from)} - ${formatPercent(params.value.to)}`}
-          <Tooltip
-            className="AwiResultTable-tooltip"
-            title={t('apr-range-hint', { v1: params.row.aprFarm, v2: params.row.aprLP })}
-          >
-            <Box component="span" ml={2.5} display="flex">
-              <InfoIcon fontSize="small" />
-            </Box>
-          </Tooltip>
-        </Box>
-      ),
-      valueGetter: (params) => ({ from: params.row.aprRange[0], to: params.row.aprRange[1] }),
-    },
+    // {
+    //   field: 'aprRange',
+    //   i18nKey: 'apr-range',
+    //   renderCell: (params: GridRenderCellParams) => (
+    //     <Box component="span" display="flex" justifyContent="flex-end" alignItems="center">
+    //       {`${formatPercent(params.value.from)} - ${formatPercent(params.value.to)}`}
+    //       <Tooltip
+    //         className="AwiResultTable-tooltip"
+    //         title={t('apr-range-hint', { v1: params.row.aprFarm, v2: params.row.aprLP })}
+    //       >
+    //         <Box component="span" ml={2.5} display="flex">
+    //           <InfoIcon fontSize="small" />
+    //         </Box>
+    //       </Tooltip>
+    //     </Box>
+    //   ),
+    //   valueGetter: (params) => ({ from: params.row.aprRange[0], to: params.row.aprRange[1] }),
+    // },
     {
       field: 'apr',
       i18nKey: 'apr',
@@ -78,6 +77,7 @@ const getColumns = (t: TFunction): GridColDef[] => {
       field: 'depositFee',
       i18nKey: 'deposit-fee',
       valueFormatter: formatGridPercent,
+      valueGetter: () => 0,
     },
   ].map(({ i18nKey, ...restOfFields }) => ({
     editable: false,

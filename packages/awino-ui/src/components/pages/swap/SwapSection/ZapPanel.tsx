@@ -1,16 +1,31 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import clsx from 'clsx';
+import { ethers } from 'ethers';
 
-import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Button, FormControl, FormLabel, Grid, IconButton, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { useWeb3 } from '@/app/providers/Web3Provider';
 import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
+import LoadingText from '@/components/general/LoadingText/LoadingText';
 import ExpandIcon from '@/components/icons/ExpandIcon';
+import ZapIcon from '@/components/icons/ZapIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatPercent } from '@/lib/formatters';
+import {
+  AWINO_ROUTER_MAP,
+  useAllowance,
+  useAmountOut,
+  useSwapInfo,
+  useTokenBalance,
+  useTokenBalanceDynamic,
+} from '@/lib/blockchain';
+import * as ERC20Common from '@/lib/blockchain/erc20/utils';
+import { zapTokens } from '@/lib/blockchain/exchange/zap-helpers';
+import { formatAmount, formatPercent } from '@/lib/formatters';
+import { toBigNum } from '@/lib/helpers';
 import { AssetKey, ID, PairedAssetKey } from '@/types/app';
 
 import AssetIcons from './AssetIcons';
@@ -33,18 +48,18 @@ const Root = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: +theme.shape.borderRadius * 6,
     padding: theme.spacing(11, 8, 12),
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 64,
-      height: 64,
-      background: 'url(/images/icons/zap-icon.svg) no-repeat',
-    },
     '&.Awi-active': {
       backgroundColor: 'rgba(0, 255, 186, 0.04)',
+    },
+  },
+  '.AwiZapPanel-switch': {
+    position: 'absolute',
+    top: 0,
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 1,
+    svg: {
+      fontSize: 62,
     },
   },
   '.AwiSwapPanel-sourceAmountLabel, .AwiSwapPanel-targetAmountLabel': {
@@ -108,11 +123,11 @@ const Root = styled('div')(({ theme }) => ({
     },
     '.AwiSwapPanel-target': {
       padding: theme.spacing(11, 8, 12, 22),
-      '&:before': {
-        top: '110px',
-        left: 0,
-        transform: 'translate(-50%, 0)',
-      },
+    },
+    '.AwiZapPanel-switch': {
+      top: '110px',
+      left: 0,
+      transform: 'translate(-50%, 0)',
     },
   },
 }));
@@ -125,56 +140,133 @@ interface TabPanelProps {
   index: number;
   value: number;
   loading: boolean;
-  sourceAssets: AssetInfoMap;
-  targetAssets: AssetInfoMap;
+  assets: AssetInfoMap;
+  // sourceAssets: AssetInfoMap;
+  // targetAssets: AssetInfoMap;
 }
 
 const ZapPanel = (props: TabPanelProps) => {
   const t = usePageTranslation();
-  const { id, value, index, sourceAssets, targetAssets, loading, ...other } = props;
-  const sourceMaxValue = 9999.99;
+  const { id, value, index, assets, /* sourceAssets, targetAssets,  */ loading, ...other } = props;
+
   const [executing, setExecuting] = useState(false);
   const [sourceAsset, setSourceAsset] = useState<AssetKey | ''>('');
   const [sourceValue, setSourceValue] = useState(null);
   const [targetAsset, setTargetAsset] = useState<PairedAssetKey | ''>('');
-  const [targetValue, setTargetValue] = useState(null);
   const [canExecute, setCanExecute] = useState(false);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
 
-  useEffect(() => {
-    if (targetAsset) setTargetValue(sourceValue || 0 * 2);
-  }, [sourceValue, targetAsset]);
+  const { account, library, chainId } = useWeb3();
+  const routerAddress = useMemo(() => AWINO_ROUTER_MAP[chainId], [chainId]);
+
+  const source = useMemo(() => assets.get(sourceAsset), [sourceAsset, assets]);
+  const target = useMemo(() => assets.get(targetAsset), [targetAsset, assets]);
+
+  const sourceMaxValue = useTokenBalanceDynamic(source?.address, source?.decimals, account);
+
+  const targetMaxValue = useTokenBalanceDynamic(target?.address, target?.decimals, account);
+
+  const targetValue = useAmountOut(source?.address, target?.address, sourceValue, routerAddress);
+
+  const allowance = useAllowance(source?.address, account, routerAddress);
+  const [hasEnoughAllowance, setHasEnoughAllowance] = useState(false);
+
+  // const info = useSwapInfo(source?.address, target?.address, sourceValue, routerAddress);
 
   useEffect(() => {
-    setCanExecute(sourceAsset && targetAsset && sourceValue && targetValue);
+    setCanExecute(
+      sourceAsset &&
+        targetAsset &&
+        sourceValue &&
+        targetValue &&
+        sourceAsset !== targetAsset &&
+        toBigNum(sourceValue).gt(0) &&
+        toBigNum(targetValue).gt(0)
+    );
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
-  const handleExecute = useCallback(() => {
-    if (sourceAsset && targetAsset && sourceValue && targetValue) {
-      setExecuting(true);
-      setTimeout(() => {
-        setExecuting(false);
-      }, 1000);
+  /**
+   * Check if the 'allowance' for the 'Router' contract is enough. Set the flag accordingly.
+   */
+  useEffect(() => {
+    if (allowance && sourceValue && Number(allowance) >= Number(sourceValue)) {
+      setHasEnoughAllowance(true);
+    } else {
+      setHasEnoughAllowance(false);
     }
-  }, [sourceAsset, targetAsset, sourceValue, targetValue]);
+  }, [allowance, sourceValue]);
 
-  const validateSourceValue = useCallback((newValue) => {
-    return newValue >= 0;
-  }, []);
+  /**
+   * Checks if the the 'Router' contract has enough permissions to transfer tokens
+   * on behalf of the user. If not, call 'approve', otherwise perform the 'swap'.
+   */
+  const handleExecute = useCallback(async () => {
+    if (sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset) {
+      const { address, decimals } = source;
+      const signer = await library.getSigner();
+      setExecuting(true);
+
+      // Check allowance
+      if (!hasEnoughAllowance) {
+        console.log(`>> Requesting approval for spending: ${ethers.utils.parseUnits(sourceValue, decimals)}`);
+
+        try {
+          // Approve
+          await ERC20Common.approve(address, routerAddress, ethers.utils.parseUnits(sourceValue, decimals), library);
+          setHasEnoughAllowance(true);
+        } catch (error) {
+          console.error(`Approval from ${account} to ${routerAddress} failed.`);
+          console.error(error);
+        }
+      }
+
+      // Execute swap
+      try {
+        // @TODO 'slippageTolerance' is not used. Adjust calculations based on
+        // the selected slippageTolerance.
+        await zapTokens(source.address, target.address, sourceValue, routerAddress, await signer.getAddress(), signer);
+
+        setExecuting(false);
+        setCanExecute(false);
+        setSourceValue(0);
+      } catch (error) {
+        console.log(error);
+        setExecuting(false);
+      }
+    }
+  }, [
+    sourceAsset,
+    targetAsset,
+    sourceValue,
+    targetValue,
+    target,
+    source,
+    routerAddress,
+    hasEnoughAllowance,
+    account,
+    library,
+  ]);
+
+  const validateSourceValue = useCallback(
+    (newValue) => {
+      return newValue >= 0 && newValue <= sourceMaxValue;
+    },
+    [sourceMaxValue]
+  );
 
   const handleSourceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSourceValue(event.target.value);
   };
 
   const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
-    setSourceValue(`${(+newPercent / 100) * sourceMaxValue}`);
+    setSourceValue(`${(+newPercent / 100) * parseFloat(sourceMaxValue)}`);
   };
 
   const handleSourceAssetModalToggle = () => {
     setAssetModal({
       currentAsset: sourceAsset as AssetKey,
       type: 'source',
-      assets: sourceAssets, //: new Map(Array.from(assets).filter(([id]) => id !== targetAsset)),
+      assets: assets, //: new Map(Array.from(assets).filter(([id]) => id !== targetAsset)),
     });
   };
 
@@ -182,7 +274,7 @@ const ZapPanel = (props: TabPanelProps) => {
     setAssetModal({
       currentAsset: targetAsset as AssetKey,
       type: 'target',
-      assets: targetAssets, //: new Map(Array.from(assets).filter(([id]) => id !== sourceAsset)),
+      assets: assets, //: new Map(Array.from(assets).filter(([id]) => id !== sourceAsset)),
     });
   };
 
@@ -192,6 +284,15 @@ const ZapPanel = (props: TabPanelProps) => {
     } else {
       setTargetAsset(payload as PairedAssetKey);
     }
+  };
+
+  /**
+   * Switch source / target assets
+   */
+  const handleSwitch = () => {
+    const tSourceAsset = sourceAsset;
+    setSourceAsset(targetAsset);
+    setTargetAsset(tSourceAsset);
   };
 
   return (
@@ -207,7 +308,7 @@ const ZapPanel = (props: TabPanelProps) => {
           <Label>{t(`swap-section.zap.prompt`)}</Label>
           <div className="AwiSwapPanel-aside Awi-row">
             <LoadingButton color="primary" onClick={handleExecute} disabled={!canExecute} loading={executing}>
-              {t('swap-section.zap.execute')}
+              {hasEnoughAllowance ? t('swap-section.zap.execute') : t('swap-section.zap.approve')}
             </LoadingButton>
           </div>
         </div>
@@ -230,11 +331,22 @@ const ZapPanel = (props: TabPanelProps) => {
                     endIcon={<ExpandIcon className="AwiSwapPanel-assetToggleIcon" />}
                     onClick={handleSourceAssetModalToggle}
                   >
-                    <>{sourceAsset ? sourceAssets.get(sourceAsset).label : t('swap-section.zap.choose-token')}</>
+                    <>{sourceAsset ? source.label : t('swap-section.zap.choose-token')}</>
                   </Button>
                   <FormControl variant="standard" fullWidth disabled={loading || executing || !sourceAsset}>
                     <FormLabel htmlFor="sourceValue" className="AwiSwapPanel-sourceAmountLabel">
-                      {t('swap-section.zap.you-pay')}
+                      <span>{t('swap-section.zap.you-pay')}</span>
+                      {sourceAsset && (
+                        <span>
+                          <LoadingText
+                            loading={sourceMaxValue === null}
+                            text={t('swap-section.zap.max-of-asset', {
+                              value: sourceMaxValue && formatAmount(sourceMaxValue),
+                              asset: source.label,
+                            })}
+                          />
+                        </span>
+                      )}
                     </FormLabel>
                     <NumberInput
                       id="sourceValue"
@@ -264,6 +376,9 @@ const ZapPanel = (props: TabPanelProps) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <div className={clsx('AwiSwapPanel-target', { 'Awi-active': canExecute })}>
+                  <IconButton color="primary" size="small" className="AwiZapPanel-switch" onClick={handleSwitch}>
+                    <ZapIcon />
+                  </IconButton>
                   <Button
                     variant="text"
                     className="AwiSwapPanel-assetToggle"
@@ -271,23 +386,29 @@ const ZapPanel = (props: TabPanelProps) => {
                       loading ? (
                         <Loader progressProps={{ size: 20 }} />
                       ) : (
-                        targetAsset && (
-                          <AssetIcons
-                            ids={targetAsset.split('-').map((m) => m.toLowerCase()) as AssetKey[]}
-                            size="large"
-                          />
-                        )
+                        targetAsset && <AssetIcons ids={targetAsset} size="large" />
                       )
                     }
                     disabled={executing}
                     endIcon={<ExpandIcon className="AwiSwapPanel-assetToggleIcon" />}
                     onClick={handleTargetAssetModalToggle}
                   >
-                    <>{targetAsset ? targetAssets.get(targetAsset).label : t('swap-section.zap.choose-lp-token')}</>
+                    <>{targetAsset ? target.label : t('swap-section.zap.choose-lp-token')}</>
                   </Button>
                   <FormControl variant="standard" fullWidth disabled={true /* loading || !targetAsset */}>
                     <FormLabel htmlFor="targetValue" className="AwiSwapPanel-targetAmountLabel">
                       <span>{t(`swap-section.zap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span>
+                      {targetAsset && (
+                        <span>
+                          <LoadingText
+                            loading={targetMaxValue === null}
+                            text={t('swap-section.zap.max-of-asset', {
+                              value: targetMaxValue && formatAmount(targetMaxValue),
+                              asset: target.label,
+                            })}
+                          />
+                        </span>
+                      )}
                     </FormLabel>
                     <NumberInput id="targetValue" name="targetValue" value={targetValue} />
                   </FormControl>

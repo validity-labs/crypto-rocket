@@ -12,6 +12,7 @@
       "limit": "Limit",
       "trading-type-hint": "MISSING TEXT",
       "execute": "Execute swap",
+      "approve": "Approve swap",
       "choose-token": "Choose token",
       "you-pay": "You pay",
       "you-receive": "You receive",
@@ -45,9 +46,11 @@
       "you-pay": "You pay",
       "you-receive": "You receive",
       "you-receive-estimated": "You receive (estimated)",
+      "max-of-asset": "Max. {{value}} {{asset}}",
       "choose-token": "Choose token",
       "choose-lp-token": "Choose a lp token",
-      "execute": "Execute zap"
+      "execute": "Execute zap",
+      "approve": "Approve zap"
     },
     "liquidity": {
       "title": "Liquidity",
@@ -147,6 +150,7 @@
     "percent-toggle-hint": "MISSING TEXT",
     "max": "Max",
     "amount": "Amount",
+    "pool-tokens": "Pool tokens",
     "pooled": "Pooled {{v}}",
     "collect-as-weth": "Collect as WETH",
     "submit-prompt": "Enter a percent",

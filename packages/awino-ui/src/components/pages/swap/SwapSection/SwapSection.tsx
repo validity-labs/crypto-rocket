@@ -109,12 +109,13 @@ export default function SwapSection() {
   const t = usePageTranslation();
   const [loading, setLoading] = useState(true);
   const [assets, setAssets] = useState<AssetInfoMap>(new Map());
-  const [assetPairs, setAssetPairs] = useState<AssetInfoMap>(new Map());
+  // const [assetPairs, setAssetPairs] = useState<AssetInfoMap>(new Map());
 
   useEffect(() => {
     const fetch = async () => {
       const tokens = await fetchTokens();
       setAssets(new Map(tokens.map((token) => [token.id, token])));
+      // setAssetPairs(new Map(tokens.map((token) => [token.id, token])));
       setLoading(false);
     };
 
@@ -141,7 +142,13 @@ export default function SwapSection() {
       </Tabs>
       <Panel>
         <SwapPanel id={id} value={tab} index={0} assets={assets} loading={loading} />
-        <ZapPanel id={id} value={tab} index={1} sourceAssets={assets} targetAssets={assetPairs} loading={loading} />
+        <ZapPanel
+          id={id}
+          value={tab}
+          index={1}
+          assets={assets}
+          /* sourceAssets={assets} targetAssets={assetPairs} */ loading={loading}
+        />
         <LiquidityPanel id={id} value={tab} index={2} assets={assets} loading={loading} />
       </Panel>
     </Section>

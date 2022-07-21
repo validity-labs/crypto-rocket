@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { merge } from 'lodash';
 
-import { Address } from '@/types/app';
+import { Address, RecursivePartial } from '@/types/app';
 
 export interface LiquidityToken {
   id: string;
@@ -53,10 +54,13 @@ export const exchangeSlice = createSlice({
         state.liquidityPairs.entities[r.id] = r;
       });
     },
-    updateLiquidityPair: (state, action: PayloadAction<{ id: Address; data: Partial<Omit<LiquidityPair, 'id'>> }>) => {
+    updateLiquidityPair: (
+      state,
+      action: PayloadAction<{ id: Address; data: RecursivePartial<Omit<LiquidityPair, 'id'>> }>
+    ) => {
       const { id, data } = action.payload;
 
-      Object.assign(state.liquidityPairs.entities[id], data);
+      merge(state.liquidityPairs.entities[id], data);
     },
 
     addUserLiquidityPairs: (state, action: PayloadAction<PartialUserLiquidityPair[]>) => {
@@ -72,15 +76,24 @@ export const exchangeSlice = createSlice({
     },
     updateUserLiquidityPair: (
       state,
-      action: PayloadAction<{ id: Address; data: Partial<Omit<PartialUserLiquidityPair, 'id'>> }>
+      action: PayloadAction<{ id: Address; data: RecursivePartial<Omit<PartialUserLiquidityPair, 'id'>> }>
     ) => {
       const { id, data } = action.payload;
-      Object.assign(state.userLiquidityPairs.entities[id], data);
+      merge(state.userLiquidityPairs.entities[id], data);
+    },
+    removeUserLiquidityPair: (state, action: PayloadAction<Address>) => {
+      const id = action.payload;
+      delete state.userLiquidityPairs.entities[id];
     },
   },
 });
 
-export const { addLiquidityPairs, addUserLiquidityPairs, updateLiquidityPair, updateUserLiquidityPair } =
-  exchangeSlice.actions;
+export const {
+  addLiquidityPairs,
+  addUserLiquidityPairs,
+  updateLiquidityPair,
+  updateUserLiquidityPair,
+  removeUserLiquidityPair,
+} = exchangeSlice.actions;
 
 export default exchangeSlice.reducer;

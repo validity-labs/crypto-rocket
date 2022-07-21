@@ -8,6 +8,7 @@ import { has } from 'lodash';
 import { Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { ECR20_TOKEN_DECIMALS } from '@/app/constants';
 import { useAppSelector } from '@/app/hooks';
 import { UserLiquidityPair } from '@/app/state/slices/exchange';
 import { PartialUserFarmPair } from '@/app/state/slices/masterchef';
@@ -102,7 +103,7 @@ const PoolPairCard = ({ id }: PoolPairCardProps) => {
     const totalPercent = liquidityBalance.mul(100).div(totalBalance).toNumber();
 
     return {
-      totalBalanceFormatted: formatUnits(totalBalance, 18),
+      totalBalanceFormatted: formatUnits(totalBalance, ECR20_TOKEN_DECIMALS),
       chartData: [
         {
           key: 'lp',

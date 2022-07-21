@@ -13,6 +13,11 @@ export interface NextAppConfig extends NextConfig {
     chainId: number;
     baseDomain: string;
     etherscanApiKey: string;
+    blockchainExplorerUrl: string;
+    dataMiner: {
+      url: string;
+      key: string;
+    };
   };
 }
 
@@ -219,5 +224,10 @@ export interface PaginatedState<T extends string> {
   loading: boolean;
   more: boolean;
   touched: boolean;
+  error?: boolean;
   params: PaginationParams;
 }
+
+export type RecursivePartial<T> = {
+  [P in keyof T]?: RecursivePartial<T[P]>;
+};

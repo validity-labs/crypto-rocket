@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 
 import { Box, Button, Collapse, Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -11,10 +11,11 @@ import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Link from '@/components/general/Link/Link';
 import LinkIcon from '@/components/icons/LinkIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { formatLPPair, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
+import { formatLPPair, formatMultiplier, formatNumber, formatPercent, formatUSD } from '@/lib/formatters';
+import { blockchainExplorerUrl } from '@/lib/helpers';
 import { AssetKeyPair } from '@/types/app';
 
-import { StakeModalData } from './StakeModal';
+import { FarmDataItem } from './ResultSection';
 
 const Root = styled('div')(({ theme }) => ({
   cursor: 'pointer',
@@ -69,7 +70,7 @@ const Root = styled('div')(({ theme }) => ({
 
 interface Props {
   onHarvest: (pair: AssetKeyPair) => void;
-  onStake: (stakeData: StakeModalData) => void;
+  onStake: (stakeData: FarmDataItem) => void;
   onUnstake: (pair: AssetKeyPair) => void;
 }
 export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & GridRowProps & Props) {
@@ -101,14 +102,7 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
   }, [row, onHarvest]);
 
   const handleStake = useCallback(() => {
-    onStake({
-      // ...row,
-      pair: row.pair,
-      proportion: row.proportion,
-      stakedAmount: row.stakedAmount,
-      walletAmount: row.walletAmount,
-      walletAmountUSD: row.walletAmountUSD,
-    });
+    onStake(row as FarmDataItem);
   }, [row, onStake]);
 
   const handleUnstake = useCallback(() => {
@@ -116,6 +110,8 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
   }, [row, onUnstake]);
 
   const { connected } = useAppSelector((state) => state.account);
+
+  const explorerLink = useMemo(() => blockchainExplorerUrl(row.id), [row.id]);
 
   return (
     <Root>
@@ -127,7 +123,7 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
               id="boostFactor"
               value={
                 <Typography component="span" className="AwiResultTable-valueHighlighted">
-                  {formatPercent(row.boostFactor)}
+                  {formatMultiplier(row.boostFactor)}
                 </Typography>
               }
               labelProps={{
@@ -152,7 +148,7 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
                       {t('earned')}
                     </Typography>
                     <Typography variant="body-lg" component="span">
-                      {formatNumber(row.earned)}
+                      {row.rewardFormatted}
                     </Typography>
                   </>
                 ),
@@ -180,7 +176,7 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
                   <Typography component="span" color="inherit">
                     {formatLPPair(row.pair)}
                   </Typography>
-                  <Link href="/todo" ml={2}>
+                  <Link href={explorerLink} ml={2}>
                     <LinkIcon />
                   </Link>
                 </Box>
@@ -189,13 +185,13 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
               valueProps={{ color: 'text.primary' }}
             />
             <LabelValue
-              id="lpPrice"
+              id="lpTokenValueUSD"
               mb={4.5}
-              value={`~${formatUSD(row.lpPrice)}`}
+              value={`~${formatUSD(row.lpTokenValueUSD)}`}
               labelProps={{ children: t('lp-price'), variant: 'body', color: 'text.secondary' }}
               valueProps={{ color: 'text.primary' }}
             />
-            <Link href="/todo">{t('view-on-scan')}</Link>
+            {/* <Link href="/todo">{t('view-on-scan')}</Link> */}
           </div>
         </Container>
       </Collapse>

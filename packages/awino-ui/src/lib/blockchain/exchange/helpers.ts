@@ -1,4 +1,8 @@
+import { Provider } from '@ethersproject/providers';
 import { Contract, ethers } from 'ethers';
+
+import { CHAIN_ID } from '@/app/constants';
+import { Address } from '@/types/app';
 
 import ERC20_ABI from './abis/ERC20.json';
 import AWINO_FACTORY_ABI from './abis/IAwinoFactory.json';
@@ -104,7 +108,13 @@ export async function getAmountOut(
 /** Returns the reserves stored in a the liquidity pool between the token of address1 and the token
  * of address2.
  */
-export async function fetchReserves(address1: string, address2: string, pair: Contract, signer: ethers.Signer) {
+export async function fetchReserves(
+  address1: string,
+  address2: string,
+  pair: Contract,
+  signer: ethers.Signer,
+  preserveOrder: boolean = false
+) {
   try {
     // Get decimals for each coin
     const coin1 = new Contract(address1, ERC20_ABI, signer);
@@ -116,14 +126,23 @@ export async function fetchReserves(address1: string, address2: string, pair: Co
     // Get reserves
     const reservesRaw = await pair.getReserves();
 
+    const realToken0Address = await pair.token0();
+
     // Put the results in the right order
-    const results = [
-      (await pair.token0()) === address1 ? reservesRaw[0] : reservesRaw[1],
-      (await pair.token1()) === address2 ? reservesRaw[1] : reservesRaw[0],
-    ];
+    const results = [reservesRaw[0], reservesRaw[1]];
+    const isOrderCorrect = realToken0Address === address1;
+    if (!isOrderCorrect) {
+      results.reverse();
+    }
 
     // Scale each to the right decimal place
-    return [results[0] * 10 ** -coin1Decimals, results[1] * 10 ** -coin2Decimals];
+    const scaledResutls = [results[0] * 10 ** -coin1Decimals, results[1] * 10 ** -coin2Decimals];
+
+    // Put the results in the order of passed addresses
+    if (preserveOrder && !isOrderCorrect) {
+      scaledResutls.reverse();
+    }
+    return scaledResutls;
   } catch (err) {
     console.log('error!');
     console.log(err);
@@ -390,12 +409,20 @@ export async function quoteAddLiquidity(address1, address2, amountADesired, amou
 /**
  * Returns the quote for the removed liquidity.
  */
-export async function quoteRemoveLiquidity(address1, address2, liquidity, factory, signer) {
-  const pairAddress = await factory.getPair(address1, address2);
-  console.log('pair address', pairAddress);
-  const pair = new Contract(pairAddress, AWINO_PAIR_ABI, signer);
+export async function quoteRemoveLiquidity(
+  address1: Address,
+  address2: Address,
+  factoryAddress: Address,
+  liquidity: number,
+  provider: Provider
+) {
+  const factory = new Contract(factoryAddress, AWINO_FACTORY_ABI, provider);
 
-  const reservesRaw = await fetchReserves(address1, address2, pair, signer); // Returns the reserves already formated as ethers
+  const pairAddress = await factory.getPair(address1, address2);
+  // console.log('pair address', pairAddress);
+  const pair = new Contract(pairAddress, AWINO_PAIR_ABI, provider);
+
+  const reservesRaw = await fetchReserves(address1, address2, pair, provider as unknown as ethers.Signer, true); // Returns the reserves already formated as ethers
   const reserveA = reservesRaw[0];
   const reserveB = reservesRaw[1];
 
