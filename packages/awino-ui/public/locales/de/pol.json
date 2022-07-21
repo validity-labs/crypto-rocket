@@ -21,7 +21,7 @@
       "info": "The minimum buy amount is 1 $t(common:asset.{{from}}). This is currently {{price}} $t(common:asset.{{to}}).",
       "source-label": "How much $t(common:asset.{{from}}) do you want to buy?",
       "approve": "Approve",
-      "create-proposal": "Create Proposal"
+      "create-proposal": "Buy USDC"
     },
     "treasury": {
       "title": "Treasury",
