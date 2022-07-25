@@ -31,6 +31,7 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => ({
     visibility: 'visible',
   },
   '.MuiDataGrid-sortIcon': {
+    color: theme.palette.text.secondary,
     opacity: '1 !important',
   },
   '.MuiDataGrid-row': {

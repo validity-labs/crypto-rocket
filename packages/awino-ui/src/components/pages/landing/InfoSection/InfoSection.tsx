@@ -49,7 +49,6 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
 }));
 
 const Root = styled(Section)(({ theme }) => ({
-  paddingTop: theme.spacing(40),
   '.AwiPanel-root .AwiPanel-content': {
     padding: theme.spacing(11, 6, 10),
   },
@@ -72,7 +71,7 @@ export default function InfoSection() {
   };
 
   return (
-    <Root>
+    <Root size="medium">
       <Panel>
         <Grid container rowSpacing={15} columnSpacing={26}>
           <Grid item xs={12} md={6}>

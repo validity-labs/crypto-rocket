@@ -36,7 +36,7 @@ export default function TotalSection({ items }: Props) {
   const t = usePageTranslation();
 
   return (
-    <Root containerProps={{ maxWidth: 'lg' }}>
+    <Root size="small" containerProps={{ maxWidth: 'lg' }}>
       <Grid container alignItems="center" spacing={10}>
         <Grid item xs={12} md={3}>
           <Typography variant="h3" component="h1" color="text.active" fontWeight={700}>

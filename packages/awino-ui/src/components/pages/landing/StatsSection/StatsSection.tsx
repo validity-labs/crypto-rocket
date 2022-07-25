@@ -44,11 +44,13 @@ const Root = styled(Section, {
   '.AwiInfoSection-image': {
     pointerEvents: 'none',
     position: 'absolute',
-    top: -100,
+    top: 0,
     left: '50%',
-    transform: 'translateX(-50%)',
-    width: '100%',
-    maxWidth: 220,
+    transform: 'translate(-50%, -50%)',
+    width: '80%',
+    maxWidth: 180,
+    transition: 'max-width linear 500ms',
+    zIndex: -1,
     img: {
       maxWidth: '100%',
     },
@@ -70,6 +72,12 @@ const Root = styled(Section, {
   //     backgroundColor: theme.palette.background.transparent,
   //   },
   // },
+  [theme.breakpoints.up('sm')]: {
+    '.AwiInfoSection-image': {
+      top: -60,
+      maxWidth: 340,
+    },
+  },
   [theme.breakpoints.up('md')]: {
     ...(decorated && {
       '> .MuiContainer-root': {
@@ -77,8 +85,8 @@ const Root = styled(Section, {
       },
     }),
     '.AwiInfoSection-image': {
-      top: -180,
-      right: 40,
+      top: -220,
+      right: 0,
       left: 'unset',
       maxWidth: 440,
       transform: 'none',
@@ -99,8 +107,16 @@ const Root = styled(Section, {
       },
     }),
     '.AwiInfoSection-image': {
-      top: -260,
-      maxWidth: 540,
+      top: -160,
+      right: 0,
+      maxWidth: 480,
+    },
+  },
+  [theme.breakpoints.up('xl')]: {
+    '.AwiInfoSection-image': {
+      top: -240,
+      right: 10,
+      maxWidth: 620,
     },
   },
 }));
@@ -125,7 +141,7 @@ export default function StatsSection({ items }: Props) {
   }));
   return (
     <>
-      <Root decorated={!connected}>
+      <Root size="medium" decorated={!connected}>
         {/* {!connected && (
           <ul className="badges">
             {badgeList.map((filename, index) => (

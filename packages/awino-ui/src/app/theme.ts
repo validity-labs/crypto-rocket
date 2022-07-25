@@ -24,27 +24,32 @@ const themeCreator = (mode: PaletteMode) => {
       mode,
       ...(mode === 'light'
         ? {
-            // palette values for light mode
             primary: {
               main: '#00FFEB',
             },
             secondary: {
               main: '#00e63e',
             },
-            text: {
-              primary: '#000000', // '#0e193c',
-              secondary: '#767373',
-
-              contrast: '#ffffff',
-              active: '#00FFEB',
+            success: {
+              main: '#00D583',
             },
+            text: {
+              primary: '#ffffff', // '#0e193c',
+              secondary: '#ffffff',
+              contrast: '#CE0057',
+              active: '#00FFEB', // *
+              menu: '#ffffff',
+            },
+            divider: 'rgba(255,255,255,0.18)',
             background: {
               dark: '#0e193c',
-              darker: '#10172b',
-              light: '#fafafa',
+              darker: '#12191F',
+              main: '#002433',
+              light: '#1B727B',
               lighter: '#f7f9ff',
               gray: '#fafafa',
-              transparent: 'rgba(0,0,0,0.03)',
+              disabled: '#51595f',
+              transparent: 'rgba(255,255,255,0.1)',
             },
           }
         : {
@@ -183,7 +188,7 @@ const themeCreator = (mode: PaletteMode) => {
           min-height: 100%;
         }
         body {
-          background: #ffffff;
+          background: linear-gradient(180deg, #002433 0%, #207880 21%, #00545F 100%) no-repeat;
           &.dark {
             background: #002433;
             background: linear-gradient(180deg, rgba(0,36,51,1) 0%, rgba(2,5,10,1) 50%, rgba(0,47,67,1) 100%) no-repeat;
@@ -448,43 +453,53 @@ const themeCreator = (mode: PaletteMode) => {
           overflowX: 'auto',
           overflowY: 'hidden',
           maxWidth: '100%',
-          whiteSpace: 'pre-line',
+          // whiteSpace: 'pre-line',
+          whiteSpace: 'normal',
+          [theme.breakpoints.up('sm')]: {
+            whiteSpace: 'pre-line',
+          },
           // maxWidth: 920,
           // marginRight: 'auto',
           // marginLeft: 'auto',
         },
         h1: {
           color: theme.palette.text.primary,
+          whiteSpace: 'pre-line',
           '&.MuiTypography-gutterBottom': {
             marginBottom: sp(12.5), // 50px
           },
         },
         h2: {
           color: theme.palette.text.primary,
+          whiteSpace: 'pre-line',
           '&.MuiTypography-gutterBottom': {
             marginBottom: sp(7.5), // 30px
           },
         },
         h3: {
           color: theme.palette.text.primary,
+          whiteSpace: 'pre-line',
           '&.MuiTypography-gutterBottom': {
             marginBottom: sp(5), // 20px
           },
         },
         h4: {
           color: theme.palette.text.primary,
+          whiteSpace: 'pre-line',
           '&.MuiTypography-gutterBottom': {
             marginBottom: sp(2.5), // 10px
           },
         },
         h5: {
           color: theme.palette.text.primary,
+          whiteSpace: 'pre-line',
           '&.MuiTypography-gutterBottom': {
             marginBottom: sp(2.5), // 10px
           },
         },
         h6: {
           color: theme.palette.text.primary,
+          whiteSpace: 'pre-line',
           '&.MuiTypography-gutterBottom': {
             marginBottom: sp(2.5), // 10px
           },
@@ -981,6 +996,9 @@ const themeCreator = (mode: PaletteMode) => {
             color: theme.palette.text.active,
           },
         },
+        selectIcon: {
+          color: theme.palette.text.primary,
+        },
       },
     },
     MuiTableContainer: {
@@ -1031,7 +1049,7 @@ const themeCreator = (mode: PaletteMode) => {
       },
       styleOverrides: {
         paper: {
-          border: `2px solid ${theme.palette.mode === 'dark' ? '#00ffeb' : 'transparent'}`,
+          border: '2px solid #00ffeb',
           borderRadius: +theme.shape.borderRadius * 2,
         },
         list: {
