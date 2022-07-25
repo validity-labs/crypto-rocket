@@ -25,6 +25,12 @@ const StatsCard = styled('div')(({ theme }) => ({
   h2: {
     textAlign: 'center',
   },
+  '.AwiStatsItem-value': {
+    display: 'block',
+    marginBottom: theme.spacing(1),
+    fontWeight: 600,
+    color: theme.palette.mode === 'dark' ? theme.palette.text.active : '#C49132',
+  },
 }));
 
 interface StatsItemProps {
@@ -55,17 +61,7 @@ export const StatsItem = memo(function StatsItem({ item, formatters, index, glan
   return (
     <StatsCard className="AwiStatsCard-root" data-test-id="AwiStatsItems-card">
       <h2>
-        <Typography
-          variant="h4"
-          fontWeight={600}
-          color="text.active"
-          component="span"
-          sx={{
-            display: 'block',
-            mb: 1,
-          }}
-          className="AwiStatsItem-value"
-        >
+        <Typography variant="h4" component="span" className="AwiStatsItem-value">
           {glanced ? (
             <CountUp delay={0} end={value} duration={2} formattingFn={formatter}>
               {({ countUpRef }) => <span ref={countUpRef} />}

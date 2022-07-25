@@ -33,9 +33,9 @@ const Root = styled(ButtonBase, {
     background: 'linear-gradient(115deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 100%)',
     backgroundClip: 'padding-box !important',
     ...(active && {
-      background: theme.palette.mode === 'dark' ? '#002230' : theme.palette.common.white,
+      background: theme.palette.background.main,
       '&:hover': {
-        background: theme.palette.mode === 'dark' ? '#002230' : theme.palette.common.white,
+        background: theme.palette.background.main,
       },
     }),
   },
@@ -59,13 +59,13 @@ const Root = styled(ButtonBase, {
   '.LabConnectButton-exit': {
     marginLeft: theme.spacing(3),
     fontSize: '24px',
-    color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.active,
+    color: theme.palette.text.primary,
   },
   '.AwiAddress-root': {
     maxWidth: 80,
   },
   '.AwiAddress-address': {
-    color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.secondary,
+    color: theme.palette.text.primary,
   },
 }));
 

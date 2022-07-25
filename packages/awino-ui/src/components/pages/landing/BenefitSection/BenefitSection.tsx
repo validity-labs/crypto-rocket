@@ -45,7 +45,7 @@ const Root = styled(Section)(({ theme }) => ({
       margin: '0 auto',
       borderRadius: +theme.shape.borderRadius * 5,
       boxShadow: '0px 3px 6px #00000029',
-      backgroundColor: theme.palette.background.darker,
+      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.darker : theme.palette.background.light,
       '&:before': {
         content: '""',
         position: 'absolute',
@@ -113,7 +113,7 @@ export default function BenefitSection() {
   const t = usePageTranslation();
 
   return (
-    <Root /* containerProps={{ maxWidth: 'lg' }} */>
+    <Root size="medium" /* containerProps={{ maxWidth: 'lg' }} */>
       <Header title={t('benefit-section.title')} description={t('benefit-section.description')} />
       <SwiperReact
         modules={[Navigation, A11y]}

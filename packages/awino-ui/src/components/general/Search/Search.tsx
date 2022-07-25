@@ -10,9 +10,12 @@ import { SxProps } from '@mui/system';
 import SearchIcon from '@/components/icons/SearchIcon';
 // import { SetState } from '@/types/app';
 
-const Form = styled('form')({
+const Form = styled('form')(({ theme }) => ({
   width: '100%',
-});
+  svg: {
+    color: theme.palette.text.primary,
+  },
+}));
 
 interface Props extends InputProps {
   // term: string;

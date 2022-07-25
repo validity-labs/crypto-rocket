@@ -32,7 +32,7 @@ import DoughnutChart from './DoughnutChart';
 
 const Root = styled(Card)(({ theme }) => ({
   height: '100%',
-  backgroundColor: '#082938',
+  backgroundColor: theme.palette.background.light, //'#082938',
   '&:before': {
     content: 'none',
   },
@@ -57,7 +57,7 @@ const Root = styled(Card)(({ theme }) => ({
     display: 'inline-block',
     padding: theme.spacing(4, 5),
     borderRadius: +theme.shape.borderRadius * 2,
-    backgroundColor: '#093245',
+    backgroundColor: theme.palette.background.main,
   },
   '.AwiBoastFarmCard-distributionHelper': {
     margin: theme.spacing(4.5, 0, 7.5),

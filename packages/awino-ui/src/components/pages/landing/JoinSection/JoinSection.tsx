@@ -6,15 +6,16 @@ import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 const Root = styled(Section)(({ theme }) => ({
-  position: 'relative',
-  padding: theme.spacing(15, 0),
-  marginTop: theme.spacing(88),
-  // overflow: 'hidden',
+  '> .MuiContainer-root': {
+    position: 'relative',
+  },
   '.AwiJoinSection-image': {
     position: 'absolute',
-    top: -80,
-    left: 0,
+    maxWidth: '100%',
     width: 240,
+    top: -180,
+    left: 0,
+    transition: 'width linear 500ms',
     img: {
       maxWidth: '100%',
     },
@@ -27,7 +28,6 @@ const Root = styled(Section)(({ theme }) => ({
     borderRadius: +theme.shape.borderRadius * 5,
     backgroundColor: theme.palette.background.transparent,
     p: {
-      maxWidth: 420,
       textAlign: 'end',
     },
   },
@@ -43,17 +43,19 @@ const Root = styled(Section)(({ theme }) => ({
   },
   [theme.breakpoints.up('md')]: {
     '.AwiJoinSection-image': {
-      top: '-15%',
       width: 460,
+      top: -300,
+      left: 60,
     },
     '.AwiJoinSection-card': {
       padding: theme.spacing(26, 22.5, 25),
     },
   },
-  [theme.breakpoints.up('xl')]: {
+  [theme.breakpoints.up('lg')]: {
     '.AwiJoinSection-image': {
-      width: 540,
-      left: '10%',
+      width: 500,
+      top: -185,
+      left: 60,
     },
   },
 }));
@@ -61,7 +63,7 @@ const Root = styled(Section)(({ theme }) => ({
 export default function JoinSection() {
   const t = usePageTranslation();
   return (
-    <Root>
+    <Root size="large-medium">
       <div className="AwiJoinSection-image">
         <img src="/images/pages/landing/join.svg" alt="" />
       </div>

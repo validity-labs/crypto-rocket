@@ -98,10 +98,12 @@ declare module '@mui/material/styles/createMixins' {
     divider: CSSProperties;
     radius: (multiplier: number) => CSSProperties;
     border: { outlined: CSSProperties; active: CSSProperties };
+    panel: CSSProperties;
   }
   interface MixinOptions {
     divider: CSSProperties;
     radius: CSSProperties;
     border: { outlined: CSSProperties; active: CSSProperties };
+    panel: CSSProperties;
   }
 }

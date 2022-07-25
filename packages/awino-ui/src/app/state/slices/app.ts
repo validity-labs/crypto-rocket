@@ -39,7 +39,6 @@ const initialState: AppState = {
     let themeMode: ThemeMode = 'dark';
 
     let storageThemeMode: MaybeTheme;
-
     if (isBrowser) {
       storageThemeMode = localStorage.getItem('themeMode') as MaybeTheme;
       if (storageThemeMode) {
@@ -53,7 +52,6 @@ const initialState: AppState = {
         }
       }
     }
-
     return {
       themeMode,
       isDark: themeMode === 'dark',
@@ -101,6 +99,9 @@ export const appSlice = createSlice({
       return {
         ...state,
         ...action.payload.app, // server payload
+        themeMode: state.themeMode, // only client value is tracked
+        isDark: state.isDark, // only client value is tracked
+        isLight: state.isLight, // only client value is tracked
         initializing: state.initializing, // only client value is tracked
       };
     },

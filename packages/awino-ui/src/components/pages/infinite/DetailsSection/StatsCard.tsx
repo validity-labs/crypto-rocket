@@ -25,7 +25,7 @@ const Root = styled(Card)(({ theme }) => ({
   },
   '.AwiStatsCard-labelValueHighlighted': {
     borderRadius: +theme.shape.borderRadius * 2,
-    backgroundColor: '#093245',
+    backgroundColor: theme.palette.background.main,
   },
 
   // '.AwiGenerateCard-balance': {

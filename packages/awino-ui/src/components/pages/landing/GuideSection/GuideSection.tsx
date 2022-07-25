@@ -10,8 +10,6 @@ import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 const Root = styled(Section)(({ theme }) => ({
-  paddingTop: theme.spacing(88),
-  // overflow: 'hidden',
   '.card': {
     display: 'flex',
     flexDirection: 'column',
@@ -125,6 +123,7 @@ const Root = styled(Section)(({ theme }) => ({
     },
   },
   [theme.breakpoints.up('md')]: {
+    paddingBottom: theme.spacing(60),
     '.media1': {
       '.media-card': {
         borderRadius: +theme.shape.borderRadius * 4,
@@ -200,7 +199,7 @@ export default function GuideSection() {
   );
   return (
     <>
-      <Root>
+      <Root size="medium">
         <Header title={t('guide-section.title')} /* description={t('guide-section.description')} */ />
         <Container maxWidth="lg">
           {items.map((marginBottom, index) => (

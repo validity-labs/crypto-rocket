@@ -13,7 +13,9 @@ const Root = styled('canvas')(({ theme }) => ({
   left: 0,
   background: [
     '#002433',
-    'linear-gradient(180deg, rgba(0,36,51,1) 0%, rgba(2,5,10,1) 50%, rgba(0,47,67,1) 100%) no-repeat',
+    theme.palette.mode === 'dark'
+      ? 'linear-gradient(180deg, rgba(0,36,51,1) 0%, rgba(2,5,10,1) 50%, rgba(0,47,67,1) 100%) no-repeat'
+      : 'linear-gradient(180deg, #002433 0%, #207880 21%, #00545F 100%) no-repeat',
   ],
   zIndex: -1,
   width: '100%',

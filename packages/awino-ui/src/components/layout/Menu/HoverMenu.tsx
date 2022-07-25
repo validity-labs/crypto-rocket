@@ -21,6 +21,7 @@ const Root = styled(Box)(({ theme }) => ({
   '.AwiHoverMenu-toggle': {
     border: 0,
     boxShadow: 'none',
+    color: theme.palette.text.primary,
     backgroundColor: 'transparent',
     transition: 'color 300ms ease-in-out',
     cursor: 'pointer',
@@ -33,7 +34,7 @@ const Root = styled(Box)(({ theme }) => ({
 const Popper = styled(MuiPopper)(({ theme }) => ({
   '.AwiHoverMenu-paper': {
     marginTop: theme.spacing(4),
-    border: `2px solid ${theme.palette.mode === 'dark' ? '#00ffeb' : 'transparent'}`,
+    border: '2px solid #00ffeb',
     borderRadius: +theme.shape.borderRadius * 2,
     overflow: 'hidden',
   },
