@@ -42,10 +42,10 @@ const themeCreator = (mode: PaletteMode) => {
             },
             divider: 'rgba(255,255,255,0.18)',
             background: {
-              dark: '#0e193c',
+              dark: '#002433',
               darker: '#12191F',
-              main: '#002433',
-              light: '#1B727B',
+              main: '#00545F',
+              light: '#207880',
               lighter: '#f7f9ff',
               gray: '#fafafa',
               disabled: '#51595f',
@@ -179,6 +179,12 @@ const themeCreator = (mode: PaletteMode) => {
       active: {
         border: `1px solid ${theme.palette.text.active}`,
       },
+    },
+    panel: {
+      display: 'flex',
+      flexDirection: 'column',
+      borderRadius: +theme.shape.borderRadius * 5,
+      backgroundColor: theme.palette.background.light,
     },
   };
   theme.components = {

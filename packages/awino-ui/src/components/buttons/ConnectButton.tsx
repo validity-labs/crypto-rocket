@@ -33,9 +33,9 @@ const Root = styled(ButtonBase, {
     background: 'linear-gradient(115deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 100%)',
     backgroundClip: 'padding-box !important',
     ...(active && {
-      background: '#002230',
+      background: theme.palette.background.main,
       '&:hover': {
-        background: '#002230',
+        background: theme.palette.background.main,
       },
     }),
   },

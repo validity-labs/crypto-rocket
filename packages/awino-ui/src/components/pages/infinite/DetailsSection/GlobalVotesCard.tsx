@@ -17,7 +17,7 @@ import DoughnutChart from './DoughnutChart';
 
 const Root = styled(Card)(({ theme }) => ({
   height: '100%',
-  backgroundColor: '#082938',
+  backgroundColor: theme.palette.background.light, //'#082938',
   '&:before': {
     content: 'none',
   },
