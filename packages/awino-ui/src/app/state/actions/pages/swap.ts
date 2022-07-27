@@ -6,8 +6,8 @@ import { AppState } from '@/app/store';
 import { getBalance, getTotalSupply } from '@/lib/blockchain';
 import { formatUnits } from '@/lib/formatters';
 import fetchQuery from '@/lib/graphql/api';
-import { ExchangePairRaw } from '@/lib/graphql/api/exchange';
-import { percentageFor, sleep } from '@/lib/helpers';
+import { ExchangePairResponse } from '@/lib/graphql/api/exchange';
+import { percentageFor } from '@/lib/helpers';
 
 import { showMessage } from '../../slices/app';
 import { removeUserLiquidityPair, updateLiquidityPair, updateUserLiquidityPair } from '../../slices/exchange';
@@ -30,14 +30,14 @@ export const fetchSwapLiquidity = createAsyncThunk<any, any, { state: AppState }
     }
 
     // fetch liquidity pairs (paginated)
-    const rawLiquidityPairs = await fetchQuery<ExchangePairRaw[]>('exchange-paginated-pairs', {
+    const liquidityPairsResponse = await fetchQuery<ExchangePairResponse[]>('exchange-paginated-pairs', {
       ...variables,
       ...params,
     });
 
     // fetch balance and update liquidity pair entities
     const { liquidityPairsLength, userLiquidityPairIds, userLiquidityPairsLength } = await extendLiquidityPairs(
-      rawLiquidityPairs,
+      liquidityPairsResponse,
       {
         account,
         dispatch,
@@ -69,17 +69,16 @@ export const refetchLiquidityPair = createAsyncThunk<any, any, { state: AppState
   'pageSwap/refetchLiquidityPair',
   async ({ variables, provider, options = {} }, { getState, dispatch }) => {
     const { account, id } = variables;
-    await sleep(5);
     // fetch liquidity pair
-    const rawLiquidityPairs = await fetchQuery<ExchangePairRaw[]>('exchange-pairs-by-ids', { ids: [id] });
+    const liquidityPairsResponse = await fetchQuery<ExchangePairResponse[]>('exchange-pairs-by-ids', { ids: [id] });
 
-    if (rawLiquidityPairs.length !== 1) {
+    if (liquidityPairsResponse.length !== 1) {
       dispatch(
         showMessage({ message: 'Failed to update liquidity pair information.', alertProps: { severity: 'error' } })
       );
       throw new Error('Liquidity not found.');
     }
-    const pair = rawLiquidityPairs[0];
+    const pair = liquidityPairsResponse[0];
 
     const totalSupply = await getTotalSupply(id, account, provider);
 

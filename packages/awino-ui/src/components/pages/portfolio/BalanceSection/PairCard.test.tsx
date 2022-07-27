@@ -4,7 +4,7 @@ import { balanceGroupedList } from '@/fixtures/portfolio';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { cleanup, render } from '@/testing/utils';
 
-import PoolCard from './PoolCard';
+import PairCard from './PairCard';
 
 beforeAll(() => {
   nextUseRouterMock({
@@ -17,9 +17,9 @@ beforeAll(() => {
 
 afterEach(cleanup);
 
-describe('<PoolCard />', () => {
+describe('<PairCard />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<PoolCard item={balanceGroupedList.pool[0]} />, {}, 'portfolio');
+    const { asFragment } = render(<PairCard item={balanceGroupedList.pool[0]} />, {}, 'portfolio');
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -19,6 +19,9 @@ export const accountSlice = createSlice({
       state.connected = !!action.payload;
     },
   },
+  extraReducers: {
+    ['RESET']: () => initialState,
+  },
 });
 
 export const { setAccount } = accountSlice.actions;

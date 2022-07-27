@@ -334,7 +334,8 @@ export default function RemoveLiquidityModal({ open, close, data: item, callback
       title={t('title')}
       titleTooltip={t('title-hint')}
       open={open}
-      close={isSubmitting ? () => {} : close}
+      lock={isSubmitting}
+      close={close}
     >
       <div className="Awi-row">
         <AssetIcons

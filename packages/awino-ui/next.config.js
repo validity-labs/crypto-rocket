@@ -19,6 +19,8 @@ module.exports = async (/* phase, { defaultConfig } */) => {
       etherscanApiKey: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY,
       chainId: +process.env.NEXT_PUBLIC_CHAIN_ID,
       blockchainExplorerUrl: process.env.NEXT_PUBLIC_BLOCKCHAIN_EXPLORER,
+      blockchainTransactionExplorerUrl: process.env.NEXT_PUBLIC_BLOCKCHAIN_TRANSACTION_EXPLORER,
+
       dataMiner: {
         url: process.env.NEXT_PUBLIC_DATA_MINER_URL,
         key: process.env.NEXT_PUBLIC_DATA_MINER_KEY,

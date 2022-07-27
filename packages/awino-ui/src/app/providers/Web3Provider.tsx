@@ -1,8 +1,11 @@
-import type { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { useEffect, useState } from 'react';
 
 import { Web3Provider as EthersProjectWeb3Provider } from '@ethersproject/providers';
 import { useWeb3React, Web3ReactProvider } from '@web3-react/core';
+
+import { AWINO_MASTER_CHEF_ADDRESS_MAP, AWINO_ROUTER_MAP, FACTORY_ADDRESS_MAP } from '@/lib/blockchain';
+import { Address } from '@/types/app';
 
 import { useAppDispatch } from '../hooks';
 import { setAccount } from '../state/slices/account';
@@ -51,7 +54,18 @@ interface Props {
 }
 
 export const useWeb3 = () => {
-  return useWeb3React<EthersProjectWeb3Provider>();
+  const { account: originalAccount, chainId, ...restOfWeb3 } = useWeb3React<EthersProjectWeb3Provider>();
+  const addressOf = useMemo<Record<'router' | 'factory' | 'masterchef', Address>>(() => {
+    return {
+      router: AWINO_ROUTER_MAP[chainId],
+      factory: FACTORY_ADDRESS_MAP[chainId],
+      masterchef: AWINO_MASTER_CHEF_ADDRESS_MAP[chainId],
+    };
+  }, [chainId]);
+
+  const account = useMemo(() => (originalAccount || '').toLowerCase(), [originalAccount]);
+
+  return { account, chainId, ...restOfWeb3, addressOf };
 };
 
 const Web3Provider = ({ children }: Props) => {

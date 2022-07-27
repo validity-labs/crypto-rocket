@@ -3,6 +3,8 @@ import { merge } from 'lodash';
 
 import { Address, RecursivePartial } from '@/types/app';
 
+import { setAccount } from './account';
+
 export interface LiquidityToken {
   id: string;
   symbol: string;
@@ -27,6 +29,7 @@ export type UserLiquidityPair = LiquidityPair & PartialUserLiquidityPair;
 
 interface ExchangeState {
   liquidityPairs: {
+    ids: Address[];
     entities: Record<Address, LiquidityPair>;
   };
   userLiquidityPairs: {
@@ -36,6 +39,7 @@ interface ExchangeState {
 
 const initialState: ExchangeState = {
   liquidityPairs: {
+    ids: [],
     entities: {},
   },
   userLiquidityPairs: {
@@ -46,12 +50,12 @@ const initialState: ExchangeState = {
 export const exchangeSlice = createSlice({
   name: 'exchange',
   initialState,
-
   reducers: {
     addLiquidityPairs: (state, action: PayloadAction<LiquidityPair[]>) => {
       const items = action.payload;
-      items.map((r) => {
+      state.liquidityPairs.ids = items.map((r) => {
         state.liquidityPairs.entities[r.id] = r;
+        return r.id;
       });
     },
     updateLiquidityPair: (
@@ -84,6 +88,12 @@ export const exchangeSlice = createSlice({
     removeUserLiquidityPair: (state, action: PayloadAction<Address>) => {
       const id = action.payload;
       delete state.userLiquidityPairs.entities[id];
+    },
+  },
+  extraReducers: {
+    ['RESET']: () => initialState,
+    [setAccount.type]: (state) => {
+      state.userLiquidityPairs.entities = {};
     },
   },
 });

@@ -81,6 +81,56 @@
       "confirm-transaction": "Please confirm the transaction. ☝",
       "error": "Transaction failed.",
       "success": "Transaction broadcast."
+    },
+    "flow": {
+      "error-validate": "Invalid amount to stake. 😬",
+      "approve": "Please approve the transaction. ☝",
+      "error-approve": "Failed to approve. 😞",
+      "send": "Please confirm the transaction. ☝",
+      "error-send": "Transaction failed. 🤬",
+      "complete": "Amount staked. 🥳 View <0>transaction.</0>"
+    }
+  },
+  "unstake-modal": {
+    "title": "Unstake AWI",
+    "max": "Max",
+    "amount-hint": "Enter your amount to unstake your AWI tokens.",
+    "wallet-balance": "Wallet balance",
+    "submit": "Unstake",
+    "submit-done": "Unstaked",
+    "message": {
+      "confirm-transaction": "Please confirm the transaction. ☝",
+      "error": "Transaction failed.",
+      "success": "Transaction broadcast."
+    },
+    "flow": {
+      "error-validate": "Invalid amount to unstake. 😬",
+      "approve": "Please approve the transaction. ☝",
+      "error-approve": "Failed to approve. 😞",
+      "send": "Please confirm the transaction. ☝",
+      "error-send": "Transaction failed. 🤬",
+      "complete": "Amount unstaked. 🥳 View <0>transaction.</0>"
+    }
+  },
+  "harvest-modal": {
+    "title": "Unstake AWI",
+    "max": "Max",
+    "amount-hint": "Enter your amount to unstake your AWI tokens.",
+    "wallet-balance": "Wallet balance",
+    "submit": "Unstake",
+    "submit-done": "Unstaked",
+    "message": {
+      "confirm-transaction": "Please confirm the transaction. ☝",
+      "error": "Transaction failed.",
+      "success": "Transaction broadcast."
+    },
+    "flow": {
+      "error-validate": "Invalid amount to unstake. 😬",
+      "approve": "Please approve the transaction. ☝",
+      "error-approve": "Failed to approve. 😞",
+      "send": "Please confirm the transaction. ☝",
+      "error-send": "Transaction failed. 🤬",
+      "complete": "Amount unstaked. 🥳 View <0>transaction.</0>"
     }
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import CloseIcon from '@mui/icons-material/CloseRounded';
 import { Modal as MuiModal, Typography, Container, IconButton, ModalProps, ContainerProps } from '@mui/material';
@@ -88,22 +88,27 @@ interface Props extends Omit<ModalProps, 'children' | 'onClose' | 'title'> {
   titleTooltip?: string;
   children: React.ReactNode;
   maxWidth?: ContainerProps['maxWidth'];
+  lock?: boolean;
   close: () => void;
 }
+
+const closeVoid = () => {};
 
 export default function Modal({
   id: idPrefix,
   title,
   titleTooltip,
-  close,
-  maxWidth = 'sm',
   children,
+  maxWidth = 'sm',
+  lock = false,
+  close,
   ...restOfProps
 }: Props) {
   const t = usePageTranslation();
   const id = `${idPrefix}ModalTitle`;
+  const closer = useMemo(() => (lock ? closeVoid : close), [lock, close]);
   return (
-    <Root onClose={close} aria-labelledby={id} {...restOfProps}>
+    <Root onClose={closer} aria-labelledby={id} {...restOfProps}>
       <Container maxWidth={maxWidth} className="AwiModal-container">
         <div className="AwiModal-paper">
           {title && (
@@ -116,7 +121,8 @@ export default function Modal({
                 title={t('common:common.close-modal')}
                 aria-label={t('common:common.close-modal')}
                 className="AwiModal-close"
-                onClick={close}
+                onClick={closer}
+                disabled={lock}
               >
                 <CloseIcon />
               </IconButton>

@@ -95,6 +95,7 @@ export const appSlice = createSlice({
     },
   },
   extraReducers: {
+    ['RESET']: () => initialState,
     [HYDRATE]: (state, action) => {
       return {
         ...state,

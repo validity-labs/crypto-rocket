@@ -4,7 +4,14 @@ import getConfig from './env';
 
 const {
   // serverRuntimeConfig,
-  publicRuntimeConfig: { chainId, baseDomain, etherscanApiKey, blockchainExplorerUrl, dataMiner },
+  publicRuntimeConfig: {
+    chainId,
+    baseDomain,
+    etherscanApiKey,
+    blockchainExplorerUrl,
+    blockchainTransactionExplorerUrl,
+    dataMiner,
+  },
 } = getConfig();
 
 export const SUPPORTED_LANGUAGES: Language[] = ['en', 'de'];
@@ -69,6 +76,8 @@ export const PAGINATION_PAGE_SIZE = 2;
 export const ECR20_TOKEN_DECIMALS = 18;
 
 export const BLOCKCHAIN_EXPLORER_URL = blockchainExplorerUrl;
+
+export const BLOCKCHAIN_TRANSACTION_EXPLORER_URL = blockchainTransactionExplorerUrl;
 
 export const BLOCKS_PER_YEAR = 2104400;
 

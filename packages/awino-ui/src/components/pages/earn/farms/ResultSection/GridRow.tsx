@@ -1,6 +1,8 @@
 import { useState, useCallback, useMemo } from 'react';
 
-import { Box, Button, Collapse, Container, Typography } from '@mui/material';
+import { createSelector } from '@reduxjs/toolkit';
+
+import { Box, Button, Collapse, Container, LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GridRow as MuiGridRow, GridRowProps } from '@mui/x-data-grid';
 // import { useGridApiContext } from '@mui/x-data-grid';
@@ -15,14 +17,16 @@ import { formatLPPair, formatMultiplier, formatNumber, formatPercent, formatUSD 
 import { blockchainExplorerUrl } from '@/lib/helpers';
 import { AssetKeyPair } from '@/types/app';
 
-import { FarmDataItem } from './ResultSection';
+import { FarmItem } from './ResultSection';
 
 const Root = styled('div')(({ theme }) => ({
+  position: 'relative',
   cursor: 'pointer',
   overflow: 'auto',
   backgroundColor: theme.palette.background.transparent,
   borderRadius: +theme.shape.borderRadius * 6,
   margin: theme.spacing(0, 0, 3),
+  // overflow: 'hidden',
   '.AwiResultTable-details': {
     padding: theme.spacing(8.5, 8, 7),
   },
@@ -49,17 +53,25 @@ const Root = styled('div')(({ theme }) => ({
     color: theme.palette.text.active,
   },
   '.AwiResultTable-harvest': {
-    border: 0,
-    margin: theme.spacing(0, 0, 4.5, 0),
     '.AwiLabelValue-label': {
       flexDirection: 'column',
       alignItems: 'flex-start',
     },
   },
+  '.AwiResultCard-staked': {
+    margin: theme.spacing(0, 0, 4.5, 0),
+    border: 0,
+  },
   '.AwiResultCard-tooltip svg': {
     fontSize: '14px',
   },
-
+  '.MuiLinearProgress-root': {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: '100%',
+  },
   [theme.breakpoints.up('sm')]: {
     '.AwiLabelValue-root': {
       flexDirection: 'row',
@@ -69,15 +81,33 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 interface Props {
-  onHarvest: (pair: AssetKeyPair) => void;
-  onStake: (stakeData: FarmDataItem) => void;
-  onUnstake: (pair: AssetKeyPair) => void;
+  onHarvest: (item: FarmItem) => void;
+  onStake: (item: FarmItem) => void;
+  onUnstake: (item: FarmItem) => void;
 }
+
+const selectRefetchState = (id) =>
+  createSelector(
+    (state) => state.pageEarnFarms.loading.farmId,
+    (farmId) => farmId === id
+  );
+
 export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & GridRowProps & Props) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
   // const apiRef = useGridApiContext();
   // const { setEditCellValue, commitCellChange, setCellMode } = apiRef.current;
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
+  const { onHarvest, onStake, onUnstake, row } = props;
+  const { farmId, can } = row;
+
+  const { refetchStateSelector } = useMemo(() => {
+    return {
+      refetchStateSelector: selectRefetchState(farmId),
+    };
+  }, [farmId]);
+
+  const isRefetching = useAppSelector(refetchStateSelector);
+
   const handleDetailsToggle = useCallback(
     () => {
       // const id = props.rowId;
@@ -95,18 +125,16 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
     ]
   );
 
-  const { onHarvest, onStake, onUnstake, row } = props;
-
   const handleHarvest = useCallback(() => {
-    onHarvest(row.pair);
+    onHarvest(row as FarmItem);
   }, [row, onHarvest]);
 
   const handleStake = useCallback(() => {
-    onStake(row as FarmDataItem);
+    onStake(row as FarmItem);
   }, [row, onStake]);
 
   const handleUnstake = useCallback(() => {
-    onUnstake(row.pair);
+    onUnstake(row as FarmItem);
   }, [row, onUnstake]);
 
   const { connected } = useAppSelector((state) => state.account);
@@ -115,6 +143,7 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
 
   return (
     <Root>
+      {isRefetching && <LinearProgress color="warning" />}
       <MuiGridRow component="div" onClick={handleDetailsToggle} {...props} />
       <Collapse in={isDetailExpanded} appear>
         <Container maxWidth="sm">
@@ -137,7 +166,7 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
               id="earned"
               className="AwiResultTable-harvest"
               value={
-                <Button onClick={handleHarvest} disabled>
+                <Button onClick={handleHarvest} disabled={!can.harvest}>
                   {t('harvest')}
                 </Button>
               }
@@ -155,13 +184,28 @@ export default function GridRow(props: React.HTMLAttributes<HTMLDivElement> & Gr
                 variant: 'body',
               }}
             />
+            <LabelValue
+              id="staked"
+              className="AwiResultCard-staked"
+              value={row.stakedFormatted}
+              labelProps={{
+                children: (
+                  <>
+                    <Typography variant="body" component="span" color="text.primary" sx={{ display: 'block' }}>
+                      {`${row.label} ${t('staked')}`}
+                    </Typography>
+                  </>
+                ),
+                variant: 'body',
+              }}
+            />
             <Box component="div" className="Awi-row" sx={{ gap: 6 }}>
               {connected ? (
                 <>
-                  <Button variant="outlined" onClick={handleStake}>
+                  <Button variant="outlined" onClick={handleStake} disabled={!can.stake}>
                     {t('stake')}
                   </Button>
-                  <Button onClick={handleUnstake} disabled={true || !(row.stakedAmount > 0)}>
+                  <Button onClick={handleUnstake} disabled={!can.unstake}>
                     {t('unstake')}
                   </Button>
                 </>

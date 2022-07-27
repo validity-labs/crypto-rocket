@@ -8,11 +8,11 @@ import { BLOCKS_PER_YEAR, ECR20_TOKEN_DECIMALS } from '@/app/constants';
 import { getSymbolsQuotesLatest } from '@/lib/blockchain';
 import multicall from '@/lib/blockchain/common/multicall';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
-import { MasterchefPoolRaw } from '@/lib/graphql/api/masterchef';
+import { MasterchefFarmResponse } from '@/lib/graphql/api/masterchef';
 import { toBigNum } from '@/lib/helpers';
 
 import { LiquidityPair } from '../../slices/exchange';
-import { addFarmPairs, MasterchefGeneral } from '../../slices/masterchef';
+import { addFarms, MasterchefGeneral } from '../../slices/masterchef';
 
 /**
  * Get farm APR value in %
@@ -59,7 +59,7 @@ interface Extra {
  *   extended farm pairs data using contract, data-miner and computations
  */
 const extendFarmPairs = async (
-  stakedPairs: MasterchefPoolRaw[],
+  stakedPairs: MasterchefFarmResponse[],
   currentLiquidityPairs: Record<string, LiquidityPair>,
   extra: Extra
 ) => {
@@ -70,27 +70,32 @@ const extendFarmPairs = async (
     cakeRateToRegularFarm: regularAwiPerBlock,
   } = masterchef;
 
-  // [[lpTotalSupply, lpBalanceMC]]
-  const multiCalls = stakedPairs.reduce((ar, { pairId }) => {
-    // lpTotalSupply
-    ar.push({
-      address: pairId,
-      name: 'totalSupply',
-      params: [],
-    });
-    // lpBalanceMC
-    ar.push({
-      address: pairId,
-      name: 'balanceOf',
-      params: [masterchefAddress],
-    });
-    return ar;
-  }, []);
-
-  const lpsCalculations = chunk<BigNumber>(
-    (await multicall(erc20AbiJson, flatten(multiCalls), provider)).map((m) => m[0]),
-    2
-  ); // [[lpTotalSupply, lpBalanceMC]]
+  let lpsCalculations = [];
+  if (provider) {
+    // [[lpTotalSupply, lpBalanceMC]]
+    const multiCalls = stakedPairs.reduce((ar, { pairId }) => {
+      // lpTotalSupply
+      ar.push({
+        address: pairId,
+        name: 'totalSupply',
+        params: [],
+      });
+      // lpBalanceMC
+      ar.push({
+        address: pairId,
+        name: 'balanceOf',
+        params: [masterchefAddress],
+      });
+      return ar;
+    }, []);
+    lpsCalculations = chunk<BigNumber>(
+      (await multicall(erc20AbiJson, flatten(multiCalls), provider)).map((m) => m[0]),
+      2
+    ); // [[lpTotalSupply, lpBalanceMC]]
+  } else {
+    const zero = BigNumber.from(0);
+    lpsCalculations = stakedPairs.map(() => [zero, zero]);
+  }
 
   // get list of unique token symbols for which price should be fetched from data-miner;
   // filter all that do not have AWI in pair
@@ -175,7 +180,7 @@ const extendFarmPairs = async (
     // } ( as FarmPair).
   });
 
-  dispatch(addFarmPairs(newStakedPairs));
+  dispatch(addFarms(newStakedPairs));
 };
 
 export default extendFarmPairs;

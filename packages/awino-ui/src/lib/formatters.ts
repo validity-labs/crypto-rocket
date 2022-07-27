@@ -221,5 +221,9 @@ export const formatLPPair = (pair: AssetKeyPair) => {
   return `${pair.map((m) => m.toUpperCase()).join('-')} LP`;
 };
 
+export const formatAWILP = (value: string) => {
+  return `${value} AWI-LP`;
+};
+
 export const formatUnits = (amount: ethers.BigNumberish, decimals: ethers.BigNumberish) =>
   ethers.utils.commify(ethers.utils.formatUnits(amount, decimals));

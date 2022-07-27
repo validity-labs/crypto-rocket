@@ -41,6 +41,7 @@ const Snackbar = () => {
       TransitionComponent={TransitionUp}
       color="primary"
       anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      disableWindowBlurListener
     >
       <Alert onClose={handleClose} variant="filled" {...alertProps}>
         {message}

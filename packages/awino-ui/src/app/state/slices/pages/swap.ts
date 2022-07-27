@@ -3,7 +3,7 @@ import { PendingActionFromAsyncThunk } from '@reduxjs/toolkit/dist/matchers';
 import { merge } from 'lodash';
 
 import { PAGINATION_PAGE_SIZE } from '@/app/constants';
-import { Address, PaginatedState } from '@/types/app';
+import { ActionVariables, Address, PaginatedState, PendingAction } from '@/types/app';
 
 import { fetchSwapLiquidity, refetchLiquidityPair } from '../../actions/pages/swap';
 
@@ -30,14 +30,6 @@ const initialState: PageSwapState = {
   },
 };
 
-interface PendingAction<T> {
-  meta: {
-    arg: T;
-  };
-}
-interface ActionVariables<T> {
-  variables: T;
-}
 export const pageSwapSlice = createSlice({
   name: 'page-swap',
   initialState,
@@ -48,6 +40,7 @@ export const pageSwapSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase('RESET', () => initialState)
       .addCase(fetchSwapLiquidity.pending, (state) => {
         state.liquidity.loading = true;
       })
