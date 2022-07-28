@@ -22,7 +22,7 @@ export interface NextAppConfig extends NextConfig {
   };
 }
 
-export type Language = 'en' | 'de';
+export type Language = 'en' /* | 'de' */;
 export type I18nPageNamespace =
   | 'error'
   | 'landing'

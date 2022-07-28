@@ -34,6 +34,9 @@ const Root = styled(Section)(({ theme }) => ({
       color: theme.palette.text.secondary,
     },
   },
+  '.Awi-divider': {
+    margin: theme.spacing(15, 0),
+  },
   [theme.breakpoints.up('md')]: {},
 }));
 // import ProposalStatus from '../../governance/ProposalSection/ProposalStatus';

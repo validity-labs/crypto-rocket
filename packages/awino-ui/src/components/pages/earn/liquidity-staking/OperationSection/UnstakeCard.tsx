@@ -27,6 +27,7 @@ const Root = styled(Box)(({ theme }) => ({
   padding: theme.spacing(10, 6),
   border: `1px solid rgba(0, 230, 62, 1)`,
   borderRadius: +theme.shape.borderRadius * 6,
+  backgroundColor: theme.palette.background.panel,
   '.AwiUnstakeCard-balance': {
     display: 'flex',
     flexDirection: 'row',

@@ -17,7 +17,7 @@ import DoughnutChart from './DoughnutChart';
 
 const Root = styled(Card)(({ theme }) => ({
   height: '100%',
-  backgroundColor: theme.palette.background.light, //'#082938',
+  backgroundColor: theme.palette.background.panel,
   '&:before': {
     content: 'none',
   },
@@ -37,10 +37,6 @@ const Root = styled(Card)(({ theme }) => ({
     '.AwiDetailsSection-cardTitle': {
       margin: 0,
     },
-  },
-  '.Awi-divider': {
-    margin: theme.spacing(8.5, 0),
-    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   '.MuiTableContainer-root': {
     maxHeight: 400,
@@ -118,8 +114,6 @@ export default function GlobalVotesCard({ items }: Props) {
           <DoughnutChart data={items} colors={CHART_COLORS} i18nKey="global-votes-card" />
         </Grid>
       </Grid>
-
-      {/* <div className="Awi-divider" /> */}
     </Root>
   );
 }

@@ -14,7 +14,7 @@ const {
   },
 } = getConfig();
 
-export const SUPPORTED_LANGUAGES: Language[] = ['en', 'de'];
+export const SUPPORTED_LANGUAGES: Language[] = ['en' /*  'de' */];
 
 export const isBrowser = typeof window !== 'undefined';
 // export const ITEMS_PER_PAGE = 2;

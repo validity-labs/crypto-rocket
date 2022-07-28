@@ -54,7 +54,8 @@
     "convertion-from-to": "Convert from {{from}} to {{to}}",
     "close-modal": "Close Modal",
     "max": "Max",
-    "view-on-etherscan": "View on etherscan"
+    "view-on-etherscan": "View on etherscan",
+    "loading": "Loading..."
   },
   "asset": {
     "awi": "AWI",

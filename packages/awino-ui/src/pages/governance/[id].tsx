@@ -35,15 +35,10 @@ const GovernanceDetailsPage: NextPage<Props> = ({ id }) => {
     })();
   }, [id]);
 
-  // console.log(
-  //   id,
-  //   item,
-  //   governanceProposals,
-  //   governanceProposals.find((f) => f.id === id)
-  // );
+  const name = item?.title || t('common:common.loading');
   return (
     <>
-      <Seo title={t('page.title' /* { asset }*/)} description={t('page.description' /* { asset }*/)} />
+      <Seo title={t('page.title', { name })} description={t('page.description', { name })} />
 
       <TitleSection loading={loading} proposal={item} />
       <DetailSection loading={loading} proposal={item} />

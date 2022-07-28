@@ -11,13 +11,13 @@ import { BalanceInfo } from '@/types/app';
 
 export interface BalanceCardProps extends Partial<BoxProps> {
   item: BalanceInfo;
-  totalColor?: string;
+  // totalColor?: string;
 }
 
-const BalanceCard = styled(({ item, totalColor, className, ...restOfProps }: BalanceCardProps) => {
+const BalanceCard = styled(({ item, /* totalColor, */ className, ...restOfProps }: BalanceCardProps) => {
   const { key, total: value } = item;
   const t = usePageTranslation();
-  const sx = totalColor ? { color: totalColor } : void 0;
+  // const sx = totalColor ? { color: totalColor } : void 0;
   return (
     <Box className={clsx(className, 'AwiBalanceCard-root')} {...restOfProps}>
       <div className="AwiBalanceCard-left">
@@ -31,7 +31,7 @@ const BalanceCard = styled(({ item, totalColor, className, ...restOfProps }: Bal
         id={`balanceCard-${key}`}
         className="AwiBalanceCard-labelValue"
         value={formatAmount(value)}
-        sx={sx}
+        // sx={sx}
         labelProps={{
           children: t('balance-section.total-balance'),
         }}

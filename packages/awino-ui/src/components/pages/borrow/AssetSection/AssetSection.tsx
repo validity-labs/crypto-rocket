@@ -32,7 +32,7 @@ export default function AssetSection(/* { total }: Props */) {
   //   connected: state.account.connected,
   // }));
   const [operationModal, setOperationModal] = useState<OperationModalData | null>(null);
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
   const [term, setTerm] = useState<string>('');
   const columns = useMemo(() => {
     return getColumns(t);
@@ -122,12 +122,12 @@ export default function AssetSection(/* { total }: Props */) {
                 {t(`asset-section.title`)}
               </Label>
               <div className="aside">
-                <Switch
+                {/* <Switch
                   checked={toggle}
                   setChecked={setToggle}
                   sx={{ mr: 4.5 }}
                   title={t(`asset-section.toggle-hint`)}
-                />
+                /> */}
                 <Search onSearch={handleSearch} size="small" />
               </div>
             </>

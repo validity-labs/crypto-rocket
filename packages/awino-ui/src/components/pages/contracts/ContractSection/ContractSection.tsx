@@ -29,9 +29,6 @@ const Root = styled(Section)(({ theme }) => ({
   },
   '.AwiContractSection-subPanel': {
     '.AwiPanel-content': { padding: theme.spacing(4, 6.5, 5) },
-    '.Awi-divider': {
-      borderBottom: `1px solid ${theme.palette.divider}`,
-    },
   },
   [theme.breakpoints.up('md')]: {
     '.AwiContractSection-panel > .AwiPanel-content': {

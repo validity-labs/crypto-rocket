@@ -39,9 +39,6 @@ const Root = styled(Section)(({ theme }) => ({
   },
   '.AwiBalanceSection-subPanel': {
     '.AwiPanel-content': { padding: theme.spacing(4, 6.5, 5) },
-    '.Awi-divider': {
-      borderBottom: `1px solid ${theme.palette.divider}`,
-    },
   },
   '.AwiBalanceSection-labelValue': {
     flexDirection: 'row',
@@ -124,7 +121,7 @@ export default function BalanceSection({ items, loading }: Props) {
                     >
                       <BalanceCard
                         item={item}
-                        totalColor={assetColorMap.tokens[itemIndex % assetColorMap.tokens.length]}
+                        // totalColor={assetColorMap.tokens[itemIndex % assetColorMap.tokens.length]}
                       />
                     </Grid>
                   ))}
@@ -150,7 +147,7 @@ export default function BalanceSection({ items, loading }: Props) {
                     >
                       <BalanceCard
                         item={item}
-                        totalColor={assetColorMap.stableCoins[itemIndex % assetColorMap.stableCoins.length]}
+                        // totalColor={assetColorMap.stableCoins[itemIndex % assetColorMap.stableCoins.length]}
                       />
                     </Grid>
                   ))}

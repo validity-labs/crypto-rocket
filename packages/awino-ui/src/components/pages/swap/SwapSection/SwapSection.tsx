@@ -72,7 +72,7 @@ const Panel = styled(Box)(({ theme }) => ({
     borderRadius: +theme.shape.borderRadius * 6,
     boxShadow: '0px 3px 6px #00000029',
     // margin: theme.spacing(0, 0, 13),
-    backgroundColor: '#12191F',
+    backgroundColor: theme.palette.background.panel,
     '&:before': {
       content: '""',
       position: 'absolute',

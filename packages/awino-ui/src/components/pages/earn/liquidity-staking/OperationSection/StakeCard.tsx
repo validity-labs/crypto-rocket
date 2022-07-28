@@ -35,7 +35,7 @@ const Root = styled('div')(({ theme }) => ({
   boxShadow: '0px 3px 6px #00000029',
   padding: theme.spacing(10, 6),
   margin: theme.spacing(0, 0, 13),
-  backgroundColor: '#12191F',
+  backgroundColor: theme.palette.background.panel,
   '&:before': {
     content: '""',
     position: 'absolute',

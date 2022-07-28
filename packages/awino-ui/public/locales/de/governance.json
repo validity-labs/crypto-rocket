@@ -1,43 +1,32 @@
 {
   "page": {
-    "title": "Market",
+    "title": "Governance AWINO DAO",
     "description": "MISSING DESCRIPTION"
   },
-  "stats-section": {
-    "items": [
-      {
-        "title": "AWI locked"
-      },
-      {
-        "title": "AWI staked"
-      },
-      {
-        "title": "AWI price"
-      },
-      {
-        "title": "Circulating supply",
-        "sub-values": [
-          "{{v}} locked"
-        ]
-      },
-      {
-        "title": "Market cap"
-      }
-    ]
+  "info-section": {
+    "title": "Governance AWINO DAO",
+    "description": "Do velit ad amet cupidatat sint qui tempor minim. Aliqua consequat mollit dolor nulla non qui magna eu occaecat nostrud et in.",
+    "treasury": "Treasury",
+    "value-in-usd": "Value in USD",
+    "treasury-hint": "This treasury exists for AWINO DAO participants to allocate resources for the long-term growth and prosperity of the AWINO project."
   },
-  "asset-section": {
-    "title": "Market overview",
-    "market-total-size": "Total market size",
-    "platform": {
-      "total-fee": "Total platform fees",
-      "total-fee-hint": "MISSING TEXT"
-    },
-    "fields": {
-      "asset": "Asset",
-      "total-supply": "Total supply",
-      "total-borrowed": "Total borrowed",
-      "deposit-apy": "Deposit APY",
-      "borrow-apy": "Borrow APY"
-    }
+  "proposal-section": {
+    "title": "PROPOSALS",
+    "create-proposal": "Create proposal",
+    "voting-starts-at": "Voting starts approx. {{date}}",
+    "voting-ended-at": "Voting ended approx. {{date}}",
+    "voting-ends-at": "Voting ends approx. at {{date}}"
+  },
+  "proposal-status": {
+    "undetermined": "Undetermined",
+    "pending": "Pending",
+    "active": "Active",
+    "canceled": "Canceled",
+    "defeated": "Defeated",
+    "succeeded": "Succeeded",
+    "queued": "Queued",
+    "expired": "Expired",
+    "executed": "Executed",
+    "vetoed": "Vetoed"
   }
 }
