@@ -4,19 +4,19 @@ import { merge } from 'lodash';
 import { PAGINATION_PAGE_SIZE } from '@/app/constants';
 import { Address, PaginatedState, PaginationParams } from '@/types/app';
 
-import { fetchPortfolioPoolPairs } from '../../actions/pages/portfolio';
+import { fetchPortfolioPairs } from '../../actions/pages/portfolio';
 
-interface PaginatedPoolPairs extends Omit<PaginatedState<Address>, 'params'> {
+interface PaginatedPairs extends Omit<PaginatedState<Address>, 'params'> {
   farmsParams: PaginationParams & { more: boolean };
   liquidityParams: PaginationParams & { more: boolean };
 }
 
 interface PagePortfolioState {
-  poolPairs: PaginatedPoolPairs;
+  pairs: PaginatedPairs;
 }
 
 const initialState: PagePortfolioState = {
-  poolPairs: {
+  pairs: {
     ids: [],
     loading: false,
     more: true,
@@ -38,45 +38,46 @@ export const pagePortfolioSlice = createSlice({
   name: 'page-portfolio',
   initialState,
   reducers: {
-    changeCursorByTypeForPoolPairs: (state, action: PayloadAction<{ length: number; type: 'farms' | 'liquidity' }>) => {
+    changeCursorByTypeForPairs: (state, action: PayloadAction<{ length: number; type: 'farms' | 'liquidity' }>) => {
       const { length, type } = action.payload;
-      state.poolPairs[`${type}Params`].cursor += length;
+      state.pairs[`${type}Params`].cursor += length;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchPortfolioPoolPairs.pending, (state) => {
-        state.poolPairs.loading = true;
+      .addCase('RESET', () => initialState)
+      .addCase(fetchPortfolioPairs.pending, (state) => {
+        state.pairs.loading = true;
       })
       .addCase(
-        fetchPortfolioPoolPairs.fulfilled,
+        fetchPortfolioPairs.fulfilled,
         (state, action: PayloadAction<{ ids: Address[]; more: { farms: boolean; liquidity: boolean } }>) => {
           const {
             ids,
             more: { farms, liquidity },
           } = action.payload;
-          merge(state.poolPairs, {
-            ids: [...state.poolPairs.ids, ...ids],
+          merge(state.pairs, {
+            ids: [...state.pairs.ids, ...ids],
             touched: true,
             loading: false,
             more: farms || liquidity,
             farmsParams: {
-              ...state.poolPairs.farmsParams,
+              ...state.pairs.farmsParams,
               more: farms,
             },
             liquidityParams: {
-              ...state.poolPairs.liquidityParams,
+              ...state.pairs.liquidityParams,
               more: liquidity,
             },
           });
         }
       )
-      .addCase(fetchPortfolioPoolPairs.rejected, (state) => {
-        state.poolPairs.loading = false;
+      .addCase(fetchPortfolioPairs.rejected, (state) => {
+        state.pairs.loading = false;
       });
   },
 });
 
-export const { changeCursorByTypeForPoolPairs } = pagePortfolioSlice.actions;
+export const { changeCursorByTypeForPairs } = pagePortfolioSlice.actions;
 
 export default pagePortfolioSlice.reducer;

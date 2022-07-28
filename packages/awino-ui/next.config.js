@@ -19,6 +19,7 @@ module.exports = async (/* phase, { defaultConfig } */) => {
       etherscanApiKey: process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY,
       chainId: 338, // process.env.NEXT_PUBLIC_CHAIN_ID,
       blockchainExplorerUrl: 'https://testnet.cronoscan.com/token/__ADDRESS__', // process.env.NEXT_PUBLIC_BLOCKCHAIN_EXPLORER,
+      blockchainTransactionExplorerUrl: 'https://testnet.cronoscan.com/tx/__ADDRESS__', //process.env.NEXT_PUBLIC_BLOCKCHAIN_TRANSACTION_EXPLORER,
       dataMiner: {
         url: 'https://api-data-miner.validity.io/api/v1', // process.env.NEXT_PUBLIC_DATA_MINER_URL,
         key: '33d97413-ce31-4070-b71f-477f8b32d94c'// process.env.NEXT_PUBLIC_DATA_MINER_KEY,

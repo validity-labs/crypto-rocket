@@ -31,7 +31,7 @@ export const transformUserLiquidityPair = (item: any, balance: BigNumberish): an
 
 export const transformUserFarmPair = (item: any): any => {
   const {
-    pool: { id, pair: pairId, isRegular, allocPoint },
+    pool: { id, pairId, isRegular, allocPoint },
     staked,
     reward,
     boostMultiplier,

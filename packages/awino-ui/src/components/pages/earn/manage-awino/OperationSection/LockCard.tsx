@@ -22,7 +22,7 @@ const Root = styled('div')(({ theme }) => ({
   borderRadius: +theme.shape.borderRadius * 6,
   boxShadow: '0px 3px 6px #00000029',
   // margin: theme.spacing(0, 0, 13),
-  backgroundColor: theme.palette.background.darker,
+  backgroundColor: theme.palette.background.panel,
   '&:before': {
     content: '""',
     position: 'absolute',

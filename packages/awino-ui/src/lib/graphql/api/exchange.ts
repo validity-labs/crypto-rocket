@@ -114,7 +114,7 @@ const EXCHANGE_PAGINATED_PAIRS_EXCEPT_IDS_QUERY = gql`
     }
   }
 `;
-export interface ExchangePairRaw {
+export interface ExchangePairResponse {
   id: Address;
   token0: {
     id: Address;
@@ -131,7 +131,7 @@ export interface ExchangePairRaw {
 }
 
 export type ExchangePairsResponse = {
-  items: ExchangePairRaw[];
+  items: ExchangePairResponse[];
 };
 
 const EXCHANGE_PAIRS_QUERY_BY_IDS = gql`

@@ -39,6 +39,7 @@ const themeCreator = (mode: PaletteMode) => {
               contrast: '#CE0057',
               active: '#00FFEB', // *
               menu: '#ffffff',
+              disabled: '#9CA3AF',
             },
             divider: 'rgba(255,255,255,0.18)',
             background: {
@@ -50,6 +51,7 @@ const themeCreator = (mode: PaletteMode) => {
               gray: '#fafafa',
               disabled: '#51595f',
               transparent: 'rgba(255,255,255,0.1)',
+              panel: '#207880',
             },
           }
         : {
@@ -68,6 +70,7 @@ const themeCreator = (mode: PaletteMode) => {
               contrast: '#CE0057',
               active: '#00FFEB', // *
               menu: '#9CA3AF',
+              disabled: '#9CA3AF',
             },
             background: {
               dark: '#0e193c',
@@ -78,6 +81,7 @@ const themeCreator = (mode: PaletteMode) => {
               gray: '#fafafa',
               disabled: '#51595f',
               transparent: 'rgba(255,255,255,0.03)',
+              panel: '#12191F',
             },
           }),
     },
@@ -184,7 +188,7 @@ const themeCreator = (mode: PaletteMode) => {
       display: 'flex',
       flexDirection: 'column',
       borderRadius: +theme.shape.borderRadius * 5,
-      backgroundColor: theme.palette.background.light,
+      backgroundColor: theme.palette.background.panel,
     },
   };
   theme.components = {
@@ -315,7 +319,6 @@ const themeCreator = (mode: PaletteMode) => {
         }
         .Awi-divider {
           width: 100%;
-          margin: 62px 0;
           border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
         .Awi-fill {
@@ -688,6 +691,7 @@ const themeCreator = (mode: PaletteMode) => {
             fontSize: '1rem' /* 16px */,
             fontWeight: 400,
             textTransform: 'none',
+            color: theme.palette.text.secondary,
             '&.Mui-selected': {
               color: theme.palette.text.active,
               backgroundColor: theme.palette.background.transparent,
@@ -874,6 +878,9 @@ const themeCreator = (mode: PaletteMode) => {
           color: theme.palette.text.secondary,
           '&.Mui-focused': {
             color: theme.palette.text.primary,
+          },
+          '&.Mui-disabled': {
+            color: theme.palette.text.disabled,
           },
         },
       },

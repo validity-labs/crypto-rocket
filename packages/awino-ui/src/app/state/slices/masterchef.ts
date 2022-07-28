@@ -1,13 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { merge } from 'lodash';
 
-import { MasterchefMasterchefRaw } from '@/lib/graphql/api/masterchef';
+import { MasterchefMasterchefResponse } from '@/lib/graphql/api/masterchef';
 import { Address } from '@/types/app';
 
-export interface FarmPair {
+import { setAccount } from './account';
+
+export interface Farm {
   id: string;
   pairId: Address;
-  isRegular?: boolean;
+  isRegular: boolean;
+  allocPoint: string;
   computations?: {
     apr: string;
     multiplier: string;
@@ -21,7 +24,7 @@ export interface FarmPair {
   };
 }
 
-export interface PartialUserFarmPair {
+export interface PartialUserFarm {
   id: string;
   pairId: Address;
   staked: string;
@@ -37,24 +40,29 @@ export type MasterchefGeneral = {
   cakeRateToRegularFarm: string;
 };
 
+type ID = string;
 interface MasterchefState {
   general: MasterchefGeneral | null;
-  farmPairs: {
-    entities: Record<string, FarmPair>;
-    pairIdToFarmId: Record<string, Address>;
+  farms: {
+    ids: ID[];
+    entities: Record<ID, Farm>;
+    pairIdToFarmId: Record<Address, ID>;
+    farmIdToPairId: Record<ID, Address>;
   };
-  userFarmPairs: {
-    entities: Record<string, PartialUserFarmPair>;
+  userFarms: {
+    entities: Record<ID, PartialUserFarm>;
   };
 }
 
 const initialState: MasterchefState = {
   general: null,
-  farmPairs: {
+  farms: {
+    ids: [],
     entities: {},
     pairIdToFarmId: {},
+    farmIdToPairId: {},
   },
-  userFarmPairs: {
+  userFarms: {
     entities: {},
   },
 };
@@ -63,29 +71,31 @@ export const masterchefSlice = createSlice({
   name: 'masterchef',
   initialState,
   reducers: {
-    addMasterchefs: (state, action: PayloadAction<MasterchefMasterchefRaw[]>) => {
+    addMasterchefs: (state, action: PayloadAction<MasterchefMasterchefResponse[]>) => {
       const items = action.payload;
       if (items.length === 1) {
         state.general = items[0];
       }
     },
-    addFarmPairs: (state, action: PayloadAction<FarmPair[]>) => {
+    addFarms: (state, action: PayloadAction<Farm[]>) => {
       const items = action.payload;
-      items.map((r) => {
-        state.farmPairs.entities[r.id] = r;
-        state.farmPairs.pairIdToFarmId[r.pairId] = r.id;
+      state.farms.ids = items.map((r) => {
+        state.farms.entities[r.id] = r;
+        state.farms.pairIdToFarmId[r.pairId] = r.id;
+        state.farms.farmIdToPairId[r.id] = r.pairId;
+        return r.id;
       });
     },
-    updateFarmPair: (state, action: PayloadAction<{ id: Address; data: Partial<Omit<FarmPair, 'id'>> }>) => {
+    updateFarm: (state, action: PayloadAction<{ id: Address; data: Partial<Omit<Farm, 'id'>> }>) => {
       const { id, data } = action.payload;
 
-      merge(state.farmPairs.entities[id], data);
+      merge(state.farms.entities[id], data);
     },
 
-    addUserFarmPairs: (state, action: PayloadAction<PartialUserFarmPair[]>) => {
+    addUserFarms: (state, action: PayloadAction<PartialUserFarm[]>) => {
       const items = action.payload;
       items.map((r) => {
-        state.userFarmPairs.entities[r.id] = {
+        state.userFarms.entities[r.id] = {
           id: r.id,
           pairId: r.pairId,
           staked: r.staked,
@@ -96,17 +106,19 @@ export const masterchefSlice = createSlice({
         };
       });
     },
-    updateUserFarmPair: (
-      state,
-      action: PayloadAction<{ id: Address; data: Partial<Omit<PartialUserFarmPair, 'id'>> }>
-    ) => {
+    updateUserFarm: (state, action: PayloadAction<{ id: Address; data: Partial<Omit<PartialUserFarm, 'id'>> }>) => {
       const { id, data } = action.payload;
-      merge(state.userFarmPairs.entities[id], data);
+      merge(state.userFarms.entities[id], data);
+    },
+  },
+  extraReducers: {
+    ['RESET']: () => initialState,
+    [setAccount.type]: (state) => {
+      state.userFarms.entities = {};
     },
   },
 });
 
-export const { addMasterchefs, addFarmPairs, addUserFarmPairs, updateFarmPair, updateUserFarmPair } =
-  masterchefSlice.actions;
+export const { addMasterchefs, addFarms, addUserFarms, updateFarm, updateUserFarm } = masterchefSlice.actions;
 
 export default masterchefSlice.reducer;

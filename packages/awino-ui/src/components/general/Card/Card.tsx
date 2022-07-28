@@ -5,7 +5,7 @@ const Card = styled('div')(({ theme }) => ({
   borderRadius: +theme.shape.borderRadius * 6,
   boxShadow: '0px 3px 6px #00000029',
   padding: theme.spacing(10, 6),
-  backgroundColor: theme.palette.background.light, // '#082938'
+  backgroundColor: theme.palette.background.panel,
   '&:before': {
     content: '""',
     position: 'absolute',

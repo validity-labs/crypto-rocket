@@ -6,7 +6,6 @@ import { styled } from '@mui/material/styles';
 import Label from '@/components/general/Label/Label';
 import Link from '@/components/general/Link/Link';
 import Panel from '@/components/general/Panel/Panel';
-import AwinoIcon from '@/components/icons/AwinoIcon';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
@@ -19,9 +18,8 @@ const Root = styled(Section)(({ theme }) => ({
     marginBottom: theme.spacing(6),
   },
   '.AwiInfoSection-icon': {
+    width: 80,
     marginBottom: theme.spacing(6),
-    fontSize: '60px',
-    color: theme.palette.text.secondary,
   },
   '.AwiInfoSection-prompt': {
     marginBottom: theme.spacing(12),
@@ -38,7 +36,7 @@ const InfoSection = ({ statusCode }: Props) => {
     <>
       <Root>
         <Panel header={<Label component="h1">{t('info-section.title')}</Label>}>
-          <AwinoIcon className="AwiInfoSection-icon" />
+          <img src={`/images/logo-small.svg`} alt="" width={80} className="AwiInfoSection-icon" />
           <Typography variant="h2" color="text.secondary" className="AwiInfoSection-prompt">
             {t('info-section.error-code', { code: statusCode || '-' })}
           </Typography>

@@ -4,7 +4,6 @@ import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import ConnectButton from '@/components/buttons/ConnectButton';
-import AwinoIcon from '@/components/icons/AwinoIcon';
 
 import Link from '../Link/Link';
 
@@ -14,10 +13,9 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   marginTop: theme.spacing(5),
-  '.awino': {
+  '.LabConnectPanel-logo': {
+    width: 80,
     marginBottom: theme.spacing(6),
-    fontSize: '60px',
-    color: theme.palette.text.secondary,
   },
   '.prompt': {
     marginBottom: theme.spacing(12),
@@ -43,7 +41,7 @@ export default function ConnectPanel({ back }: Props) {
 
   return (
     <Root>
-      <AwinoIcon className="awino" />
+      <img src={`/images/logo-small.svg`} alt="" width={80} className="LabConnectPanel-logo" />
       <Typography variant="h3" component="p" color="text.secondary" className="prompt">
         {t('account.connect-prompt')}
       </Typography>

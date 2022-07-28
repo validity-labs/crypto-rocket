@@ -15,6 +15,7 @@ declare module '@mui/material/styles/createPalette' {
     darker: string;
     transparent: string;
     disabled: string;
+    panel: string;
   }
   interface TypeText {
     contrast: string;

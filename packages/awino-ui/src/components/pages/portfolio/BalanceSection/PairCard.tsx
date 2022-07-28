@@ -11,7 +11,7 @@ import { styled } from '@mui/material/styles';
 import { ECR20_TOKEN_DECIMALS } from '@/app/constants';
 import { useAppSelector } from '@/app/hooks';
 import { UserLiquidityPair } from '@/app/state/slices/exchange';
-import { PartialUserFarmPair } from '@/app/state/slices/masterchef';
+import { PartialUserFarm } from '@/app/state/slices/masterchef';
 import AssetIcons from '@/components/general/AssetIcons/AssetIcons';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import Panel from '@/components/general/Panel/Panel';
@@ -30,15 +30,15 @@ const Root = styled(Grid)(({ theme }) => ({
     gap: theme.spacing(10),
     padding: theme.spacing(10, 6.5, 10),
   },
-  '.AwiPoolPairCard-left': {
+  '.AwiPairCard-left': {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
   },
-  '.AwiPoolPairCard-right': {
+  '.AwiPairCard-right': {
     margin: '0 0 0 auto',
   },
-  '.AwiPoolPairCard-labelValue': {
+  '.AwiPairCard-labelValue': {
     flexDirection: 'row',
     '.AwiLabelValue-label, .AwiLabelValue-value': {
       ...theme.typography['body-xs'],
@@ -57,18 +57,18 @@ const Root = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export interface PoolPairCardProps {
+export interface PairCardProps {
   id: Address;
 }
 
-const selectPoolPair = (id) =>
+const selectPair = (id) =>
   createSelector(
     (state) => state.exchange.liquidityPairs.entities[id],
     (state) => state.exchange.userLiquidityPairs.entities[id],
-    (state) => state.masterchef.farmPairs.pairIdToFarmId[id],
-    (state) => state.masterchef.userFarmPairs.entities,
-    (liquidityPair, userLiquidityPair, farmId, userFarmPairs) => {
-      const { staked = '0', stakedFormatted = '0' } = userFarmPairs[farmId] || {};
+    (state) => state.masterchef.farms.pairIdToFarmId[id],
+    (state) => state.masterchef.userFarms.entities,
+    (liquidityPair, userLiquidityPair, farmId, userFarmsMap) => {
+      const { staked = '0', stakedFormatted = '0' } = userFarmsMap[farmId] || {};
       return {
         ...liquidityPair,
         ...userLiquidityPair,
@@ -80,21 +80,14 @@ const selectPoolPair = (id) =>
 
 const chartColors = ['#00EC62', '#00F6B1'];
 
-type PoolPairItem = UserLiquidityPair & PartialUserFarmPair;
+type PairItem = UserLiquidityPair & PartialUserFarm;
 
-const PoolPairCard = ({ id }: PoolPairCardProps) => {
+const PairCard = ({ id }: PairCardProps) => {
   const t = usePageTranslation();
-
-  const itemSelector = useMemo(() => selectPoolPair(id), [id]);
-  const item: PoolPairItem = useAppSelector(itemSelector);
-
-  // useEffect(() => {
-  //   console.log('PoolPairCard mount');
-  // }, []);
-  // console.log('PoolPairCard render', id);
+  const itemSelector = useMemo(() => selectPair(id), [id]);
+  const item: PairItem = useAppSelector(itemSelector);
 
   const { token0, token1 } = item;
-
   const { totalBalanceFormatted, chartData } = useMemo(() => {
     const liquidityBalance = BigNumber.from(item.balance);
     const stakedBalance = BigNumber.from(item.staked);
@@ -123,7 +116,7 @@ const PoolPairCard = ({ id }: PoolPairCardProps) => {
     <Root container alignItems="center" spacing={6.5}>
       <Grid item xs={12} md={7}>
         <Panel>
-          <div className="AwiPoolPairCard-left">
+          <div className="AwiPairCard-left">
             <AssetIcons
               ids={[token0.symbol, token1.symbol]}
               size="medium"
@@ -133,10 +126,10 @@ const PoolPairCard = ({ id }: PoolPairCardProps) => {
             />
             <Typography color="text.primary">{`${token0.symbol}/${token1.symbol}`}</Typography>
           </div>
-          <div className="AwiPoolPairCard-right">
+          <div className="AwiPairCard-right">
             <LabelValue
               id={`poolCard-${id}`}
-              className="AwiPoolPairCard-labelValue"
+              className="AwiPairCard-labelValue"
               value={totalBalanceFormatted}
               sx={{ color: chartColors[0] }}
               labelProps={{
@@ -145,7 +138,7 @@ const PoolPairCard = ({ id }: PoolPairCardProps) => {
             />
             <LabelValue
               id={`poolCard-${id}`}
-              className="AwiPoolPairCard-labelValue"
+              className="AwiPairCard-labelValue"
               value={item.stakedFormatted}
               sx={{ color: chartColors[1] }}
               labelProps={{
@@ -170,4 +163,4 @@ const PoolPairCard = ({ id }: PoolPairCardProps) => {
   );
 };
 
-export default memo(PoolPairCard);
+export default memo(PairCard);

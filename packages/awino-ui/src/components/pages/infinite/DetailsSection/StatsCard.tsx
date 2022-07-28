@@ -19,10 +19,6 @@ const Root = styled(Card)(({ theme }) => ({
   '.Awi-expand': {
     flex: 1,
   },
-  '.Awi-divider': {
-    margin: theme.spacing(8.5, 0),
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
   '.AwiStatsCard-labelValueHighlighted': {
     borderRadius: +theme.shape.borderRadius * 2,
     backgroundColor: theme.palette.background.main,
@@ -37,6 +33,9 @@ const Root = styled(Card)(({ theme }) => ({
   //   padding: theme.spacing(0, 2, 0),
   //   margin: theme.spacing(2, 0, 11),
   // },
+  '.Awi-divider': {
+    margin: theme.spacing(8.5, 0, 12.5),
+  },
 }));
 
 interface Values {

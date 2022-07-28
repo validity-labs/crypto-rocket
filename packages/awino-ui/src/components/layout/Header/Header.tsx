@@ -14,7 +14,7 @@ import Drawer from '../Drawer/Drawer';
 import Logo from '../Logo/Logo';
 import MainMenu from '../MainMenu/MainMenu';
 import MoreMenu from '../MoreMenu/MoreMenu';
-import SettingsMenu from '../SettingsMenu/SettingsMenu';
+// import SettingsMenu from '../SettingsMenu/SettingsMenu';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
@@ -59,7 +59,7 @@ export default function Header() {
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <MainMenu />
                     <ThemeSwitch />
-                    <SettingsMenu />
+                    {/* <SettingsMenu /> */}
                     <MoreMenu />
                     <ConnectButton />
                   </Box>

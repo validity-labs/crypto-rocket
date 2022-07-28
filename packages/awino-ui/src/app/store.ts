@@ -21,6 +21,16 @@ export const makeStore = () =>
       pagePortfolio: pagePortfolioReducer,
       pageEarnFarms: pageEarnFarmsReducer,
     },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          /* app/showMessage is of type React.ReactNode therefore needs to be excluded from serialization  */
+          // ignoredActions: ['app/showMessage'],
+          ignoredActionPaths: ['meta.arg', 'payload.timestamp', 'payload.message'],
+
+          ignoredPaths: ['app.snackbar'],
+        },
+      }),
     // devTools: true,
   });
 

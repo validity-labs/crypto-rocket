@@ -10,7 +10,7 @@ import { AssetKeyPair } from '@/types/app';
 
 import getColumns from './columns';
 import GridRow from './GridRow';
-import { FarmDataItem } from './ResultSection';
+import { FarmItem } from './ResultSection';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -38,11 +38,12 @@ const Root = styled('div')(({ theme }) => ({
 
 interface Props {
   loading: boolean;
-  items: FarmDataItem[];
-  onHarvest: (pair: AssetKeyPair) => void;
-  onStake: (stakeData: FarmDataItem) => void;
-  onUnstake: (pair: AssetKeyPair) => void;
+  items: FarmItem[];
+  onHarvest: (item: FarmItem) => void;
+  onStake: (item: FarmItem) => void;
+  onUnstake: (item: FarmItem) => void;
 }
+
 export default function ResultTable({ loading, onHarvest, onStake, onUnstake, items }: Props) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
   const columns = useMemo(() => {

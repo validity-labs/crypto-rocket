@@ -20,6 +20,7 @@ import { useFlow } from '@/hooks/web3/useFlow';
 import * as ERC20Common from '@/lib/blockchain/erc20';
 import { getBalance } from '@/lib/blockchain/erc20';
 import MasterChefV2 from '@/lib/blockchain/farm-pools/abis/MasterChefV2.json';
+import { getStakedBalance } from '@/lib/blockchain/farm-pools/helpers';
 import { formatAmount, formatAWILP, formatUSD } from '@/lib/formatters';
 import { toBigNum } from '@/lib/helpers';
 import { Address } from '@/types/app';
@@ -27,12 +28,12 @@ import { Address } from '@/types/app';
 import { FarmItem } from './ResultSection';
 
 const Root = styled(Modal)(({ theme }) => ({
-  '.AwiStakeModal-row': {
+  '.AwiUnstakeModal-row': {
     padding: theme.spacing(0, 0, 8.5),
     margin: theme.spacing(0, 0, 10),
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  '.AwiStakeModal-amount': {
+  '.AwiUnstakeModal-amount': {
     padding: theme.spacing(11, 7, 9, 23),
     borderRadius: theme.spacing(7),
     input: {
@@ -54,7 +55,7 @@ const Root = styled(Modal)(({ theme }) => ({
       },
     },
   },
-  '.AwiStakeModal-pair': {
+  '.AwiUnstakeModal-pair': {
     fontWeight: 600,
     color: theme.palette.text.primary,
     textTransform: 'uppercase',
@@ -68,8 +69,8 @@ interface Props {
   callback: (poolAddress: Address) => void;
 }
 
-export default function StakeModal({ open, close, data, callback }: Props) {
-  const t = usePageTranslation({ keyPrefix: 'stake-modal' });
+export default function UnstakeModal({ open, close, data, callback }: Props) {
+  const t = usePageTranslation({ keyPrefix: 'unstake-modal' });
   const { t: tRaw } = useTranslation();
   const { id: pairId, farmId, label, pair, lpTokenValueUSD } = data;
   const [amount, setAmount] = useState<string | undefined>();
@@ -86,14 +87,14 @@ export default function StakeModal({ open, close, data, callback }: Props) {
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const newBalance = await getBalance(pairId, account, library);
+      const newBalance = await getStakedBalance(farmId, addressOf.masterchef, account, library);
       setIsReady(true);
       setThreshold(formatEther(newBalance));
     };
     fetchBalance();
-  }, [pairId, account, library]);
+  }, [farmId, addressOf, account, library]);
 
-  const { flow, flowState } = useFlow('stake-modal');
+  const { flow, flowState } = useFlow('unstake-modal');
 
   const handleSubmit = useCallback(async () => {
     // check validity
@@ -103,21 +104,21 @@ export default function StakeModal({ open, close, data, callback }: Props) {
       return;
     }
     const masterchefAddress = addressOf.masterchef;
-    const allowance = (await ERC20Common.allowance(pairId, account, masterchefAddress, library)) as EtherBigNumber;
+    const submitAmount = ethers.utils.parseEther(amount);
 
-    const stakeAmount = ethers.utils.parseEther(amount);
+    // const allowance = (await ERC20Common.allowance(pairId, account, masterchefAddress, library)) as EtherBigNumber;
 
-    // check allowance
-    if (allowance.lt(stakeAmount)) {
-      flow.approve();
-      try {
-        await ERC20Common.approve(pairId, masterchefAddress, stakeAmount, library);
-      } catch (error) {
-        flow.error();
-        console.error(error);
-        return;
-      }
-    }
+    // // check allowance
+    // if (allowance.lt(submitAmount)) {
+    //   flow.approve();
+    //   try {
+    //     await ERC20Common.approve(pairId, masterchefAddress, submitAmount, library);
+    //   } catch (error) {
+    //     flow.error();
+    //     console.error(error);
+    //     return;
+    //   }
+    // }
 
     // deposit amount
     flow.send();
@@ -127,7 +128,7 @@ export default function StakeModal({ open, close, data, callback }: Props) {
         masterchefAddress,
         MasterChefV2,
         await library.getSigner()
-      ).populateTransaction.deposit(farmId, stakeAmount);
+      ).populateTransaction.withdraw(farmId, submitAmount);
 
       let tx = await library.getSigner().sendTransaction(rawTx);
       const txReceipt = await tx.wait(1);
@@ -140,7 +141,7 @@ export default function StakeModal({ open, close, data, callback }: Props) {
       flow.error();
       console.error(error);
     }
-  }, [pairId, farmId, callback, flow, amount, close, isValid, addressOf, account, library]);
+  }, [farmId, callback, flow, amount, close, isValid, addressOf, library]);
 
   const handleAmountMaxClick = () => {
     setAmount(threshold);
@@ -152,13 +153,13 @@ export default function StakeModal({ open, close, data, callback }: Props) {
   };
 
   return (
-    <Root id="stakeModal" title={t('title')} lock={flowState.processing} open={open} close={close}>
+    <Root id="unstakeModal" title={t('title')} lock={flowState.processing} open={open} close={close}>
       <FormControl variant="standard" fullWidth sx={{ mb: 11.5 }}>
         <NumberInput
-          id="stakeAmount"
-          name="stakeAmount"
-          className="AwiStakeModal-amount"
-          aria-describedby="stakeAmountHelper"
+          id="unstakeAmount"
+          name="unstakeAmount"
+          className="AwiUnstakeModal-amount"
+          aria-describedby="unstakeAmountHelper"
           disabled={flowState.processing}
           inputProps={{
             isAllowed: ({ value }) => {
@@ -175,11 +176,11 @@ export default function StakeModal({ open, close, data, callback }: Props) {
             </Button>
           }
         />
-        <FormHelperText id="stakeAmountHelper" variant="standard" sx={{ mt: 6, color: 'text.primary' }}>
+        <FormHelperText id="unstakeAmountHelper" variant="standard" sx={{ mt: 6, color: 'text.primary' }}>
           {t('amount-hint')}
         </FormHelperText>
       </FormControl>
-      <div className="AwiStakeModal-row">
+      <div className="AwiUnstakeModal-row">
         <div>
           <Typography variant="body" component="h3" mb={5}>
             {t('wallet-balance')}
@@ -187,7 +188,7 @@ export default function StakeModal({ open, close, data, callback }: Props) {
           <div className="Awi-row Awi-between">
             <div className="Awi-row">
               <AssetIcons ids={pair} size="large" />
-              <Typography className="AwiStakeModal-pair" sx={{ ml: 7 }}>
+              <Typography className="AwiUnstakeModal-pair" sx={{ ml: 7 }}>
                 {label}
               </Typography>
             </div>

@@ -1,11 +1,12 @@
-import { FarmDataItem } from '@/components/pages/earn/farms/ResultSection/ResultSection';
+import BigNumberJS from 'bignumber.js';
+
+import { FarmItem } from '@/components/pages/earn/farms/ResultSection/ResultSection';
 import { LiquidityStakingDetailsData } from '@/components/pages/earn/liquidity-staking/DetailsSection/DetailsSection';
 import { ClaimData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
 import { LockData } from '@/components/pages/earn/manage-awino/OperationSection/LockCard';
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_WETH_PAIR_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { StatsData } from '@/types/app';
-
 export const earnLiquidityStakingStats: StatsData = [{ value: 89.7 }, { value: 0.27 }, { value: 89.7 }];
 
 export const earnLiquidityStakingDetails: LiquidityStakingDetailsData = {
@@ -47,11 +48,13 @@ export const earnManageAwinoClaim: ClaimData = {
   expiredLockedAWI: { awi: 100, claimable: true },
 };
 
-export const earnFarmsData: FarmDataItem[] = [
+export const earnFarmsData: FarmItem[] = [
   {
     id: 'awi-dai',
     pair: ['awi', 'dai'],
-
+    label: 'AWI-DAI LP',
+    pairBalance: new BigNumberJS('10.0'),
+    pairBalanceFormatted: '10.0',
     farmId: '0',
     isRegular: true,
     apr: '1.5',
@@ -61,12 +64,12 @@ export const earnFarmsData: FarmDataItem[] = [
 
     boostFactor: '1.0',
     stakedFormatted: '10.0',
-    reward: '10',
+    reward: new BigNumberJS('10'),
     rewardFormatted: '10.0',
 
     // proportion: 1.23,
     type: 'standard',
-    staked: true,
+    staked: new BigNumberJS('10'),
     active: true,
     emissions: ' 123.45',
     aprFarm: '1.23',
@@ -77,15 +80,21 @@ export const earnFarmsData: FarmDataItem[] = [
     aprRange: ['1.23', '7.89'],
 
     // depositFee: '0',
-    stakedAmount: ' 123',
     walletAmount: '234',
     walletAmountUSD: '345',
     contract: AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET],
+    can: {
+      stake: true,
+      unstake: true,
+      harvest: true,
+    },
   },
   {
     id: 'awi-weth',
     pair: ['usdt', 'awi'],
-
+    label: 'USDT-AWI LP',
+    pairBalance: new BigNumberJS('10.0'),
+    pairBalanceFormatted: '10.0',
     farmId: '0',
     isRegular: true,
     apr: '1.5',
@@ -95,12 +104,12 @@ export const earnFarmsData: FarmDataItem[] = [
 
     boostFactor: '1.0',
     stakedFormatted: '10.0',
-    reward: '10',
+    reward: new BigNumberJS('10'),
     rewardFormatted: '10.0',
 
+    staked: new BigNumberJS('10'),
     // proportion: 12.3,
     type: 'boosted',
-    staked: false,
     active: false,
     emissions: '234.56',
     aprFarm: '1.23',
@@ -110,9 +119,13 @@ export const earnFarmsData: FarmDataItem[] = [
     fees: '678.9',
     aprRange: ['1.23', '7.89'],
     // depositFee: '0',
-    stakedAmount: '123',
     walletAmount: '234',
     walletAmountUSD: '345',
     contract: AWINO_WETH_PAIR_ADDRESS_MAP[ChainId.TESTNET],
+    can: {
+      stake: true,
+      unstake: true,
+      harvest: true,
+    },
   },
 ];

@@ -3,7 +3,7 @@ import React from 'react';
 import BigNumberJS from 'bignumber.js';
 import { BigNumber as EthersBigNumber, BigNumberish, constants } from 'ethers';
 
-import { BLOCKCHAIN_EXPLORER_URL } from '@/app/constants';
+import { BLOCKCHAIN_EXPLORER_URL, BLOCKCHAIN_TRANSACTION_EXPLORER_URL } from '@/app/constants';
 import { Address, ID } from '@/types/app';
 
 export function tabA11yProps(id: ID, index: number) {
@@ -42,6 +42,9 @@ export const etherscan = (address) => `https://etherscan.io/address/${address}`;
  * Create blockchain explorer url for provided address. The url is defined as environment variable.
  */
 export const blockchainExplorerUrl = (address: Address) => BLOCKCHAIN_EXPLORER_URL.replace('__ADDRESS__', address);
+
+export const blockchainTransactionExplorerUrl = (transactionHash: Address) =>
+  BLOCKCHAIN_TRANSACTION_EXPLORER_URL.replace('__ADDRESS__', transactionHash);
 
 export const sleep = (s: number) => {
   return new Promise((resolve) => setTimeout(resolve, s * 1000));

@@ -3,7 +3,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { BigNumber } from 'ethers';
 
 import { fetchUserBalances } from '@/lib/blockchain';
-import { ExchangePairRaw } from '@/lib/graphql/api/exchange';
+import { ExchangePairResponse } from '@/lib/graphql/api/exchange';
 import { Address } from '@/types/app';
 
 import { addLiquidityPairs, addUserLiquidityPairs, LiquidityPair } from '../../slices/exchange';
@@ -33,7 +33,7 @@ interface ExtendLiquidityPairsReturnType {
  * @returns
  */
 export const extendLiquidityPairs = async (
-  rawPairs: ExchangePairRaw[],
+  rawPairs: ExchangePairResponse[],
   extra: LiquidityPairsExtra
 ): Promise<ExtendLiquidityPairsReturnType> => {
   const { account, provider, dispatch } = extra;
@@ -42,21 +42,25 @@ export const extendLiquidityPairs = async (
   const pairsLength = pairs.length;
   const pairIds = pairs.map((m) => m.id);
 
-  // fetch user balances for each pair
-  const allBalances: [BigNumber][] = await fetchUserBalances(account, pairIds, provider);
+  let userPairs = [];
+  if (account) {
+    // fetch user balances for each pair
+    const allBalances: [BigNumber][] = await fetchUserBalances(account, pairIds, provider);
 
-  // user pairs is only concerned about ones that have balance > 0
-  const userPairs = pairs.reduce((ar, r, ri) => {
-    const balance = allBalances[ri][0];
-    if (balance.gt(0)) {
-      // extend user pairs with balance and optional fields
-      ar.push(transformUserLiquidityPair(r, balance));
-    }
-    return ar;
-  }, []);
+    // user pairs is only concerned about ones that have balance > 0
+    userPairs = pairs.reduce((ar, r, ri) => {
+      const balance = allBalances[ri][0];
+      if (balance.gt(0)) {
+        // extend user pairs with balance and optional fields
+        ar.push(transformUserLiquidityPair(r, balance));
+      }
+      return ar;
+    }, []);
+
+    dispatch(addUserLiquidityPairs(userPairs));
+  }
 
   dispatch(addLiquidityPairs(pairs));
-  dispatch(addUserLiquidityPairs(userPairs));
 
   const userPairIds = userPairs.map((m) => m.id);
   return {

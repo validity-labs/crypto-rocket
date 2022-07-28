@@ -1,13 +1,13 @@
 import { useCallback, useMemo, useState } from 'react';
 
-import { useWeb3React } from '@web3-react/core';
-import { ethers } from 'ethers';
+import { createSelector } from '@reduxjs/toolkit';
 
-import { Box, Button, Collapse, Tooltip, Typography } from '@mui/material';
+import { Box, Button, Collapse, LinearProgress, Tooltip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { SYMBOLS } from '@/app/constants';
 import { useAppSelector } from '@/app/hooks';
+import { useWeb3 } from '@/app/providers/Web3Provider';
 import ConnectButton from '@/components/buttons/ConnectButton';
 import AssetIcons from '@/components/general/AssetIcons/AssetIcons';
 import Label from '@/components/general/Label/Label';
@@ -17,20 +17,19 @@ import ExpandIcon from '@/components/icons/ExpandIcon';
 import InfoIcon from '@/components/icons/InfoIcon';
 import LinkIcon from '@/components/icons/LinkIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_MASTER_CHEF_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
-import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
-import IAwinoMasterChef from '@/lib/blockchain/farm-pools/abis/IAwinoMasterChef.json';
-import { formatLPPair, formatPercent, formatMultiplier, formatUSD, formatUnits } from '@/lib/formatters';
+import { formatPercent, formatMultiplier, formatUSD } from '@/lib/formatters';
 import { blockchainExplorerUrl } from '@/lib/helpers';
 import { AssetKeyPair } from '@/types/app';
 
-import { FarmDataItem } from './ResultSection';
+import { FarmItem } from './ResultSection';
 
 const Root = styled('div')(({ theme }) => ({
+  position: 'relative',
   padding: theme.spacing(8.5, 8, 7),
   borderRadius: theme.spacing(6),
   boxShadow: '0px 3px 6px #00000029',
   backgroundColor: theme.palette.background.transparent,
+  overflow: 'hidden',
   '.AwiResultCard-header': {
     display: 'flex',
     flexDirection: 'row',
@@ -84,12 +83,14 @@ const Root = styled('div')(({ theme }) => ({
     textAlign: 'right',
   },
   '.AwiResultCard-harvest': {
-    border: 0,
-    margin: theme.spacing(0, 0, 4.5, 0),
     '.AwiLabelValue-label': {
       flexDirection: 'column',
       alignItems: 'flex-start',
     },
+  },
+  '.AwiResultCard-staked': {
+    margin: theme.spacing(0, 0, 4.5, 0),
+    border: 0,
   },
   '.AwiResultCard-actions': {
     display: 'flex',
@@ -97,7 +98,13 @@ const Root = styled('div')(({ theme }) => ({
     justifyContent: 'space-between',
     alignItems: 'flex-end',
   },
-
+  '.MuiLinearProgress-root': {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: '100%',
+  },
   [theme.breakpoints.up('sm')]: {
     '.AwiLabelValue-root': {
       flexDirection: 'row',
@@ -108,78 +115,60 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 interface Props {
-  item: FarmDataItem;
-  onHarvest: (pair: AssetKeyPair) => void;
-  onStake: (stakeData: FarmDataItem) => void;
-  onUnstake: (pair: AssetKeyPair) => void;
+  item: FarmItem;
+  onHarvest: (item: FarmItem) => void;
+  onStake: (item: FarmItem) => void;
+  onUnstake: (item: FarmItem) => void;
 }
+
+const selectRefetchState = (id) =>
+  createSelector(
+    (state) => state.pageEarnFarms.loading.farmId,
+    (farmId) => farmId === id
+  );
 
 export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Props) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
+
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
+  const { farmId, can } = item;
+
+  const { refetchStateSelector } = useMemo(() => {
+    return {
+      refetchStateSelector: selectRefetchState(farmId),
+    };
+  }, [farmId]);
+
+  const { connected } = useAppSelector((state) => state.account);
+  const isRefetching = useAppSelector(refetchStateSelector);
+
   const handleDetailsToggle = useCallback(
     () => setIsDetailExpanded((prevIsDetailExpanded) => !prevIsDetailExpanded),
     []
   );
 
-  const { account, library, chainId } = useWeb3React();
-  const [loading, setLoading] = useState(true);
-  const [balance, setBalance] = useState<string>('0');
-  const [stakedBalance, setStakedBalance] = useState<string>('0');
-
-  const updateBalance = async (acount: string, library: any, chainId: number) => {
-    const fetchBalance = async () => {
-      const contract = new ethers.Contract(AWINO_DAI_PAIR_ADDRESS_MAP[ChainId.TESTNET], erc20AbiJson, library);
-      const balance = await contract.balanceOf(account);
-      setBalance(ethers.utils.formatEther(balance.toString()));
-    };
-
-    const fetchStakedBalance = async () => {
-      const contract = new ethers.Contract(AWINO_MASTER_CHEF_ADDRESS_MAP[ChainId.TESTNET], IAwinoMasterChef, library);
-      const balance = await contract.userInfo(1, account);
-      console.log({ account, balance });
-      setStakedBalance(ethers.utils.formatEther(balance.amount.toString()));
-    };
-
-    setLoading(true);
-    fetchBalance();
-    fetchStakedBalance();
-    setLoading(false);
-  };
-
-  const handleHarvest = useCallback(() => {
-    onHarvest(item.pair);
-  }, [item, onHarvest]);
-
   const handleStake = useCallback(() => {
-    onStake(
-      item
-      // pair: item.pair,
-      // // proportion: item.proportion,
-      // stakedAmount: item.stakedAmount,
-      // walletAmount: item.walletAmount,
-      // walletAmountUSD: item.walletAmountUSD,
-    );
+    onStake(item);
   }, [item, onStake]);
 
   const handleUnstake = useCallback(() => {
-    onUnstake(item.pair);
+    onUnstake(item);
   }, [item, onUnstake]);
 
-  const { connected } = useAppSelector((state) => state.account);
-
-  const label = formatLPPair(item.pair);
-  console.log(item);
+  const handleHarvest = useCallback(() => {
+    onHarvest(item);
+  }, [item, onHarvest]);
 
   const explorerLink = useMemo(() => blockchainExplorerUrl(item.id), [item.id]);
 
   return (
     <Root className="AwiResultCard-card">
+      {isRefetching && <LinearProgress color="warning" />}
       <div className="AwiResultCard-header">
         {/* @ts-expect-error */}
         <AssetIcons ids={item.pair} size="large" component="div" sx={{ display: 'inline-block' }} />
         <div className="AwiResultCard-title">
-          <Typography className="AwiResultCard-pair">{label}</Typography>
+          <Typography className="AwiResultCard-pair">{item.label}</Typography>
           <Label
             variant="body-xs"
             tooltip={t('multiplier-hint')}
@@ -256,7 +245,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
           id="earned"
           className="AwiResultCard-harvest"
           value={
-            <Button onClick={handleHarvest} disabled>
+            <Button onClick={handleHarvest} disabled={!can.harvest}>
               {t('harvest')}
             </Button>
           }
@@ -274,16 +263,30 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
             variant: 'body',
           }}
         />
+        <LabelValue
+          id="staked"
+          className="AwiResultCard-staked"
+          value={item.stakedFormatted}
+          labelProps={{
+            children: (
+              <>
+                <Typography variant="body" component="span" color="text.primary" sx={{ display: 'block' }}>
+                  {`${item.label} ${t('staked')}`}
+                </Typography>
+              </>
+            ),
+            variant: 'body',
+          }}
+        />
         <div className="AwiResultCard-actions">
           <div>
-            <Typography className="AwiResultCard-pair">{label}</Typography>
             <Box component="div" className="Awi-row" sx={{ gap: 6 }}>
               {connected ? (
                 <>
-                  <Button variant="outlined" onClick={handleStake}>
+                  <Button variant="outlined" onClick={handleStake} disabled={!can.stake}>
                     {t('stake')}
                   </Button>
-                  <Button onClick={handleUnstake} disabled={true || !(+item.stakedAmount > 0)}>
+                  <Button onClick={handleUnstake} disabled={!can.unstake}>
                     {t('unstake')}
                   </Button>
                 </>
@@ -306,7 +309,7 @@ export default function ResultCard({ item, onHarvest, onStake, onUnstake }: Prop
             value={
               <Box component="span" display="flex" justifyContent="flex-end" alignItems="center">
                 <Typography component="span" color="inherit">
-                  {label}
+                  {item.label}
                 </Typography>
                 <Link href={explorerLink} ml={2}>
                   <LinkIcon />

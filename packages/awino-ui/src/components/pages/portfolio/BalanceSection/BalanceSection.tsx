@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { useWeb3 } from '@/app/providers/Web3Provider';
-import { fetchPortfolioPoolPairs } from '@/app/state/actions/pages/portfolio';
+import { fetchPortfolioPairs } from '@/app/state/actions/pages/portfolio';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
@@ -18,7 +18,7 @@ import { BalanceGrouped } from '@/types/app';
 
 import BalanceCard from './BalanceCard';
 import DoughnutChart from './DoughnutChart';
-import PoolPairCard from './PoolPairCard';
+import PairCard from './PairCard';
 // @TODO use real data for DoughnutCharts
 
 const Root = styled(Section)(({ theme }) => ({
@@ -39,9 +39,6 @@ const Root = styled(Section)(({ theme }) => ({
   },
   '.AwiBalanceSection-subPanel': {
     '.AwiPanel-content': { padding: theme.spacing(4, 6.5, 5) },
-    '.Awi-divider': {
-      borderBottom: `1px solid ${theme.palette.divider}`,
-    },
   },
   '.AwiBalanceSection-labelValue': {
     flexDirection: 'row',
@@ -52,7 +49,7 @@ const Root = styled(Section)(({ theme }) => ({
     },
     '.label': {},
   },
-  '.AwiBalanceSection-poolPairsLoadMore': {
+  '.AwiBalanceSection-pairsLoadMore': {
     margin: theme.spacing(10, 'auto'),
   },
   [theme.breakpoints.up('md')]: {
@@ -85,7 +82,7 @@ export default function BalanceSection({ items, loading }: Props) {
 
   useEffect(() => {
     dispatch(
-      fetchPortfolioPoolPairs({
+      fetchPortfolioPairs({
         variables: { account },
         provider: library,
         options: { more: false },
@@ -94,13 +91,13 @@ export default function BalanceSection({ items, loading }: Props) {
   }, [account, dispatch, library]);
 
   const {
-    ids: poolPairIds,
-    loading: isPoolPairLoading,
-    more: hasMorePoolPairs,
-  } = useAppSelector((state) => state.pagePortfolio.poolPairs);
+    ids: pairIds,
+    loading: pairsLoading,
+    more: hasMorePairs,
+  } = useAppSelector((state) => state.pagePortfolio.pairs);
 
-  const handlePoolPairsLoadMore = () => {
-    dispatch(fetchPortfolioPoolPairs({ variables: { account }, provider: library }));
+  const handlePairsLoadMore = () => {
+    dispatch(fetchPortfolioPairs({ variables: { account }, provider: library }));
   };
   return (
     <Root>
@@ -124,7 +121,7 @@ export default function BalanceSection({ items, loading }: Props) {
                     >
                       <BalanceCard
                         item={item}
-                        totalColor={assetColorMap.tokens[itemIndex % assetColorMap.tokens.length]}
+                        // totalColor={assetColorMap.tokens[itemIndex % assetColorMap.tokens.length]}
                       />
                     </Grid>
                   ))}
@@ -150,7 +147,7 @@ export default function BalanceSection({ items, loading }: Props) {
                     >
                       <BalanceCard
                         item={item}
-                        totalColor={assetColorMap.stableCoins[itemIndex % assetColorMap.stableCoins.length]}
+                        // totalColor={assetColorMap.stableCoins[itemIndex % assetColorMap.stableCoins.length]}
                       />
                     </Grid>
                   ))}
@@ -169,7 +166,7 @@ export default function BalanceSection({ items, loading }: Props) {
                 {t('balance-section.group-pool')}
               </Typography>
               {/* <Grid container spacing={6.5} alignItems="center"> */}
-              {poolPairIds.length > 0 ? (
+              {pairIds.length > 0 ? (
                 <>
                   {/* <Typography variant="body-ms" sx={{ fontWeight: 500, ml: 8, mb: 7 }}>
                       {t('swap-section.liquidity.pool-pair')}
@@ -182,13 +179,13 @@ export default function BalanceSection({ items, loading }: Props) {
                       //   onRemove={handleRemoveLiquidityModalToggle}
                       // />
                     ))} */}
-                  {poolPairIds.map((poolPairId, itemIndex) => (
-                    <PoolPairCard key={poolPairId} id={poolPairId} />
+                  {pairIds.map((pairId, itemIndex) => (
+                    <PairCard key={pairId} id={pairId} />
                   ))}
                 </>
               ) : (
                 <>
-                  {!isPoolPairLoading && (
+                  {!pairsLoading && (
                     <Panel>
                       <Typography mx="auto" textAlign="center">
                         {t('common:common.no-records')}
@@ -197,13 +194,13 @@ export default function BalanceSection({ items, loading }: Props) {
                   )}
                 </>
               )}
-              {hasMorePoolPairs && (
+              {hasMorePairs && (
                 <LoadingButton
                   variant="outlined"
                   color="primary"
-                  loading={isPoolPairLoading}
-                  className="AwiBalanceSection-poolPairsLoadMore"
-                  onClick={handlePoolPairsLoadMore}
+                  loading={pairsLoading}
+                  className="AwiBalanceSection-pairsLoadMore"
+                  onClick={handlePairsLoadMore}
                 >
                   {t('common:common.load-more')}
                 </LoadingButton>

@@ -28,7 +28,7 @@ import { StatsData } from '@/types/app';
 export const Tabs = styled(MuiTabs)(({ theme }) => ({
   position: 'relative',
   margin: theme.spacing(0, 0, 9),
-  borderBottom: `2px solid #3B414E`,
+  borderBottom: `2px solid ${theme.palette.divider}`,
   '& .MuiTabs-flexContainer': {
     gap: theme.spacing(5.5),
   },

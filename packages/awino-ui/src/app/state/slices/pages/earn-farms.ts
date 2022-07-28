@@ -2,16 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { merge } from 'lodash';
 
 import { PAGINATION_PAGE_SIZE } from '@/app/constants';
-import { Address, PaginatedState, PaginationParams } from '@/types/app';
+import { ActionVariables, Address, PaginatedState, PaginationParams, PendingAction } from '@/types/app';
 
-import { fetchEarnFarmsPoolPairs } from '../../actions/pages/earn-farms';
+import { fetchEarnFarms, refetchCurrentFarms, refetchFarm } from '../../actions/pages/earn-farms';
 
 interface PageEarnFarmsState {
-  poolPairs: PaginatedState<Address>;
+  farms: PaginatedState<Address>;
+  loading: {
+    farmId: null | Address;
+  };
 }
 
 const initialState: PageEarnFarmsState = {
-  poolPairs: {
+  farms: {
     ids: [],
     loading: false,
     more: true,
@@ -22,42 +25,71 @@ const initialState: PageEarnFarmsState = {
       cursor: 0,
     },
   },
+  loading: {
+    farmId: null,
+  },
 };
 
 export const pageEarnFarmsSlice = createSlice({
   name: 'page-earn-farms',
   initialState,
   reducers: {
-    changeCursorForPoolPairs: (state, action: PayloadAction<number>) => {
-      state.poolPairs.params.cursor += action.payload;
+    changeCursorForFarms: (state, action: PayloadAction<number>) => {
+      state.farms.params.cursor += action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchEarnFarmsPoolPairs.pending, (state) => {
-        state.poolPairs.loading = true;
+      .addCase('RESET', () => initialState)
+      .addCase(fetchEarnFarms.pending, (state) => {
+        state.farms.loading = true;
       })
-      .addCase(fetchEarnFarmsPoolPairs.fulfilled, (state, action: PayloadAction<{ ids: Address[]; more: boolean }>) => {
+      .addCase(fetchEarnFarms.fulfilled, (state, action: PayloadAction<{ ids: Address[]; more: boolean }>) => {
         const { ids, more } = action.payload;
-        merge(state.poolPairs, {
-          ids: [...state.poolPairs.ids, ...ids],
+        merge(state.farms, {
+          ids: [...state.farms.ids, ...ids],
           touched: true,
           loading: false,
           more,
           params: {
-            ...state.poolPairs.params,
-            cursor: state.poolPairs.params.cursor + ids.length,
+            ...state.farms.params,
+            cursor: state.farms.params.cursor + ids.length,
           },
         });
       })
-      .addCase(fetchEarnFarmsPoolPairs.rejected, (state) => {
-        state.poolPairs.error = true;
-        state.poolPairs.loading = false;
-        state.poolPairs.more = false;
+      .addCase(fetchEarnFarms.rejected, (state) => {
+        state.farms.error = true;
+        state.farms.loading = false;
+        state.farms.more = false;
+      })
+      .addCase(refetchCurrentFarms.pending, (state) => {
+        merge(state.farms, { loading: true });
+      })
+      .addCase(refetchCurrentFarms.fulfilled, (state) => {
+        merge(state.farms, { loading: false });
+      })
+      .addCase(refetchCurrentFarms.rejected, (state) => {
+        merge(state.farms, { loading: false });
+      })
+      .addCase(refetchFarm.pending, (state, action: PendingAction<ActionVariables<{ id: Address }>>) => {
+        state.loading.farmId = action.meta.arg.variables.id;
+      })
+      .addCase(
+        refetchFarm.fulfilled,
+        (state, action: PayloadAction<{ id: Address; operation: 'update' | 'remove' }>) => {
+          const { id, operation } = action.payload;
+          // if (operation === 'remove') {
+          //   state.liquidity.ids = state.liquidity.ids.filter((f) => f !== id);
+          // }
+          state.loading.farmId = null;
+        }
+      )
+      .addCase(refetchFarm.rejected, (state) => {
+        state.loading.farmId = null;
       });
   },
 });
 
-export const { changeCursorForPoolPairs } = pageEarnFarmsSlice.actions;
+export const { changeCursorForFarms } = pageEarnFarmsSlice.actions;
 
 export default pageEarnFarmsSlice.reducer;

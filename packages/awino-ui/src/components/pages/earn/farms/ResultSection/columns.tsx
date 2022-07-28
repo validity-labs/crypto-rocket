@@ -1,13 +1,12 @@
 import { TFunction } from 'next-i18next';
 
-import { Box, Tooltip, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
 import { SYMBOLS } from '@/app/constants';
 import ExpandIcon from '@/components/icons/ExpandIcon';
-import InfoIcon from '@/components/icons/InfoIcon';
 import AssetIcons from '@/components/pages/swap/SwapSection/AssetIcons';
-import { formatGridPercent, formatGridUSD, formatLPPair, formatPercent } from '@/lib/formatters';
+import { formatGridPercent, formatGridUSD } from '@/lib/formatters';
 import { AssetKeyPair } from '@/types/app';
 
 const getColumns = (t: TFunction): GridColDef[] => {
@@ -22,19 +21,17 @@ const getColumns = (t: TFunction): GridColDef[] => {
       headerName: '',
     },
     {
-      field: 'pair',
+      field: 'label',
       i18nKey: 'asset',
       renderCell: (params: GridRenderCellParams) => {
-        const pair = [params.value.first, params.value.second] as AssetKeyPair;
         return (
           <div className="Awi-row AwiResultTable-columnAsset">
             {/* @ts-expect-error */}
-            <AssetIcons ids={pair} size="medium" component="div" />
-            <Typography className="AwiResultTable-pair">{formatLPPair(pair)}</Typography>
+            <AssetIcons ids={params.row.pair} size="medium" component="div" />
+            <Typography className="AwiResultTable-pair">{params.value}</Typography>
           </div>
         );
       },
-      valueGetter: (params) => ({ first: params.row.pair[0], second: params.row.pair[1] }),
     },
     {
       field: 'earn',

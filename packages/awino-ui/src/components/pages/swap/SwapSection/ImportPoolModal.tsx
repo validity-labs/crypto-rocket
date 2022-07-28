@@ -3,6 +3,7 @@ import React, { memo, useMemo, useState } from 'react';
 import { styled } from '@mui/material/styles';
 
 import { LiquidityPair } from '@/app/state/slices/exchange';
+import AssetIcon from '@/components/general/AssetIcon/AssetIcon';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Modal from '@/components/general/Modal/Modal';
 import Select, { SelectOptionComponentFC, SelectValueComponentFC } from '@/components/general/Select/Select';
@@ -25,7 +26,7 @@ const SelectTokenValueAndOption: SelectValueComponentFC = memo(function SelectTo
 }) {
   return (
     <>
-      <img src={`/images/assets/${id}.svg`} alt="" width="24" />
+      <AssetIcon symbol={id} />
       {label}
     </>
   );

@@ -14,6 +14,7 @@ export interface NextAppConfig extends NextConfig {
     baseDomain: string;
     etherscanApiKey: string;
     blockchainExplorerUrl: string;
+    blockchainTransactionExplorerUrl: string;
     dataMiner: {
       url: string;
       key: string;
@@ -21,7 +22,7 @@ export interface NextAppConfig extends NextConfig {
   };
 }
 
-export type Language = 'en' | 'de';
+export type Language = 'en' /* | 'de' */;
 export type I18nPageNamespace =
   | 'error'
   | 'landing'
@@ -231,3 +232,12 @@ export interface PaginatedState<T extends string> {
 export type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]>;
 };
+
+export interface PendingAction<T> {
+  meta: {
+    arg: T;
+  };
+}
+export interface ActionVariables<T> {
+  variables: T;
+}

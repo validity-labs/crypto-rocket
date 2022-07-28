@@ -1,18 +1,19 @@
-import { useMemo, useState, useCallback, useEffect } from 'react';
+import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
 
 import { useTranslation } from 'next-i18next';
 
 import { createSelector } from '@reduxjs/toolkit';
+import BigNumberJS from 'bignumber.js';
 import { formatUnits } from 'ethers/lib/utils';
 import { pick } from 'lodash';
 
 import { TableRowsRounded, ViewColumnRounded } from '@mui/icons-material';
-import { Box, FormControlLabel, Grid, Slide, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { Box, Button, FormControlLabel, Grid, Slide, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { useWeb3 } from '@/app/providers/Web3Provider';
-import { fetchEarnFarmsPoolPairs } from '@/app/state/actions/pages/earn-farms';
+import { fetchEarnFarms, refetchCurrentFarms, refetchFarm } from '@/app/state/actions/pages/earn-farms';
 import { AppState } from '@/app/store';
 import Label from '@/components/general/Label/Label';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
@@ -23,11 +24,14 @@ import Switch from '@/components/general/Switch/Switch';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_WETH_PAIR_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
-import { AssetKeyPair } from '@/types/app';
+import { formatLPPair } from '@/lib/formatters';
+import { Address, AssetKeyPair } from '@/types/app';
 
+import HarvestModal from './HarvestModal';
 import ResultCard from './ResultCard';
 import ResultTable from './ResultTable';
 import StakeModal from './StakeModal';
+import UnstakeModal from './UnstakeModal';
 
 const Root = styled(Section)(({ theme }) => ({
   '.AwiSearch-root': {
@@ -125,12 +129,16 @@ interface Filters {
   search: null | string;
 }
 
-export interface FarmDataItem {
+export interface FarmItem {
+  // custom fields
+  label: string;
   // liquidity pair data
-  id: string;
+  id: string; // pairId
   // ...liquidity-pair
   pair: AssetKeyPair;
-
+  pairBalanceFormatted: string;
+  // pair processed
+  pairBalance: BigNumberJS;
   // farm pair data
   farmId: string;
   isRegular: boolean;
@@ -139,15 +147,17 @@ export interface FarmDataItem {
   totalValueOfLiquidityPoolUSD: string;
   lpTokenValueUSD: string;
 
-  // user farm related
+  // user farm
   boostFactor: string;
   stakedFormatted: string;
-  reward: string;
   rewardFormatted: string;
+  // user farm processed
+  reward: BigNumberJS;
+  staked: BigNumberJS;
 
   // proportion: number;
   type: Exclude<FarmTypeKey, 'all'>;
-  staked: boolean;
+  // staked: boolean;
   active: boolean;
   emissions: string;
   aprFarm: string;
@@ -157,35 +167,59 @@ export interface FarmDataItem {
   fees: string;
   aprRange: [string, string];
   // depositFee: string;
-  stakedAmount: string;
   walletAmount: string;
   walletAmountUSD: string;
   contract: string;
+  // can
+  can: {
+    stake: boolean;
+    unstake: boolean;
+    harvest: boolean;
+  };
 }
 
 const itemsSelector = createSelector(
   (state: AppState) => state.exchange.liquidityPairs.entities,
-  (state: AppState) => state.masterchef.farmPairs,
-  (state: AppState) => state.masterchef.userFarmPairs.entities,
-  (state: AppState) => state.pageEarnFarms.poolPairs.ids,
-  (liquidityPairs, { pairIdToFarmId, entities: farmPairs }, userFarmPairs, pairIds) => {
-    return pairIds.map((id) => {
-      const pair = liquidityPairs[id];
-      const farmId = pairIdToFarmId[id];
+  (state: AppState) => state.exchange.userLiquidityPairs.entities,
+  (state: AppState) => state.masterchef.farms,
+  (state: AppState) => state.masterchef.userFarms.entities,
+  (state: AppState) => state.pageEarnFarms.farms.ids,
+  (pairsMap, userPairsMap, { farmIdToPairId: farmIdToPairIdMap, entities: farmsMap }, userFarmsMap, farmIds) => {
+    // console.log(pairsMap, userPairsMap, farmIdToPairIdMap, farmsMap, userFarmsMap, farmIds);
+    return farmIds.map((farmId) => {
+      const pairId = farmIdToPairIdMap[farmId];
+      const pair = pairsMap[pairId];
 
       const {
         // staked = '0',
-        reward = '0',
         stakedFormatted = '0.0',
         rewardFormatted = '0.0',
         boostMultiplier = 0,
-      } = userFarmPairs[farmId] || {};
+        // reward = '0',
+      } = userFarmsMap[farmId] || {};
 
-      const { id: _farmId, pairId: _pairId, isRegular = false, computations } = farmPairs[farmId] || {};
+      const {
+        // id: Address;
+        // balance: string;
+        balanceFormatted = '0.0',
+        // share: string;
+      } = userPairsMap[pairId] || {};
+
+      const { id: _farmId, pairId: _pairId, isRegular = false, computations } = farmsMap[farmId] || {};
+
+      const symbols = [pair.token0.symbol, pair.token1.symbol] as AssetKeyPair;
+
+      const pairBalance = new BigNumberJS(balanceFormatted);
+      const reward = new BigNumberJS(rewardFormatted);
+      const staked = new BigNumberJS(stakedFormatted);
       return {
         ...pair,
-        pair: [pair.token0.symbol, pair.token1.symbol],
+        pair: symbols,
+        label: formatLPPair(symbols),
 
+        // user pair
+        pairBalanceFormatted: balanceFormatted,
+        pairBalance,
         // farm related
         farmId,
         isRegular,
@@ -196,14 +230,14 @@ const itemsSelector = createSelector(
         boostFactor: formatUnits(boostMultiplier, 10),
         // staked,
         stakedFormatted,
-        reward,
         rewardFormatted,
-
+        // staked processed
+        reward,
+        staked,
         // MOCKED DATA
         // depositFee: '0',
         // proportion: 12.3,
         type: 'boosted',
-        staked: false,
         active: false,
         emissions: '0',
         // apr: '1.23',
@@ -213,11 +247,15 @@ const itemsSelector = createSelector(
         // liquidity: '567.89',
         fees: '0',
         aprRange: ['0', '0'],
-        stakedAmount: '0',
         walletAmount: '0',
         walletAmountUSD: '0',
         contract: '0x00',
         // contract: AWINO_WETH_PAIR_ADD,
+        can: {
+          stake: pairBalance.gt(0),
+          unstake: staked.gt(0),
+          harvest: reward.gt(0),
+        },
       };
     });
   }
@@ -229,27 +267,41 @@ export default function ResultSection() {
 
   const { account, library } = useWeb3();
   const dispatch = useAppDispatch();
-
+  const isInitialFetch = useRef(true);
   useEffect(() => {
-    dispatch(
-      fetchEarnFarmsPoolPairs({
-        variables: { account },
-        provider: library,
-        options: { more: false },
-      })
-    );
+    if (isInitialFetch.current) {
+      dispatch(
+        fetchEarnFarms({
+          variables: { account },
+          provider: library,
+          options: { more: false },
+        })
+      );
+      isInitialFetch.current = false;
+    } else {
+      if (account) {
+        dispatch(
+          refetchCurrentFarms({
+            variables: { account },
+            provider: library,
+          })
+        );
+      }
+    }
   }, [account, dispatch, library]);
 
   const {
-    ids: poolPairIds,
-    loading: isPoolPairLoading,
-    more: hasMorePoolPairs,
-  } = useAppSelector((state) => state.pageEarnFarms.poolPairs);
+    ids: farmIds,
+    loading: farmsLoading,
+    more: hasMoreFarms,
+  } = useAppSelector((state) => state.pageEarnFarms.farms);
   /* TODO update selector return type */
-  const records = useAppSelector(itemsSelector) as unknown as FarmDataItem[];
-  const handlePoolPairsLoadMore = () => {
-    dispatch(fetchEarnFarmsPoolPairs({ variables: { account }, provider: library }));
+  const records = useAppSelector(itemsSelector) as unknown as FarmItem[];
+
+  const handleFarmsLoadMore = () => {
+    dispatch(fetchEarnFarms({ variables: { account }, provider: library }));
   };
+
   const [filters, setFilters] = useState<Filters>({
     type: 'all',
     sort: 'emissions',
@@ -259,7 +311,9 @@ export default function ResultSection() {
   });
 
   const [layout, setLayout] = useState<LayoutKey>('grid');
-  const [stakeModal, setStakeModal] = useState<FarmDataItem | null>(null);
+  const [stakeModal, setStakeModal] = useState<FarmItem | null>(null);
+  const [unstakeModal, setUnstakeModal] = useState<FarmItem | null>(null);
+  const [harvestModal, setHarvestModal] = useState<FarmItem | null>(null);
 
   // useEffect(() => {
   //   (async () => {
@@ -296,7 +350,7 @@ export default function ResultSection() {
     setFilters((prevFilters) => ({ ...prevFilters, sort: newValue as SortByKey }));
   }, []);
 
-  const handleStackedOnlyChange = useCallback((newValue: boolean) => {
+  const handleStakedOnlyChange = useCallback((newValue: boolean) => {
     setFilters((prevFilters) => ({ ...prevFilters, stakedOnly: newValue }));
   }, []);
 
@@ -336,23 +390,36 @@ export default function ResultSection() {
       .sort((a, b) => +a[sort] - +b[sort]);
   }, [filters, records]);
 
-  const handleHarvest = useCallback((pair: any) => {
-    // TODO implement harvest logic
-    console.log('handleHarvest', pair);
-  }, []);
-
-  const handleStake = useCallback((stakeData: FarmDataItem) => {
+  const handleStake = useCallback((stakeData: FarmItem) => {
     setStakeModal(stakeData);
-    // TODO implement approve logic
-    console.log('handleStake', stakeData);
   }, []);
 
-  const handleUnstake = useCallback((pair: any) => {
-    console.log('handleUnstake', pair);
+  const handleUnstake = useCallback((stakeData: FarmItem) => {
+    setUnstakeModal(stakeData);
   }, []);
+
+  const handleHarvest = useCallback((stakeData: FarmItem) => {
+    setHarvestModal(stakeData);
+  }, []);
+
   const gridProps = useMemo(() => {
     return layout === 'grid' ? { md: 6, lg: 4 } : {};
   }, [layout]);
+
+  const handleStakeCallback = (id: Address) => {
+    // id is farmId
+    dispatch(refetchFarm({ variables: { account, id }, provider: library }));
+  };
+
+  const handleUnstakeCallback = (id: Address) => {
+    // id is farmId
+    dispatch(refetchFarm({ variables: { account, id }, provider: library }));
+  };
+
+  const handleHarvestCallback = (id: Address) => {
+    // id is farmId
+    dispatch(refetchFarm({ variables: { account, id }, provider: library }));
+  };
 
   return (
     <>
@@ -404,7 +471,7 @@ export default function ResultSection() {
           </ToggleButtonGroup>
           <div className="AwiResultSection-toggle">
             <FormControlLabel
-              control={<Switch checked={filters.stakedOnly} setChecked={handleStackedOnlyChange} sx={{ ml: 4.5 }} />}
+              control={<Switch checked={filters.stakedOnly} setChecked={handleStakedOnlyChange} sx={{ ml: 4.5 }} />}
               labelPlacement="start"
               label={t(`staked-only`) as string}
             />
@@ -434,7 +501,7 @@ export default function ResultSection() {
           </ToggleButtonGroup>
         </Panel>
 
-        {poolPairIds.length > 0 ? (
+        {farmIds.length > 0 ? (
           <>
             {filteredRecords.length > 0 &&
               (layout === 'grid' ? (
@@ -457,7 +524,7 @@ export default function ResultSection() {
               ) : (
                 <ResultTable
                   items={filteredRecords}
-                  loading={isPoolPairLoading}
+                  loading={farmsLoading}
                   onHarvest={handleHarvest}
                   onStake={handleStake}
                   onUnstake={handleUnstake}
@@ -466,7 +533,7 @@ export default function ResultSection() {
           </>
         ) : (
           <>
-            {!isPoolPairLoading && (
+            {!farmsLoading && (
               <Panel>
                 <Typography mx="auto" textAlign="center">
                   {tRaw('common.no-records')}
@@ -475,14 +542,9 @@ export default function ResultSection() {
             )}
           </>
         )}
-        {hasMorePoolPairs && (
+        {hasMoreFarms && (
           <Box className="Awi-row" sx={{ justifyContent: 'center', my: 10 }}>
-            <LoadingButton
-              variant="outlined"
-              color="primary"
-              loading={isPoolPairLoading}
-              onClick={handlePoolPairsLoadMore}
-            >
+            <LoadingButton variant="outlined" color="primary" loading={farmsLoading} onClick={handleFarmsLoadMore}>
               {tRaw('common.load-more')}
             </LoadingButton>
           </Box>
@@ -496,7 +558,28 @@ export default function ResultSection() {
         )} */}
       </Root>
       {!!stakeModal && (
-        <StakeModal open={!!stakeModal} close={() => setStakeModal(null)} data={stakeModal} callback={() => {}} />
+        <StakeModal
+          open={!!stakeModal}
+          close={() => setStakeModal(null)}
+          data={stakeModal}
+          callback={handleStakeCallback}
+        />
+      )}
+      {!!unstakeModal && (
+        <UnstakeModal
+          open={!!unstakeModal}
+          close={() => setUnstakeModal(null)}
+          data={unstakeModal}
+          callback={handleUnstakeCallback}
+        />
+      )}
+      {!!harvestModal && (
+        <HarvestModal
+          open={!!harvestModal}
+          close={() => setHarvestModal(null)}
+          data={harvestModal}
+          callback={handleHarvestCallback}
+        />
       )}
     </>
   );
