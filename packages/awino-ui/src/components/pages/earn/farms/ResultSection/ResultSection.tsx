@@ -29,6 +29,7 @@ import { Address, AssetKeyPair } from '@/types/app';
 
 import HarvestModal from './HarvestModal';
 import ResultCard from './ResultCard';
+import ResultPanel from './ResultPanel';
 import ResultTable from './ResultTable';
 import StakeModal from './StakeModal';
 import UnstakeModal from './UnstakeModal';
@@ -205,7 +206,12 @@ const itemsSelector = createSelector(
         // share: string;
       } = userPairsMap[pairId] || {};
 
-      const { id: _farmId, pairId: _pairId, isRegular = false, computations } = farmsMap[farmId] || {};
+      const {
+        id: _farmId,
+        pairId: _pairId,
+        isRegular = false,
+        /*  accCakePerShare,  */ computations,
+      } = farmsMap[farmId] || {};
 
       const symbols = [pair.token0.symbol, pair.token1.symbol] as AssetKeyPair;
 
@@ -223,8 +229,14 @@ const itemsSelector = createSelector(
         // farm related
         farmId,
         isRegular,
+        // accCakePerShare,
         // computations
-        ...pick(computations, ['apr', 'multiplier', 'lpTokenValueUSD', 'totalValueOfLiquidityPoolUSD']),
+        ...pick(computations, [
+          'apr',
+          'multiplier',
+          'lpTokenValueUSD',
+          'totalValueOfLiquidityPoolUSD' /* , 'lpBalanceMC' */,
+        ]),
 
         // user farm related
         boostFactor: formatUnits(boostMultiplier, 10),
@@ -234,6 +246,9 @@ const itemsSelector = createSelector(
         // staked processed
         reward,
         staked,
+
+        pendingReward: 0,
+        // TODO REMOVE UNUSED FAKE DATA
         // MOCKED DATA
         // depositFee: '0',
         // proportion: 12.3,
@@ -254,7 +269,7 @@ const itemsSelector = createSelector(
         can: {
           stake: pairBalance.gt(0),
           unstake: staked.gt(0),
-          harvest: reward.gt(0),
+          harvest: staked.gt(0),
         },
       };
     });

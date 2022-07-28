@@ -180,7 +180,9 @@ export const refetchCurrentFarms = createAsyncThunk<any, any, { state: AppState 
     const { ids: farmIds, entities: farmsMap } = getState().masterchef.farms;
 
     // There is no need to fetch new farms data because only current farms are processed and all required data is alreayd exist; map to get response like farms
-    const farmsResponse = farmIds.map((id) => pick(farmsMap[id], ['id', 'pairId', 'isRegular', 'allocPoint']));
+    const farmsResponse = farmIds.map((id) =>
+      pick(farmsMap[id], ['id', 'pairId', 'isRegular', 'allocPoint', 'accCakePerShare'])
+    );
 
     if (account) {
       const userFarmsResponse = (

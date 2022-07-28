@@ -11,11 +11,13 @@ export interface Farm {
   pairId: Address;
   isRegular: boolean;
   allocPoint: string;
+  accCakePerShare: string;
   computations?: {
     apr: string;
     multiplier: string;
     lpTokenValueUSD: string;
     totalValueOfLiquidityPoolUSD: string;
+    lpBalanceMC: string;
     /* not used */
     token0AmountTotal: string;
     token1AmountTotal: string;

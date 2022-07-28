@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GridEventListener, GridEvents } from '@mui/x-data-grid';
 
@@ -25,7 +25,7 @@ import getColumns from './columns';
 const Root = styled(Section)(({ theme }) => ({
   '.AwiDataGrid-container': {
     position: 'relative',
-    height: 888 /* 66 * 10 + 12 * 10 - 12 */,
+    // height: 888 /* 66 * 10 + 12 * 10 - 12 */,
     width: '100%',
     '& .MuiDataGrid-columnHeaders': { display: 'none' },
     '& .MuiDataGrid-virtualScroller': { marginTop: '0!important' },
@@ -86,7 +86,12 @@ export default function ProposalSection({}: /* info, loading */ Props) {
           </>
         }
       >
-        <div className="AwiDataGrid-container">
+        <Box
+          className="AwiDataGrid-container"
+          sx={{
+            height: (66 + 12) * items.length - 12 + 120,
+          }}
+        >
           <DataGrid
             loading={loading}
             columns={columns}
@@ -111,7 +116,7 @@ export default function ProposalSection({}: /* info, loading */ Props) {
               },
             }}
           />
-        </div>
+        </Box>
       </Panel>
     </Root>
   );

@@ -23,7 +23,7 @@ const Root = styled(Section)(({ theme }) => ({
     flexWrap: 'wrap',
     gap: theme.spacing(10),
     padding: theme.spacing(7.5, 11),
-    border: '1px solid #3B414E',
+    border: `1px solid ${theme.palette.divider}`,
     borderRadius: +theme.shape.borderRadius * 2,
     '.AwiLabelValue-root': {
       flexDirection: 'column',

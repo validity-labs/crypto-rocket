@@ -1,37 +1,35 @@
-import { useMemo } from 'react';
-
+import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { TABLE_ROWS_PER_PAGE_OPTIONS } from '@/app/constants';
-import DataGrid from '@/components/general/DataGrid/DataGrid';
-import GridPagination from '@/components/general/GridPagination/GridPagination';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { AssetKeyPair } from '@/types/app';
 
-import getColumns from './columns';
-import GridRow from './GridRow';
+import ResultPanel from './ResultPanel';
 import { FarmItem } from './ResultSection';
 
 const Root = styled('div')(({ theme }) => ({
-  position: 'relative',
-  height: 888 /* 66 * 10 + 12 * 10 - 12 */,
-  width: '100%',
-  '.AwiResultTable-pair': {
-    fontWeight: 500,
-    color: theme.palette.text.primary,
-    textTransform: 'uppercase',
-    '.AwiAssetIcons-root': {
-      marginRight: theme.spacing(8),
+  overflow: 'auto',
+  minWidth: '100%',
+  '.AwiResultTable-wrapper': {
+    display: 'table',
+    overflow: 'auto',
+    width: '100%',
+  },
+  '.AwiResultTable-header': {
+    display: 'flex',
+    flexDirection: 'row',
+    minWidth: '100%',
+    padding: theme.spacing(0, 8, 0),
+    marginBottom: theme.spacing(3),
+    '>div:first-of-type': {
+      minWidth: 80,
     },
-  },
-  '.AwiResultTable-tooltip': {
-    fontSize: '14px',
-    color: theme.palette.text.active,
-  },
-  '.MuiDataGrid-row': {
-    backgroundColor: 'unset',
-    '&:not(:last-child)': {
-      margin: `0 !important`,
+    '>div:not(:first-of-type)': {
+      flex: 1,
+      minWidth: 180,
+      p: {
+        fontWeight: 500,
+        whiteSpace: 'no-wrap',
+      },
     },
   },
 }));
@@ -44,39 +42,42 @@ interface Props {
   onUnstake: (item: FarmItem) => void;
 }
 
-export default function ResultTable({ loading, onHarvest, onStake, onUnstake, items }: Props) {
+export default function ResultTable({ onHarvest, onStake, onUnstake, items }: Props) {
   const t = usePageTranslation({ keyPrefix: 'result-section' });
-  const columns = useMemo(() => {
-    return getColumns(t);
-  }, [t]);
   return (
     <Root>
-      <DataGrid
-        loading={loading}
-        columns={columns}
-        disableColumnMenu
-        disableColumnFilter
-        disableSelectionOnClick
-        disableColumnSelector
-        rowHeight={66}
-        rowsPerPageOptions={TABLE_ROWS_PER_PAGE_OPTIONS}
-        // rows
-        rows={items}
-        rowCount={items.length}
-        // pagination
-        paginationMode="client"
-        components={{
-          Pagination: GridPagination,
-          Row: GridRow,
-        }}
-        componentsProps={{
-          row: {
-            onStake,
-            onUnstake,
-            onHarvest,
-          },
-        }}
-      />
+      <div className="AwiResultTable-wrapper">
+        <div className="AwiResultTable-header">
+          <div>{/* <Typography>{t('fields.details')}</Typography> */}</div>
+          <div>
+            <Typography>{t('fields.asset')}</Typography>
+          </div>
+          <div>
+            <Typography>{t('fields.earn')}</Typography>
+          </div>
+          <div>
+            <Typography>{t('fields.emissions')}</Typography>
+          </div>
+          <div>
+            <Typography>{t('fields.total-liquidity')}</Typography>
+          </div>
+          <div>
+            <Typography>{t('fields.apr')}</Typography>
+          </div>
+          <div>
+            <Typography>{t('fields.deposit-fee')}</Typography>
+          </div>
+        </div>
+        {items.map((record) => (
+          <ResultPanel key={record.id} item={record} onHarvest={onHarvest} onStake={onStake} onUnstake={onUnstake} />
+          // {/*   <div key={record.id}>
+          //     <Slide in appear direction="up">
+          //       <div> */}
+          //       {/* </div>
+          //     </Slide>
+          //   </div> */}
+        ))}
+      </div>
     </Root>
   );
 }

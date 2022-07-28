@@ -71,9 +71,9 @@
     }
   },
   "stake-modal": {
-    "title": "Stake AWI",
+    "title": "Stake AWI-LP",
     "max": "Max",
-    "amount-hint": "Enter your amount to stake your AWI tokens.",
+    "amount-hint": "Enter your amount to stake your AWI-LP tokens.",
     "wallet-balance": "Wallet balance",
     "submit": "Stake",
     "submit-done": "Staked",
@@ -92,9 +92,9 @@
     }
   },
   "unstake-modal": {
-    "title": "Unstake AWI",
+    "title": "Unstake AWI-LP",
     "max": "Max",
-    "amount-hint": "Enter your amount to unstake your AWI tokens.",
+    "amount-hint": "Enter your amount to unstake your AWI-LP tokens.",
     "wallet-balance": "Wallet balance",
     "submit": "Unstake",
     "submit-done": "Unstaked",
@@ -113,24 +113,14 @@
     }
   },
   "harvest-modal": {
-    "title": "Unstake AWI",
-    "max": "Max",
-    "amount-hint": "Enter your amount to unstake your AWI tokens.",
-    "wallet-balance": "Wallet balance",
-    "submit": "Unstake",
-    "submit-done": "Unstaked",
-    "message": {
-      "confirm-transaction": "Please confirm the transaction. ☝",
-      "error": "Transaction failed.",
-      "success": "Transaction broadcast."
-    },
+    "title": "Harvest rewards",
+    "pending-rewards": "Pending rewards",
+    "submit": "Harvest",
+    "submit-done": "Harvested",
     "flow": {
-      "error-validate": "Invalid amount to unstake. 😬",
-      "approve": "Please approve the transaction. ☝",
-      "error-approve": "Failed to approve. 😞",
       "send": "Please confirm the transaction. ☝",
       "error-send": "Transaction failed. 🤬",
-      "complete": "Amount unstaked. 🥳 View <0>transaction.</0>"
+      "complete": "Reward harvested. 🥳 View <0>transaction.</0>"
     }
   }
 }
