@@ -81,7 +81,7 @@ const themeCreator = (mode: PaletteMode) => {
               gray: '#fafafa',
               disabled: '#51595f',
               transparent: 'rgba(255,255,255,0.03)',
-              panel: '#12191F',
+              panel: '#082938',
             },
           }),
     },

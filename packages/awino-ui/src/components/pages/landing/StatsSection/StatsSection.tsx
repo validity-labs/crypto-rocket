@@ -160,7 +160,10 @@ export default function StatsSection({ items }: Props) {
           <Trans
             i18nKey={'stats-section.title'}
             t={t}
-            components={[<span key="span1" className="Awi-small" />, <span key="span2" className="Awi-highlight" />]}
+            components={[
+              <span key="span1" className="Awi-small Awi-highlight" />,
+              <span key="span2" className="Awi-highlight" />,
+            ]}
           />
         </Typography>
         {/* {connected && (

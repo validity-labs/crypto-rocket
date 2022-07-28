@@ -29,7 +29,7 @@ const StatsCard = styled('div')(({ theme }) => ({
     display: 'block',
     marginBottom: theme.spacing(1),
     fontWeight: 600,
-    color: theme.palette.mode === 'dark' ? theme.palette.text.active : '#C49132',
+    color: '#C49132',
   },
 }));
 
