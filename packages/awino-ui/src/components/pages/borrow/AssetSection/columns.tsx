@@ -13,7 +13,7 @@ const getColumns = (t: TFunction): GridColDef[] => {
       renderCell: (params: GridRenderCellParams) => (
         <Typography className="MuiDataGrid-cellContent MuiDataGrid-cell--asset">
           <img src={`/images/assets/${params.value}.svg`} alt="" />
-          {params.id} {params.value}
+          {params.value}
         </Typography>
       ),
     },

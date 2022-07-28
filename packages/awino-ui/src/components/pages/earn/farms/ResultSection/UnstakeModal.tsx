@@ -78,18 +78,23 @@ export default function UnstakeModal({ open, close, data, callback }: Props) {
   const { account, library, addressOf } = useWeb3();
 
   const [isReady, setIsReady] = useState(false);
-  const [threshold, setThreshold] = useState('0');
+  const [balance, setBalance] = useState('0');
 
   const isValid = useMemo(() => {
     const amountBN = new BigNumberJS(amount);
-    return amountBN.isGreaterThan(0) && amountBN.isLessThan(threshold);
-  }, [amount, threshold]);
+    return amountBN.isGreaterThan(0) && amountBN.isLessThan(balance);
+  }, [amount, balance]);
+
+  const balanceUSD = useMemo(() => {
+    const balanceBN = new BigNumberJS(balance);
+    return balanceBN.times(lpTokenValueUSD);
+  }, [balance, lpTokenValueUSD]);
 
   useEffect(() => {
     const fetchBalance = async () => {
       const newBalance = await getStakedBalance(farmId, addressOf.masterchef, account, library);
       setIsReady(true);
-      setThreshold(formatEther(newBalance));
+      setBalance(formatEther(newBalance));
     };
     fetchBalance();
   }, [farmId, addressOf, account, library]);
@@ -144,7 +149,7 @@ export default function UnstakeModal({ open, close, data, callback }: Props) {
   }, [farmId, callback, flow, amount, close, isValid, addressOf, library]);
 
   const handleAmountMaxClick = () => {
-    setAmount(threshold);
+    setAmount(balance);
   };
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -164,7 +169,7 @@ export default function UnstakeModal({ open, close, data, callback }: Props) {
           inputProps={{
             isAllowed: ({ value }) => {
               const n = toBigNum(value);
-              return n.gt(0) && n.lte(threshold);
+              return n.gt(0) && n.lte(balance);
             },
           }}
           placeholder="0"
@@ -194,10 +199,10 @@ export default function UnstakeModal({ open, close, data, callback }: Props) {
             </div>
             <div className="Awi-column">
               <Typography fontWeight="medium" color="text.primary" mb={1}>
-                <LoadingText loading={!isReady} text={formatAWILP(formatAmount(threshold))} />
+                <LoadingText loading={!isReady} text={formatAWILP(formatAmount(balance))} />
               </Typography>
               <Typography variant="body-xs" fontWeight="medium">
-                {`~${formatUSD(lpTokenValueUSD)}`}
+                {`~${formatUSD(balanceUSD)}`}
               </Typography>
             </div>
           </div>

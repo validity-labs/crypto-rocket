@@ -45,6 +45,7 @@ const MASTERCHEF_PAGINATED_USER_FARMS_QUERY = gql`
         pairId: pair
         isRegular
         allocPoint
+        accCakePerShare
       }
     }
   }
@@ -56,6 +57,7 @@ export interface MasterchefUserFarmResponse {
     pairId: Address;
     isRegular: boolean;
     allocPoint: string;
+    accCakePerShare: string;
   };
   staked: string;
 }
@@ -73,6 +75,7 @@ const MASTERCHEF_PAGINATED_FARMS_QUERY = gql`
       pairId: pair
       isRegular
       allocPoint
+      accCakePerShare
     }
   }
 `;
@@ -82,6 +85,7 @@ export interface MasterchefFarmResponse {
   pairId: Address;
   isRegular: boolean;
   allocPoint: string;
+  accCakePerShare: string;
 }
 
 type MasterchefFarmsResponse = {
@@ -100,6 +104,7 @@ const MASTERCHEF_USER_FARMS_BY_IDS_QUERY = gql`
         pairId: pair
         isRegular
         allocPoint
+        accCakePerShare
       }
     }
   }

@@ -74,9 +74,6 @@ const Root = styled('footer')(({ theme }) => ({
   '.copyright, .list, .social': {
     margin: theme.spacing(0, 0, 5),
   },
-  // '.divider': {
-  //   borderColor: '#3b414e',
-  // },
 }));
 
 export default function Footer(): ReactElement {

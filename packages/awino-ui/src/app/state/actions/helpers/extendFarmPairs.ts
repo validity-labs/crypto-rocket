@@ -170,6 +170,7 @@ const extendFarmPairs = async (
         lpTokenValueUSD: lpTokenValueUSD.toString(),
         totalValueOfLiquidityPoolUSD: totalValueOfLiquidityPoolUSD.toString(),
         apr: toBigNum(apr).toString(),
+        lpBalanceMC: lpBalanceMC.toString(),
         // not used
         token0AmountTotal: token0AmountTotal.toString(),
         token1AmountTotal: token0AmountTotal.toString(),

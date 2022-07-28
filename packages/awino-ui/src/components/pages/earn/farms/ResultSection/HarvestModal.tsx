@@ -11,6 +11,7 @@ import { styled } from '@mui/material/styles';
 
 import { useWeb3 } from '@/app/providers/Web3Provider';
 import AssetIcons from '@/components/general/AssetIcons/AssetIcons';
+import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import LoadingText from '@/components/general/LoadingText/LoadingText';
 import Modal from '@/components/general/Modal/Modal';
@@ -20,6 +21,7 @@ import { useFlow } from '@/hooks/web3/useFlow';
 import * as ERC20Common from '@/lib/blockchain/erc20';
 import { getBalance } from '@/lib/blockchain/erc20';
 import MasterChefV2 from '@/lib/blockchain/farm-pools/abis/MasterChefV2.json';
+import { getPendingRewards } from '@/lib/blockchain/farm-pools/helpers';
 import { formatAmount, formatAWILP, formatUSD } from '@/lib/formatters';
 import { toBigNum } from '@/lib/helpers';
 import { Address } from '@/types/app';
@@ -31,33 +33,12 @@ const Root = styled(Modal)(({ theme }) => ({
     padding: theme.spacing(0, 0, 8.5),
     margin: theme.spacing(0, 0, 10),
     borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  '.AwiHarvestModal-amount': {
-    padding: theme.spacing(11, 7, 9, 23),
-    borderRadius: theme.spacing(7),
-    input: {
-      fontSize: '3.125rem' /* 50px */,
-      lineHeight: '3.125rem' /* 50px */,
-      fontWeight: 700,
-      textAlign: 'center',
-      '&::placeholder': {
-        color: theme.palette.text.secondary,
+    '.AwiLabelValue-root': {
+      justifyContent: 'space-between',
+      '.AwiLabelValue-value': {
+        textAlign: 'right',
       },
     },
-    button: {
-      borderRadius: theme.spacing(2),
-      ...theme.typography['body-sm'],
-      fontWeight: 500,
-      color: theme.palette.text.secondary,
-      '&:hover': {
-        color: theme.palette.text.active,
-      },
-    },
-  },
-  '.AwiHarvestModal-pair': {
-    fontWeight: 600,
-    color: theme.palette.text.primary,
-    textTransform: 'uppercase',
   },
 }));
 
@@ -70,54 +51,25 @@ interface Props {
 
 export default function HarvestModal({ open, close, data, callback }: Props) {
   const t = usePageTranslation({ keyPrefix: 'harvest-modal' });
-  const { t: tRaw } = useTranslation();
-  const { id: pairId, farmId, label, pair, lpTokenValueUSD } = data;
-  const [amount, setAmount] = useState<string | undefined>();
+  const { farmId } = data;
 
   const { account, library, addressOf } = useWeb3();
+  const { flow, flowState } = useFlow('harvest-modal');
 
   const [isReady, setIsReady] = useState(false);
-  const [threshold, setThreshold] = useState('0');
-
-  const isValid = useMemo(() => {
-    const amountBN = new BigNumberJS(amount);
-    return amountBN.isGreaterThan(0) && amountBN.isLessThan(threshold);
-  }, [amount, threshold]);
+  const [pendingReward, setPendingReward] = useState('0');
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const newBalance = await getBalance(pairId, account, library);
+      const newBalance = await getPendingRewards(farmId, addressOf.masterchef, account, library);
       setIsReady(true);
-      setThreshold(formatEther(newBalance));
+      setPendingReward(formatEther(newBalance));
     };
     fetchBalance();
-  }, [pairId, account, library]);
-
-  const { flow, flowState } = useFlow('harvest-modal');
+  }, [farmId, addressOf, account, library]);
 
   const handleSubmit = useCallback(async () => {
-    // check validity
-    flow.validate();
-    if (!isValid) {
-      flow.error();
-      return;
-    }
     const masterchefAddress = addressOf.masterchef;
-    const allowance = (await ERC20Common.allowance(pairId, account, masterchefAddress, library)) as EtherBigNumber;
-
-    const harvestAmount = ethers.utils.parseEther(amount);
-
-    // check allowance
-    if (allowance.lt(harvestAmount)) {
-      flow.approve();
-      try {
-        await ERC20Common.approve(pairId, masterchefAddress, harvestAmount, library);
-      } catch (error) {
-        flow.error();
-        console.error(error);
-        return;
-      }
-    }
 
     // deposit amount
     flow.send();
@@ -127,7 +79,7 @@ export default function HarvestModal({ open, close, data, callback }: Props) {
         masterchefAddress,
         MasterChefV2,
         await library.getSigner()
-      ).populateTransaction.deposit(farmId, harvestAmount);
+      ).populateTransaction.deposit(farmId, 0);
 
       let tx = await library.getSigner().sendTransaction(rawTx);
       const txReceipt = await tx.wait(1);
@@ -140,71 +92,19 @@ export default function HarvestModal({ open, close, data, callback }: Props) {
       flow.error();
       console.error(error);
     }
-  }, [pairId, farmId, callback, flow, amount, close, isValid, addressOf, account, library]);
-
-  const handleAmountMaxClick = () => {
-    setAmount(threshold);
-  };
-
-  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    setAmount(newValue);
-  };
+  }, [farmId, callback, flow, close, addressOf, library]);
 
   return (
     <Root id="harvestModal" title={t('title')} lock={flowState.processing} open={open} close={close}>
-      <FormControl variant="standard" fullWidth sx={{ mb: 11.5 }}>
-        <NumberInput
-          id="harvestAmount"
-          name="harvestAmount"
-          className="AwiHarvestModal-amount"
-          aria-describedby="harvestAmountHelper"
-          disabled={flowState.processing}
-          inputProps={{
-            isAllowed: ({ value }) => {
-              const n = toBigNum(value);
-              return n.gt(0) && n.lte(threshold);
-            },
-          }}
-          placeholder="0"
-          value={amount}
-          onChange={handleAmountChange}
-          endAdornment={
-            <Button variant="text" size="small" onClick={handleAmountMaxClick}>
-              {tRaw('common.max')}
-            </Button>
-          }
-        />
-        <FormHelperText id="harvestAmountHelper" variant="standard" sx={{ mt: 6, color: 'text.primary' }}>
-          {t('amount-hint')}
-        </FormHelperText>
-      </FormControl>
       <div className="AwiHarvestModal-row">
-        <div>
-          <Typography variant="body" component="h3" mb={5}>
-            {t('wallet-balance')}
-          </Typography>
-          <div className="Awi-row Awi-between">
-            <div className="Awi-row">
-              <AssetIcons ids={pair} size="large" />
-              <Typography className="AwiHarvestModal-pair" sx={{ ml: 7 }}>
-                {label}
-              </Typography>
-            </div>
-            <div className="Awi-column">
-              <Typography fontWeight="medium" color="text.primary" mb={1}>
-                <LoadingText loading={!isReady} text={formatAWILP(formatAmount(threshold))} />
-              </Typography>
-              <Typography variant="body-xs" fontWeight="medium">
-                {`~${formatUSD(lpTokenValueUSD)}`}
-              </Typography>
-            </div>
-          </div>
-        </div>
+        <LabelValue
+          id="distribution"
+          value={<LoadingText loading={!isReady} text={formatAmount(pendingReward)} />}
+          labelProps={{ children: t('pending-rewards') }}
+        />
       </div>
       <LoadingButton
         once
-        disabled={!isValid}
         loading={flowState.processing}
         done={flowState.completed}
         variant="outlined"
