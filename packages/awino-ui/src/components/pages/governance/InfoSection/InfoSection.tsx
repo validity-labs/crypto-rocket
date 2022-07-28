@@ -39,7 +39,7 @@ const Root = styled(Section)(({ theme }) => ({
     '.AwiLabelValue-value': {
       ...theme.typography.h4,
       fontWeight: 600,
-      color: theme.palette.text.active,
+      color: '#C49132',
     },
   },
   [theme.breakpoints.up('sm')]: {
