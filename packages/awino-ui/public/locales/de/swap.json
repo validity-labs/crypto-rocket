@@ -87,7 +87,7 @@
       "your-pool-tokens": "Your pool tokens",
       "pooled": "Pooled {{v}}",
       "pool-share": "Pool share",
-      "remove-pool": "Remove pool pair"
+      "remove-liquidty": "Remove liquidty"
     }
   },
   "settings-modal": {

@@ -4,17 +4,11 @@ import { createSelector } from '@reduxjs/toolkit';
 import { useWeb3React } from '@web3-react/core';
 import { BigNumber } from 'ethers';
 
-import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
-import { Box, Collapse, Fade, IconButton, LinearProgress, Typography } from '@mui/material';
+import { Box, Button, Collapse, Fade, IconButton, LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import {
-  LiquidityPair,
-  updateLiquidityPair,
-  updateUserLiquidityPair,
-  UserLiquidityPair,
-} from '@/app/state/slices/exchange';
+import { updateLiquidityPair, updateUserLiquidityPair, UserLiquidityPair } from '@/app/state/slices/exchange';
 import AssetIcon from '@/components/general/AssetIcon/AssetIcon';
 import LabelValue from '@/components/general/LabelValue/LabelValue';
 import LoadingText from '@/components/general/LoadingText/LoadingText';
@@ -229,14 +223,9 @@ function LiquidityCard({ id, onRemove /* ,onHarvest, onStake, onUnstake */ }: Pr
               />
             </Box>
             <Box sx={{ alignSelf: 'flex-start' }}>
-              <IconButton
-                disabled={!isExtended}
-                color="primary"
-                title={t('remove-pool')}
-                onClick={stopPropagation(handleRemove)}
-              >
-                {<RemoveCircleOutlineRoundedIcon />}
-              </IconButton>
+              <Button variant="outlined" disabled={!isExtended} onClick={stopPropagation(handleRemove)}>
+                {t('remove-liquidty')}
+              </Button>
             </Box>
           </div>
         </Collapse>
