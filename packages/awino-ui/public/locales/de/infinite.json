@@ -51,7 +51,8 @@
       "awino-balance": "Your AWINO balance",
       "lock-awino": "Lock AWINO",
       "invalid-input": "Invalid amount specified.",
-      "error-hint": "Transaction failed. Try again later."
+      "error-hint": "Transaction failed. Try again later.",
+      "note": "Note for test cases:\n months = days & years = weeks"
     },
     "global-votes-card": {
       "title": "Global votes",
