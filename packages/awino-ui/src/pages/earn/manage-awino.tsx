@@ -6,23 +6,22 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
 
-import { Grid } from '@mui/material';
+// import { Grid } from '@mui/material';
 
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
-import { ClaimModalData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimModal';
+// import { ClaimModalData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimModal';
 import ClaimSection, { ClaimData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
 import IntroSection from '@/components/pages/earn/manage-awino/IntroSection/IntroSection';
-import { LockData } from '@/components/pages/earn/manage-awino/OperationSection/LockCard';
 import OperationSection from '@/components/pages/earn/manage-awino/OperationSection/OperationSection';
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
-import StatsSection from '@/components/pages/shared/StatsSection/StatsSection';
-import { earnManageAwinoClaim, earnManageAwinoLock, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
+// import StatsSection from '@/components/pages/shared/StatsSection/StatsSection';
+import { earnManageAwinoClaim, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
 import { AWINO_TOKEN_MAP, ChainId, useTokenBalance } from '@/lib/blockchain';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
-import { formatAWI, formatUSD } from '@/lib/formatters';
-import { sleep } from '@/lib/helpers';
+// import { formatAWI, formatUSD } from '@/lib/formatters';
+// import { sleep } from '@/lib/helpers';
 import { StatsData, StatsFormatter } from '@/types/app';
 // import AssetSection from '@/components/pages/market/AssetSection/AssetSection';
 
@@ -44,8 +43,6 @@ const initialStatsData: StatsData = [
 
 const initialStakeData: StakeData = { apr: 0, balance: { awi: 0, usd: 0 } };
 
-const initialLockData: LockData = { apr: 0, balance: { awi: 0, usd: 0 } };
-
 const initialClaimData: ClaimData = {
   unlockedAWI: { awi: 0, claimable: true },
   vestingAWI: { awi: 0, claimable: false },
@@ -57,7 +54,6 @@ const EarnManageAwinoPage: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [statsData, setStatsData] = useState(initialStatsData);
   const [stakeData, setStakeData] = useState(initialStakeData);
-  const [lockData, setLockData] = useState(initialLockData);
   const [claimData, setClaimData] = useState(initialClaimData);
 
   const { account, library, chainId } = useWeb3React();
@@ -83,11 +79,6 @@ const EarnManageAwinoPage: NextPage = () => {
       });
       setStakeData({ apr: 7.32, balance: { awi: balance, usd: balance } });
 
-      const newLockData = await new Promise<LockData>((res) => {
-        return res(earnManageAwinoLock);
-      });
-      setLockData(newLockData);
-
       const newClaimData = await new Promise<ClaimData>((res) => {
         return res(earnManageAwinoClaim);
       });
@@ -95,7 +86,7 @@ const EarnManageAwinoPage: NextPage = () => {
 
       setLoading(false);
     })();
-  }, [balance, chainId, account]);
+  }, [balance, chainId, account, library]);
 
   return (
     <>
@@ -105,7 +96,6 @@ const EarnManageAwinoPage: NextPage = () => {
         statItems={statsData}
         statFormatters={statsFormatters}
         stake={stakeData}
-        lock={lockData}
         updateBalance={updateBalance}
       />
       <ClaimSection data={claimData} />
