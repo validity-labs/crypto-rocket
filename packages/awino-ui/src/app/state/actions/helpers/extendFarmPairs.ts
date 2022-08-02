@@ -144,7 +144,9 @@ const extendFarmPairs = async (
     const allocPoint = toBigNum(allocPointString) || Zero;
     const totalRegularAllocPoint = toBigNum(totalRegularAllocPointString);
     const poolWeight = !totalRegularAllocPoint.isZero() ? allocPoint.div(totalRegularAllocPoint) : Zero;
-    const multiplier = allocPoint.div(100);
+    const multiplier = totalRegularAllocPoint
+      ? allocPoint.div(new BigNumberJS(totalRegularAllocPoint))
+      : new BigNumberJS(0);
 
     let token0PriceUSD = Zero;
     let token1PriceUSD = Zero;
