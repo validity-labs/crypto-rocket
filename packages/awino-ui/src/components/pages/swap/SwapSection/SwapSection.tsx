@@ -146,7 +146,7 @@ export default function SwapSection() {
 
   const { /* isLPTokensLoading, */ lpTokens } = useAppSelector(selectBriefLiquidityPairs);
 
-  const [tab, setTab] = React.useState(1);
+  const [tab, setTab] = React.useState(0);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTab(newValue);

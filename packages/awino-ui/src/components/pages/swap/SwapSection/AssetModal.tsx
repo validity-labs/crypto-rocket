@@ -33,6 +33,9 @@ const Root = styled(Modal)(({ theme }) => ({
       input: {
         minWidth: 60,
       },
+      svg: {
+        color: theme.palette.text.secondary,
+      },
     },
   },
   '.AwiAssetModal-common': {

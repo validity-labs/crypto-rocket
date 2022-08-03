@@ -53,6 +53,7 @@ const Root = styled(MuiModal)(({ theme }) => ({
     position: 'absolute',
     top: 20,
     right: 17,
+    color: theme.palette.text.primary,
   },
   '.AwiModal-content': {
     display: 'flex',

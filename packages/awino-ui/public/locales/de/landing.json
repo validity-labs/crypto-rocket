@@ -46,8 +46,8 @@
     ]
   },
   "info-section": {
-    "title": "We make DeFi easy as\n possible for everyone",
-    "description": "The DeFi and crypto space in general is still in its genesis stage and has yet to experience mainstream adaption. That said, the AWINO ecosystem is built to be simple, intuitive and user friendly for new investors. But yet, has all the tools for experienced DeFi enthusiasts, non the less. AWINO takes a problem-solving approach and addresses the following issues we are currently faced with in the DeFi and crypto space in general.\n\n If you are not part of the solution, then you are part of the problem. AWINO ecosystem strives to address all these issues stated above, before expanding into other blockchains. This will have a proof-of-concept effect and allow for seamless expansions into other blockchains.",
+    "title": "We make DeFi as easy as possible for everyone",
+    "description": "The DeFi and crypto space in general is still in its genesis stage and has yet to experience mainstream adaption. That said, the AWINO ecosystem is built to be simple, intuitive and user friendly for new investors. But yet, has all the tools for experienced DeFi enthusiasts, non the less. \n\nAWINO is an All-In-One DeFi Ecosystem with a Decentralized Exchange, Lending Platform, Protocol Owned Liquidity (POL) module, Staking and Farming- All conveniently under one protocol.",
     "tabs-aria": "Switch between tool description",
     "items": [
       {
@@ -55,24 +55,24 @@
         "description": "Supply into the protocol and watch your assets grow as a liquidity provider."
       },
       {
-        "title": "Stake",
-        "description": "Veniam dolore ut enim eiusmod eiusmod fugiat adipisicing qui veniam enim."
+        "title": "Supply",
+        "description": "Supply into the protocol and earn rewards as a liquidity provider."
       },
       {
         "title": "Borrow",
-        "description": "Velit deserunt nisi laborum voluptate commodo eiusmod magna laborum ut."
+        "description": "Borrow against your collateral from a selection of assets."
       },
       {
         "title": "Swap",
-        "description": "Reprehenderit amet dolore culpa reprehenderit dolor sit velit aliquip dolor culpa."
+        "description": "Trade your crypto fast and with ease."
       },
       {
         "title": "Zap",
-        "description": "Est officia eiusmod aliquip dolor mollit do nostrud Lorem nulla ex sint eu id nostrud."
+        "description": "Instantly create LP tokens of your choice."
       },
       {
         "title": "Vote",
-        "description": "In aliquip cillum non dolor incididunt aliquip fugiat."
+        "description": "Participate in voting for emissions distribution to your farming pool."
       }
     ]
   },
@@ -138,7 +138,7 @@
   },
   "faq-section": {
     "title": "FAQs",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "description": "Below are our high-level FAQs. For more details on AWINO ecosystem we refer to our documentation.",
     "items": [
       {
         "title": "What is AWINO about?",
@@ -158,6 +158,10 @@
       },
       {
         "title": "Who created AWINO?",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      },
+      {
+        "title": "What are the tokenomics?",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       }
     ]

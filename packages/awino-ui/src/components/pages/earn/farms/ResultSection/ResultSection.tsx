@@ -444,10 +444,9 @@ export default function ResultSection() {
           header={
             <>
               <div>
-                <Label id="earnFarmsTitle" tooltip={t(`title-hint`)} variant="h4" component="h2" color="text.active">
+                <Label id="earnFarmsTitle" variant="h4" component="h2" color="text.active">
                   {t('title')}
                 </Label>
-                <Typography>{t('description')}</Typography>
               </div>
               <div className="AwiPanel-headerAside">
                 <Select

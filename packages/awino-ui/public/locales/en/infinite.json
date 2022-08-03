@@ -25,7 +25,7 @@
   "details-section": {
     "generate-card": {
       "title": "Generate INFINITE",
-      "title-hint": "MISSING TEXT",
+      "title-hint": "Lock your AWINO to get INFINITE. \n\nChoose a lock-period between 1 month and 4 years, a longer lock period generates more INFINITE per AWINO locked. \n\nIMPORTANT: INFINITE is non-transferable and AWINO locked cannot be unlocked until the lock period ends.",
       "field": {
         "amount": {
           "label": "Amount",
@@ -80,7 +80,7 @@
     },
     "boast-farm-card": {
       "title": "Vote to boost your farm",
-      "title-hint": "MISSING TEXT",
+      "title-hint": "Voting for a Boosted farm increases the emissions that a farm receives.",
       "search-placeholder": "Search boosted farms ...",
       "note": "Note:\n To vote you need to have Inline balance",
       "field": {
