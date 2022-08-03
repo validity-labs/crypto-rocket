@@ -27,6 +27,37 @@ export type ExchangeTokensResponse = GraphqlResponse<{
   }[];
 }>;
 
+export const EXCHANGE_BRIEF_PAIRS_LIST_QUERY = gql`
+  query {
+    items: pairs(orderBy: "timestamp", orderDirection: "desc") {
+      id
+      token0 {
+        symbol
+      }
+      token1 {
+        symbol
+      }
+    }
+  }
+`;
+
+export interface ExchangeBriefPairResponse {
+  id: Address;
+  token0: {
+    // id: Address;
+    symbol: string;
+    // decimals: string;
+  };
+  token1: {
+    // id: Address;
+    symbol: string;
+    // decimals: string;
+  };
+}
+
+export type ExchangeBriefPairsResponse = {
+  items: ExchangeBriefPairResponse[];
+};
 // export const EXCHANGE_USER_MINT_PAIRS_QUERY = gql`
 //   query ($to: Bytes, $first: Int, $skip: Int) {
 //     items: mints(
@@ -165,6 +196,7 @@ const EXCHANGE_PAIRS_QUERY_BY_IDS = gql`
 // }
 
 const keyToQueryMap = {
+  'exchange-brief-pairs-list': EXCHANGE_BRIEF_PAIRS_LIST_QUERY,
   'exchange-paginated-pairs': EXCHANGE_PAGINATED_PAIRS_QUERY,
   'exchange-paginated-pairs-except-ids': EXCHANGE_PAGINATED_PAIRS_EXCEPT_IDS_QUERY,
   'exchange-pairs-by-ids': EXCHANGE_PAIRS_QUERY_BY_IDS,

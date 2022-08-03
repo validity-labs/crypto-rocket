@@ -1,21 +1,20 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 
-import clsx from 'clsx';
 import { debounce } from 'lodash';
 
 import CloseIcon from '@mui/icons-material/CloseRounded';
 import { InputBase, IconButton, ButtonBase, ButtonBaseProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { useAppDispatch } from '@/app/hooks';
 import Label from '@/components/general/Label/Label';
 import Modal from '@/components/general/Modal/Modal';
 import SearchIcon from '@/components/icons/SearchIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
-import { AssetKey, PairedAssetKey } from '@/types/app';
+import { Address, AssetKey, PairedAssetKey } from '@/types/app';
 
 import AssetIcons from './AssetIcons';
 import { AssetInfo, AssetInfoMap } from './SwapSection';
+import useRecent from './useRecent';
 
 const Root = styled(Modal)(({ theme }) => ({
   '.MuiForm-root': {
@@ -161,8 +160,9 @@ interface Props {
 
 export default function AssetModal({ open, close, data, callback, i18nKey }: Props) {
   const t = usePageTranslation({ keyPrefix: i18nKey });
-
   const { currentAsset, type, assets } = data;
+
+  const [originalRecentIds, logRecentId] = useRecent(`assetModal-${i18nKey}-${type}`, currentAsset);
 
   const [searchInputValue, setSearchInputValue] = useState('');
   const [searchValue, setSearchValue] = useState(null);
@@ -171,23 +171,32 @@ export default function AssetModal({ open, close, data, callback, i18nKey }: Pro
     debounce((newSearchValue: string) => setSearchValue(newSearchValue.toLowerCase()), 50)
   ).current;
 
-  const { ids, commonIds } = useMemo(() => {
+  const ids = useMemo(() => {
     let newIds = [];
-    let newCommonIds = [];
 
     Array.from(assets).forEach(([id, assetItem]) => {
       if (id !== currentAsset) {
         if (!searchValue || assetItem.label.toLowerCase().indexOf(searchValue) !== -1) {
           newIds.push(id);
         }
-        if (assetItem.common) {
-          newCommonIds.push(id);
-        }
       }
     });
-
-    return { ids: newIds, commonIds: newCommonIds };
+    return newIds;
   }, [assets, currentAsset, searchValue]);
+
+  const recentIds = useMemo(() => {
+    return originalRecentIds.filter((id) => {
+      return !searchValue || assets.get(id).label.toLowerCase().indexOf(searchValue) !== -1;
+    });
+  }, [assets, searchValue, originalRecentIds]);
+
+  const handleCallback = useCallback<AssetModalUpdateCallback>(
+    (type, payload) => {
+      logRecentId(payload);
+      callback(type, payload);
+    },
+    [callback, logRecentId]
+  );
 
   const handleSearchSubmit = useCallback(
     (event: React.SyntheticEvent) => {
@@ -197,11 +206,11 @@ export default function AssetModal({ open, close, data, callback, i18nKey }: Pro
       // setSearchValue(searchInputValue.toLowerCase());
 
       if (ids.length === 1) {
-        callback(type, ids[0]);
+        handleCallback(type, ids[0]);
         close();
       }
     },
-    [ids, type, callback, close]
+    [ids, type, handleCallback, close]
   );
 
   const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -217,10 +226,10 @@ export default function AssetModal({ open, close, data, callback, i18nKey }: Pro
 
   const handleAssetClick: AssetModalUpdateCallback = useCallback(
     (type, payload) => {
-      callback(type, payload);
+      handleCallback(type, payload);
       close();
     },
-    [callback, close]
+    [handleCallback, close]
   );
 
   const clearSeachLabel = t('common:common.clear-search');
@@ -252,13 +261,13 @@ export default function AssetModal({ open, close, data, callback, i18nKey }: Pro
           placeholder={t('search')}
         />
       </form>
-      {commonIds && (
+      {recentIds.length > 0 && (
         <div className="AwiAssetModal-common">
-          <Label id="assetModalCommon" tooltip={t('common-bases-hint')}>
-            {t('common-bases')}
+          <Label id="assetModalCommon" tooltip={t('recent-tokens-hint')}>
+            {t('recent-tokens')}
           </Label>
           <div className="Awi-row">
-            {commonIds.map((id) => (
+            {recentIds.map((id) => (
               <CommonItem
                 key={id}
                 item={assets.get(id)}

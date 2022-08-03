@@ -115,8 +115,8 @@
       "title-hint": "MISSING TEXT"
     },
     "search": "Search name",
-    "common-bases": "Common bases",
-    "common-bases-hint": "MISSING TEXT",
+    "recent-tokens": "Recent tokens",
+    "recent-tokens-hint": "MISSING TEXT",
     "tokens": "Token name"
   },
   "asset-zap-modal": {
@@ -129,16 +129,16 @@
       "title-hint": "MISSING TEXT"
     },
     "search": "Search name",
-    "common-bases": "Common bases",
-    "common-bases-hint": "MISSING TEXT",
+    "recent-tokens": "Recent tokens",
+    "recent-tokens-hint": "MISSING TEXT",
     "tokens": "AWI token name"
   },
   "import-pool-modal": {
     "title": "Import pool",
     "title-hint": "MISSING TEXT",
     "search": "Search name",
-    "common-bases": "Common bases",
-    "common-bases-hint": "MISSING TEXT",
+    "recent-tokens": "Recent tokens",
+    "recent-tokens-hint": "MISSING TEXT",
     "tokens": "Token name",
     "import": "Import",
     "token": "Token",

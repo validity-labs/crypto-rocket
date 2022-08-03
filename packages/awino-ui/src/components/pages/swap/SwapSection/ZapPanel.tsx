@@ -140,14 +140,14 @@ interface TabPanelProps {
   index: number;
   value: number;
   loading: boolean;
-  assets: AssetInfoMap;
-  // sourceAssets: AssetInfoMap;
-  // targetAssets: AssetInfoMap;
+  // assets: AssetInfoMap;
+  sourceAssets: AssetInfoMap;
+  targetAssets: AssetInfoMap;
 }
 
 const ZapPanel = (props: TabPanelProps) => {
   const t = usePageTranslation();
-  const { id, value, index, assets, /* sourceAssets, targetAssets,  */ loading, ...other } = props;
+  const { id, value, index, /* assets, */ sourceAssets, targetAssets, loading, ...other } = props;
 
   const [executing, setExecuting] = useState(false);
   const [sourceAsset, setSourceAsset] = useState<AssetKey | ''>('');
@@ -159,8 +159,8 @@ const ZapPanel = (props: TabPanelProps) => {
   const { account, library, chainId } = useWeb3();
   const routerAddress = useMemo(() => AWINO_ROUTER_MAP[chainId], [chainId]);
 
-  const source = useMemo(() => assets.get(sourceAsset), [sourceAsset, assets]);
-  const target = useMemo(() => assets.get(targetAsset), [targetAsset, assets]);
+  const source = useMemo(() => sourceAssets.get(sourceAsset), [sourceAsset, sourceAssets]);
+  const target = useMemo(() => targetAssets.get(targetAsset), [targetAsset, targetAssets]);
 
   const sourceMaxValue = useTokenBalanceDynamic(source?.address, source?.decimals, account);
 
@@ -266,7 +266,7 @@ const ZapPanel = (props: TabPanelProps) => {
     setAssetModal({
       currentAsset: sourceAsset as AssetKey,
       type: 'source',
-      assets: assets, //: new Map(Array.from(assets).filter(([id]) => id !== targetAsset)),
+      assets: sourceAssets, //: new Map(Array.from(assets).filter(([id]) => id !== targetAsset)),
     });
   };
 
@@ -274,7 +274,7 @@ const ZapPanel = (props: TabPanelProps) => {
     setAssetModal({
       currentAsset: targetAsset as AssetKey,
       type: 'target',
-      assets: assets, //: new Map(Array.from(assets).filter(([id]) => id !== sourceAsset)),
+      assets: targetAssets, //: new Map(Array.from(assets).filter(([id]) => id !== sourceAsset)),
     });
   };
 
@@ -386,7 +386,7 @@ const ZapPanel = (props: TabPanelProps) => {
                       loading ? (
                         <Loader progressProps={{ size: 20 }} />
                       ) : (
-                        targetAsset && <AssetIcons ids={targetAsset} size="large" />
+                        targetAsset && <AssetIcons ids={targetAssets.get(targetAsset).assets} size="large" />
                       )
                     }
                     disabled={executing}

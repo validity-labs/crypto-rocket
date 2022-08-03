@@ -95,7 +95,11 @@ export const appSlice = createSlice({
     },
   },
   extraReducers: {
-    ['RESET']: () => initialState,
+    // use when app reset is needed
+    ['RESET']: () => {
+      localStorage.clear();
+      return initialState;
+    },
     [HYDRATE]: (state, action) => {
       return {
         ...state,
