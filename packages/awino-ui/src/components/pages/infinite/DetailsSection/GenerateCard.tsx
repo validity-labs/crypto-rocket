@@ -43,10 +43,13 @@ const Root = styled(Card)(({ theme }) => ({
     padding: theme.spacing(0, 2, 0),
     margin: theme.spacing(2, 0, 11),
   },
-  // '.AwiGenerateCard-lockUntil': {
-  // display: 'grid',
-  // gridTemplateColumns: '1fr 1fr 1fr',
-  // },
+  '.AwiGenerateCard-lockUntil': {
+    '.MuiFormControlLabel-root': {
+      margin: theme.spacing(0, 0.5),
+    },
+    // display: 'grid',
+    // gridTemplateColumns: '1fr 1fr 1fr',
+  },
   '.AwiGenerateCard-note': {
     margin: theme.spacing(4, 0),
     p: {
@@ -205,7 +208,7 @@ export default function GenerateCard({ awinoBalance }: Props) {
                 </div>
                 <FieldRadio
                   name="lockUntil"
-                  // className="AwiGenerateCard-lockUntil"
+                  className="AwiGenerateCard-lockUntil"
                   required
                   fullWidth
                   options={lockUntilOptions}
