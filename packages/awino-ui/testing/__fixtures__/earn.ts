@@ -3,7 +3,6 @@ import BigNumberJS from 'bignumber.js';
 import { FarmItem } from '@/components/pages/earn/farms/ResultSection/ResultSection';
 import { LiquidityStakingDetailsData } from '@/components/pages/earn/liquidity-staking/DetailsSection/DetailsSection';
 import { ClaimData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
-import { LockData } from '@/components/pages/earn/manage-awino/OperationSection/LockCard';
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_WETH_PAIR_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { StatsData } from '@/types/app';
@@ -34,13 +33,7 @@ export const earnManageAwinoStake: StakeData = {
     usd: 199.0,
   },
 };
-export const earnManageAwinoLock: LockData = {
-  apr: 39.17,
-  balance: {
-    awi: 99.99,
-    usd: 199.0,
-  },
-};
+
 export const earnManageAwinoClaim: ClaimData = {
   unlockedAWI: { awi: 100, claimable: true },
   vestingAWI: { awi: 100, claimable: false },

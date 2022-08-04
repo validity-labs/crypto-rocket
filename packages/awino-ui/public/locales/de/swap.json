@@ -87,20 +87,20 @@
       "your-pool-tokens": "Your pool tokens",
       "pooled": "Pooled {{v}}",
       "pool-share": "Pool share",
-      "remove-pool": "Remove pool pair"
+      "remove-liquidty": "Remove liquidty"
     }
   },
   "settings-modal": {
     "title": "Settings",
     "slippage-tolerance": {
       "title": "Slippage tolerance",
-      "title-hint": "MISSING TEXT",
+      "title-hint": "Your transaction will revert if the price changes unfavorably by more than this percentage.",
       "value-hint": "Choose one of the predefined slippage tolerance value",
       "updated": "Slippage tolerance updated to {{v}}"
     },
     "transaction-deadline": {
       "title": "Transaction deadline",
-      "hint": "MISSING TEXT",
+      "title-hint": "Your transaction will revert if it is pending for more than this long.",
       "minutes": "Minutes",
       "updated": "Transaction deadline is set to {{v}} minutes"
     }
@@ -108,37 +108,36 @@
   "asset-swap-modal": {
     "source": {
       "title": "Select a token",
-      "title-hint": "MISSING TEXT"
+      "title-hint": "Find a token by searching for its name or symbol."
     },
     "target": {
       "title": "Select a token",
-      "title-hint": "MISSING TEXT"
+      "title-hint": "Find a token by searching for its name or symbol."
     },
     "search": "Search name",
-    "common-bases": "Common bases",
-    "common-bases-hint": "MISSING TEXT",
+    "recent-tokens": "Recent tokens",
+    "recent-tokens-hint": "These tokens are commonly paired with other tokens.",
     "tokens": "Token name"
   },
   "asset-zap-modal": {
     "source": {
       "title": "Select a token",
-      "title-hint": "MISSING TEXT"
+      "title-hint": "Find a token by searching for its name or symbol."
     },
     "target": {
-      "title": "Select a AWI token",
-      "title-hint": "MISSING TEXT"
+      "title-hint": "Find a token by searching for its name or symbol."
     },
     "search": "Search name",
-    "common-bases": "Common bases",
-    "common-bases-hint": "MISSING TEXT",
+    "recent-tokens": "Recent tokens",
+    "recent-tokens-hint": "These tokens are commonly paired with other tokens.",
     "tokens": "AWI token name"
   },
   "import-pool-modal": {
     "title": "Import pool",
     "title-hint": "MISSING TEXT",
     "search": "Search name",
-    "common-bases": "Common bases",
-    "common-bases-hint": "MISSING TEXT",
+    "recent-tokens": "Recent tokens",
+    "recent-tokens-hint": "These tokens are commonly paired with other tokens.",
     "tokens": "Token name",
     "import": "Import",
     "token": "Token",

@@ -32,7 +32,7 @@ export const statsFormatters: StatsFormatter[] = [{ value: 'usd' }, { value: 'us
 
 export default function TotalSection({ items }: Props) {
   return (
-    <Root containerProps={{ maxWidth: 'lg' }}>
+    <Root /* containerProps={{ maxWidth: 'lg' }} */>
       <StatsItems
         items={items}
         maxWidth="md"

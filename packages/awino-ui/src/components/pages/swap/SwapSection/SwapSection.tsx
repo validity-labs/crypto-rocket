@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+
+import { createSelector } from '@reduxjs/toolkit';
 
 import { Box, Tab, Tabs as MuiTabs } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { fetchBriefLiquidityPairs } from '@/app/state/actions/exchange';
+import { BriefLiquidityPair } from '@/app/state/slices/exchange';
 import LiquidityIcon from '@/components/icons/LiquidityIcon';
 import SwapIcon from '@/components/icons/SwapIcon';
 import ZapIcon from '@/components/icons/ZapIcon';
@@ -105,6 +110,17 @@ export interface AssetInfo {
 
 export type AssetInfoMap = Map<AssetKey | PairedAssetKey, AssetInfo>;
 
+const selectBriefLiquidityPairs = createSelector(
+  (state) => state.exchange.liquidityPairs.brief,
+  (briefPairs) => ({
+    isLPTokensLoading: briefPairs.length === 0,
+    lpTokens: briefPairs.reduce((ar, r) => {
+      ar.set(r.id, r);
+      return ar;
+    }, new Map()),
+  })
+);
+
 export default function SwapSection() {
   const t = usePageTranslation();
   const [loading, setLoading] = useState(true);
@@ -121,6 +137,14 @@ export default function SwapSection() {
 
     fetch();
   }, []);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBriefLiquidityPairs());
+  }, [dispatch]);
+
+  const { /* isLPTokensLoading, */ lpTokens } = useAppSelector(selectBriefLiquidityPairs);
 
   const [tab, setTab] = React.useState(0);
 
@@ -142,13 +166,7 @@ export default function SwapSection() {
       </Tabs>
       <Panel>
         <SwapPanel id={id} value={tab} index={0} assets={assets} loading={loading} />
-        <ZapPanel
-          id={id}
-          value={tab}
-          index={1}
-          assets={assets}
-          /* sourceAssets={assets} targetAssets={assetPairs} */ loading={loading}
-        />
+        <ZapPanel id={id} value={tab} index={1} sourceAssets={assets} targetAssets={lpTokens} loading={loading} />
         <LiquidityPanel id={id} value={tab} index={2} assets={assets} loading={loading} />
       </Panel>
     </Section>

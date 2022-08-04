@@ -30,7 +30,7 @@
     "market-total-size": "Total market size",
     "platform": {
       "total-fee": "Total platform fees",
-      "total-fee-hint": "MISSING TEXT"
+      "total-fee-hint": "50% of the platform fees go to token holders."
     },
     "fields": {
       "asset": "Asset",

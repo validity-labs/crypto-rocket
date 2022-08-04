@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { earnManageAwinoLock, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
+import { earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
 import { statsFormatters } from '@/pages/earn/manage-awino';
 import { cleanup, render } from '@/testing/utils';
@@ -24,9 +24,8 @@ describe('<OperationSection />', () => {
       <OperationSection
         statItems={earnManageAwinoStats}
         stake={earnManageAwinoStake}
-        lock={earnManageAwinoLock}
         statFormatters={statsFormatters}
-        // updateBalance={() => {}}
+        updateBalance={() => {}}
       />,
       {},
       'earn-manage-awino'

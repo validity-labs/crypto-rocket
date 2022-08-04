@@ -5,8 +5,6 @@
   },
   "result-section": {
     "title": "Farms",
-    "title-hint": "MISSING TEXT",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     "sort-by": {
       "title": "Sort by",
       "value": {

@@ -9,7 +9,6 @@
     "buyable": "Buyable $t(common:asset.{{from}})",
     "info": {
       "title": "Buy $t(common:asset.{{from}}) with $t(common:asset.{{to}}) LP tokens",
-      "title-hint": "MISSING TEXT",
       "description": "Description",
       "token-price": "Token price",
       "current-price": "Current LP token price",
@@ -17,7 +16,6 @@
     },
     "purchase": {
       "title": "Buy $t(common:asset.{{from}}) with $t(common:asset.{{to}}) LP tokens",
-      "title-hint": "MISSING TEXT",
       "info": "The minimum buy amount is 1 $t(common:asset.{{from}}). This is currently {{price}} $t(common:asset.{{to}}).",
       "source-label": "How much $t(common:asset.{{from}}) do you want to buy?",
       "approve": "Approve",
@@ -28,7 +26,7 @@
       "info": "Treasury information",
       "view-contract": "View smart contract",
       "total-share": "Total share in Treasury",
-      "total-share-hint": "MISSING TEXT",
+      "total-share-hint": "The percentage of LP tokens in the treasury based on the total supply of LP tokens.",
       "in-treasure": "In Treasure",
       "breakdown": "Breakdown",
       "total-source-sold": "Total $t(common:asset.{{from}}) sold"

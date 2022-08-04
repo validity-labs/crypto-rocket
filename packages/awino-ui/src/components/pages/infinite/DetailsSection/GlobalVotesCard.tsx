@@ -73,7 +73,7 @@ export default function GlobalVotesCard({ items }: Props) {
   return (
     <Root>
       <Grid container spacing={10}>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={8}>
           <div className="AwiGlobalVotesCard-header">
             <Label className="AwiDetailsSection-cardTitle">{t(`title`)}</Label>
             <Search onSearch={handleSearch} size="small" />
@@ -109,7 +109,7 @@ export default function GlobalVotesCard({ items }: Props) {
             </Table>
           </TableContainer>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={4}>
           <Label className="AwiDetailsSection-cardTitle">{t(`current-weighting`)}</Label>
           <DoughnutChart data={items} colors={CHART_COLORS} i18nKey="global-votes-card" />
         </Grid>

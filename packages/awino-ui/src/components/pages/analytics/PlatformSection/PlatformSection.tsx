@@ -111,7 +111,7 @@ export default function PlatformSection({ stats }: Props) {
         <Grid item xs={12} md={7}>
           <Panel
             header={
-              <Label component="h2" id="dailyPlatformFees" tooltip={t('platform-section.daily-fees.title-hint')}>
+              <Label component="h2" id="dailyPlatformFees">
                 {t('platform-section.daily-fees.title')}
               </Label>
             }
@@ -156,7 +156,7 @@ export default function PlatformSection({ stats }: Props) {
         <Grid item xs={12} md={5}>
           <Panel
             header={
-              <Label id="platformStats" className="label" tooltip={t('platform-section.stats.title-hint')}>
+              <Label id="platformStats" className="label">
                 {t('platform-section.stats.title')}
               </Label>
             }
@@ -183,7 +183,6 @@ export default function PlatformSection({ stats }: Props) {
                 /* @ts-ignore */
                 component: 'h3',
                 children: t('platform-section.stats.health-ratio'),
-                tooltip: t('platform-section.stats.health-ratio-hint'),
               }}
             />
             <LabelValue

@@ -3,6 +3,8 @@ import { merge } from 'lodash';
 
 import { Address, RecursivePartial } from '@/types/app';
 
+import { fetchBriefLiquidityPairs } from '../actions/exchange';
+
 import { setAccount } from './account';
 
 export interface LiquidityToken {
@@ -18,6 +20,12 @@ export interface LiquidityPair {
   token1: LiquidityToken;
   totalSupply?: string;
 }
+
+export interface BriefLiquidityPair {
+  id: Address;
+  label: string;
+  assets: [string, string];
+}
 export interface PartialUserLiquidityPair {
   id: Address;
   balance: string;
@@ -31,6 +39,7 @@ interface ExchangeState {
   liquidityPairs: {
     ids: Address[];
     entities: Record<Address, LiquidityPair>;
+    brief: BriefLiquidityPair[];
   };
   userLiquidityPairs: {
     entities: Record<Address, PartialUserLiquidityPair>;
@@ -41,6 +50,7 @@ const initialState: ExchangeState = {
   liquidityPairs: {
     ids: [],
     entities: {},
+    brief: [],
   },
   userLiquidityPairs: {
     entities: {},
@@ -90,11 +100,19 @@ export const exchangeSlice = createSlice({
       delete state.userLiquidityPairs.entities[id];
     },
   },
-  extraReducers: {
-    ['RESET']: () => initialState,
-    [setAccount.type]: (state) => {
-      state.userLiquidityPairs.entities = {};
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase('RESET', () => initialState)
+      .addCase(setAccount.type, (state) => {
+        state.userLiquidityPairs.entities = {};
+      })
+      // .addCase(fetchBriefLiquidityPairs.pending, (state) => {
+      // })
+      .addCase(fetchBriefLiquidityPairs.fulfilled, (state, action: PayloadAction<BriefLiquidityPair[]>) => {
+        state.liquidityPairs.brief = action.payload;
+      });
+    // .addCase(fetchBriefLiquidityPairs.rejected, (state) => {
+    // });
   },
 });
 

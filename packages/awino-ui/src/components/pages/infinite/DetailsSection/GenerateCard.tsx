@@ -43,9 +43,28 @@ const Root = styled(Card)(({ theme }) => ({
     padding: theme.spacing(0, 2, 0),
     margin: theme.spacing(2, 0, 11),
   },
-  '.AwiGenerateCard-lockUntil': {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+  // '.AwiGenerateCard-lockUntil': {
+  // display: 'grid',
+  // gridTemplateColumns: '1fr 1fr 1fr',
+  // },
+  '.AwiGenerateCard-note': {
+    margin: theme.spacing(4, 0),
+    p: {
+      display: 'inline-block',
+      padding: theme.spacing(4, 5),
+      borderRadius: +theme.shape.borderRadius * 2,
+      backgroundColor: theme.palette.background.main,
+    },
+  },
+  [theme.breakpoints.up('sm')]: {
+    '.AwiGenerateCard-note': {
+      position: 'relative',
+      p: {
+        position: 'absolute',
+        right: 0,
+        transform: 'translateY(-50%)',
+      },
+    },
   },
 }));
 
@@ -179,9 +198,14 @@ export default function GenerateCard({ awinoBalance }: Props) {
                   <span>{t('awino-balance')}</span>
                   <span>{formatAWI(awinoBalance)}</span>
                 </Typography>
+                <div className="AwiGenerateCard-note">
+                  <Typography variant="body-xs" color="text.active">
+                    {t(`note`)}
+                  </Typography>
+                </div>
                 <FieldRadio
                   name="lockUntil"
-                  className="AwiGenerateCard-lockUntil"
+                  // className="AwiGenerateCard-lockUntil"
                   required
                   fullWidth
                   options={lockUntilOptions}

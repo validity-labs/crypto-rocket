@@ -74,6 +74,12 @@ const Root = styled('footer')(({ theme }) => ({
   '.copyright, .list, .social': {
     margin: theme.spacing(0, 0, 5),
   },
+  [theme.breakpoints.up('md')]: {
+    '> .MuiContainer-root': {
+      paddingLeft: theme.spacing(25),
+      paddingRight: theme.spacing(25),
+    },
+  },
 }));
 
 export default function Footer(): ReactElement {

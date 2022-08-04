@@ -27,8 +27,7 @@
   },
   "platform-section": {
     "daily-fees": {
-      "title": "Daily platform fees",
-      "title-hint": "MISSING TEXT"
+      "title": "Daily platform fees"
     },
     "fields": {
       "date": "Date",
@@ -36,13 +35,11 @@
     },
     "stats": {
       "title": "Platform stats",
-      "title-hint": "MISSING TEXT",
       "total-deposits": "Total deposits",
       "total-borrows": "Total borrows",
       "health-ratio": "Global health ratio",
-      "health-ratio-hint": "MISSING TEXT",
       "total-fees": "Total platform fees",
-      "total-fees-hint": "MISSING TEXT"
+      "total-fees-hint": "50% of the platform fees go to token holders."
     }
   }
 }

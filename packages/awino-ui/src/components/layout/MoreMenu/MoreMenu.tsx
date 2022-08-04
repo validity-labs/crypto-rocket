@@ -15,7 +15,7 @@ import HoverMenuItem from '../Menu/HoverMenuItem';
 
 const Root = styled(HoverMenu)(({ theme }) => ({
   '.AwiHoverMenu-toggle': {
-    margin: theme.spacing(0, 4, 0, 31),
+    margin: theme.spacing(0, 4, 0, 4),
     padding: theme.spacing(2),
     border: '2px solid #00FFEB',
     borderRadius: +theme.shape.borderRadius * 2,

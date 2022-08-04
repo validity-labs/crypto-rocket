@@ -5,7 +5,6 @@
   },
   "asset-section": {
     "title": "Available to borrow",
-    "title-hint": "MISSING TEXT",
     "toggle-hint": "MISSING TEXT",
     "fields": {
       "asset": "Asset",
