@@ -352,7 +352,7 @@ const themeCreator = (mode: PaletteMode) => {
     },
     MuiContainer: {
       defaultProps: {
-        maxWidth: 'xl',
+        maxWidth: false /* 'xl', */,
       },
       styleOverrides: {
         root: {

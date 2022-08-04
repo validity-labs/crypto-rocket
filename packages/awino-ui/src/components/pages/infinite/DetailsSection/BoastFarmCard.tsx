@@ -102,7 +102,7 @@ export default function BoastFarmCard({ items }: Props) {
   return (
     <Root>
       <Grid container spacing={10}>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={8}>
           <div className="AwiBoastFarmCard-header">
             <Label className="AwiDetailsSection-cardTitle" tooltip={t(`title-hint`)}>
               {t(`title`)}
@@ -165,7 +165,7 @@ export default function BoastFarmCard({ items }: Props) {
             {t('new-vote-weighting')}&nbsp;{formatPercent(0)}
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={4}>
           <Label className="AwiDetailsSection-cardTitle">{t(`current-weighting`)}</Label>
           <DoughnutChart data={items} colors={CHART_COLORS} i18nKey="global-votes-card" />
         </Grid>

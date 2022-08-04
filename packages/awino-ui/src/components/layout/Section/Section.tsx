@@ -45,6 +45,10 @@ const Root = styled(Box, {
 })<RootProps>(({ theme, /* background, */ size }) => ({
   paddingTop: theme.spacing(paddingsMap[size][0]),
   paddingBottom: theme.spacing(paddingsMap[size][1]),
+  [theme.breakpoints.up('md')]: {
+    paddingLeft: theme.spacing(25),
+    paddingRight: theme.spacing(25),
+  },
 }));
 
 interface RootProps {
