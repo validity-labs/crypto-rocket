@@ -10,21 +10,20 @@
   "stats-section": {
     "items": [
       {
-        "title": "Locked & Staked",
-        "sub-values": ["Locked: {{v}}", "Staked: {{v}}"]
+        "title": "Staked",
+        "sub-values": [
+          "{{v}}"
+        ]
       },
       {
         "title": "Your daily revenue"
       },
       {
-        "title": "Your daily platform fees"
-      },
-      {
-        "title": "Your daily penalty fees"
-      },
-      {
         "title": "Your weekly revenue",
-        "sub-values": ["{{v}} / month", "{{v}} / year"]
+        "sub-values": [
+          "{{v}} / month",
+          "{{v}} / year"
+        ]
       }
     ]
   },
@@ -58,24 +57,7 @@
     "success": "$t(operation-section.success)"
   },
   "claim-section": {
-    "claim-awi": "Claim AWI",
     "claim-all-button": "Claim All",
-    "unlocked-awi": {
-      "title": "Unlocked AWI",
-      "description": "Staked AWI and experienced AWI vests"
-    },
-    "vesting-awi": {
-      "title": "Vesting AWI",
-      "description": "AWI that can be claimed with a <0>50% penalty</0>"
-    },
-    "claim-all": {
-      "title": "Claim all of the above",
-      "description": "Early exit penalty: <0>{{v}}</0>"
-    },
-    "expired-locked-awi": {
-      "title": "Expired locked AWI",
-      "description": "AWI locks that have exceeded the 3 month lock period and are now withdrawal."
-    },
     "fee-type-hint": "MISSING TEXT",
     "fee-type": {
       "claimable": "Claimable fees",
@@ -87,15 +69,5 @@
       "timestamp": "Timestamp/Blocknumber",
       "actions": "Actions"
     }
-  },
-  "claim-modal": {
-    "title": "Claim AWI",
-    "description": "MISSING DESCRIPTION",
-    "cta": "Claim",
-    "cta-done": "Claimed",
-    "confirm-transaction": "Please confirm the transaction. ☝",
-    "confirm-error": "Transaction failed.",
-    "confirm-error-prompt": "Transaction failed. Try again later.",
-    "confirm-success": "Transaction broadcast."
   }
 }

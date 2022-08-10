@@ -59,7 +59,7 @@ const Root = styled(Section)(({ theme }) => ({
   },
 }));
 
-const items = [1, 2, 3, 4, 5, 6];
+const items = [1, 2, 3, 4, 5];
 const idPrefix = 'infoSectionTabN';
 
 export default function InfoSection() {

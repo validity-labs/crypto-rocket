@@ -2,7 +2,6 @@ import BigNumberJS from 'bignumber.js';
 
 import { FarmItem } from '@/components/pages/earn/farms/ResultSection/ResultSection';
 import { LiquidityStakingDetailsData } from '@/components/pages/earn/liquidity-staking/DetailsSection/DetailsSection';
-import { ClaimData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_WETH_PAIR_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { StatsData } from '@/types/app';
@@ -19,26 +18,18 @@ export const earnLiquidityStakingDetails: LiquidityStakingDetailsData = {
 export const earnManageAwinoStats: StatsData = [
   {
     value: 89.7,
-    subValues: [24.72, 45.6],
+    subValues: [45.6],
   },
   { value: 89.7 },
-  { value: 0.27 },
-  { value: 273.4 },
   { value: 47.4, subValues: [24.72, 45.6] },
 ];
+
 export const earnManageAwinoStake: StakeData = {
   apr: 39.17,
   balance: {
     awi: 99.99,
     usd: 199.0,
   },
-};
-
-export const earnManageAwinoClaim: ClaimData = {
-  unlockedAWI: { awi: 100, claimable: true },
-  vestingAWI: { awi: 100, claimable: false },
-  claimAll: { awi: 50, claimable: true },
-  expiredLockedAWI: { awi: 100, claimable: true },
 };
 
 export const earnFarmsData: FarmItem[] = [

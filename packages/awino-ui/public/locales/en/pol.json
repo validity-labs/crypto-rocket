@@ -5,7 +5,7 @@
   },
   "purchase-section": {
     "title": "Protocol owned liquidity module",
-    "description": "Sell $t(common:asset.{{to}}) LP tokens directly to the protocol for a 12% premium.\n\n 50% of the $t(common:asset.{{from}}) treasury rewards (earned from borrowing fees) are redirected to purchase these LP tokens which are locked forever, ensuring healthy ongoing liquidity for the protocol.",
+    "description": "Sell $t(common:asset.{{to}}) LP tokens directly to the protocol for a 12% premium.\n\n 50% of the $t(common:asset.{{from}}) POL module rewards (earned from borrowing fees) are redirected to purchase these LP tokens which are locked forever, ensuring healthy ongoing liquidity for the protocol.",
     "buyable": "Buyable $t(common:asset.{{from}})",
     "info": {
       "title": "Buy $t(common:asset.{{from}}) with $t(common:asset.{{to}}) LP tokens",
@@ -22,12 +22,12 @@
       "create-proposal": "Buy USDC"
     },
     "treasury": {
-      "title": "Treasury",
-      "info": "Treasury information",
+      "title": "POL module",
+      "info": "POL module information",
       "view-contract": "View smart contract",
-      "total-share": "Total share in Treasury",
-      "total-share-hint": "The percentage of LP tokens in the treasury based on the total supply of LP tokens.",
-      "in-treasure": "In Treasure",
+      "total-share": "Total share in POL module",
+      "total-share-hint": "The percentage of LP tokens in the POL module based on the total supply of LP tokens.",
+      "in-treasure": "In POL module",
       "breakdown": "Breakdown",
       "total-source-sold": "Total $t(common:asset.{{from}}) sold"
     }

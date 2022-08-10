@@ -51,10 +51,6 @@
     "tabs-aria": "Switch between tool description",
     "items": [
       {
-        "title": "Deposit",
-        "description": "Supply into the protocol and watch your assets grow as a liquidity provider."
-      },
-      {
         "title": "Supply",
         "description": "Supply into the protocol and earn rewards as a liquidity provider."
       },
@@ -81,24 +77,20 @@
     "description": "AWINO takes a problem-solving approach and addresses the following issues\n we are currently faced with in the DeFi and crypto space in general.",
     "items": [
       {
+        "title": "An All-In-One DeFi Ecosystem",
+        "description": "AWINO brings DeFi to the community, all under one sustainable Ecosystem. A user-friendly, All-In-One DeFi Ecosystem, with multiple utilities from day one. A stealth launch with no pre-sale, whitelist, fund raising rounds, marketing or Venture Capitalists involved. AWINO is fully designed and funded by its two founders."
+      },
+      {
         "title": "Liquidity / stability",
-        "description": "AWINO has built mechanics within the token economics with the intent to strategically provide liquidity into the ecosystem. This will allow for seamless trades and bring stability in an otherwise, volatile market."
+        "description": "AWINO has built mechanics within the token economics, with the intention to strategically provide and sustain liquidity within the ecosystem. This will allow for an ever increasing and organic trading volume, thus bringing stability in an otherwise volatile crypto market."
       },
       {
-        "title": "Profitability / sustainability",
-        "description": "To ensure sustainability, AWINO invests within its own ecosystem. Revenue is re-invested 100% back into the protocol through buy backs and locking LP tokens into the treasury forever. This allows the protocol to be profitable, while accumulating appreciating assets in its treasury."
+        "title": "Protocol Owned Liquidity (POL) module",
+        "description": "To ensure sustainability, AWINO invests within its own ecosystem. Rewards are re-invested back into the protocol, through regular buy-backs (AWINO and WEALTH tokens) and staking these native LP tokens. Thus, locking them inside our POL module, keeping them out of the circulating supply, forever. This allows the protocol to be profitable and sustainable, while constantly accumulating more of the native LP tokens."
       },
       {
-        "title": "Safety and security",
-        "description": "Security and safety are major issue that investors face on a daily basis. To address these, AWINO has developed a state-of-the-art wallet application with above industry standard security features."
-      },
-      {
-        "title": "Decentralized reserve currency",
-        "description": "Unlike other algorithmic stable coins pegged to fiat, AWINO takes a different approach. Protocol Owned Liquidity (POL) is the heart of the AWINO ecosystem. A treasury that generates revenue and maintains a floor price through its Assets Under Management (AUM)."
-      },
-      {
-        "title": "Interoperability",
-        "description": "AWINO has multiple bridges, connecting to other blockchains such as Terra (LUNA), Avalanche (AVAX) and BSC (BNB), with the intention to further expand on other blockchains in the future. AWINO will later migrate to its own L1 block chain."
+        "title": "Safety / security",
+        "description": "Safety and security are major challenges that the crypto community faces on a daily basis. To address this, in addition to the initial audit, AWINO has set aside a generous bug bounty reward pool. This will encourage an ongoing monitoring and testing of our smart contracts, by various third parties."
       }
     ]
   },

@@ -3,7 +3,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import clsx from 'clsx';
 
-import { Button, FormControl, FormLabel, Grid, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Grid,
+  IconButton,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
@@ -13,6 +22,7 @@ import Label from '@/components/general/Label/Label';
 import Loader from '@/components/general/Loader/Loader';
 import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import Panel from '@/components/general/Panel/Panel';
+import AddIcon from '@/components/icons/AddIcon';
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import {
@@ -51,18 +61,18 @@ const Root = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: +theme.shape.borderRadius * 6,
     padding: theme.spacing(11, 8, 12),
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 64,
-      height: 64,
-      background: 'url(/images/icons/add-icon.svg) no-repeat',
-    },
     '&.Awi-active': {
       backgroundColor: 'rgba(0, 255, 186, 0.04)',
+    },
+  },
+  '.AwiLiquidityPanel-switch': {
+    position: 'absolute',
+    top: 0,
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 1,
+    svg: {
+      fontSize: 62,
     },
   },
   '.AwiLiquidityPanel-sourceAmountLabel, .AwiLiquidityPanel-targetAmountLabel': {
@@ -137,11 +147,11 @@ const Root = styled('div')(({ theme }) => ({
     },
     '.AwiLiquidityPanel-target': {
       padding: theme.spacing(11, 8, 12, 22),
-      '&:before': {
-        top: '110px',
-        left: 0,
-        transform: 'translate(-50%, 0)',
-      },
+    },
+    '.AwiLiquidityPanel-switch': {
+      top: '110px',
+      left: 0,
+      transform: 'translate(-50%, 0)',
     },
   },
 }));
@@ -382,6 +392,15 @@ const LiquidityPanel = (props: TabPanelProps) => {
     dispatch(fetchSwapLiquidity({ variables: { account }, provider: library }));
   };
 
+  /**
+   * Switch source / target assets
+   */
+  const handleSwitch = () => {
+    const tSourceAsset = sourceAsset;
+    setSourceAsset(targetAsset);
+    setTargetAsset(tSourceAsset);
+  };
+
   return (
     <>
       <Root
@@ -465,6 +484,9 @@ const LiquidityPanel = (props: TabPanelProps) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <div className={clsx('AwiLiquidityPanel-target', { 'Awi-active': canExecute })}>
+                  <IconButton color="primary" size="small" className="AwiLiquidityPanel-switch" onClick={handleSwitch}>
+                    <AddIcon />
+                  </IconButton>
                   <Button
                     variant="text"
                     className="AwiLiquidityPanel-assetToggle"
