@@ -6,7 +6,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="AwiInfoSection-panel AwiPanel-root MuiBox-root css-2"
@@ -50,38 +50,38 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
           class="AwiPanel-content content"
         >
           <div
-            class="AwiDataGrid-container"
+            class="AwiDataGrid-container MuiBox-root css-8"
           >
             <div
               aria-colcount="4"
               aria-multiselectable="false"
               aria-rowcount="0"
-              class="MuiDataGrid-root css-8"
+              class="MuiDataGrid-root css-9"
               role="grid"
             >
               <div>
                 <div />
               </div>
               <div
-                class="MuiDataGrid-main css-9"
+                class="MuiDataGrid-main css-10"
               >
                 <div
                   style="height: -56px; width: 0px; position: absolute; top: 56px;"
                 >
                   <div
-                    class="MuiDataGrid-overlay css-10"
+                    class="MuiDataGrid-overlay css-11"
                   >
                     <span
-                      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-11"
+                      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-12"
                       role="progressbar"
                       style="width: 40px; height: 40px;"
                     >
                       <svg
-                        class="MuiCircularProgress-svg css-12"
+                        class="MuiCircularProgress-svg css-13"
                         viewBox="22 22 44 44"
                       >
                         <circle
-                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-13"
+                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-14"
                           cx="44"
                           cy="44"
                           fill="none"
@@ -93,12 +93,12 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiDataGrid-columnHeaders css-14"
+                  class="MuiDataGrid-columnHeaders css-15"
                   style="min-height: 56px; max-height: 56px; line-height: 56px;"
                 >
                   <div
                     aria-rowindex="1"
-                    class="MuiDataGrid-columnHeadersInner MuiDataGrid-columnHeadersInner--scrollable css-15"
+                    class="MuiDataGrid-columnHeadersInner MuiDataGrid-columnHeadersInner--scrollable css-16"
                     role="row"
                     style="transform: translate3d(0px, 0px, 0px);"
                   >
@@ -122,7 +122,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                           >
                             <div
                               aria-label=""
-                              class="MuiDataGrid-columnHeaderTitle css-16"
+                              class="MuiDataGrid-columnHeaderTitle css-17"
                               data-mui-internal-clone-element="true"
                             >
                               governance:fields.id
@@ -136,7 +136,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-17"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-18"
                           data-testid="SeparatorIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -167,7 +167,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                           >
                             <div
                               aria-label=""
-                              class="MuiDataGrid-columnHeaderTitle css-16"
+                              class="MuiDataGrid-columnHeaderTitle css-17"
                               data-mui-internal-clone-element="true"
                             >
                               governance:fields.title
@@ -181,7 +181,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-17"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-18"
                           data-testid="SeparatorIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -212,7 +212,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                           >
                             <div
                               aria-label=""
-                              class="MuiDataGrid-columnHeaderTitle css-16"
+                              class="MuiDataGrid-columnHeaderTitle css-17"
                               data-mui-internal-clone-element="true"
                             >
                               governance:fields.date
@@ -226,7 +226,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-17"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-18"
                           data-testid="SeparatorIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -243,15 +243,15 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                   style="overflow: visible; height: 0px; width: 0px;"
                 >
                   <div
-                    class="MuiDataGrid-virtualScroller css-22"
+                    class="MuiDataGrid-virtualScroller css-23"
                     style="width: 0px; height: auto; margin-top: 56px; overflow-x: hidden;"
                   >
                     <div
-                      class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-23"
+                      class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-24"
                       style="width: auto; height: 1px; min-height: auto;"
                     >
                       <div
-                        class="MuiDataGrid-virtualScrollerRenderZone css-24"
+                        class="MuiDataGrid-virtualScrollerRenderZone css-25"
                         style="transform: translate3d(0px, undefinedpx, 0px);"
                       />
                     </div>
@@ -274,33 +274,33 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="MuiDataGrid-footerContainer css-25"
+                  class="MuiDataGrid-footerContainer css-26"
                 >
                   <div />
                   <div
-                    class="MuiTablePagination-root css-26"
+                    class="MuiTablePagination-root css-27"
                   >
                     <div
-                      class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-27"
+                      class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-28"
                     >
                       <div
-                        class="MuiTablePagination-spacer css-28"
+                        class="MuiTablePagination-spacer css-29"
                       />
                       <p
-                        class="MuiTablePagination-selectLabel css-29"
+                        class="MuiTablePagination-selectLabel css-30"
                         id="mui-2"
                       >
                         common.table.rows-per-page
                       </p>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary css-30"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary css-31"
                         variant="standard"
                       >
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="mui-2 mui-1"
-                          class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-31"
+                          class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-32"
                           id="mui-1"
                           role="button"
                           tabindex="0"
@@ -309,13 +309,13 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-32"
+                          class="MuiSelect-nativeInput css-33"
                           tabindex="-1"
                           value="100"
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-33"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-34"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -326,16 +326,16 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                         </svg>
                       </div>
                       <p
-                        class="MuiTablePagination-displayedRows css-34"
+                        class="MuiTablePagination-displayedRows css-35"
                       >
                         common.table.rows-out-of
                       </p>
                       <div
-                        class="MuiBox-root css-35"
+                        class="MuiBox-root css-36"
                       >
                         <button
                           aria-label="common.table.previous-page"
-                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-36"
+                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-37"
                           disabled=""
                           tabindex="-1"
                           title="common.table.previous-page"
@@ -343,7 +343,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-17"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-18"
                             data-testid="KeyboardArrowLeftIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -355,7 +355,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                         </button>
                         <button
                           aria-label="common.table.next-page"
-                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-36"
+                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-37"
                           disabled=""
                           tabindex="-1"
                           title="common.table.next-page"
@@ -363,7 +363,7 @@ exports[`<ProposalSection /> has valid snapshot 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-17"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-18"
                             data-testid="KeyboardArrowRightIcon"
                             focusable="false"
                             viewBox="0 0 24 24"

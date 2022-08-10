@@ -6,18 +6,17 @@ exports[`<GuideSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-2"
+      <div
+        class="MuiBox-root css-2"
       >
-        landing:guide-section.title
-      </h2>
-      <p
-        class="MuiTypography-root MuiTypography-body css-3"
-      >
-        landing:guide-section.description
-      </p>
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-3"
+        >
+          landing:guide-section.title
+        </h2>
+      </div>
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg css-4"
       >

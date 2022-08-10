@@ -82,6 +82,6 @@ export const BLOCKCHAIN_TRANSACTION_EXPLORER_URL = blockchainTransactionExplorer
 export const BLOCKS_PER_YEAR = 2104400;
 
 export const DATA_MINER = {
-  URL: dataMiner.url,
-  KEY: dataMiner.key,
+  URL: dataMiner?.url,
+  KEY: dataMiner?.key,
 };

@@ -26,6 +26,7 @@ export type Language = 'en' /* | 'de' */;
 export type I18nPageNamespace =
   | 'error'
   | 'landing'
+  | 'about'
   | 'market'
   | 'market-details'
   | 'earn-deposit'

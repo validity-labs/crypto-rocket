@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="594.04474"
+   height="507.42804"
+   viewBox="0 0 594.04472 507.42805"
+   version="1.1"
+   id="svg32"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11">
+    <linearGradient
+       id="linear-gradient"
+       x1="0.5"
+       x2="0.5"
+       y2="1"
+       gradientUnits="objectBoundingBox">
+      <stop
+         offset="0"
+         stop-color="#ffe4b2"
+         id="stop2" />
+      <stop
+         offset="0.823"
+         stop-color="#ad7101"
+         id="stop4" />
+      <stop
+         offset="1"
+         stop-color="#241c00"
+         id="stop6" />
+    </linearGradient>
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rechteck_1170"
+         data-name="Rechteck 1170"
+         width="613.43298"
+         height="423.216"
+         fill="url(#linear-gradient)"
+         x="0"
+         y="0" />
+    </clipPath>
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient851"
+       gradientUnits="userSpaceOnUse"
+       x1="22.174138"
+       x2="22.174138"
+       y2="44.347254"
+       gradientTransform="scale(0.5936714,1.6844335)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient853"
+       gradientUnits="userSpaceOnUse"
+       x1="29.131528"
+       x2="29.131528"
+       y2="58.269321"
+       gradientTransform="scale(0.68993702,1.4494077)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient855"
+       gradientUnits="userSpaceOnUse"
+       x1="37.777534"
+       x2="37.777534"
+       y2="75.55544"
+       gradientTransform="scale(0.927414,1.0782671)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient857"
+       gradientUnits="userSpaceOnUse"
+       x1="31.931441"
+       x2="31.931441"
+       y2="63.862882"
+       gradientTransform="scale(1.2082762,0.82762534)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient859"
+       gradientUnits="userSpaceOnUse"
+       x1="38.34008"
+       x2="38.34008"
+       y2="76.680278"
+       gradientTransform="scale(1.0466154,0.95546081)"
+       y1="0.00011803308" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient861"
+       gradientUnits="userSpaceOnUse"
+       x1="98.434259"
+       x2="98.434259"
+       y2="196.8712"
+       gradientTransform="scale(1.4511462,0.68911045)"
+       y1="0.0026794756" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient863"
+       gradientUnits="userSpaceOnUse"
+       x1="49.805691"
+       x2="49.805691"
+       y2="99.611382"
+       gradientTransform="scale(1.8206253,0.54926185)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient865"
+       gradientUnits="userSpaceOnUse"
+       x1="67.73617"
+       x2="67.73617"
+       y2="135.47234"
+       gradientTransform="scale(1.7340071,0.57669891)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient867"
+       gradientUnits="userSpaceOnUse"
+       x1="63.424538"
+       x2="63.424538"
+       y2="126.84908"
+       gradientTransform="scale(1.7487869,0.57182497)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient869"
+       gradientUnits="userSpaceOnUse"
+       x1="46.65018"
+       x2="46.65018"
+       y2="93.300359"
+       gradientTransform="scale(2.0781806,0.48119012)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient871"
+       gradientUnits="userSpaceOnUse"
+       x1="47.666593"
+       x2="47.666593"
+       y2="95.333186"
+       gradientTransform="scale(1.9093351,0.52374253)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient873"
+       gradientUnits="userSpaceOnUse"
+       x1="43.839623"
+       x2="43.839623"
+       y2="87.679246"
+       gradientTransform="scale(1.5473331,0.64627325)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient875"
+       gradientUnits="userSpaceOnUse"
+       x1="35.089808"
+       x2="35.089808"
+       y2="70.179617"
+       gradientTransform="scale(1.1644977,0.85873937)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient877"
+       gradientUnits="userSpaceOnUse"
+       x1="189.59496"
+       x2="189.59496"
+       y2="379.18915"
+       gradientTransform="scale(1.0583098,0.94490291)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient879"
+       gradientUnits="userSpaceOnUse"
+       x1="85.806335"
+       x2="85.806335"
+       y2="171.61144"
+       gradientTransform="scale(0.94303399,1.0604072)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient881"
+       gradientUnits="userSpaceOnUse"
+       x1="25.924511"
+       x2="25.924511"
+       y2="51.847627"
+       gradientTransform="scale(0.57847578,1.7286808)"
+       y1="0" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient883"
+       gradientUnits="userSpaceOnUse"
+       x1="24.352607"
+       x2="24.352607"
+       y2="48.720555"
+       gradientTransform="scale(0.56596936,1.7668801)"
+       y1="0" />
+  </defs>
+  <g
+     id="Gruppe_4152"
+     data-name="Gruppe 4152"
+     transform="matrix(0.966,-0.259,0.259,0.966,-21.779911,139.41789)">
+    <g
+       id="Gruppe_4147"
+       data-name="Gruppe 4147"
+       clip-path="url(#clip-path)">
+      <path
+         id="Pfad_2307"
+         data-name="Pfad 2307"
+         d="M 11.046,0 C 2.246,24.639 11.988,55.324 26.328,74.7 2.186,71 -10.55,40.521 11.046,0"
+         transform="translate(235.433,336.974)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient851)" />
+      <path
+         id="Pfad_2308"
+         data-name="Pfad 2308"
+         d="M 3.7,0 C -6.546,51.824 4.114,80.622 40.2,84.456 12.629,59.509 3.926,18.581 3.7,0"
+         transform="translate(253.785,329.564)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient853)" />
+      <path
+         id="Pfad_2309"
+         data-name="Pfad 2309"
+         d="M 0.855,0 C -6.487,47.087 34.878,87.547 70.071,80.712 28.4,64.15 12.881,25.71 0.855,0"
+         transform="translate(269.275,332.337)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient855)" />
+      <path
+         id="Pfad_2310"
+         data-name="Pfad 2310"
+         d="M 0,0 C 12.495,25.438 43.107,47.177 77.164,49.157 44.731,60.521 13.953,46.119 0,0"
+         transform="translate(286.602,342.608)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient857)" />
+      <path
+         id="Pfad_2311"
+         data-name="Pfad 2311"
+         d="m 47.328,40.508 c -6.964,-3.859 -13.12,-3.023 -21.823,1.643 -4.527,2.432 -7.188,-1.526 -9.337,-1.6 -5.909,-0.2 -6.958,3.206 -7.912,9.4 C 0.093,41.3 7.985,36.609 14.9,33.931 c 0.836,-0.322 2,-2.65 3.725,-3.438 3.351,-1.529 4.987,-0.558 6.027,-0.914 3.472,-1.195 -1.694,-5.29 -6.568,-6.793 C 13.21,21.283 12.803,18.206 13.838,14.493 7.048,12.167 3.433,14.96 0,18.045 2.491,8.812 7.615,6.569 15.5,11.651 c 3.433,-3.1 7.48,-0.491 11.92,5.758 1.775,2.5 7.042,0.724 3.854,-3.795 -1.313,-1.859 1.719,-2.791 1.848,-3.138 -2.21,-6.31 -6.434,-7.127 -11.342,-6.125 7.789,-7.868 11.427,-4.261 16.158,4.408 3.593,-1.077 6.843,1.958 7.758,5.89 2.314,9.945 9.861,11.917 14.374,11.631 15.855,-1.01 23.214,7.3 19.027,26.327 -1.45,6.6 -2.847,7.345 -7.368,6.84 3.085,4.277 3.323,9.609 -7.04,13.818 3.725,-7.651 2.948,-13.14 -0.665,-13.319 -2.558,-0.822 -4.88,-1.624 -7.211,-7.643 -0.889,-5.068 -4.221,-8.879 -9.485,-11.8"
+         transform="translate(92.9,349.95)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient859)" />
+      <path
+         id="Pfad_2312"
+         data-name="Pfad 2312"
+         d="m 90.789,4.408 c 12.643,-7.9 30.346,-7.107 51.263,18.606 44.9,55.2 106.239,58.165 143.633,51.729 -20.165,17.532 -78.79,27.617 -116.731,3.3 C 143.309,61.602 135.554,42.015 119.018,34.622 90.048,21.662 84.29,59.779 74.5,75.881 63.892,93.323 54.682,101.08 42.235,101.7 c -4.709,0.788 -4.945,8.717 -3.851,18.766 0.906,8.307 0.6,12.988 -7.7,15.2 3.59,-5.141 3.685,-7.962 2,-12.458 a 53.574,53.574 0 0 1 -3.59,-22.975 C 29.949,93.555 26.228,86.075 16.726,84.359 9.482,83.049 6.212,79.625 8.082,73.459 9.348,69.31 5.127,67.548 0,69.568 c 1.548,-5.862 4.622,-9.261 15.765,0.4 3.6,3.741 7.783,8 12.668,12.9 2.045,2.174 10.055,7.508 14.483,6.064 C 49.827,86.674 54.416,72.343 60.061,56.76 69.325,31.164 79.618,11.386 90.789,4.408"
+         transform="translate(152.142,285.891)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient861)" />
+      <path
+         id="Pfad_2313"
+         data-name="Pfad 2313"
+         d="M 0,0 C 28.966,57.888 127.613,70.741 181.355,34.25 113.287,52.452 54.629,37.366 0,0"
+         transform="translate(268.585,251.648)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient863)" />
+      <path
+         id="Pfad_2314"
+         data-name="Pfad 2314"
+         d="M 0,42.162 C 21.481,32.071 38.109,20.746 54.78,0 71.024,31.945 132.05,62.3 234.91,34.892 147.633,118.316 16.418,58.188 0,42.162"
+         transform="translate(277.464,201.987)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient865)" />
+      <path
+         id="Pfad_2315"
+         data-name="Pfad 2315"
+         d="M 38.216,0 C 69.4,30.315 186.631,31.291 221.832,18.213 171.461,91.9 26.821,84.748 0,31.875 9.115,20.723 19.237,10.013 38.216,0"
+         transform="translate(342.745,162.856)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient867)" />
+      <path
+         id="Pfad_2316"
+         data-name="Pfad 2316"
+         d="M 33.01,0 C 84.344,24.35 159.945,15.156 193.895,3.952 169.385,56.979 33.992,53.737 0,21.3 2.218,17.372 19.352,6.843 33.01,0"
+         transform="translate(390.264,133.688)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient869)" />
+      <path
+         id="Pfad_2317"
+         data-name="Pfad 2317"
+         d="M 21.963,23.96 C 78.263,35.675 131.077,18.017 182.023,0 157.7,50.7 81.3,60.846 0,39.2 Z"
+         transform="translate(431.41,89.762)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient871)" />
+      <path
+         id="Pfad_2318"
+         data-name="Pfad 2318"
+         d="M 22.269,41.444 C 65.595,39.955 97.018,21.444 135.669,0 121.547,28.61 76.821,61.194 0,56.143 9.684,51.235 14.217,46.921 22.269,41.443"
+         transform="translate(459.375,52.315)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient873)" />
+      <path
+         id="Pfad_2319"
+         data-name="Pfad 2319"
+         d="M 23.654,42.154 C 50.654,30.211 56.83,22.488 81.724,0 76.465,29.325 55.489,47.729 0,60.266 Z"
+         transform="translate(489.505,26.364)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient875)" />
+      <path
+         id="Pfad_2320"
+         data-name="Pfad 2320"
+         d="m 9.773,269.2 c -12.8,-11.715 -14.682,-27.031 4.417,-49.275 15.852,-14.127 33.479,-19.2 53.675,-11.185 39,13.1 70.66,0.438 97.483,-29.221 33.8,-32.178 50.276,-37.694 115.716,-73.784 C 377.47,52.564 385.587,19.063 401.3,0 c -1.669,39.66 -31.7,70.985 -111.54,118.855 -52.4,27.937 -87.235,49.723 -114.513,80.9 -29.864,30.618 -64.063,43.525 -104.136,32.433 -10.032,14.354 -7.236,27.7 10.226,40.5 2.53,1.854 14.679,8.871 12.772,11.019 -7.216,8.131 -13.092,17.708 -19.949,32.666 -7.24,15.788 -16.888,42.451 -20.56,41.916 -4.841,-0.7 -12.671,-7.163 -15.532,-12.1 -0.822,-1.419 45.174,-50.907 21.913,-60.639 -19.357,-8.1 -30.225,-27.979 -39.767,-26.428 -6.532,1.06 -9.079,5.124 -10.444,10.08 M 27.456,231.64 c 1.127,-5.834 5.306,-9.595 15.437,-9.362 0.426,4.6 -1.557,8.989 -4.255,10.329 -3.7,1.843 -6.779,1.559 -11.182,-0.968"
+         transform="translate(136.993)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient877)" />
+      <path
+         id="Pfad_2321"
+         data-name="Pfad 2321"
+         d="m 135.285,181.978 c 1.739,-8.476 13.734,-22.737 26.551,-25.66 -26.136,-2.117 -49.816,-9.328 -65.014,-34.1 -3.534,5.02 -3.744,10.644 2.008,17.344 C 30.213,130.3 6.921,67.875 12.115,0 -5.717,36.606 -4.735,87.109 20.9,117.194 49.213,150.423 83,169.84 135.289,181.978"
+         transform="translate(0.001,46.952)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient879)" />
+      <path
+         id="Pfad_2322"
+         data-name="Pfad 2322"
+         d="m 29.993,89.628 c -8.767,-5 -26.26,-22.179 -29.392,-43 C -2.763,24.285 8.523,8.237 21.514,0 11.039,26 11.754,57.324 29.992,89.628"
+         transform="translate(31.07,70.119)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient881)" />
+      <path
+         id="Pfad_2323"
+         data-name="Pfad 2323"
+         d="M 23.456,86.043 C 24.645,86.809 19.392,76.485 27.57,71.352 9.848,41.472 10.569,23.581 13.9,0 -4.8,15.493 -7.418,66.108 23.453,86.043"
+         transform="translate(62.461,90.312)"
+         fill-rule="evenodd"
+         fill="url(#linear-gradient)"
+         style="fill:url(#linearGradient883)" />
+    </g>
+  </g>
+</svg>

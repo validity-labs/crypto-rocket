@@ -3,6 +3,11 @@ import { MenuItemLink, MenuItemType } from '@/types/app';
 export const mainMenuLinks: MenuItemType[] = [
   {
     type: 'internal',
+    key: 'about',
+    url: '/about',
+  },
+  {
+    type: 'internal',
     key: 'market',
     url: '/market',
   },

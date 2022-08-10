@@ -6,7 +6,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-2"
@@ -25,29 +25,6 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 id="dailyPlatformFees"
               >
                 analytics:platform-section.daily-fees.title
-                <span
-                  aria-label="analytics:platform-section.daily-fees.title-hint"
-                  class="AwiLabel-help"
-                  data-mui-internal-clone-element="true"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
-                      id="Pfad_2253"
-                    />
-                    <path
-                      d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
-                    />
-                    <path
-                      d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
-                    />
-                  </svg>
-                </span>
               </h2>
             </div>
             <div
@@ -60,32 +37,32 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   aria-colcount="2"
                   aria-multiselectable="false"
                   aria-rowcount="0"
-                  class="MuiDataGrid-root css-7"
+                  class="MuiDataGrid-root css-6"
                   role="grid"
                 >
                   <div>
                     <div />
                   </div>
                   <div
-                    class="MuiDataGrid-main css-8"
+                    class="MuiDataGrid-main css-7"
                   >
                     <div
                       style="height: -56px; width: 0px; position: absolute; top: 56px;"
                     >
                       <div
-                        class="MuiDataGrid-overlay css-9"
+                        class="MuiDataGrid-overlay css-8"
                       >
                         <span
-                          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-10"
+                          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-9"
                           role="progressbar"
                           style="width: 40px; height: 40px;"
                         >
                           <svg
-                            class="MuiCircularProgress-svg css-11"
+                            class="MuiCircularProgress-svg css-10"
                             viewBox="22 22 44 44"
                           >
                             <circle
-                              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-12"
+                              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-11"
                               cx="44"
                               cy="44"
                               fill="none"
@@ -97,12 +74,12 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiDataGrid-columnHeaders css-13"
+                      class="MuiDataGrid-columnHeaders css-12"
                       style="min-height: 56px; max-height: 56px; line-height: 56px;"
                     >
                       <div
                         aria-rowindex="1"
-                        class="MuiDataGrid-columnHeadersInner css-14"
+                        class="MuiDataGrid-columnHeadersInner css-13"
                         role="row"
                         style="transform: translate3d(0px, 0px, 0px);"
                       >
@@ -126,25 +103,25 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                               >
                                 <div
                                   aria-label=""
-                                  class="MuiDataGrid-columnHeaderTitle css-15"
+                                  class="MuiDataGrid-columnHeaderTitle css-14"
                                   data-mui-internal-clone-element="true"
                                 >
                                   analytics:platform-section.fields.date
                                 </div>
                               </div>
                               <div
-                                class="MuiDataGrid-iconButtonContainer css-16"
+                                class="MuiDataGrid-iconButtonContainer css-15"
                               >
                                 <button
                                   aria-label="analytics:common.table.sort"
-                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-17"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-16"
                                   tabindex="-1"
                                   title="analytics:common.table.sort"
                                   type="button"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-18"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-17"
                                     data-testid="ArrowUpwardIcon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
@@ -154,7 +131,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTouchRipple-root css-19"
+                                    class="MuiTouchRipple-root css-18"
                                   />
                                 </button>
                               </div>
@@ -166,7 +143,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-6"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-19"
                               data-testid="SeparatorIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -197,25 +174,25 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                               >
                                 <div
                                   aria-label=""
-                                  class="MuiDataGrid-columnHeaderTitle css-15"
+                                  class="MuiDataGrid-columnHeaderTitle css-14"
                                   data-mui-internal-clone-element="true"
                                 >
                                   analytics:platform-section.fields.total-fees
                                 </div>
                               </div>
                               <div
-                                class="MuiDataGrid-iconButtonContainer css-16"
+                                class="MuiDataGrid-iconButtonContainer css-15"
                               >
                                 <button
                                   aria-label="analytics:common.table.sort"
-                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-17"
+                                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-16"
                                   tabindex="-1"
                                   title="analytics:common.table.sort"
                                   type="button"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-18"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-17"
                                     data-testid="ArrowUpwardIcon"
                                     focusable="false"
                                     viewBox="0 0 24 24"
@@ -225,7 +202,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                                     />
                                   </svg>
                                   <span
-                                    class="MuiTouchRipple-root css-19"
+                                    class="MuiTouchRipple-root css-18"
                                   />
                                 </button>
                               </div>
@@ -237,7 +214,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-6"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-19"
                               data-testid="SeparatorIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -254,15 +231,15 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                       style="overflow: visible; height: 0px; width: 0px;"
                     >
                       <div
-                        class="MuiDataGrid-virtualScroller css-27"
+                        class="MuiDataGrid-virtualScroller css-26"
                         style="width: 0px; height: auto; margin-top: 56px; overflow-x: hidden;"
                       >
                         <div
-                          class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-28"
+                          class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-27"
                           style="width: auto; height: 1px; min-height: auto;"
                         >
                           <div
-                            class="MuiDataGrid-virtualScrollerRenderZone css-29"
+                            class="MuiDataGrid-virtualScrollerRenderZone css-28"
                             style="transform: translate3d(0px, undefinedpx, 0px);"
                           />
                         </div>
@@ -285,34 +262,34 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   </div>
                   <div>
                     <div
-                      class="MuiDataGrid-footerContainer css-30"
+                      class="MuiDataGrid-footerContainer css-29"
                     >
                       <div />
                       <div
-                        class="MuiTablePagination-root css-31"
+                        class="MuiTablePagination-root css-30"
                       >
                         <div
-                          class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-32"
+                          class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-31"
                         >
                           <div
-                            class="MuiTablePagination-spacer css-33"
+                            class="MuiTablePagination-spacer css-32"
                           />
                           <p
-                            class="MuiTablePagination-selectLabel css-34"
-                            id="mui-6"
+                            class="MuiTablePagination-selectLabel css-33"
+                            id="mui-3"
                           >
                             common.table.rows-per-page
                           </p>
                           <div
-                            class="MuiInputBase-root MuiInputBase-colorPrimary css-35"
+                            class="MuiInputBase-root MuiInputBase-colorPrimary css-34"
                             variant="standard"
                           >
                             <div
                               aria-expanded="false"
                               aria-haspopup="listbox"
-                              aria-labelledby="mui-6 mui-5"
-                              class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-36"
-                              id="mui-5"
+                              aria-labelledby="mui-3 mui-2"
+                              class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-35"
+                              id="mui-2"
                               role="button"
                               tabindex="0"
                             >
@@ -320,13 +297,13 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                             </div>
                             <input
                               aria-hidden="true"
-                              class="MuiSelect-nativeInput css-37"
+                              class="MuiSelect-nativeInput css-36"
                               tabindex="-1"
                               value="10"
                             />
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-38"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-37"
                               data-testid="ArrowDropDownIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -337,16 +314,16 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                             </svg>
                           </div>
                           <p
-                            class="MuiTablePagination-displayedRows css-39"
+                            class="MuiTablePagination-displayedRows css-38"
                           >
                             common.table.rows-out-of
                           </p>
                           <div
-                            class="MuiBox-root css-40"
+                            class="MuiBox-root css-39"
                           >
                             <button
                               aria-label="common.table.previous-page"
-                              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-41"
+                              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-40"
                               disabled=""
                               tabindex="-1"
                               title="common.table.previous-page"
@@ -354,7 +331,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19"
                                 data-testid="KeyboardArrowLeftIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -366,7 +343,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                             </button>
                             <button
                               aria-label="common.table.next-page"
-                              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-41"
+                              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-40"
                               disabled=""
                               tabindex="-1"
                               title="common.table.next-page"
@@ -374,7 +351,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19"
                                 data-testid="KeyboardArrowRightIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -395,7 +372,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-45"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-44"
         >
           <div
             class="AwiPanel-root MuiBox-root css-4"
@@ -408,36 +385,13 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 id="platformStats"
               >
                 analytics:platform-section.stats.title
-                <span
-                  aria-label="analytics:platform-section.stats.title-hint"
-                  class="AwiLabel-help"
-                  data-mui-internal-clone-element="true"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
-                      id="Pfad_2253"
-                    />
-                    <path
-                      d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
-                    />
-                    <path
-                      d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
-                    />
-                  </svg>
-                </span>
               </h6>
             </div>
             <div
               class="AwiPanel-content content"
             >
               <div
-                class="AwiLabelValue-root label-value-column MuiBox-root css-49"
+                class="AwiLabelValue-root label-value-column MuiBox-root css-47"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -447,13 +401,13 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 </h3>
                 <p
                   aria-describedby="totalDeposits"
-                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-49"
                 >
                   1,232,432.00 USD
                 </p>
               </div>
               <div
-                class="AwiLabelValue-root label-value-column MuiBox-root css-49"
+                class="AwiLabelValue-root label-value-column MuiBox-root css-47"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -463,52 +417,29 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 </h3>
                 <p
                   aria-describedby="totalBorrow"
-                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-49"
                 >
                   438,403.33 USD
                 </p>
               </div>
               <div
-                class="AwiLabelValue-root label-value-column MuiBox-root css-49"
+                class="AwiLabelValue-root label-value-column MuiBox-root css-47"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
                   id="globalHealthRatio"
                 >
                   analytics:platform-section.stats.health-ratio
-                  <span
-                    aria-label="analytics:platform-section.stats.health-ratio-hint"
-                    class="AwiLabel-help"
-                    data-mui-internal-clone-element="true"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
-                        id="Pfad_2253"
-                      />
-                      <path
-                        d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
-                      />
-                      <path
-                        d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
-                      />
-                    </svg>
-                  </span>
                 </h3>
                 <p
                   aria-describedby="globalHealthRatio"
-                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-49"
                 >
                   1.38
                 </p>
               </div>
               <div
-                class="AwiLabelValue-root label-value-column MuiBox-root css-49"
+                class="AwiLabelValue-root label-value-column MuiBox-root css-47"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -522,7 +453,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -541,7 +472,7 @@ exports[`<PlatformSection /> has valid snapshot 1`] = `
                 </h3>
                 <p
                   aria-describedby="totalPlatformFee"
-                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-51"
+                  class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-49"
                 >
                   3,432,332.00 USD
                 </p>

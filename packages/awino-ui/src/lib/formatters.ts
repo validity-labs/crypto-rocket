@@ -166,7 +166,15 @@ export const formatEmptyString = (value: any): string => (value ? `${value}` : '
  * @returns - a formatted string
  */
 export const formatPercent = (value?: number | string) => {
-  const percent = trimEnd(trimEnd(toBigNum(value).toFixed(2).toString(), '0'), '.');
+  const percent = trimEnd(
+    trimEnd(
+      toBigNum(value || 0)
+        .toFixed(2)
+        .toString(),
+      '0'
+    ),
+    '.'
+  );
 
   return `${percent || 0} %`;
 };
