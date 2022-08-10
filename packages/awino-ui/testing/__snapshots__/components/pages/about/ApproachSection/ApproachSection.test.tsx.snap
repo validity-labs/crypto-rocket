@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ApproachSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg AwiSection-container css-1"
+    >
+      <div
+        class="AwiApproachSection-card"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h3 AwiApproachSection-title css-2"
+        >
+          title
+        </h2>
+        <p
+          class="MuiTypography-root MuiTypography-body css-3"
+        >
+          description
+        </p>
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-13 css-4"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-5"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-h6 AwiApproachSection-subtitle css-6"
+            >
+              items.0.title
+            </h3>
+            <p
+              class="MuiTypography-root MuiTypography-body css-7"
+            >
+              items.0.description
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-5"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-h6 AwiApproachSection-subtitle css-6"
+            >
+              items.1.title
+            </h3>
+            <p
+              class="MuiTypography-root MuiTypography-body css-7"
+            >
+              items.1.description
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-5"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-h6 AwiApproachSection-subtitle css-6"
+            >
+              items.2.title
+            </h3>
+            <p
+              class="MuiTypography-root MuiTypography-body css-7"
+            >
+              items.2.description
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-5"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-h6 AwiApproachSection-subtitle css-6"
+            >
+              items.3.title
+            </h3>
+            <p
+              class="MuiTypography-root MuiTypography-body css-7"
+            >
+              items.3.description
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

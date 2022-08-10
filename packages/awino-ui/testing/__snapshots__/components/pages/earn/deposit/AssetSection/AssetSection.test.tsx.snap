@@ -6,7 +6,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="AwiPanel-root MuiBox-root css-2"
@@ -19,76 +19,33 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             id="earnDepositTitle"
           >
             earn-deposit:asset-section.title
-            <span
-              aria-label="earn-deposit:asset-section.title-hint"
-              class="AwiLabel-help"
-              data-mui-internal-clone-element="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
-                  id="Pfad_2253"
-                />
-                <path
-                  d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
-                />
-                <path
-                  d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
-                />
-              </svg>
-            </span>
           </h2>
           <div
             class="aside"
           >
-            <span
-              class="MuiSwitch-root MuiSwitch-sizeMedium css-5"
-            >
-              <span
-                class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-6"
-                title="earn-deposit:asset-section.toggle-hint"
-              >
-                <input
-                  aria-label="controlled"
-                  class="MuiSwitch-input PrivateSwitchBase-input css-7"
-                  type="checkbox"
-                />
-                <span
-                  class="MuiSwitch-thumb css-8"
-                />
-              </span>
-              <span
-                class="MuiSwitch-track css-9"
-              />
-            </span>
             <form
               autocomplete="off"
-              class="AwiSearch-root css-10"
+              class="AwiSearch-root css-4"
               data-testid="SearchForm"
               novalidate=""
             >
               <div
-                class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-11"
+                class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-5"
               >
                 <input
-                  class="MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-12"
+                  class="MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-6"
                   placeholder="common.search"
                   type="text"
                   value=""
                 />
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-13"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-7"
                   tabindex="0"
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -100,7 +57,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                     />
                   </svg>
                   <span
-                    class="MuiTouchRipple-root css-15"
+                    class="MuiTouchRipple-root css-9"
                   />
                 </button>
               </div>
@@ -117,32 +74,32 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               aria-colcount="4"
               aria-multiselectable="false"
               aria-rowcount="0"
-              class="MuiDataGrid-root css-16"
+              class="MuiDataGrid-root css-10"
               role="grid"
             >
               <div>
                 <div />
               </div>
               <div
-                class="MuiDataGrid-main css-17"
+                class="MuiDataGrid-main css-11"
               >
                 <div
                   style="height: -56px; width: 0px; position: absolute; top: 56px;"
                 >
                   <div
-                    class="MuiDataGrid-overlay css-18"
+                    class="MuiDataGrid-overlay css-12"
                   >
                     <span
-                      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-19"
+                      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-13"
                       role="progressbar"
                       style="width: 40px; height: 40px;"
                     >
                       <svg
-                        class="MuiCircularProgress-svg css-20"
+                        class="MuiCircularProgress-svg css-14"
                         viewBox="22 22 44 44"
                       >
                         <circle
-                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-21"
+                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-15"
                           cx="44"
                           cy="44"
                           fill="none"
@@ -154,12 +111,12 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiDataGrid-columnHeaders css-22"
+                  class="MuiDataGrid-columnHeaders css-16"
                   style="min-height: 56px; max-height: 56px; line-height: 56px;"
                 >
                   <div
                     aria-rowindex="1"
-                    class="MuiDataGrid-columnHeadersInner css-23"
+                    class="MuiDataGrid-columnHeadersInner css-17"
                     role="row"
                     style="transform: translate3d(0px, 0px, 0px);"
                   >
@@ -183,25 +140,25 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                           >
                             <div
                               aria-label=""
-                              class="MuiDataGrid-columnHeaderTitle css-24"
+                              class="MuiDataGrid-columnHeaderTitle css-18"
                               data-mui-internal-clone-element="true"
                             >
                               earn-deposit:asset-section.fields.asset
                             </div>
                           </div>
                           <div
-                            class="MuiDataGrid-iconButtonContainer css-25"
+                            class="MuiDataGrid-iconButtonContainer css-19"
                           >
                             <button
                               aria-label="earn-deposit:common.table.sort"
-                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-13"
+                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-7"
                               tabindex="-1"
                               title="earn-deposit:common.table.sort"
                               type="button"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-27"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-21"
                                 data-testid="ArrowUpwardIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -211,7 +168,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                                 />
                               </svg>
                               <span
-                                class="MuiTouchRipple-root css-15"
+                                class="MuiTouchRipple-root css-9"
                               />
                             </button>
                           </div>
@@ -223,7 +180,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-4"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-8"
                           data-testid="SeparatorIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -254,25 +211,25 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                           >
                             <div
                               aria-label=""
-                              class="MuiDataGrid-columnHeaderTitle css-24"
+                              class="MuiDataGrid-columnHeaderTitle css-18"
                               data-mui-internal-clone-element="true"
                             >
                               earn-deposit:asset-section.fields.wallet-balance
                             </div>
                           </div>
                           <div
-                            class="MuiDataGrid-iconButtonContainer css-25"
+                            class="MuiDataGrid-iconButtonContainer css-19"
                           >
                             <button
                               aria-label="earn-deposit:common.table.sort"
-                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-13"
+                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-7"
                               tabindex="-1"
                               title="earn-deposit:common.table.sort"
                               type="button"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-27"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-21"
                                 data-testid="ArrowUpwardIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -282,7 +239,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                                 />
                               </svg>
                               <span
-                                class="MuiTouchRipple-root css-15"
+                                class="MuiTouchRipple-root css-9"
                               />
                             </button>
                           </div>
@@ -294,7 +251,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-4"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-8"
                           data-testid="SeparatorIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -325,25 +282,25 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                           >
                             <div
                               aria-label=""
-                              class="MuiDataGrid-columnHeaderTitle css-24"
+                              class="MuiDataGrid-columnHeaderTitle css-18"
                               data-mui-internal-clone-element="true"
                             >
                               earn-deposit:asset-section.fields.apy
                             </div>
                           </div>
                           <div
-                            class="MuiDataGrid-iconButtonContainer css-25"
+                            class="MuiDataGrid-iconButtonContainer css-19"
                           >
                             <button
                               aria-label="earn-deposit:common.table.sort"
-                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-13"
+                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-7"
                               tabindex="-1"
                               title="earn-deposit:common.table.sort"
                               type="button"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-27"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-21"
                                 data-testid="ArrowUpwardIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -353,7 +310,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                                 />
                               </svg>
                               <span
-                                class="MuiTouchRipple-root css-15"
+                                class="MuiTouchRipple-root css-9"
                               />
                             </button>
                           </div>
@@ -365,7 +322,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-4"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-8"
                           data-testid="SeparatorIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -382,15 +339,15 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                   style="overflow: visible; height: 0px; width: 0px;"
                 >
                   <div
-                    class="MuiDataGrid-virtualScroller css-42"
+                    class="MuiDataGrid-virtualScroller css-36"
                     style="width: 0px; height: auto; margin-top: 56px; overflow-x: hidden;"
                   >
                     <div
-                      class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-43"
+                      class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-37"
                       style="width: auto; height: 1px; min-height: auto;"
                     >
                       <div
-                        class="MuiDataGrid-virtualScrollerRenderZone css-44"
+                        class="MuiDataGrid-virtualScrollerRenderZone css-38"
                         style="transform: translate3d(0px, undefinedpx, 0px);"
                       />
                     </div>
@@ -413,34 +370,34 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="MuiDataGrid-footerContainer css-45"
+                  class="MuiDataGrid-footerContainer css-39"
                 >
                   <div />
                   <div
-                    class="MuiTablePagination-root css-46"
+                    class="MuiTablePagination-root css-40"
                   >
                     <div
-                      class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-47"
+                      class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-41"
                     >
                       <div
-                        class="MuiTablePagination-spacer css-48"
+                        class="MuiTablePagination-spacer css-42"
                       />
                       <p
-                        class="MuiTablePagination-selectLabel css-49"
-                        id="mui-3"
+                        class="MuiTablePagination-selectLabel css-43"
+                        id="mui-2"
                       >
                         common.table.rows-per-page
                       </p>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary css-50"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary css-44"
                         variant="standard"
                       >
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-labelledby="mui-3 mui-2"
-                          class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-51"
-                          id="mui-2"
+                          aria-labelledby="mui-2 mui-1"
+                          class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-45"
+                          id="mui-1"
                           role="button"
                           tabindex="0"
                         >
@@ -448,13 +405,13 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                         </div>
                         <input
                           aria-hidden="true"
-                          class="MuiSelect-nativeInput css-52"
+                          class="MuiSelect-nativeInput css-46"
                           tabindex="-1"
                           value="10"
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-53"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-47"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -465,16 +422,16 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                         </svg>
                       </div>
                       <p
-                        class="MuiTablePagination-displayedRows css-54"
+                        class="MuiTablePagination-displayedRows css-48"
                       >
                         common.table.rows-out-of
                       </p>
                       <div
-                        class="MuiBox-root css-55"
+                        class="MuiBox-root css-49"
                       >
                         <button
                           aria-label="common.table.previous-page"
-                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-56"
+                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-50"
                           disabled=""
                           tabindex="-1"
                           title="common.table.previous-page"
@@ -482,7 +439,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8"
                             data-testid="KeyboardArrowLeftIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -494,7 +451,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                         </button>
                         <button
                           aria-label="common.table.next-page"
-                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-56"
+                          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-50"
                           disabled=""
                           tabindex="-1"
                           title="common.table.next-page"
@@ -502,7 +459,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8"
                             data-testid="KeyboardArrowRightIcon"
                             focusable="false"
                             viewBox="0 0 24 24"

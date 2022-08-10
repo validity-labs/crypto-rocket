@@ -6,7 +6,7 @@ exports[`<BriefSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-21 css-2"
@@ -29,7 +29,7 @@ exports[`<BriefSection /> has valid snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-6"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-7"
+            class="MuiContainer-root MuiContainer-disableGutters css-7"
           >
             <div
               class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-8"

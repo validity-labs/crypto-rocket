@@ -6,7 +6,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="MuiTabs-root css-2"
@@ -68,9 +68,9 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M 12.859856,3.4005269 4.2603837,13.719713 H 12 l -0.859857,6.87976 8.599473,-10.319186 H 12 Z"
+                  d="M 12.867485,3.3255934 4.1930775,13.734968 h 7.8071405 l -0.86857,6.939439 8.675275,-10.409375 h -7.806705 z"
                   fill="none"
-                  style="stroke-width: 0.907979;"
+                  style="stroke-width: 0.434285;"
                 />
               </svg>
               <span
@@ -506,7 +506,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                 tabindex="-1"
                 type="button"
               >
-                swap:swap-section.zap.execute
+                swap:swap-section.zap.approve
               </button>
             </div>
           </div>
@@ -581,7 +581,9 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled AwiSwapPanel-sourceAmountLabel css-40"
                         for="sourceValue"
                       >
-                        swap:swap-section.zap.you-pay
+                        <span>
+                          swap:swap-section.zap.you-pay
+                        </span>
                       </label>
                       <div
                         class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-41"
@@ -665,6 +667,29 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                     class="AwiSwapPanel-target"
                   >
                     <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall AwiZapPanel-switch css-55"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7"
+                        fill="none"
+                        focusable="false"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M 12.867485,3.3255934 4.1930775,13.734968 h 7.8071405 l -0.86857,6.939439 8.675275,-10.409375 h -7.806705 z"
+                          fill="none"
+                          style="stroke-width: 0.434285;"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
+                    <button
                       class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiSwapPanel-assetToggle css-30"
                       tabindex="0"
                       type="button"
@@ -719,7 +744,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                       class="MuiFormControl-root MuiFormControl-fullWidth css-39"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled AwiSwapPanel-targetAmountLabel css-40"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled MuiFormLabel-filled AwiSwapPanel-targetAmountLabel css-40"
                         for="targetValue"
                       >
                         <span>
@@ -737,7 +762,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           inputmode="numeric"
                           name="targetValue"
                           type="text"
-                          value=""
+                          value="0"
                         />
                       </div>
                     </div>
@@ -749,7 +774,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
         </div>
         <div
           aria-labelledby="tab-swapSection-2"
-          class="css-113"
+          class="css-116"
           hidden=""
           id="tabpanel-swapSection-2"
           role="tabpanel"
@@ -1008,16 +1033,16 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
               class="AwiLiquidityPanel-liquidity"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-154"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-157"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-155"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-158"
                 >
                   <div
                     class="Awi-row Awi-between"
                   >
                     <h2
-                      class="MuiTypography-root MuiTypography-body-md AwiLabel-root css-156"
+                      class="MuiTypography-root MuiTypography-body-md AwiLabel-root css-159"
                       id="awiLiquidity"
                     >
                       swap:swap-section.liquidity.your-liquidity
@@ -1058,21 +1083,35 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-155"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-158"
                 >
-                  <div
-                    class="AwiPanel-root MuiBox-root css-161"
+                  <button
+                    class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled AwiLiquidityPanel-liquidityLoadMore AwiLoadingButton-root css-164"
+                    disabled=""
+                    tabindex="-1"
+                    type="button"
                   >
-                    <div
-                      class="AwiPanel-content content"
+                    <span
+                      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-165"
+                      role="progressbar"
+                      style="width: 18px; height: 18px;"
                     >
-                      <p
-                        class="MuiTypography-root MuiTypography-body css-162"
+                      <svg
+                        class="MuiCircularProgress-svg css-34"
+                        viewBox="22 22 44 44"
                       >
-                        swap:swap-section.liquidity.no-liquidity-found
-                      </p>
-                    </div>
-                  </div>
+                        <circle
+                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                          cx="44"
+                          cy="44"
+                          fill="none"
+                          r="20.2"
+                          stroke-width="3.6"
+                        />
+                      </svg>
+                    </span>
+                    swap:common:common.load-more
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TeamSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg AwiSection-container css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-24 css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-3"
+        >
+          <div
+            class="AwiTeamSection-card"
+          >
+            {"src":"/images/pages/about/team/steve-ochieng.jpg","alt":"","width":292,"height":292,"className":"AwiTeamSection-poster","objectFit":"cover","objectPosition":"top"}
+            <h2
+              class="MuiTypography-root MuiTypography-h5 AwiTeamSection-name css-4"
+            >
+              items.0.name
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-body AwiTeamSection-title css-5"
+            >
+              items.0.title
+            </h3>
+            <p
+              class="MuiTypography-root MuiTypography-body css-6"
+            >
+              items.0.description
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-3"
+        >
+          <div
+            class="AwiTeamSection-card"
+          >
+            {"src":"/images/pages/about/team/awino-ochieng.jpg","alt":"","width":292,"height":292,"className":"AwiTeamSection-poster","objectFit":"cover","objectPosition":"top"}
+            <h2
+              class="MuiTypography-root MuiTypography-h5 AwiTeamSection-name css-4"
+            >
+              items.1.name
+            </h2>
+            <h3
+              class="MuiTypography-root MuiTypography-body AwiTeamSection-title css-5"
+            >
+              items.1.title
+            </h3>
+            <p
+              class="MuiTypography-root MuiTypography-body css-6"
+            >
+              items.1.description
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

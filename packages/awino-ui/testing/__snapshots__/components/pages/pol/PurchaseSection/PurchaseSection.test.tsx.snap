@@ -6,7 +6,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl AwiSection-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <h1
         class="MuiTypography-root MuiTypography-h3 css-2"
@@ -41,55 +41,32 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                     id="infoTitle"
                   >
                     pol:purchase-section.info.title
-                    <span
-                      aria-label="pol:purchase-section.info.title-hint"
-                      class="AwiLabel-help"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
-                          id="Pfad_2253"
-                        />
-                        <path
-                          d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
-                        />
-                        <path
-                          d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
-                        />
-                      </svg>
-                    </span>
                   </h2>
                 </div>
                 <div
                   class="AwiPanel-content content"
                 >
                   <div
-                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-10"
                   >
                     <table
-                      class="MuiTable-root css-12"
+                      class="MuiTable-root css-11"
                     >
                       <thead
-                        class="MuiTableHead-root css-13"
+                        class="MuiTableHead-root css-12"
                       >
                         <tr
-                          class="MuiTableRow-root MuiTableRow-head css-14"
+                          class="MuiTableRow-root MuiTableRow-head css-13"
                         >
                           <th
-                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-15"
+                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-14"
                             scope="col"
                             width="70%"
                           >
                             pol:purchase-section.info.description
                           </th>
                           <th
-                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-15"
+                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-14"
                             scope="col"
                             width="30%"
                           >
@@ -98,45 +75,45 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         </tr>
                       </thead>
                       <tbody
-                        class="MuiTableBody-root css-17"
+                        class="MuiTableBody-root css-16"
                       >
                         <tr
-                          class="MuiTableRow-root css-14"
+                          class="MuiTableRow-root css-13"
                         >
                           <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
                           >
                             pol:purchase-section.info.current-price
                           </td>
                           <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
                           >
                             1.21 USD
                           </td>
                         </tr>
                         <tr
-                          class="MuiTableRow-root css-14"
+                          class="MuiTableRow-root css-13"
                         >
                           <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
                           >
                             pol:purchase-section.info.offered-price
                           </td>
                           <td
-                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-23"
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-22"
                           >
                             <span
-                              class="MuiTypography-root MuiTypography-body css-24"
+                              class="MuiTypography-root MuiTypography-body css-23"
                             >
                               1.31 USD
                             </span>
                             <span
-                              class="MuiTypography-root MuiTypography-body css-25"
+                              class="MuiTypography-root MuiTypography-body css-24"
                             >
                               + 0.10 USD
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
                                 data-testid="TrendingUpRoundedIcon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -158,7 +135,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
             >
               <div
-                class="AwiPanel-root MuiBox-root css-28"
+                class="AwiPanel-root MuiBox-root css-27"
               >
                 <div
                   class="AwiPanel-header header"
@@ -168,36 +145,13 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                     id="purchaseTitle"
                   >
                     pol:purchase-section.purchase.title
-                    <span
-                      aria-label="pol:purchase-section.purchase.title-hint"
-                      class="AwiLabel-help"
-                      data-mui-internal-clone-element="true"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
-                          id="Pfad_2253"
-                        />
-                        <path
-                          d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
-                        />
-                        <path
-                          d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
-                        />
-                      </svg>
-                    </span>
                   </h2>
                 </div>
                 <div
                   class="AwiPanel-content content"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-body minimum css-31"
+                    class="MuiTypography-root MuiTypography-body minimum css-29"
                   >
                     pol:purchase-section.purchase.info
                   </p>
@@ -205,20 +159,20 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                     class="convertor"
                   >
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-32"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-30"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-33"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-31"
                         for="sourceValue"
                       >
                         pol:purchase-section.purchase.source-label
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-34"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-32"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-35"
+                          class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-33"
                           id="sourceValue"
                           inputmode="numeric"
                           name="sourceValue"
@@ -239,7 +193,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       </div>
                     </div>
                     <p
-                      class="MuiTypography-root MuiTypography-body equal css-31"
+                      class="MuiTypography-root MuiTypography-body equal css-29"
                     >
                       =
                     </p>
@@ -247,12 +201,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       class="output"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body-md css-37"
+                        class="MuiTypography-root MuiTypography-body-md css-35"
                       >
                         0.00
                       </p>
                       <div
-                        class="MuiBox-root css-38"
+                        class="MuiBox-root css-36"
                         title="common.convertion-from-to"
                       >
                         <img
@@ -267,7 +221,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         />
                       </div>
                       <p
-                        class="MuiTypography-root MuiTypography-body-md css-37"
+                        class="MuiTypography-root MuiTypography-body-md css-35"
                       >
                         pol:asset.awiusdc
                       </p>
@@ -277,23 +231,23 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                     class="actions"
                   >
                     <button
-                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-40"
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-38"
                       tabindex="0"
                       type="button"
                     >
                       pol:purchase-section.purchase.approve
                       <span
-                        class="MuiTouchRipple-root css-41"
+                        class="MuiTouchRipple-root css-39"
                       />
                     </button>
                     <button
-                      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-42"
+                      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-40"
                       tabindex="0"
                       type="button"
                     >
                       pol:purchase-section.purchase.create-proposal
                       <span
-                        class="MuiTouchRipple-root css-41"
+                        class="MuiTouchRipple-root css-39"
                       />
                     </button>
                   </div>
@@ -303,7 +257,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-44"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-42"
         >
           <div
             class="MuiGrid-root MuiGrid-container css-6"
@@ -312,7 +266,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
             >
               <div
-                class="AwiPanel-root MuiBox-root css-47"
+                class="AwiPanel-root MuiBox-root css-45"
               >
                 <div
                   class="AwiPanel-content content"
@@ -323,7 +277,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                     pol:purchase-section.buyable
                   </h2>
                   <div
-                    class="AwiAvailablePanel-asset MuiBox-root css-49"
+                    class="AwiAvailablePanel-asset MuiBox-root css-47"
                   >
                     <div
                       class="icon"
@@ -338,12 +292,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       class="values"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body value css-31"
+                        class="MuiTypography-root MuiTypography-body value css-29"
                       >
                         99.50 common:asset.usdc
                       </p>
                       <p
-                        class="MuiTypography-root MuiTypography-body alt css-31"
+                        class="MuiTypography-root MuiTypography-body alt css-29"
                       >
                         199.50 common:asset.usd
                       </p>
@@ -356,13 +310,13 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
             >
               <div
-                class="AwiPanel-root MuiBox-root css-53"
+                class="AwiPanel-root MuiBox-root css-51"
               >
                 <div
                   class="AwiPanel-content content"
                 >
                   <button
-                    class="MuiButtonBase-root AwiTreasurePanel-summary css-54"
+                    class="MuiButtonBase-root AwiTreasurePanel-summary css-52"
                     tabindex="0"
                     type="button"
                   >
@@ -370,12 +324,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       class="AwiTreasurePanel-left"
                     >
                       <h2
-                        class="MuiTypography-root MuiTypography-body-xl AwiLabel-root AwiTreasurePanel-summaryTitle css-55"
+                        class="MuiTypography-root MuiTypography-body-xl AwiLabel-root AwiTreasurePanel-summaryTitle css-53"
                       >
                         pol:purchase-section.treasury.title 
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -403,12 +357,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         </svg>
                       </h2>
                       <p
-                        class="MuiTypography-root MuiTypography-body-md AwiTreasurePanel-summaryAmount css-37"
+                        class="MuiTypography-root MuiTypography-body-md AwiTreasurePanel-summaryAmount css-35"
                       >
                         1.31
                       </p>
                       <div
-                        class="AwiTreasurePanel-summaryImages MuiBox-root css-38"
+                        class="AwiTreasurePanel-summaryImages MuiBox-root css-36"
                         title="common.convertion-from-to"
                       >
                         <img
@@ -423,14 +377,14 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                         />
                       </div>
                       <p
-                        class="MuiTypography-root MuiTypography-body-md css-37"
+                        class="MuiTypography-root MuiTypography-body-md css-35"
                       >
                         pol:asset.awiusdc
                       </p>
                     </div>
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-60"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-58"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -439,29 +393,29 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root css-41"
+                      class="MuiTouchRipple-root css-39"
                     />
                   </button>
                   <div
-                    class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-62"
+                    class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-60"
                     style="min-height: 0px;"
                   >
                     <div
-                      class="MuiCollapse-wrapper MuiCollapse-vertical css-63"
+                      class="MuiCollapse-wrapper MuiCollapse-vertical css-61"
                     >
                       <div
-                        class="MuiCollapse-wrapperInner MuiCollapse-vertical css-64"
+                        class="MuiCollapse-wrapperInner MuiCollapse-vertical css-62"
                       >
                         <div
                           class="AwiTreasurePanel-subcontent"
                         >
                           <h3
-                            class="MuiTypography-root MuiTypography-h5 AwiTreasurePanel-subcontentTitle css-65"
+                            class="MuiTypography-root MuiTypography-h5 AwiTreasurePanel-subcontentTitle css-63"
                           >
                             pol:purchase-section.treasury.info
                           </h3>
                           <a
-                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body-md AwiTreasurePanel-link css-66"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body-md AwiTreasurePanel-link css-64"
                             href="https://todo"
                             rel="noreferrer"
                             target="_blank"
@@ -469,7 +423,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                             pol:purchase-section.treasury.view-contract
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -479,19 +433,19 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                             </svg>
                           </a>
                           <div
-                            class="MuiTableContainer-root css-68"
+                            class="MuiTableContainer-root css-66"
                           >
                             <table
-                              class="MuiTable-root css-12"
+                              class="MuiTable-root css-11"
                             >
                               <tbody
-                                class="MuiTableBody-root css-17"
+                                class="MuiTableBody-root css-16"
                               >
                                 <tr
-                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-14"
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-13"
                                 >
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
                                   >
                                     <h6
                                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-9"
@@ -504,7 +458,7 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                       >
                                         <svg
                                           aria-hidden="true"
-                                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
+                                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
                                           focusable="false"
                                           viewBox="0 0 24 24"
                                         >
@@ -523,32 +477,32 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                     </h6>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-75"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
                                   >
                                     <p
-                                      class="MuiTypography-root MuiTypography-body-md css-37"
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
                                     >
                                       3.39 %
                                     </p>
                                   </td>
                                 </tr>
                                 <tr
-                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-14"
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-13"
                                 >
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
                                   >
                                     <p
-                                      class="MuiTypography-root MuiTypography-body-md css-37"
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
                                     >
                                       pol:purchase-section.treasury.in-treasure
                                     </p>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-75"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
                                   >
                                     <div
-                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-81"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-79"
                                     >
                                       <div
                                         class="icon"
@@ -568,12 +522,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         class="values"
                                       >
                                         <p
-                                          class="MuiTypography-root MuiTypography-body value css-31"
+                                          class="MuiTypography-root MuiTypography-body value css-29"
                                         >
                                           83.42 common:asset.awiusdc
                                         </p>
                                         <p
-                                          class="MuiTypography-root MuiTypography-body alt css-31"
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
                                         >
                                           123.30 common:asset.usd
                                         </p>
@@ -582,22 +536,22 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                   </td>
                                 </tr>
                                 <tr
-                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-14"
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-13"
                                 >
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
                                   >
                                     <p
-                                      class="MuiTypography-root MuiTypography-body-md css-37"
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
                                     >
                                       pol:purchase-section.treasury.breakdown
                                     </p>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-75"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
                                   >
                                     <div
-                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-88"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-86"
                                     >
                                       <div
                                         class="icon"
@@ -612,19 +566,19 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         class="values"
                                       >
                                         <p
-                                          class="MuiTypography-root MuiTypography-body value css-31"
+                                          class="MuiTypography-root MuiTypography-body value css-29"
                                         >
                                           83.42 common:asset.awiusdc
                                         </p>
                                         <p
-                                          class="MuiTypography-root MuiTypography-body alt css-31"
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
                                         >
                                           123.30 common:asset.usd
                                         </p>
                                       </div>
                                     </div>
                                     <div
-                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-81"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-79"
                                     >
                                       <div
                                         class="icon"
@@ -639,12 +593,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         class="values"
                                       >
                                         <p
-                                          class="MuiTypography-root MuiTypography-body value css-31"
+                                          class="MuiTypography-root MuiTypography-body value css-29"
                                         >
                                           83.42 common:asset.usdc
                                         </p>
                                         <p
-                                          class="MuiTypography-root MuiTypography-body alt css-31"
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
                                         >
                                           123.30 common:asset.usd
                                         </p>
@@ -653,22 +607,22 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                   </td>
                                 </tr>
                                 <tr
-                                  class="MuiTableRow-root css-14"
+                                  class="MuiTableRow-root css-13"
                                 >
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-19"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
                                   >
                                     <p
-                                      class="MuiTypography-root MuiTypography-body-md css-37"
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
                                     >
                                       pol:purchase-section.treasury.total-source-sold
                                     </p>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-75"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
                                   >
                                     <div
-                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-81"
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-79"
                                     >
                                       <div
                                         class="icon"
@@ -683,12 +637,12 @@ exports[`<PurchaseSection /> has valid snapshot 1`] = `
                                         class="values"
                                       >
                                         <p
-                                          class="MuiTypography-root MuiTypography-body value css-31"
+                                          class="MuiTypography-root MuiTypography-body value css-29"
                                         >
                                           83.42 common:asset.usdc
                                         </p>
                                         <p
-                                          class="MuiTypography-root MuiTypography-body alt css-31"
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
                                         >
                                           123.30 common:asset.usd
                                         </p>
