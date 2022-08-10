@@ -12,12 +12,12 @@ import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
 // import { ClaimModalData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimModal';
-import ClaimSection, { ClaimData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
+import ClaimSection from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
 import IntroSection from '@/components/pages/earn/manage-awino/IntroSection/IntroSection';
 import OperationSection from '@/components/pages/earn/manage-awino/OperationSection/OperationSection';
 import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
 // import StatsSection from '@/components/pages/shared/StatsSection/StatsSection';
-import { earnManageAwinoClaim, earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
+import { earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
 import { AWINO_TOKEN_MAP, ChainId, useTokenBalance } from '@/lib/blockchain';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 // import { formatAWI, formatUSD } from '@/lib/formatters';
@@ -26,35 +26,19 @@ import { StatsData, StatsFormatter } from '@/types/app';
 // import AssetSection from '@/components/pages/market/AssetSection/AssetSection';
 
 export const statsFormatters: StatsFormatter[] = [
-  { value: 'usd', subValues: ['awi', 'awi'] },
-  { value: 'usd' },
-  { value: 'usd' },
+  { value: 'usd', subValues: ['awi'] },
   { value: 'usd' },
   { value: 'usd', subValues: ['usd', 'usd'] },
 ];
 
-const initialStatsData: StatsData = [
-  { value: 0, subValues: [0, 0] },
-  { value: 0 },
-  { value: 0 },
-  { value: 0 },
-  { value: 0, subValues: [0, 0] },
-];
+const initialStatsData: StatsData = [{ value: 0, subValues: [0] }, { value: 0 }, { value: 0, subValues: [0, 0] }];
 
 const initialStakeData: StakeData = { apr: 0, balance: { awi: 0, usd: 0 } };
-
-const initialClaimData: ClaimData = {
-  unlockedAWI: { awi: 0, claimable: true },
-  vestingAWI: { awi: 0, claimable: false },
-  claimAll: { awi: 0, claimable: true },
-  expiredLockedAWI: { awi: 0, claimable: true },
-};
 
 const EarnManageAwinoPage: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [statsData, setStatsData] = useState(initialStatsData);
   const [stakeData, setStakeData] = useState(initialStakeData);
-  const [claimData, setClaimData] = useState(initialClaimData);
 
   const { account, library, chainId } = useWeb3React();
   const [balance, setBalance] = useState<string>('0');
@@ -79,11 +63,6 @@ const EarnManageAwinoPage: NextPage = () => {
       });
       setStakeData({ apr: 7.32, balance: { awi: balance, usd: balance } });
 
-      const newClaimData = await new Promise<ClaimData>((res) => {
-        return res(earnManageAwinoClaim);
-      });
-      setClaimData(newClaimData);
-
       setLoading(false);
     })();
   }, [balance, chainId, account, library]);
@@ -98,7 +77,7 @@ const EarnManageAwinoPage: NextPage = () => {
         stake={stakeData}
         updateBalance={updateBalance}
       />
-      <ClaimSection data={claimData} />
+      <ClaimSection />
     </>
   );
 };

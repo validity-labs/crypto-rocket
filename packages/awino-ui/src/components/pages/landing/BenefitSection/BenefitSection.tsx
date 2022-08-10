@@ -107,7 +107,7 @@ const BenefitSlide = ({ /* item,  */ index }: BenefitSlideProps) => {
   );
 };
 
-const items = [0, 1, 2, 3, 4];
+const items = [0, 1, 2, 3];
 
 export default function BenefitSection() {
   const t = usePageTranslation();
