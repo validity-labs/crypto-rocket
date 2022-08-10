@@ -84,6 +84,9 @@
   },
   "menu": {
     "main": {
+      "about": {
+        "title": "About"
+      },
       "market": {
         "title": "Market"
       },

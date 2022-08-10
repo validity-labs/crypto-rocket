@@ -327,6 +327,14 @@ const themeCreator = (mode: PaletteMode) => {
         .Awi-selectable {
           cursor: pointer;
         }
+        .Awi-golden {
+          background: #FFE4B2;
+          background: -webkit-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%);
+          background: -moz-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%);
+          background: linear-gradient(to right, #FFE4B2 0%, #AD7101 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
       `,
     },
     MuiAppBar: {

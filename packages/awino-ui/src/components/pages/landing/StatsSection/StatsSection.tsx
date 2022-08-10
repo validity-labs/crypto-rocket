@@ -30,16 +30,6 @@ const Root = styled(Section, {
     '.Awi-small': {
       textTransform: 'uppercase',
     },
-    '.Awi-highlight': {
-      background: [
-        '#FFE4B2',
-        '-webkit-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
-        '-moz-linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
-        'linear-gradient(to right, #FFE4B2 0%, #AD7101 100%)',
-      ],
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-    },
   },
   '.AwiInfoSection-image': {
     pointerEvents: 'none',
@@ -161,8 +151,8 @@ export default function StatsSection({ items }: Props) {
             i18nKey={'stats-section.title'}
             t={t}
             components={[
-              <span key="span1" className="Awi-small Awi-highlight" />,
-              <span key="span2" className="Awi-highlight" />,
+              <span key="span1" className="Awi-small Awi-golden" />,
+              <span key="span2" className="Awi-golden" />,
             ]}
           />
         </Typography>
