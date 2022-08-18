@@ -28,7 +28,7 @@ export default function InfoPanel({ data }: Props) {
   return (
     <Panel
       header={
-        <Label id="infoTitle" className="label" component="h2">
+        <Label id="infoTitle" className="label Awi-golden" component="h2">
           {t(`purchase-section.info.title`, { from, to })}
         </Label>
       }

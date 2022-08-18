@@ -47,7 +47,7 @@ export default function BriefSection({ items }: Props) {
       <div className="LabBriefSection-panel">
         <div className="LabBriefSection-header">
           <img src={`/images/logo-small.svg`} alt="" width={44} height={38} />
-          <Typography variant="h4" component="h1" color="text.active">
+          <Typography variant="h4" component="h1" color="text.active" className="Awi-golden">
             {t('brief-section.title')}
           </Typography>
         </div>

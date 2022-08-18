@@ -11,13 +11,13 @@ import { ethers } from 'ethers';
 import { setPageI18nNamespace } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Seo from '@/components/layout/Seo/Seo';
-// import { ClaimModalData } from '@/components/pages/earn/manage-awino/ClaimSection/ClaimModal';
-import ClaimSection from '@/components/pages/earn/manage-awino/ClaimSection/ClaimSection';
-import IntroSection from '@/components/pages/earn/manage-awino/IntroSection/IntroSection';
-import OperationSection from '@/components/pages/earn/manage-awino/OperationSection/OperationSection';
-import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
+// import { ClaimModalData } from '@/components/pages/earn/stake-awino/ClaimSection/ClaimModal';
+import ClaimSection from '@/components/pages/earn/stake-awino/ClaimSection/ClaimSection';
+import IntroSection from '@/components/pages/earn/stake-awino/IntroSection/IntroSection';
+import OperationSection from '@/components/pages/earn/stake-awino/OperationSection/OperationSection';
+import { StakeData } from '@/components/pages/earn/stake-awino/OperationSection/StakeCard';
 // import StatsSection from '@/components/pages/shared/StatsSection/StatsSection';
-import { earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
+import { earnStakeAwinoStake, earnStakeAwinoStats } from '@/fixtures/earn';
 import { AWINO_TOKEN_MAP, ChainId, useTokenBalance } from '@/lib/blockchain';
 import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 // import { formatAWI, formatUSD } from '@/lib/formatters';
@@ -35,7 +35,7 @@ const initialStatsData: StatsData = [{ value: 0, subValues: [0] }, { value: 0 },
 
 const initialStakeData: StakeData = { apr: 0, balance: { awi: 0, usd: 0 } };
 
-const EarnManageAwinoPage: NextPage = () => {
+const EarnStakeAwinoPage: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [statsData, setStatsData] = useState(initialStatsData);
   const [stakeData, setStakeData] = useState(initialStakeData);
@@ -54,12 +54,12 @@ const EarnManageAwinoPage: NextPage = () => {
       await updateBalance(account, library);
 
       const newStatsData = await new Promise<StatsData>((res) => {
-        return res(earnManageAwinoStats);
+        return res(earnStakeAwinoStats);
       });
       setStatsData(newStatsData);
 
       const newStakeData = await new Promise<StakeData>((res) => {
-        return res(earnManageAwinoStake);
+        return res(earnStakeAwinoStake);
       });
       setStakeData({ apr: 7.32, balance: { awi: balance, usd: balance } });
 
@@ -83,7 +83,7 @@ const EarnManageAwinoPage: NextPage = () => {
 };
 
 export const getServerSideProps = storeWrapper.getServerSideProps((store) => async ({ locale }) => {
-  const ns = 'earn-manage-awino';
+  const ns = 'earn-stake-awino';
   await store.dispatch(setPageI18nNamespace(ns));
 
   return {
@@ -93,4 +93,4 @@ export const getServerSideProps = storeWrapper.getServerSideProps((store) => asy
   };
 });
 
-export default EarnManageAwinoPage;
+export default EarnStakeAwinoPage;

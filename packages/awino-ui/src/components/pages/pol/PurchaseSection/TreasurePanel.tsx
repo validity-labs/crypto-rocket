@@ -113,7 +113,7 @@ export default function TreasurePanel({ data, treasury }: Props) {
     <Root>
       <ButtonBase className="AwiTreasurePanel-summary" onClick={handleExpand}>
         <div className="AwiTreasurePanel-left">
-          <Label component="h2" variant="body-xl" className="AwiTreasurePanel-summaryTitle">
+          <Label component="h2" variant="body-xl" className="AwiTreasurePanel-summaryTitle Awi-golden">
             {t(`purchase-section.treasury.title`)} <TreasureIcon />
           </Label>
           <Typography variant="body-md" color="text.primary" className="AwiTreasurePanel-summaryAmount">

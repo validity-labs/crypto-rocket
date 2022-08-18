@@ -29,7 +29,9 @@ export default function AvailablePanel({ data }: Props) {
 
   return (
     <Root>
-      <Label component="h2">{t(`purchase-section.buyable`, { from: source })}</Label>
+      <Label component="h2" className="Awi-golden">
+        {t(`purchase-section.buyable`, { from: source })}
+      </Label>
       <AssetAmount
         asset={source}
         value={maxSource}

@@ -71,7 +71,7 @@ export default function ProposalSection({}: /* info, loading */ Props) {
         className="AwiInfoSection-panel"
         header={
           <>
-            <Label component="h2" id="proposalSectionTitle">
+            <Label component="h2" id="proposalSectionTitle" className="Awi-golden">
               {t('title')}
             </Label>
             <Button

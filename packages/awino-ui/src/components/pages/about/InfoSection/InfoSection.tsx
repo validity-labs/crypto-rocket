@@ -66,7 +66,7 @@ export default function InfoSection() {
         <Grid container spacing={22}>
           {items.map((itemId, itemIndex) => (
             <Grid key={itemId} item xs={12} md={6}>
-              <Typography variant="h3" component="h2" className="AwiInfoSection-cardTitle">
+              <Typography variant="h3" component="h2" className="AwiInfoSection-cardTitle Awi-golden">
                 {t(`items.${itemIndex}.title`)}
               </Typography>
               <Typography maxWidth={380}>{t(`items.${itemIndex}.description`)}</Typography>

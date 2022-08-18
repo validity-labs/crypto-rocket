@@ -2,7 +2,7 @@ import BigNumberJS from 'bignumber.js';
 
 import { FarmItem } from '@/components/pages/earn/farms/ResultSection/ResultSection';
 import { LiquidityStakingDetailsData } from '@/components/pages/earn/liquidity-staking/DetailsSection/DetailsSection';
-import { StakeData } from '@/components/pages/earn/manage-awino/OperationSection/StakeCard';
+import { StakeData } from '@/components/pages/earn/stake-awino/OperationSection/StakeCard';
 import { AWINO_DAI_PAIR_ADDRESS_MAP, AWINO_WETH_PAIR_ADDRESS_MAP, ChainId } from '@/lib/blockchain';
 import { StatsData } from '@/types/app';
 export const earnLiquidityStakingStats: StatsData = [{ value: 89.7 }, { value: 0.27 }, { value: 89.7 }];
@@ -15,7 +15,7 @@ export const earnLiquidityStakingDetails: LiquidityStakingDetailsData = {
   totalLPTokensStaked: 120,
 };
 
-export const earnManageAwinoStats: StatsData = [
+export const earnStakeAwinoStats: StatsData = [
   {
     value: 89.7,
     subValues: [45.6],
@@ -24,7 +24,7 @@ export const earnManageAwinoStats: StatsData = [
   { value: 47.4, subValues: [24.72, 45.6] },
 ];
 
-export const earnManageAwinoStake: StakeData = {
+export const earnStakeAwinoStake: StakeData = {
   apr: 39.17,
   balance: {
     awi: 99.99,

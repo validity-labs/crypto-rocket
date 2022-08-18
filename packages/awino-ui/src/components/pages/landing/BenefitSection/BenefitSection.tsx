@@ -98,7 +98,7 @@ const BenefitSlide = ({ /* item,  */ index }: BenefitSlideProps) => {
   return (
     <div className="AwiBenefitSlide-root Awi-hoverGrow">
       <div>
-        <Typography variant="h5" component="h3">
+        <Typography variant="h5" component="h3" className="Awi-golden">
           {t(`benefit-section.items.${index}.title`)}
         </Typography>
         <Typography>{t(`benefit-section.items.${index}.description`)}</Typography>

@@ -70,7 +70,7 @@ export default function PurchaseSection() {
 
   return (
     <Section>
-      <Typography variant="h3" component="h1" mb={7}>
+      <Typography variant="h3" component="h1" mb={7} className="Awi-golden">
         {t('purchase-section.title')}
       </Typography>
       <Typography variant="body" color="text.primary" mb={16}>

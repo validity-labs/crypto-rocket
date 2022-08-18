@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { earnManageAwinoStake, earnManageAwinoStats } from '@/fixtures/earn';
+import { earnStakeAwinoStake, earnStakeAwinoStats } from '@/fixtures/earn';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
-import { statsFormatters } from '@/pages/earn/manage-awino';
+import { statsFormatters } from '@/pages/earn/stake-awino';
 import { cleanup, render } from '@/testing/utils';
 
 import OperationSection from './OperationSection';
@@ -22,13 +22,13 @@ describe('<OperationSection />', () => {
   it('has valid snapshot', () => {
     const { asFragment } = render(
       <OperationSection
-        statItems={earnManageAwinoStats}
-        stake={earnManageAwinoStake}
+        statItems={earnStakeAwinoStats}
+        stake={earnStakeAwinoStake}
         statFormatters={statsFormatters}
         updateBalance={() => {}}
       />,
       {},
-      'earn-manage-awino'
+      'earn-stake-awino'
     );
     expect(asFragment()).toMatchSnapshot();
   });

@@ -118,7 +118,7 @@ export default function PurchasePanel({ data }: Props) {
   return (
     <Root
       header={
-        <Label id="purchaseTitle" className="label" component="h2">
+        <Label id="purchaseTitle" className="label Awi-golden" component="h2">
           {t(`purchase-section.purchase.title`, { from, to })}
         </Label>
       }
