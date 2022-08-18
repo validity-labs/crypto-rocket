@@ -8,7 +8,7 @@ export default function IntroSection() {
 
   return (
     <Section>
-      <Typography variant="h3" component="h1" color="text.active" mb={4}>
+      <Typography variant="h3" component="h1" color="text.active" mb={4} className="Awi-golden">
         {t('intro-section.title')}
       </Typography>
       <Typography color="text.primary">{t('intro-section.description')}</Typography>

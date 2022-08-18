@@ -134,27 +134,27 @@
     "items": [
       {
         "title": "What is AWINO about?",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-      },
-      {
-        "title": "Why is AWINO different?",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-      },
-      {
-        "title": "Which problem is AWINO solving?",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "description": "AWINO is an All-In-One DeFi ecosystem. Trading, lending, borrowing, voting, farming and pooling opportunities, are all conveniently made available in one place."
       },
       {
         "title": "What can I do with AWINO?",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "description": "You can lock, stake, provide liquidity or simply just hold your AWINO tokens and receive USDC rewards."
       },
       {
-        "title": "Who created AWINO?",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "title": "Why is AWINO different?",
+        "description": "AWINO comes as a complete DeFi ecosystem, from day one."
+      },
+      {
+        "title": "Which problem is AWINO solving?",
+        "description": "Using our POL module, AWINO solves the challenges of liquidity, sustainability, profitability and stability (see our About page for more details) that DeFi protocols often face, in the crypto space. In addition, AWINO places highest priority on our smart contract security, by setting up a dedicated and generous bug bounty reward pool."
       },
       {
         "title": "What are the tokenomics?",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "description": "AWINO token total supply is 1,000,000,000\n WEALTH token total supply is 100,000\n There is a 12% buy and 15% sell fee on every transaction (set slippage to 13% and 16% respectively)."
+      },
+      {
+        "title": "Who created AWINO?",
+        "description": "AWINO was founded, designed and fully funded by Awino and Steve. The smart contracts of the AWINO ecosystem were all developed by a renowned software company, based in Switzerland."
       }
     ]
   },

@@ -100,7 +100,7 @@ export default function AssetSection({ total }: Props) {
       <Panel
         header={
           <>
-            <Typography variant="h4" component="h1" color="text.active" fontWeight="bold">
+            <Typography variant="h4" component="h1" color="text.active" fontWeight="bold" className="Awi-golden">
               {t(`asset-section.title`)}
             </Typography>
             <div className="aside">

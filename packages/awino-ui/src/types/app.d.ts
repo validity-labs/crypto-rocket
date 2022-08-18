@@ -32,7 +32,7 @@ export type I18nPageNamespace =
   | 'earn-deposit'
   | 'earn-deposit-details'
   | 'earn-liquidity-staking'
-  | 'earn-manage-awino'
+  | 'earn-stake-awino'
   | 'earn-farms'
   | 'borrow'
   | 'borrow-details'

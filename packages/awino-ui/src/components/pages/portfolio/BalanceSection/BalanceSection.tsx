@@ -14,6 +14,7 @@ import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import { balanceGroupedList } from '@/fixtures/portfolio';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { formatUSD } from '@/lib/formatters';
 import { BalanceGrouped } from '@/types/app';
 
 import BalanceCard from './BalanceCard';
@@ -52,12 +53,22 @@ const Root = styled(Section)(({ theme }) => ({
   '.AwiBalanceSection-pairsLoadMore': {
     margin: theme.spacing(10, 'auto'),
   },
+  '.AwiBalanceSection-totalValue': {
+    display: 'inline-block',
+    borderRadius: +theme.shape.borderRadius * 5,
+    padding: theme.spacing(7, 6, 6),
+    margin: theme.spacing(0, 0, 7),
+    backgroundColor: theme.palette.background.transparent,
+  },
   [theme.breakpoints.up('md')]: {
     '.AwiBalanceSection-panel > .AwiPanel-content': {
       padding: theme.spacing(12.5, 20, 20),
     },
     '.AwiBalanceSection-subPanel': {
       '.AwiPanel-content': { padding: theme.spacing(4, 12, 5, 15) },
+    },
+    '.AwiBalanceSection-totalValue': {
+      padding: theme.spacing(7, 10, 6),
     },
   },
 }));
@@ -77,7 +88,8 @@ export default function BalanceSection({ items, loading }: Props) {
   const t = usePageTranslation();
   const { tokens, stableCoins /* , pool */ } = items;
   const { account, library } = useWeb3();
-
+  /* TODO create hook to get total portfolio value */
+  const totalPortfolioValue = 93440;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -106,6 +118,16 @@ export default function BalanceSection({ items, loading }: Props) {
           <Loader />
         ) : (
           <Grid container spacing={6.5} alignItems="center">
+            <Grid item xs={12} textAlign="center">
+              <div className="AwiBalanceSection-totalValue">
+                <Typography variant="h4" component="h3" fontWeight={600} mb={1} className="Awi-golden">
+                  {formatUSD(totalPortfolioValue)}
+                </Typography>
+                <Typography variant="body-sm" component="h2" fontWeight={500}>
+                  {t('balance-section.total-portfolio-value')}
+                </Typography>
+              </div>
+            </Grid>
             <Grid item xs={12} md={7}>
               <Typography variant="h2" className="AwiBalanceSection-groupTitle Awi-first">
                 {t('balance-section.group-tokens')}

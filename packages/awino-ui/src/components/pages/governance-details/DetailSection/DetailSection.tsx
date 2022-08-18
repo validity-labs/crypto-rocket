@@ -320,7 +320,7 @@ export default function DetailSection({ proposal, loading }: Props) {
           className="AwiDetailSection-votePanel"
           header={
             <div className="Awi-column">
-              <Typography variant="h4" component="h2" mb={2}>
+              <Typography variant="h4" component="h2" mb={2} className="Awi-golden">
                 <LoadingText loading={loading || !areDatesReady} text={title} />
               </Typography>
               {description && (

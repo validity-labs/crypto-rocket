@@ -60,7 +60,7 @@ export default function InfoSection({ info, loading }: Props) {
   return (
     <Root>
       <Panel className="AwiInfoSection-panel">
-        <Typography variant="h3" component="h1" mb={7}>
+        <Typography variant="h3" component="h1" mb={7} className="Awi-golden">
           {t('title')}
         </Typography>
         <Typography variant="body" color="text.primary" mb={18}>

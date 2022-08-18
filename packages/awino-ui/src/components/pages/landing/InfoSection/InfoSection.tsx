@@ -33,7 +33,7 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
     minWidth: 'auto',
     minHeight: 'auto',
     padding: theme.spacing(3, 4),
-    ...theme.typography['body-sm'],
+    ...theme.typography['body'],
     fontWeight: 500,
     color: theme.palette.text.secondary,
     textTransform: 'none',
@@ -90,12 +90,12 @@ export default function InfoSection() {
                 hidden={tab !== itemIndex}
                 {...simpleTabPanelA11yProps(`${idPrefix}${item}`)}
               >
-                <Typography>{t(`items.${itemIndex}.description`)}</Typography>
+                <Typography variant="body-md">{t(`items.${itemIndex}.description`)}</Typography>
               </div>
             ))}
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography>{t('description')}</Typography>
+            <Typography variant="body-md">{t('description')}</Typography>
           </Grid>
         </Grid>
       </Panel>

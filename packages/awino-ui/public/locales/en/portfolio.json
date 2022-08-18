@@ -109,7 +109,8 @@
       "staked": {
         "title": "Staked"
       }
-    }
+    },
+    "total-portfolio-value": "Total portfolio value"
   },
   "operation-modal": {
     "operation-switch-hint": "Switch between supply and withdraw operations",

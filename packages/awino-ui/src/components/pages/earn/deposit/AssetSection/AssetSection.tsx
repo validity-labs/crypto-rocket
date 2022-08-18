@@ -135,7 +135,7 @@ export default function AssetSection(/* { total }: Props */) {
         <Panel
           header={
             <>
-              <Label id="earnDepositTitle" variant="h4" component="h2" color="text.active">
+              <Label id="earnDepositTitle" variant="h4" component="h2" color="text.active" className="Awi-golden">
                 {t(`asset-section.title`)}
               </Label>
               <div className="aside">

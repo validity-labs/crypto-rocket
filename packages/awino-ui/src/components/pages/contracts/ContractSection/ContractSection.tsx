@@ -52,7 +52,7 @@ export default function ContractSection({ items, loading }: Props) {
   return (
     <Root>
       <Panel className="AwiContractSection-panel">
-        <Typography variant="h1" color="text.active" className="AwiContractSection-title">
+        <Typography variant="h1" color="text.active" className="AwiContractSection-title Awi-golden">
           {t('contract-section.title')}
         </Typography>
         {loading ? (

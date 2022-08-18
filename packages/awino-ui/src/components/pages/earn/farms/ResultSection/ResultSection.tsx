@@ -444,7 +444,7 @@ export default function ResultSection() {
           header={
             <>
               <div>
-                <Label id="earnFarmsTitle" variant="h4" component="h2" color="text.active">
+                <Label id="earnFarmsTitle" variant="h4" component="h2" color="text.active" className="Awi-golden">
                   {t('title')}
                 </Label>
               </div>

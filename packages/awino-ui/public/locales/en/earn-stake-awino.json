@@ -1,11 +1,11 @@
 {
   "page": {
-    "title": "Manage AWINO",
+    "title": "Stake AWINO",
     "description": "MISSING DESCRIPTION"
   },
   "intro-section": {
-    "title": "Manage AWINO locks and stakes",
-    "description": "Stake AWI to share platform fees, or lock it for 3 months to receive platform fees AND exit penalties."
+    "title": "Stake AWINO",
+    "description": "Stake AWINO to receive a share of the platform fees."
   },
   "stats-section": {
     "items": [

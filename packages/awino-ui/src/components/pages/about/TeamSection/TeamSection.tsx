@@ -29,7 +29,7 @@ const Root = styled(Section)(({ theme }) => ({
   },
 }));
 
-const items = ['steve-ochieng', 'awino-ochieng'];
+const items = ['steve', 'awino'];
 export default function TeamSection() {
   const t = usePageTranslation({ keyPrefix: 'team-section' });
   return (
@@ -50,7 +50,7 @@ export default function TeamSection() {
               <Typography variant="h5" component="h2" className="AwiTeamSection-name">
                 {t(`items.${itemIndex}.name`)}
               </Typography>
-              <Typography component="h3" className="AwiTeamSection-title">
+              <Typography component="h3" className="AwiTeamSection-title Awi-golden">
                 {t(`items.${itemIndex}.title`)}
               </Typography>
               <Typography maxWidth={380}>{t(`items.${itemIndex}.description`)}</Typography>

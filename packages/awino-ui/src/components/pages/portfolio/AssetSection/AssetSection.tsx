@@ -152,7 +152,7 @@ export default function AssetSection(/* { total }: Props */) {
         </ToggleButtonGroup>
         <Panel
           header={
-            <Typography className="AwiAssetSection-title" variant="body" component="h2">
+            <Typography className="AwiAssetSection-title Awi-golden" variant="body" component="h2">
               {t(`title.${type}`)}
             </Typography>
           }

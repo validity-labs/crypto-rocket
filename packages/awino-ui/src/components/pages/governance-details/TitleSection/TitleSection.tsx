@@ -38,7 +38,7 @@ export default function TitleSection({ proposal, loading }: Props) {
             <ProposalStatus status={status} />
             <Box className="Awi-row Awi-center" mt={10} mb={4}>
               <Chip variant="outlined" label={id} color="default" size="small" sx={{ mr: 10 }} />
-              <Typography variant="h3" component="h1" pt={2}>
+              <Typography variant="h3" component="h1" pt={2} className="Awi-golden">
                 {title}
               </Typography>
             </Box>

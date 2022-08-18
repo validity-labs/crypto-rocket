@@ -18,7 +18,7 @@ afterEach(cleanup);
 
 describe('<IntroSection />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<IntroSection />, {}, 'earn-manage-awino');
+    const { asFragment } = render(<IntroSection />, {}, 'earn-stake-awino');
     expect(asFragment()).toMatchSnapshot();
   });
 });

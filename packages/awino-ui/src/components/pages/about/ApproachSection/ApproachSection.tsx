@@ -31,14 +31,14 @@ export default function ApproachSection() {
   return (
     <Root containerProps={{ maxWidth: 'lg' }}>
       <div className="AwiApproachSection-card">
-        <Typography variant="h3" component="h2" className="AwiApproachSection-title">
+        <Typography variant="h3" component="h2" className="AwiApproachSection-title Awi-golden">
           {t('title')}
         </Typography>
         <Typography mb={19}>{t('description')}</Typography>
         <Grid container spacing={13}>
           {items.map((itemId, itemIndex) => (
             <Grid key={itemId} item xs={12} md={6}>
-              <Typography variant="h6" component="h3" className="AwiApproachSection-subtitle">
+              <Typography variant="h6" component="h3" className="AwiApproachSection-subtitle Awi-golden">
                 {t(`items.${itemIndex}.title`)}
               </Typography>
               <Typography maxWidth={380}>{t(`items.${itemIndex}.description`)}</Typography>

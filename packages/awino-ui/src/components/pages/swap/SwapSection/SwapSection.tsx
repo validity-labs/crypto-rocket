@@ -74,6 +74,7 @@ const Panel = styled(Box)(({ theme }) => ({
   },
   '.AwiSwapSection-subPanel': {
     position: 'relative',
+    minHeight: 300,
     borderRadius: +theme.shape.borderRadius * 6,
     boxShadow: '0px 3px 6px #00000029',
     // margin: theme.spacing(0, 0, 13),
@@ -89,6 +90,15 @@ const Panel = styled(Box)(({ theme }) => ({
       background: ['rgb(0,255,235)', 'linear-gradient(120deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 50%)'],
       zIndex: -1,
     },
+  },
+
+  '.MuiFormLabel-root': {
+    '&.Mui-disabled': {
+      color: theme.palette.text.primary,
+    },
+  },
+  '.MuiInputBase-root': {
+    minHeight: 60,
   },
   [theme.breakpoints.up('md')]: {
     padding: theme.spacing(5.5, 12, 12),

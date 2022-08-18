@@ -883,7 +883,7 @@ const themeCreator = (mode: PaletteMode) => {
           marginBottom: theme.spacing(1),
           ...theme.typography.body,
           fontWeight: 500,
-          color: theme.palette.text.secondary,
+          color: theme.palette.text.primary,
           '&.Mui-focused': {
             color: theme.palette.text.primary,
           },
