@@ -15,9 +15,10 @@ import ExpandIcon from '@/components/icons/ExpandIcon';
 import ZapIcon from '@/components/icons/ZapIcon';
 import usePageTranslation from '@/hooks/usePageTranslation';
 import {
-  AWINO_ROUTER_MAP,
+  AWINO_ZAP_MAP,
   useAllowance,
-  useAmountOut,
+  getZapAmountIn,
+  getZapAmountOut,
   useSwapInfo,
   useTokenBalance,
   useTokenBalanceDynamic,
@@ -34,6 +35,9 @@ import NumberInput from './NumberInput';
 import { AssetInfoMap } from './SwapSection';
 
 const Root = styled('div')(({ theme }) => ({
+  'AwiSwapSection-subPanel': {
+    position: 'absolute',
+  },
   '.AwiSwapPanel-source, .AwiSwapPanel-target': {
     display: 'flex',
     flexDirection: 'column',
@@ -54,7 +58,7 @@ const Root = styled('div')(({ theme }) => ({
   },
   '.AwiZapPanel-switch': {
     position: 'absolute',
-    top: 0,
+    top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     zIndex: 1,
@@ -118,16 +122,17 @@ const Root = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up('md')]: {
     '.AwiSwapPanel-source': {
-      padding: theme.spacing(11, 22, 12, 8),
+      padding: theme.spacing(11, 15, 12, 15),
       paddingRight: theme.spacing(22),
     },
     '.AwiSwapPanel-target': {
-      padding: theme.spacing(11, 8, 12, 22),
+      padding: theme.spacing(11, 15, 12, 15),
     },
     '.AwiZapPanel-switch': {
-      top: '110px',
-      left: 0,
-      transform: 'translate(-50%, 0)',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: '1',
     },
   },
 }));
@@ -152,36 +157,36 @@ const ZapPanel = (props: TabPanelProps) => {
   const [executing, setExecuting] = useState(false);
   const [sourceAsset, setSourceAsset] = useState<AssetKey | ''>('');
   const [sourceValue, setSourceValue] = useState(null);
+  const [targetValue, setTargetValue] = useState(null);
   const [targetAsset, setTargetAsset] = useState<PairedAssetKey | ''>('');
   const [canExecute, setCanExecute] = useState(false);
   const [assetModal, setAssetModal] = useState<AssetModalData | null>(null);
+  const [reversedMode, setReversedMode] = useState(false);
 
   const { account, library, chainId } = useWeb3();
-  const routerAddress = useMemo(() => AWINO_ROUTER_MAP[chainId], [chainId]);
+  const zapContractAddress = useMemo(() => AWINO_ZAP_MAP[chainId], [chainId]);
 
   const source = useMemo(() => sourceAssets.get(sourceAsset), [sourceAsset, sourceAssets]);
   const target = useMemo(() => targetAssets.get(targetAsset), [targetAsset, targetAssets]);
 
   const sourceMaxValue = useTokenBalanceDynamic(source?.address, source?.decimals, account);
 
-  const targetMaxValue = useTokenBalanceDynamic(target?.address, target?.decimals, account);
+  const targetMaxValue = useTokenBalanceDynamic(target?.id, target?.decimals, account);
 
-  const targetValue = useAmountOut(source?.address, target?.address, sourceValue, routerAddress);
-
-  const allowance = useAllowance(source?.address, account, routerAddress);
+  const allowance = useAllowance(reversedMode ? target?.address : source?.address, account, zapContractAddress);
   const [hasEnoughAllowance, setHasEnoughAllowance] = useState(false);
 
-  // const info = useSwapInfo(source?.address, target?.address, sourceValue, routerAddress);
+  // const info = useSwapInfo(source?.address, target?.address, sourceValue, zapContractAddress);
 
   useEffect(() => {
     setCanExecute(
       sourceAsset &&
-        targetAsset &&
-        sourceValue &&
-        targetValue &&
-        sourceAsset !== targetAsset &&
-        toBigNum(sourceValue).gt(0) &&
-        toBigNum(targetValue).gt(0)
+      targetAsset &&
+      sourceValue &&
+      targetValue &&
+      sourceAsset !== targetAsset &&
+      toBigNum(sourceValue).gt(0) &&
+      toBigNum(targetValue).gt(0)
     );
   }, [sourceAsset, targetAsset, sourceValue, targetValue]);
 
@@ -189,12 +194,39 @@ const ZapPanel = (props: TabPanelProps) => {
    * Check if the 'allowance' for the 'Router' contract is enough. Set the flag accordingly.
    */
   useEffect(() => {
-    if (allowance && sourceValue && Number(allowance) >= Number(sourceValue)) {
+    const minValue = reversedMode ? targetValue : sourceValue;
+    if (allowance && minValue && Number(allowance) >= Number(minValue)) {
       setHasEnoughAllowance(true);
     } else {
       setHasEnoughAllowance(false);
     }
-  }, [allowance, sourceValue]);
+  }, [allowance, sourceValue, targetValue, reversedMode]);
+
+  useEffect(() => {
+    if (!source || !target) return;
+    if (!reversedMode) {
+      if (sourceValue) {
+        const _targetValue = getZapAmountIn(
+          source.address,
+          target.id,
+          sourceValue,
+          zapContractAddress
+        )
+        setTargetValue(_targetValue);
+      }
+    }
+    else {
+      if (targetValue) {
+        const _sourceValue = getZapAmountOut(
+          source.address,
+          target.id,
+          targetValue,
+          zapContractAddress
+        )
+        setSourceValue(_sourceValue);
+      }
+    }
+  }, [source, target, sourceValue, targetValue, reversedMode])
 
   /**
    * Checks if the the 'Router' contract has enough permissions to transfer tokens
@@ -202,20 +234,21 @@ const ZapPanel = (props: TabPanelProps) => {
    */
   const handleExecute = useCallback(async () => {
     if (sourceAsset && targetAsset && sourceValue && targetValue && sourceAsset !== targetAsset) {
-      const { address, decimals } = source;
       const signer = await library.getSigner();
       setExecuting(true);
 
       // Check allowance
       if (!hasEnoughAllowance) {
-        console.log(`>> Requesting approval for spending: ${ethers.utils.parseUnits(sourceValue, decimals)}`);
+        const { address, decimals } = reversedMode ? target : source;
+        const minValue = reversedMode ? targetValue : sourceValue;
+        console.log(`>> Requesting approval for spending: ${ethers.utils.parseUnits(minValue, decimals)}`);
 
         try {
           // Approve
-          await ERC20Common.approve(address, routerAddress, ethers.utils.parseUnits(sourceValue, decimals), library);
+          await ERC20Common.approve(address, zapContractAddress, ethers.utils.parseUnits(minValue, decimals), library);
           setHasEnoughAllowance(true);
         } catch (error) {
-          console.error(`Approval from ${account} to ${routerAddress} failed.`);
+          console.error(`Approval from ${account} to ${zapContractAddress} failed.`);
           console.error(error);
         }
       }
@@ -224,11 +257,21 @@ const ZapPanel = (props: TabPanelProps) => {
       try {
         // @TODO 'slippageTolerance' is not used. Adjust calculations based on
         // the selected slippageTolerance.
-        await zapTokens(source.address, target.address, sourceValue, routerAddress, await signer.getAddress(), signer);
+        await zapTokens(
+          source.address,
+          target.address,
+          sourceValue,
+          targetValue,
+          reversedMode,
+          zapContractAddress,
+          await signer.getAddress(),
+          signer
+        );
 
         setExecuting(false);
         setCanExecute(false);
         setSourceValue(0);
+        setTargetValue(0);
       } catch (error) {
         console.log(error);
         setExecuting(false);
@@ -241,21 +284,33 @@ const ZapPanel = (props: TabPanelProps) => {
     targetValue,
     target,
     source,
-    routerAddress,
+    zapContractAddress,
     hasEnoughAllowance,
     account,
     library,
+    reversedMode
   ]);
 
   const validateSourceValue = useCallback(
     (newValue) => {
-      return newValue >= 0 && newValue <= sourceMaxValue;
+      return newValue >= 0 && (reversedMode || newValue <= sourceMaxValue);
     },
     [sourceMaxValue]
   );
 
+  const validateTargetValue = useCallback(
+    (newValue) => {
+      return newValue >= 0 && (!reversedMode || newValue <= targetMaxValue);
+    },
+    [targetMaxValue]
+  );
+
   const handleSourceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSourceValue(event.target.value);
+  };
+
+  const handleTargetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTargetValue(event.target.value);
   };
 
   const handlePercentClick = (event: React.MouseEvent<HTMLElement>, newPercent: number) => {
@@ -290,9 +345,7 @@ const ZapPanel = (props: TabPanelProps) => {
    * Switch source / target assets
    */
   const handleSwitch = () => {
-    const tSourceAsset = sourceAsset;
-    setSourceAsset(targetAsset);
-    setTargetAsset(tSourceAsset);
+    setReversedMode(!reversedMode);
   };
 
   return (
@@ -314,7 +367,7 @@ const ZapPanel = (props: TabPanelProps) => {
         </div>
         <div>
           <div className="AwiSwapSection-subPanel">
-            <Grid container>
+            <Grid container direction={reversedMode ? "row-reverse" : "row"}>
               <Grid item xs={12} md={6}>
                 <div className="AwiSwapPanel-source">
                   <Button
@@ -333,7 +386,7 @@ const ZapPanel = (props: TabPanelProps) => {
                   >
                     <>{sourceAsset ? source.label : t('swap-section.zap.choose-token')}</>
                   </Button>
-                  <FormControl variant="standard" fullWidth disabled={loading || executing || !sourceAsset}>
+                  <FormControl variant="standard" fullWidth disabled={reversedMode || loading || executing || !sourceAsset}>
                     <FormLabel htmlFor="sourceValue" className="AwiSwapPanel-sourceAmountLabel">
                       <span>{t('swap-section.zap.you-pay')}</span>
                       {sourceAsset && (
@@ -376,9 +429,6 @@ const ZapPanel = (props: TabPanelProps) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <div className={clsx('AwiSwapPanel-target', { 'Awi-active': canExecute })}>
-                  <IconButton color="primary" size="small" className="AwiZapPanel-switch" onClick={handleSwitch}>
-                    <ZapIcon />
-                  </IconButton>
                   <Button
                     variant="text"
                     className="AwiSwapPanel-assetToggle"
@@ -395,7 +445,7 @@ const ZapPanel = (props: TabPanelProps) => {
                   >
                     <>{targetAsset ? target.label : t('swap-section.zap.choose-lp-token')}</>
                   </Button>
-                  <FormControl variant="standard" fullWidth disabled={true /* loading || !targetAsset */}>
+                  <FormControl variant="standard" fullWidth disabled={!reversedMode || loading || executing || !targetAsset}>
                     <FormLabel htmlFor="targetValue" className="AwiSwapPanel-targetAmountLabel">
                       <span>{t(`swap-section.zap.${canExecute ? 'you-receive-estimated' : 'you-receive'}`)}</span>
                       {targetAsset && (
@@ -410,11 +460,22 @@ const ZapPanel = (props: TabPanelProps) => {
                         </span>
                       )}
                     </FormLabel>
-                    <NumberInput id="targetValue" name="targetValue" value={targetValue} />
+                    <NumberInput
+                      id="targetValue"
+                      name="targetValue"
+                      inputProps={{
+                        isAllowed: (value) => validateTargetValue(value.floatValue),
+                      }}
+                      value={targetValue}
+                      onChange={handleTargetChange}
+                    />
                   </FormControl>
                 </div>
               </Grid>
             </Grid>
+            <IconButton color="primary" size="small" className="AwiZapPanel-switch" onClick={handleSwitch}>
+              <ZapIcon />
+            </IconButton>
           </div>
         </div>
       </Root>
