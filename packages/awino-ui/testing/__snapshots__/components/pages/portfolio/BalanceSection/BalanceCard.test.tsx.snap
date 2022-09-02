@@ -6,7 +6,7 @@ exports[`<BalanceCard /> has valid snapshot 1`] = `
     class="AwiBalanceCard-root MuiBox-root css-0"
   >
     <div
-      class="AwiBalanceCard-startBox"
+      class="AwiBalanceCard-left"
     >
       <img
         alt=""
@@ -17,23 +17,23 @@ exports[`<BalanceCard /> has valid snapshot 1`] = `
         <p
           class="MuiTypography-root MuiTypography-body css-1"
         >
-          contracts:balance-section.assets.awi.title
+          portfolio:balance-section.assets.awi.title
         </p>
         <p
           class="MuiTypography-root MuiTypography-body-sm css-2"
         >
-          contracts:balance-section.assets.awi.description
+          portfolio:balance-section.assets.awi.description
         </p>
       </div>
     </div>
     <div
-      class="AwiBalanceCard-labelValue MuiBox-root css-3"
+      class="AwiLabelValue-root AwiBalanceCard-labelValue MuiBox-root css-3"
     >
       <h6
         class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-4"
         id="balanceCard-awi"
       >
-        contracts:balance-section.total-balance
+        portfolio:balance-section.total-balance
       </h6>
       <p
         aria-describedby="balanceCard-awi"

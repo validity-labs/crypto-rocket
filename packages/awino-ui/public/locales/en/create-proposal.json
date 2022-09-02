@@ -1,0 +1,102 @@
+{
+  "page": {
+    "title": "Create Proposal | Governance",
+    "description": "MISSING DESCRIPTION"
+  },
+  "create-proposal-section": {
+    "back": "Back to governance",
+    "title": "Create Proposal",
+    "tip-title": "Tip for creating a proposal",
+    "tip-description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+    "transactions": "Transactions",
+    "your-proposal": "Your proposal",
+    "no-transaction-found": "No transaction found",
+    "message": {
+      "success": {
+        "title": "Success",
+        "description": "Proposal Created!",
+        "button": "Back to governance"
+      },
+      "transaction-failed": {
+        "title": "Transaction Failed",
+        "description": "Please try again."
+      },
+      "error": {
+        "title": "Error",
+        "description": "Please try again."
+      }
+    }
+  },
+  "proposal-transaction": {
+    "title": "Transactions",
+    "remove-transaction": "Remove Transaction",
+    "not-found": "No transactions found",
+    "add-transaction": "Add transaction",
+    "none": "None",
+    "details": {
+      "aria-label": "Transaction Details",
+      "address": "Address",
+      "value": "Value",
+      "function": "Function",
+      "calldata": "Calldata"
+    }
+  },
+  "proposal-transaction-form": {
+    "title": "Add a Proposal Transaction",
+    "add-transaction": "Add Transaction",
+    "back": "Back",
+    "next": "Next",
+    "none": "None",
+    "step": {
+      "address": "Address",
+      "value": "Value",
+      "function": "Function",
+      "arguments": "Arguments",
+      "summary": "Summary"
+    },
+    "field": {
+      "address": "Address of the recipient",
+      "address-help": "The address value is the address of the recipient",
+      "value": "Value in ETH (Optional)",
+      "value-help": "Value is the amount of ETH to be sent to the recipient denominated in ETH",
+      "function": "Function (Optional)",
+      "function-help": "You can skip step 3. This step is required for external contract interactions.",
+      "abi": "ABI (Optional)",
+      "abi-help": "MISSING TEXT",
+      "abi-placeholder": "Import ABI …",
+      "function-default": "Select Contract Function...",
+      "arguments": "Arguments",
+      "arguments-help": "You can skip step 4. This step is required for external contract interactions.",
+      "summary": "Summary",
+      "summary-help": "Please review that both address and value are correct. If so, click the \"Add Transaction\" button."
+    },
+    "summary-aria-label": "Transaction summary",
+    "no-argument-required": "No arguments required"
+  },
+  "transaction-success-modal": {
+    "title": "Transaction succesfully added",
+    "view-proposals": "View Proposals"
+  },
+  "proposal-editor": {
+    "title": "Your proposal",
+    "field": {
+      "title": {
+        "label": "Title",
+        "placeholder": "Title..."
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Description..."
+      },
+      "preview": {
+        "label": "Preview"
+      }
+    },
+    "message": {
+      "existing-proposal": "You already have an active or pending proposal",
+      "proposal-threshold": "You must have {{n}} votes to submit a proposal",
+      "not-enough-votes": "You don't have enough votes to submit a proposal"
+    },
+    "create-proposal": "Create Proposal"
+  }
+}

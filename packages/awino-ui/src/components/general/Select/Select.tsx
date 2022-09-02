@@ -1,24 +1,52 @@
+import { Component, memo } from 'react';
+
 import { useTranslation } from 'next-i18next';
 
-import { Box, FormControl, BoxProps, Typography, CircularProgress } from '@mui/material';
+import { Box, FormControl, BoxProps, Typography, CircularProgress, FormLabel, FormControlProps } from '@mui/material';
 import MuiMenuItem, { MenuItemProps as MuiMenuItemProps } from '@mui/material/MenuItem';
-import MuiSelect, { SelectChangeEvent, selectClasses } from '@mui/material/Select';
+import MuiSelect, { SelectChangeEvent, selectClasses, SelectProps } from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 
 import ExpandIcon from '@/components/icons/ExpandIcon';
 import { SetState } from '@/types/app';
-const StyledSelect = styled(MuiSelect)(({ theme }) => ({
+
+const Root = styled(FormControl)(({ theme }) => ({
+  // padding: 0,
+  '.MuiInput-root': {
+    minWidth: 160,
+    padding: '0 !important',
+    margin: '0 !important',
+    borderRadius: +theme.shape.borderRadius * 2,
+    backgroundColor: theme.palette.background.transparent,
+    '&:hover, &[aria-expanded="true"]': {
+      boxShadow: `0px 0 3px 1px ${theme.palette.primary.main}`,
+      '.MuiSelect-icon': {
+        color: theme.palette.text.active,
+      },
+    },
+    '&.Mui-focused, &:focus': {
+      borderRadius: +theme.shape.borderRadius * 2,
+    },
+  },
+
   [`& .${selectClasses.standard}`]: {
-    display: 'flex',
-    alignItems: 'center',
-    minHeight: '58px !important',
-    padding: `${theme.spacing(0, 10, 0, 2)} !important`,
+    // display: 'flex',
+    // alignItems: 'center',
+    // minHeight: '58px !important',
+    // padding: `${theme.spacing(1, 7, 1, 7)} !important`,
+    // borderRadius: +theme.shape.borderRadius * 2,
+    // backgroundColor: theme.palette.background.transparent,
+    // color: theme.palette.text.primary,
+    // lineHeight: 2,
+    // overflow: 'hidden',
     backgroundColor: 'transparent',
+    ...theme.typography.body,
   },
   [`& .${selectClasses.icon}`]: {
     fontSize: '32px',
     color: theme.palette.text.secondary,
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(4),
+    transition: 'color 200ms ease-in',
     path: {
       fill: 'currentColor !important',
     },
@@ -27,16 +55,12 @@ const StyledSelect = styled(MuiSelect)(({ theme }) => ({
     color: theme.palette.text.active,
   },
   '.MuiSelect-value': {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: theme.spacing(1, 12, 1, 10),
     ...theme.typography['body-md'],
+    fontWeight: 500,
     color: theme.palette.text.primary,
     img: {
-      width: 50,
-      height: 50,
+      width: 32,
+      height: 32,
       marginRight: theme.spacing(4),
     },
   },
@@ -49,28 +73,32 @@ interface MenuItemProps extends MuiMenuItemProps {
   };
   value: string;
   selected: boolean;
+  children: React.ReactNode;
 }
 
-const MenuItem = styled(({ item, selected, ...restOfProps }: MenuItemProps) => {
+const MenuItem = styled(({ item, selected, children, ...restOfProps }: MenuItemProps) => {
   return (
     <MuiMenuItem value={item.id} selected={selected} dense {...restOfProps}>
-      <Typography className="MuiMenuItem-content">
-        <img src={`/images/assets/${item.id}.svg`} alt="" width="24" />
-        {item.label}
-      </Typography>
+      <Typography className="MuiMenuItem-content">{children}</Typography>
     </MuiMenuItem>
   );
 })(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  '&.Mui-selected': {
+    color: theme.palette.text.primary,
+  },
   '.MuiMenuItem-content': {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: theme.spacing(1.5, 12, 1.5, 10),
-    ...theme.typography['body-md'],
+    padding: theme.spacing(1.5, 4, 1.5, 4),
+    ...theme.typography['body-ms'],
+    fontWeight: 500,
+    color: 'inherit',
     img: {
-      width: 50,
-      height: 50,
+      width: 32,
+      height: 32,
       marginRight: theme.spacing(4),
     },
   },
@@ -81,58 +109,100 @@ interface SelectItem {
   label: string;
 }
 
-interface Props extends BoxProps {
+export type SelectValueComponentFC = React.FC<{ item: SelectItem }>;
+export type SelectOptionComponentFC = React.FC<{ item: SelectItem }>;
+
+export const SelectValueAndOptionDefault: SelectValueComponentFC = memo(function SelectValueAndOptionDefault({
+  item: { /* id, */ label },
+}) {
+  return <>{label}</>;
+});
+
+interface Props extends SelectProps {
   items: Map<string, SelectItem>;
   value: string;
   setValue: SetState<string>;
   loading?: boolean;
   disabled?: boolean;
+  placeholder?: string;
+  ValueComponent: SelectValueComponentFC;
+  OptionComponent: SelectOptionComponentFC;
+  formControlProps?: FormControlProps;
+  // label: React.ReactNode;
 }
-export default function Select({ items, value, setValue, loading = false, disabled = false, ...restOfProps }: Props) {
+export default function Select({
+  id,
+  label,
+  items,
+  value,
+  setValue,
+  placeholder,
+  ValueComponent,
+  OptionComponent,
+  formControlProps,
+  loading = false,
+  disabled = false,
+  ...restOfProps
+}: Props) {
   const { t } = useTranslation();
 
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
   };
-
   return (
-    <Box component={FormControl} {...restOfProps}>
-      <StyledSelect
+    <Root fullWidth {...formControlProps}>
+      {label && (
+        <FormLabel id={`${id}Label`} htmlFor={id}>
+          {label}
+        </FormLabel>
+      )}
+      <MuiSelect
+        id={id}
+        labelId={`${id}Label`}
         disableUnderline
-        aria-label=""
-        id="demo-simple-select"
-        value={value}
-        onChange={handleChange}
         variant="standard"
         displayEmpty
-        IconComponent={ExpandIcon}
-        label={null}
+        value={value}
+        onChange={handleChange}
         disabled={loading || disabled}
+        MenuProps={{
+          PaperProps: {
+            sx: {
+              border: 0,
+              borderRadius: 0,
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+            },
+          },
+        }}
+        IconComponent={ExpandIcon}
         renderValue={() => {
           return (
-            <Typography className="MuiSelect-value">
+            <Typography variant="body-ms" className="MuiSelect-value">
               {loading ? (
                 <CircularProgress size={20} />
               ) : (
                 <>
                   {value ? (
-                    <>
-                      <img src={`/images/assets/${value}.svg`} alt="" width="24" />
-                      {items.get(value).label}
-                    </>
+                    <ValueComponent item={items.get(value)} />
                   ) : (
-                    <>{t('common.select-token')}</>
+                    <Typography variant="inherit" component="span" color="text.secondary">
+                      {placeholder}
+                    </Typography>
                   )}
                 </>
               )}
             </Typography>
           );
         }}
+        {...restOfProps}
       >
         {Array.from(items).map(([id, item]) => (
-          <MenuItem key={id} item={item} value={id} selected={value === id} />
+          <MenuItem key={id} item={item} value={id} selected={value === id}>
+            {<OptionComponent item={item} />}
+          </MenuItem>
         ))}
-      </StyledSelect>
-    </Box>
+      </MuiSelect>
+    </Root>
   );
 }

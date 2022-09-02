@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Awino",
+    "name": "AWINO",
     "description": "MISSING DESCRIPTION"
   },
   "language": {
@@ -24,11 +24,13 @@
     "theme-to-dark": "Switch to dark theme",
     "skip-to-main": "Skip to main content",
     "read-more": "Read more",
+    "load-more": "Load more",
     "no-records": "No records found.",
     "no-translation": "Content has no translation.",
     "copy": "Copy to Clipboard",
     "copied": "Copied!",
     "search": "Search ...",
+    "clear-search": "Clear search",
     "navigate-to": "Navigate to \"{{title}}\"",
     "navigate-to-product": "Navigate to \"{{title}}\" product",
     "table": {
@@ -48,11 +50,20 @@
     "apr-hint": "MISSING HINT",
     "back": "Go back",
     "filter-by-name": "Filter by name",
-    "select-token": "Choose token",
+    "select-token": "Select a token",
     "convertion-from-to": "Convert from {{from}} to {{to}}",
     "close-modal": "Close Modal",
     "max": "Max",
-    "view-on-etherscan": "View on etherscan"
+    "view-on-etherscan": "View on etherscan",
+    "loading": "Loading..."
+  },
+  "asset": {
+    "awi": "AWI",
+    "cro": "CRO",
+    "usd": "USD",
+    "awicro": "AWICRO",
+    "usdc": "USDC",
+    "awiusdc": "AWINO/USDC"
   },
   "format": {
     "date": "dd-MM-yyyy",
@@ -60,7 +71,7 @@
     "date-time": "EEEE | LLLL d, yyyy O HH:mm",
     "abbreviate": {
       "number": {
-        "m": "M",
+        "m": "m",
         "k": "k"
       }
     }
@@ -73,13 +84,18 @@
   },
   "menu": {
     "main": {
+      "about": {
+        "title": "About"
+      },
       "market": {
         "title": "Market"
       },
       "earn": {
         "title": "Earn",
         "deposit": "Deposit",
-        "liquidity-staking": "Liquidity Staking"
+        "liquidity-staking": "Liquidity Staking",
+        "stake-awino": "Stake AWINO",
+        "farms": "Farms"
       },
       "borrow": {
         "title": "Borrow"
@@ -87,24 +103,18 @@
       "swap": {
         "title": "Swap"
       },
-      "podl": {
-        "title": "Podl"
+      "infinite": {
+        "title": "INFINITE"
       },
-      "more": {
-        "title": "More",
-        "analytics": "Analytics",
-        "docs": "Docs",
-        "launchpad": "Launchpad"
+      "pol": {
+        "title": "POL"
       }
     },
+    "language": {
+      "toggle-label": "Change language"
+    },
     "settings": {
-      "toggle-label": "Application settings",
-      "profile": {
-        "title": "Profile"
-      },
-      "activity": {
-        "title": "Activity"
-      }
+      "toggle-label": "Application settings"
     },
     "more": {
       "toggle-label": "Additional Links",
@@ -116,13 +126,17 @@
         "title": "Contracts",
         "description": "View contract related information"
       },
-      "dashboard": {
-        "title": "Dashboard",
-        "description": "Wiew your staked AWI tokens"
-      },
       "portfolio": {
         "title": "Portfolio",
         "description": "View your portfolio of related assets"
+      },
+      "governance": {
+        "title": "Governance",
+        "description": "MISSING TEXT"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "MISSING TEXT"
       }
     },
     "social": {

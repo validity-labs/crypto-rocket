@@ -100,7 +100,7 @@ export default function AssetSection({ total }: Props) {
       <Panel
         header={
           <>
-            <Typography variant="h4" component="h1" color="text.active" fontWeight="bold">
+            <Typography variant="h4" component="h1" color="text.active" fontWeight="bold" className="Awi-golden">
               {t(`asset-section.title`)}
             </Typography>
             <div className="aside">
@@ -148,6 +148,11 @@ export default function AssetSection({ total }: Props) {
             onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
             components={{
               Pagination: GridPagination,
+            }}
+            componentsProps={{
+              row: {
+                className: 'Awi-selectable',
+              },
             }}
             localeText={{
               columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),

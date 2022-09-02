@@ -19,7 +19,7 @@ afterEach(cleanup);
 
 describe('<BalanceCard />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<BalanceCard item={balanceGroupedList.tokens[0]} />, {}, 'contracts');
+    const { asFragment } = render(<BalanceCard item={balanceGroupedList.tokens[0]} />, {}, 'portfolio');
     expect(asFragment()).toMatchSnapshot();
   });
 });

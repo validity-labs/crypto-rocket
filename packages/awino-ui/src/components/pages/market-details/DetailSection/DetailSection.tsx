@@ -10,8 +10,10 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  BarController,
   PointElement,
   LineElement,
+  LineController,
   ChartOptions,
 } from 'chart.js';
 import AnnotationPlugin from 'chartjs-plugin-annotation';
@@ -28,7 +30,18 @@ import { AssetKey, MarketInfo } from '@/types/app';
 
 import { chartDatasets as baseChartDatasets, getChartOptions, getFakeData, TickLine } from './chart';
 
-ChartJS.register(CategoryScale, LinearScale, Tooltip, PointElement, LineElement, TickLine, AnnotationPlugin);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  PointElement,
+  LineElement,
+  LineController,
+  BarElement,
+  BarController,
+  TickLine,
+  AnnotationPlugin
+);
 
 const Root = styled(Section)(({ theme }) => ({
   '.MuiTableRow-root': {
@@ -120,6 +133,7 @@ export default function DetailSection({ asset, info }: Props) {
         },
       ],
     } as ChartData;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, t, theme.palette.mode]);
 
   return (

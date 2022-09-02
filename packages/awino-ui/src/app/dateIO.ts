@@ -8,7 +8,7 @@ const dateIO = new DateFnsAdapter();
 
 // Track loaded date-fns locale files, so it is loaded only once
 const locales: Record<Language, Locale | undefined> = {
-  de: undefined,
+  // de: undefined,
   en: undefined,
 };
 
@@ -25,9 +25,9 @@ export const changeDateIOLocale = (language: Language) => {
         case 'en':
           locales.en = defaultLocale;
           break;
-        case 'de':
-          locales.de = await (await import(`date-fns/locale/de`)).default;
-          break;
+        // case 'de':
+        //   locales.de = await (await import(`date-fns/locale/de`)).default;
+        //   break;
       }
     }
   };

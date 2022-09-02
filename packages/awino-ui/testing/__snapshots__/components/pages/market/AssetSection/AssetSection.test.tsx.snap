@@ -6,7 +6,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="AwiPanel-root MuiBox-root css-2"
@@ -23,7 +23,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
             class="aside"
           >
             <div
-              class="MuiBox-root css-4"
+              class="AwiLabelValue-root MuiBox-root css-4"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -35,11 +35,11 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 aria-describedby="marketTotalSize"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-6"
               >
-                12.35 m USD
+                12,345,678.00 USD
               </p>
             </div>
             <div
-              class="MuiBox-root css-4"
+              class="AwiLabelValue-root MuiBox-root css-4"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-5"
@@ -48,7 +48,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 market:asset-section.platform.total-fee
                 <span
                   aria-label="market:asset-section.platform.total-fee-hint"
-                  class="help"
+                  class="AwiLabel-help"
                   data-mui-internal-clone-element="true"
                 >
                   <svg
@@ -74,7 +74,7 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
                 aria-describedby="platformTotalFee"
                 class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-6"
               >
-                1.23 m USD
+                1,234,567.89 USD
               </p>
             </div>
           </div>

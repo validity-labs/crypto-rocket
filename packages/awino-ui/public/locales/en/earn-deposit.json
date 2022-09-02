@@ -5,7 +5,6 @@
   },
   "asset-section": {
     "title": "Available to deposit",
-    "title-hint": "MISSING TEXT",
     "toggle-hint": "MISSING TEXT",
     "fields": {
       "asset": "Asset",
@@ -36,7 +35,6 @@
   },
   "operation-modal": {
     "operation-switch-hint": "Switch between supply and withdraw operations",
-    "max": "MAX",
     "supply-rates": "Supply rates",
     "supply-apy": "Supply APY",
     "distribution-apy": "Distribution APY",

@@ -6,7 +6,7 @@ exports[`<ContractCard /> has valid snapshot 1`] = `
     class="AwiContactCard-root MuiBox-root css-0"
   >
     <div
-      class="AwiContactCard-startBox"
+      class="AwiContactCard-left"
     >
       <img
         alt=""
@@ -24,17 +24,17 @@ exports[`<ContractCard /> has valid snapshot 1`] = `
         >
           <p
             class="MuiTypography-root MuiTypography-body-sm AwiAddress-address css-3"
-            title="0x0f2d719407fdbeff09d87557abb7232601fd9f21"
+            title="0x02D1a756733F2C63DF89bCcB780C0C7A22D4E8a2"
           >
             <span
               class="AwiAddress-prefix"
             >
-              0x0f2d719407fdbeff09d87557abb7232601fd
+              0x02D1a756733F2C63DF89bCcB780C0C7A22D4
             </span>
             <span
               class="AwiAddress-postfix"
             >
-              9f21
+              E8a2
             </span>
           </p>
           <button

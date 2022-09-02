@@ -3,7 +3,7 @@
 exports[`<LabelValue /> has valid snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiBox-root css-0"
+    class="AwiLabelValue-root MuiBox-root css-0"
   >
     <h6
       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-1"
@@ -12,7 +12,7 @@ exports[`<LabelValue /> has valid snapshot 1`] = `
       Text
       <span
         aria-label="Tooltip"
-        class="help"
+        class="AwiLabel-help"
         data-mui-internal-clone-element="true"
       >
         <svg

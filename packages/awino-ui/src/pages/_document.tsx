@@ -9,7 +9,7 @@ import createEmotionCache from '@/app/createEmotionCache';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang={this.props.__NEXT_DATA__.locale || 'en'}>
         <Head>
           {/* PWA primary color */}
           {/* <meta name="theme-color" content={theme.palette.primary.main} /> */}
@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Poiret+One&family=MuseoModerno&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Baloo+Bhai+2&display=swap"
             rel="stylesheet"
           />
           <script

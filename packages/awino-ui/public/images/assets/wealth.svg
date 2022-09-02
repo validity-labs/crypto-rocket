@@ -11,6 +11,93 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs8">
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rechteck_1170"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <filter
+       id="filter0_i"
+       x="0.859375"
+       y="0.592313"
+       width="94.4298"
+       height="94.6595"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood927" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         result="shape"
+         id="feBlend929" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         result="hardAlpha"
+         id="feColorMatrix931" />
+      <feOffset
+         dy="-0.689125"
+         id="feOffset933" />
+      <feGaussianBlur
+         stdDeviation="0.114854"
+         id="feGaussianBlur935" />
+      <feComposite
+         in2="hardAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         id="feComposite937" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0.0699479 0 0 0 0 0.9875 0 0 0 0 0.717887 0 0 0 1 0"
+         id="feColorMatrix939" />
+      <feBlend
+         mode="normal"
+         in2="shape"
+         result="effect1_innerShadow"
+         id="feBlend941" />
+    </filter>
+    <linearGradient
+       id="paint0_linear"
+       x1="48.0745"
+       y1="4.34131"
+       x2="48.0745"
+       y2="91.7325"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#141E27"
+         id="stop944" />
+      <stop
+         offset="1"
+         stop-color="#141E27"
+         id="stop946" />
+    </linearGradient>
+    <clipPath
+       id="clip0">
+      <rect
+         width="96"
+         height="96"
+         fill="white"
+         id="rect949" />
+    </clipPath>
+    <clipPath
+       id="clip-path-1">
+      <rect
+         id="Rechteck_1170-5"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
     <linearGradient
        id="linear-gradient"
        x1="6.82"
@@ -67,44 +154,263 @@
          stop-color="#e6d234"
          id="stop979" />
     </linearGradient>
-    <linearGradient
-       id="linear-gradient-6"
-       x1="5.28"
-       y1="-0.43199998"
-       x2="13.704"
-       y2="23.280001"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         offset="0"
-         stop-color="#f500ff"
-         id="stop836-1" />
-      <stop
-         offset="0.498"
-         stop-color="#f7776c"
-         id="stop838-5" />
-      <stop
-         offset="1"
-         stop-color="#e6d234"
-         id="stop840" />
-    </linearGradient>
+    <clipPath
+       id="clip-path-7">
+      <rect
+         id="Rechteck_1170-6"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <filter
+       id="filter0_i-6"
+       x="0.859375"
+       y="0.592313"
+       width="94.4298"
+       height="94.6595"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood927-5" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         result="shape"
+         id="feBlend929-6" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         result="hardAlpha"
+         id="feColorMatrix931-3" />
+      <feOffset
+         dy="-0.689125"
+         id="feOffset933-9" />
+      <feGaussianBlur
+         stdDeviation="0.114854"
+         id="feGaussianBlur935-4" />
+      <feComposite
+         in2="hardAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         id="feComposite937-8" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0.0699479 0 0 0 0 0.9875 0 0 0 0 0.717887 0 0 0 1 0"
+         id="feColorMatrix939-1" />
+      <feBlend
+         mode="normal"
+         in2="shape"
+         result="effect1_innerShadow"
+         id="feBlend941-2" />
+    </filter>
+    <clipPath
+       id="clip0-0">
+      <rect
+         width="96"
+         height="96"
+         fill="white"
+         id="rect949-8" />
+    </clipPath>
+    <clipPath
+       id="clip-path-4">
+      <rect
+         id="Rechteck_1170-8"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <clipPath
+       id="clip-path-9">
+      <rect
+         id="Rechteck_1170-0"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
   </defs>
+  <style
+     type="text/css"
+     id="style1288">
+	.st0{fill:#F5AC37;}
+	.st1{fill:#FEFEFD;}
+</style>
+  <style
+     type="text/css"
+     id="style1427">
+	.st0{fill:#343434;}
+	.st1{fill:#8C8C8C;}
+	.st2{fill:#3C3C3B;}
+	.st3{fill:#141414;}
+	.st4{fill:#393939;}
+</style>
+  <style
+     type="text/css"
+     id="style1952">
+	.st0{fill:#343434;}
+	.st1{fill:#8C8C8C;}
+	.st2{fill:#3C3C3B;}
+	.st3{fill:#141414;}
+	.st4{fill:#393939;}
+</style>
+  <style
+     type="text/css"
+     id="style2511">
+	.st0{fill:#2775CA;}
+	.st1{fill:#FFFFFF;}
+</style>
+  <style
+     type="text/css"
+     id="style2685">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#50AF95;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>
   <g
-     id="Gruppe_4142"
-     data-name="Gruppe 4142"
-     transform="matrix(0.74120833,0,0,0.74120833,3.1055,3.1055)">
+     id="Gruppe_4163"
+     data-name="Gruppe 4163"
+     transform="matrix(0.75,0,0,0.75,3,3)">
     <circle
-       id="Ellipse_2"
+       id="Ellipse_2-9"
        data-name="Ellipse 2"
        cx="12"
        cy="12"
        r="12"
-       fill="url(#linear-gradient)"
-       style="fill:url(#linear-gradient-6)" />
-    <path
-       id="Icon_awesome-phoenix-framework"
-       data-name="Icon awesome-phoenix-framework"
-       d="m 6.248,7.087 c 0.112,0 0.669,-0.02 0.751,-0.032 a 3.436,3.436 0 0 1 -2,-0.721 0.456,0.456 0 0 1 -0.188,-0.4 C 4.896,5.563 5.777,5.498 6.337,5.665 7.4,5.978 8.2,6.991 9.679,7.082 a 6.469,6.469 0 0 0 3.175,-0.66 0.113,0.113 0 0 0 -0.029,0 H 12.793 A 10.123,10.123 0 0 1 8.84,6.207 C 7.74,5.875 7.282,5.354 7.32,5.122 7.373,4.812 7.992,4.785 8.374,4.837 a 6.1,6.1 0 0 1 1.142,0.4 3.707,3.707 0 0 0 1.505,0.15 5.7,5.7 0 0 0 1.071,-0.211 H 12.019 C 11.837,5.167 11.655,5.164 11.476,5.151 8.213,4.911 7.693,2.772 4.066,2.634 a 11.746,11.746 0 0 0 -4,0.509 L 0,3.167 0.006,3.174 h 0.07 a 3.291,3.291 0 0 1 0.549,0 1.7,1.7 0 0 1 1.64,1.112 C 2.421,4.786 2.244,5.025 2.5,5.538 3.058,6.661 5.171,7.1 6.248,7.087 Z M 2.21,3.025 A 0.113,0.113 0 0 1 2.172,3 C 2.527,2.962 2.882,2.94 3.246,2.93 3.213,3.14 2.594,3.236 2.21,3.025 Z m 5.778,5.1 A 8.021,8.021 0 0 1 4.364,7.232 6.43,6.43 0 0 1 3.818,6.892 L 3.83,6.886 A 8.709,8.709 0 0 0 5.438,7.279 6.136,6.136 0 0 0 7.538,7.231 2.33,2.33 0 0 1 8.8,7.269 2.123,2.123 0 0 0 8.1,7.384 C 7.95,7.448 7.965,7.554 8.305,7.634 A 13.922,13.922 0 0 1 11.158,8 a 2.195,2.195 0 0 1 0.3,0.156 c 0,0 -0.009,0 -0.012,0.007 A 6.985,6.985 0 0 0 10.266,8.028 C 9.538,8 8.9,8.108 7.988,8.121 Z m 5.13,-3.664 a 5.545,5.545 0 0 1 1.952,-0.048 1.476,1.476 0 0 1 0.942,0.5 0.706,0.706 0 0 1 0.15,0.417 H 16.144 A 0.083,0.083 0 0 1 16.129,5.311 C 15.982,4.991 15.252,4.674 14.145,4.876 A 8.419,8.419 0 0 1 8.954,4.176 C 8.933,4.163 8.884,4.151 8.916,4.129 A 0.329,0.329 0 0 1 9,4.152 7.139,7.139 0 0 0 10.77,4.533 8.7,8.7 0 0 0 13.118,4.457 Z m 3.014,1.708 c -0.951,0 -0.992,0.728 -3.04,0.936 A 12.875,12.875 0 0 1 11.774,7.166 V 7.157 a 3.079,3.079 0 0 0 0.872,-0.241 c 0.232,-0.106 0.449,-0.22 0.669,-0.333 a 4.286,4.286 0 0 1 2.4,-0.567 2.884,2.884 0 0 1 1.059,0.185 0.081,0.081 0 0 1 0.021,0.013 0.15,0.15 0 0 1 -0.026,0 3.416,3.416 0 0 0 -0.64,-0.048 z m -0.361,-0.35 c 0,0 0,0.006 -0.006,0.009 A 5.527,5.527 0 0 0 13.755,5.886 6.94,6.94 0 0 1 11.935,6.241 5.981,5.981 0 0 1 10,6.121 L 9.971,6.112 c 0,0 0,0 0,-0.007 A 4.01,4.01 0 0 0 11.6,6.02 8.663,8.663 0 0 1 13.692,5.569 4.868,4.868 0 0 1 15.773,5.815 Z M 7.883,3.5 7.821,3.467 a 7.635,7.635 0 0 1 1.567,0.122 11.544,11.544 0 0 1 1.473,0.478 3.007,3.007 0 0 0 1.068,0.118 C 12.055,4.179 12.178,4.168 12.305,4.16 a 0.125,0.125 0 0 1 0.044,0 C 12.331,4.166 12.314,4.173 12.296,4.177 A 3.9,3.9 0 0 1 11.545,4.277 7.278,7.278 0 0 1 9.391,4.053 7.029,7.029 0 0 1 7.883,3.5 Z m 10.9,3.466 A 2.944,2.944 0 0 1 17.53,7.043 4.43,4.43 0 0 1 16.603,6.693 2.569,2.569 0 0 0 15.778,6.571 0.167,0.167 0 0 1 15.813,6.551 2.971,2.971 0 0 1 17.2,6.452 3.027,3.027 0 0 1 18.092,6.804 1.782,1.782 0 0 0 18.77,6.957 c 0,0 0.006,0 0.012,0.006 z m -6.237,1.988 c 0.065,0.017 0.047,0.022 0.044,0.029 A 2.987,2.987 0 0 1 11.217,8.66 3.638,3.638 0 0 0 9.79,8.229 0.193,0.193 0 0 1 9.822,8.223 a 9.589,9.589 0 0 1 1.142,0.057 2.138,2.138 0 0 1 1.221,0.513 1.087,1.087 0 0 0 0.361,0.161 z"
-       transform="translate(2.626,7.348)"
-       fill="#ffffff" />
+       fill="#694603" />
+    <g
+       id="Gruppe_4156-1"
+       data-name="Gruppe 4156"
+       transform="translate(4.344,6.718)">
+      <g
+         id="Gruppe_4147-7"
+         data-name="Gruppe 4147"
+         clip-path="url(#clip-path-9)">
+        <path
+           id="Pfad_2307-7"
+           data-name="Pfad 2307"
+           d="m 84.22,120.149 a 2.15,2.15 0 0 0 0.381,1.865 c -0.6,-0.092 -0.921,-0.853 -0.381,-1.865"
+           transform="translate(-78.068,-111.738)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2308-1"
+           data-name="Pfad 2308"
+           d="m 90.58,117.507 c -0.256,1.294 0.01,2.012 0.911,2.108 a 3.171,3.171 0 0 1 -0.911,-2.108"
+           transform="translate(-84.153,-109.281)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2309-1"
+           data-name="Pfad 2309"
+           d="m 96.032,118.5 a 1.7,1.7 0 0 0 1.728,2.015 3.416,3.416 0 0 1 -1.728,-2.015"
+           transform="translate(-89.289,-110.2)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2310-5"
+           data-name="Pfad 2310"
+           d="m 102.189,122.158 a 2.363,2.363 0 0 0 1.926,1.227 c -0.81,0.284 -1.578,-0.076 -1.926,-1.227"
+           transform="translate(-95.035,-113.606)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2311-9"
+           data-name="Pfad 2311"
+           d="m 34.305,125.787 a 0.513,0.513 0 0 0 -0.545,0.041 c -0.113,0.061 -0.179,-0.038 -0.233,-0.04 -0.148,0 -0.174,0.08 -0.2,0.235 -0.2,-0.216 -0.007,-0.333 0.166,-0.4 0.021,-0.008 0.05,-0.066 0.093,-0.086 a 0.35,0.35 0 0 1 0.15,-0.023 c 0.087,-0.03 -0.042,-0.132 -0.164,-0.17 -0.122,-0.038 -0.132,-0.114 -0.106,-0.207 a 0.306,0.306 0 0 0 -0.345,0.089 c 0.062,-0.23 0.19,-0.286 0.387,-0.16 0.086,-0.077 0.187,-0.012 0.3,0.144 0.044,0.062 0.176,0.018 0.1,-0.095 -0.033,-0.046 0.043,-0.07 0.046,-0.078 a 0.215,0.215 0 0 0 -0.283,-0.153 c 0.195,-0.2 0.285,-0.106 0.4,0.11 0.09,-0.027 0.171,0.049 0.194,0.147 a 0.34,0.34 0 0 0 0.359,0.29 c 0.4,-0.025 0.579,0.182 0.475,0.657 -0.036,0.165 -0.071,0.183 -0.184,0.171 0.077,0.107 0.083,0.24 -0.176,0.345 0.093,-0.191 0.074,-0.328 -0.017,-0.332 -0.064,-0.021 -0.122,-0.041 -0.18,-0.191 a 0.422,0.422 0 0 0 -0.237,-0.294"
+           transform="translate(-30.805,-116.041)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2312-7"
+           data-name="Pfad 2312"
+           d="m 56.513,102.045 c 0.316,-0.2 0.757,-0.177 1.28,0.464 a 3.7,3.7 0 0 0 3.585,1.291 2.852,2.852 0 0 1 -2.914,0.082 c -0.64,-0.41 -0.834,-0.9 -1.246,-1.084 -0.723,-0.323 -0.867,0.628 -1.111,1.03 -0.265,0.435 -0.495,0.629 -0.805,0.645 -0.118,0.02 -0.123,0.218 -0.1,0.468 0.023,0.207 0.015,0.324 -0.192,0.379 a 0.282,0.282 0 0 0 0.05,-0.311 1.337,1.337 0 0 1 -0.09,-0.574 0.351,0.351 0 0 0 -0.309,-0.4 c -0.181,-0.033 -0.262,-0.118 -0.216,-0.272 0.032,-0.1 -0.074,-0.148 -0.2,-0.1 0.039,-0.146 0.115,-0.231 0.394,0.01 0.09,0.093 0.194,0.2 0.316,0.322 0.051,0.054 0.251,0.187 0.362,0.151 0.172,-0.056 0.287,-0.414 0.428,-0.8 a 2.729,2.729 0 0 1 0.767,-1.307"
+           transform="translate(-50.449,-94.799)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2313-7"
+           data-name="Pfad 2313"
+           d="m 95.765,89.726 c 0.723,1.445 3.185,1.766 4.527,0.855 a 5.231,5.231 0 0 1 -4.527,-0.855"
+           transform="translate(-89.061,-83.444)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2314-6"
+           data-name="Pfad 2314"
+           d="m 98.931,73.071 a 3.545,3.545 0 0 0 1.367,-1.052 c 0.405,0.8 1.929,1.555 4.5,0.871 -2.179,2.082 -5.454,0.581 -5.864,0.181"
+           transform="translate(-92.005,-66.977)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2315-7"
+           data-name="Pfad 2315"
+           d="m 123.161,58.067 c 0.778,0.757 3.7,0.781 4.583,0.455 -1.257,1.839 -4.868,1.661 -5.537,0.341 a 2.869,2.869 0 0 1 0.954,-0.8"
+           transform="translate(-113.651,-54.002)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2316-3"
+           data-name="Pfad 2316"
+           d="m 139.974,47.667 a 6.259,6.259 0 0 0 4.016,0.1 c -0.612,1.324 -3.991,1.243 -4.84,0.433 a 3.284,3.284 0 0 1 0.824,-0.532"
+           transform="translate(-129.408,-44.33)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2317-6"
+           data-name="Pfad 2317"
+           d="m 154.369,32.6 a 7.359,7.359 0 0 0 4,-0.6 c -0.607,1.266 -2.514,1.519 -4.544,0.979 z"
+           transform="translate(-143.052,-29.764)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2318-5"
+           data-name="Pfad 2318"
+           d="m 164.348,19.688 a 6.055,6.055 0 0 0 2.831,-1.035 c -0.352,0.714 -1.469,1.528 -3.387,1.4 a 4.312,4.312 0 0 0 0.556,-0.367"
+           transform="translate(-152.325,-17.347)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2319-6"
+           data-name="Pfad 2319"
+           d="m 175.125,10.452 a 4.421,4.421 0 0 0 1.45,-1.052 c -0.131,0.732 -0.655,1.191 -2.04,1.5 z"
+           transform="translate(-162.316,-8.742)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2320-3"
+           data-name="Pfad 2320"
+           d="m 49.089,6.72 c -0.32,-0.292 -0.366,-0.675 0.11,-1.23 a 1.214,1.214 0 0 1 1.34,-0.279 2.147,2.147 0 0 0 2.433,-0.729 11.215,11.215 0 0 1 2.888,-1.842 6.713,6.713 0 0 0 3,-2.639 c -0.042,0.99 -0.791,1.772 -2.784,2.967 a 9.531,9.531 0 0 0 -2.856,2.018 2.509,2.509 0 0 1 -2.6,0.81 c -0.25,0.358 -0.181,0.692 0.255,1.011 0.063,0.046 0.366,0.221 0.319,0.275 a 3.134,3.134 0 0 0 -0.5,0.815 c -0.181,0.394 -0.422,1.06 -0.513,1.046 a 0.728,0.728 0 0 1 -0.388,-0.3 C 49.772,8.608 50.921,7.372 50.34,7.129 49.857,6.929 49.586,6.429 49.347,6.469 A 0.3,0.3 0 0 0 49.086,6.721 M 49.527,5.783 C 49.555,5.637 49.659,5.544 49.912,5.549 A 0.268,0.268 0 0 1 49.806,5.807 0.263,0.263 0 0 1 49.527,5.783"
+           transform="translate(-45.426)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2321-9"
+           data-name="Pfad 2321"
+           d="M 3.377,21.283 A 1.019,1.019 0 0 1 4.04,20.642 1.9,1.9 0 0 1 2.417,19.791 0.32,0.32 0 0 0 2.467,20.224 C 0.755,19.993 0.173,18.435 0.3,16.741 a 2.826,2.826 0 0 0 0.219,2.925 4.891,4.891 0 0 0 2.855,1.617"
+           transform="translate(0,-15.569)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2322-4"
+           data-name="Pfad 2322"
+           d="M 11.827,27.238 A 1.7,1.7 0 0 1 11.093,26.165 1.14,1.14 0 0 1 11.615,25 a 2.528,2.528 0 0 0 0.212,2.237"
+           transform="translate(-10.302,-23.251)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+        <path
+           id="Pfad_2323-8"
+           data-name="Pfad 2323"
+           d="m 22.856,34.349 c 0.03,0.019 -0.1,-0.239 0.1,-0.367 a 2.321,2.321 0 0 1 -0.341,-1.781 1.5,1.5 0 0 0 0.238,2.148"
+           transform="translate(-20.711,-29.947)"
+           fill="#ffffff"
+           fill-rule="evenodd" />
+      </g>
+    </g>
   </g>
 </svg>

@@ -1,6 +1,8 @@
 // TODO PROROTYPE - all numbers/calculations are only for presentation purpose; proper business logic should be created;
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { Web3Provider as EthersProjectWeb3Provider, Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
 import clsx from 'clsx';
 import { isEmpty } from 'lodash';
 
@@ -15,6 +17,7 @@ import LoadingButton from '@/components/general/LoadingButton/LoadingButton';
 import LoadingText from '@/components/general/LoadingText/LoadingText';
 import NumberInput from '@/components/inputs/NumberInput/NumberInput';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { getBalance } from '@/lib/blockchain/erc20/utils';
 import { formatPercent, formatUSD } from '@/lib/formatters';
 import { etherscan, sleep } from '@/lib/helpers';
 import { AssetKey } from '@/types/app';
@@ -249,6 +252,8 @@ export default function OperationModal({ open, close, data /* , info, callback  
     withdraw: 'initial',
   });
 
+  const { chainId, account, activate, active, library, connector } = useWeb3React<Web3Provider>();
+
   const { asset, enabled: isEnabled } = data;
 
   useEffect(() => {
@@ -316,6 +321,18 @@ export default function OperationModal({ open, close, data /* , info, callback  
   }, [operationType, operationAmount]);
 
   const handleSubmit = useCallback(async () => {
+    console.log(`fetching balance... ChainID: ${chainId}`);
+    let balance = await library?.getBalance(account);
+
+    console.log(`balance: ${+balance / 1e18}`);
+
+    console.log(`fetching token balance: `);
+    let tokenBalance = await getBalance(
+      '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+      '0x28C6c06298d514Db089934071355E5743bf21d60',
+      library.getSigner()
+    );
+    console.log(`token balance: ${tokenBalance}`);
     setStep((prevStep) => ({ ...prevStep, [operationType]: 'confirmation' }));
     dispatch(
       showMessage({
@@ -328,7 +345,6 @@ export default function OperationModal({ open, close, data /* , info, callback  
     const res = await new Promise<{ error: boolean; msg: string }>((res) =>
       // TODO PROTOTYPE
       setTimeout(() => {
-        console.log(asset);
         res({ error: !resError++, msg: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48' });
       }, 4000)
     );
@@ -356,7 +372,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
         })
       );
     }
-  }, [asset, t, dispatch, operationType /* , callback */]);
+  }, [/* asset, */ t, dispatch, operationType /* , callback */, chainId, account, library]);
 
   const handleOperationTypeChange = (event: React.MouseEvent<HTMLElement>) => {
     // @ts-ignore
@@ -432,7 +448,7 @@ export default function OperationModal({ open, close, data /* , info, callback  
                   onChange={handleOperationAmountChange}
                   endAdornment={
                     <Button variant="text" size="small" onClick={handleOperationAmountMaxClick}>
-                      {t('operation-modal.max')}
+                      {t('common:common.max')}
                     </Button>
                   }
                 />

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JoinSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root AwiSection-container css-1"
+    >
+      <div
+        class="AwiJoinSection-image"
+      >
+        <img
+          alt=""
+          src="/images/pages/landing/join.svg"
+        />
+      </div>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthMd css-2"
+      >
+        <div
+          class="AwiJoinSection-card"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h1 css-3"
+          >
+            join-section.title
+          </h2>
+          <p
+            class="MuiTypography-root MuiTypography-body css-4"
+          >
+            join-section.description
+          </p>
+          <button
+            class="MuiButtonBase-root css-5"
+            tabindex="0"
+            type="button"
+            variant="text"
+          >
+            <span
+              class="LabConnectButton-content"
+            >
+              account.connect
+            </span>
+            <span
+              class="MuiTouchRipple-root css-6"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

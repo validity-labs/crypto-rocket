@@ -1,0 +1,669 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PurchaseSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root AwiSection-container css-1"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h3 css-2"
+      >
+        pol:purchase-section.title
+      </h1>
+      <p
+        class="MuiTypography-root MuiTypography-body css-3"
+      >
+        pol:purchase-section.description
+      </p>
+      <div
+        class="MuiGrid-root MuiGrid-container css-4"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-5"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container css-6"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
+            >
+              <div
+                class="AwiPanel-root MuiBox-root css-8"
+              >
+                <div
+                  class="AwiPanel-header header"
+                >
+                  <h2
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root label css-9"
+                    id="infoTitle"
+                  >
+                    pol:purchase-section.info.title
+                  </h2>
+                </div>
+                <div
+                  class="AwiPanel-content content"
+                >
+                  <div
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-10"
+                  >
+                    <table
+                      class="MuiTable-root css-11"
+                    >
+                      <thead
+                        class="MuiTableHead-root css-12"
+                      >
+                        <tr
+                          class="MuiTableRow-root MuiTableRow-head css-13"
+                        >
+                          <th
+                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-14"
+                            scope="col"
+                            width="70%"
+                          >
+                            pol:purchase-section.info.description
+                          </th>
+                          <th
+                            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-14"
+                            scope="col"
+                            width="30%"
+                          >
+                            pol:purchase-section.info.token-price
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="MuiTableBody-root css-16"
+                      >
+                        <tr
+                          class="MuiTableRow-root css-13"
+                        >
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
+                          >
+                            pol:purchase-section.info.current-price
+                          </td>
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
+                          >
+                            1.21 USD
+                          </td>
+                        </tr>
+                        <tr
+                          class="MuiTableRow-root css-13"
+                        >
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
+                          >
+                            pol:purchase-section.info.offered-price
+                          </td>
+                          <td
+                            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-22"
+                          >
+                            <span
+                              class="MuiTypography-root MuiTypography-body css-23"
+                            >
+                              1.31 USD
+                            </span>
+                            <span
+                              class="MuiTypography-root MuiTypography-body css-24"
+                            >
+                              + 0.10 USD
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
+                                data-testid="TrendingUpRoundedIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="m16.85 6.85 1.44 1.44-4.88 4.88-3.29-3.29a.9959.9959 0 0 0-1.41 0l-6 6.01c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L9.41 12l3.29 3.29c.39.39 1.02.39 1.41 0l5.59-5.58 1.44 1.44c.31.31.85.09.85-.35V6.5c.01-.28-.21-.5-.49-.5h-4.29c-.45 0-.67.54-.36.85z"
+                                />
+                              </svg>
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
+            >
+              <div
+                class="AwiPanel-root MuiBox-root css-27"
+              >
+                <div
+                  class="AwiPanel-header header"
+                >
+                  <h2
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root label css-9"
+                    id="purchaseTitle"
+                  >
+                    pol:purchase-section.purchase.title
+                  </h2>
+                </div>
+                <div
+                  class="AwiPanel-content content"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body minimum css-29"
+                  >
+                    pol:purchase-section.purchase.info
+                  </p>
+                  <div
+                    class="convertor"
+                  >
+                    <div
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-30"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-31"
+                        for="sourceValue"
+                      >
+                        pol:purchase-section.purchase.source-label
+                      </label>
+                      <div
+                        class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-32"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-33"
+                          id="sourceValue"
+                          inputmode="numeric"
+                          name="sourceValue"
+                          type="text"
+                          value="0"
+                        />
+                        <div
+                          class="adornment"
+                        >
+                          <img
+                            alt=""
+                            src="/images/assets/usdc.svg"
+                          />
+                          <span>
+                            pol:asset.usdc
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <p
+                      class="MuiTypography-root MuiTypography-body equal css-29"
+                    >
+                      =
+                    </p>
+                    <div
+                      class="output"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-35"
+                      >
+                        0.00
+                      </p>
+                      <div
+                        class="MuiBox-root css-36"
+                        title="common.convertion-from-to"
+                      >
+                        <img
+                          alt=""
+                          class="source AwiSwappingImage-source"
+                          src="/images/assets/usdc.svg"
+                        />
+                        <img
+                          alt=""
+                          class="target AwiSwappingImage-target"
+                          src="/images/assets/awiusdc.svg"
+                        />
+                      </div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-35"
+                      >
+                        pol:asset.awiusdc
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="actions"
+                  >
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-38"
+                      tabindex="0"
+                      type="button"
+                    >
+                      pol:purchase-section.purchase.approve
+                      <span
+                        class="MuiTouchRipple-root css-39"
+                      />
+                    </button>
+                    <button
+                      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-40"
+                      tabindex="0"
+                      type="button"
+                    >
+                      pol:purchase-section.purchase.create-proposal
+                      <span
+                        class="MuiTouchRipple-root css-39"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-5 css-42"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container css-6"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
+            >
+              <div
+                class="AwiPanel-root MuiBox-root css-45"
+              >
+                <div
+                  class="AwiPanel-content content"
+                >
+                  <h2
+                    class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-9"
+                  >
+                    pol:purchase-section.buyable
+                  </h2>
+                  <div
+                    class="AwiAvailablePanel-asset MuiBox-root css-47"
+                  >
+                    <div
+                      class="icon"
+                    >
+                      <img
+                        alt=""
+                        class="source"
+                        src="/images/assets/usdc.svg"
+                      />
+                    </div>
+                    <div
+                      class="values"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body value css-29"
+                      >
+                        99.50 common:asset.usdc
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-body alt css-29"
+                      >
+                        199.50 common:asset.usd
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-7"
+            >
+              <div
+                class="AwiPanel-root MuiBox-root css-51"
+              >
+                <div
+                  class="AwiPanel-content content"
+                >
+                  <button
+                    class="MuiButtonBase-root AwiTreasurePanel-summary css-52"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <div
+                      class="AwiTreasurePanel-left"
+                    >
+                      <h2
+                        class="MuiTypography-root MuiTypography-body-xl AwiLabel-root AwiTreasurePanel-summaryTitle css-53"
+                      >
+                        pol:purchase-section.treasury.title 
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <rect
+                            height="2.1209927"
+                            rx="1.0604963"
+                            width="18.028437"
+                            x="2.9857814"
+                            y="4.5765257"
+                          />
+                          <rect
+                            height="2.1209927"
+                            rx="1.0604963"
+                            width="12.725956"
+                            x="5.1067739"
+                            y="10.939504"
+                          />
+                          <rect
+                            height="2.1209927"
+                            rx="1.0604963"
+                            width="18.028437"
+                            x="2.9857814"
+                            y="17.302481"
+                          />
+                        </svg>
+                      </h2>
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md AwiTreasurePanel-summaryAmount css-35"
+                      >
+                        1.31
+                      </p>
+                      <div
+                        class="AwiTreasurePanel-summaryImages MuiBox-root css-36"
+                        title="common.convertion-from-to"
+                      >
+                        <img
+                          alt=""
+                          class="source AwiSwappingImage-source"
+                          src="/images/assets/usdc.svg"
+                        />
+                        <img
+                          alt=""
+                          class="target AwiSwappingImage-target"
+                          src="/images/assets/awiusdc.svg"
+                        />
+                      </div>
+                      <p
+                        class="MuiTypography-root MuiTypography-body-md css-35"
+                      >
+                        pol:asset.awiusdc
+                      </p>
+                    </div>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-58"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-39"
+                    />
+                  </button>
+                  <div
+                    class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-60"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper MuiCollapse-vertical css-61"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner MuiCollapse-vertical css-62"
+                      >
+                        <div
+                          class="AwiTreasurePanel-subcontent"
+                        >
+                          <h3
+                            class="MuiTypography-root MuiTypography-h5 AwiTreasurePanel-subcontentTitle css-63"
+                          >
+                            pol:purchase-section.treasury.info
+                          </h3>
+                          <a
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiTypography-root MuiTypography-body-md AwiTreasurePanel-link css-64"
+                            href="https://todo"
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            pol:purchase-section.treasury.view-contract
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M 18.857622,18.857622 H 5.1423777 V 5.1423777 H 12 V 3.183057 H 5.1423777 A 1.9593207,1.9593207 0 0 0 3.183057,5.1423777 V 18.857622 a 1.9593207,1.9593207 0 0 0 1.9593207,1.959321 H 18.857622 a 1.9593207,1.9593207 0 0 0 1.959321,-1.959321 V 12.000001 H 18.857622 Z M 13.959321,3.183057 v 1.9593207 h 3.517633 L 7.8462402,14.771786 9.2282144,16.15376 18.857622,6.5230463 V 10.04068 h 1.959321 V 3.183057 Z"
+                              />
+                            </svg>
+                          </a>
+                          <div
+                            class="MuiTableContainer-root css-66"
+                          >
+                            <table
+                              class="MuiTable-root css-11"
+                            >
+                              <tbody
+                                class="MuiTableBody-root css-16"
+                              >
+                                <tr
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-13"
+                                >
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
+                                  >
+                                    <h6
+                                      class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-9"
+                                    >
+                                      pol:purchase-section.treasury.total-share
+                                      <span
+                                        aria-label="pol:purchase-section.treasury.total-share-hint"
+                                        class="AwiLabel-help"
+                                        data-mui-internal-clone-element="true"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-25"
+                                          focusable="false"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                                            id="Pfad_2253"
+                                          />
+                                          <path
+                                            d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                                          />
+                                          <path
+                                            d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </h6>
+                                  </td>
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
+                                    >
+                                      3.39 %
+                                    </p>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-13"
+                                >
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
+                                    >
+                                      pol:purchase-section.treasury.in-treasure
+                                    </p>
+                                  </td>
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
+                                  >
+                                    <div
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-79"
+                                    >
+                                      <div
+                                        class="icon"
+                                      >
+                                        <img
+                                          alt=""
+                                          class="source pair"
+                                          src="/images/assets/awiusdc.svg"
+                                        />
+                                        <img
+                                          alt=""
+                                          class="target"
+                                          src="/images/assets/usdc.svg"
+                                        />
+                                      </div>
+                                      <div
+                                        class="values"
+                                      >
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body value css-29"
+                                        >
+                                          83.42 common:asset.awiusdc
+                                        </p>
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
+                                        >
+                                          123.30 common:asset.usd
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="MuiTableRow-root AwiTreasurePanel-withBorder css-13"
+                                >
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
+                                    >
+                                      pol:purchase-section.treasury.breakdown
+                                    </p>
+                                  </td>
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
+                                  >
+                                    <div
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-86"
+                                    >
+                                      <div
+                                        class="icon"
+                                      >
+                                        <img
+                                          alt=""
+                                          class="source"
+                                          src="/images/assets/awiusdc.svg"
+                                        />
+                                      </div>
+                                      <div
+                                        class="values"
+                                      >
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body value css-29"
+                                        >
+                                          83.42 common:asset.awiusdc
+                                        </p>
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
+                                        >
+                                          123.30 common:asset.usd
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-79"
+                                    >
+                                      <div
+                                        class="icon"
+                                      >
+                                        <img
+                                          alt=""
+                                          class="source"
+                                          src="/images/assets/usdc.svg"
+                                        />
+                                      </div>
+                                      <div
+                                        class="values"
+                                      >
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body value css-29"
+                                        >
+                                          83.42 common:asset.usdc
+                                        </p>
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
+                                        >
+                                          123.30 common:asset.usd
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="MuiTableRow-root css-13"
+                                >
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18"
+                                  >
+                                    <p
+                                      class="MuiTypography-root MuiTypography-body-md css-35"
+                                    >
+                                      pol:purchase-section.treasury.total-source-sold
+                                    </p>
+                                  </td>
+                                  <td
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-73"
+                                  >
+                                    <div
+                                      class="AwiTreasurePanel-assetAmount MuiBox-root css-79"
+                                    >
+                                      <div
+                                        class="icon"
+                                      >
+                                        <img
+                                          alt=""
+                                          class="source"
+                                          src="/images/assets/usdc.svg"
+                                        />
+                                      </div>
+                                      <div
+                                        class="values"
+                                      >
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body value css-29"
+                                        >
+                                          83.42 common:asset.usdc
+                                        </p>
+                                        <p
+                                          class="MuiTypography-root MuiTypography-body alt css-29"
+                                        >
+                                          123.30 common:asset.usd
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

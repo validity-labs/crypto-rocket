@@ -10,8 +10,6 @@ import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 const Root = styled(Section)(({ theme }) => ({
-  paddingTop: theme.spacing(88),
-  overflow: 'hidden',
   '.card': {
     display: 'flex',
     flexDirection: 'column',
@@ -34,7 +32,7 @@ const Root = styled(Section)(({ theme }) => ({
     padding: theme.spacing(2),
     marginBottom: theme.spacing(5.5),
     borderRadius: +theme.shape.borderRadius * 2,
-    fontFamily: 'Poiret One, cursive',
+    fontWeight: 700,
     color: theme.palette.text.primary,
     backgroundColor: theme.palette.background.transparent,
   },
@@ -72,6 +70,19 @@ const Root = styled(Section)(({ theme }) => ({
     width: '100%',
     height: '100%',
     '.image': {
+      position: 'relative',
+      '>span:before': {
+        content: '""',
+        position: 'absolute',
+        top: -30,
+        right: -15,
+        bottom: -30,
+        left: -15,
+        // padding: theme.spacing(6),
+        backgroundColor: theme.palette.background.transparent,
+        borderRadius: +theme.shape.borderRadius * 2,
+        transform: 'rotate(5deg)',
+      },
       '> span': {
         overflow: 'visible !important',
         '> img': {
@@ -84,28 +95,35 @@ const Root = styled(Section)(({ theme }) => ({
     },
   },
   '.media3': {
-    '.MuiGrid-item': {
-      display: 'none',
-      textAlign: 'center',
-      '&.tree': {
-        display: 'initial',
+    width: '100%',
+    height: '100%',
+    '.image': {
+      position: 'relative',
+      '>span:before': {
+        content: '""',
+        position: 'absolute',
+        top: -30,
+        right: -15,
+        bottom: -30,
+        left: -15,
+        // padding: theme.spacing(6),
+        backgroundColor: theme.palette.background.transparent,
+        borderRadius: +theme.shape.borderRadius * 2,
+        transform: 'rotate(-5deg)',
       },
-    },
-    '.media-card': {
-      display: 'inline-block',
-      minHeight: 180,
-      padding: theme.spacing(10, 6),
-      borderRadius: +theme.shape.borderRadius * 5,
-      backgroundColor: theme.palette.background.transparent,
-      '&.media-card-tree': {
-        minHeight: 224,
-        img: {
-          maxWidth: '100%',
+      '> span': {
+        overflow: 'visible !important',
+        '> img': {
+          maxWidth: 'initial !important',
+          minHeight: 'initial !important',
+          maxHeight: 'initial !important',
+          height: 'initial !important',
         },
       },
     },
   },
   [theme.breakpoints.up('md')]: {
+    paddingBottom: theme.spacing(60),
     '.media1': {
       '.media-card': {
         borderRadius: +theme.shape.borderRadius * 4,
@@ -124,29 +142,26 @@ const Root = styled(Section)(({ theme }) => ({
       position: 'relative',
       '.image': {
         position: 'absolute',
-        top: '-40%',
+        top: '-20%',
         right: 0,
         bottom: '-20%',
         left: '-20%',
       },
     },
     '.media3': {
-      '.MuiGrid-item': {
-        display: 'initial',
-      },
-      '.media-card': {
-        display: 'block',
-        transformOrigin: 'top left',
-        transform: 'translateY(-30%) rotate(10deg)',
-        '&.media-card-last': {
-          transform: 'translate(10%, -40%) rotate(10deg)',
-        },
+      position: 'relative',
+      '.image': {
+        position: 'absolute',
+        top: '-20%',
+        right: 0,
+        bottom: '-20%',
+        left: '-20%',
       },
     },
   },
 }));
 
-const items = [1, 2, 3];
+const items = [{ xs: 20, md: 56 }, { xs: 20, md: 56, lg: 86 }, {}];
 
 export default function GuideSection() {
   const t = usePageTranslation();
@@ -168,49 +183,38 @@ export default function GuideSection() {
       2: (
         <div className="media2">
           <div className="image">
-            <Image src="/images/pages/landing/dashboard.png" alt="" width="834" height="490" placeholder="empty" />
+            <Image src="/images/pages/landing/guide1.png" alt="" width="834" height="490" placeholder="empty" />
           </div>
         </div>
       ),
       3: (
-        <Grid container className="media3" spacing={10}>
-          <Grid item xs={12} md={6} className="tree">
-            <div className="media-card media-card-tree">
-              <div className="image">
-                <Image src="/images/pages/landing/tree.png" alt="" width="140" height="224" placeholder="empty" />
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} md={6}></Grid>
-          <Grid item xs={12} md={6}>
-            <div className="media-card"></div>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <div className="media-card media-card-last"></div>
-          </Grid>
-        </Grid>
+        <div className="media3">
+          <div className="image">
+            <Image src="/images/pages/landing/guide2.png" alt="" width="834" height="490" placeholder="empty" />
+          </div>
+        </div>
       ),
     }),
     [t]
   );
   return (
     <>
-      <Root>
-        <Header title={t('guide-section.title')} description={t('guide-section.description')} />
+      <Root size="medium">
+        <Header title={t('guide-section.title')} /* description={t('guide-section.description')} */ />
         <Container maxWidth="lg">
-          {items.map((id, index) => (
-            <Grid key={index} container spacing={17} mb={index !== items.length - 1 ? [10, 10, 56] : 0}>
+          {items.map((marginBottom, index) => (
+            <Grid key={index} container spacing={17} mb={marginBottom}>
               <Grid item xs={12} md={6} order={[0, 0, index % 2 !== 0 ? 1 : 0]}>
                 <div className="card">
                   <Typography className="step" variant="body-xs">
-                    {id}
+                    {index + 1}
                   </Typography>
                   <Typography variant="h3">{t(`guide-section.items.${index}.title`)}</Typography>
                   <Typography>{t(`guide-section.items.${index}.description`)}</Typography>
                 </div>
               </Grid>
               <Grid key={index} item xs={12} md={6}>
-                {itemsMedia[id]}
+                {itemsMedia[index + 1]}
               </Grid>
             </Grid>
           ))}

@@ -1,0 +1,55 @@
+{
+  "page": {
+    "title": "About",
+    "description": "We make DeFi as easy as possible for everyone."
+  },
+  "info-section": {
+    "title": "We make DeFi as easy as possible\n for <0>everyone.</0>",
+    "items": [
+      {
+        "title": "Our vision",
+        "description": "AWINO is an all-in-one DeFi protocol where you can lend, borrow, pool, farm and trade your crypto with ease. The vision of AWINO is to have a safe, user-friendly and sustainable ecosystem in place, for its community members."
+      },
+      {
+        "title": "Our mission",
+        "description": "Establishing a stable and trusted DeFi protocol in the crypto industry, is the mission of AWINO."
+      }
+    ]
+  },
+  "approach-section": {
+    "title": "Our approach",
+    "description": "To achieve both our vision and mission, AWINO takes a problem-solving approach, in order to address key challenges, currently faced in DeFi.",
+    "items": [
+      {
+        "title": "Stability",
+        "description": "At the heart of AWINO, is our Protocol Owned Liquidity (POL) module. In the long-run, the POL module will solve the liquidity-, sustainability- and stability challenges. In addition, a consistent and organic trading volume will enable the protocol to create perpetual buy pressure. This will secure liquidity and encourage stability for the protocol."
+      },
+      {
+        "title": "Sustainability",
+        "description": "With that in mind, the sole purpose of the POL module is to sustain the protocol through regular buy-backs, from the rewards (80%) earned, investing within the ecosystem. This will permanently remove the tokens from the circulating supply, while accumulating revenue- generating assets for the protocol."
+      },
+      {
+        "title": "Safety",
+        "description": "In addition to the initial audit, a bug bounty has also been put in place to serve as an extra layer of security. Individuals and institutions alike are encouraged to find and report any potential vulnerabilities in our contracts. They will be greatly rewarded from the bounty reward pool."
+      },
+      {
+        "title": "User-Friendly",
+        "description": "Keeping the platform simple and easy to use, adds value to the community. As AWINO is an all- in-one DeFi protocol, your various DeFi needs are conveniently met, all under one ecosystem."
+      }
+    ]
+  },
+  "team-section": {
+    "items": [
+      {
+        "name": "Steve",
+        "title": "Founder | Ecosystem Developer",
+        "description": "A sustainable DeFi protocol for all crypto enthusiasts. AWINO Ecosystem is purposely built for its community members."
+      },
+      {
+        "name": "Awino",
+        "title": "Co-Founder | Ecosystem Developer",
+        "description": "Creating awareness and an opportunity for women to be independent, empowered and to learn more about DeFi."
+      }
+    ]
+  }
+}

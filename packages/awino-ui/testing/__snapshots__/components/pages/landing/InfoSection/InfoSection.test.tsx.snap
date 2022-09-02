@@ -6,32 +6,214 @@ exports[`<InfoSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
-        class="image"
+        class="AwiPanel-root MuiBox-root css-2"
       >
-        {"src":"/images/pages/landing/info.png","width":686,"height":582,"alt":""}
-      </div>
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthLg css-2"
-      >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth divider css-3"
-        />
         <div
-          class="card"
+          class="AwiPanel-content content"
         >
-          <h2
-            class="MuiTypography-root MuiTypography-h3 css-4"
+          <div
+            class="MuiGrid-root MuiGrid-container css-3"
           >
-            info-section.title
-          </h2>
-          <p
-            class="MuiTypography-root MuiTypography-body css-5"
-          >
-            info-section.description
-          </p>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-4"
+            >
+              <h2
+                class="MuiTypography-root MuiTypography-h3 css-5"
+              >
+                title
+              </h2>
+              <div
+                class="MuiTabs-root css-6"
+              >
+                <div
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-7"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                />
+                <div
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-8"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs-aria"
+                    class="MuiTabs-flexContainer css-9"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-infoSectionTabN1"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-10"
+                      id="tab-infoSectionTabN1"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      items.0.title
+                      <span
+                        class="MuiTouchRipple-root css-11"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-infoSectionTabN2"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-10"
+                      id="tab-infoSectionTabN2"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      items.1.title
+                      <span
+                        class="MuiTouchRipple-root css-11"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-infoSectionTabN3"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-10"
+                      id="tab-infoSectionTabN3"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      items.2.title
+                      <span
+                        class="MuiTouchRipple-root css-11"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-infoSectionTabN4"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-10"
+                      id="tab-infoSectionTabN4"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      items.3.title
+                      <span
+                        class="MuiTouchRipple-root css-11"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-infoSectionTabN5"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-10"
+                      id="tab-infoSectionTabN5"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      items.4.title
+                      <span
+                        class="MuiTouchRipple-root css-11"
+                      />
+                    </button>
+                    <button
+                      aria-controls="tabpanel-infoSectionTabN6"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-10"
+                      id="tab-infoSectionTabN6"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      items.5.title
+                      <span
+                        class="MuiTouchRipple-root css-11"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator css-22"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+              </div>
+              <div
+                aria-labelledby="tab-infoSectionTabN1"
+                id="tabpanel-infoSectionTabN1"
+                role="tabpanel"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-23"
+                >
+                  items.0.description
+                </p>
+              </div>
+              <div
+                aria-labelledby="tab-infoSectionTabN2"
+                hidden=""
+                id="tabpanel-infoSectionTabN2"
+                role="tabpanel"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-23"
+                >
+                  items.1.description
+                </p>
+              </div>
+              <div
+                aria-labelledby="tab-infoSectionTabN3"
+                hidden=""
+                id="tabpanel-infoSectionTabN3"
+                role="tabpanel"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-23"
+                >
+                  items.2.description
+                </p>
+              </div>
+              <div
+                aria-labelledby="tab-infoSectionTabN4"
+                hidden=""
+                id="tabpanel-infoSectionTabN4"
+                role="tabpanel"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-23"
+                >
+                  items.3.description
+                </p>
+              </div>
+              <div
+                aria-labelledby="tab-infoSectionTabN5"
+                hidden=""
+                id="tabpanel-infoSectionTabN5"
+                role="tabpanel"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-23"
+                >
+                  items.4.description
+                </p>
+              </div>
+              <div
+                aria-labelledby="tab-infoSectionTabN6"
+                hidden=""
+                id="tabpanel-infoSectionTabN6"
+                role="tabpanel"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-23"
+                >
+                  items.5.description
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-4"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body css-23"
+              >
+                description
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

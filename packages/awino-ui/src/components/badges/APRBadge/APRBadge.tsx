@@ -14,7 +14,7 @@ const APRBadge = styled(({ value, ...restOfProps }: Props) => {
   const { t } = useTranslation();
   return (
     <Box {...restOfProps}>
-      <img src="/images/awi.svg" alt="" />
+      <img src="/images/assets/awi.svg" alt="" />
       <Typography>
         {formatGridPercent({ value })}
         <span title={t('common.apr-hint')}>&nbsp;{t('common.apr')}</span>

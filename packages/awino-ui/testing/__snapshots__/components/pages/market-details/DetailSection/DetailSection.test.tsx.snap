@@ -6,7 +6,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-12 css-2"
@@ -103,7 +103,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        160.8  USD
+                        160.80 USD
                       </p>
                     </td>
                   </tr>
@@ -125,7 +125,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        683,891 DAI
+                        683,891.00 DAI
                       </p>
                     </td>
                   </tr>
@@ -147,7 +147,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        4,703
+                        4,703.00
                       </p>
                     </td>
                   </tr>
@@ -169,7 +169,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        91
+                        91.00
                       </p>
                     </td>
                   </tr>
@@ -191,7 +191,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        14.59 m USD
+                        14,590,000.00 USD
                       </p>
                     </td>
                   </tr>
@@ -213,7 +213,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        16.11  USD
+                        16.11 USD
                       </p>
                     </td>
                   </tr>
@@ -235,7 +235,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        2,210 DAI
+                        2,210.00 DAI
                       </p>
                     </td>
                   </tr>
@@ -301,7 +301,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        33,501,656
+                        33,501,656.00
                       </p>
                     </td>
                   </tr>
@@ -323,7 +323,7 @@ exports[`<DetailSection /> has valid snapshot 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body-md css-19"
                       >
-                        1 DAI = 49.03451162246615 cDAI
+                        1 DAI = 49.03 cDAI
                       </p>
                     </td>
                   </tr>

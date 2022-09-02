@@ -5,7 +5,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
   <div
     aria-colcount="5"
     aria-multiselectable="false"
-    aria-rowcount="20"
+    aria-rowcount="7"
     class="MuiDataGrid-root css-0"
     role="grid"
   >
@@ -16,12 +16,21 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
       class="MuiDataGrid-main css-1"
     >
       <div
-        class="MuiDataGrid-columnHeaders css-2"
+        style="height: -56px; width: 0px; position: absolute; top: 56px;"
+      >
+        <div
+          class="MuiDataGrid-overlay css-2"
+        >
+          No results found.
+        </div>
+      </div>
+      <div
+        class="MuiDataGrid-columnHeaders css-3"
         style="min-height: 56px; max-height: 56px; line-height: 56px;"
       >
         <div
           aria-rowindex="1"
-          class="MuiDataGrid-columnHeadersInner css-3"
+          class="MuiDataGrid-columnHeadersInner css-4"
           role="row"
           style="transform: translate3d(0px, 0px, 0px);"
         >
@@ -45,25 +54,25 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                 >
                   <div
                     aria-label=""
-                    class="MuiDataGrid-columnHeaderTitle css-4"
+                    class="MuiDataGrid-columnHeaderTitle css-5"
                     data-mui-internal-clone-element="true"
                   >
                     asset-section.fields.asset
                   </div>
                 </div>
                 <div
-                  class="MuiDataGrid-iconButtonContainer css-5"
+                  class="MuiDataGrid-iconButtonContainer css-6"
                 >
                   <button
                     aria-label="Sort"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-6"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-7"
                     tabindex="-1"
                     title="Sort"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-7"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-8"
                       data-testid="ArrowUpwardIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -73,7 +82,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root css-8"
+                      class="MuiTouchRipple-root css-9"
                     />
                   </button>
                 </div>
@@ -85,7 +94,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   aria-controls="mui-4"
                   aria-haspopup="true"
                   aria-label="Menu"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-6"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-7"
                   id="mui-5"
                   tabindex="-1"
                   title="Menu"
@@ -93,7 +102,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-7"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-8"
                     data-testid="TripleDotsVerticalIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -103,7 +112,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                     />
                   </svg>
                   <span
-                    class="MuiTouchRipple-root css-8"
+                    class="MuiTouchRipple-root css-9"
                   />
                 </button>
               </div>
@@ -114,7 +123,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-12"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-13"
                 data-testid="SeparatorIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -145,25 +154,25 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                 >
                   <div
                     aria-label=""
-                    class="MuiDataGrid-columnHeaderTitle css-4"
+                    class="MuiDataGrid-columnHeaderTitle css-5"
                     data-mui-internal-clone-element="true"
                   >
                     asset-section.fields.total-supply
                   </div>
                 </div>
                 <div
-                  class="MuiDataGrid-iconButtonContainer css-5"
+                  class="MuiDataGrid-iconButtonContainer css-6"
                 >
                   <button
                     aria-label="Sort"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-6"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-7"
                     tabindex="-1"
                     title="Sort"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-7"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-8"
                       data-testid="ArrowUpwardIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -173,7 +182,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root css-8"
+                      class="MuiTouchRipple-root css-9"
                     />
                   </button>
                 </div>
@@ -185,7 +194,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   aria-controls="mui-7"
                   aria-haspopup="true"
                   aria-label="Menu"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-6"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-7"
                   id="mui-8"
                   tabindex="-1"
                   title="Menu"
@@ -193,7 +202,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-7"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-8"
                     data-testid="TripleDotsVerticalIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -203,7 +212,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                     />
                   </svg>
                   <span
-                    class="MuiTouchRipple-root css-8"
+                    class="MuiTouchRipple-root css-9"
                   />
                 </button>
               </div>
@@ -214,7 +223,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-12"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-13"
                 data-testid="SeparatorIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -245,25 +254,25 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                 >
                   <div
                     aria-label=""
-                    class="MuiDataGrid-columnHeaderTitle css-4"
+                    class="MuiDataGrid-columnHeaderTitle css-5"
                     data-mui-internal-clone-element="true"
                   >
                     asset-section.fields.total-borrowed
                   </div>
                 </div>
                 <div
-                  class="MuiDataGrid-iconButtonContainer css-5"
+                  class="MuiDataGrid-iconButtonContainer css-6"
                 >
                   <button
                     aria-label="Sort"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-6"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-7"
                     tabindex="-1"
                     title="Sort"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-7"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-8"
                       data-testid="ArrowUpwardIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -273,7 +282,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root css-8"
+                      class="MuiTouchRipple-root css-9"
                     />
                   </button>
                 </div>
@@ -285,7 +294,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                   aria-controls="mui-10"
                   aria-haspopup="true"
                   aria-label="Menu"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-6"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall MuiDataGrid-menuIconButton css-7"
                   id="mui-11"
                   tabindex="-1"
                   title="Menu"
@@ -293,7 +302,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-7"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-8"
                     data-testid="TripleDotsVerticalIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -303,7 +312,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
                     />
                   </svg>
                   <span
-                    class="MuiTouchRipple-root css-8"
+                    class="MuiTouchRipple-root css-9"
                   />
                 </button>
               </div>
@@ -314,7 +323,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-12"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-13"
                 data-testid="SeparatorIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -331,195 +340,17 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
         style="overflow: visible; height: 0px; width: 0px;"
       >
         <div
-          class="MuiDataGrid-virtualScroller css-31"
+          class="MuiDataGrid-virtualScroller css-32"
           style="width: 0px; height: auto; margin-top: 56px; overflow-x: hidden;"
         >
           <div
-            class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-32"
-            style="width: auto; height: 520px; min-height: auto;"
+            class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-33"
+            style="width: auto; height: 1px; min-height: auto;"
           >
             <div
-              class="MuiDataGrid-virtualScrollerRenderZone css-33"
-              style="transform: translate3d(0px, 0px, 0px);"
-            >
-              <div
-                aria-rowindex="2"
-                aria-selected="false"
-                class="MuiDataGrid-row"
-                data-id="10"
-                data-rowindex="0"
-                role="row"
-                style="max-height: 52px; min-height: 52px;"
-              >
-                <div
-                  aria-colindex="1"
-                  class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="0"
-                  data-field="asset"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-body MuiDataGrid-cellContent MuiDataGrid-cell--asset css-34"
-                  >
-                    <img
-                      alt=""
-                      src="/images/assets/dai.svg"
-                    />
-                    10 dai
-                  </p>
-                </div>
-                <div
-                  aria-colindex="2"
-                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="1"
-                  data-field="totalSupply"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <div
-                    class="MuiDataGrid-cellContent"
-                  >
-                    86.51  USD
-                  </div>
-                </div>
-                <div
-                  aria-colindex="3"
-                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="2"
-                  data-field="totalBorrowed"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <div
-                    class="MuiDataGrid-cellContent"
-                  >
-                    21.66  USD
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-rowindex="3"
-                aria-selected="false"
-                class="MuiDataGrid-row"
-                data-id="11"
-                data-rowindex="1"
-                role="row"
-                style="max-height: 52px; min-height: 52px;"
-              >
-                <div
-                  aria-colindex="1"
-                  class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="0"
-                  data-field="asset"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-body MuiDataGrid-cellContent MuiDataGrid-cell--asset css-34"
-                  >
-                    <img
-                      alt=""
-                      src="/images/assets/usdt.svg"
-                    />
-                    11 usdt
-                  </p>
-                </div>
-                <div
-                  aria-colindex="2"
-                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="1"
-                  data-field="totalSupply"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <div
-                    class="MuiDataGrid-cellContent"
-                  >
-                    34.47  USD
-                  </div>
-                </div>
-                <div
-                  aria-colindex="3"
-                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="2"
-                  data-field="totalBorrowed"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <div
-                    class="MuiDataGrid-cellContent"
-                  >
-                    46.71  USD
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-rowindex="4"
-                aria-selected="false"
-                class="MuiDataGrid-row"
-                data-id="12"
-                data-rowindex="2"
-                role="row"
-                style="max-height: 52px; min-height: 52px;"
-              >
-                <div
-                  aria-colindex="1"
-                  class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="0"
-                  data-field="asset"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-body MuiDataGrid-cellContent MuiDataGrid-cell--asset css-34"
-                  >
-                    <img
-                      alt=""
-                      src="/images/assets/usdc.svg"
-                    />
-                    12 usdc
-                  </p>
-                </div>
-                <div
-                  aria-colindex="2"
-                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="1"
-                  data-field="totalSupply"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <div
-                    class="MuiDataGrid-cellContent"
-                  >
-                    49.03  USD
-                  </div>
-                </div>
-                <div
-                  aria-colindex="3"
-                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                  data-colindex="2"
-                  data-field="totalBorrowed"
-                  role="cell"
-                  style="min-width: 0; max-width: 0; min-height: 52px; max-height: 52px;"
-                  tabindex="-1"
-                >
-                  <div
-                    class="MuiDataGrid-cellContent"
-                  >
-                    90.77  USD
-                  </div>
-                </div>
-              </div>
-            </div>
+              class="MuiDataGrid-virtualScrollerRenderZone css-34"
+              style="transform: translate3d(0px, undefinedpx, 0px);"
+            />
           </div>
         </div>
       </div>
@@ -540,33 +371,33 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
     </div>
     <div>
       <div
-        class="MuiDataGrid-footerContainer css-37"
+        class="MuiDataGrid-footerContainer css-35"
       >
         <div />
         <div
-          class="MuiTablePagination-root css-38"
+          class="MuiTablePagination-root css-36"
         >
           <div
-            class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-39"
+            class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar css-37"
           >
             <div
-              class="MuiTablePagination-spacer css-40"
+              class="MuiTablePagination-spacer css-38"
             />
             <p
-              class="MuiTablePagination-selectLabel css-41"
+              class="MuiTablePagination-selectLabel css-39"
               id="mui-2"
             >
               common.table.rows-per-page
             </p>
             <div
-              class="MuiInputBase-root MuiInputBase-colorPrimary css-42"
+              class="MuiInputBase-root MuiInputBase-colorPrimary css-40"
               variant="standard"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="mui-2 mui-1"
-                class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-43"
+                class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-41"
                 id="mui-1"
                 role="button"
                 tabindex="0"
@@ -575,13 +406,13 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
               </div>
               <input
                 aria-hidden="true"
-                class="MuiSelect-nativeInput css-44"
+                class="MuiSelect-nativeInput css-42"
                 tabindex="-1"
                 value="100"
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-45"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-43"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -592,16 +423,16 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
               </svg>
             </div>
             <p
-              class="MuiTablePagination-displayedRows css-46"
+              class="MuiTablePagination-displayedRows css-44"
             >
               common.table.rows-out-of
             </p>
             <div
-              class="MuiBox-root css-47"
+              class="MuiBox-root css-45"
             >
               <button
                 aria-label="common.table.previous-page"
-                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-48"
+                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-46"
                 disabled=""
                 tabindex="-1"
                 title="common.table.previous-page"
@@ -609,7 +440,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
                   data-testid="KeyboardArrowLeftIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -621,7 +452,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
               </button>
               <button
                 aria-label="common.table.next-page"
-                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-48"
+                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-46"
                 disabled=""
                 tabindex="-1"
                 title="common.table.next-page"
@@ -629,7 +460,7 @@ exports[`<DataGrid /> has valid snapshot 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-12"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-13"
                   data-testid="KeyboardArrowRightIcon"
                   focusable="false"
                   viewBox="0 0 24 24"

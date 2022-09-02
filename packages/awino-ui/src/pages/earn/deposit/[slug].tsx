@@ -12,7 +12,6 @@ interface Props {
   slug: string;
 }
 const EarnDepositDetailsPage: NextPage<Props> = (/* { slug } */) => {
-  // console.log(slug);
   return (
     <>
       {/* <Seo

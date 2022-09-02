@@ -13,7 +13,7 @@ const getColumns = (t: TFunction): GridColDef[] => {
       renderCell: (params: GridRenderCellParams) => (
         <Typography className="MuiDataGrid-cellContent MuiDataGrid-cell--asset">
           <img src={`/images/assets/${params.value}.svg`} alt="" />
-          {params.id} {params.value}
+          {params.value}
         </Typography>
       ),
     },
@@ -25,19 +25,24 @@ const getColumns = (t: TFunction): GridColDef[] => {
       renderHeader: (/* params: GridColumnHeaderParams */) => {
         return (
           <div className="MuiDataGrid-columnHeaderTitle">
-            <Trans
-              as={Typography}
-              i18nKey="asset-section.fields.available-to-borrow"
-              t={t}
-              components={{ hint: <span key="span" className="hint" /> }}
-            />
+            <Typography>
+              <Trans
+                i18nKey="asset-section.fields.available-to-borrow"
+                t={t}
+                components={{ hint: <span key="span" className="hint" /> }}
+              />
+            </Typography>
           </div>
         );
       },
     },
     {
-      field: 'borrowAPY',
-      i18nKey: 'borrow-apy',
+      field: 'apy',
+      sortable: true,
+      valueFormatter: formatGridPercent,
+    },
+    {
+      field: 'utilization',
       sortable: true,
       valueFormatter: formatGridPercent,
     },

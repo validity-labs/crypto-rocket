@@ -1,10 +1,26 @@
 {
   "page": {
-    "title": "Awino",
+    "title": "AWINO",
     "description": "MISSING DESCRIPTION"
   },
+  "total-section": {
+    "title": "Smart\n overview",
+    "items": [
+      {
+        "title": "Total deposits"
+      },
+      {
+        "title": "Total rewards"
+      },
+      {
+        "title": "To collect from 3 farms"
+      }
+    ]
+  },
   "stats-section": {
-    "title": "Defi. Next generation",
+    "title": "<0>AWINO Ecosystem</0>\n The <1>Gold</1> Standard in DeFi",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing Lorem ipsum dolor sit amet, consectetuer adipiscing",
+    "cta": "Trade now",
     "badges": [
       "Lorem ipsum 1",
       "Lorem ipsum 2",
@@ -13,45 +29,68 @@
     ],
     "items": [
       {
-        "title": "AWINO locked",
-        "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "title": "AWINO locked"
       },
       {
-        "title": "AWINO staked",
-        "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "title": "AWINO staked"
       },
       {
-        "title": "AWINO price",
-        "value": "$ {{v}}"
+        "title": "AWINO price"
       },
       {
         "title": "Circulating supply",
-        "value": "{{v}} M",
-        "subvalue": "{{v}}% locked"
+        "sub-values": [
+          "{{v}} locked"
+        ]
       }
     ]
   },
   "info-section": {
-    "title": "We make DeFi easy as\n possible for everyone",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\n Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."
+    "title": "We make DeFi as easy as possible for everyone",
+    "description": "The DeFi and crypto space in general is still in its genesis stage and has yet to experience mainstream adaption. That said, the AWINO ecosystem is built to be simple, intuitive and user friendly for new investors. But yet, has all the tools for experienced DeFi enthusiasts, non the less. \n\nAWINO is an All-In-One DeFi Ecosystem with a Decentralized Exchange, Lending Platform, Protocol Owned Liquidity (POL) module, Staking and Farming- All conveniently under one protocol.",
+    "tabs-aria": "Switch between tool description",
+    "items": [
+      {
+        "title": "Supply",
+        "description": "Supply into the protocol and earn rewards as a liquidity provider."
+      },
+      {
+        "title": "Borrow",
+        "description": "Borrow against your collateral from a selection of assets."
+      },
+      {
+        "title": "Swap",
+        "description": "Trade your crypto fast and with ease."
+      },
+      {
+        "title": "Zap",
+        "description": "Instantly create LP tokens of your choice."
+      },
+      {
+        "title": "Vote",
+        "description": "Participate in voting for emissions distribution to your farming pool."
+      }
+    ]
   },
   "benefit-section": {
     "title": "Why you should use our platform",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "description": "AWINO takes a problem-solving approach and addresses the following issues\n we are currently faced with in the DeFi and crypto space in general.",
     "items": [
       {
-        "title": "Lorem ipsum",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+        "title": "An All-In-One DeFi Ecosystem",
+        "description": "AWINO brings DeFi to the community, all under one sustainable Ecosystem. A user-friendly, All-In-One DeFi Ecosystem, with multiple utilities from day one. A stealth launch with no pre-sale, whitelist, fund raising rounds, marketing or Venture Capitalists involved. AWINO is fully designed and funded by its two founders."
       },
       {
-        "title": "Lorem ipsum",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+        "title": "Liquidity / stability",
+        "description": "AWINO has built mechanics within the token economics, with the intention to strategically provide and sustain liquidity within the ecosystem. This will allow for an ever increasing and organic trading volume, thus bringing stability in an otherwise volatile crypto market."
       },
       {
-        "title": "Lorem ipsum",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis."
+        "title": "Protocol Owned Liquidity (POL) module",
+        "description": "To ensure sustainability, AWINO invests within its own ecosystem. Rewards are re-invested back into the protocol, through regular buy-backs (AWINO and WEALTH tokens) and staking these native LP tokens. Thus, locking them inside our POL module, keeping them out of the circulating supply, forever. This allows the protocol to be profitable and sustainable, while constantly accumulating more of the native LP tokens."
+      },
+      {
+        "title": "Safety / security",
+        "description": "Safety and security are major challenges that the crypto community faces on a daily basis. To address this, in addition to the initial audit, AWINO has set aside a generous bug bounty reward pool. This will encourage an ongoing monitoring and testing of our smart contracts, by various third parties."
       }
     ]
   },
@@ -60,13 +99,13 @@
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
     "items": [
       {
-        "title": "Connect your Wallet",
+        "title": "Connect your wallet",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
         "metamask": "MetaMask",
         "wallet-connect": "WalletConnect"
       },
       {
-        "title": "Visit your Dashboard",
+        "title": "Visit your dashboard",
         "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
       },
       {
@@ -91,24 +130,36 @@
   },
   "faq-section": {
     "title": "FAQs",
-    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    "description": "Below are our high-level FAQs. For more details on AWINO ecosystem we refer to our documentation.",
     "items": [
       {
-        "title": "Lorem ipsum 1",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "title": "What is AWINO about?",
+        "description": "AWINO is an All-In-One DeFi ecosystem. Trading, lending, borrowing, voting, farming and pooling opportunities, are all conveniently made available in one place."
       },
       {
-        "title": "Lorem ipsum 2",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "title": "What can I do with AWINO?",
+        "description": "You can lock, stake, provide liquidity or simply just hold your AWINO tokens and receive USDC rewards."
       },
       {
-        "title": "Lorem ipsum 3",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "title": "Why is AWINO different?",
+        "description": "AWINO comes as a complete DeFi ecosystem, from day one."
       },
       {
-        "title": "Lorem ipsum 4",
-        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        "title": "Which problem is AWINO solving?",
+        "description": "Using our POL module, AWINO solves the challenges of liquidity, sustainability, profitability and stability (see our About page for more details) that DeFi protocols often face, in the crypto space. In addition, AWINO places highest priority on our smart contract security, by setting up a dedicated and generous bug bounty reward pool."
+      },
+      {
+        "title": "What are the tokenomics?",
+        "description": "AWINO token total supply is 1,000,000,000\n WEALTH token total supply is 100,000\n There is a 12% buy and 15% sell fee on every transaction (set slippage to 13% and 16% respectively)."
+      },
+      {
+        "title": "Who created AWINO?",
+        "description": "AWINO was founded, designed and fully funded by Awino and Steve. The smart contracts of the AWINO ecosystem were all developed by a renowned software company, based in Switzerland."
       }
     ]
+  },
+  "join-section": {
+    "title": "Join the golden journey",
+    "description": "Earn, borrow and swap on the new DeFi gold standard.\n A leading decentralised crypto trading protocol."
   }
 }

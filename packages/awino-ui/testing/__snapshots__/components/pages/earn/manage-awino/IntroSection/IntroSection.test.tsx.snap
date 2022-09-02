@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IntroSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root AwiSection-container css-1"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h3 css-2"
+      >
+        earn-manage-awino:intro-section.title
+      </h1>
+      <p
+        class="MuiTypography-root MuiTypography-body css-3"
+      >
+        earn-manage-awino:intro-section.description
+      </p>
+    </div>
+  </section>
+</DocumentFragment>
+`;

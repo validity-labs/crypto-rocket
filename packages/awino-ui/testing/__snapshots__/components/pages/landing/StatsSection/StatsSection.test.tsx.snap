@@ -6,44 +6,20 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
-      <ul
-        class="badges"
+      <div
+        class="AwiInfoSection-image"
       >
-        <li>
-          <img
-            alt=""
-            src="images/icons/analytics.jpg"
-            title="landing:stats-section.badges.0"
-          />
-        </li>
-        <li>
-          <img
-            alt=""
-            src="images/icons/ethereum-blue.svg"
-            title="landing:stats-section.badges.1"
-          />
-        </li>
-        <li>
-          <img
-            alt=""
-            src="images/icons/swap.svg"
-            title="landing:stats-section.badges.2"
-          />
-        </li>
-        <li>
-          <img
-            alt=""
-            src="images/icons/ethereum-yellow.svg"
-            title="landing:stats-section.badges.3"
-          />
-        </li>
-      </ul>
+        <img
+          alt=""
+          src="/images/pages/landing/eagle.svg"
+        />
+      </div>
       <h1
         class="MuiTypography-root MuiTypography-h1 css-2"
       >
-        landing:stats-section.title
+        stats-section.title
       </h1>
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-3"
@@ -55,27 +31,27 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
           >
             <div
-              class="card"
+              class="AwiStatsCard-root css-6"
               data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-7"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-8"
                 >
-                  landing:stats-section.items.0.title
+                  landing:items.0.title
                 </span>
               </h2>
               <p
-                class="MuiTypography-root MuiTypography-body-sm css-8"
+                class="MuiTypography-root MuiTypography-body-sm css-9"
               >
-                landing:stats-section.items.0.subvalue
+                landing:items.0.sub-values.0
               </p>
             </div>
           </div>
@@ -83,27 +59,27 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
           >
             <div
-              class="card"
+              class="AwiStatsCard-root css-6"
               data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-7"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-8"
                 >
-                  landing:stats-section.items.1.title
+                  landing:items.1.title
                 </span>
               </h2>
               <p
-                class="MuiTypography-root MuiTypography-body-sm css-8"
+                class="MuiTypography-root MuiTypography-body-sm css-9"
               >
-                landing:stats-section.items.1.subvalue
+                landing:items.1.sub-values.0
               </p>
             </div>
           </div>
@@ -111,21 +87,21 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
           >
             <div
-              class="card"
+              class="AwiStatsCard-root css-6"
               data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-7"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-8"
                 >
-                  landing:stats-section.items.2.title
+                  landing:items.2.title
                 </span>
               </h2>
             </div>
@@ -134,27 +110,27 @@ exports[`<StatsSection /> has valid snapshot 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-5"
           >
             <div
-              class="card"
+              class="AwiStatsCard-root css-6"
               data-test-id="AwiStatsItems-card"
             >
               <h2>
                 <span
-                  class="MuiTypography-root MuiTypography-h4 css-6"
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-7"
                 >
                   <span>
                      
                   </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body-md css-7"
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-8"
                 >
-                  landing:stats-section.items.3.title
+                  landing:items.3.title
                 </span>
               </h2>
               <p
-                class="MuiTypography-root MuiTypography-body-sm css-8"
+                class="MuiTypography-root MuiTypography-body-sm css-9"
               >
-                landing:stats-section.items.3.subvalue
+                landing:items.3.sub-values.0
               </p>
             </div>
           </div>

@@ -3,18 +3,18 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'next-i18next';
 
 import CloseIcon from '@mui/icons-material/CloseRounded';
-import SettingsIcon from '@mui/icons-material/Settings';
-import { Divider, IconButton, List, ListItem, ListItemButton, SwipeableDrawer, Typography } from '@mui/material';
+// import SettingsIcon from '@mui/icons-material/Settings';
+import { Divider, IconButton, List, /* ListItem, */ ListItemButton, SwipeableDrawer, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { SUPPORTED_LANGUAGES } from '@/app/constants';
+// import { SUPPORTED_LANGUAGES } from '@/app/constants';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import { mainMenuLinks, moreMenuLinks, settingMenuLinks, socialLinks } from '@/app/menu';
+import { mainMenuLinks, moreMenuLinks, /* settingMenuLinks, */ socialLinks } from '@/app/menu';
 import { toggleDrawer } from '@/app/state/slices/app';
 import ConnectButton from '@/components/buttons/ConnectButton';
 import Link from '@/components/general/Link/Link';
 import MoreIcon from '@/components/icons/MoreIcon';
-import { Language, MenuItemGroup, MenuItemLink, MenuItemType } from '@/types/app';
+import { /* Language, */ MenuItemGroup, MenuItemLink, MenuItemType } from '@/types/app';
 
 import Logo from '../Logo/Logo';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
@@ -109,7 +109,7 @@ const LinkList = ({ items, menu, closeDrawer, icon = false }: LinkListProps) => 
 };
 
 export default function Drawer() {
-  const { t, i18n } = useTranslation();
+  const { t /* , i18n */ } = useTranslation();
   const dispatch = useAppDispatch();
   const open = useAppSelector((state) => state.app.drawer);
 
@@ -143,17 +143,17 @@ export default function Drawer() {
     [dispatch]
   );
 
-  const changeLanguage = (language: Language /* router: NextRouter, lang: string */) => {
-    i18n.changeLanguage(language);
-    dispatch(toggleDrawer(false));
-  };
+  // const changeLanguage = (language: Language /* router: NextRouter, lang: string */) => {
+  //   i18n.changeLanguage(language);
+  //   dispatch(toggleDrawer(false));
+  // };
 
   return (
     <StyledSwipeableDrawer anchor="left" open={open} onClose={handleDrawerClose} onOpen={handleDrawerOpen}>
       <div className="AwiDrawer-content">
         <Logo />
         <LinkList items={mainMenuLinks} menu="main" closeDrawer={handleDrawerClose} />
-        <IconDivider icon={SettingsIcon} />
+        {/* <IconDivider icon={SettingsIcon} />
         <List>
           <ListItem button={false}>
             <Typography variant="menu" color="text.secondary">
@@ -176,8 +176,8 @@ export default function Drawer() {
               </ListItemButton>
             ))}
           </List>
-        </List>
-        <LinkList items={settingMenuLinks as MenuItemType[]} menu="settings" closeDrawer={handleDrawerClose} />
+        </List> */}
+        {/* <LinkList items={settingMenuLinks as MenuItemType[]} menu="settings" closeDrawer={handleDrawerClose} /> */}
         <IconDivider icon={MoreIcon} />
         <LinkList items={moreMenuLinks as MenuItemType[]} menu="more" closeDrawer={handleDrawerClose} />
         <LinkList items={socialLinks as MenuItemType[]} menu="social" closeDrawer={handleDrawerClose} icon />

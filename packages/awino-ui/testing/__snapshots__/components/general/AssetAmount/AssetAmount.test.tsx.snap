@@ -11,7 +11,7 @@ exports[`<AssetAmount /> has valid snapshot 1`] = `
       <img
         alt=""
         class="source"
-        src="/images/icons/ftm.svg"
+        src="/images/assets/awi.svg"
       />
     </div>
     <div
@@ -20,12 +20,12 @@ exports[`<AssetAmount /> has valid snapshot 1`] = `
       <p
         class="MuiTypography-root MuiTypography-body value css-1"
       >
-        1,234,567.89 FTM
+        1,234,567.89 common:asset.awi
       </p>
       <p
         class="MuiTypography-root MuiTypography-body alt css-1"
       >
-        9,876,543.21 USD
+        9,876,543.21 common:asset.usd
       </p>
     </div>
   </div>

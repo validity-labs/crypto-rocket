@@ -3,7 +3,6 @@ import React from 'react';
 import NumberFormat from 'react-number-format';
 
 import { InputBase, InputBaseProps } from '@mui/material';
-import { styled } from '@mui/material/styles';
 
 interface CustomProps {
   // eslint-disable-next-line no-unused-vars
@@ -35,14 +34,8 @@ const NumberFormatCustom = React.forwardRef<NumberFormat<any>, CustomProps>(func
   );
 });
 
-const SourceInput = styled(InputBase)(({ theme }) => ({
-  padding: theme.spacing(3, 3.5, 3, 7),
-  borderRadius: +theme.shape.borderRadius * 2,
-  backgroundColor: theme.palette.background.transparent,
-}));
-
 const NumberInput = (props: InputBaseProps) => {
-  return <SourceInput {...props} inputComponent={NumberFormatCustom as any} />;
+  return <InputBase {...props} inputComponent={NumberFormatCustom as any} />;
 };
 
 export default NumberInput;

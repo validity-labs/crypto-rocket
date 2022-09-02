@@ -30,14 +30,15 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, PointElement, 
 
 const Root = styled(Section)(({ theme }) => ({
   paddingTop: 0,
-  '.AwiTimelineSection-marketType': {
-    '[value="supply"].Mui-selected': {
-      color: chartColorsMap.supply[0],
-    },
-    '[value="borrow"].Mui-selected': {
-      color: chartColorsMap.borrow[0],
-    },
-  },
+  // '.AwiTimelineSection-marketType': {
+  // color: theme.palette.text.secondary,
+  // '[value="supply"].Mui-selected': {
+  //   color: chartColorsMap.supply[0],
+  // },
+  // '[value="borrow"].Mui-selected': {
+  //   color: chartColorsMap.borrow[0],
+  // },
+  // },
   '.AwiTimelineSection-stats': {
     '>div': {
       display: 'flex',
@@ -149,7 +150,7 @@ export default function TimelineSection({ type, setType, info }: Props) {
       <Grid container mb={10} spacing={10} alignItems="center">
         <Grid item xs={12} md={4}>
           <ToggleButtonGroup
-            className="AwiTimelineSection-marketType"
+            // className="AwiTimelineSection-marketType"
             value={type}
             exclusive
             onChange={handleType}

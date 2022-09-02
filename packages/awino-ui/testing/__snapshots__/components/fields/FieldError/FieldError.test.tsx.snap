@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FieldError /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <p
+    class="MuiFormHelperText-root Mui-error MuiBox-root css-0"
+    id="firstNameHelper"
+    title="First name is required"
+  >
+    <span
+      class="MuiBox-root css-1"
+    >
+      First name is required
+    </span>
+  </p>
+</DocumentFragment>
+`;

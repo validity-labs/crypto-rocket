@@ -6,20 +6,24 @@ exports[`<AssetSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-2"
-      >
-        landing:asset-section.title
-      </h2>
-      <p
-        class="MuiTypography-root MuiTypography-body css-3"
-      >
-        landing:asset-section.description
-      </p>
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg css-4"
+        class="MuiBox-root css-2"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-3"
+        >
+          landing:asset-section.title
+        </h2>
+        <p
+          class="MuiTypography-root MuiTypography-body css-4"
+        >
+          landing:asset-section.description
+        </p>
+      </div>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg css-5"
       >
         <div
           class="items"

@@ -6,7 +6,7 @@ exports[`<BriefSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-21 css-2"
@@ -29,7 +29,7 @@ exports[`<BriefSection /> has valid snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-6"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-7"
+            class="MuiContainer-root MuiContainer-disableGutters css-7"
           >
             <div
               class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-8"
@@ -38,21 +38,21 @@ exports[`<BriefSection /> has valid snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-9"
               >
                 <div
-                  class="card"
+                  class="AwiStatsCard-root css-10"
                   data-test-id="AwiStatsItems-card"
                 >
                   <h2>
                     <span
-                      class="MuiTypography-root MuiTypography-h4 css-10"
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-11"
                     >
                       <span>
                          
                       </span>
                     </span>
                     <span
-                      class="MuiTypography-root MuiTypography-body-md css-11"
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-12"
                     >
-                      earn-liquidity-staking:stats-section.items.0.title
+                      earn-liquidity-staking:items.0.title
                     </span>
                   </h2>
                 </div>
@@ -61,21 +61,21 @@ exports[`<BriefSection /> has valid snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-9"
               >
                 <div
-                  class="card"
+                  class="AwiStatsCard-root css-10"
                   data-test-id="AwiStatsItems-card"
                 >
                   <h2>
                     <span
-                      class="MuiTypography-root MuiTypography-h4 css-10"
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-11"
                     >
                       <span>
                          
                       </span>
                     </span>
                     <span
-                      class="MuiTypography-root MuiTypography-body-md css-11"
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-12"
                     >
-                      earn-liquidity-staking:stats-section.items.1.title
+                      earn-liquidity-staking:items.1.title
                     </span>
                   </h2>
                 </div>
@@ -84,21 +84,21 @@ exports[`<BriefSection /> has valid snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-9"
               >
                 <div
-                  class="card"
+                  class="AwiStatsCard-root css-10"
                   data-test-id="AwiStatsItems-card"
                 >
                   <h2>
                     <span
-                      class="MuiTypography-root MuiTypography-h4 css-10"
+                      class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-11"
                     >
                       <span>
                          
                       </span>
                     </span>
                     <span
-                      class="MuiTypography-root MuiTypography-body-md css-11"
+                      class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-12"
                     >
-                      earn-liquidity-staking:stats-section.items.2.title
+                      earn-liquidity-staking:items.2.title
                     </span>
                   </h2>
                 </div>

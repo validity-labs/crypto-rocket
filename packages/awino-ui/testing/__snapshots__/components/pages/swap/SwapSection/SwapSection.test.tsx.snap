@@ -6,7 +6,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="MuiTabs-root css-2"
@@ -68,10 +68,46 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M 12.859856,3.4005269 4.2603837,13.719713 H 12 l -0.859857,6.87976 8.599473,-10.319186 H 12 Z"
+                  d="M 12.867485,3.3255934 4.1930775,13.734968 h 7.8071405 l -0.86857,6.939439 8.675275,-10.409375 h -7.806705 z"
                   fill="none"
-                  style="stroke-width: 0.907979;"
+                  style="stroke-width: 0.434285;"
                 />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8"
+              />
+            </button>
+            <button
+              aria-controls="tabpanel-swapSection-2"
+              aria-selected="false"
+              class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary css-6"
+              id="tab-swapSection-2"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              swap:swap-section.liquidity.title
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTab-iconWrapper css-7"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  transform="translate(-70.850711,6.2464455)"
+                >
+                  <path
+                    d="m 78.240088,7.2430513 c -0.428895,1.0395257 -0.479781,2.1626495 -0.199909,3.1949057 0.279872,1.028622 0.886868,1.973645 1.781006,2.656969 0.894137,0.683325 1.96274,1.024987 3.031344,1.024987 1.068603,0 2.137206,-0.341662 3.031344,-1.024987 0.894137,-0.683324 1.501133,-1.624713 1.781005,-2.656969 C 87.94475,9.4057008 87.89023,8.2862117 87.464969,7.2430513 l -0.0036,-0.00727 C 86.799818,5.6655894 86.032895,4.3570956 85.291416,3.0849488 84.371835,1.5074868 83.484967,-0.00818514 82.852529,-1.9164053 82.216455,0.00998839 81.329587,1.5256604 80.406372,3.1031223 79.664892,4.364365 78.901604,5.6655894 78.240088,7.2430513 Z m 8.367091,2.7732797 c 0.03635,-0.1526574 0.18537,-0.243525 0.338027,-0.2108126 0.152658,0.036347 0.243526,0.1853699 0.210813,0.3380276 -0.08723,0.378009 -0.221717,0.748749 -0.399817,1.090411 -0.167197,0.319854 -0.37801,0.6179 -0.632439,0.87233 -0.109041,0.109041 -0.287142,0.109041 -0.396183,0 -0.109041,-0.109042 -0.109041,-0.287142 0,-0.396183 0.214448,-0.210813 0.388914,-0.461608 0.530667,-0.730576 0.156292,-0.298046 0.268968,-0.625169 0.348932,-0.963197 z m -1.457517,2.191727 c 0.12358,-0.09087 0.301681,-0.06542 0.392548,0.06179 0.09087,0.12358 0.06543,0.301681 -0.06179,0.392548 -0.06179,0.04725 -0.134484,0.0945 -0.210813,0.145389 -0.06542,0.04362 -0.138118,0.09087 -0.214447,0.134484 -0.134484,0.07996 -0.305315,0.03271 -0.385279,-0.101772 -0.07996,-0.134484 -0.03271,-0.305315 0.101772,-0.385279 l 0.189004,-0.119945 c 0.05816,-0.03635 0.119946,-0.07996 0.189005,-0.127215 z M 77.494973,10.583345 C 77.186023,9.4384132 77.244179,8.1917093 77.720325,7.0322384 v -0.00363 c 0.67969,-1.613809 1.450247,-2.9332069 2.198997,-4.2089883 1.04316,-1.7810055 2.039069,-3.48204744 2.656969,-5.7900851 0.02544,-0.094502 0.09814,-0.1744659 0.199909,-0.1999088 0.149023,-0.039982 0.305315,0.050886 0.345297,0.1999088 0.61063,2.28259473 1.610174,3.9872714 2.653334,5.7755462 0.745115,1.2794162 1.515672,2.5951794 2.198997,4.2126231 l 0.0073,0.014539 c 0.476147,1.1594709 0.534302,2.4061748 0.225352,3.5511067 -0.30895,1.148567 -0.98864,2.195362 -1.980914,2.95865 -0.995909,0.763288 -2.184458,1.144932 -3.373006,1.144932 -1.188549,0 -2.380732,-0.385279 -3.376641,-1.144932 -0.992275,-0.763288 -1.671965,-1.810083 -1.980915,-2.95865 z"
+                    stroke-width="0.0363471"
+                  />
+                  <g
+                    transform="matrix(0.03634705,0,0,0.03634705,77.302334,-3.1812826)"
+                  >
+                    <path
+                      d="m 157.8,353.3 -1.4,26.7 c -0.2,3.5 -0.9,6 -2.3,7.6 -1.4,1.6 -3.6,2.4 -6.7,2.4 -2.5,0 -4.4,-0.7 -5.5,-2.2 -1.2,-1.5 -1.7,-3.8 -1.7,-7 v -2.1 l 1.4,-26.1 c -3.2,-0.5 -6.2,-1.4 -9.1,-2.7 -2.9,-1.3 -5.9,-2.9 -8.9,-5 -1.1,1.8 -2.3,3.1 -3.6,3.9 -1.3,0.8 -2.8,1.3 -4.6,1.3 -3.1,0 -5.5,-1 -7.3,-3.1 -1.8,-2 -2.7,-4.8 -2.7,-8.4 v -16 c 0,-2.8 0.9,-5 2.6,-6.8 1.7,-1.8 4,-2.7 6.9,-2.7 4.5,0 7.7,3 9.7,9 0.5,1.8 1,3.1 1.4,3.8 1.6,2.8 5.4,5.4 11.4,7.8 6,2.3 12.1,3.5 18.4,3.5 7.2,0 13,-1.7 17.5,-5.1 4.4,-3.4 6.6,-7.8 6.6,-13.1 0,-4.8 -1.6,-8.7 -4.7,-11.7 -3.2,-3 -10.1,-6.4 -21,-10.2 L 134,290.3 c -7.8,-2.7 -13.9,-7.1 -18.6,-13.2 -4.6,-6.1 -6.9,-13 -6.9,-20.6 0,-9.9 3.4,-17.9 10.3,-24 6.9,-6.1 16.4,-9.6 28.6,-10.5 l 0.5,-8.8 c 0.2,-3.2 1.1,-5.5 2.5,-7.1 1.5,-1.6 3.5,-2.4 6,-2.4 2.6,0 4.6,0.7 6,2.1 1.4,1.4 2.1,3.5 2.1,6.2 v 1.4 l -0.7,9.2 c 2.8,0.8 5.6,1.6 8.4,2.6 2.7,1 5.4,2.1 7.9,3.3 1.2,-1.4 2.3,-2.4 3.5,-3.1 1.2,-0.7 2.4,-1 3.8,-1 2.6,0 4.5,0.7 5.6,2.1 1.2,1.4 1.7,3.9 1.7,7.3 V 248 c 0,2.8 -0.7,5 -2.1,6.5 -1.4,1.5 -3.4,2.2 -6,2.2 -3.8,0 -6.8,-2.4 -9,-7.1 -0.5,-1.2 -0.8,-2.2 -1.2,-2.8 -1.5,-3.1 -4.4,-5.5 -8.5,-7.3 -4.1,-1.8 -9,-2.7 -14.6,-2.7 -7.8,0 -14,1.7 -18.7,5 -4.7,3.3 -7,7.7 -7,13.1 0,4.4 1.5,8.2 4.4,11.4 2.9,3.2 7.2,5.7 12.9,7.6 l 22.1,7.4 c 11.2,3.6 19.5,8.4 24.7,14.2 5.3,5.9 7.9,13.2 7.9,22.1 0,10.1 -3.7,18.3 -11.2,24.7 -7.5,6.7 -17.7,10.2 -30.6,11 z"
+                    />
+                  </g>
+                </g>
               </svg>
               <span
                 class="MuiTouchRipple-root css-8"
@@ -79,137 +115,146 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
             </button>
           </div>
           <span
-            class="MuiTabs-indicator css-12"
+            class="MuiTabs-indicator css-15"
             style="left: 0px; width: 0px;"
           />
         </div>
       </div>
       <div
-        class="MuiBox-root css-13"
+        class="MuiBox-root css-16"
       >
         <div
           aria-labelledby="tab-swapSection-0"
-          class="css-14"
+          class="css-17"
           id="tabpanel-swapSection-0"
           role="tabpanel"
         >
           <div
-            class="AwiSwapPanel-header"
+            class="AwiSwapSection-header"
           >
-            <h6
-              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-15"
-            >
-              swap:swap-section.swap.prompt
-            </h6>
             <div
-              aria-label="swap:swap-section.swap.trading-type-hint"
-              class="MuiToggleButtonGroup-root css-16"
-              role="group"
+              class="Awi-row"
             >
-              <button
-                aria-pressed="true"
-                class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
-                tabindex="0"
-                type="button"
-                value="market"
+              <h6
+                class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-18"
               >
-                swap:swap-section.swap.market
-                <span
-                  class="MuiTouchRipple-root css-8"
-                />
-              </button>
-              <button
-                aria-pressed="false"
-                class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
-                tabindex="0"
-                type="button"
-                value="limit"
+                swap:swap-section.swap.prompt
+              </h6>
+              <div
+                aria-label="swap:swap-section.swap.trading-type-hint"
+                class="MuiToggleButtonGroup-root css-19"
+                role="group"
               >
-                swap:swap-section.swap.limit
-                <span
-                  class="MuiTouchRipple-root css-8"
-                />
-              </button>
+                <button
+                  aria-pressed="true"
+                  class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-20"
+                  tabindex="0"
+                  type="button"
+                  value="market"
+                >
+                  swap:swap-section.swap.market
+                  <span
+                    class="MuiTouchRipple-root css-8"
+                  />
+                </button>
+                <button
+                  aria-pressed="false"
+                  class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-20"
+                  tabindex="0"
+                  type="button"
+                  value="limit"
+                >
+                  swap:swap-section.swap.limit
+                  <span
+                    class="MuiTouchRipple-root css-8"
+                  />
+                </button>
+              </div>
             </div>
             <div
-              class="AwiSwapPanel-aside"
+              class="AwiSwapPanel-aside Awi-row"
             >
               <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-disableElevation MuiButtonBase-root  css-24"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="m 13.787109,2.9863281 -0.132812,0.3476563 c -0.295933,0.7776606 -0.963213,1.1367187 -1.650391,1.1367187 -0.687177,0 -1.356411,-0.3590581 -1.652343,-1.1367187 L 10.220703,2.9882813 9.8613281,3.0742188 C 8.9223821,3.2982003 8.0252785,3.6699642 7.203125,4.1757812 L 6.8886719,4.3671875 7.0390625,4.7050781 C 7.566634,5.889366 6.7183561,7.1919462 5.421875,7.1894531 h -0.00195 C 5.1735503,7.1898006 4.9314966,7.138669 4.7070312,7.0371094 L 4.3671875,6.8828125 4.1738281,7.2011719 C 3.672545,8.02593 3.3031811,8.9247396 3.078125,9.8632813 l -0.087891,0.3593747 0.3476562,0.13086 c 0.7779677,0.29513 1.1379643,0.963212 1.1386719,1.65039 7.076e-4,0.687179 -0.3593605,1.355612 -1.1367187,1.652344 l -0.34375,0.130859 0.085937,0.359375 c 0.2243354,0.937723 0.5960887,1.835186 1.1015624,2.65625 L 4.375,17.115234 4.7128906,16.966797 c 0.7568307,-0.336037 1.4804752,-0.118852 1.9648438,0.365234 0.4843686,0.484087 0.7027831,1.207818 0.3671875,1.964844 l -0.1503907,0.335937 0.3144532,0.19336 c 0.8212547,0.504529 1.7171089,0.876424 2.6542969,1.101562 l 0.3574217,0.08594 0.132813,-0.34375 c 0.2985,-0.770695 0.962636,-1.128906 1.646484,-1.128906 0.683848,0 1.349937,0.358211 1.648438,1.128906 l 0.132812,0.341797 0.357422,-0.08398 c 0.937714,-0.224349 1.833229,-0.596103 2.654297,-1.101562 l 0.3125,-0.19336 -0.148438,-0.335937 c -0.335815,-0.756928 -0.118993,-1.48257 0.365235,-1.966797 0.484227,-0.484227 1.209868,-0.70105 1.966796,-0.365234 l 0.335938,0.15039 0.193359,-0.314453 c 0.504529,-0.821255 0.874472,-1.717108 1.09961,-2.654297 l 0.08594,-0.357421 -0.341797,-0.132813 c -0.685122,-0.267238 -1.133068,-0.92476 -1.132812,-1.660156 -4.61e-4,-0.733932 0.449283,-1.388152 1.134765,-1.650391 l 0.345704,-0.132812 -0.08594,-0.3593754 C 20.699205,8.9157489 20.326079,8.0202316 19.820312,7.1992187 l -0.193359,-0.3125 -0.335937,0.1484375 c -0.227425,0.1009696 -0.471875,0.1531803 -0.720704,0.1542969 -1.295556,9.956e-4 -2.142426,-1.3009327 -1.615234,-2.484375 l 0.150391,-0.3359375 -0.3125,-0.1933594 C 15.974724,3.6706807 15.081424,3.2990274 14.146484,3.0742188 Z M 9.84375,3.9804688 C 10.337803,4.8032727 11.143031,5.3125 12.003906,5.3125 c 0.860601,0 1.664065,-0.5097409 2.158203,-1.3320312 0.684767,0.1851636 1.340263,0.4588063 1.955078,0.8124999 -0.397475,1.5926973 0.737615,3.239601 2.455079,3.2382813 h 0.002 c 0.219011,-9.828e-4 0.423767,-0.082317 0.634765,-0.1367188 0.348743,0.6109621 0.62328,1.260167 0.806641,1.9394532 -0.775041,0.4659426 -1.328706,1.2366406 -1.328125,2.1621096 -3.22e-4,0.925888 0.550642,1.700117 1.324219,2.169922 -0.187625,0.693766 -0.463252,1.359812 -0.822266,1.982421 -0.928869,-0.228904 -1.853883,-0.01916 -2.460937,0.587891 -0.606745,0.606744 -0.816124,1.532552 -0.587891,2.460938 -0.624255,0.360746 -1.290062,0.637013 -1.986328,0.824218 C 13.658902,19.205037 12.85725,18.699219 12,18.699219 c -0.857356,0 -1.658934,0.505621 -2.1542969,1.322265 C 9.1505244,19.833856 8.4851152,19.556943 7.8613281,19.197266 8.0898889,18.268383 7.8806347,17.343172 7.2734375,16.736328 6.6666686,16.129913 5.7405806,15.920264 4.8125,16.148437 4.4524268,15.525076 4.1753284,14.859221 3.9882813,14.164063 4.8107763,13.669196 5.3192459,12.864889 5.3183594,12.003906 5.3174727,11.142766 4.8062303,10.336872 3.9824219,9.84375 4.1660573,9.1615533 4.4402909,8.509889 4.7871094,7.8945312 4.9978679,7.9490684 5.202989,8.0315587 5.421875,8.03125 7.1386947,8.0332578 8.2747696,6.3873792 7.8789062,4.7949219 8.4972996,4.4403291 9.155207,4.1652643 9.84375,3.9804688 Z M 11.345703,8.078125 C 10.591253,8.2097981 9.8549676,8.5669074 9.2363281,9.1855469 7.9990493,10.422826 7.8050218,12.133537 8.375,13.509766 c 0.5697551,1.375689 1.915101,2.448378 3.664063,2.449218 6.84e-4,1e-6 0.0013,0 0.002,0 2.187025,9.92e-4 3.969789,-1.779524 3.96875,-3.966796 -10e-7,-1.749962 -1.072991,-3.097991 -2.449219,-3.6679692 C 12.872433,8.0392296 12.100154,7.9464519 11.345703,8.078125 Z m 0.152344,0.8203125 c 0.590602,-0.1013903 1.19365,-0.023248 1.740234,0.203125 1.093168,0.4527458 1.929688,1.4796895 1.929688,2.8906255 8.23e-4,1.732847 -1.394106,3.128598 -3.126953,3.126953 -6.98e-4,0 -0.0013,0 -0.002,0 C 10.629206,15.118313 9.6048657,14.280127 9.1523438,13.1875 8.6995979,12.094332 8.8325362,10.778792 9.8300781,9.78125 10.328849,9.282479 10.907445,8.9998278 11.498047,8.8984375 Z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8"
+                />
+              </button>
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled AwiLoadingButton-root css-27"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
-                swap:swap-section.swap.execute
+                swap:swap-section.swap.approve
               </button>
             </div>
           </div>
-          <div
-            class="AwiSwapPanel-content"
-          >
+          <div>
             <div
-              class="sub-panel"
+              class="AwiSwapSection-subPanel"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-22"
+                class="MuiGrid-root MuiGrid-container css-28"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-29"
                 >
                   <div
-                    class="source"
+                    class="AwiSwapPanel-source"
                   >
-                    <div
-                      class="MuiFormControl-root MuiBox-root css-24"
-                      id="assetSource"
+                    <button
+                      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiSwapPanel-assetToggle css-30"
+                      tabindex="0"
+                      type="button"
                     >
-                      <div
-                        aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium css-31"
                       >
-                        <div
-                          aria-disabled="true"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
-                          id="demo-simple-select"
-                          role="button"
+                        <span
+                          class="css-32"
                         >
-                          <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
+                          <span
+                            class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-33"
+                            role="progressbar"
+                            style="width: 20px; height: 20px;"
                           >
-                            <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
-                              role="progressbar"
-                              style="width: 20px; height: 20px;"
+                            <svg
+                              class="MuiCircularProgress-svg css-34"
+                              viewBox="22 22 44 44"
                             >
-                              <svg
-                                class="MuiCircularProgress-svg css-29"
-                                viewBox="22 22 44 44"
-                              >
-                                <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
-                                  cx="44"
-                                  cy="44"
-                                  fill="none"
-                                  r="20.2"
-                                  stroke-width="3.6"
-                                />
-                              </svg>
-                            </span>
-                          </p>
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          class="MuiSelect-nativeInput css-31"
-                          disabled=""
-                          tabindex="-1"
-                          value=""
-                        />
+                              <circle
+                                class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                                cx="44"
+                                cy="44"
+                                fill="none"
+                                r="20.2"
+                                stroke-width="3.6"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                      swap:swap-section.swap.choose-token
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-36"
+                      >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AwiSwapPanel-assetToggleIcon css-7"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -217,13 +262,16 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
                           />
                         </svg>
-                      </div>
-                    </div>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-39"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-34"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled AwiSwapPanel-sourceAmountLabel css-40"
                         for="sourceValue"
                       >
                         <span>
@@ -231,11 +279,11 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-35"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-41"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-36"
+                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-42"
                           disabled=""
                           id="sourceValue"
                           inputmode="numeric"
@@ -244,7 +292,7 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           value=""
                         />
                         <button
-                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-37"
+                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiSwapPanel-sourceAmountMax css-43"
                           tabindex="0"
                           type="button"
                         >
@@ -254,69 +302,132 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           />
                         </button>
                       </div>
-                      <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-39"
-                      />
+                    </div>
+                    <div
+                      class="AwiSwapPanel-percentage"
+                    >
+                      <div
+                        aria-label="swap:swap-section.swap.trading-type-hint"
+                        class="MuiToggleButtonGroup-root css-19"
+                        role="group"
+                      >
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="25"
+                        >
+                          25 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="50"
+                        >
+                          50 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="75"
+                        >
+                          75 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="100"
+                        >
+                          100 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-29"
                 >
                   <div
-                    class="target"
+                    class="AwiSwapPanel-target"
                   >
-                    <div
-                      class="MuiFormControl-root MuiBox-root css-24"
-                      id="assetTarget"
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall AwiSwapPanel-switch css-55"
+                      tabindex="0"
+                      type="button"
                     >
-                      <div
-                        aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7"
+                        focusable="false"
+                        viewBox="0 0 24 24"
                       >
-                        <div
-                          aria-disabled="true"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
-                          id="demo-simple-select"
-                          role="button"
-                        >
-                          <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
-                          >
-                            <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
-                              role="progressbar"
-                              style="width: 20px; height: 20px;"
-                            >
-                              <svg
-                                class="MuiCircularProgress-svg css-29"
-                                viewBox="22 22 44 44"
-                              >
-                                <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
-                                  cx="44"
-                                  cy="44"
-                                  fill="none"
-                                  r="20.2"
-                                  stroke-width="3.6"
-                                />
-                              </svg>
-                            </span>
-                          </p>
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          class="MuiSelect-nativeInput css-31"
-                          disabled=""
-                          tabindex="-1"
-                          value=""
+                        <path
+                          d="M 3.1085634,12 A 8.8914366,8.8914366 0 1 0 12,3.1085634 8.8949078,8.8949078 0 0 0 3.1085634,12 Z m 6.2239667,4.890233 -3.112176,-3.112176 3.112176,-3.112177 v 2.223149 h 3.5564989 v 1.778442 H 9.3325301 Z m 5.3349409,-9.7804655 3.112176,3.1121765 -3.112176,3.109863 V 11.109044 H 11.110972 V 9.3306017 h 3.556499 z"
+                          style="stroke-width: 0.385696;"
                         />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
+                    <button
+                      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiSwapPanel-assetToggle css-30"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium css-31"
+                      >
+                        <span
+                          class="css-32"
+                        >
+                          <span
+                            class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-33"
+                            role="progressbar"
+                            style="width: 20px; height: 20px;"
+                          >
+                            <svg
+                              class="MuiCircularProgress-svg css-34"
+                              viewBox="22 22 44 44"
+                            >
+                              <circle
+                                class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                                cx="44"
+                                cy="44"
+                                fill="none"
+                                r="20.2"
+                                stroke-width="3.6"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                      swap:common:common.select-token
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-36"
+                      >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AwiSwapPanel-assetToggleIcon css-7"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -324,13 +435,16 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
                           />
                         </svg>
-                      </div>
-                    </div>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-39"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-34"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled MuiFormLabel-filled AwiSwapPanel-targetAmountLabel css-40"
                         for="targetValue"
                       >
                         <span>
@@ -338,27 +452,30 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-35"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-41"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled css-36"
+                          class="MuiInputBase-input Mui-disabled css-42"
                           disabled=""
                           id="targetValue"
                           inputmode="numeric"
                           name="targetValue"
                           type="text"
-                          value=""
+                          value="0"
                         />
                       </div>
-                      <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-39"
-                      >
-                        <span>
-                          swap:swap-section.swap.price
-                        </span>
-                      </p>
                     </div>
+                    <p
+                      class="MuiTypography-root MuiTypography-body-sm AwiSwapPanel-slippageTolerance Awi-row css-71"
+                    >
+                      <span>
+                        swap:swap-section.swap.slippage-tolerance
+                      </span>
+                      <span>
+                        0.3 %
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -367,128 +484,84 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
         </div>
         <div
           aria-labelledby="tab-swapSection-1"
-          class="css-55"
+          class="css-72"
           hidden=""
           id="tabpanel-swapSection-1"
           role="tabpanel"
         >
           <div
-            class="AwiZapPanel-header"
+            class="AwiSwapSection-header"
           >
             <h6
-              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-15"
+              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-18"
             >
               swap:swap-section.zap.prompt
             </h6>
             <div
-              aria-label="swap:swap-section.swap.trading-type-hint"
-              class="MuiToggleButtonGroup-root css-16"
-              role="group"
+              class="AwiSwapPanel-aside Awi-row"
             >
               <button
-                aria-pressed="true"
-                class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
-                tabindex="0"
-                type="button"
-                value="market"
-              >
-                swap:swap-section.swap.market
-                <span
-                  class="MuiTouchRipple-root css-8"
-                />
-              </button>
-              <button
-                aria-pressed="false"
-                class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-17"
-                tabindex="0"
-                type="button"
-                value="limit"
-              >
-                swap:swap-section.swap.limit
-                <span
-                  class="MuiTouchRipple-root css-8"
-                />
-              </button>
-            </div>
-            <div
-              class="AwiZapPanel-aside"
-            >
-              <button
-                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled  css-21"
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled AwiLoadingButton-root css-27"
                 disabled=""
                 tabindex="-1"
                 type="button"
               >
-                swap:swap-section.swap.execute
+                swap:swap-section.zap.approve
               </button>
             </div>
           </div>
-          <div
-            class="AwiZapPanel-content"
-          >
+          <div>
             <div
-              class="sub-panel"
+              class="AwiSwapSection-subPanel"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-22"
+                class="MuiGrid-root MuiGrid-container css-28"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-29"
                 >
                   <div
-                    class="source"
+                    class="AwiSwapPanel-source"
                   >
-                    <div
-                      class="MuiFormControl-root MuiBox-root css-24"
-                      id="assetSource"
+                    <button
+                      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiSwapPanel-assetToggle css-30"
+                      tabindex="0"
+                      type="button"
                     >
-                      <div
-                        aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium css-31"
                       >
-                        <div
-                          aria-disabled="true"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
-                          id="demo-simple-select"
-                          role="button"
+                        <span
+                          class="css-32"
                         >
-                          <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
+                          <span
+                            class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-33"
+                            role="progressbar"
+                            style="width: 20px; height: 20px;"
                           >
-                            <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
-                              role="progressbar"
-                              style="width: 20px; height: 20px;"
+                            <svg
+                              class="MuiCircularProgress-svg css-34"
+                              viewBox="22 22 44 44"
                             >
-                              <svg
-                                class="MuiCircularProgress-svg css-29"
-                                viewBox="22 22 44 44"
-                              >
-                                <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
-                                  cx="44"
-                                  cy="44"
-                                  fill="none"
-                                  r="20.2"
-                                  stroke-width="3.6"
-                                />
-                              </svg>
-                            </span>
-                          </p>
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          class="MuiSelect-nativeInput css-31"
-                          disabled=""
-                          tabindex="-1"
-                          value=""
-                        />
+                              <circle
+                                class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                                cx="44"
+                                cy="44"
+                                fill="none"
+                                r="20.2"
+                                stroke-width="3.6"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                      swap:swap-section.zap.choose-token
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-36"
+                      >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AwiSwapPanel-assetToggleIcon css-7"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -496,25 +569,28 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
                           />
                         </svg>
-                      </div>
-                    </div>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-39"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled source__amount-label css-34"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled AwiSwapPanel-sourceAmountLabel css-40"
                         for="sourceValue"
                       >
                         <span>
-                          swap:swap-section.swap.you-pay
+                          swap:swap-section.zap.you-pay
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-35"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-41"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-36"
+                          class="MuiInputBase-input Mui-disabled css-42"
                           disabled=""
                           id="sourceValue"
                           inputmode="numeric"
@@ -522,80 +598,136 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           type="text"
                           value=""
                         />
+                      </div>
+                    </div>
+                    <div
+                      class="AwiSwapPanel-percentage"
+                    >
+                      <div
+                        aria-label="swap:swap-section.zap.trading-type-hint"
+                        class="MuiToggleButtonGroup-root css-19"
+                        role="group"
+                      >
                         <button
-                          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root source__amount-max css-37"
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
                           tabindex="0"
                           type="button"
+                          value="25"
                         >
-                          swap:swap-section.swap.max
+                          25 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="50"
+                        >
+                          50 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="75"
+                        >
+                          75 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="100"
+                        >
+                          100 %
                           <span
                             class="MuiTouchRipple-root css-8"
                           />
                         </button>
                       </div>
-                      <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium helper-text css-39"
-                      />
                     </div>
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-23"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-29"
                 >
                   <div
-                    class="target"
+                    class="AwiSwapPanel-target"
                   >
-                    <div
-                      class="MuiFormControl-root MuiBox-root css-24"
-                      id="assetTarget"
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall AwiZapPanel-switch css-55"
+                      tabindex="0"
+                      type="button"
                     >
-                      <div
-                        aria-label=""
-                        class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-25"
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7"
+                        fill="none"
+                        focusable="false"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <div
-                          aria-disabled="true"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-labelledby="demo-simple-select"
-                          class="MuiSelect-select MuiSelect-standard Mui-disabled MuiInput-input MuiInputBase-input Mui-disabled css-26"
-                          id="demo-simple-select"
-                          role="button"
-                        >
-                          <p
-                            class="MuiTypography-root MuiTypography-body MuiSelect-value css-27"
-                          >
-                            <span
-                              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-28"
-                              role="progressbar"
-                              style="width: 20px; height: 20px;"
-                            >
-                              <svg
-                                class="MuiCircularProgress-svg css-29"
-                                viewBox="22 22 44 44"
-                              >
-                                <circle
-                                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-30"
-                                  cx="44"
-                                  cy="44"
-                                  fill="none"
-                                  r="20.2"
-                                  stroke-width="3.6"
-                                />
-                              </svg>
-                            </span>
-                          </p>
-                        </div>
-                        <input
-                          aria-hidden="true"
-                          class="MuiSelect-nativeInput css-31"
-                          disabled=""
-                          tabindex="-1"
-                          value=""
+                        <path
+                          d="M 12.867485,3.3255934 4.1930775,13.734968 h 7.8071405 l -0.86857,6.939439 8.675275,-10.409375 h -7.806705 z"
+                          fill="none"
+                          style="stroke-width: 0.434285;"
                         />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
+                    <button
+                      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiSwapPanel-assetToggle css-30"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium css-31"
+                      >
+                        <span
+                          class="css-32"
+                        >
+                          <span
+                            class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-33"
+                            role="progressbar"
+                            style="width: 20px; height: 20px;"
+                          >
+                            <svg
+                              class="MuiCircularProgress-svg css-34"
+                              viewBox="22 22 44 44"
+                            >
+                              <circle
+                                class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                                cx="44"
+                                cy="44"
+                                fill="none"
+                                r="20.2"
+                                stroke-width="3.6"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                      swap:swap-section.zap.choose-lp-token
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-36"
+                      >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard Mui-disabled css-32"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AwiSwapPanel-assetToggleIcon css-7"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -603,25 +735,287 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                             d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
                           />
                         </svg>
-                      </div>
-                    </div>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
                     <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth css-33"
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-39"
                     >
                       <label
-                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled target__amount-label css-34"
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled MuiFormLabel-filled AwiSwapPanel-targetAmountLabel css-40"
                         for="targetValue"
                       >
                         <span>
-                          swap:swap-section.swap.you-receive
+                          swap:swap-section.zap.you-receive
                         </span>
                       </label>
                       <div
-                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-35"
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-41"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input Mui-disabled css-36"
+                          class="MuiInputBase-input Mui-disabled css-42"
+                          disabled=""
+                          id="targetValue"
+                          inputmode="numeric"
+                          name="targetValue"
+                          type="text"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-labelledby="tab-swapSection-2"
+          class="css-116"
+          hidden=""
+          id="tabpanel-swapSection-2"
+          role="tabpanel"
+        >
+          <div
+            class="AwiSwapSection-header"
+          >
+            <h6
+              class="MuiTypography-root MuiTypography-h7 AwiLabel-root css-18"
+            >
+              swap:swap-section.liquidity.prompt
+            </h6>
+            <div
+              class="AwiLiquidityPanel-aside Awi-row"
+            >
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled AwiLoadingButton-root css-27"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                swap:swap-section.liquidity.execute
+              </button>
+            </div>
+          </div>
+          <div>
+            <div
+              class="AwiSwapSection-subPanel"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-28"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-29"
+                >
+                  <div
+                    class="AwiLiquidityPanel-source"
+                  >
+                    <button
+                      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiLiquidityPanel-assetToggle css-30"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium css-31"
+                      >
+                        <span
+                          class="css-32"
+                        >
+                          <span
+                            class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-33"
+                            role="progressbar"
+                            style="width: 20px; height: 20px;"
+                          >
+                            <svg
+                              class="MuiCircularProgress-svg css-34"
+                              viewBox="22 22 44 44"
+                            >
+                              <circle
+                                class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                                cx="44"
+                                cy="44"
+                                fill="none"
+                                r="20.2"
+                                stroke-width="3.6"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                      swap:swap-section.swap.choose-token
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-36"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AwiLiquidityPanel-assetToggleIcon css-7"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-39"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled AwiLiquidityPanel-sourceAmountLabel css-40"
+                        for="sourceValue"
+                      />
+                      <div
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-41"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input Mui-disabled css-42"
+                          disabled=""
+                          id="sourceValue"
+                          inputmode="numeric"
+                          name="sourceValue"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="AwiLiquidityPanel-percentage"
+                    >
+                      <div
+                        aria-label="swap:swap-section.swap.trading-type-hint"
+                        class="MuiToggleButtonGroup-root css-19"
+                        role="group"
+                      >
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="25"
+                        >
+                          25 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="50"
+                        >
+                          50 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="75"
+                        >
+                          75 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                        <button
+                          aria-pressed="false"
+                          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-46"
+                          tabindex="0"
+                          type="button"
+                          value="100"
+                        >
+                          100 %
+                          <span
+                            class="MuiTouchRipple-root css-8"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-29"
+                >
+                  <div
+                    class="AwiLiquidityPanel-target"
+                  >
+                    <button
+                      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButtonBase-root AwiLiquidityPanel-assetToggle css-30"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium css-31"
+                      >
+                        <span
+                          class="css-32"
+                        >
+                          <span
+                            class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-33"
+                            role="progressbar"
+                            style="width: 20px; height: 20px;"
+                          >
+                            <svg
+                              class="MuiCircularProgress-svg css-34"
+                              viewBox="22 22 44 44"
+                            >
+                              <circle
+                                class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                                cx="44"
+                                cy="44"
+                                fill="none"
+                                r="20.2"
+                                stroke-width="3.6"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                      swap:common:common.select-token
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium css-36"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AwiLiquidityPanel-assetToggleIcon css-7"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
+                    <div
+                      class="MuiFormControl-root MuiFormControl-fullWidth css-39"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled AwiLiquidityPanel-targetAmountLabel css-40"
+                        for="targetValue"
+                      />
+                      <div
+                        class="MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl css-41"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input Mui-disabled css-42"
                           disabled=""
                           id="targetValue"
                           inputmode="numeric"
@@ -630,15 +1024,94 @@ exports[`<SwapSection /> has valid snapshot 1`] = `
                           value=""
                         />
                       </div>
-                      <p
-                        class="MuiFormHelperText-root Mui-disabled MuiFormHelperText-sizeMedium help-text css-39"
-                      >
-                        <span>
-                          swap:swap-section.swap.price
-                        </span>
-                      </p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="AwiLiquidityPanel-liquidity"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-157"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-158"
+                >
+                  <div
+                    class="Awi-row Awi-between"
+                  >
+                    <h2
+                      class="MuiTypography-root MuiTypography-body-md AwiLabel-root css-159"
+                      id="awiLiquidity"
+                    >
+                      swap:swap-section.liquidity.your-liquidity
+                      <span
+                        aria-label="swap:swap-section.liquidity.your-liquidity-help"
+                        class="AwiLabel-help"
+                        data-mui-internal-clone-element="true"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M 12.005859,3.0371094 C 8.0393945,3.0376339 5.0185201,5.455498 3.7304688,8.5664063 2.4424174,11.677315 2.8692434,15.523911 5.6738281,18.328125 c 2.8045847,2.804214 6.6490279,3.229869 9.7597659,1.941406 3.110738,-1.288462 5.529296,-4.308925 5.529297,-8.27539 0,-4.9402634 -4.016769,-8.9570317 -8.957032,-8.9570316 z m 0,1.1113281 c 4.339673,-1e-7 7.845704,3.5060306 7.845703,7.8457035 0,3.518639 -2.104953,6.114451 -4.841796,7.248046 C 12.272923,20.375783 8.9468763,20.028579 6.4589844,17.541016 3.9710925,15.053453 3.6245785,11.72918 4.7578125,8.9921875 5.8910465,6.2551947 8.4872199,4.1489028 12.005859,4.1484375 Z"
+                            id="Pfad_2253"
+                          />
+                          <path
+                            d="m 12.005859,11.4375 a 0.55565,0.55565 0 0 0 -0.55664,0.556641 v 3.359375 a 0.55565,0.55565 0 0 0 0.55664,0.55664 0.55565,0.55565 0 0 0 0.554688,-0.55664 V 11.994141 A 0.55565,0.55565 0 0 0 12.005859,11.4375 Z"
+                          />
+                          <path
+                            d="m 12.005859,8.078125 a 0.55565,0.55565 0 0 0 -0.55664,0.5546875 0.55565,0.55565 0 0 0 0.55664,0.5566406 0.55565,0.55565 0 0 0 0.554688,-0.5566406 0.55565,0.55565 0 0 0 -0.554688,-0.5546875 z"
+                          />
+                        </svg>
+                      </span>
+                    </h2>
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-43"
+                      tabindex="0"
+                      type="button"
+                    >
+                      swap:swap-section.liquidity.import-pool
+                      <span
+                        class="MuiTouchRipple-root css-8"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-158"
+                >
+                  <button
+                    class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root Mui-disabled AwiLiquidityPanel-liquidityLoadMore AwiLoadingButton-root css-164"
+                    disabled=""
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-165"
+                      role="progressbar"
+                      style="width: 18px; height: 18px;"
+                    >
+                      <svg
+                        class="MuiCircularProgress-svg css-34"
+                        viewBox="22 22 44 44"
+                      >
+                        <circle
+                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-35"
+                          cx="44"
+                          cy="44"
+                          fill="none"
+                          r="20.2"
+                          stroke-width="3.6"
+                        />
+                      </svg>
+                    </span>
+                    swap:common:common.load-more
+                  </button>
                 </div>
               </div>
             </div>

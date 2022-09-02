@@ -6,43 +6,47 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-2"
-      >
-        landing:faq-section.title
-      </h2>
-      <p
-        class="MuiTypography-root MuiTypography-body css-3"
-      >
-        landing:faq-section.description
-      </p>
       <div
-        class="MuiContainer-root MuiContainer-maxWidthMd css-4"
+        class="MuiBox-root css-2"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-3"
+        >
+          landing:faq-section.title
+        </h2>
+        <p
+          class="MuiTypography-root MuiTypography-body css-4"
+        >
+          landing:faq-section.description
+        </p>
+      </div>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthMd css-5"
       >
         <article
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-5"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-6"
         >
           <div
             aria-controls="panel-content-1"
             aria-expanded="true"
-            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-6"
+            class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-7"
             id="panel-header-1"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-7"
+              class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-8"
             >
               landing:faq-section.items.0.title
             </div>
             <div
-              class="MuiAccordionSummary-expandIconWrapper Mui-expanded css-8"
+              class="MuiAccordionSummary-expandIconWrapper Mui-expanded css-9"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -53,14 +57,14 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-10"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-11"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-12"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-13"
               >
                 <div
                   aria-labelledby="panel-header-1"
@@ -69,10 +73,10 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root css-13"
+                    class="MuiAccordionDetails-root css-14"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body css-14"
+                      class="MuiTypography-root MuiTypography-body css-15"
                     >
                       landing:faq-section.items.0.description
                     </p>
@@ -83,27 +87,27 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
           </div>
         </article>
         <article
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-5"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-6"
         >
           <div
             aria-controls="panel-content-2"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-6"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-7"
             id="panel-header-2"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-7"
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-8"
             >
               landing:faq-section.items.1.title
             </div>
             <div
-              class="MuiAccordionSummary-expandIconWrapper css-8"
+              class="MuiAccordionSummary-expandIconWrapper css-9"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -114,14 +118,14 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-20"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-21"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-12"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-13"
               >
                 <div
                   aria-labelledby="panel-header-2"
@@ -130,10 +134,10 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root css-13"
+                    class="MuiAccordionDetails-root css-14"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body css-14"
+                      class="MuiTypography-root MuiTypography-body css-15"
                     >
                       landing:faq-section.items.1.description
                     </p>
@@ -144,27 +148,27 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
           </div>
         </article>
         <article
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-5"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-6"
         >
           <div
             aria-controls="panel-content-3"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-6"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-7"
             id="panel-header-3"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-7"
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-8"
             >
               landing:faq-section.items.2.title
             </div>
             <div
-              class="MuiAccordionSummary-expandIconWrapper css-8"
+              class="MuiAccordionSummary-expandIconWrapper css-9"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -175,14 +179,14 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-20"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-21"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-12"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-13"
               >
                 <div
                   aria-labelledby="panel-header-3"
@@ -191,10 +195,10 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root css-13"
+                    class="MuiAccordionDetails-root css-14"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body css-14"
+                      class="MuiTypography-root MuiTypography-body css-15"
                     >
                       landing:faq-section.items.2.description
                     </p>
@@ -205,27 +209,27 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
           </div>
         </article>
         <article
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-5"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-6"
         >
           <div
             aria-controls="panel-content-4"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-6"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-7"
             id="panel-header-4"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-7"
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-8"
             >
               landing:faq-section.items.3.title
             </div>
             <div
-              class="MuiAccordionSummary-expandIconWrapper css-8"
+              class="MuiAccordionSummary-expandIconWrapper css-9"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -236,14 +240,14 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-20"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-21"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper MuiCollapse-vertical css-11"
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-12"
             >
               <div
-                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-12"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-13"
               >
                 <div
                   aria-labelledby="panel-header-4"
@@ -252,12 +256,134 @@ exports[`<FAQSection /> has valid snapshot 1`] = `
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root css-13"
+                    class="MuiAccordionDetails-root css-14"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body css-14"
+                      class="MuiTypography-root MuiTypography-body css-15"
                     >
                       landing:faq-section.items.3.description
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-6"
+        >
+          <div
+            aria-controls="panel-content-5"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-7"
+            id="panel-header-5"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-8"
+            >
+              landing:faq-section.items.4.title
+            </div>
+            <div
+              class="MuiAccordionSummary-expandIconWrapper css-9"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-21"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-12"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-13"
+              >
+                <div
+                  aria-labelledby="panel-header-5"
+                  class="MuiAccordion-region"
+                  id="panel-content-5"
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root css-14"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-15"
+                    >
+                      landing:faq-section.items.4.description
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-6"
+        >
+          <div
+            aria-controls="panel-content-6"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-7"
+            id="panel-header-6"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-8"
+            >
+              landing:faq-section.items.5.title
+            </div>
+            <div
+              class="MuiAccordionSummary-expandIconWrapper css-9"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.88 9.29 12 13.17 8.12 9.29a.9959.9959 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-21"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-12"
+            >
+              <div
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-13"
+              >
+                <div
+                  aria-labelledby="panel-header-6"
+                  class="MuiAccordion-region"
+                  id="panel-content-6"
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root css-14"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body css-15"
+                    >
+                      landing:faq-section.items.5.description
                     </p>
                   </div>
                 </div>

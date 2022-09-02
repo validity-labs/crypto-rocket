@@ -1,22 +1,270 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Ebene_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
-<style type="text/css">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-1om0hkc"
+   focusable="false"
+   viewBox="0 0 24 24"
+   aria-hidden="true"
+   data-testid="AccountBoxIcon"
+   version="1.1"
+   id="svg4"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8">
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rechteck_1170"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <filter
+       id="filter0_i"
+       x="0.859375"
+       y="0.592313"
+       width="94.4298"
+       height="94.6595"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood927" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         result="shape"
+         id="feBlend929" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         result="hardAlpha"
+         id="feColorMatrix931" />
+      <feOffset
+         dy="-0.689125"
+         id="feOffset933" />
+      <feGaussianBlur
+         stdDeviation="0.114854"
+         id="feGaussianBlur935" />
+      <feComposite
+         in2="hardAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         id="feComposite937" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0.0699479 0 0 0 0 0.9875 0 0 0 0 0.717887 0 0 0 1 0"
+         id="feColorMatrix939" />
+      <feBlend
+         mode="normal"
+         in2="shape"
+         result="effect1_innerShadow"
+         id="feBlend941" />
+    </filter>
+    <linearGradient
+       id="paint0_linear"
+       x1="48.0745"
+       y1="4.34131"
+       x2="48.0745"
+       y2="91.7325"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#141E27"
+         id="stop944" />
+      <stop
+         offset="1"
+         stop-color="#141E27"
+         id="stop946" />
+    </linearGradient>
+    <clipPath
+       id="clip0">
+      <rect
+         width="96"
+         height="96"
+         fill="white"
+         id="rect949" />
+    </clipPath>
+    <clipPath
+       id="clip-path-1">
+      <rect
+         id="Rechteck_1170-5"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <linearGradient
+       id="linear-gradient"
+       x1="6.82"
+       y1="-0.55799998"
+       x2="17.700999"
+       y2="30.070001"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#4e8869"
+         id="stop830" />
+      <stop
+         offset="0.355"
+         stop-color="#7cf76c"
+         id="stop832" />
+      <stop
+         offset="0.754"
+         stop-color="#54bcea"
+         id="stop834" />
+      <stop
+         offset="1"
+         stop-color="#372fff"
+         id="stop836" />
+      <stop
+         offset="1"
+         stop-color="#0025f4"
+         id="stop838" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-1"
+       x1="10.8042"
+       y1="-0.88397997"
+       x2="28.041809"
+       y2="47.636702"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#f500ff"
+         id="stop971" />
+      <stop
+         offset="0.355"
+         stop-color="#ba6cf7"
+         id="stop973" />
+      <stop
+         offset="0.754"
+         stop-color="#f2dd35"
+         id="stop975" />
+      <stop
+         offset="0.936"
+         stop-color="#f8d648"
+         id="stop977" />
+      <stop
+         offset="1"
+         stop-color="#e6d234"
+         id="stop979" />
+    </linearGradient>
+    <clipPath
+       id="clip-path-7">
+      <rect
+         id="Rechteck_1170-6"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <filter
+       id="filter0_i-6"
+       x="0.859375"
+       y="0.592313"
+       width="94.4298"
+       height="94.6595"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood927-5" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         result="shape"
+         id="feBlend929-6" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         result="hardAlpha"
+         id="feColorMatrix931-3" />
+      <feOffset
+         dy="-0.689125"
+         id="feOffset933-9" />
+      <feGaussianBlur
+         stdDeviation="0.114854"
+         id="feGaussianBlur935-4" />
+      <feComposite
+         in2="hardAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         id="feComposite937-8" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0.0699479 0 0 0 0 0.9875 0 0 0 0 0.717887 0 0 0 1 0"
+         id="feColorMatrix939-1" />
+      <feBlend
+         mode="normal"
+         in2="shape"
+         result="effect1_innerShadow"
+         id="feBlend941-2" />
+    </filter>
+    <clipPath
+       id="clip0-0">
+      <rect
+         width="96"
+         height="96"
+         fill="white"
+         id="rect949-8" />
+    </clipPath>
+  </defs>
+  <style
+     type="text/css"
+     id="style1288">
+	.st0{fill:#F5AC37;}
+	.st1{fill:#FEFEFD;}
+</style>
+  <style
+     type="text/css"
+     id="style1427">
+	.st0{fill:#343434;}
+	.st1{fill:#8C8C8C;}
+	.st2{fill:#3C3C3B;}
+	.st3{fill:#141414;}
+	.st4{fill:#393939;}
+</style>
+  <style
+     type="text/css"
+     id="style1952">
+	.st0{fill:#343434;}
+	.st1{fill:#8C8C8C;}
+	.st2{fill:#3C3C3B;}
+	.st3{fill:#141414;}
+	.st4{fill:#393939;}
+</style>
+  <style
+     type="text/css"
+     id="style2511">
 	.st0{fill:#2775CA;}
 	.st1{fill:#FFFFFF;}
 </style>
-<g>
-	<path class="st0" d="M12,22c5.5,0,10-4.5,10-10S17.5,2,12,2S2,6.5,2,12S6.5,22,12,22z"/>
-	<path class="st1" d="M14.8,13.6c0-1.5-0.9-2-2.6-2.2c-1.2-0.2-1.5-0.5-1.5-1.1s0.4-1,1.2-1c0.8,0,1.2,0.2,1.4,0.9
-		c0,0.1,0.2,0.2,0.3,0.2h0.7c0.2,0,0.3-0.1,0.3-0.3v0c-0.2-0.9-0.9-1.6-1.9-1.7v-1c0-0.2-0.1-0.3-0.3-0.3h-0.6
-		c-0.2,0-0.3,0.1-0.3,0.3v1c-1.2,0.2-2,1-2,2c0,1.4,0.8,1.9,2.6,2.1c1.2,0.2,1.5,0.5,1.5,1.1c0,0.7-0.6,1.1-1.4,1.1
-		c-1.1,0-1.5-0.5-1.6-1.1c0-0.2-0.2-0.2-0.3-0.2H9.5c-0.2,0-0.3,0.1-0.3,0.3v0c0.2,1,0.8,1.8,2.2,2v1c0,0.2,0.1,0.3,0.3,0.3h0.6
-		c0.2,0,0.3-0.1,0.3-0.3v-1C13.9,15.6,14.8,14.8,14.8,13.6L14.8,13.6z"/>
-	<path class="st1" d="M9.9,18c-3.2-1.2-4.9-4.8-3.7-8c0.6-1.8,2-3.1,3.7-3.7c0.2-0.1,0.2-0.2,0.2-0.4V5.3C10.1,5.1,10,5,9.9,5
-		c0,0-0.1,0-0.2,0c-4,1.2-6.1,5.5-4.9,9.4c0.8,2.3,2.5,4.1,4.9,4.9c0.2,0.1,0.3,0,0.4-0.2c0,0,0-0.1,0-0.2v-0.6
-		C10.1,18.3,10,18.1,9.9,18z M14.3,5c-0.2-0.1-0.3,0-0.4,0.2c0,0,0,0.1,0,0.2v0.6c0,0.2,0.1,0.3,0.2,0.4c3.2,1.2,4.9,4.8,3.7,8
-		c-0.6,1.8-2,3.1-3.7,3.7c-0.2,0.1-0.2,0.2-0.2,0.4V19c0,0.2,0.1,0.3,0.2,0.3c0,0,0.1,0,0.2,0c4-1.2,6.1-5.5,4.9-9.4
-		C18.4,7.5,16.6,5.8,14.3,5L14.3,5z"/>
+  <g
+     id="g2519"
+     transform="matrix(0.9,0,0,0.9,1.2,1.2)">
+	<path
+   class="st0"
+   d="M 12,22 C 17.5,22 22,17.5 22,12 22,6.5 17.5,2 12,2 6.5,2 2,6.5 2,12 2,17.5 6.5,22 12,22 Z"
+   id="path2513" />
+
+	<path
+   class="st1"
+   d="m 14.8,13.6 c 0,-1.5 -0.9,-2 -2.6,-2.2 -1.2,-0.2 -1.5,-0.5 -1.5,-1.1 0,-0.6 0.4,-1 1.2,-1 0.8,0 1.2,0.2 1.4,0.9 0,0.1 0.2,0.2 0.3,0.2 h 0.7 c 0.2,0 0.3,-0.1 0.3,-0.3 v 0 C 14.4,9.2 13.7,8.5 12.7,8.4 v -1 c 0,-0.2 -0.1,-0.3 -0.3,-0.3 h -0.6 c -0.2,0 -0.3,0.1 -0.3,0.3 v 1 c -1.2,0.2 -2,1 -2,2 0,1.4 0.8,1.9 2.6,2.1 1.2,0.2 1.5,0.5 1.5,1.1 0,0.7 -0.6,1.1 -1.4,1.1 -1.1,0 -1.5,-0.5 -1.6,-1.1 0,-0.2 -0.2,-0.2 -0.3,-0.2 H 9.5 c -0.2,0 -0.3,0.1 -0.3,0.3 v 0 c 0.2,1 0.8,1.8 2.2,2 v 1 c 0,0.2 0.1,0.3 0.3,0.3 h 0.6 c 0.2,0 0.3,-0.1 0.3,-0.3 v -1 c 1.3,-0.1 2.2,-0.9 2.2,-2.1 z"
+   id="path2515" />
+
+	<path
+   class="st1"
+   d="M 9.9,18 C 6.7,16.8 5,13.2 6.2,10 6.8,8.2 8.2,6.9 9.9,6.3 10.1,6.2 10.1,6.1 10.1,5.9 V 5.3 C 10.1,5.1 10,5 9.9,5 c 0,0 -0.1,0 -0.2,0 -4,1.2 -6.1,5.5 -4.9,9.4 0.8,2.3 2.5,4.1 4.9,4.9 0.2,0.1 0.3,0 0.4,-0.2 0,0 0,-0.1 0,-0.2 v -0.6 c 0,0 -0.1,-0.2 -0.2,-0.3 z M 14.3,5 C 14.1,4.9 14,5 13.9,5.2 c 0,0 0,0.1 0,0.2 V 6 c 0,0.2 0.1,0.3 0.2,0.4 3.2,1.2 4.9,4.8 3.7,8 -0.6,1.8 -2,3.1 -3.7,3.7 -0.2,0.1 -0.2,0.2 -0.2,0.4 V 19 c 0,0.2 0.1,0.3 0.2,0.3 0,0 0.1,0 0.2,0 4,-1.2 6.1,-5.5 4.9,-9.4 C 18.4,7.5 16.6,5.8 14.3,5 Z"
+   id="path2517" />
+
 </g>
 </svg>

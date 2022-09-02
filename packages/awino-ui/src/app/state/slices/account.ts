@@ -15,9 +15,20 @@ export const accountSlice = createSlice({
   initialState,
   reducers: {
     setAccount: (state, action: PayloadAction<string | undefined | null>) => {
-      state.walletAddress = action.payload === null ? null : action.payload;
-      state.connected = !!action.payload;
+      const account = action.payload === null ? null : action.payload;
+      state.walletAddress = account;
+      state.connected = !!account;
+
+      const previousAccount = localStorage.getItem('account');
+      // if new valid account does not match previous account clear local storage and set account key to new account
+      if (typeof account !== 'undefined' && account !== previousAccount) {
+        localStorage.clear();
+        localStorage.setItem('account', account);
+      }
     },
+  },
+  extraReducers: {
+    ['RESET']: () => initialState,
   },
 });
 

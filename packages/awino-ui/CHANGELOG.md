@@ -18,6 +18,53 @@ Date format: `YYYY-MM-DD`
 
 ## [Unreleased]
 
+## [0.0.0] - 2022-05-18
+
+### Added
+
+- Added infinite page
+
+## [0.0.0] - 2022-04-21
+
+### Added
+
+- Added dashboard page
+
+### Changed
+
+- Changed landing page's info and benefit components
+- Changed logo and favicon
+
+## [0.0.0] - 2022-04-19
+
+### Changed
+
+- Changed header menus to be hoverable
+
+## [0.0.0] - 2022-04-18
+
+### Changed
+
+- Changed swap page
+
+### Added
+
+- Added swap page settings and asset modals
+
+## [0.0.0] - 2022-04-14
+
+### Changed
+
+- Changed portfolio page
+- Changed contracts page
+- Changed borrow page
+
+## [0.0.0] - 2022-04-13
+
+### Added
+
+- Added earn manage awino page
+
 ## [0.0.0] - 2022-04-12
 
 ### Changed
@@ -76,7 +123,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 
-- Added podl page and purchase section
+- Added pol page and purchase section
 - Added BigNumber package to work with nubmers
 - Added SwappingImage, AssetAmount components
 
@@ -84,7 +131,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 
-- Added podl page and purchase section (wip)
+- Added pol page and purchase section (wip)
 
 ### Changed
 

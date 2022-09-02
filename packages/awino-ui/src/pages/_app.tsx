@@ -7,6 +7,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { createSelector } from '@reduxjs/toolkit';
+
 import { CacheProvider, EmotionCache } from '@emotion/react';
 
 import { PROTECTED_ROUTES } from '@/app/constants';
@@ -19,7 +21,7 @@ import Web3Provider from '@/app/providers/Web3Provider';
 import { toggleConnector } from '@/app/state/slices/app';
 import storeWrapper from '@/app/store';
 import Layout from '@/components/layout/Layout/Layout';
-import { I18nPageNamespace, Language } from '@/types/app';
+import { I18nPageNamespace /* , Language */ } from '@/types/app';
 
 // import { UserRejectedRequestError as UserRejec
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -33,6 +35,11 @@ interface MyAppProps extends AppProps {
   };
 }
 
+const appStateSelector = createSelector(
+  [(state) => state.app.initializing, (state) => state.account.connected],
+  (isAppInitilized, isAccountConnected) => [!isAppInitilized, isAccountConnected]
+);
+
 function MyApp(props: MyAppProps) {
   const {
     Component,
@@ -45,13 +52,13 @@ function MyApp(props: MyAppProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const [isAppInitialized, isAccountConnected] = useAppSelector((state) => [
-    !state.app.initializing,
-    state.account.connected,
-  ]);
+  const [isAppInitialized, isAccountConnected] = useAppSelector(appStateSelector); /* useAppSelector((state) => {
+    console.log('app selector changed');
+    return [!state.app.initializing, state.account.connected];
+  }); */
 
   // rerender tree so on language change date-io locale is applied properly
-  const [, setDateLocale] = useState<Language | undefined>();
+  // const [, setDateLocale] = useState<Language | undefined>();
 
   const isPageProtected = useMemo(() => pageProps.protected || false, [pageProps]);
 
@@ -89,17 +96,17 @@ function MyApp(props: MyAppProps) {
     };
   }, [isAccountConnected, router, dispatch]);
 
-  useEffect(() => {
-    // on language change, change date-io locale with dynamic load
-    changeDateIOLocale(locale as Language).then(() => {
-      setDateLocale(locale as Language);
-    });
-  }, [locale]);
+  // useEffect(() => {
+  //   // on language change, change date-io locale with dynamic load
+  //   changeDateIOLocale(locale as Language).then(() => {
+  //     setDateLocale(locale as Language);
+  //   });
+  // }, [locale]);
 
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Awino</title>
+        <title>AWINO</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <Web3Provider>

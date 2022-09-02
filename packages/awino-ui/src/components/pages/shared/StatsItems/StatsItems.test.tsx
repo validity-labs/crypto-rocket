@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { earnStakeAwinoStats } from '@/fixtures/earn';
 import { statsSectionData } from '@/fixtures/landing';
 import nextUseRouterMock from '@/mocks/nextUseRouterMock';
+import { statsFormatters } from '@/pages/earn/stake-awino';
 import { cleanup, render } from '@/testing/utils';
 
 import StatsItems from './StatsItems';
@@ -19,7 +21,11 @@ afterEach(cleanup);
 
 describe('<StatsItems />', () => {
   it('has valid snapshot', () => {
-    const { asFragment } = render(<StatsItems items={statsSectionData} />, {}, 'landing');
+    const { asFragment } = render(
+      <StatsItems items={earnStakeAwinoStats} formatters={statsFormatters} />,
+      {},
+      'earn-stake-awino'
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

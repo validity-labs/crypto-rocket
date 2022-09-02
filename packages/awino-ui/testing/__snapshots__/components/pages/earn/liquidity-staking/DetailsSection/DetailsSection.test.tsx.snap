@@ -6,7 +6,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="AwiDetailsSection-panel"
@@ -52,7 +52,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-10"
                 >
                   <div
-                    class="AwiLabelValue-root MuiBox-root css-11"
+                    class="AwiLabelValue-root AwiLabelValue-root MuiBox-root css-11"
                   >
                     <h3
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-12"
@@ -64,7 +64,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="stakingAPR"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      0.54  USD
+                      0.54 USD
                     </p>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-10"
                 >
                   <div
-                    class="AwiLabelValue-root MuiBox-root css-11"
+                    class="AwiLabelValue-root AwiLabelValue-root MuiBox-root css-11"
                   >
                     <h3
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-12"
@@ -84,7 +84,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="lpTokenPrice"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      456  USD
+                      456.00 USD
                     </p>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-10"
                 >
                   <div
-                    class="AwiLabelValue-root MuiBox-root css-11"
+                    class="AwiLabelValue-root AwiLabelValue-root MuiBox-root css-11"
                   >
                     <h3
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-12"
@@ -104,7 +104,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="totalLPTokensStaked"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      120  USD
+                      120.00 USD
                     </p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-10"
                 >
                   <div
-                    class="AwiLabelValue-root MuiBox-root css-11"
+                    class="AwiLabelValue-root AwiLabelValue-root MuiBox-root css-11"
                   >
                     <h3
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-12"
@@ -124,7 +124,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="totalRewardsPerDay"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      12 k USD
+                      12,000.12 USD
                     </p>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-10"
                 >
                   <div
-                    class="AwiLabelValue-root MuiBox-root css-11"
+                    class="AwiLabelValue-root AwiLabelValue-root MuiBox-root css-11"
                   >
                     <h3
                       class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-12"
@@ -144,7 +144,7 @@ exports[`<DetailsSection /> has valid snapshot 1`] = `
                       aria-describedby="totalRewardsPerWeek"
                       class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-13"
                     >
-                      99.99 k USD
+                      99,992.99 USD
                     </p>
                   </div>
                 </div>

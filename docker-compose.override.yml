@@ -6,7 +6,9 @@ services:
     build:
       target: development
     env_file:
-      - ./extra/config/crypto-rocket-ui/.env.development
+      - ./extra/config/awino-ui/.env.development
     volumes:
       - ./packages/awino-ui:/src
       - /src/node_modules
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

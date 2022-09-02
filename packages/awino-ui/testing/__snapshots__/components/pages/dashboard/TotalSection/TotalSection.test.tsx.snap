@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TotalSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg AwiSection-container css-1"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthMd MuiContainer-disableGutters AwiTotalSection-items css-2"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-3"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-4"
+          >
+            <div
+              class="AwiStatsCard-root css-5"
+              data-test-id="AwiStatsItems-card"
+            >
+              <h2>
+                <span
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
+                >
+                  <span>
+                     
+                  </span>
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
+                >
+                  dashboard:items.0.title
+                </span>
+              </h2>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-4"
+          >
+            <div
+              class="AwiStatsCard-root css-5"
+              data-test-id="AwiStatsItems-card"
+            >
+              <h2>
+                <span
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
+                >
+                  <span>
+                     
+                  </span>
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
+                >
+                  dashboard:items.1.title
+                </span>
+              </h2>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-4"
+          >
+            <div
+              class="AwiStatsCard-root css-5"
+              data-test-id="AwiStatsItems-card"
+            >
+              <h2>
+                <span
+                  class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-6"
+                >
+                  <span>
+                     
+                  </span>
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-7"
+                >
+                  dashboard:items.2.title
+                </span>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

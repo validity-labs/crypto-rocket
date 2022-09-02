@@ -74,8 +74,11 @@ const Root = styled('footer')(({ theme }) => ({
   '.copyright, .list, .social': {
     margin: theme.spacing(0, 0, 5),
   },
-  '.divider': {
-    borderColor: '#3b414e',
+  [theme.breakpoints.up('md')]: {
+    '> .MuiContainer-root': {
+      paddingLeft: theme.spacing(25),
+      paddingRight: theme.spacing(25),
+    },
   },
 }));
 
@@ -89,11 +92,11 @@ export default function Footer(): ReactElement {
         <div className="top">
           <Typography variant="menu" color="inherit" className="rate">
             {t('common.awi')}
-            <img src="/images/awi.svg" alt="" />
-            {formatAmount(awiRate, { prefix: '$' })}
+            <img src="/images/assets/awi.svg" alt="" />
+            {formatAmount(awiRate, { prefix: 'USD' })}
           </Typography>
         </div>
-        <Divider className="divider" />
+        <Divider /* className="divider" */ />
         <div className="bottom">
           <Typography variant="menu" color="inherit" className="copyright">
             {copyright}

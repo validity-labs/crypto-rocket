@@ -3,25 +3,90 @@
     "title": "Portfolio",
     "description": "MISSING DESCRIPTION"
   },
+  "common": {
+    "portfolio": "Portfolio",
+    "charts-view": "Charts view",
+    "tabs-aria": "Switch between portfolio and charts view"
+  },
+  "total-section": {
+    "items": [
+      {
+        "title": "Market cap"
+      },
+      {
+        "title": "Total valued locked"
+      },
+      {
+        "title": "Total valued staked"
+      }
+    ]
+  },
+  "info-section": {
+    "title": "Dashboard",
+    "borrow-limit": "Borrow limit",
+    "items": [
+      {
+        "title": "Deposit balance"
+      },
+      {
+        "title": "NET APY"
+      },
+      {
+        "title": "Borrow balance"
+      }
+    ]
+  },
+  "asset-section": {
+    "asset-type-hint": "MISSING TEXT",
+    "title": {
+      "deposit": "Your deposits",
+      "borrow": "Your borrows"
+    },
+    "fields": {
+      "asset": "Asset",
+      "wallet-balance": "Your wallet balance",
+      "apy": "APY",
+      "collateral": "Collateral"
+    }
+  },
   "balance-section": {
-    "title": "My portfolio",
     "group-tokens": "Token balances",
     "group-pool": "Pool balances",
     "group-stable-coins": "Stable balances",
     "total-balance": "Total balance",
     "staked-balance": "Staked balance",
+    "lp-balance": "LP balance",
+    "chart": {
+      "tokens": {
+        "title": "AWINO balances"
+      },
+      "pool": {
+        "title": "Pool balances"
+      },
+      "stable-coins": {
+        "title": "Stable balances"
+      }
+    },
     "assets": {
       "awi": {
         "title": "AWINO",
-        "description": "awino"
+        "description": "AWINO"
       },
-      "infinity": {
-        "title": "INFINITE",
-        "description": "Infinite"
+      "infinite": {
+        "title": "INF",
+        "description": "INFINITE"
       },
       "wealth": {
-        "title": "WEALTH",
-        "description": "Wealth"
+        "title": "WEA",
+        "description": "WEALTH"
+      },
+      "nusd": {
+        "title": "nUSD",
+        "description": "AWINO nUSD LP token ethereum (dai, usdc, usdt)"
+      },
+      "xusd": {
+        "title": "xUSD",
+        "description": "AWINO xUSD LP token ethereum (awi, infinite, wealth)"
       },
       "dai": {
         "title": "DAI",
@@ -34,6 +99,57 @@
       "usdt": {
         "title": "USDT",
         "description": "USD Tether"
+      },
+      "total": {
+        "title": "Total"
+      },
+      "lp": {
+        "title": "LP"
+      },
+      "staked": {
+        "title": "Staked"
+      }
+    },
+    "total-portfolio-value": "Total portfolio value"
+  },
+  "operation-modal": {
+    "operation-switch-hint": "Switch between supply and withdraw operations",
+    "supply-rates": "Supply rates",
+    "supply-apy": "Supply APY",
+    "distribution-apy": "Distribution APY",
+    "borrow-limit-title": "Borrow limit",
+    "borrow-limit": "Borrow limit",
+    "borrow-limit-used": "Borrow limit used",
+    "wallet-balance": "Wallet balance",
+    "currently-supplying": "Currently supplying",
+    "confirm-transaction": "Please confirm the transaction. ☝",
+    "confirm-error": "Transaction failed.",
+    "confirm-error-prompt": "Transaction failed. Try again later.",
+    "confirm-success": "Transaction broadcast.",
+    "supply": {
+      "title": "Deposit {{asset}} token",
+      "enable-prompt": "To Supply or Repay Basic Attention Token to the AWINO Protocol, you need to enable it first.",
+      "cta": "Supply",
+      "step": {
+        "enable": "Enable",
+        "no-balance": "No funds available",
+        "insufficient": "Insufficient funds",
+        "ready": "Supply",
+        "confirmation": "Supplying ...",
+        "complete": "Funds supplied",
+        "error": "Supply Failed"
+      }
+    },
+    "withdraw": {
+      "title": "Withdraw {{asset}} token",
+      "cta": "Withdraw",
+      "step": {
+        "no-balance": "No balance to withdraw",
+        "insufficient": "Insufficient Liquidity",
+        "ready": "Withdraw",
+        "confirmation": "Withdrawing ...",
+        "complete": "Withdraw completed",
+        "error": "Withdraw Failed"
       }
     }
   }

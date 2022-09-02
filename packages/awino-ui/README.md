@@ -1,4 +1,4 @@
-# Awino Website (Crypto Rocket)
+# AWINO Website (Crypto Rocket)
 
 @see https://keepachangelog.com/en/1.1.0/
 
@@ -71,6 +71,6 @@ export const getServerSideProps = storeWrapper.getServerSideProps((store) => asy
 When navigation (not reloading) to a page that is protected, if connect modal should appear automatically add the page route to `PROTECTED_ROUTES` array.
 
 ```tsx
-// src/app/constants.ts
-export const PROTECTED_ROUTES = ['/new-route', '/dashboard', '/portfolio'];
+//  src/app/constants.ts
+export const PROTECTED_ROUTES = ['/new-route', '/portfolio'];
 ```

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiInputBase-root MuiInputBase-colorPrimary css-0"
+  >
+    <input
+      class="MuiInputBase-input css-1"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;

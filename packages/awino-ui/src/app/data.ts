@@ -2,7 +2,7 @@ import orderBy from 'lodash/orderBy';
 
 import { GridRowsProp, GridSortModel } from '@mui/x-data-grid';
 
-const assets = ['dai', 'usdt', 'usdc', 'eth', 'link'];
+const assets = ['dai', 'usdt', 'usdc', 'eth', 'btc', 'cro', 'lod'];
 // new Array(100).fill(null).map(() => (Math.random() * 100).toFixed(2))
 const semiRandomValues = [
   7.71, 41.23, 24.72, 18.09, 90.07, 53.88, 79.06, 63.57, 0.51, 87.84, 89.75, 38.2, 90.3, 82.35, 3.34, 91.39, 56.89,
@@ -31,13 +31,13 @@ const nextValue = (() => {
 
 type RecordKeys = 'market' | 'earn-deposit' | 'earn-deposit-details' | 'borrow' | 'borrow-details' | 'analytics';
 const recordsMap: Record<RecordKeys, GridRowsProp> = {
-  market: new Array(20)
+  market: new Array(assets.length)
     .fill({
       // asset
     })
     .map((m, index) => ({
       id: index,
-      asset: assets[index % 5],
+      asset: assets[index % assets.length],
       totalSupply: nextValue(),
       totalBorrowed: nextValue(),
       depositAPY: nextValue(),
@@ -51,7 +51,7 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
     })
     .map((m, index) => ({
       id: index,
-      asset: assets[index % 5],
+      asset: assets[index % assets.length],
       apy: nextValue(),
       collateral: !!Math.round(Math.random()),
       enabled: index % 2 === 0,
@@ -64,15 +64,17 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
     })
     .map((m, index) => ({
       id: index,
-      asset: assets[index % 5],
+      asset: assets[index % assets.length],
       apy: nextValue(),
       ...m,
     })) as GridRowsProp,
   borrow: new Array(20).fill({}).map((m, index) => ({
     id: index,
-    asset: assets[index % 5],
+    asset: assets[index % assets.length],
     availableToBorrow: nextValue(),
-    borrowAPY: nextValue(),
+    apy: nextValue(),
+    utilization: nextValue(),
+    enabled: index % 2 === 0,
     ...m,
   })) as GridRowsProp,
   'borrow-details': new Array(20)
@@ -82,7 +84,7 @@ const recordsMap: Record<RecordKeys, GridRowsProp> = {
     })
     .map((m, index) => ({
       id: index,
-      asset: assets[index % 5],
+      asset: assets[index % assets.length],
       apy: nextValue(),
       ...m,
     })) as GridRowsProp,
@@ -105,6 +107,8 @@ interface LoadDataResponse {
   records: GridRowsProp;
 }
 
+// @TODO @REPLACE replace `records` map with the deployed `cTokens`.
+// Add `address` of the cToken.
 export default function loadData(
   model: RecordKeys,
   { page, pageSize, sort, term = '' }: LoadDataOptions

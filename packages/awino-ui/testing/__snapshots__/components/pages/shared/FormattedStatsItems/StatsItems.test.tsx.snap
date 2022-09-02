@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StatsItems /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-0"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-1"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-2.4 css-2"
+      >
+        <div
+          class="AwiStatsCard-root css-3"
+          data-test-id="AwiStatsItems-card"
+        >
+          <h2>
+            <span
+              class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-4"
+            >
+              <span>
+                 
+              </span>
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-5"
+            >
+              earn-manage-awino:items.0.title
+            </span>
+          </h2>
+          <p
+            class="MuiTypography-root MuiTypography-body-sm css-6"
+          >
+            earn-manage-awino:items.0.sub-values.0
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body-sm css-6"
+          >
+            earn-manage-awino:items.0.sub-values.1
+          </p>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-2.4 css-2"
+      >
+        <div
+          class="AwiStatsCard-root css-3"
+          data-test-id="AwiStatsItems-card"
+        >
+          <h2>
+            <span
+              class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-4"
+            >
+              <span>
+                 
+              </span>
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-5"
+            >
+              earn-manage-awino:items.1.title
+            </span>
+          </h2>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-2.4 css-2"
+      >
+        <div
+          class="AwiStatsCard-root css-3"
+          data-test-id="AwiStatsItems-card"
+        >
+          <h2>
+            <span
+              class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-4"
+            >
+              <span>
+                 
+              </span>
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-5"
+            >
+              earn-manage-awino:items.2.title
+            </span>
+          </h2>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-2.4 css-2"
+      >
+        <div
+          class="AwiStatsCard-root css-3"
+          data-test-id="AwiStatsItems-card"
+        >
+          <h2>
+            <span
+              class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-4"
+            >
+              <span>
+                 
+              </span>
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-5"
+            >
+              earn-manage-awino:items.3.title
+            </span>
+          </h2>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-2.4 css-2"
+      >
+        <div
+          class="AwiStatsCard-root css-3"
+          data-test-id="AwiStatsItems-card"
+        >
+          <h2>
+            <span
+              class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-4"
+            >
+              <span>
+                 
+              </span>
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-5"
+            >
+              earn-manage-awino:items.4.title
+            </span>
+          </h2>
+          <p
+            class="MuiTypography-root MuiTypography-body-sm css-6"
+          >
+            earn-manage-awino:items.4.sub-values.0
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body-sm css-6"
+          >
+            earn-manage-awino:items.4.sub-values.1
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

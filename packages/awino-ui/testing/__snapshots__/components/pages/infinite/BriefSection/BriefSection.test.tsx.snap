@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BriefSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root AwiSection-container css-1"
+    >
+      <div
+        class="LabBriefSection-panel"
+      >
+        <div
+          class="LabBriefSection-header"
+        >
+          <img
+            alt=""
+            height="38"
+            src="/images/logo-small.svg"
+            width="44"
+          />
+          <h1
+            class="MuiTypography-root MuiTypography-h4 css-2"
+          >
+            earn-liquidity-staking:brief-section.title
+          </h1>
+        </div>
+        <div
+          class="MuiContainer-root MuiContainer-disableGutters css-3"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8 css-4"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-5"
+            >
+              <div
+                class="AwiStatsCard-root css-6"
+                data-test-id="AwiStatsItems-card"
+              >
+                <h2>
+                  <span
+                    class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-7"
+                  >
+                    <span>
+                       
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-8"
+                  >
+                    earn-liquidity-staking:items.0.title
+                  </span>
+                </h2>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-5"
+            >
+              <div
+                class="AwiStatsCard-root css-6"
+                data-test-id="AwiStatsItems-card"
+              >
+                <h2>
+                  <span
+                    class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-7"
+                  >
+                    <span>
+                       
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-8"
+                  >
+                    earn-liquidity-staking:items.1.title
+                  </span>
+                </h2>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-5"
+            >
+              <div
+                class="AwiStatsCard-root css-6"
+                data-test-id="AwiStatsItems-card"
+              >
+                <h2>
+                  <span
+                    class="MuiTypography-root MuiTypography-h4 AwiStatsItem-value css-7"
+                  >
+                    <span>
+                       
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTypography-root MuiTypography-body-md AwiStatsItem-title css-8"
+                  >
+                    earn-liquidity-staking:items.2.title
+                  </span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

@@ -1,0 +1,124 @@
+{
+  "page": {
+    "title": "Farms",
+    "description": "MISSING DESCRIPTION"
+  },
+  "result-section": {
+    "title": "Farms",
+    "sort-by": {
+      "title": "Sort by",
+      "value": {
+        "emissions": "Emissions",
+        "apr": "APR",
+        "earned": "Earned",
+        "liquidity": "Liquidity",
+        "fees": "Fees"
+      }
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search farms"
+    },
+    "staked-only": "Staked only",
+    "inactive-farms": "Inactive farms",
+    "type": {
+      "title": "Farm type",
+      "value": {
+        "all": "All",
+        "standard": "Standard",
+        "boosted": "Boosted",
+        "winawi": "winAWI"
+      }
+    },
+    "layout": {
+      "title": "Layout arrangement",
+      "value": {
+        "grid": "Grid",
+        "list": "List"
+      }
+    },
+    "multiplier-hint": "The Multiplier represents the proportion of AWI rewards each farm receives, as a proportion of the AWI produced each block.\n\n For example, if a 1x farm received 1 AWI per block, a 40x farm would receive 40 AWI per block. \n\nThis amount is already included in all APR calculations for the farm.",
+    "total-liquidity": "Total liquidity",
+    "apr-range": "APR range",
+    "apr-range-hint": "Farm APR: {{v1}}\nLP APR: {{v2}}",
+    "apr": "APR",
+    "earn": "Earn",
+    "deposit-fee": "Deposit fee",
+    "your-boost-factor": "Your boost factor",
+    "your-boost-factor-hint": "Can be from 1X - 2.5X",
+    "harvest": "Harvest",
+    "approve": "Approve",
+    "earned": "AWINO earned",
+    "staked": "Staked",
+    "stake": "Stake",
+    "unstake": "Unstake",
+    "details": "Details",
+    "lp-price": "LP price",
+    "view-on-scan": "View on XXXScan",
+    "asset": "Asset",
+    "emissions": "Emissions",
+    "fields": {
+      "asset": "Asset",
+      "emissions": "Emissions",
+      "total-liquidity": "Total liquidity",
+      "apr-range": "APR range",
+      "apr": "APR",
+      "earn": "Earn",
+      "deposit-fee": "Deposit fee",
+      "details": "Details"
+    }
+  },
+  "stake-modal": {
+    "title": "Stake AWI-LP",
+    "max": "Max",
+    "amount-hint": "Enter your amount to stake your AWI-LP tokens.",
+    "wallet-balance": "Wallet balance",
+    "submit": "Stake",
+    "submit-done": "Staked",
+    "message": {
+      "confirm-transaction": "Please confirm the transaction. ☝",
+      "error": "Transaction failed.",
+      "success": "Transaction broadcast."
+    },
+    "flow": {
+      "error-validate": "Invalid amount to stake. 😬",
+      "approve": "Please approve the transaction. ☝",
+      "error-approve": "Failed to approve. 😞",
+      "send": "Please confirm the transaction. ☝",
+      "error-send": "Transaction failed. 🤬",
+      "complete": "Amount staked. 🥳 View <0>transaction.</0>"
+    }
+  },
+  "unstake-modal": {
+    "title": "Unstake AWI-LP",
+    "max": "Max",
+    "amount-hint": "Enter your amount to unstake your AWI-LP tokens.",
+    "wallet-balance": "Wallet balance",
+    "submit": "Unstake",
+    "submit-done": "Unstaked",
+    "message": {
+      "confirm-transaction": "Please confirm the transaction. ☝",
+      "error": "Transaction failed.",
+      "success": "Transaction broadcast."
+    },
+    "flow": {
+      "error-validate": "Invalid amount to unstake. 😬",
+      "approve": "Please approve the transaction. ☝",
+      "error-approve": "Failed to approve. 😞",
+      "send": "Please confirm the transaction. ☝",
+      "error-send": "Transaction failed. 🤬",
+      "complete": "Amount unstaked. 🥳 View <0>transaction.</0>"
+    }
+  },
+  "harvest-modal": {
+    "title": "Harvest rewards",
+    "pending-rewards": "Pending rewards",
+    "submit": "Harvest",
+    "submit-done": "Harvested",
+    "flow": {
+      "send": "Please confirm the transaction. ☝",
+      "error-send": "Transaction failed. 🤬",
+      "complete": "Reward harvested. 🥳 View <0>transaction.</0>"
+    }
+  }
+}

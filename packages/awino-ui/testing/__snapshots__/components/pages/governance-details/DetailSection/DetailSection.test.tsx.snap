@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DetailSection /> has valid snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiContainer-root AwiSection-container css-1"
+    >
+      <div
+        class="AwiDetailSection-votePanel AwiPanel-root MuiBox-root css-2"
+      >
+        <div
+          class="AwiPanel-header header"
+        >
+          <div
+            class="Awi-column"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h4 css-3"
+            >
+              governance-details:voting-ends-at
+            </h2>
+            <p
+              class="MuiTypography-root MuiTypography-body css-4"
+            >
+              governance-details:votes-required
+            </p>
+          </div>
+        </div>
+        <div
+          class="AwiPanel-content content"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-20 css-5"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
+            >
+              <div
+                class="AwiDetailSection-actions"
+              >
+                <div
+                  class="AwiDetailSection-votes"
+                >
+                  <div
+                    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root AwiDetailSection-vote css-7"
+                  >
+                    <div
+                      class="MuiCardContent-root css-8"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body AwiDetailSection-voteTitle css-4"
+                      >
+                        governance-details:for
+                        <strong>
+                          1
+                        </strong>
+                      </p>
+                      <span
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="17"
+                        class="MuiLinearProgress-root MuiLinearProgress-colorSuccess MuiLinearProgress-determinate AwiDetailSection-voteProgress css-10"
+                        role="progressbar"
+                      >
+                        <span
+                          class="MuiLinearProgress-bar MuiLinearProgress-barColorSuccess MuiLinearProgress-bar1Determinate css-11"
+                          style="transform: translateX(-83.33333333333333%);"
+                        />
+                      </span>
+                      <button
+                        class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root  css-12"
+                        tabindex="0"
+                        type="button"
+                      >
+                        governance-details:vote-for
+                        <span
+                          class="MuiTouchRipple-root css-13"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root AwiDetailSection-vote css-7"
+                  >
+                    <div
+                      class="MuiCardContent-root css-8"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body AwiDetailSection-voteTitle css-4"
+                      >
+                        governance-details:against
+                        <strong>
+                          2
+                        </strong>
+                      </p>
+                      <span
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="33"
+                        class="MuiLinearProgress-root MuiLinearProgress-colorError MuiLinearProgress-determinate AwiDetailSection-voteProgress css-17"
+                        role="progressbar"
+                      >
+                        <span
+                          class="MuiLinearProgress-bar MuiLinearProgress-barColorError MuiLinearProgress-bar1Determinate css-18"
+                          style="transform: translateX(-66.66666666666666%);"
+                        />
+                      </span>
+                      <button
+                        class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root  css-12"
+                        tabindex="0"
+                        type="button"
+                      >
+                        governance-details:vote-against
+                        <span
+                          class="MuiTouchRipple-root css-13"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root AwiDetailSection-vote css-7"
+                  >
+                    <div
+                      class="MuiCardContent-root css-8"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body AwiDetailSection-voteTitle css-4"
+                      >
+                        governance-details:abstain
+                        <strong>
+                          3
+                        </strong>
+                      </p>
+                      <span
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="50"
+                        class="MuiLinearProgress-root MuiLinearProgress-colorInfo MuiLinearProgress-determinate AwiDetailSection-voteProgress css-24"
+                        role="progressbar"
+                      >
+                        <span
+                          class="MuiLinearProgress-bar MuiLinearProgress-barColorInfo MuiLinearProgress-bar1Determinate css-25"
+                          style="transform: translateX(-50%);"
+                        />
+                      </span>
+                      <button
+                        class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root  css-12"
+                        tabindex="0"
+                        type="button"
+                      >
+                        governance-details:vote-abstain
+                        <span
+                          class="MuiTouchRipple-root css-13"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiBox-root css-28"
+                >
+                  <button
+                    class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-29"
+                    tabindex="0"
+                    type="button"
+                  >
+                    governance-details:execute-proposal
+                    <span
+                      class="MuiTouchRipple-root css-13"
+                    />
+                  </button>
+                  <button
+                    aria-label="governance-details:submit-proposal-help"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-31"
+                    data-mui-internal-clone-element="true"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-32"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-13"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-body css-35"
+              >
+                governance-details:proposed-transactions
+              </h3>
+              <div
+                class="AwiDetailSection-results"
+              >
+                <div
+                  class="AwiDetailSection-result"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-4"
+                  >
+                    1. 
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-37"
+                      href="https://etherscan.io/address/0xc2b3520b8915ee1e0f94c219f1f047f320e84871"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      0xc2b3520b8915ee1e0f94c219f1f047f320e84871
+                    </a>
+                  </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-4"
+                  >
+                    transfer (
+                    <span>
+                      <span>
+                        0.02 ETH
+                      </span>
+                    </span>
+                    )
+                  </p>
+                </div>
+                <div
+                  class="AwiDetailSection-result"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-4"
+                  >
+                    2. 
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-37"
+                      href="https://etherscan.io/address/0xc2b3520b8915ee1e0f94c219f1f047f320e84871"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      0xc2b3520b8915ee1e0f94c219f1f047f320e84871
+                    </a>
+                  </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-4"
+                  >
+                    transfer (
+                    <span>
+                      <span>
+                        0.02 ETH
+                      </span>
+                      ,
+                    </span>
+                    <span>
+                      <span>
+                         45
+                      </span>
+                      ,
+                    </span>
+                    <span>
+                      <span>
+                         0x123
+                      </span>
+                    </span>
+                    )
+                  </p>
+                </div>
+                <div
+                  class="AwiDetailSection-result"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-4"
+                  >
+                    3. 
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-37"
+                      href="https://etherscan.io/address/0xc2b3520b8915ee1e0f94c219f1f047f320e84871"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      0xc2b3520b8915ee1e0f94c219f1f047f320e84871
+                    </a>
+                  </p>
+                  <p
+                    class="MuiTypography-root MuiTypography-body css-4"
+                  >
+                    transfer (
+                    <span>
+                      <span>
+                        0.02 ETH
+                      </span>
+                    </span>
+                    )
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-6"
+            >
+              <h3
+                class="MuiTypography-root MuiTypography-body css-35"
+              >
+                governance-details:proposer
+              </h3>
+              <div
+                class="AwiDetailSection-result"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body css-4"
+                >
+                  <a
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-37"
+                    href="https://etherscan.io/address/0x0b712FAA597C4e092288E6552B360DdD1B40407A"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    0x0b712FAA597C4e092288E6552B360DdD1B40407A
+                  </a>
+                </p>
+                <p
+                  class="MuiTypography-root MuiTypography-body css-4"
+                >
+                  governance-details:at 
+                  <a
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-37"
+                    href="https://etherscan.io/tx/0xeaca9648635bd65b5220de25a153b42f1017ea130b6f71da15497964cc10da0f"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    0xeaca9
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

@@ -7,23 +7,21 @@ import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
 
 const Root = styled(Section)(({ theme }) => ({
-  paddingTop: theme.spacing(88),
   '.MuiAccordionSummary-root': {
     svg: {
       fontSize: '52px',
       color: theme.palette.text.active,
     },
   },
-  [theme.breakpoints.up('md')]: {},
 }));
 
-const items = [1, 2, 3, 4];
+const items = [1, 2, 3, 4, 5, 6];
 
 export default function FAQSection() {
   const t = usePageTranslation();
 
   return (
-    <Root>
+    <Root size="medium">
       <Header title={t('faq-section.title')} description={t('faq-section.description')} />
       <Container maxWidth="md">
         {items.map((id, index) => (

@@ -6,7 +6,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl vl-container css-1"
+      class="MuiContainer-root AwiSection-container css-1"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-10 css-2"
@@ -16,7 +16,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
         >
           <div
             aria-label="market-details:timeline-section.market-switch-hint"
-            class="MuiToggleButtonGroup-root AwiTimelineSection-marketType css-4"
+            class="MuiToggleButtonGroup-root css-4"
             role="group"
           >
             <button
@@ -53,7 +53,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
           >
             <div>
               <div
-                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+                class="AwiLabelValue-root AwiTimelineSection-labelValue MuiBox-root css-10"
               >
                 <h6
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
@@ -69,7 +69,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
                 </p>
               </div>
               <div
-                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+                class="AwiLabelValue-root AwiTimelineSection-labelValue MuiBox-root css-10"
               >
                 <h6
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
@@ -85,7 +85,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
                 </p>
               </div>
               <div
-                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+                class="AwiLabelValue-root AwiTimelineSection-labelValue MuiBox-root css-10"
               >
                 <h6
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
@@ -101,7 +101,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
                 </p>
               </div>
               <div
-                class="AwiTimelineSection-labelValue MuiBox-root css-10"
+                class="AwiLabelValue-root AwiTimelineSection-labelValue MuiBox-root css-10"
               >
                 <h6
                   class="MuiTypography-root MuiTypography-h7 AwiLabel-root AwiLabelValue-label label css-11"
@@ -113,7 +113,7 @@ exports[`<TimelineSection /> has valid snapshot 1`] = `
                   aria-describedby="timelineSectionInfo-total"
                   class="MuiTypography-root MuiTypography-h5 AwiLabelValue-value value css-12"
                 >
-                  3,661.92 m USD
+                  3,661,920,000.01 USD
                 </p>
               </div>
             </div>

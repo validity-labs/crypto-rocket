@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 
-import { Button } from '@mui/material';
+import { Button, ButtonBase } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
@@ -13,35 +13,42 @@ import Address from '../general/Address/Address';
 import ExitIcon from '../icons/ExitIcon';
 import WalletIcon from '../icons/WalletIcon';
 
-const Root = styled(Button, {
+const Root = styled(ButtonBase, {
   shouldForwardProp: (prop) => prop !== 'active',
 })<{ active: boolean }>(({ theme, active }) => ({
-  minHeight: 50,
-  padding: theme.spacing(2, 5),
-  border: '2px solid transparent',
   borderRadius: +theme.shape.borderRadius * 2,
-  color: '#002D40',
-  background: 'linear-gradient(115deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 100%)',
-  ...(active && {
+  position: 'relative',
+  ...theme.typography['body-xs'],
+  '.LabConnectButton-content': {
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    position: 'relative',
-    borderRadius: +theme.shape.borderRadius * 2,
-    background: theme.palette.mode === 'dark' ? '#002230' : theme.palette.common.white,
+    zIndex: 1,
+    minHeight: 50,
+    padding: theme.spacing(2, 5),
+    border: '2px solid transparent',
+    borderRadius: 'inherit',
+    color: '#002D40',
+    background: 'linear-gradient(115deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 100%)',
     backgroundClip: 'padding-box !important',
-    '&:hover': {
-      background: theme.palette.mode === 'dark' ? '#002230' : theme.palette.common.white,
-    },
-    '&:before': {
-      content: '""',
+    ...(active && {
+      background: theme.palette.background.main,
+      '&:hover': {
+        background: theme.palette.background.main,
+      },
+    }),
+  },
+  ...(active && {
+    '.LabConnectButton-gradient': {
       position: 'absolute',
-      top: -2,
-      right: -2,
-      bottom: -2,
-      left: -2,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
       borderRadius: 'inherit',
       background: 'linear-gradient(115deg, rgba(0,255,235,1) 0%, rgba(0,230,62,1) 100%)',
-      zIndex: -1,
+      zIndex: 0,
     },
   }),
   '.LabConnectButton-wallet': {
@@ -52,13 +59,13 @@ const Root = styled(Button, {
   '.LabConnectButton-exit': {
     marginLeft: theme.spacing(3),
     fontSize: '24px',
-    color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.active,
+    color: theme.palette.text.primary,
   },
   '.AwiAddress-root': {
     maxWidth: 80,
   },
   '.AwiAddress-address': {
-    color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.secondary,
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -71,18 +78,21 @@ export default function ConnectButton(props) {
   const handleOpen = useCallback(() => {
     dispatch(toggleConnector(true));
   }, [dispatch]);
-
+  // console.log(connected);
   return (
     <>
       <Root active={connected} variant="text" onClick={handleOpen} {...props}>
         {connected ? (
           <>
-            <WalletIcon className="LabConnectButton-wallet" />
-            <Address address={walletAddress} copy={false} />
-            <ExitIcon className="LabConnectButton-exit" />
+            <span className="LabConnectButton-gradient" />
+            <span className="LabConnectButton-content">
+              <WalletIcon className="LabConnectButton-wallet" />
+              <Address address={walletAddress} copy={false} />
+              <ExitIcon className="LabConnectButton-exit" />
+            </span>
           </>
         ) : (
-          t(`account.connect`)
+          <span className="LabConnectButton-content">{t(`account.connect`)}</span>
         )}
       </Root>
     </>

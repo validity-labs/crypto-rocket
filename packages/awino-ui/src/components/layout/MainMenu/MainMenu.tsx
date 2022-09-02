@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { useTranslation } from 'next-i18next';
 
-import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { mainMenuLinks } from '@/app/menu';
@@ -18,14 +17,15 @@ const Root = styled('ul')(({ theme }) => ({
   borderRadius: +theme.shape.borderRadius * 2,
   background: theme.palette.background.transparent,
   padding: theme.spacing(0, 2),
-  '.MenuItem-content': {
+  zIndex: theme.zIndex.appBar,
+  '.AwiMainMenu-item, .AwiHoverMenu-toggle': {
     display: 'block',
     padding: theme.spacing(5, 4),
     whiteSpace: 'nowrap',
+    ...theme.typography.menu,
     color: theme.palette.text.primary,
     transition: 'color 200ms ease-in',
-    '&:hover, &.active': {
-      transition: 'color 200ms ease-in',
+    '&:hover, &.Awi-active, &[aria-expanded="true"]': {
       color: theme.palette.text.active,
     },
   },
@@ -44,9 +44,9 @@ function MenuItem({ item, i18nKey }: MenuItemProps) {
     const { url } = item as MenuItemLink;
     return (
       <li>
-        <Typography variant="menu" component={Link} href={url} className="MenuItem-content">
+        <Link href={url} className="AwiMainMenu-item">
           {t(`menu.${i18nKey}.${key}.title`)}
-        </Typography>
+        </Link>
       </li>
     );
   }

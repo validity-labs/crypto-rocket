@@ -24,6 +24,7 @@ export interface CollateralInfo {
   borrowLimitUsed: [number, number];
 }
 
+// @TODO lending-protocol -> supply
 export default function AssetSection(/* { total }: Props */) {
   const t = usePageTranslation();
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function AssetSection(/* { total }: Props */) {
   });
   const [collateralModal, setCollateralModal] = useState<CollateralModalData | null>(null);
   const [operationModal, setOperationModal] = useState<OperationModalData | null>(null);
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
   const [term, setTerm] = useState<string>('');
   const columns = useMemo(() => {
     return getColumns(t, {
@@ -134,23 +135,17 @@ export default function AssetSection(/* { total }: Props */) {
         <Panel
           header={
             <>
-              <Label
-                id="earnDepositTitle"
-                tooltip={t(`asset-section.title-hint`)}
-                variant="h4"
-                component="h2"
-                color="text.active"
-              >
+              <Label id="earnDepositTitle" variant="h4" component="h2" color="text.active" className="Awi-golden">
                 {t(`asset-section.title`)}
               </Label>
               <div className="aside">
-                <Switch
+                {/* <Switch
                   checked={toggle}
                   setChecked={setToggle}
                   sx={{ mr: 4.5 }}
                   title={t(`asset-section.toggle-hint`)}
-                />
-                <Search onSearch={handleSearch} />
+                /> */}
+                <Search onSearch={handleSearch} size="small" />
               </div>
             </>
           }
@@ -182,6 +177,11 @@ export default function AssetSection(/* { total }: Props */) {
               onPageSizeChange={(pageSize) => setRowsState((prev) => ({ ...prev, pageSize }))}
               components={{
                 Pagination: GridPagination,
+              }}
+              componentsProps={{
+                row: {
+                  className: 'Awi-selectable',
+                },
               }}
               localeText={{
                 columnHeaderSortIconLabel: t('common.table.sort', { ns: 'common' }),

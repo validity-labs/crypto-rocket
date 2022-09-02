@@ -1,6 +1,9 @@
+import clsx from 'clsx';
+
 import { Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import Loader from '@/components/general/Loader/Loader';
 import Panel from '@/components/general/Panel/Panel';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
@@ -13,71 +16,85 @@ const Root = styled(Section)(({ theme }) => ({
     marginBottom: theme.spacing(10),
   },
   '.AwiContractSection-groupTitle': {
+    margin: theme.spacing(18.5, 0, 6, 10),
     ...theme.typography.body,
     fontWeight: 500,
     color: theme.palette.text.secondary,
-    marginBottom: theme.spacing(6),
+    '&.Awi-first': {
+      margin: theme.spacing(0, 0, 6, 10),
+    },
   },
-  '.AwiPanel-root': {
-    '.content': {
-      padding: theme.spacing(5.5, 6.5, 10),
-    },
-    '&.AwiPanel-wrapper': {
-      '.content': {
-        padding: theme.spacing(12.5, 6.5, 10),
-      },
-    },
+  '.AwiContractSection-panel > .AwiPanel-content': {
+    padding: theme.spacing(12.5, 6.5, 10),
+  },
+  '.AwiContractSection-subPanel': {
+    '.AwiPanel-content': { padding: theme.spacing(4, 6.5, 5) },
   },
   [theme.breakpoints.up('md')]: {
-    '.AwiPanel-root': {
-      '.content': {
-        padding: theme.spacing(5.5, 12.5, 10),
-      },
-      '&.AwiPanel-wrapper': {
-        '.content': {
-          padding: theme.spacing(12.5, 12.5, 10),
-        },
-      },
+    '.AwiContractSection-panel > .AwiPanel-content': {
+      padding: theme.spacing(12.5, 20, 20),
+    },
+    '.AwiBalanceSection-subPanel': {
+      '.AwiPanel-content': { padding: theme.spacing(4, 12, 5, 15) },
     },
   },
 }));
 
 interface Props {
   items: ContractsGrouped;
+  loading: boolean;
 }
 
-export default function ContractSection({ items }: Props) {
+export default function ContractSection({ items, loading }: Props) {
   const t = usePageTranslation();
   const { tokens, stableCoins } = items;
 
   return (
     <Root>
-      <Panel className="AwiPanel-wrapper">
-        <Typography variant="h1" color="text.active" className="AwiContractSection-title">
+      <Panel className="AwiContractSection-panel">
+        <Typography variant="h1" color="text.active" className="AwiContractSection-title Awi-golden">
           {t('contract-section.title')}
         </Typography>
-        <Typography variant="h2" className="AwiContractSection-groupTitle">
-          {t('contract-section.group-tokens')}
-        </Typography>
-        <Grid container spacing={6.5} mb={25}>
-          {tokens.map((item) => (
-            <Grid key={item.key} item xs={12}>
-              <ContractCard item={item} />
-            </Grid>
-          ))}
-        </Grid>
-        <Typography variant="h2" className="AwiContractSection-groupTitle">
-          {t('contract-section.group-stable-coins')}
-        </Typography>
-        <Panel sx={{ p: 0 }}>
-          <Grid container sx={{ '.MuiGrid-item:last-child .AwiContactCard-root': { border: 0 } }}>
-            {stableCoins.map((item) => (
-              <Grid key={item.key} item xs={12}>
-                <ContractCard item={item} mode="row" />
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <Typography variant="h2" className="AwiContractSection-groupTitle Awi-first">
+              {t('contract-section.group-tokens')}
+            </Typography>
+            <Panel className="AwiContractSection-subPanel">
+              <Grid container>
+                {tokens.map((item, itemIndex) => (
+                  <Grid
+                    key={item.key}
+                    item
+                    xs={12}
+                    className={clsx({ 'Awi-divider': itemIndex !== tokens.length - 1 })}
+                  >
+                    <ContractCard item={item} />
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
-        </Panel>
+            </Panel>
+            <Typography variant="h2" className="AwiContractSection-groupTitle">
+              {t('contract-section.group-stable-coins')}
+            </Typography>
+            <Panel className="AwiContractSection-subPanel">
+              <Grid container>
+                {stableCoins.map((item, itemIndex) => (
+                  <Grid
+                    key={item.key}
+                    item
+                    xs={12}
+                    className={clsx({ 'Awi-divider': itemIndex !== stableCoins.length - 1 })}
+                  >
+                    <ContractCard item={item} />
+                  </Grid>
+                ))}
+              </Grid>
+            </Panel>
+          </>
+        )}
       </Panel>
     </Root>
   );

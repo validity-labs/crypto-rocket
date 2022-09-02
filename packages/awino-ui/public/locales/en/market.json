@@ -6,28 +6,22 @@
   "stats-section": {
     "items": [
       {
-        "title": "AWI locked",
-        "value": "{{v}}M",
-        "subvalue": "{{v}}M USD"
+        "title": "AWI locked"
       },
       {
-        "title": "AWI staked",
-        "value": "{{v}}M",
-        "subvalue": "{{v}}M USD"
+        "title": "AWI staked"
       },
       {
-        "title": "AWI price",
-        "value": "{{v}} USD",
-        "subvalue": "{{v}}M USD"
+        "title": "AWI price"
       },
       {
         "title": "Circulating supply",
-        "value": "{{v}}M",
-        "subvalue": "{{v}}% LOCKED"
+        "sub-values": [
+          "{{v}} locked"
+        ]
       },
       {
-        "title": "Market cap",
-        "value": "{{v}}M"
+        "title": "Market cap"
       }
     ]
   },
@@ -36,7 +30,7 @@
     "market-total-size": "Total market size",
     "platform": {
       "total-fee": "Total platform fees",
-      "total-fee-hint": "MISSING TEXT"
+      "total-fee-hint": "50% of the platform fees go to token holders."
     },
     "fields": {
       "asset": "Asset",

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 
 import { useWeb3React } from '@web3-react/core';
+import { ethers } from 'ethers';
+
+import { erc20AbiJson } from '@/lib/blockchain/erc20/abi/erc20';
 
 import { injected } from './connectors';
 

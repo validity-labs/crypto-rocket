@@ -6,35 +6,28 @@
   "stats-section": {
     "items": [
       {
-        "title": "AWINO locked",
-        "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "title": "AWINO locked"
       },
       {
-        "title": "AWINO staked",
-        "value": "{{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "title": "AWINO staked"
       },
       {
-        "title": "AWINO price",
-        "value": "$ {{v}}"
+        "title": "AWINO price"
       },
       {
         "title": "Circulating supply",
-        "value": "{{v}} M",
-        "subvalue": "{{v}}% locked"
+        "sub-values": [
+          "{{v}} locked"
+        ]
       },
       {
-        "title": "Market cap",
-        "value": "$ {{v}} M",
-        "subvalue": "$ {{v}} M USD"
+        "title": "Market cap"
       }
     ]
   },
   "platform-section": {
     "daily-fees": {
-      "title": "Daily platform fees",
-      "title-hint": "MISSING TEXT"
+      "title": "Daily platform fees"
     },
     "fields": {
       "date": "Date",
@@ -42,13 +35,11 @@
     },
     "stats": {
       "title": "Platform stats",
-      "title-hint": "MISSING TEXT",
       "total-deposits": "Total deposits",
       "total-borrows": "Total borrows",
       "health-ratio": "Global health ratio",
-      "health-ratio-hint": "MISSING TEXT",
       "total-fees": "Total platform fees",
-      "total-fees-hint": "MISSING TEXT"
+      "total-fees-hint": "50% of the platform fees go to token holders."
     }
   }
 }

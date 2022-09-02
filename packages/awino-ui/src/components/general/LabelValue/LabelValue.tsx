@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Box, BoxProps, BoxTypeMap, Typography } from '@mui/material';
+import clsx from 'clsx';
+
+import { Box, BoxProps, BoxTypeMap, Typography, TypographyProps } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { styled } from '@mui/material/styles';
 
@@ -9,17 +11,26 @@ import Label, { LabelProps } from '../Label/Label';
 interface Props extends Partial<BoxProps> {
   id: string;
   value: React.ReactNode;
+  className?: string;
   labelProps: LabelProps;
+  valueProps?: Partial<TypographyProps>;
 }
 
-const LabelValue = styled(({ id, value, labelProps, ...restOfProps }: Props) => {
+const LabelValue = styled(({ id, value, className, labelProps, valueProps, ...restOfProps }: Props) => {
   const { children, ...restOfLabelProps } = labelProps;
   return (
-    <Box {...restOfProps}>
+    <Box className={clsx('AwiLabelValue-root', className)} {...restOfProps}>
       <Label id={id} className="AwiLabelValue-label label" {...restOfLabelProps}>
         {children}
       </Label>
-      <Typography variant="h5" component="p" className="AwiLabelValue-value value" aria-describedby={id}>
+      {/* @ts-ignore */}
+      <Typography
+        variant="h5"
+        component="p"
+        className="AwiLabelValue-value value"
+        aria-describedby={id}
+        {...valueProps}
+      >
         {value}
       </Typography>
     </Box>
@@ -34,8 +45,9 @@ const LabelValue = styled(({ id, value, labelProps, ...restOfProps }: Props) => 
   },
   '.value': {
     flex: 1,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     overflow: 'auto',
+    wordBreak: 'break-word',
   },
   [theme.breakpoints.up('md')]: {
     flexDirection: 'row',

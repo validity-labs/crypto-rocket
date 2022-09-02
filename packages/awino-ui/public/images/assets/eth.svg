@@ -1,24 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Ebene_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
-<style type="text/css">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-1om0hkc"
+   focusable="false"
+   viewBox="0 0 24 24"
+   aria-hidden="true"
+   data-testid="AccountBoxIcon"
+   version="1.1"
+   id="svg4"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8">
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rechteck_1170"
+         data-name="Rechteck 1170"
+         width="15.312"
+         height="10.564"
+         fill="#fff" />
+    </clipPath>
+    <filter
+       id="filter0_i"
+       x="0.859375"
+       y="0.592313"
+       width="94.4298"
+       height="94.6595"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood927" />
+      <feBlend
+         mode="normal"
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         result="shape"
+         id="feBlend929" />
+      <feColorMatrix
+         in="SourceAlpha"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+         result="hardAlpha"
+         id="feColorMatrix931" />
+      <feOffset
+         dy="-0.689125"
+         id="feOffset933" />
+      <feGaussianBlur
+         stdDeviation="0.114854"
+         id="feGaussianBlur935" />
+      <feComposite
+         in2="hardAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         id="feComposite937" />
+      <feColorMatrix
+         type="matrix"
+         values="0 0 0 0 0.0699479 0 0 0 0 0.9875 0 0 0 0 0.717887 0 0 0 1 0"
+         id="feColorMatrix939" />
+      <feBlend
+         mode="normal"
+         in2="shape"
+         result="effect1_innerShadow"
+         id="feBlend941" />
+    </filter>
+    <linearGradient
+       id="paint0_linear"
+       x1="48.0745"
+       y1="4.34131"
+       x2="48.0745"
+       y2="91.7325"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#141E27"
+         id="stop944" />
+      <stop
+         offset="1"
+         stop-color="#141E27"
+         id="stop946" />
+    </linearGradient>
+    <clipPath
+       id="clip0">
+      <rect
+         width="96"
+         height="96"
+         fill="white"
+         id="rect949" />
+    </clipPath>
+  </defs>
+  <style
+     type="text/css"
+     id="style1288">
+	.st0{fill:#F5AC37;}
+	.st1{fill:#FEFEFD;}
+</style>
+  <style
+     type="text/css"
+     id="style1427">
 	.st0{fill:#343434;}
 	.st1{fill:#8C8C8C;}
 	.st2{fill:#3C3C3B;}
 	.st3{fill:#141414;}
 	.st4{fill:#393939;}
 </style>
-<g id="Layer_x0020_1">
-	<g id="_1421394342400">
-		<g>
-			<polygon class="st0" points="12,2 11.9,2.5 11.9,15.7 12,15.8 18.1,12.2 			"/>
-			<polygon class="st1" points="12,2 5.9,12.2 12,15.8 12,9.4 			"/>
-			<polygon class="st2" points="12,17 11.9,17.1 11.9,21.8 12,22 18.1,13.3 			"/>
-			<polygon class="st1" points="12,22 12,17 5.9,13.3 			"/>
-			<polygon class="st3" points="12,15.8 18.1,12.2 12,9.4 			"/>
-			<polygon class="st4" points="5.9,12.2 12,15.8 12,9.4 			"/>
+  <g
+     id="Layer_x0020_1"
+     transform="matrix(0.9,0,0,0.9,1.2,1.2)">
+	<g
+   id="_1421394342400">
+		<g
+   id="g1441">
+			<polygon
+   class="st0"
+   points="12,2 11.9,2.5 11.9,15.7 12,15.8 18.1,12.2 "
+   id="polygon1429" />
+
+			<polygon
+   class="st1"
+   points="12,15.8 12,9.4 12,2 5.9,12.2 "
+   id="polygon1431" />
+
+			<polygon
+   class="st2"
+   points="12,17 11.9,17.1 11.9,21.8 12,22 18.1,13.3 "
+   id="polygon1433" />
+
+			<polygon
+   class="st1"
+   points="12,22 12,17 5.9,13.3 "
+   id="polygon1435" />
+
+			<polygon
+   class="st3"
+   points="12,15.8 18.1,12.2 12,9.4 "
+   id="polygon1437" />
+
+			<polygon
+   class="st4"
+   points="5.9,12.2 12,15.8 12,9.4 "
+   id="polygon1439" />
+
 		</g>
+
 	</g>
+
 </g>
 </svg>

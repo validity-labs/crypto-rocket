@@ -1,22 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+
+import { createSelector } from '@reduxjs/toolkit';
 
 import { Box, Tab, Tabs as MuiTabs } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { fetchBriefLiquidityPairs } from '@/app/state/actions/exchange';
+import { BriefLiquidityPair } from '@/app/state/slices/exchange';
+import LiquidityIcon from '@/components/icons/LiquidityIcon';
 import SwapIcon from '@/components/icons/SwapIcon';
 import ZapIcon from '@/components/icons/ZapIcon';
 import Section from '@/components/layout/Section/Section';
 import usePageTranslation from '@/hooks/usePageTranslation';
+import { fetchTokens } from '@/lib/blockchain/common';
 import { tabA11yProps } from '@/lib/helpers';
+import { AssetKey, PairedAssetKey } from '@/types/app';
 
+import LiquidityPanel from './LiquidityPanel';
 import SwapPanel from './SwapPanel';
 import ZapPanel from './ZapPanel';
 
-const Tabs = styled(MuiTabs)(({ theme }) => ({
+export const Tabs = styled(MuiTabs)(({ theme }) => ({
   position: 'relative',
   margin: theme.spacing(0, 0, 9),
   '& .MuiTabs-indicator': {
     display: 'none',
+  },
+  '& .MuiTabs-flexContainer': {
+    gap: theme.spacing(5.5),
   },
   '& .MuiTab-root': {
     minHeight: 'auto',
@@ -25,8 +37,14 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
     ...theme.typography['body-md'],
     color: theme.palette.text.primary,
     textTransform: 'none',
+    border: `1px solid ${theme.palette.divider}`,
     '&.Mui-selected': {
+      border: '1px solid transparent',
       color: theme.palette.text.active,
+      backgroundColor: theme.palette.background.transparent,
+    },
+    '&:hover, &.Mui-focusVisible': {
+      border: '1px solid transparent',
       backgroundColor: theme.palette.background.transparent,
     },
     '.MuiSvgIcon-root': {
@@ -39,23 +57,28 @@ const Tabs = styled(MuiTabs)(({ theme }) => ({
 const Panel = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  padding: theme.spacing(5.5, 12, 12),
+  padding: theme.spacing(5.5, 6, 12),
   borderRadius: +theme.shape.borderRadius * 6,
   backgroundColor: theme.palette.background.transparent,
-  '.header': {
+  '.AwiSwapSection-header': {
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'wrap',
     gap: theme.spacing(7),
     minHeight: 56,
-    margin: theme.spacing(0, 0, 8.5, 0),
+    margin: theme.spacing(0, 0, 8.5),
+    '.Awi-row': {
+      gap: theme.spacing(7),
+    },
   },
-  '.sub-panel': {
+  '.AwiSwapSection-subPanel': {
     position: 'relative',
+    minHeight: 300,
     borderRadius: +theme.shape.borderRadius * 6,
     boxShadow: '0px 3px 6px #00000029',
-    margin: theme.spacing(0, 0, 13),
-    backgroundColor: '#12191F',
+    // margin: theme.spacing(0, 0, 13),
+    backgroundColor: theme.palette.background.panel,
     '&:before': {
       content: '""',
       position: 'absolute',
@@ -68,29 +91,70 @@ const Panel = styled(Box)(({ theme }) => ({
       zIndex: -1,
     },
   },
+
+  '.MuiFormLabel-root': {
+    '&.Mui-disabled': {
+      color: theme.palette.text.primary,
+    },
+  },
+  '.MuiInputBase-root': {
+    minHeight: 60,
+  },
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(5.5, 12, 12),
+  },
 }));
 
 const id = 'swapSection';
 
+export interface AssetInfo {
+  id: AssetKey | PairedAssetKey;
+  label: string;
+  common: boolean;
+  value: number;
+  assets?: AssetKey[];
+  address: string;
+  decimals: number;
+  symbol?: string;
+}
+
+export type AssetInfoMap = Map<AssetKey | PairedAssetKey, AssetInfo>;
+
+const selectBriefLiquidityPairs = createSelector(
+  (state) => state.exchange.liquidityPairs.brief,
+  (briefPairs) => ({
+    isLPTokensLoading: briefPairs.length === 0,
+    lpTokens: briefPairs.reduce((ar, r) => {
+      ar.set(r.id, r);
+      return ar;
+    }, new Map()),
+  })
+);
+
 export default function SwapSection() {
   const t = usePageTranslation();
   const [loading, setLoading] = useState(true);
-  const [assets, setAssets] = useState(new Map());
+  const [assets, setAssets] = useState<AssetInfoMap>(new Map());
+  // const [assetPairs, setAssetPairs] = useState<AssetInfoMap>(new Map());
 
   useEffect(() => {
-    const fakeAssets = [
-      { id: 'dai', label: 'DAI' },
-      { id: 'usdt', label: 'USDT' },
-      { id: 'usdc', label: 'USDC' },
-      { id: 'eth', label: 'ETH' },
-      { id: 'link', label: 'LINK' },
-    ];
-
-    setTimeout(() => {
-      setAssets(new Map(fakeAssets.map((m) => [m.id, m])));
+    const fetch = async () => {
+      const tokens = await fetchTokens();
+      setAssets(new Map(tokens.map((token) => [token.id, token])));
+      // setAssetPairs(new Map(tokens.map((token) => [token.id, token])));
       setLoading(false);
-    }, 2000);
+    };
+
+    fetch();
   }, []);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBriefLiquidityPairs());
+  }, [dispatch]);
+
+  const { /* isLPTokensLoading, */ lpTokens } = useAppSelector(selectBriefLiquidityPairs);
 
   const [tab, setTab] = React.useState(0);
 
@@ -103,10 +167,17 @@ export default function SwapSection() {
       <Tabs value={tab} onChange={handleTabChange} aria-label={t('swap-section.tabs-aria')} variant="scrollable">
         <Tab label={t('swap-section.swap.title')} icon={<SwapIcon />} iconPosition="end" {...tabA11yProps(id, 0)} />
         <Tab label={t('swap-section.zap.title')} icon={<ZapIcon />} iconPosition="end" {...tabA11yProps(id, 1)} />
+        <Tab
+          label={t('swap-section.liquidity.title')}
+          icon={<LiquidityIcon />}
+          iconPosition="end"
+          {...tabA11yProps(id, 2)}
+        />
       </Tabs>
       <Panel>
         <SwapPanel id={id} value={tab} index={0} assets={assets} loading={loading} />
-        <ZapPanel id={id} value={tab} index={1} assets={assets} loading={loading} />
+        <ZapPanel id={id} value={tab} index={1} sourceAssets={assets} targetAssets={lpTokens} loading={loading} />
+        <LiquidityPanel id={id} value={tab} index={2} assets={assets} loading={loading} />
       </Panel>
     </Section>
   );

@@ -9,12 +9,12 @@ exports[`<SwappingImage /> has valid snapshot 1`] = `
     <img
       alt=""
       class="source AwiSwappingImage-source"
-      src="/images/icons/ftm.svg"
+      src="/images/icons/awi.svg"
     />
     <img
       alt=""
       class="target AwiSwappingImage-target"
-      src="/images/icons/awi.svg"
+      src="/images/icons/cro.svg"
     />
   </div>
 </DocumentFragment>

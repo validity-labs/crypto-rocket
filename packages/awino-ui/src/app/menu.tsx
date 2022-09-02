@@ -3,6 +3,11 @@ import { MenuItemLink, MenuItemType } from '@/types/app';
 export const mainMenuLinks: MenuItemType[] = [
   {
     type: 'internal',
+    key: 'about',
+    url: '/about',
+  },
+  {
+    type: 'internal',
     key: 'market',
     url: '/market',
   },
@@ -11,7 +16,9 @@ export const mainMenuLinks: MenuItemType[] = [
     key: 'earn',
     items: [
       { type: 'internal', key: 'deposit', url: '/earn/deposit' },
-      { type: 'internal', key: 'liquidity-staking', url: '/earn/liquidity-staking' },
+      // { type: 'internal', key: 'liquidity-staking', url: '/earn/liquidity-staking' },
+      { type: 'internal', key: 'stake-awino', url: '/earn/stake-awino' },
+      { type: 'internal', key: 'farms', url: '/earn/farms' },
     ],
   },
   {
@@ -26,32 +33,37 @@ export const mainMenuLinks: MenuItemType[] = [
   },
   {
     type: 'internal',
-    key: 'podl',
-    url: '/podl',
+    key: 'infinite',
+    url: '/infinite',
   },
   {
-    type: 'group',
-    key: 'more',
-    items: [
-      { type: 'internal', key: 'analytics', url: '/analytics' },
-      { type: 'internal', key: 'docs', url: '#' },
-      { type: 'internal', key: 'launchpad', url: '#' },
-    ],
+    type: 'internal',
+    key: 'pol',
+    url: '/pol',
   },
+  // {
+  //   type: 'group',
+  //   key: 'more',
+  //   items: [
+  //     { type: 'internal', key: 'analytics', url: '/analytics' },
+  //     { type: 'internal', key: 'docs', url: 'https://app.gitbook.com/s/epRC3Tf5qPuOqDRuDbvw/' },
+  //     { type: 'internal', key: 'launchpad', url: '#' },
+  //   ],
+  // },
 ];
 
-export const settingMenuLinks: MenuItemLink[] = [
-  {
-    type: 'internal',
-    key: 'profile',
-    url: '/dashboard',
-  },
-  {
-    type: 'internal',
-    key: 'activity',
-    url: '#',
-  },
-];
+// export const settingMenuLinks: MenuItemLink[] = [
+//   // {
+//   //   type: 'internal',
+//   //   key: 'profile',
+//   //   url: '/dashboard',
+//   // },
+//   {
+//     type: 'internal',
+//     key: 'activity',
+//     url: '#',
+//   },
+// ];
 
 export const moreMenuLinks: MenuItemLink[] = [
   {
@@ -66,13 +78,18 @@ export const moreMenuLinks: MenuItemLink[] = [
   },
   {
     type: 'internal',
-    key: 'dashboard',
-    url: '/dashboard',
+    key: 'portfolio',
+    url: '/portfolio',
   },
   {
     type: 'internal',
-    key: 'portfolio',
-    url: '/portfolio',
+    key: 'governance',
+    url: '/governance',
+  },
+  {
+    type: 'internal',
+    key: 'analytics',
+    url: '/analytics',
   },
 ];
 
@@ -80,7 +97,7 @@ export const socialLinks: MenuItemLink[] = [
   {
     type: 'external',
     key: 'docs',
-    url: 'https://todo',
+    url: 'https://app.gitbook.com/s/epRC3Tf5qPuOqDRuDbvw/',
   },
   {
     type: 'external',
